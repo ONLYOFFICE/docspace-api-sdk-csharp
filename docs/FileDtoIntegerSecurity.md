@@ -1,0 +1,43 @@
+# Docspace.Model.FileDtoIntegerSecurity
+Security
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Read** | **bool** |  | [optional] 
+**Comment** | **bool** |  | [optional] 
+**FillForms** | **bool** |  | [optional] 
+**Review** | **bool** |  | [optional] 
+**Create** | **bool** |  | [optional] 
+**CreateFrom** | **bool** |  | [optional] 
+**Edit** | **bool** |  | [optional] 
+**Delete** | **bool** |  | [optional] 
+**CustomFilter** | **bool** |  | [optional] 
+**EditRoom** | **bool** |  | [optional] 
+**Rename** | **bool** |  | [optional] 
+**ReadHistory** | **bool** |  | [optional] 
+**Lock** | **bool** |  | [optional] 
+**EditHistory** | **bool** |  | [optional] 
+**CopyTo** | **bool** |  | [optional] 
+**Copy** | **bool** |  | [optional] 
+**MoveTo** | **bool** |  | [optional] 
+**Move** | **bool** |  | [optional] 
+**Pin** | **bool** |  | [optional] 
+**Mute** | **bool** |  | [optional] 
+**EditAccess** | **bool** |  | [optional] 
+**Duplicate** | **bool** |  | [optional] 
+**SubmitToFormGallery** | **bool** |  | [optional] 
+**Download** | **bool** |  | [optional] 
+**Convert** | **bool** |  | [optional] 
+**CopySharedLink** | **bool** |  | [optional] 
+**ReadLinks** | **bool** |  | [optional] 
+**Reconnect** | **bool** |  | [optional] 
+**CreateRoomFrom** | **bool** |  | [optional] 
+**CopyLink** | **bool** |  | [optional] 
+**Embed** | **bool** |  | [optional] 
+**ChangeOwner** | **bool** |  | [optional] 
+**IndexExport** | **bool** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
