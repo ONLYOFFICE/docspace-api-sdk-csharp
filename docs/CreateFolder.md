@@ -1,11 +1,11 @@
 # Docspace.Model.CreateFolder
-Parameters for creating a folder: Title (string) - new folder title
+The parameters for creating a folder.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **string** | Folder title | [optional] 
+**Title** | **string** | The folder title to create. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

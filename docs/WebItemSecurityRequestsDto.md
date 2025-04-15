@@ -1,13 +1,13 @@
 # Docspace.Model.WebItemSecurityRequestsDto
-Module request parameters
+The request parameters for configuring security settings of a single web module.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Module ID | [optional] 
-**Enabled** | **bool** | Specifies if the module security settings are enabled or not | [optional] 
-**Subjects** | **List&lt;Guid&gt;** | List of user/group IDs with the access to the module | [optional] 
+**Id** | **string** | The module ID. | 
+**Enabled** | **bool** | Controls whether the security restrictions are enforced for this module. | [optional] 
+**Subjects** | **List&lt;Guid&gt;** | The collection of user and group identifiers granted access to the module. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

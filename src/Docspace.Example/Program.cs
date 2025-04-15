@@ -6,7 +6,10 @@ public class Program
 {
     static async Task Main(string[] args)
     {
-        var config = new Configuration { };
+        var config = new Configuration
+        {
+            BasePath = "http://localhost:8092"
+        };
         var authSettings = new AuthRequestsDto
         {
             UserName = "example@onluoffice.com",
@@ -25,10 +28,7 @@ public class Program
             var getFolderMy = await folderInstance.GetMyFolderAsync();
 
             var folderMyId = getFolderMy.Response.Current.Id;
-            var folderSettings = new CreateFolder
-            {
-                Title = "Folder"
-            };
+            var folderSettings = new CreateFolder("Folder"){};
             var createFolder = await folderInstance.CreateFolderAsync(folderMyId, folderSettings);
             var createdFolderId = createFolder.Response.Id;
             Console.WriteLine(createFolder.Response.Id);
@@ -36,10 +36,7 @@ public class Program
             var getFolderInfo = await folderInstance.GetFolderByFolderIdAsync(createdFolderId);
 
             Console.WriteLine(getFolderInfo.StatusCode);
-            var updatedFolderSettings = new CreateFolder
-            {
-                Title = "UpdatedTitle"
-            };
+            var updatedFolderSettings = new CreateFolder("UpdatedTitle") { };
 
             var renameFolder = await folderInstance.RenameFolderAsync(createdFolderId, updatedFolderSettings);
             var titleNew = renameFolder.Response.Title;
@@ -62,7 +59,7 @@ public class Program
             {
                 Dump = false,
                 StorageParams = null,
-                StorageType = BackupStorageType.NUMBER_4
+                StorageType = BackupStorageType.DataStore,
             };
             var startBackup = await backupInstance.StartBackupAsync(startBackupSettings);
 

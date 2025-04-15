@@ -1,5 +1,5 @@
 # Docspace.Model.ShareFilterType
-[0 - User or group, 1 - Invitation link, 2 - External link, 4 - Additional external link, 8 - Primary external link, 16 - User, 32 - Group]
+The filter type of the access rights.
 
 ## Properties
 

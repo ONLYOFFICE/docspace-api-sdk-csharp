@@ -1,6 +1,6 @@
 # Docspace.Api.BackupApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -39,11 +39,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -100,7 +109,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -144,17 +153,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var id = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Backup Id
+            var id = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The backup ID.
 
             try
             {
@@ -197,7 +215,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid** | Backup Id |  |
+| **id** | **Guid** | The backup ID. |  |
 
 ### Return type
 
@@ -205,7 +223,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -224,11 +242,11 @@ catch (ApiException e)
 
 <a id="deletebackuphistory"></a>
 # **DeleteBackupHistory**
-> BooleanWrapper DeleteBackupHistory ()
+> BooleanWrapper DeleteBackupHistory (bool? dump = null)
 
 Delete the backup history
 
-Deletes the backup history of the current portal.
+Deletes the backup history from the current portal.
 
 ### Example
 ```csharp
@@ -246,21 +264,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Delete the backup history
-                BooleanWrapper result = apiInstance.DeleteBackupHistory();
+                BooleanWrapper result = apiInstance.DeleteBackupHistory(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -281,7 +309,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete the backup history
-    ApiResponse<BooleanWrapper> response = apiInstance.DeleteBackupHistoryWithHttpInfo();
+    ApiResponse<BooleanWrapper> response = apiInstance.DeleteBackupHistoryWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -295,14 +323,18 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -321,7 +353,7 @@ This endpoint does not need any parameter.
 
 <a id="deletebackupschedule"></a>
 # **DeleteBackupSchedule**
-> BooleanWrapper DeleteBackupSchedule ()
+> BooleanWrapper DeleteBackupSchedule (bool? dump = null)
 
 Delete the backup schedule
 
@@ -343,21 +375,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Delete the backup schedule
-                BooleanWrapper result = apiInstance.DeleteBackupSchedule();
+                BooleanWrapper result = apiInstance.DeleteBackupSchedule(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -378,7 +420,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete the backup schedule
-    ApiResponse<BooleanWrapper> response = apiInstance.DeleteBackupScheduleWithHttpInfo();
+    ApiResponse<BooleanWrapper> response = apiInstance.DeleteBackupScheduleWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -392,14 +434,18 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -418,7 +464,7 @@ This endpoint does not need any parameter.
 
 <a id="getbackuphistory"></a>
 # **GetBackupHistory**
-> BackupHistoryRecordArrayWrapper GetBackupHistory ()
+> BackupHistoryRecordArrayWrapper GetBackupHistory (bool? dump = null)
 
 Get the backup history
 
@@ -440,21 +486,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Get the backup history
-                BackupHistoryRecordArrayWrapper result = apiInstance.GetBackupHistory();
+                BackupHistoryRecordArrayWrapper result = apiInstance.GetBackupHistory(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -475,7 +531,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the backup history
-    ApiResponse<BackupHistoryRecordArrayWrapper> response = apiInstance.GetBackupHistoryWithHttpInfo();
+    ApiResponse<BackupHistoryRecordArrayWrapper> response = apiInstance.GetBackupHistoryWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -489,14 +545,18 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**BackupHistoryRecordArrayWrapper**](BackupHistoryRecordArrayWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -515,7 +575,7 @@ This endpoint does not need any parameter.
 
 <a id="getbackupprogress"></a>
 # **GetBackupProgress**
-> BackupProgressWrapper GetBackupProgress ()
+> BackupProgressWrapper GetBackupProgress (bool? dump = null)
 
 Get the backup progress
 
@@ -537,21 +597,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Get the backup progress
-                BackupProgressWrapper result = apiInstance.GetBackupProgress();
+                BackupProgressWrapper result = apiInstance.GetBackupProgress(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -572,7 +642,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the backup progress
-    ApiResponse<BackupProgressWrapper> response = apiInstance.GetBackupProgressWithHttpInfo();
+    ApiResponse<BackupProgressWrapper> response = apiInstance.GetBackupProgressWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -586,14 +656,18 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**BackupProgressWrapper**](BackupProgressWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -612,7 +686,7 @@ This endpoint does not need any parameter.
 
 <a id="getbackupschedule"></a>
 # **GetBackupSchedule**
-> ScheduleWrapper GetBackupSchedule ()
+> ScheduleWrapper GetBackupSchedule (bool? dump = null)
 
 Get the backup schedule
 
@@ -634,21 +708,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Get the backup schedule
-                ScheduleWrapper result = apiInstance.GetBackupSchedule();
+                ScheduleWrapper result = apiInstance.GetBackupSchedule(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -669,7 +753,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the backup schedule
-    ApiResponse<ScheduleWrapper> response = apiInstance.GetBackupScheduleWithHttpInfo();
+    ApiResponse<ScheduleWrapper> response = apiInstance.GetBackupScheduleWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -683,14 +767,18 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**ScheduleWrapper**](ScheduleWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -709,7 +797,7 @@ This endpoint does not need any parameter.
 
 <a id="getrestoreprogress"></a>
 # **GetRestoreProgress**
-> BackupProgressWrapper GetRestoreProgress ()
+> BackupProgressWrapper GetRestoreProgress (bool? dump = null)
 
 Get the restoring progress
 
@@ -731,16 +819,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
+            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {
                 // Get the restoring progress
-                BackupProgressWrapper result = apiInstance.GetRestoreProgress();
+                BackupProgressWrapper result = apiInstance.GetRestoreProgress(dump);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -761,7 +850,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the restoring progress
-    ApiResponse<BackupProgressWrapper> response = apiInstance.GetRestoreProgressWithHttpInfo();
+    ApiResponse<BackupProgressWrapper> response = apiInstance.GetRestoreProgressWithHttpInfo(dump);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -775,7 +864,11 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
 ### Return type
 
 [**BackupProgressWrapper**](BackupProgressWrapper.md)
@@ -821,11 +914,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -882,7 +984,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -926,11 +1028,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -987,7 +1098,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

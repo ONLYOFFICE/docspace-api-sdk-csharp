@@ -1,27 +1,26 @@
 # Docspace.Model.UpdateMemberRequestDto
-Request parameters for updating user information
+The request parameters for updating the user information.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** | User ID | [optional] 
-**Disable** | **bool?** | Specifies whether to disable a user or not | [optional] 
-**Email** | **string** | Email | [optional] 
-**IsUser** | **bool?** | Specifies if this is a guest or a user | [optional] 
-**FirstName** | **string** | First name | [optional] 
-**LastName** | **string** | Last name | [optional] 
-**Department** | **List&lt;Guid&gt;** | List of user departments | [optional] 
-**Title** | **string** | Title | [optional] 
-**Location** | **string** | Location | [optional] 
+**UserId** | **string** | The user ID. | [optional] 
+**Disable** | **bool?** | Specifies whether to disable a user or not. | [optional] 
+**Email** | **string** | The user email address. | [optional] 
+**IsUser** | **bool?** | Specifies if this is a guest or a user. | [optional] 
+**FirstName** | **string** | The user first name. | [optional] 
+**LastName** | **string** | The user last name. | [optional] 
+**Department** | **List&lt;Guid&gt;** | The list of the user departments. | [optional] 
+**Title** | **string** | The user title. | [optional] 
+**Location** | **string** | The user location. | [optional] 
 **Sex** | **SexEnum** |  | [optional] 
 **Birthday** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Worksfrom** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Comment** | **string** | Comment | [optional] 
-**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | List of user contacts | [optional] 
-**Files** | **string** | Avatar photo URL | [optional] 
-**CultureName** | **string** | Language | [optional] 
-**Spam** | **bool?** | Spam | [optional] 
+**Comment** | **string** | The user comment. | [optional] 
+**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of the user contacts. | [optional] 
+**Files** | **string** | The user avatar photo URL. | [optional] 
+**Spam** | **bool?** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

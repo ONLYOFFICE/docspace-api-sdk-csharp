@@ -1,5 +1,5 @@
 # Docspace.Model.CoEditingConfigMode
-[0 - Fast, 1 - Strict]
+The co-editing mode (fast or strict).
 
 ## Properties
 

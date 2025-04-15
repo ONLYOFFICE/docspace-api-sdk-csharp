@@ -1,12 +1,12 @@
 # Docspace.Model.SaveAsPdfInteger
-Parameters for saving file as pdf
+The parameters for saving the file as PDF.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FolderId** | **int** | Folder ID | [optional] 
-**Title** | **string** | File title | [optional] 
+**FolderId** | **int** | The folder ID to save the file as PDF. | 
+**Title** | **string** | The file title to save as PDF. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 # Docspace.Model.TenantTrustedDomainsType
-[0 - None, 1 - Custom, 2 - All]
+The type of the tenant trusted domains.
 
 ## Properties
 

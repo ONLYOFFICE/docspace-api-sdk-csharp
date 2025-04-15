@@ -1,5 +1,5 @@
 # Docspace.Model.DownloadRequestItemDtoKey
-The unique identifier or reference key for the file to be downloaded
+The unique identifier or reference key for the file to be downloaded.
 
 ## Properties
 

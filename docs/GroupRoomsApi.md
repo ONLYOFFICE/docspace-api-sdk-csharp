@@ -1,18 +1,18 @@
 # Docspace.Api.GroupRoomsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGroupsWithShared**](GroupRoomsApi.md#getgroupswithshared) | **GET** /api/2.0/group/room/{id} | Gets groups with shared |
+| [**GetGroupsWithShared**](GroupRoomsApi.md#getgroupswithshared) | **GET** /api/2.0/group/room/{id} | Get groups with sharing settings |
 
 <a id="getgroupswithshared"></a>
 # **GetGroupsWithShared**
 > GroupArrayWrapper GetGroupsWithShared (int id, bool? excludeShared = null)
 
-Gets groups with shared
+Get groups with sharing settings
 
-Gets groups with shared
+Returns groups with their sharing settings.
 
 ### Example
 ```csharp
@@ -30,22 +30,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupRoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | ID
-            var excludeShared = true;  // bool? | Exclude shared (optional) 
+            var id = 9846;  // int | The group ID.
+            var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
 
             try
             {
-                // Gets groups with shared
+                // Get groups with sharing settings
                 GroupArrayWrapper result = apiInstance.GetGroupsWithShared(id, excludeShared);
                 Debug.WriteLine(result);
             }
@@ -66,7 +75,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets groups with shared
+    // Get groups with sharing settings
     ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithSharedWithHttpInfo(id, excludeShared);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -84,8 +93,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | ID |  |
-| **excludeShared** | **bool?** | Exclude shared | [optional]  |
+| **id** | **int** | The group ID. |  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the group sharing settings from the response. | [optional]  |
 
 ### Return type
 
@@ -93,7 +102,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

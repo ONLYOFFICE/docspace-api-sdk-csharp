@@ -1,5 +1,5 @@
 # Docspace.Model.FileEntryType
-[1 - Folder, 2 - File]
+The file entry type.
 
 ## Properties
 

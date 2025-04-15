@@ -1,19 +1,19 @@
 # Docspace.Api.SecurityCSPApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**Csp**](SecurityCSPApi.md#csp) | **POST** /api/2.0/security/csp | Csp |
-| [**GetCsp**](SecurityCSPApi.md#getcsp) | **GET** /api/2.0/security/csp | Gets csp |
+| [**Csp**](SecurityCSPApi.md#csp) | **POST** /api/2.0/security/csp | Configure CSP settings |
+| [**GetCsp**](SecurityCSPApi.md#getcsp) | **GET** /api/2.0/security/csp | Get CSP settings |
 
 <a id="csp"></a>
 # **Csp**
 > CspWrapper Csp (CspRequestsDto? cspRequestsDto = null)
 
-Csp
+Configure CSP settings
 
-Csp
+Configures the CSP (Content Security Policy) settings for the current portal.
 
 ### Example
 ```csharp
@@ -31,11 +31,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -45,7 +54,7 @@ namespace Example
 
             try
             {
-                // Csp
+                // Configure CSP settings
                 CspWrapper result = apiInstance.Csp(cspRequestsDto);
                 Debug.WriteLine(result);
             }
@@ -66,7 +75,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Csp
+    // Configure CSP settings
     ApiResponse<CspWrapper> response = apiInstance.CspWithHttpInfo(cspRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -92,7 +101,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -113,9 +122,9 @@ catch (ApiException e)
 # **GetCsp**
 > CspWrapper GetCsp ()
 
-Gets csp
+Get CSP settings
 
-Gets csp
+Returns the CSP (Content Security Policy) settings for the current portal.
 
 ### Example
 ```csharp
@@ -133,7 +142,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -141,7 +150,7 @@ namespace Example
 
             try
             {
-                // Gets csp
+                // Get CSP settings
                 CspWrapper result = apiInstance.GetCsp();
                 Debug.WriteLine(result);
             }
@@ -162,7 +171,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets csp
+    // Get CSP settings
     ApiResponse<CspWrapper> response = apiInstance.GetCspWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

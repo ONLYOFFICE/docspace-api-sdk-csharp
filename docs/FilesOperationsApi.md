@@ -1,23 +1,23 @@
 # Docspace.Api.FilesOperationsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**BulkDownload**](FilesOperationsApi.md#bulkdownload) | **PUT** /api/2.0/files/fileops/bulkdownload | Bulk download |
 | [**CheckConversion**](FilesOperationsApi.md#checkconversion) | **GET** /api/2.0/files/file/{fileId}/checkconversion | Get conversion status |
-| [**CopyBatchItems**](FilesOperationsApi.md#copybatchitems) | **PUT** /api/2.0/files/fileops/copy | Copy to a folder |
+| [**CopyBatchItems**](FilesOperationsApi.md#copybatchitems) | **PUT** /api/2.0/files/fileops/copy | Copy to the folder |
 | [**CreateUploadSession**](FilesOperationsApi.md#createuploadsession) | **POST** /api/2.0/files/{folderId}/upload/create_session | Chunked upload |
 | [**DeleteBatchItems**](FilesOperationsApi.md#deletebatchitems) | **PUT** /api/2.0/files/fileops/delete | Delete files and folders |
-| [**DeleteFileVersions**](FilesOperationsApi.md#deletefileversions) | **PUT** /api/2.0/files/fileops/deleteversion |  |
-| [**DuplicateBatchItems**](FilesOperationsApi.md#duplicatebatchitems) | **PUT** /api/2.0/files/fileops/duplicate | Duplicates all the selected files and folders |
+| [**DeleteFileVersions**](FilesOperationsApi.md#deletefileversions) | **PUT** /api/2.0/files/fileops/deleteversion | Delete file versions |
+| [**DuplicateBatchItems**](FilesOperationsApi.md#duplicatebatchitems) | **PUT** /api/2.0/files/fileops/duplicate | Duplicate files and folders |
 | [**EmptyTrash**](FilesOperationsApi.md#emptytrash) | **PUT** /api/2.0/files/fileops/emptytrash | Empty the \&quot;Trash\&quot; folder |
-| [**GetOperationStatuses**](FilesOperationsApi.md#getoperationstatuses) | **GET** /api/2.0/files/fileops | Get active operations |
-| [**GetOperationStatusesByType**](FilesOperationsApi.md#getoperationstatusesbytype) | **GET** /api/2.0/files/fileops/{operationType} | Retrieves the statuses of operations filtered by the specified operation type. |
+| [**GetOperationStatuses**](FilesOperationsApi.md#getoperationstatuses) | **GET** /api/2.0/files/fileops | Get active file operations |
+| [**GetOperationStatusesByType**](FilesOperationsApi.md#getoperationstatusesbytype) | **GET** /api/2.0/files/fileops/{operationType} | Get file operation statuses |
 | [**MarkAsRead**](FilesOperationsApi.md#markasread) | **PUT** /api/2.0/files/fileops/markasread | Mark as read |
-| [**MoveBatchItems**](FilesOperationsApi.md#movebatchitems) | **PUT** /api/2.0/files/fileops/move | Move to a folder |
-| [**MoveOrCopyBatchCheck**](FilesOperationsApi.md#moveorcopybatchcheck) | **GET** /api/2.0/files/fileops/move | Check files and folders for conflicts |
-| [**MoveOrCopyDestFolderCheck**](FilesOperationsApi.md#moveorcopydestfoldercheck) | **GET** /api/2.0/files/fileops/checkdestfolder | Moves or copies |
+| [**MoveBatchItems**](FilesOperationsApi.md#movebatchitems) | **PUT** /api/2.0/files/fileops/move | Move or copy to a folder |
+| [**MoveOrCopyBatchCheck**](FilesOperationsApi.md#moveorcopybatchcheck) | **GET** /api/2.0/files/fileops/move | Check and move or copy to a folder |
+| [**MoveOrCopyDestFolderCheck**](FilesOperationsApi.md#moveorcopydestfoldercheck) | **GET** /api/2.0/files/fileops/checkdestfolder | Check for moving or copying to a folder |
 | [**StartConversion**](FilesOperationsApi.md#startconversion) | **PUT** /api/2.0/files/file/{fileId}/checkconversion | Start file conversion |
 | [**TerminateTasks**](FilesOperationsApi.md#terminatetasks) | **PUT** /api/2.0/files/fileops/terminate/{id} | Finish active operations |
 | [**UpdateComment**](FilesOperationsApi.md#updatecomment) | **PUT** /api/2.0/files/file/{fileId}/comment | Update a comment |
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -142,18 +142,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var start = true;  // bool? | Specifies if a conversion operation is started or not (optional) 
+            var fileId = 9846;  // int | The file ID to check conversion status.
+            var start = true;  // bool? | Specifies whether a conversion operation is started or not. (optional) 
 
             try
             {
@@ -196,8 +205,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **start** | **bool?** | Specifies if a conversion operation is started or not | [optional]  |
+| **fileId** | **int** | The file ID to check conversion status. |  |
+| **start** | **bool?** | Specifies whether a conversion operation is started or not. | [optional]  |
 
 ### Return type
 
@@ -205,7 +214,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -225,7 +234,7 @@ catch (ApiException e)
 # **CopyBatchItems**
 > FileOperationArrayWrapper CopyBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Copy to a folder
+Copy to the folder
 
 Copies all the selected files and folders to the folder with the ID specified in the request.
 
@@ -245,11 +254,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -259,7 +277,7 @@ namespace Example
 
             try
             {
-                // Copy to a folder
+                // Copy to the folder
                 FileOperationArrayWrapper result = apiInstance.CopyBatchItems(batchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -280,7 +298,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Copy to a folder
+    // Copy to the folder
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.CopyBatchItemsWithHttpInfo(batchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -306,7 +324,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -329,7 +347,7 @@ catch (ApiException e)
 
 Chunked upload
 
-Creates a session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.  After the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.
+Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.  After the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.  Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
 ### Example
 ```csharp
@@ -347,18 +365,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var sessionRequest = new SessionRequest?(); // SessionRequest? | Session (optional) 
+            var folderId = 9846;  // int | The folder ID of the session.
+            var sessionRequest = new SessionRequest?(); // SessionRequest? | The session parameters. (optional) 
 
             try
             {
@@ -401,8 +428,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **sessionRequest** | [**SessionRequest?**](SessionRequest?.md) | Session | [optional]  |
+| **folderId** | **int** | The folder ID of the session. |  |
+| **sessionRequest** | [**SessionRequest?**](SessionRequest?.md) | The session parameters. | [optional]  |
 
 ### Return type
 
@@ -410,7 +437,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -451,11 +478,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -512,7 +548,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -533,7 +569,9 @@ catch (ApiException e)
 # **DeleteFileVersions**
 > FileOperationWrapper DeleteFileVersions (DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = null)
 
+Delete file versions
 
+Deletes the file versions with the IDs specified in the request.
 
 ### Example
 ```csharp
@@ -551,11 +589,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -565,6 +612,7 @@ namespace Example
 
             try
             {
+                // Delete file versions
                 FileOperationWrapper result = apiInstance.DeleteFileVersions(deleteVersionBatchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -585,6 +633,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Delete file versions
     ApiResponse<FileOperationWrapper> response = apiInstance.DeleteFileVersionsWithHttpInfo(deleteVersionBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -610,7 +659,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -630,9 +679,9 @@ catch (ApiException e)
 # **DuplicateBatchItems**
 > FileOperationArrayWrapper DuplicateBatchItems (DuplicateRequestDto? duplicateRequestDto = null)
 
-Duplicates all the selected files and folders
+Duplicate files and folders
 
-Duplicates all the selected files and folders
+Duplicates all the selected files and folders.
 
 ### Example
 ```csharp
@@ -650,11 +699,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -664,7 +722,7 @@ namespace Example
 
             try
             {
-                // Duplicates all the selected files and folders
+                // Duplicate files and folders
                 FileOperationArrayWrapper result = apiInstance.DuplicateBatchItems(duplicateRequestDto);
                 Debug.WriteLine(result);
             }
@@ -685,7 +743,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Duplicates all the selected files and folders
+    // Duplicate files and folders
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.DuplicateBatchItemsWithHttpInfo(duplicateRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -711,7 +769,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -752,11 +810,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -808,7 +875,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -828,9 +895,9 @@ This endpoint does not need any parameter.
 # **GetOperationStatuses**
 > FileOperationArrayWrapper GetOperationStatuses ()
 
-Get active operations
+Get active file operations
 
-Returns a list of all the active operations.
+Returns a list of all the active file operations.
 
 ### Example
 ```csharp
@@ -848,7 +915,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -856,7 +923,7 @@ namespace Example
 
             try
             {
-                // Get active operations
+                // Get active file operations
                 FileOperationArrayWrapper result = apiInstance.GetOperationStatuses();
                 Debug.WriteLine(result);
             }
@@ -877,7 +944,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get active operations
+    // Get active file operations
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -918,7 +985,7 @@ No authorization required
 # **GetOperationStatusesByType**
 > FileOperationArrayWrapper GetOperationStatusesByType (FileOperationType operationType)
 
-Retrieves the statuses of operations filtered by the specified operation type.
+Get file operation statuses
 
 Retrieves the statuses of operations filtered by the specified operation type.
 
@@ -938,7 +1005,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -947,7 +1014,7 @@ namespace Example
 
             try
             {
-                // Retrieves the statuses of operations filtered by the specified operation type.
+                // Get file operation statuses
                 FileOperationArrayWrapper result = apiInstance.GetOperationStatusesByType(operationType);
                 Debug.WriteLine(result);
             }
@@ -968,7 +1035,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Retrieves the statuses of operations filtered by the specified operation type.
+    // Get file operation statuses
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesByTypeWithHttpInfo(operationType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1033,11 +1100,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1094,7 +1170,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1114,9 +1190,9 @@ catch (ApiException e)
 # **MoveBatchItems**
 > FileOperationArrayWrapper MoveBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Move to a folder
+Move or copy to a folder
 
-Moves all the selected files and folders to the folder with the ID specified in the request.
+Moves or copies all the selected files and folders to the folder with the ID specified in the request.
 
 ### Example
 ```csharp
@@ -1134,11 +1210,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1148,7 +1233,7 @@ namespace Example
 
             try
             {
-                // Move to a folder
+                // Move or copy to a folder
                 FileOperationArrayWrapper result = apiInstance.MoveBatchItems(batchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1169,7 +1254,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Move to a folder
+    // Move or copy to a folder
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.MoveBatchItemsWithHttpInfo(batchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1195,7 +1280,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1216,9 +1301,9 @@ catch (ApiException e)
 # **MoveOrCopyBatchCheck**
 > FileEntryArrayWrapper MoveOrCopyBatchCheck (BatchRequestDto? inDto = null)
 
-Check files and folders for conflicts
+Check and move or copy to a folder
 
-Checks a batch of files and folders for conflicts when moving or copying them to the folder with the ID specified in the request.
+Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
 
 ### Example
 ```csharp
@@ -1236,21 +1321,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var inDto = new BatchRequestDto?(); // BatchRequestDto? | Request parameters for copying/moving files (optional) 
+            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
 
             try
             {
-                // Check files and folders for conflicts
+                // Check and move or copy to a folder
                 FileEntryArrayWrapper result = apiInstance.MoveOrCopyBatchCheck(inDto);
                 Debug.WriteLine(result);
             }
@@ -1271,7 +1365,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check files and folders for conflicts
+    // Check and move or copy to a folder
     ApiResponse<FileEntryArrayWrapper> response = apiInstance.MoveOrCopyBatchCheckWithHttpInfo(inDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1289,7 +1383,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | Request parameters for copying/moving files | [optional]  |
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
 
 ### Return type
 
@@ -1297,7 +1391,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1318,9 +1412,9 @@ catch (ApiException e)
 # **MoveOrCopyDestFolderCheck**
 > CheckDestFolderWrapper MoveOrCopyDestFolderCheck (BatchRequestDto? inDto = null)
 
-Moves or copies
+Check for moving or copying to a folder
 
-Moves or copies
+Checks if files can be moved or copied to the specified folder.
 
 ### Example
 ```csharp
@@ -1338,21 +1432,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var inDto = new BatchRequestDto?(); // BatchRequestDto? | Request parameters for copying/moving files (optional) 
+            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
 
             try
             {
-                // Moves or copies
+                // Check for moving or copying to a folder
                 CheckDestFolderWrapper result = apiInstance.MoveOrCopyDestFolderCheck(inDto);
                 Debug.WriteLine(result);
             }
@@ -1373,7 +1476,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Moves or copies
+    // Check for moving or copying to a folder
     ApiResponse<CheckDestFolderWrapper> response = apiInstance.MoveOrCopyDestFolderCheckWithHttpInfo(inDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1391,7 +1494,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | Request parameters for copying/moving files | [optional]  |
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
 
 ### Return type
 
@@ -1399,7 +1502,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1440,18 +1543,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var checkConversionRequestDtoInteger = new CheckConversionRequestDtoInteger?(); // CheckConversionRequestDtoInteger? | Check conversion (optional) 
+            var fileId = 9846;  // int | The file ID to start conversion proccess.
+            var checkConversionRequestDtoInteger = new CheckConversionRequestDtoInteger?(); // CheckConversionRequestDtoInteger? | The parameters for checking file conversion. (optional) 
 
             try
             {
@@ -1494,8 +1606,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **checkConversionRequestDtoInteger** | [**CheckConversionRequestDtoInteger?**](CheckConversionRequestDtoInteger?.md) | Check conversion | [optional]  |
+| **fileId** | **int** | The file ID to start conversion proccess. |  |
+| **checkConversionRequestDtoInteger** | [**CheckConversionRequestDtoInteger?**](CheckConversionRequestDtoInteger?.md) | The parameters for checking file conversion. | [optional]  |
 
 ### Return type
 
@@ -1503,7 +1615,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1543,12 +1655,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // string | Operation ID
+            var id = 9846;  // string | The operation ID of the request.
 
             try
             {
@@ -1591,7 +1703,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** | Operation ID |  |
+| **id** | **string** | The operation ID of the request. |  |
 
 ### Return type
 
@@ -1638,18 +1750,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var updateComment = new UpdateComment?(); // UpdateComment? | Parameters for updating a comment (optional) 
+            var fileId = 9846;  // int | The file ID where the comment is located.
+            var updateComment = new UpdateComment?(); // UpdateComment? | The parameters for updating a comment. (optional) 
 
             try
             {
@@ -1692,8 +1813,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **updateComment** | [**UpdateComment?**](UpdateComment?.md) | Parameters for updating a comment | [optional]  |
+| **fileId** | **int** | The file ID where the comment is located. |  |
+| **updateComment** | [**UpdateComment?**](UpdateComment?.md) | The parameters for updating a comment. | [optional]  |
 
 ### Return type
 
@@ -1701,7 +1822,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

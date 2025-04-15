@@ -1,5 +1,5 @@
 # Docspace.Model.LinkType
-Defines the types of sharing links available
+Defines the types of the sharing links.
 
 ## Properties
 

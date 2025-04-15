@@ -1,10 +1,11 @@
 # Docspace.Model.WhiteLabelItemDto
+The white label item parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | File name | [optional] 
+**Name** | **string** | The white label file name. | [optional] 
 **Size** | [**IMagickGeometry**](IMagickGeometry.md) |  | [optional] 
 **Path** | [**WhiteLabelItemPathDto**](WhiteLabelItemPathDto.md) |  | [optional] 
 

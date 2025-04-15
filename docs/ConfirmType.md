@@ -1,4 +1,5 @@
 # Docspace.Model.ConfirmType
+The confirmation email type.
 
 ## Properties
 

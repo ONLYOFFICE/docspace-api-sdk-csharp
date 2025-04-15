@@ -1,11 +1,12 @@
 # Docspace.Model.CustomColorThemesSettingsItem
+The custom color theme settings.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Theme ID | [optional] 
-**Name** | **string** | Theme name | [optional] 
+**Id** | **int** | The custom color theme ID. | [optional] 
+**Name** | **string** | The custom color theme name. | [optional] 
 **Main** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) |  | [optional] 
 **Text** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) |  | [optional] 
 

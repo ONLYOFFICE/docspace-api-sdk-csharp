@@ -1,14 +1,15 @@
 # Docspace.Model.SmtpOperationStatusRequestsDto
+The request parameters for tracking SMTP (Simple Mail Transfer Protocol) operation status.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Completed** | **bool** | Specifies if the SMTP operation is completed or not | [optional] 
-**Id** | **string** | SMTP operation ID | [optional] 
-**Error** | **string** | SMTP operation error | [optional] 
-**Status** | **string** | SMTP operation status | [optional] 
-**Percents** | **int** | Percentage of SMTP operation completion | [optional] 
+**Completed** | **bool** | Specifies whether the SMTP operation has finished processing. | [optional] 
+**Id** | **string** | The unique identifier for tracking the SMTP operation. | [optional] 
+**Error** | **string** | The error message if the SMTP operation encountered issues. | [optional] 
+**Status** | **string** | The current state of the SMTP operation. | [optional] 
+**Percents** | **int** | The progress indicator showing completion percentage of the operation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

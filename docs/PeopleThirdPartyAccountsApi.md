@@ -1,6 +1,6 @@
 # Docspace.Api.PeopleThirdPartyAccountsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -33,15 +33,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var inviteView = true;  // bool? | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers (optional) 
-            var settingsView = true;  // bool? | Specifies whether to return URLs in the format that is used on the Settings page (optional) 
-            var clientCallback = some text;  // string? | Method that is called after authorization (optional) 
-            var fromOnly = some text;  // string? | Provider name if the response only from this provider is needed (optional) 
+            var inviteView = true;  // bool? | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional) 
+            var settingsView = true;  // bool? | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional) 
+            var clientCallback = some text;  // string? | The method that is called after authentication. (optional) 
+            var fromOnly = some text;  // string? | The provider name if a response is required only from this provider. (optional) 
 
             try
             {
@@ -84,10 +84,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **inviteView** | **bool?** | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers | [optional]  |
-| **settingsView** | **bool?** | Specifies whether to return URLs in the format that is used on the Settings page | [optional]  |
-| **clientCallback** | **string?** | Method that is called after authorization | [optional]  |
-| **fromOnly** | **string?** | Provider name if the response only from this provider is needed | [optional]  |
+| **inviteView** | **bool?** | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. | [optional]  |
+| **settingsView** | **bool?** | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). | [optional]  |
+| **clientCallback** | **string?** | The method that is called after authentication. | [optional]  |
+| **fromOnly** | **string?** | The provider name if a response is required only from this provider. | [optional]  |
 
 ### Return type
 
@@ -134,11 +134,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -191,7 +200,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -232,7 +241,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -325,17 +334,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var provider = some text;  // string? | Provider name (optional) 
+            var provider = some text;  // string? | The provider name. (optional) 
 
             try
             {
@@ -374,7 +392,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **provider** | **string?** | Provider name | [optional]  |
+| **provider** | **string?** | The provider name. | [optional]  |
 
 ### Return type
 
@@ -382,7 +400,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,17 +1,17 @@
 # Docspace.Model.SignupAccountRequestDto
-Request parameters for creating a third-party account
+The request parameters for creating a third-party account.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EmployeeType** | **EmployeeType** |  | [optional] 
-**FirstName** | **string** | First name | [optional] 
-**LastName** | **string** | Last name | [optional] 
-**Email** | **string** | Email address | [optional] 
-**PasswordHash** | **string** | Password hash | [optional] 
-**Key** | **string** | Link key | [optional] 
-**Culture** | **string** | Culture | [optional] 
+**FirstName** | **string** | The user first name. | [optional] 
+**LastName** | **string** | The user last name. | [optional] 
+**Email** | **string** | The user email address. | [optional] 
+**PasswordHash** | **string** | The user password hash. | [optional] 
+**Key** | **string** | The user link key. | [optional] 
+**Culture** | **string** | The user culture code. | [optional] 
 **SerializedProfile** | **string** | Third-party profile in the serialized format | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

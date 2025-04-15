@@ -1,14 +1,15 @@
 # Docspace.Model.UsageSpaceStatItemDto
+The parameters of the usage space statistics item.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name | [optional] 
-**Icon** | **string** | Icon | [optional] 
-**Disabled** | **bool** | Specifies if the module space is disabled or not | [optional] 
-**Size** | **string** | Size | [optional] 
-**Url** | **string** | URL | [optional] 
+**Name** | **string** | The item name. | [optional] 
+**Icon** | **string** | The item icon path. | [optional] 
+**Disabled** | **bool** | Specifies if the item is disabled or not. | [optional] 
+**Size** | **string** | The item used space. | [optional] 
+**Url** | **string** | The item URL. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

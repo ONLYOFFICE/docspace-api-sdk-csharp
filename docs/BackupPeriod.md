@@ -1,5 +1,4 @@
 # Docspace.Model.BackupPeriod
-[0 - Every day, 1 - Every week, 2 - Every month]
 
 ## Properties
 

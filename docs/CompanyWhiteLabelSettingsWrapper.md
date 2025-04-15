@@ -1,5 +1,5 @@
 # Docspace.Model.CompanyWhiteLabelSettingsWrapper
-Company white label settings
+The company white label settings wrapper.
 
 ## Properties
 

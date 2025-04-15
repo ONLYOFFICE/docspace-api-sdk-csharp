@@ -1,12 +1,12 @@
 # Docspace.Api.FilesFilesApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddTemplates**](FilesFilesApi.md#addtemplates) | **POST** /api/2.0/files/templates | Add template files |
 | [**ChangeHistory**](FilesFilesApi.md#changehistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
-| [**CheckFillFormDraft**](FilesFilesApi.md#checkfillformdraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft |
+| [**CheckFillFormDraft**](FilesFilesApi.md#checkfillformdraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft filling |
 | [**CopyFileAs**](FilesFilesApi.md#copyfileas) | **POST** /api/2.0/files/file/{fileId}/copyas | Copy a file |
 | [**CreateEditSession**](FilesFilesApi.md#createeditsession) | **POST** /api/2.0/files/file/{fileId}/edit_session | Create the editing session |
 | [**CreateFile**](FilesFilesApi.md#createfile) | **POST** /api/2.0/files/{folderId}/file | Create a file |
@@ -14,35 +14,39 @@ All URIs are relative to *http://localhost:8092*
 | [**CreateHtmlFile**](FilesFilesApi.md#createhtmlfile) | **POST** /api/2.0/files/{folderId}/html | Create an HTML file |
 | [**CreateHtmlFileInMy**](FilesFilesApi.md#createhtmlfileinmy) | **POST** /api/2.0/files/@my/html | Create an HTML file in the \&quot;My documents\&quot; section |
 | [**CreatePrimaryExternalLink**](FilesFilesApi.md#createprimaryexternallink) | **POST** /api/2.0/files/file/{id}/link | Create primary external link |
-| [**CreateTextFile**](FilesFilesApi.md#createtextfile) | **POST** /api/2.0/files/{folderId}/text | Create a txt file |
+| [**CreateTextFile**](FilesFilesApi.md#createtextfile) | **POST** /api/2.0/files/{folderId}/text | Create a text file |
 | [**CreateTextFileInMy**](FilesFilesApi.md#createtextfileinmy) | **POST** /api/2.0/files/@my/text | Create a text file in the \&quot;My documents\&quot; section |
-| [**CreateThumbnails**](FilesFilesApi.md#createthumbnails) | **POST** /api/2.0/files/thumbnails | Create thumbnails |
+| [**CreateThumbnails**](FilesFilesApi.md#createthumbnails) | **POST** /api/2.0/files/thumbnails | Create file thumbnails |
 | [**DeleteFile**](FilesFilesApi.md#deletefile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
 | [**DeleteRecent**](FilesFilesApi.md#deleterecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
 | [**DeleteTemplates**](FilesFilesApi.md#deletetemplates) | **DELETE** /api/2.0/files/templates | Delete template files |
+| [**GetAllFormRoles**](FilesFilesApi.md#getallformroles) | **GET** /api/2.0/files/file/{fileId}/formroles | Get form roles |
 | [**GetEditDiffUrl**](FilesFilesApi.md#geteditdiffurl) | **GET** /api/2.0/files/file/{fileId}/edit/diff | Get changes URL |
 | [**GetEditHistory**](FilesFilesApi.md#getedithistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
 | [**GetFileHistory**](FilesFilesApi.md#getfilehistory) | **GET** /api/2.0/files/file/{fileId}/log | Get file history |
 | [**GetFileInfo**](FilesFilesApi.md#getfileinfo) | **GET** /api/2.0/files/file/{fileId} | Get file information |
 | [**GetFilePrimaryExternalLink**](FilesFilesApi.md#getfileprimaryexternallink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
 | [**GetFileVersionInfo**](FilesFilesApi.md#getfileversioninfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
-| [**GetFillResult**](FilesFilesApi.md#getfillresult) | **GET** /api/2.0/files/file/fillresult | Gets fill result |
+| [**GetFillResult**](FilesFilesApi.md#getfillresult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
 | [**GetLinks**](FilesFilesApi.md#getlinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
 | [**GetPresignedFileUri**](FilesFilesApi.md#getpresignedfileuri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
 | [**GetPresignedUri**](FilesFilesApi.md#getpresigneduri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
 | [**GetReferenceData**](FilesFilesApi.md#getreferencedata) | **POST** /api/2.0/files/file/referencedata | Get reference data |
 | [**IsFormPDF**](FilesFilesApi.md#isformpdf) | **GET** /api/2.0/files/file/{fileId}/isformpdf | Check the PDF file |
 | [**LockFile**](FilesFilesApi.md#lockfile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
-| [**OpenEdit**](FilesFilesApi.md#openedit) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file |
-| [**ProtectUsers**](FilesFilesApi.md#protectusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users with the access to the protected file |
+| [**ManageFormFilling**](FilesFilesApi.md#manageformfilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
+| [**OpenEdit**](FilesFilesApi.md#openedit) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
+| [**ProtectUsers**](FilesFilesApi.md#protectusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
 | [**RestoreVersion**](FilesFilesApi.md#restoreversion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
-| [**SaveAsPdf**](FilesFilesApi.md#saveaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save as pdf |
+| [**SaveAsPdf**](FilesFilesApi.md#saveaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
 | [**SaveEditingFromForm**](FilesFilesApi.md#saveeditingfromform) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
+| [**SaveFormRoleMapping**](FilesFilesApi.md#saveformrolemapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
+| [**SetCustomFilterTag**](FilesFilesApi.md#setcustomfiltertag) | **PUT** /api/2.0/files/file/{fileId}/customfilter | Set the Custom Filter editing mode |
 | [**SetExternalLink**](FilesFilesApi.md#setexternallink) | **PUT** /api/2.0/files/file/{id}/links | Set an external link |
-| [**SetFilesOrder**](FilesFilesApi.md#setfilesorder) | **PUT** /api/2.0/files/order | Sets order |
-| [**SetOrderFile**](FilesFilesApi.md#setorderfile) | **PUT** /api/2.0/files/{fileId}/order | Sets order of a file with ID specified in the request |
+| [**SetFilesOrder**](FilesFilesApi.md#setfilesorder) | **PUT** /api/2.0/files/order | Set order of files |
+| [**SetOrderFile**](FilesFilesApi.md#setorderfile) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
 | [**StartEdit**](FilesFilesApi.md#startedit) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
-| [**StartFilling**](FilesFilesApi.md#startfilling) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Starts filling |
+| [**StartFilling**](FilesFilesApi.md#startfilling) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
 | [**TrackEditFile**](FilesFilesApi.md#trackeditfile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile | Track file editing |
 | [**UpdateFile**](FilesFilesApi.md#updatefile) | **PUT** /api/2.0/files/file/{fileId} | Update a file |
 
@@ -70,11 +74,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -131,7 +144,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -171,18 +184,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File Id
-            var changeHistory = new ChangeHistory?(); // ChangeHistory? | File (optional) 
+            var fileId = 9846;  // int | The file Id to change its version history.
+            var changeHistory = new ChangeHistory?(); // ChangeHistory? | The parameters for changing version history. (optional) 
 
             try
             {
@@ -225,8 +247,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File Id |  |
-| **changeHistory** | [**ChangeHistory?**](ChangeHistory?.md) | File | [optional]  |
+| **fileId** | **int** | The file Id to change its version history. |  |
+| **changeHistory** | [**ChangeHistory?**](ChangeHistory?.md) | The parameters for changing version history. | [optional]  |
 
 ### Return type
 
@@ -234,7 +256,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -255,7 +277,7 @@ catch (ApiException e)
 # **CheckFillFormDraft**
 > StringWrapper CheckFillFormDraft (int fileId, CheckFillFormDraft? checkFillFormDraft = null)
 
-Check the form draft
+Check the form draft filling
 
 Checks if the current file is a form draft which can be filled out.
 
@@ -275,17 +297,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var checkFillFormDraft = new CheckFillFormDraft?(); // CheckFillFormDraft? | File (optional) 
+            var fileId = 9846;  // int | The file ID of the form draft.
+            var checkFillFormDraft = new CheckFillFormDraft?(); // CheckFillFormDraft? | The parameters for checking the form draft filling. (optional) 
 
             try
             {
-                // Check the form draft
+                // Check the form draft filling
                 StringWrapper result = apiInstance.CheckFillFormDraft(fileId, checkFillFormDraft);
                 Debug.WriteLine(result);
             }
@@ -306,7 +328,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check the form draft
+    // Check the form draft filling
     ApiResponse<StringWrapper> response = apiInstance.CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraft);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -324,8 +346,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **checkFillFormDraft** | [**CheckFillFormDraft?**](CheckFillFormDraft?.md) | File | [optional]  |
+| **fileId** | **int** | The file ID of the form draft. |  |
+| **checkFillFormDraft** | [**CheckFillFormDraft?**](CheckFillFormDraft?.md) | The parameters for checking the form draft filling. | [optional]  |
 
 ### Return type
 
@@ -373,18 +395,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File id
-            var copyAsJsonElement = new CopyAsJsonElement?(); // CopyAsJsonElement? | File (optional) 
+            var fileId = 9846;  // int | The file ID to copy.
+            var copyAsJsonElement = new CopyAsJsonElement?(); // CopyAsJsonElement? | The parameters for copying a file. (optional) 
 
             try
             {
@@ -427,8 +458,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File id |  |
-| **copyAsJsonElement** | [**CopyAsJsonElement?**](CopyAsJsonElement?.md) | File | [optional]  |
+| **fileId** | **int** | The file ID to copy. |  |
+| **copyAsJsonElement** | [**CopyAsJsonElement?**](CopyAsJsonElement?.md) | The parameters for copying a file. | [optional]  |
 
 ### Return type
 
@@ -436,7 +467,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -461,7 +492,7 @@ catch (ApiException e)
 
 Create the editing session
 
-Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
+Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
 ### Example
 ```csharp
@@ -479,18 +510,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var fileSize = 1234;  // long? | File size in bytes (optional) 
+            var fileId = 9846;  // int | The file ID.
+            var fileSize = 1234;  // long? | The file size in bytes. (optional) 
 
             try
             {
@@ -533,8 +573,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **fileSize** | **long?** | File size in bytes | [optional]  |
+| **fileId** | **int** | The file ID. |  |
+| **fileSize** | **long?** | The file size in bytes. | [optional]  |
 
 ### Return type
 
@@ -542,7 +582,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -583,18 +623,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var createFileJsonElement = new CreateFileJsonElement?(); // CreateFileJsonElement? | File (optional) 
+            var folderId = 9846;  // int | The folder ID for the file creation.
+            var createFileJsonElement = new CreateFileJsonElement?(); // CreateFileJsonElement? | The parameters for creating a file. (optional) 
 
             try
             {
@@ -637,8 +686,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement?.md) | File | [optional]  |
+| **folderId** | **int** | The folder ID for the file creation. |  |
+| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement?.md) | The parameters for creating a file. | [optional]  |
 
 ### Return type
 
@@ -646,7 +695,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -686,11 +735,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -747,7 +805,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -787,18 +845,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | File (optional) 
+            var folderId = 9846;  // int | The folder ID to create the text or HTML file.
+            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters for creating an HTML or text file. (optional) 
 
             try
             {
@@ -841,8 +908,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | File | [optional]  |
+| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | The parameters for creating an HTML or text file. | [optional]  |
 
 ### Return type
 
@@ -850,7 +917,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -891,11 +958,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -952,7 +1028,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -993,18 +1069,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | File ID
-            var fileLinkRequest = new FileLinkRequest?(); // FileLinkRequest? | External link parameters (optional) 
+            var id = 9846;  // int | The file ID.
+            var fileLinkRequest = new FileLinkRequest?(); // FileLinkRequest? | The file external link parameters. (optional) 
 
             try
             {
@@ -1047,8 +1132,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | File ID |  |
-| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | External link parameters | [optional]  |
+| **id** | **int** | The file ID. |  |
+| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | The file external link parameters. | [optional]  |
 
 ### Return type
 
@@ -1056,7 +1141,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1077,7 +1162,7 @@ catch (ApiException e)
 # **CreateTextFile**
 > FileIntegerWrapper CreateTextFile (int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
-Create a txt file
+Create a text file
 
 Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
 
@@ -1097,22 +1182,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | File (optional) 
+            var folderId = 9846;  // int | The folder ID to create the text or HTML file.
+            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters for creating an HTML or text file. (optional) 
 
             try
             {
-                // Create a txt file
+                // Create a text file
                 FileIntegerWrapper result = apiInstance.CreateTextFile(folderId, createTextOrHtmlFile);
                 Debug.WriteLine(result);
             }
@@ -1133,7 +1227,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create a txt file
+    // Create a text file
     ApiResponse<FileIntegerWrapper> response = apiInstance.CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFile);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1151,8 +1245,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | File | [optional]  |
+| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | The parameters for creating an HTML or text file. | [optional]  |
 
 ### Return type
 
@@ -1160,7 +1254,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1200,11 +1294,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1261,7 +1364,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1281,7 +1384,7 @@ catch (ApiException e)
 # **CreateThumbnails**
 > ObjectArrayWrapper CreateThumbnails (BaseBatchRequestDto? baseBatchRequestDto = null)
 
-Create thumbnails
+Create file thumbnails
 
 Creates thumbnails for the files with the IDs specified in the request.
 
@@ -1301,7 +1404,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1310,7 +1413,7 @@ namespace Example
 
             try
             {
-                // Create thumbnails
+                // Create file thumbnails
                 ObjectArrayWrapper result = apiInstance.CreateThumbnails(baseBatchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1331,7 +1434,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create thumbnails
+    // Create file thumbnails
     ApiResponse<ObjectArrayWrapper> response = apiInstance.CreateThumbnailsWithHttpInfo(baseBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1374,7 +1477,7 @@ No authorization required
 
 <a id="deletefile"></a>
 # **DeleteFile**
-> FileOperationArrayWrapper DeleteFile (int fileId, Delete? delete = null)
+> FileOperationArrayWrapper DeleteFile (int fileId, Delete delete)
 
 Delete a file
 
@@ -1396,18 +1499,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var delete = new Delete?(); // Delete? | File (optional) 
+            var fileId = 9846;  // int | The file ID to delete.
+            var delete = new Delete(); // Delete | The parameters for deleting a file.
 
             try
             {
@@ -1450,8 +1562,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **delete** | [**Delete?**](Delete?.md) | File | [optional]  |
+| **fileId** | **int** | The file ID to delete. |  |
+| **delete** | [**Delete**](Delete.md) | The parameters for deleting a file. |  |
 
 ### Return type
 
@@ -1459,7 +1571,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1499,11 +1611,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1560,7 +1681,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1600,17 +1721,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<int>?(); // List<int>? | File IDs (optional) 
+            var requestBody = new List<int>?(); // List<int>? | The file IDs. (optional) 
 
             try
             {
@@ -1653,7 +1783,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;int&gt;?**](int.md) | File IDs | [optional]  |
+| **requestBody** | [**List&lt;int&gt;?**](int.md) | The file IDs. | [optional]  |
 
 ### Return type
 
@@ -1661,7 +1791,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1674,6 +1804,117 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getallformroles"></a>
+# **GetAllFormRoles**
+> FormRoleArrayWrapper GetAllFormRoles (int fileId)
+
+Get form roles
+
+Returns all roles for the specified form.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetAllFormRolesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = 9846;  // int | The file ID of the request.
+
+            try
+            {
+                // Get form roles
+                FormRoleArrayWrapper result = apiInstance.GetAllFormRoles(fileId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.GetAllFormRoles: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAllFormRolesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get form roles
+    ApiResponse<FormRoleArrayWrapper> response = apiInstance.GetAllFormRolesWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.GetAllFormRolesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**FormRoleArrayWrapper**](FormRoleArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved all roles for the form |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You do not have enough permissions to view the form roles |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1701,13 +1942,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var version = 1234;  // int? | File version (optional) 
+            var fileId = 9846;  // int | The file ID.
+            var version = 1234;  // int? | The file version. (optional) 
 
             try
             {
@@ -1750,8 +1991,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **version** | **int?** | File version | [optional]  |
+| **fileId** | **int** | The file ID. |  |
+| **version** | **int?** | The file version. | [optional]  |
 
 ### Return type
 
@@ -1798,12 +2039,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -1846,7 +2087,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -1875,7 +2116,7 @@ No authorization required
 
 Get file history
 
-Get the list of actions performed on the file with the specified identifier
+Returns the list of actions performed on the file with the specified identifier.
 
 ### Example
 ```csharp
@@ -1893,19 +2134,28 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var fromDate = new ApiDateTime?(); // ApiDateTime? | Start date (optional) 
-            var toDate = new ApiDateTime?(); // ApiDateTime? | End date (optional) 
+            var fileId = 9846;  // int | The file ID of the history request.
+            var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history. (optional) 
+            var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history. (optional) 
 
             try
             {
@@ -1948,9 +2198,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | Start date | [optional]  |
-| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | End date | [optional]  |
+| **fileId** | **int** | The file ID of the history request. |  |
+| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history. | [optional]  |
+| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history. | [optional]  |
 
 ### Return type
 
@@ -1958,7 +2208,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2000,13 +2250,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var version = 1234;  // int? | File version (optional) 
+            var fileId = 9846;  // int | The file ID.
+            var version = 1234;  // int? | The file version. (optional) 
 
             try
             {
@@ -2049,8 +2299,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **version** | **int?** | File version | [optional]  |
+| **fileId** | **int** | The file ID. |  |
+| **version** | **int?** | The file version. | [optional]  |
 
 ### Return type
 
@@ -2097,12 +2347,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | File ID
+            var id = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2145,7 +2395,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | File ID |  |
+| **id** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2193,12 +2443,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2241,7 +2491,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2268,9 +2518,9 @@ No authorization required
 # **GetFillResult**
 > FillingFormResultIntegerWrapper GetFillResult (string? fillingSessionId = null)
 
-Gets fill result
+Get form-filling result
 
-Gets fill result
+Retrieves the result of a form-filling session.
 
 ### Example
 ```csharp
@@ -2288,16 +2538,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fillingSessionId = some text;  // string? | Filling session id (optional) 
+            var fillingSessionId = some text;  // string? | The form-filling session ID. (optional) 
 
             try
             {
-                // Gets fill result
+                // Get form-filling result
                 FillingFormResultIntegerWrapper result = apiInstance.GetFillResult(fillingSessionId);
                 Debug.WriteLine(result);
             }
@@ -2318,7 +2568,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets fill result
+    // Get form-filling result
     ApiResponse<FillingFormResultIntegerWrapper> response = apiInstance.GetFillResultWithHttpInfo(fillingSessionId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2336,7 +2586,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fillingSessionId** | **string?** | Filling session id | [optional]  |
+| **fillingSessionId** | **string?** | The form-filling session ID. | [optional]  |
 
 ### Return type
 
@@ -2383,17 +2633,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | File ID
+            var id = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2436,7 +2695,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | File ID |  |
+| **id** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2444,7 +2703,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2484,17 +2743,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2537,7 +2805,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2545,7 +2813,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2567,7 +2835,7 @@ catch (ApiException e)
 
 Get file download link
 
-Returns a link to download a file with the ID specified in the request.
+Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
 
 ### Example
 ```csharp
@@ -2585,17 +2853,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2638,7 +2915,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2646,7 +2923,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2686,11 +2963,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -2747,7 +3033,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2769,7 +3055,7 @@ catch (ApiException e)
 
 Check the PDF file
 
-Checks if the PDF file is form or not.
+Checks if the PDF file is a form or not.
 
 ### Example
 ```csharp
@@ -2787,17 +3073,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
@@ -2840,7 +3135,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -2848,7 +3143,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2888,18 +3183,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var lockFileParameters = new LockFileParameters?(); // LockFileParameters? | Parameters for locking a file (optional) 
+            var fileId = 9846;  // int | The file ID for locking.
+            var lockFileParameters = new LockFileParameters?(); // LockFileParameters? | The parameters for locking a file. (optional) 
 
             try
             {
@@ -2942,8 +3246,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **lockFileParameters** | [**LockFileParameters?**](LockFileParameters?.md) | Parameters for locking a file | [optional]  |
+| **fileId** | **int** | The file ID for locking. |  |
+| **lockFileParameters** | [**LockFileParameters?**](LockFileParameters?.md) | The parameters for locking a file. | [optional]  |
 
 ### Return type
 
@@ -2951,7 +3255,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2967,11 +3271,120 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="manageformfilling"></a>
+# **ManageFormFilling**
+> void ManageFormFilling (string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = null)
+
+Perform form filling action
+
+Performs the specified form filling action.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class ManageFormFillingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = "fileId_example";  // string | 
+            var manageFormFillingDtoInteger = new ManageFormFillingDtoInteger?(); // ManageFormFillingDtoInteger? |  (optional) 
+
+            try
+            {
+                // Perform form filling action
+                apiInstance.ManageFormFilling(fileId, manageFormFillingDtoInteger);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.ManageFormFilling: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ManageFormFillingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Perform form filling action
+    apiInstance.ManageFormFillingWithHttpInfo(fileId, manageFormFillingDtoInteger);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.ManageFormFillingWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **manageFormFillingDtoInteger** | [**ManageFormFillingDtoInteger?**](ManageFormFillingDtoInteger?.md) |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully processed the form filling action |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You do not have enough permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="openedit"></a>
 # **OpenEdit**
 > ConfigurationIntegerWrapper OpenEdit (int fileId, int? version = null, bool? view = null, EditorType? editorType = null, bool? edit = null, bool? fill = null)
 
-Open a file
+Open a file configuration
 
 Returns the initialization configuration of a file to open it in the editor.
 
@@ -2991,21 +3404,21 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var version = 1234;  // int? | File version (optional) 
-            var view = true;  // bool? | Specifies if a document will be opened for viewing only or not (optional) 
-            var editorType = new EditorType?(); // EditorType? | Editor type (optional) 
-            var edit = true;  // bool? | Edit (optional) 
-            var fill = true;  // bool? | Fill (optional) 
+            var fileId = 9846;  // int | The file ID to open.
+            var version = 1234;  // int? | The file version to open. (optional) 
+            var view = true;  // bool? | Specifies if the document will be opened for viewing only or not. (optional) 
+            var editorType = new EditorType?(); // EditorType? | The editor type to open the file. (optional) 
+            var edit = true;  // bool? | Specifies if the document is opened in the editing mode or not. (optional) 
+            var fill = true;  // bool? | Specifies if the document is opened in the form-filling mode or not. (optional) 
 
             try
             {
-                // Open a file
+                // Open a file configuration
                 ConfigurationIntegerWrapper result = apiInstance.OpenEdit(fileId, version, view, editorType, edit, fill);
                 Debug.WriteLine(result);
             }
@@ -3026,7 +3439,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Open a file
+    // Open a file configuration
     ApiResponse<ConfigurationIntegerWrapper> response = apiInstance.OpenEditWithHttpInfo(fileId, version, view, editorType, edit, fill);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3044,12 +3457,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **version** | **int?** | File version | [optional]  |
-| **view** | **bool?** | Specifies if a document will be opened for viewing only or not | [optional]  |
-| **editorType** | [**EditorType?**](EditorType?.md) | Editor type | [optional]  |
-| **edit** | **bool?** | Edit | [optional]  |
-| **fill** | **bool?** | Fill | [optional]  |
+| **fileId** | **int** | The file ID to open. |  |
+| **version** | **int?** | The file version to open. | [optional]  |
+| **view** | **bool?** | Specifies if the document will be opened for viewing only or not. | [optional]  |
+| **editorType** | [**EditorType?**](EditorType?.md) | The editor type to open the file. | [optional]  |
+| **edit** | **bool?** | Specifies if the document is opened in the editing mode or not. | [optional]  |
+| **fill** | **bool?** | Specifies if the document is opened in the form-filling mode or not. | [optional]  |
 
 ### Return type
 
@@ -3077,7 +3490,7 @@ No authorization required
 # **ProtectUsers**
 > MentionWrapperArrayWrapper ProtectUsers (int fileId)
 
-Get users with the access to the protected file
+Get users access rights to the protected file
 
 Returns a list of users with their access rights to the protected file with the ID specified in the request.
 
@@ -3097,21 +3510,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID of the request.
 
             try
             {
-                // Get users with the access to the protected file
+                // Get users access rights to the protected file
                 MentionWrapperArrayWrapper result = apiInstance.ProtectUsers(fileId);
                 Debug.WriteLine(result);
             }
@@ -3132,7 +3554,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get users with the access to the protected file
+    // Get users access rights to the protected file
     ApiResponse<MentionWrapperArrayWrapper> response = apiInstance.ProtectUsersWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3150,7 +3572,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID of the request. |  |
 
 ### Return type
 
@@ -3158,7 +3580,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -3198,14 +3620,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var version = 1234;  // int? | File version (optional) 
-            var url = some text;  // string? | File version URL (optional) 
+            var fileId = 9846;  // int | The file ID of the restore version.
+            var version = 1234;  // int? | The file version of the restore. (optional) 
+            var url = some text;  // string? | The file version URL of the restore. (optional) 
 
             try
             {
@@ -3248,9 +3670,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **version** | **int?** | File version | [optional]  |
-| **url** | **string?** | File version URL | [optional]  |
+| **fileId** | **int** | The file ID of the restore version. |  |
+| **version** | **int?** | The file version of the restore. | [optional]  |
+| **url** | **string?** | The file version URL of the restore. | [optional]  |
 
 ### Return type
 
@@ -3279,9 +3701,9 @@ No authorization required
 # **SaveAsPdf**
 > FileIntegerWrapper SaveAsPdf (int id, SaveAsPdfInteger? saveAsPdfInteger = null)
 
-Save as pdf
+Save a file as PDF
 
-Saves a file with the identifier specified in the request as a PDF document
+Saves a file with the identifier specified in the request as a PDF document.
 
 ### Example
 ```csharp
@@ -3299,22 +3721,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | File ID
-            var saveAsPdfInteger = new SaveAsPdfInteger?(); // SaveAsPdfInteger? | Parameters for saving file as pdf (optional) 
+            var id = 9846;  // int | The file ID to save as PDF.
+            var saveAsPdfInteger = new SaveAsPdfInteger?(); // SaveAsPdfInteger? | The parameters for saving file as PDF. (optional) 
 
             try
             {
-                // Save as pdf
+                // Save a file as PDF
                 FileIntegerWrapper result = apiInstance.SaveAsPdf(id, saveAsPdfInteger);
                 Debug.WriteLine(result);
             }
@@ -3335,7 +3766,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Save as pdf
+    // Save a file as PDF
     ApiResponse<FileIntegerWrapper> response = apiInstance.SaveAsPdfWithHttpInfo(id, saveAsPdfInteger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3353,8 +3784,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | File ID |  |
-| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger?.md) | Parameters for saving file as pdf | [optional]  |
+| **id** | **int** | The file ID to save as PDF. |  |
+| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger?.md) | The parameters for saving file as PDF. | [optional]  |
 
 ### Return type
 
@@ -3362,7 +3793,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -3403,21 +3834,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var fileExtension = "fileExtension_example";  // string? | File extension (optional) 
-            var downloadUri = "downloadUri_example";  // string? | URI to download a file (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | Request file stream (optional) 
-            var forcesave = true;  // bool? | Specifies whether to force save a file or not (optional) 
+            var fileId = 9846;  // int | The editing file ID from the request.
+            var fileExtension = "fileExtension_example";  // string? | The editing file extension from the request. (optional) 
+            var downloadUri = "downloadUri_example";  // string? | The URI to download the editing file. (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The request file stream. (optional) 
+            var forcesave = true;  // bool? | Specifies whether to force save the file or not. (optional) 
 
             try
             {
@@ -3460,11 +3900,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **fileExtension** | **string?** | File extension | [optional]  |
-| **downloadUri** | **string?** | URI to download a file | [optional]  |
-| **file** | **FileParameter?****FileParameter?** | Request file stream | [optional]  |
-| **forcesave** | **bool?** | Specifies whether to force save a file or not | [optional]  |
+| **fileId** | **int** | The editing file ID from the request. |  |
+| **fileExtension** | **string?** | The editing file extension from the request. | [optional]  |
+| **downloadUri** | **string?** | The URI to download the editing file. | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The request file stream. | [optional]  |
+| **forcesave** | **bool?** | Specifies whether to force save the file or not. | [optional]  |
 
 ### Return type
 
@@ -3472,7 +3912,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -3487,6 +3927,231 @@ catch (ApiException e)
 | **400** | No file id or folder id toFolderId determine provider |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="saveformrolemapping"></a>
+# **SaveFormRoleMapping**
+> FormRoleWrapper SaveFormRoleMapping (string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = null)
+
+Save form role mapping
+
+Saves the form role mapping.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SaveFormRoleMappingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = "fileId_example";  // string | 
+            var saveFormRoleMappingDtoInteger = new SaveFormRoleMappingDtoInteger?(); // SaveFormRoleMappingDtoInteger? |  (optional) 
+
+            try
+            {
+                // Save form role mapping
+                FormRoleWrapper result = apiInstance.SaveFormRoleMapping(fileId, saveFormRoleMappingDtoInteger);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.SaveFormRoleMapping: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SaveFormRoleMappingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Save form role mapping
+    ApiResponse<FormRoleWrapper> response = apiInstance.SaveFormRoleMappingWithHttpInfo(fileId, saveFormRoleMappingDtoInteger);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.SaveFormRoleMappingWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **saveFormRoleMappingDtoInteger** | [**SaveFormRoleMappingDtoInteger?**](SaveFormRoleMappingDtoInteger?.md) |  | [optional]  |
+
+### Return type
+
+[**FormRoleWrapper**](FormRoleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated information about form role mappings |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You do not have enough permissions to edit the file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="setcustomfiltertag"></a>
+# **SetCustomFilterTag**
+> FileIntegerWrapper SetCustomFilterTag (int fileId, CustomFilterParameters? customFilterParameters = null)
+
+Set the Custom Filter editing mode
+
+Sets the Custom Filter editing mode to a file with the ID specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SetCustomFilterTagExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = 9846;  // int | The file ID.
+            var customFilterParameters = new CustomFilterParameters?(); // CustomFilterParameters? | The parameters for setting the Custom Filter editing mode. (optional) 
+
+            try
+            {
+                // Set the Custom Filter editing mode
+                FileIntegerWrapper result = apiInstance.SetCustomFilterTag(fileId, customFilterParameters);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.SetCustomFilterTag: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SetCustomFilterTagWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Set the Custom Filter editing mode
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SetCustomFilterTagWithHttpInfo(fileId, customFilterParameters);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.SetCustomFilterTagWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID. |  |
+| **customFilterParameters** | [**CustomFilterParameters?**](CustomFilterParameters?.md) | The parameters for setting the Custom Filter editing mode. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | File information |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3514,18 +4179,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | File ID
-            var fileLinkRequest = new FileLinkRequest?(); // FileLinkRequest? | External link parameters (optional) 
+            var id = 9846;  // int | The file ID.
+            var fileLinkRequest = new FileLinkRequest?(); // FileLinkRequest? | The file external link parameters. (optional) 
 
             try
             {
@@ -3568,8 +4242,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | File ID |  |
-| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | External link parameters | [optional]  |
+| **id** | **int** | The file ID. |  |
+| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | The file external link parameters. | [optional]  |
 
 ### Return type
 
@@ -3577,7 +4251,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -3595,11 +4269,11 @@ catch (ApiException e)
 
 <a id="setfilesorder"></a>
 # **SetFilesOrder**
-> void SetFilesOrder (OrdersRequestDtoInteger? ordersRequestDtoInteger = null)
+> FileIntegerArrayWrapper SetFilesOrder (OrdersRequestDtoInteger? ordersRequestDtoInteger = null)
 
-Sets order
+Set order of files
 
-Sets order
+Sets order of the files.
 
 ### Example
 ```csharp
@@ -3617,11 +4291,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -3631,8 +4314,9 @@ namespace Example
 
             try
             {
-                // Sets order
-                apiInstance.SetFilesOrder(ordersRequestDtoInteger);
+                // Set order of files
+                FileIntegerArrayWrapper result = apiInstance.SetFilesOrder(ordersRequestDtoInteger);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -3651,8 +4335,11 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Sets order
-    apiInstance.SetFilesOrderWithHttpInfo(ordersRequestDtoInteger);
+    // Set order of files
+    ApiResponse<FileIntegerArrayWrapper> response = apiInstance.SetFilesOrderWithHttpInfo(ordersRequestDtoInteger);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -3670,33 +4357,33 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order is set |  -  |
+| **200** | Updated file entries information |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="setorderfile"></a>
 # **SetOrderFile**
-> void SetOrderFile (int fileId, OrderRequestDto? orderRequestDto = null)
+> FileIntegerWrapper SetOrderFile (int fileId, OrderRequestDto? orderRequestDto = null)
 
-Sets order of a file with ID specified in the request
+Set file order
 
-Sets order of a file with ID specified in the request
+Sets order of the file with ID specified in the request.
 
 ### Example
 ```csharp
@@ -3714,23 +4401,33 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The unique identifier of the file
-            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | Order information for the file (optional) 
+            var fileId = 9846;  // int | The file unique identifier.
+            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The file order information. (optional) 
 
             try
             {
-                // Sets order of a file with ID specified in the request
-                apiInstance.SetOrderFile(fileId, orderRequestDto);
+                // Set file order
+                FileIntegerWrapper result = apiInstance.SetOrderFile(fileId, orderRequestDto);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -3749,8 +4446,11 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Sets order of a file with ID specified in the request
-    apiInstance.SetOrderFileWithHttpInfo(fileId, orderRequestDto);
+    // Set file order
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SetOrderFileWithHttpInfo(fileId, orderRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -3764,27 +4464,27 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The unique identifier of the file |  |
-| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | Order information for the file | [optional]  |
+| **fileId** | **int** | The file unique identifier. |  |
+| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The file order information. | [optional]  |
 
 ### Return type
 
-void (empty response body)
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order is set |  -  |
+| **200** | Updated file information |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | Not Found |  -  |
@@ -3815,13 +4515,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var startEdit = new StartEdit?(); // StartEdit? | Parameters for starting file editing (optional) 
+            var fileId = 9846;  // int | The file ID to start editing.
+            var startEdit = new StartEdit?(); // StartEdit? | The file parameters to start editing. (optional) 
 
             try
             {
@@ -3864,8 +4564,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **startEdit** | [**StartEdit?**](StartEdit?.md) | Parameters for starting file editing | [optional]  |
+| **fileId** | **int** | The file ID to start editing. |  |
+| **startEdit** | [**StartEdit?**](StartEdit?.md) | The file parameters to start editing. | [optional]  |
 
 ### Return type
 
@@ -3891,9 +4591,9 @@ No authorization required
 
 <a id="startfilling"></a>
 # **StartFilling**
-> void StartFilling (int fileId)
+> FileIntegerWrapper StartFilling (int fileId)
 
-Starts filling
+Start file filling
 
 Starts filling a file with the ID specified in the request.
 
@@ -3913,22 +4613,32 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
+            var fileId = 9846;  // int | The file ID to start filling.
 
             try
             {
-                // Starts filling
-                apiInstance.StartFilling(fileId);
+                // Start file filling
+                FileIntegerWrapper result = apiInstance.StartFilling(fileId);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -3947,8 +4657,11 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Starts filling
-    apiInstance.StartFillingWithHttpInfo(fileId);
+    // Start file filling
+    ApiResponse<FileIntegerWrapper> response = apiInstance.StartFillingWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -3962,26 +4675,26 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
+| **fileId** | **int** | The file ID to start filling. |  |
 
 ### Return type
 
-void (empty response body)
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | File information |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
 
@@ -4011,15 +4724,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var tabId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Tab ID (optional) 
-            var docKeyForTrack = some text;  // string? | Document key for tracking (optional) 
-            var isFinish = true;  // bool? | Specifies whether to finish file tracking or not (optional) 
+            var fileId = 9846;  // int | The file ID to track editing changes.
+            var tabId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The tab ID to track editing changes. (optional) 
+            var docKeyForTrack = some text;  // string? | The document key for tracking changes. (optional) 
+            var isFinish = true;  // bool? | Specifies whether to finish file tracking or not. (optional) 
 
             try
             {
@@ -4062,10 +4775,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **tabId** | **Guid?** | Tab ID | [optional]  |
-| **docKeyForTrack** | **string?** | Document key for tracking | [optional]  |
-| **isFinish** | **bool?** | Specifies whether to finish file tracking or not | [optional]  |
+| **fileId** | **int** | The file ID to track editing changes. |  |
+| **tabId** | **Guid?** | The tab ID to track editing changes. | [optional]  |
+| **docKeyForTrack** | **string?** | The document key for tracking changes. | [optional]  |
+| **isFinish** | **bool?** | Specifies whether to finish file tracking or not. | [optional]  |
 
 ### Return type
 
@@ -4113,13 +4826,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | File ID
-            var updateFile = new UpdateFile?(); // UpdateFile? | File (optional) 
+            var fileId = 9846;  // int | The file ID to update.
+            var updateFile = new UpdateFile?(); // UpdateFile? | The parameters for updating a file. (optional) 
 
             try
             {
@@ -4162,8 +4875,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | File ID |  |
-| **updateFile** | [**UpdateFile?**](UpdateFile?.md) | File | [optional]  |
+| **fileId** | **int** | The file ID to update. |  |
+| **updateFile** | [**UpdateFile?**](UpdateFile?.md) | The parameters for updating a file. | [optional]  |
 
 ### Return type
 

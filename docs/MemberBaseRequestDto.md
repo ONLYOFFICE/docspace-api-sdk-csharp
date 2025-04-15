@@ -1,13 +1,13 @@
 # Docspace.Model.MemberBaseRequestDto
-Request parameters for setting new password
+The request parameters for the user generic information.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Password** | **string** | Password | [optional] 
-**PasswordHash** | **string** | Password hash | [optional] 
-**Email** | **string** | Email | [optional] 
+**Password** | **string** | The user password. | [optional] 
+**PasswordHash** | **string** | The user password hash. | [optional] 
+**Email** | **string** | The user email address. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

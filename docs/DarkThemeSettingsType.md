@@ -1,5 +1,5 @@
 # Docspace.Model.DarkThemeSettingsType
-[0 - Base, 1 - Dark, 2 - System]
+The theme type.
 
 ## Properties
 

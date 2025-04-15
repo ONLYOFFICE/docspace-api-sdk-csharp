@@ -1,17 +1,17 @@
 # Docspace.Api.SettingsWebhooksApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateWebhook**](SettingsWebhooksApi.md#createwebhook) | **POST** /api/2.0/settings/webhook | Create a webhook |
-| [**DisableWebHook**](SettingsWebhooksApi.md#disablewebhook) | **PUT** /api/2.0/settings/webhook/{id} | Disable a webhook |
+| [**EnableWebhook**](SettingsWebhooksApi.md#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Enable a webhook |
 | [**GetJournal**](SettingsWebhooksApi.md#getjournal) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
 | [**GetTenantWebhooks**](SettingsWebhooksApi.md#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get webhooks |
 | [**RemoveWebhook**](SettingsWebhooksApi.md#removewebhook) | **DELETE** /api/2.0/settings/webhook/{id} | Remove a webhook |
 | [**RetryWebhook**](SettingsWebhooksApi.md#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook |
 | [**RetryWebhooks**](SettingsWebhooksApi.md#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhooks |
-| [**Settings**](SettingsWebhooksApi.md#settings) | **GET** /api/2.0/settings/webhooks | Get webhook settings |
+| [**Triggers**](SettingsWebhooksApi.md#triggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
 | [**UpdateWebhook**](SettingsWebhooksApi.md#updatewebhook) | **PUT** /api/2.0/settings/webhook | Update a webhook |
 
 <a id="createwebhook"></a>
@@ -38,11 +38,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -99,7 +108,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -115,13 +124,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="disablewebhook"></a>
-# **DisableWebHook**
-> WebhookWrapper DisableWebHook (int id)
+<a id="enablewebhook"></a>
+# **EnableWebhook**
+> WebhooksConfigWrapper EnableWebhook (WebhooksConfigRequestsDto? webhooksConfigRequestsDto = null)
 
-Disable a webhook
+Enable a webhook
 
-Disables a webhook with the ID specified in the request.
+Enables or disables a tenant webhook with the parameters specified in the request.
 
 ### Example
 ```csharp
@@ -134,32 +143,41 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class DisableWebHookExample
+    public class EnableWebhookExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | Id
+            var webhooksConfigRequestsDto = new WebhooksConfigRequestsDto?(); // WebhooksConfigRequestsDto? |  (optional) 
 
             try
             {
-                // Disable a webhook
-                WebhookWrapper result = apiInstance.DisableWebHook(id);
+                // Enable a webhook
+                WebhooksConfigWrapper result = apiInstance.EnableWebhook(webhooksConfigRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.DisableWebHook: " + e.Message);
+                Debug.Print("Exception when calling SettingsWebhooksApi.EnableWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -168,21 +186,21 @@ namespace Example
 }
 ```
 
-#### Using the DisableWebHookWithHttpInfo variant
+#### Using the EnableWebhookWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Disable a webhook
-    ApiResponse<WebhookWrapper> response = apiInstance.DisableWebHookWithHttpInfo(id);
+    // Enable a webhook
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.EnableWebhookWithHttpInfo(webhooksConfigRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.DisableWebHookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsWebhooksApi.EnableWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -192,33 +210,33 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Id |  |
+| **webhooksConfigRequestsDto** | [**WebhooksConfigRequestsDto?**](WebhooksConfigRequestsDto?.md) |  | [optional]  |
 
 ### Return type
 
-[**WebhookWrapper**](WebhookWrapper.md)
+[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Webhook settings |  -  |
+| **200** | Enable or disable tenant webhook |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="getjournal"></a>
 # **GetJournal**
-> WebhooksLogArrayWrapper GetJournal (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? webhookId = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null)
+> WebhooksLogArrayWrapper GetJournal (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null)
 
 Get webhook logs
 
@@ -240,28 +258,38 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | Delivey start time (optional) 
-            var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | Delivey end time (optional) 
-            var hookUri = some text;  // string? | Hook URI (optional) 
-            var webhookId = 1234;  // int? | Webhook ID (optional) 
-            var configId = 1234;  // int? | Config ID (optional) 
-            var eventId = 1234;  // int? | Event ID (optional) 
-            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | Webhook group status (optional) 
+            var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
+            var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
+            var hookUri = some text;  // string? | The destination URL where webhooks are delivered. (optional) 
+            var configId = 1234;  // int? | The webhook configuration identifier. (optional) 
+            var eventId = 1234;  // int? | The unique identifier of the event that triggered the webhook. (optional) 
+            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
+            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
+            var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
 
             try
             {
                 // Get webhook logs
-                WebhooksLogArrayWrapper result = apiInstance.GetJournal(deliveryFrom, deliveryTo, hookUri, webhookId, configId, eventId, groupStatus);
+                WebhooksLogArrayWrapper result = apiInstance.GetJournal(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -282,7 +310,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get webhook logs
-    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetJournalWithHttpInfo(deliveryFrom, deliveryTo, hookUri, webhookId, configId, eventId, groupStatus);
+    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetJournalWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -299,13 +327,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **deliveryFrom** | **DateTime?** | Delivey start time | [optional]  |
-| **deliveryTo** | **DateTime?** | Delivey end time | [optional]  |
-| **hookUri** | **string?** | Hook URI | [optional]  |
-| **webhookId** | **int?** | Webhook ID | [optional]  |
-| **configId** | **int?** | Config ID | [optional]  |
-| **eventId** | **int?** | Event ID | [optional]  |
-| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | Webhook group status | [optional]  |
+| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
+| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
+| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
+| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
+| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
+| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | The status of the webhook delivery group. | [optional]  |
+| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
+| **trigger** | [**WebhookTrigger?**](WebhookTrigger?.md) | The type of event that triggered the webhook. | [optional]  |
 
 ### Return type
 
@@ -313,7 +342,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -353,11 +382,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -409,7 +447,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -431,7 +469,7 @@ This endpoint does not need any parameter.
 
 Remove a webhook
 
-Removes the tenant webhook with the ID specified in the request.
+Removes a tenant webhook with the ID specified in the request.
 
 ### Example
 ```csharp
@@ -449,17 +487,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | Id
+            var id = 9846;  // int | The ID extracted from the route parameters.
 
             try
             {
@@ -502,7 +549,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Id |  |
+| **id** | **int** | The ID extracted from the route parameters. |  |
 
 ### Return type
 
@@ -510,7 +557,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -550,17 +597,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | Id
+            var id = 9846;  // int | The ID extracted from the route parameters.
 
             try
             {
@@ -603,7 +659,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Id |  |
+| **id** | **int** | The ID extracted from the route parameters. |  |
 
 ### Return type
 
@@ -611,7 +667,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -653,11 +709,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -714,7 +779,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -730,13 +795,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="settings"></a>
-# **Settings**
-> WebhookArrayWrapper Settings ()
+<a id="triggers"></a>
+# **Triggers**
+> UnknownWrapper Triggers ()
 
-Get webhook settings
+Get webhook triggers
 
-Returns settings of all webhooks.
+Returns a list of triggers for a webhook.
 
 ### Example
 ```csharp
@@ -749,16 +814,25 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SettingsExample
+    public class TriggersExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -767,13 +841,13 @@ namespace Example
 
             try
             {
-                // Get webhook settings
-                WebhookArrayWrapper result = apiInstance.Settings();
+                // Get webhook triggers
+                UnknownWrapper result = apiInstance.Triggers();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.Settings: " + e.Message);
+                Debug.Print("Exception when calling SettingsWebhooksApi.Triggers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -782,21 +856,21 @@ namespace Example
 }
 ```
 
-#### Using the SettingsWithHttpInfo variant
+#### Using the TriggersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get webhook settings
-    ApiResponse<WebhookArrayWrapper> response = apiInstance.SettingsWithHttpInfo();
+    // Get webhook triggers
+    ApiResponse<UnknownWrapper> response = apiInstance.TriggersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.SettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsWebhooksApi.TriggersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -806,11 +880,11 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**WebhookArrayWrapper**](WebhookArrayWrapper.md)
+[**UnknownWrapper**](UnknownWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -821,7 +895,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of webhook settings |  -  |
+| **200** | List of triggers for a webhook |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -832,7 +906,7 @@ This endpoint does not need any parameter.
 
 Update a webhook
 
-Updates the tenant webhook with the parameters specified in the request.
+Updates a tenant webhook with the parameters specified in the request.
 
 ### Example
 ```csharp
@@ -850,11 +924,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -911,7 +994,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

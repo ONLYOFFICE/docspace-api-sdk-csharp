@@ -1,4 +1,5 @@
 # Docspace.Model.CultureSpecificExternalResources
+The external resources settings.
 
 ## Properties
 
