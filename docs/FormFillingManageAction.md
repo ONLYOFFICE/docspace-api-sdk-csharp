@@ -1,5 +1,5 @@
 # Docspace.Model.FormFillingManageAction
-The action to perform on the form.
+[0 - Stop, 1 - Resume]
 
 ## Properties
 

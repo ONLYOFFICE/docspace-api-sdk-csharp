@@ -1,5 +1,5 @@
 # Docspace.Model.Payments
-The user payment status.
+[0 - Paid, 1 - Free]
 
 ## Properties
 

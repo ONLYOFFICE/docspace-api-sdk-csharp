@@ -1,5 +1,5 @@
 # Docspace.Model.WatermarkAdditions
-The watermark additions.
+[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current date, 16 - Room name]
 
 ## Properties
 

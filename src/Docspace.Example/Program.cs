@@ -12,7 +12,7 @@ public class Program
         };
         var authSettings = new AuthRequestsDto
         {
-            UserName = "example@onluoffice.com",
+            UserName = "example@onlyoffice.com",
             Password = "11111111"
         };
         var apiInstance = new AuthenticationApi(config);

@@ -1,5 +1,5 @@
 # Docspace.Model.TfaRequestsDtoType
-The two-factor authentication type.
+[0 - None, 1 - Sms, 2 - App]
 
 ## Properties
 

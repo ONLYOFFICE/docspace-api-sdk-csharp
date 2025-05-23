@@ -1,5 +1,5 @@
 # Docspace.Model.LinkType
-Defines the types of the sharing links.
+[0 - Invitation, 1 - External]
 
 ## Properties
 

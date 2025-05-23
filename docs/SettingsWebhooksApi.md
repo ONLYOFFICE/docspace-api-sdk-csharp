@@ -16,7 +16,7 @@ All URIs are relative to *http://http:*
 
 <a id="createwebhook"></a>
 # **CreateWebhook**
-> WebhooksConfigWrapper CreateWebhook (WebhooksConfigRequestsDto? webhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper CreateWebhook (CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = null)
 
 Create a webhook
 
@@ -44,8 +44,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -57,12 +59,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var webhooksConfigRequestsDto = new WebhooksConfigRequestsDto?(); // WebhooksConfigRequestsDto? |  (optional) 
+            var createWebhooksConfigRequestsDto = new CreateWebhooksConfigRequestsDto?(); // CreateWebhooksConfigRequestsDto? |  (optional) 
 
             try
             {
                 // Create a webhook
-                WebhooksConfigWrapper result = apiInstance.CreateWebhook(webhooksConfigRequestsDto);
+                WebhooksConfigWrapper result = apiInstance.CreateWebhook(createWebhooksConfigRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -83,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.CreateWebhookWithHttpInfo(webhooksConfigRequestsDto);
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.CreateWebhookWithHttpInfo(createWebhooksConfigRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -100,7 +102,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhooksConfigRequestsDto** | [**WebhooksConfigRequestsDto?**](WebhooksConfigRequestsDto?.md) |  | [optional]  |
+| **createWebhooksConfigRequestsDto** | [**CreateWebhooksConfigRequestsDto?**](CreateWebhooksConfigRequestsDto?.md) |  | [optional]  |
 
 ### Return type
 
@@ -126,7 +128,7 @@ catch (ApiException e)
 
 <a id="enablewebhook"></a>
 # **EnableWebhook**
-> WebhooksConfigWrapper EnableWebhook (WebhooksConfigRequestsDto? webhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper EnableWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
 
 Enable a webhook
 
@@ -154,8 +156,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -167,12 +171,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var webhooksConfigRequestsDto = new WebhooksConfigRequestsDto?(); // WebhooksConfigRequestsDto? |  (optional) 
+            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? |  (optional) 
 
             try
             {
                 // Enable a webhook
-                WebhooksConfigWrapper result = apiInstance.EnableWebhook(webhooksConfigRequestsDto);
+                WebhooksConfigWrapper result = apiInstance.EnableWebhook(updateWebhooksConfigRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -193,7 +197,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Enable a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.EnableWebhookWithHttpInfo(webhooksConfigRequestsDto);
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.EnableWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -210,7 +214,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhooksConfigRequestsDto** | [**WebhooksConfigRequestsDto?**](WebhooksConfigRequestsDto?.md) |  | [optional]  |
+| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto?.md) |  | [optional]  |
 
 ### Return type
 
@@ -264,8 +268,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -388,8 +394,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -493,8 +501,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -603,8 +613,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -715,8 +727,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -825,8 +839,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -902,7 +918,7 @@ This endpoint does not need any parameter.
 
 <a id="updatewebhook"></a>
 # **UpdateWebhook**
-> WebhooksConfigWrapper UpdateWebhook (WebhooksConfigRequestsDto? webhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper UpdateWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
 
 Update a webhook
 
@@ -930,8 +946,10 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -943,12 +961,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var webhooksConfigRequestsDto = new WebhooksConfigRequestsDto?(); // WebhooksConfigRequestsDto? |  (optional) 
+            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? |  (optional) 
 
             try
             {
                 // Update a webhook
-                WebhooksConfigWrapper result = apiInstance.UpdateWebhook(webhooksConfigRequestsDto);
+                WebhooksConfigWrapper result = apiInstance.UpdateWebhook(updateWebhooksConfigRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -969,7 +987,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.UpdateWebhookWithHttpInfo(webhooksConfigRequestsDto);
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -986,7 +1004,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhooksConfigRequestsDto** | [**WebhooksConfigRequestsDto?**](WebhooksConfigRequestsDto?.md) |  | [optional]  |
+| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto?.md) |  | [optional]  |
 
 ### Return type
 

@@ -1,5 +1,5 @@
 # Docspace.Model.DateToAutoCleanUp
-The period when the trash bin will be cleared.
+[1 - One week, 2 - Two weeks, 3 - One month, 4 - Thirty days, 5 - Two months, 6 - Three months]
 
 ## Properties
 

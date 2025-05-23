@@ -1,5 +1,5 @@
 # Docspace.Model.RoomDataLifetimePeriod
-The room data lifetime period.
+[0 - Day, 1 - Month, 2 - Year]
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # Docspace.Model.RoomType
-The room type.
+[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI room]
 
 ## Properties
 

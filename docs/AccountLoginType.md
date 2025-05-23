@@ -1,5 +1,5 @@
 # Docspace.Model.AccountLoginType
-The account login type.
+[0 - SSO, 1 - LDAP, 2 - Standart]
 
 ## Properties
 
