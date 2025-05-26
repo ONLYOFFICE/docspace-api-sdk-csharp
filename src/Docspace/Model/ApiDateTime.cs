@@ -30,6 +30,7 @@ namespace Docspace.Model
     /// The API date and time parameters.
     /// </summary>
     [DataContract(Name = "ApiDateTime")]
+    [JsonConverter(typeof(ApiDateTimeConverter))]
     public partial class ApiDateTime : IValidatableObject
     {
         /// <summary>
@@ -48,7 +49,7 @@ namespace Docspace.Model
         <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "utcTime", EmitDefaultValue = false)]
-        public DateTime UtcTime { get; private set; }
+        public DateTime UtcTime { get; set; }
 
         /// <summary>
         /// Returns false as UtcTime should not be serialized given that it's read-only.
@@ -66,7 +67,7 @@ namespace Docspace.Model
         <example>00:00:00</example>
         */
         [DataMember(Name = "timeZoneOffset", EmitDefaultValue = false)]
-        public string TimeZoneOffset { get; private set; }
+        public string TimeZoneOffset { get; set; }
 
         /// <summary>
         /// Returns false as TimeZoneOffset should not be serialized given that it's read-only.
@@ -107,6 +108,33 @@ namespace Docspace.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
+        }
+    }
+
+    public class ApiDateTimeConverter : JsonConverter<ApiDateTime>
+    {
+        public override ApiDateTime ReadJson(JsonReader reader, Type objectType, ApiDateTime existingValue, bool hasExistingValue, Newtonsoft.Json.JsonSerializer serializer)
+        {
+            var jsonString = reader.Value.ToString();
+
+            if (DateTimeOffset.TryParse(jsonString, out var dateTimeOffset))
+            {
+                return new ApiDateTime
+                {
+                    UtcTime = dateTimeOffset.UtcDateTime,
+                    TimeZoneOffset = dateTimeOffset.Offset.ToString()
+                };
+            }
+            else
+            {
+                throw new JsonSerializationException($"Unable to parse datetime: {jsonString}");
+            }
+        }
+
+        public override void WriteJson(JsonWriter writer, ApiDateTime value, Newtonsoft.Json.JsonSerializer serializer)
+        {
+            var dateTimeOffset = new DateTimeOffset((DateTime)value.UtcTime, TimeSpan.Parse(value.TimeZoneOffset));
+            writer.WriteValue(dateTimeOffset.ToString("o"));
         }
     }
 
