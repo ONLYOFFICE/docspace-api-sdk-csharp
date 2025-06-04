@@ -54,25 +54,25 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test ChangeTheme
+        /// Test ChangePortalTheme
         /// </summary>
         [Fact]
-        public void ChangeThemeTest()
+        public void ChangePortalThemeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null;
-            //var response = instance.ChangeTheme(darkThemeSettingsRequestDto);
+            //var response = instance.ChangePortalTheme(darkThemeSettingsRequestDto);
             //Assert.IsType<DarkThemeSettingsWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetTheme
+        /// Test GetPortalTheme
         /// </summary>
         [Fact]
-        public void GetThemeTest()
+        public void GetPortalThemeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTheme();
+            //var response = instance.GetPortalTheme();
             //Assert.IsType<DarkThemeSettingsWrapper>(response);
         }
     }

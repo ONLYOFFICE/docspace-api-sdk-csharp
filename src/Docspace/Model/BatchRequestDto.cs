@@ -41,6 +41,7 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchRequestDto" /> class.
         /// </summary>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs to be copied/moved..</param>
         /// <param name="fileIds">The list of file IDs to be copied/moved..</param>
         /// <param name="destFolderId">destFolderId.</param>
@@ -48,8 +49,9 @@ namespace Docspace.Model
         /// <param name="deleteAfter">Specifies whether to delete the source files/folders after they are moved or copied to the destination folder..</param>
         /// <param name="content">Specifies whether to copy or move the folder content or not..</param>
         /// <param name="toFillOut">Specifies whether the file is copied for filling out.</param>
-        public BatchRequestDto(List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>), BatchRequestDtoDestFolderId destFolderId = default(BatchRequestDtoDestFolderId), FileConflictResolveType? conflictResolveType = default(FileConflictResolveType?), bool deleteAfter = default(bool), bool content = default(bool), bool toFillOut = default(bool))
+        public BatchRequestDto(bool returnSingleOperation = default(bool), List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>), BatchRequestDtoDestFolderId destFolderId = default(BatchRequestDtoDestFolderId), FileConflictResolveType? conflictResolveType = default(FileConflictResolveType?), bool deleteAfter = default(bool), bool content = default(bool), bool toFillOut = default(bool))
         {
+            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
             this.DestFolderId = destFolderId;
@@ -58,6 +60,16 @@ namespace Docspace.Model
             this.Content = content;
             this.ToFillOut = toFillOut;
         }
+
+        /// <summary>
+        /// Specifies whether to return only the current operation
+        /// </summary>
+        /// <value>Specifies whether to return only the current operation</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
+        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// The list of folder IDs to be copied/moved.
@@ -117,6 +129,7 @@ namespace Docspace.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BatchRequestDto {\n");
+            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("  DestFolderId: ").Append(DestFolderId).Append("\n");

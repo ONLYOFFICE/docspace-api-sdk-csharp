@@ -4,12 +4,12 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**Csp**](SecurityCSPApi.md#csp) | **POST** /api/2.0/security/csp | Configure CSP settings |
-| [**GetCsp**](SecurityCSPApi.md#getcsp) | **GET** /api/2.0/security/csp | Get CSP settings |
+| [**ConfigureCsp**](SecurityCSPApi.md#configurecsp) | **POST** /api/2.0/security/csp | Configure CSP settings |
+| [**GetCspSettings**](SecurityCSPApi.md#getcspsettings) | **GET** /api/2.0/security/csp | Get CSP settings |
 
-<a id="csp"></a>
-# **Csp**
-> CspWrapper Csp (CspRequestsDto? cspRequestsDto = null)
+<a id="configurecsp"></a>
+# **ConfigureCsp**
+> CspWrapper ConfigureCsp (CspRequestsDto? cspRequestsDto = null)
 
 Configure CSP settings
 
@@ -26,7 +26,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class CspExample
+    public class ConfigureCspExample
     {
         public static void Main()
         {
@@ -57,12 +57,12 @@ namespace Example
             try
             {
                 // Configure CSP settings
-                CspWrapper result = apiInstance.Csp(cspRequestsDto);
+                CspWrapper result = apiInstance.ConfigureCsp(cspRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityCSPApi.Csp: " + e.Message);
+                Debug.Print("Exception when calling SecurityCSPApi.ConfigureCsp: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -71,21 +71,21 @@ namespace Example
 }
 ```
 
-#### Using the CspWithHttpInfo variant
+#### Using the ConfigureCspWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Configure CSP settings
-    ApiResponse<CspWrapper> response = apiInstance.CspWithHttpInfo(cspRequestsDto);
+    ApiResponse<CspWrapper> response = apiInstance.ConfigureCspWithHttpInfo(cspRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityCSPApi.CspWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityCSPApi.ConfigureCspWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -120,9 +120,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getcsp"></a>
-# **GetCsp**
-> CspWrapper GetCsp ()
+<a id="getcspsettings"></a>
+# **GetCspSettings**
+> CspWrapper GetCspSettings ()
 
 Get CSP settings
 
@@ -139,7 +139,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetCspExample
+    public class GetCspSettingsExample
     {
         public static void Main()
         {
@@ -153,12 +153,12 @@ namespace Example
             try
             {
                 // Get CSP settings
-                CspWrapper result = apiInstance.GetCsp();
+                CspWrapper result = apiInstance.GetCspSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityCSPApi.GetCsp: " + e.Message);
+                Debug.Print("Exception when calling SecurityCSPApi.GetCspSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -167,21 +167,21 @@ namespace Example
 }
 ```
 
-#### Using the GetCspWithHttpInfo variant
+#### Using the GetCspSettingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get CSP settings
-    ApiResponse<CspWrapper> response = apiInstance.GetCspWithHttpInfo();
+    ApiResponse<CspWrapper> response = apiInstance.GetCspSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityCSPApi.GetCspWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityCSPApi.GetCspSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

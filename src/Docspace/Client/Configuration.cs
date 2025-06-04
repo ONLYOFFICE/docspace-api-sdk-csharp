@@ -118,7 +118,7 @@ namespace Docspace.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
-            BasePath = "http://http:";
+            BasePath = "http://localhost:8092";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -549,7 +549,7 @@ namespace Docspace.Client
             string report = "C# SDK (Docspace) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 3.1.0\n";
+            report += "    Version of the API: 3.2.0\n";
             report += "    SDK Package Version: 1.0.0\n";
 
             return report;

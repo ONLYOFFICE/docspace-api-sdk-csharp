@@ -37,7 +37,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper AddTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
+        FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
 
         /// <summary>
         /// Add the room tags
@@ -49,7 +49,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> AddTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
+        ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
         /// <summary>
         /// Archive a room
         /// </summary>
@@ -162,6 +162,48 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest? logoRequest = default(LogoRequest?));
         /// <summary>
+        /// Create a tag
+        /// </summary>
+        /// <remarks>
+        /// Creates a custom tag with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <returns>ObjectWrapper</returns>
+        ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?));
+
+        /// <summary>
+        /// Create a tag
+        /// </summary>
+        /// <remarks>
+        /// Creates a custom tag with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?));
+        /// <summary>
+        /// Start creating room template
+        /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <returns>RoomTemplateStatusWrapper</returns>
+        RoomTemplateStatusWrapper CreateRoomTemplate(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?));
+
+        /// <summary>
+        /// Start creating room template
+        /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
+        ApiResponse<RoomTemplateStatusWrapper> CreateRoomTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?));
+        /// <summary>
         /// Create a third-party room
         /// </summary>
         /// <remarks>
@@ -184,48 +226,6 @@ namespace Docspace.Api
         /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom? createThirdPartyRoom = default(CreateThirdPartyRoom?));
-        /// <summary>
-        /// Create a tag
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom tag with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateTag(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?));
-
-        /// <summary>
-        /// Create a tag
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom tag with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?));
-        /// <summary>
-        /// Start creating room template
-        /// </summary>
-        /// <remarks>
-        /// Starts creating the room template.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <returns>RoomTemplateStatusWrapper</returns>
-        RoomTemplateStatusWrapper CreateTemplate(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?));
-
-        /// <summary>
-        /// Start creating room template
-        /// </summary>
-        /// <remarks>
-        /// Starts creating the room template.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        ApiResponse<RoomTemplateStatusWrapper> CreateTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?));
         /// <summary>
         /// Delete tags
         /// </summary>
@@ -301,7 +301,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper DeleteTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
+        FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
 
         /// <summary>
         /// Remove the room tags
@@ -313,26 +313,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> DeleteTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
-        /// <summary>
-        /// Get covers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of all covers.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CoversResultArrayWrapper</returns>
-        CoversResultArrayWrapper GetCovers();
-
-        /// <summary>
-        /// Get covers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of all covers.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
-        ApiResponse<CoversResultArrayWrapper> GetCoversWithHttpInfo();
+        ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?));
         /// <summary>
         /// Get the new room items
         /// </summary>
@@ -354,6 +335,46 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <returns>ApiResponse of NewItemsFileEntryArrayWrapper</returns>
         ApiResponse<NewItemsFileEntryArrayWrapper> GetNewRoomItemsWithHttpInfo(int id);
+        /// <summary>
+        /// Get public settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper GetPublicSettings(int id);
+
+        /// <summary>
+        /// Get public settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id);
+        /// <summary>
+        /// Get covers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CoversResultArrayWrapper</returns>
+        CoversResultArrayWrapper GetRoomCovers();
+
+        /// <summary>
+        /// Get covers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
+        ApiResponse<CoversResultArrayWrapper> GetRoomCoversWithHttpInfo();
         /// <summary>
         /// Get the room creation progress
         /// </summary>
@@ -460,6 +481,44 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default(ShareFilterType?));
         /// <summary>
+        /// Get tags
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of custom tags.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ObjectArrayWrapper</returns>
+        ObjectArrayWrapper GetRoomTagsInfo();
+
+        /// <summary>
+        /// Get tags
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of custom tags.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo();
+        /// <summary>
+        /// Get status of room template creation
+        /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>RoomTemplateStatusWrapper</returns>
+        RoomTemplateStatusWrapper GetRoomTemplateCreatingStatus();
+
+        /// <summary>
+        /// Get status of room template creation
+        /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
+        ApiResponse<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusWithHttpInfo();
+        /// <summary>
         /// Get rooms
         /// </summary>
         /// <remarks>
@@ -539,65 +598,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id);
         /// <summary>
-        /// Get tags
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of custom tags.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetTagsInfo();
-
-        /// <summary>
-        /// Get tags
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of custom tags.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetTagsInfoWithHttpInfo();
-        /// <summary>
-        /// Get status of room template creation
-        /// </summary>
-        /// <remarks>
-        /// Returns the progress status of the room template creation process.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>RoomTemplateStatusWrapper</returns>
-        RoomTemplateStatusWrapper GetTemplateCreatingStatus();
-
-        /// <summary>
-        /// Get status of room template creation
-        /// </summary>
-        /// <remarks>
-        /// Returns the progress status of the room template creation process.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        ApiResponse<RoomTemplateStatusWrapper> GetTemplateCreatingStatusWithHttpInfo();
-        /// <summary>
-        /// Get public settings
-        /// </summary>
-        /// <remarks>
-        /// Returns the public settings of the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <returns>BooleanWrapper</returns>
-        BooleanWrapper IsPublic(int id);
-
-        /// <summary>
-        /// Get public settings
-        /// </summary>
-        /// <remarks>
-        /// Returns the public settings of the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> IsPublicWithHttpInfo(int id);
-        /// <summary>
         /// Pin a room
         /// </summary>
         /// <remarks>
@@ -627,7 +627,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID of the request.</param>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper Reorder(int id);
+        FolderIntegerWrapper ReorderRoom(int id);
 
         /// <summary>
         /// Reorder the room
@@ -638,7 +638,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID of the request.</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> ReorderWithHttpInfo(int id);
+        ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id);
         /// <summary>
         /// Resend the room invitations
         /// </summary>
@@ -663,6 +663,27 @@ namespace Docspace.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation? userInvitation = default(UserInvitation?));
         /// <summary>
+        /// Set public settings
+        /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <returns></returns>
+        void SetPublicSettings(SetPublicDto? setPublicDto = default(SetPublicDto?));
+
+        /// <summary>
+        /// Set public settings
+        /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SetPublicSettingsWithHttpInfo(SetPublicDto? setPublicDto = default(SetPublicDto?));
+        /// <summary>
         /// Set the room external or invitation link
         /// </summary>
         /// <remarks>
@@ -672,7 +693,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper SetLink(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?));
+        FileShareWrapper SetRoomLink(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?));
 
         /// <summary>
         /// Set the room external or invitation link
@@ -684,28 +705,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> SetLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?));
-        /// <summary>
-        /// Set public settings
-        /// </summary>
-        /// <remarks>
-        /// Sets the public settings for the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <returns></returns>
-        void SetPublic(SetPublicDto? setPublicDto = default(SetPublicDto?));
-
-        /// <summary>
-        /// Set public settings
-        /// </summary>
-        /// <remarks>
-        /// Sets the public settings for the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetPublicWithHttpInfo(SetPublicDto? setPublicDto = default(SetPublicDto?));
+        ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?));
         /// <summary>
         /// Set the room access rights
         /// </summary>
@@ -877,7 +877,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> AddTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderIntegerWrapper> AddRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add the room tags
@@ -890,7 +890,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> AddTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> AddRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Archive a room
         /// </summary>
@@ -1013,6 +1013,52 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest? logoRequest = default(LogoRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Create a tag
+        /// </summary>
+        /// <remarks>
+        /// Creates a custom tag with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        System.Threading.Tasks.Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create a tag
+        /// </summary>
+        /// <remarks>
+        /// Creates a custom tag with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Start creating room template
+        /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of RoomTemplateStatusWrapper</returns>
+        System.Threading.Tasks.Task<RoomTemplateStatusWrapper> CreateRoomTemplateAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Start creating room template
+        /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> CreateRoomTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Create a third-party room
         /// </summary>
         /// <remarks>
@@ -1037,52 +1083,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default(CreateThirdPartyRoom?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Create a tag
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom tag with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> CreateTagAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Create a tag
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom tag with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> CreateTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Start creating room template
-        /// </summary>
-        /// <remarks>
-        /// Starts creating the room template.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RoomTemplateStatusWrapper</returns>
-        System.Threading.Tasks.Task<RoomTemplateStatusWrapper> CreateTemplateAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Start creating room template
-        /// </summary>
-        /// <remarks>
-        /// Starts creating the room template.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> CreateTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete tags
         /// </summary>
@@ -1165,7 +1165,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove the room tags
@@ -1178,28 +1178,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> DeleteTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get covers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of all covers.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CoversResultArrayWrapper</returns>
-        System.Threading.Tasks.Task<CoversResultArrayWrapper> GetCoversAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get covers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of all covers.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CoversResultArrayWrapper>> GetCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the new room items
         /// </summary>
@@ -1223,6 +1202,50 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemsFileEntryArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<NewItemsFileEntryArrayWrapper>> GetNewRoomItemsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get public settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        System.Threading.Tasks.Task<BooleanWrapper> GetPublicSettingsAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get public settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get covers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CoversResultArrayWrapper</returns>
+        System.Threading.Tasks.Task<CoversResultArrayWrapper> GetRoomCoversAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get covers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CoversResultArrayWrapper>> GetRoomCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the room creation progress
         /// </summary>
@@ -1339,6 +1362,48 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get tags
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of custom tags.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get tags
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of custom tags.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get status of room template creation
+        /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of RoomTemplateStatusWrapper</returns>
+        System.Threading.Tasks.Task<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get status of room template creation
+        /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> GetRoomTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get rooms
         /// </summary>
         /// <remarks>
@@ -1424,71 +1489,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetRoomsPrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get tags
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of custom tags.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        System.Threading.Tasks.Task<ObjectArrayWrapper> GetTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get tags
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of custom tags.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get status of room template creation
-        /// </summary>
-        /// <remarks>
-        /// Returns the progress status of the room template creation process.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RoomTemplateStatusWrapper</returns>
-        System.Threading.Tasks.Task<RoomTemplateStatusWrapper> GetTemplateCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get status of room template creation
-        /// </summary>
-        /// <remarks>
-        /// Returns the progress status of the room template creation process.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> GetTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get public settings
-        /// </summary>
-        /// <remarks>
-        /// Returns the public settings of the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> IsPublicAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get public settings
-        /// </summary>
-        /// <remarks>
-        /// Returns the public settings of the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> IsPublicWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Pin a room
         /// </summary>
         /// <remarks>
@@ -1521,7 +1521,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> ReorderAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderIntegerWrapper> ReorderRoomAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Reorder the room
@@ -1533,7 +1533,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> ReorderWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> ReorderRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Resend the room invitations
         /// </summary>
@@ -1560,6 +1560,29 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation? userInvitation = default(UserInvitation?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Set public settings
+        /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SetPublicSettingsAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Set public settings
+        /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SetPublicSettingsWithHttpInfoAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Set the room external or invitation link
         /// </summary>
         /// <remarks>
@@ -1570,7 +1593,7 @@ namespace Docspace.Api
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareWrapper</returns>
-        System.Threading.Tasks.Task<FileShareWrapper> SetLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Set the room external or invitation link
@@ -1583,30 +1606,7 @@ namespace Docspace.Api
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> SetLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Set public settings
-        /// </summary>
-        /// <remarks>
-        /// Sets the public settings for the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SetPublicAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Set public settings
-        /// </summary>
-        /// <remarks>
-        /// Sets the public settings for the room template with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SetPublicWithHttpInfoAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Set the room access rights
         /// </summary>
@@ -1992,9 +1992,9 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper AddTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
+        public FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = AddTagsWithHttpInfo(id, batchTagsRequestDto);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = AddRoomTagsWithHttpInfo(id, batchTagsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2005,7 +2005,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> AddTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
+        public Docspace.Client.ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2063,7 +2063,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddTags", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2078,9 +2078,9 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> AddTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderIntegerWrapper> AddRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await AddTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await AddRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2092,7 +2092,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> AddTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> AddRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2153,7 +2153,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddTags", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3024,6 +3024,344 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Create a tag Creates a custom tag with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <returns>ObjectWrapper</returns>
+        public ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?))
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = CreateRoomTagWithHttpInfo(createTagRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a tag Creates a custom tag with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        public Docspace.Client.ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createTagRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a tag Creates a custom tag with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        public async System.Threading.Tasks.Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await CreateRoomTagWithHttpInfoAsync(createTagRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a tag Creates a custom tag with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTagRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createTagRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start creating room template Starts creating the room template.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <returns>RoomTemplateStatusWrapper</returns>
+        public RoomTemplateStatusWrapper CreateRoomTemplate(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?))
+        {
+            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = CreateRoomTemplateWithHttpInfo(roomTemplateDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start creating room template Starts creating the room template.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
+        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> CreateRoomTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = roomTemplateDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start creating room template Starts creating the room template.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of RoomTemplateStatusWrapper</returns>
+        public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> CreateRoomTemplateAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await CreateRoomTemplateWithHttpInfoAsync(roomTemplateDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start creating room template Starts creating the room template.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomTemplateDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> CreateRoomTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = roomTemplateDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create a third-party room Creates a room in the \&quot;Rooms\&quot; section stored in a third-party storage.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3200,344 +3538,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateRoomThirdParty", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a tag Creates a custom tag with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateTag(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?))
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = CreateTagWithHttpInfo(createTagRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a tag Creates a custom tag with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> CreateTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = createTagRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateTag", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a tag Creates a custom tag with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> CreateTagAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await CreateTagWithHttpInfoAsync(createTagRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a tag Creates a custom tag with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTagRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> CreateTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default(CreateTagRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = createTagRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateTag", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Start creating room template Starts creating the room template.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <returns>RoomTemplateStatusWrapper</returns>
-        public RoomTemplateStatusWrapper CreateTemplate(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?))
-        {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = CreateTemplateWithHttpInfo(roomTemplateDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Start creating room template Starts creating the room template.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> CreateTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = roomTemplateDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Start creating room template Starts creating the room template.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RoomTemplateStatusWrapper</returns>
-        public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> CreateTemplateAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await CreateTemplateWithHttpInfoAsync(roomTemplateDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Start creating room template Starts creating the room template.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomTemplateDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> CreateTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default(RoomTemplateDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = roomTemplateDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateTemplate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4058,9 +4058,9 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper DeleteTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
+        public FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = DeleteTagsWithHttpInfo(id, batchTagsRequestDto);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = DeleteRoomTagsWithHttpInfo(id, batchTagsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4071,7 +4071,7 @@ namespace Docspace.Api
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> DeleteTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
+        public Docspace.Client.ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -4129,7 +4129,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTags", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4144,9 +4144,9 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4158,7 +4158,7 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> DeleteTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default(BatchTagsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -4219,168 +4219,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTags", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get covers Returns a list of all covers.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CoversResultArrayWrapper</returns>
-        public CoversResultArrayWrapper GetCovers()
-        {
-            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = GetCoversWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get covers Returns a list of all covers.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<CoversResultArrayWrapper> GetCoversWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CoversResultArrayWrapper>("/api/2.0/files/rooms/covers", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCovers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get covers Returns a list of all covers.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CoversResultArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<CoversResultArrayWrapper> GetCoversAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = await GetCoversWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get covers Returns a list of all covers.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CoversResultArrayWrapper>> GetCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CoversResultArrayWrapper>("/api/2.0/files/rooms/covers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCovers", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4548,6 +4387,334 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewRoomItems", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper GetPublicSettings(int id)
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = GetPublicSettingsWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public Docspace.Client.ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<BooleanWrapper>("/api/2.0/files/roomtemplate/{id}/public", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async System.Threading.Tasks.Task<BooleanWrapper> GetPublicSettingsAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await GetPublicSettingsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room template ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/files/roomtemplate/{id}/public", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get covers Returns a list of all covers.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CoversResultArrayWrapper</returns>
+        public CoversResultArrayWrapper GetRoomCovers()
+        {
+            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = GetRoomCoversWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get covers Returns a list of all covers.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<CoversResultArrayWrapper> GetRoomCoversWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CoversResultArrayWrapper>("/api/2.0/files/rooms/covers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get covers Returns a list of all covers.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CoversResultArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<CoversResultArrayWrapper> GetRoomCoversAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = await GetRoomCoversWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get covers Returns a list of all covers.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CoversResultArrayWrapper>> GetRoomCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CoversResultArrayWrapper>("/api/2.0/files/rooms/covers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -5342,6 +5509,328 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Get tags Returns a list of custom tags.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ObjectArrayWrapper</returns>
+        public ObjectArrayWrapper GetRoomTagsInfo()
+        {
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetRoomTagsInfoWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get tags Returns a list of custom tags.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get tags Returns a list of custom tags.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get tags Returns a list of custom tags.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get status of room template creation Returns the progress status of the room template creation process.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>RoomTemplateStatusWrapper</returns>
+        public RoomTemplateStatusWrapper GetRoomTemplateCreatingStatus()
+        {
+            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = GetRoomTemplateCreatingStatusWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get status of room template creation Returns the progress status of the room template creation process.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
+        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate/status", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get status of room template creation Returns the progress status of the room template creation process.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of RoomTemplateStatusWrapper</returns>
+        public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await GetRoomTemplateCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get status of room template creation Returns the progress status of the room template creation process.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> GetRoomTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get rooms Returns the contents of the \&quot;Rooms\&quot; section by the parameters specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5950,495 +6439,6 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Get tags Returns a list of custom tags.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetTagsInfo()
-        {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetTagsInfoWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get tags Returns a list of custom tags.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetTagsInfoWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTagsInfo", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get tags Returns a list of custom tags.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetTagsInfoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get tags Returns a list of custom tags.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTagsInfo", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get status of room template creation Returns the progress status of the room template creation process.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>RoomTemplateStatusWrapper</returns>
-        public RoomTemplateStatusWrapper GetTemplateCreatingStatus()
-        {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = GetTemplateCreatingStatusWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get status of room template creation Returns the progress status of the room template creation process.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> GetTemplateCreatingStatusWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate/status", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplateCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get status of room template creation Returns the progress status of the room template creation process.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RoomTemplateStatusWrapper</returns>
-        public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> GetTemplateCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await GetTemplateCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get status of room template creation Returns the progress status of the room template creation process.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> GetTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplateCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper IsPublic(int id)
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = IsPublicWithHttpInfo(id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> IsPublicWithHttpInfo(int id)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<BooleanWrapper>("/api/2.0/files/roomtemplate/{id}/public", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("IsPublic", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> IsPublicAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await IsPublicWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get public settings Returns the public settings of the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room template ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> IsPublicWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/files/roomtemplate/{id}/public", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("IsPublic", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Pin a room Pins a room with the ID specified in the request to the top of the list.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6611,9 +6611,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID of the request.</param>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper Reorder(int id)
+        public FolderIntegerWrapper ReorderRoom(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = ReorderWithHttpInfo(id);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = ReorderRoomWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -6623,7 +6623,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID of the request.</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> ReorderWithHttpInfo(int id)
+        public Docspace.Client.ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -6679,7 +6679,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Reorder", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -6693,9 +6693,9 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> ReorderAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderIntegerWrapper> ReorderRoomAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await ReorderWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await ReorderRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6706,7 +6706,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> ReorderWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> ReorderRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -6765,7 +6765,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Reorder", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -6944,15 +6944,180 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <returns></returns>
+        public void SetPublicSettings(SetPublicDto? setPublicDto = default(SetPublicDto?))
+        {
+            SetPublicSettingsWithHttpInfo(setPublicDto);
+        }
+
+        /// <summary>
+        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Docspace.Client.ApiResponse<Object> SetPublicSettingsWithHttpInfo(SetPublicDto? setPublicDto = default(SetPublicDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = setPublicDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/api/2.0/files/roomtemplate/public", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SetPublicSettingsAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            await SetPublicSettingsWithHttpInfoAsync(setPublicDto, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPublicDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SetPublicSettingsWithHttpInfoAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = setPublicDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/2.0/files/roomtemplate/public", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Set the room external or invitation link Sets the room external or invitation link with the ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper SetLink(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?))
+        public FileShareWrapper SetRoomLink(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?))
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = SetLinkWithHttpInfo(id, roomLinkRequest);
+            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = SetRoomLinkWithHttpInfo(id, roomLinkRequest);
             return localVarResponse.Data;
         }
 
@@ -6963,7 +7128,7 @@ namespace Docspace.Api
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareWrapper> SetLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?))
+        public Docspace.Client.ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -7021,7 +7186,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetLink", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7036,9 +7201,9 @@ namespace Docspace.Api
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareWrapper> SetLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await SetLinkWithHttpInfoAsync(id, roomLinkRequest, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await SetRoomLinkWithHttpInfoAsync(id, roomLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7050,7 +7215,7 @@ namespace Docspace.Api
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> SetLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default(RoomLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -7111,172 +7276,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetLink", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <returns></returns>
-        public void SetPublic(SetPublicDto? setPublicDto = default(SetPublicDto?))
-        {
-            SetPublicWithHttpInfo(setPublicDto);
-        }
-
-        /// <summary>
-        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> SetPublicWithHttpInfo(SetPublicDto? setPublicDto = default(SetPublicDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = setPublicDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/2.0/files/roomtemplate/public", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetPublic", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SetPublicAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            await SetPublicWithHttpInfoAsync(setPublicDto, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Set public settings Sets the public settings for the room template with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setPublicDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SetPublicWithHttpInfoAsync(SetPublicDto? setPublicDto = default(SetPublicDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = setPublicDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/2.0/files/roomtemplate/public", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetPublic", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

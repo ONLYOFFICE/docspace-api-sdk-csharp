@@ -66,15 +66,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test ChangeHistory
+        /// Test ChangeVersionHistory
         /// </summary>
         [Fact]
-        public void ChangeHistoryTest()
+        public void ChangeVersionHistoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //ChangeHistory? changeHistory = null;
-            //var response = instance.ChangeHistory(fileId, changeHistory);
+            //var response = instance.ChangeVersionHistory(fileId, changeHistory);
             //Assert.IsType<FileIntegerArrayWrapper>(response);
         }
 
@@ -131,14 +131,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test CreateFileMyDocuments
+        /// Test CreateFileInMyDocuments
         /// </summary>
         [Fact]
-        public void CreateFileMyDocumentsTest()
+        public void CreateFileInMyDocumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateFileJsonElement? createFileJsonElement = null;
-            //var response = instance.CreateFileMyDocuments(createFileJsonElement);
+            //var response = instance.CreateFileInMyDocuments(createFileJsonElement);
             //Assert.IsType<FileIntegerWrapper>(response);
         }
 
@@ -156,14 +156,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test CreateHtmlFileInMy
+        /// Test CreateHtmlFileInMyDocuments
         /// </summary>
         [Fact]
-        public void CreateHtmlFileInMyTest()
+        public void CreateHtmlFileInMyDocumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateTextOrHtmlFile? createTextOrHtmlFile = null;
-            //var response = instance.CreateHtmlFileInMy(createTextOrHtmlFile);
+            //var response = instance.CreateHtmlFileInMyDocuments(createTextOrHtmlFile);
             //Assert.IsType<FileIntegerWrapper>(response);
         }
 
@@ -194,14 +194,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test CreateTextFileInMy
+        /// Test CreateTextFileInMyDocuments
         /// </summary>
         [Fact]
-        public void CreateTextFileInMyTest()
+        public void CreateTextFileInMyDocumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateTextOrHtmlFile? createTextOrHtmlFile = null;
-            //var response = instance.CreateTextFileInMy(createTextOrHtmlFile);
+            //var response = instance.CreateTextFileInMyDocuments(createTextOrHtmlFile);
             //Assert.IsType<FileIntegerWrapper>(response);
         }
 
@@ -319,6 +319,18 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetFileLinks
+        /// </summary>
+        [Fact]
+        public void GetFileLinksTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int id = null;
+            //var response = instance.GetFileLinks(id);
+            //Assert.IsType<FileShareArrayWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetFilePrimaryExternalLink
         /// </summary>
         [Fact]
@@ -355,18 +367,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetLinks
-        /// </summary>
-        [Fact]
-        public void GetLinksTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int id = null;
-            //var response = instance.GetLinks(id);
-            //Assert.IsType<FileShareArrayWrapper>(response);
-        }
-
-        /// <summary>
         /// Test GetPresignedFileUri
         /// </summary>
         [Fact]
@@ -388,6 +388,18 @@ namespace Docspace.Test.Api
             //int fileId = null;
             //var response = instance.GetPresignedUri(fileId);
             //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetProtectedFileUsers
+        /// </summary>
+        [Fact]
+        public void GetProtectedFileUsersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int fileId = null;
+            //var response = instance.GetProtectedFileUsers(fileId);
+            //Assert.IsType<MentionWrapperArrayWrapper>(response);
         }
 
         /// <summary>
@@ -440,10 +452,10 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test OpenEdit
+        /// Test OpenEditFile
         /// </summary>
         [Fact]
-        public void OpenEditTest()
+        public void OpenEditFileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
@@ -452,54 +464,29 @@ namespace Docspace.Test.Api
             //EditorType? editorType = null;
             //bool? edit = null;
             //bool? fill = null;
-            //var response = instance.OpenEdit(fileId, version, view, editorType, edit, fill);
+            //var response = instance.OpenEditFile(fileId, version, view, editorType, edit, fill);
             //Assert.IsType<ConfigurationIntegerWrapper>(response);
         }
 
         /// <summary>
-        /// Test ProtectUsers
+        /// Test RestoreFileVersion
         /// </summary>
         [Fact]
-        public void ProtectUsersTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int fileId = null;
-            //var response = instance.ProtectUsers(fileId);
-            //Assert.IsType<MentionWrapperArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test RestoreVersion
-        /// </summary>
-        [Fact]
-        public void RestoreVersionTest()
+        public void RestoreFileVersionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //int? version = null;
             //string? url = null;
-            //var response = instance.RestoreVersion(fileId, version, url);
+            //var response = instance.RestoreFileVersion(fileId, version, url);
             //Assert.IsType<EditHistoryArrayWrapper>(response);
         }
 
         /// <summary>
-        /// Test SaveAsPdf
+        /// Test SaveEditingFileFromForm
         /// </summary>
         [Fact]
-        public void SaveAsPdfTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int id = null;
-            //SaveAsPdfInteger? saveAsPdfInteger = null;
-            //var response = instance.SaveAsPdf(id, saveAsPdfInteger);
-            //Assert.IsType<FileIntegerWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SaveEditingFromForm
-        /// </summary>
-        [Fact]
-        public void SaveEditingFromFormTest()
+        public void SaveEditingFileFromFormTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
@@ -507,7 +494,20 @@ namespace Docspace.Test.Api
             //string? downloadUri = null;
             //FileParameter? file = null;
             //bool? forcesave = null;
-            //var response = instance.SaveEditingFromForm(fileId, fileExtension, downloadUri, file, forcesave);
+            //var response = instance.SaveEditingFileFromForm(fileId, fileExtension, downloadUri, file, forcesave);
+            //Assert.IsType<FileIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SaveFileAsPdf
+        /// </summary>
+        [Fact]
+        public void SaveFileAsPdfTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int id = null;
+            //SaveAsPdfInteger? saveAsPdfInteger = null;
+            //var response = instance.SaveFileAsPdf(id, saveAsPdfInteger);
             //Assert.IsType<FileIntegerWrapper>(response);
         }
 
@@ -551,6 +551,19 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test SetFileOrder
+        /// </summary>
+        [Fact]
+        public void SetFileOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int fileId = null;
+            //OrderRequestDto? orderRequestDto = null;
+            //var response = instance.SetFileOrder(fileId, orderRequestDto);
+            //Assert.IsType<FileIntegerWrapper>(response);
+        }
+
+        /// <summary>
         /// Test SetFilesOrder
         /// </summary>
         [Fact]
@@ -563,40 +576,27 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SetOrderFile
+        /// Test StartEditFile
         /// </summary>
         [Fact]
-        public void SetOrderFileTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int fileId = null;
-            //OrderRequestDto? orderRequestDto = null;
-            //var response = instance.SetOrderFile(fileId, orderRequestDto);
-            //Assert.IsType<FileIntegerWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test StartEdit
-        /// </summary>
-        [Fact]
-        public void StartEditTest()
+        public void StartEditFileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //StartEdit? startEdit = null;
-            //var response = instance.StartEdit(fileId, startEdit);
+            //var response = instance.StartEditFile(fileId, startEdit);
             //Assert.IsType<StringWrapper>(response);
         }
 
         /// <summary>
-        /// Test StartFilling
+        /// Test StartFillingFile
         /// </summary>
         [Fact]
-        public void StartFillingTest()
+        public void StartFillingFileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
-            //var response = instance.StartFilling(fileId);
+            //var response = instance.StartFillingFile(fileId);
             //Assert.IsType<FileIntegerWrapper>(response);
         }
 

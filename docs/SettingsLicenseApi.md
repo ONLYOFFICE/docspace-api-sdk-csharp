@@ -5,8 +5,8 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AcceptLicense**](SettingsLicenseApi.md#acceptlicense) | **POST** /api/2.0/settings/license/accept | Activate a license |
+| [**GetIsLicenseRequired**](SettingsLicenseApi.md#getislicenserequired) | **GET** /api/2.0/settings/license/required | Request a license |
 | [**RefreshLicense**](SettingsLicenseApi.md#refreshlicense) | **GET** /api/2.0/settings/license/refresh | Refresh the license |
-| [**RequestLicense**](SettingsLicenseApi.md#requestlicense) | **GET** /api/2.0/settings/license/required | Request a license |
 | [**UploadLicense**](SettingsLicenseApi.md#uploadlicense) | **POST** /api/2.0/settings/license | Upload a license |
 
 <a id="acceptlicense"></a>
@@ -116,6 +116,96 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getislicenserequired"></a>
+# **GetIsLicenseRequired**
+> BooleanWrapper GetIsLicenseRequired ()
+
+Request a license
+
+Requests a portal license if necessary.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetIsLicenseRequiredExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Request a license
+                BooleanWrapper result = apiInstance.GetIsLicenseRequired();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsLicenseApi.GetIsLicenseRequired: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetIsLicenseRequiredWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Request a license
+    ApiResponse<BooleanWrapper> response = apiInstance.GetIsLicenseRequiredWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsLicenseApi.GetIsLicenseRequiredWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the license is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="refreshlicense"></a>
 # **RefreshLicense**
 > BooleanWrapper RefreshLicense ()
@@ -220,96 +310,6 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
 | **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="requestlicense"></a>
-# **RequestLicense**
-> BooleanWrapper RequestLicense ()
-
-Request a license
-
-Requests a portal license if necessary.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class RequestLicenseExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Request a license
-                BooleanWrapper result = apiInstance.RequestLicense();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsLicenseApi.RequestLicense: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the RequestLicenseWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Request a license
-    ApiResponse<BooleanWrapper> response = apiInstance.RequestLicenseWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsLicenseApi.RequestLicenseWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Boolean value: true if the license is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

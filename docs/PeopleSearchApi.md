@@ -5,12 +5,12 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetAccountsEntriesWithShared**](PeopleSearchApi.md#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
-| [**GetAdvanced**](PeopleSearchApi.md#getadvanced) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
-| [**GetFullByFilter**](PeopleSearchApi.md#getfullbyfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
-| [**GetPeopleSearch**](PeopleSearchApi.md#getpeoplesearch) | **GET** /api/2.0/people/search | Search users (using query parameters) |
 | [**GetSearch**](PeopleSearchApi.md#getsearch) | **GET** /api/2.0/people/@search/{query} | Search users |
 | [**GetSimpleByFilter**](PeopleSearchApi.md#getsimplebyfilter) | **GET** /api/2.0/people/simple/filter | Search users by extended filter |
 | [**GetUsersWithRoomShared**](PeopleSearchApi.md#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
+| [**SearchUsersByExtendedFilter**](PeopleSearchApi.md#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
+| [**SearchUsersByQuery**](PeopleSearchApi.md#searchusersbyquery) | **GET** /api/2.0/people/search | Search users (using query parameters) |
+| [**SearchUsersByStatus**](PeopleSearchApi.md#searchusersbystatus) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
 
 <a id="getaccountsentrieswithshared"></a>
 # **GetAccountsEntriesWithShared**
@@ -138,372 +138,6 @@ catch (ApiException e)
 | **200** | Ok |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getadvanced"></a>
-# **GetAdvanced**
-> EmployeeFullArrayWrapper GetAdvanced (EmployeeStatus status, string? query = null)
-
-Search users by status filter
-
-Returns a list of users matching the status filter and search query.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetAdvancedExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
-            var query = some text;  // string? | The advanced search query. (optional) 
-
-            try
-            {
-                // Search users by status filter
-                EmployeeFullArrayWrapper result = apiInstance.GetAdvanced(status, query);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PeopleSearchApi.GetAdvanced: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetAdvancedWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Search users by status filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAdvancedWithHttpInfo(status, query);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PeopleSearchApi.GetAdvancedWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **status** | **EmployeeStatus** | The user status. |  |
-| **query** | **string?** | The advanced search query. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getfullbyfilter"></a>
-# **GetFullByFilter**
-> EmployeeFullArrayWrapper GetFullByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
-
-Search users with detaailed information by extended filter
-
-Returns a list of users with full information about them matching the parameters specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetFullByFilterExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
-            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
-            var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
-            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
-            var payments = new Payments?(); // Payments? | The user payment status. (optional) 
-            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
-            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
-            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
-            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
-            var area = new Area?(); // Area? | The filter area. (optional) 
-
-            try
-            {
-                // Search users with detaailed information by extended filter
-                EmployeeFullArrayWrapper result = apiInstance.GetFullByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PeopleSearchApi.GetFullByFilter: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetFullByFilterWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Search users with detaailed information by extended filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetFullByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PeopleSearchApi.GetFullByFilterWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
-| **groupId** | **Guid?** | The group ID. | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
-| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
-| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
-| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
-| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
-| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
-| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
-| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
-| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
-| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
-| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getpeoplesearch"></a>
-# **GetPeopleSearch**
-> EmployeeArrayWrapper GetPeopleSearch (string? query = null)
-
-Search users (using query parameters)
-
-Returns a list of users matching the search query. This method uses the query parameters.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetPeopleSearchExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var query = some text;  // string? | The search query. (optional) 
-
-            try
-            {
-                // Search users (using query parameters)
-                EmployeeArrayWrapper result = apiInstance.GetPeopleSearch(query);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PeopleSearchApi.GetPeopleSearch: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetPeopleSearchWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Search users (using query parameters)
-    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetPeopleSearchWithHttpInfo(query);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PeopleSearchApi.GetPeopleSearchWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **query** | **string?** | The search query. | [optional]  |
-
-### Return type
-
-[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of users |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -883,6 +517,372 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="searchusersbyextendedfilter"></a>
+# **SearchUsersByExtendedFilter**
+> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
+
+Search users with detaailed information by extended filter
+
+Returns a list of users with full information about them matching the parameters specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SearchUsersByExtendedFilterExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
+            var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
+            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
+            var payments = new Payments?(); // Payments? | The user payment status. (optional) 
+            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
+            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
+            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
+            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The filter area. (optional) 
+
+            try
+            {
+                // Search users with detaailed information by extended filter
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByExtendedFilter: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchUsersByExtendedFilterWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search users with detaailed information by extended filter
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByExtendedFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
+| **groupId** | **Guid?** | The group ID. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
+| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
+| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
+| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
+| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
+| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
+| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of users with the detailed information |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="searchusersbyquery"></a>
+# **SearchUsersByQuery**
+> EmployeeArrayWrapper SearchUsersByQuery (string? query = null)
+
+Search users (using query parameters)
+
+Returns a list of users matching the search query. This method uses the query parameters.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SearchUsersByQueryExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var query = some text;  // string? | The search query. (optional) 
+
+            try
+            {
+                // Search users (using query parameters)
+                EmployeeArrayWrapper result = apiInstance.SearchUsersByQuery(query);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByQuery: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchUsersByQueryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search users (using query parameters)
+    ApiResponse<EmployeeArrayWrapper> response = apiInstance.SearchUsersByQueryWithHttpInfo(query);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByQueryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string?** | The search query. | [optional]  |
+
+### Return type
+
+[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of users |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="searchusersbystatus"></a>
+# **SearchUsersByStatus**
+> EmployeeFullArrayWrapper SearchUsersByStatus (EmployeeStatus status, string? query = null)
+
+Search users by status filter
+
+Returns a list of users matching the status filter and search query.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SearchUsersByStatusExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
+            var query = some text;  // string? | The advanced search query. (optional) 
+
+            try
+            {
+                // Search users by status filter
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByStatus(status, query);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByStatus: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchUsersByStatusWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search users by status filter
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByStatusWithHttpInfo(status, query);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **status** | **EmployeeStatus** | The user status. |  |
+| **query** | **string?** | The advanced search query. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of users with the detailed information |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 

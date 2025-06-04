@@ -47,6 +47,25 @@ namespace Docspace.Api
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> AcceptLicenseWithHttpInfo();
         /// <summary>
+        /// Request a license
+        /// </summary>
+        /// <remarks>
+        /// Requests a portal license if necessary.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper GetIsLicenseRequired();
+
+        /// <summary>
+        /// Request a license
+        /// </summary>
+        /// <remarks>
+        /// Requests a portal license if necessary.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> GetIsLicenseRequiredWithHttpInfo();
+        /// <summary>
         /// Refresh the license
         /// </summary>
         /// <remarks>
@@ -65,25 +84,6 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> RefreshLicenseWithHttpInfo();
-        /// <summary>
-        /// Request a license
-        /// </summary>
-        /// <remarks>
-        /// Requests a portal license if necessary.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>BooleanWrapper</returns>
-        BooleanWrapper RequestLicense();
-
-        /// <summary>
-        /// Request a license
-        /// </summary>
-        /// <remarks>
-        /// Requests a portal license if necessary.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> RequestLicenseWithHttpInfo();
         /// <summary>
         /// Upload a license
         /// </summary>
@@ -136,6 +136,27 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringWrapper>> AcceptLicenseWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Request a license
+        /// </summary>
+        /// <remarks>
+        /// Requests a portal license if necessary.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        System.Threading.Tasks.Task<BooleanWrapper> GetIsLicenseRequiredAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Request a license
+        /// </summary>
+        /// <remarks>
+        /// Requests a portal license if necessary.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> GetIsLicenseRequiredWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Refresh the license
         /// </summary>
         /// <remarks>
@@ -156,27 +177,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> RefreshLicenseWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Request a license
-        /// </summary>
-        /// <remarks>
-        /// Requests a portal license if necessary.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> RequestLicenseAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Request a license
-        /// </summary>
-        /// <remarks>
-        /// Requests a portal license if necessary.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> RequestLicenseWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Upload a license
         /// </summary>
@@ -575,6 +575,107 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Request a license Requests a portal license if necessary.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper GetIsLicenseRequired()
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = GetIsLicenseRequiredWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Request a license Requests a portal license if necessary.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public Docspace.Client.ApiResponse<BooleanWrapper> GetIsLicenseRequiredWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<BooleanWrapper>("/api/2.0/settings/license/required", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIsLicenseRequired", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Request a license Requests a portal license if necessary.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async System.Threading.Tasks.Task<BooleanWrapper> GetIsLicenseRequiredAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await GetIsLicenseRequiredWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Request a license Requests a portal license if necessary.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> GetIsLicenseRequiredWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/settings/license/required", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIsLicenseRequired", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Refresh the license Refreshes the portal license.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -729,107 +830,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RefreshLicense", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Request a license Requests a portal license if necessary.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper RequestLicense()
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = RequestLicenseWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Request a license Requests a portal license if necessary.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> RequestLicenseWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<BooleanWrapper>("/api/2.0/settings/license/required", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RequestLicense", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Request a license Requests a portal license if necessary.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> RequestLicenseAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await RequestLicenseWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Request a license Requests a portal license if necessary.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> RequestLicenseWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/settings/license/required", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RequestLicense", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

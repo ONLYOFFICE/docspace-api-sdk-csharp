@@ -67,14 +67,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test ChangeOwner
+        /// Test ChangeFileOwner
         /// </summary>
         [Fact]
-        public void ChangeOwnerTest()
+        public void ChangeFileOwnerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ChangeOwnerRequestDto? changeOwnerRequestDto = null;
-            //var response = instance.ChangeOwner(changeOwnerRequestDto);
+            //var response = instance.ChangeFileOwner(changeOwnerRequestDto);
             //Assert.IsType<FileEntryArrayWrapper>(response);
         }
 
@@ -92,6 +92,18 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetSharedUsers
+        /// </summary>
+        [Fact]
+        public void GetSharedUsersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int fileId = null;
+            //var response = instance.GetSharedUsers(fileId);
+            //Assert.IsType<MentionWrapperArrayWrapper>(response);
+        }
+
+        /// <summary>
         /// Test SendEditorNotify
         /// </summary>
         [Fact]
@@ -102,18 +114,6 @@ namespace Docspace.Test.Api
             //MentionMessageWrapper? mentionMessageWrapper = null;
             //var response = instance.SendEditorNotify(fileId, mentionMessageWrapper);
             //Assert.IsType<AceShortWrapperArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SharedUsers
-        /// </summary>
-        [Fact]
-        public void SharedUsersTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int fileId = null;
-            //var response = instance.SharedUsers(fileId);
-            //Assert.IsType<MentionWrapperArrayWrapper>(response);
         }
     }
 }

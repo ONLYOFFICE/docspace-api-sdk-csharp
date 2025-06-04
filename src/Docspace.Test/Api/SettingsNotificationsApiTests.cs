@@ -77,6 +77,18 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test SetNotificationSettings
+        /// </summary>
+        [Fact]
+        public void SetNotificationSettingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //NotificationSettingsRequestsDto? notificationSettingsRequestsDto = null;
+            //var response = instance.SetNotificationSettings(notificationSettingsRequestsDto);
+            //Assert.IsType<NotificationSettingsWrapper>(response);
+        }
+
+        /// <summary>
         /// Test SetRoomsNotificationStatus
         /// </summary>
         [Fact]
@@ -86,18 +98,6 @@ namespace Docspace.Test.Api
             //RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = null;
             //var response = instance.SetRoomsNotificationStatus(roomsNotificationsSettingsRequestDto);
             //Assert.IsType<RoomsNotificationSettingsWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SetSettings
-        /// </summary>
-        [Fact]
-        public void SetSettingsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //NotificationSettingsRequestsDto? notificationSettingsRequestsDto = null;
-            //var response = instance.SetSettings(notificationSettingsRequestsDto);
-            //Assert.IsType<NotificationSettingsWrapper>(response);
         }
     }
 }

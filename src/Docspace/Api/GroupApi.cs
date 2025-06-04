@@ -93,27 +93,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
         ApiResponse<NoContentResultWrapper> DeleteGroupWithHttpInfo(Guid id);
         /// <summary>
-        /// Get user groups
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of groups for the user with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <returns>GroupSummaryArrayWrapper</returns>
-        GroupSummaryArrayWrapper GetByUserId(Guid userid);
-
-        /// <summary>
-        /// Get user groups
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of groups for the user with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
-        ApiResponse<GroupSummaryArrayWrapper> GetByUserIdWithHttpInfo(Guid userid);
-        /// <summary>
         /// Get a group
         /// </summary>
         /// <remarks>
@@ -137,6 +116,27 @@ namespace Docspace.Api
         /// <returns>ApiResponse of GroupWrapper</returns>
         ApiResponse<GroupWrapper> GetGroupWithHttpInfo(Guid id, bool? includeMembers = default(bool?));
         /// <summary>
+        /// Get user groups
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of groups for the user with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <returns>GroupSummaryArrayWrapper</returns>
+        GroupSummaryArrayWrapper GetGroupByUserId(Guid userid);
+
+        /// <summary>
+        /// Get user groups
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of groups for the user with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
+        ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid);
+        /// <summary>
         /// Get groups
         /// </summary>
         /// <remarks>
@@ -159,6 +159,29 @@ namespace Docspace.Api
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
         ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default(Guid?), bool? manager = default(bool?));
+        /// <summary>
+        /// Move group members
+        /// </summary>
+        /// <remarks>
+        /// Moves all the members from the selected group to another one specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <returns>GroupWrapper</returns>
+        GroupWrapper MoveMembersTo(Guid fromId, Guid toId);
+
+        /// <summary>
+        /// Move group members
+        /// </summary>
+        /// <remarks>
+        /// Moves all the members from the selected group to another one specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <returns>ApiResponse of GroupWrapper</returns>
+        ApiResponse<GroupWrapper> MoveMembersToWithHttpInfo(Guid fromId, Guid toId);
         /// <summary>
         /// Remove group members
         /// </summary>
@@ -192,7 +215,7 @@ namespace Docspace.Api
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper SetManager(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?));
+        GroupWrapper SetGroupManager(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?));
 
         /// <summary>
         /// Set a group manager
@@ -204,7 +227,7 @@ namespace Docspace.Api
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> SetManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?));
+        ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?));
         /// <summary>
         /// Replace group members
         /// </summary>
@@ -228,29 +251,6 @@ namespace Docspace.Api
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <returns>ApiResponse of GroupWrapper</returns>
         ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default(MembersRequest?));
-        /// <summary>
-        /// Move group members
-        /// </summary>
-        /// <remarks>
-        /// Moves all the members from the selected group to another one specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <returns>GroupWrapper</returns>
-        GroupWrapper TransferMembersTo(Guid fromId, Guid toId);
-
-        /// <summary>
-        /// Move group members
-        /// </summary>
-        /// <remarks>
-        /// Moves all the members from the selected group to another one specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> TransferMembersToWithHttpInfo(Guid fromId, Guid toId);
         /// <summary>
         /// Update a group
         /// </summary>
@@ -355,29 +355,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<NoContentResultWrapper>> DeleteGroupWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get user groups
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of groups for the user with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupSummaryArrayWrapper</returns>
-        System.Threading.Tasks.Task<GroupSummaryArrayWrapper> GetByUserIdAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get user groups
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of groups for the user with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupSummaryArrayWrapper>> GetByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Get a group
         /// </summary>
         /// <remarks>
@@ -403,6 +380,29 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> GetGroupWithHttpInfoAsync(Guid id, bool? includeMembers = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get user groups
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of groups for the user with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GroupSummaryArrayWrapper</returns>
+        System.Threading.Tasks.Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get user groups
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of groups for the user with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get groups
         /// </summary>
         /// <remarks>
@@ -427,6 +427,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Move group members
+        /// </summary>
+        /// <remarks>
+        /// Moves all the members from the selected group to another one specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GroupWrapper</returns>
+        System.Threading.Tasks.Task<GroupWrapper> MoveMembersToAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Move group members
+        /// </summary>
+        /// <remarks>
+        /// Moves all the members from the selected group to another one specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GroupWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> MoveMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove group members
         /// </summary>
@@ -463,7 +488,7 @@ namespace Docspace.Api
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupWrapper</returns>
-        System.Threading.Tasks.Task<GroupWrapper> SetManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Set a group manager
@@ -476,7 +501,7 @@ namespace Docspace.Api
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> SetManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Replace group members
         /// </summary>
@@ -502,31 +527,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default(MembersRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Move group members
-        /// </summary>
-        /// <remarks>
-        /// Moves all the members from the selected group to another one specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupWrapper</returns>
-        System.Threading.Tasks.Task<GroupWrapper> TransferMembersToAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Move group members
-        /// </summary>
-        /// <remarks>
-        /// Moves all the members from the selected group to another one specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> TransferMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update a group
         /// </summary>
@@ -1277,173 +1277,6 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <returns>GroupSummaryArrayWrapper</returns>
-        public GroupSummaryArrayWrapper GetByUserId(Guid userid)
-        {
-            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = GetByUserIdWithHttpInfo(userid);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> GetByUserIdWithHttpInfo(Guid userid)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupSummaryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<GroupSummaryArrayWrapper> GetByUserIdAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = await GetByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupSummaryArrayWrapper>> GetByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Get a group Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1616,6 +1449,173 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <returns>GroupSummaryArrayWrapper</returns>
+        public GroupSummaryArrayWrapper GetGroupByUserId(Guid userid)
+        {
+            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = GetGroupByUserIdWithHttpInfo(userid);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GroupSummaryArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = await GetGroupByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get user groups Returns a list of groups for the user with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userid">The user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1808,6 +1808,179 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Move group members Moves all the members from the selected group to another one specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <returns>GroupWrapper</returns>
+        public GroupWrapper MoveMembersTo(Guid fromId, Guid toId)
+        {
+            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = MoveMembersToWithHttpInfo(fromId, toId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move group members Moves all the members from the selected group to another one specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <returns>ApiResponse of GroupWrapper</returns>
+        public Docspace.Client.ApiResponse<GroupWrapper> MoveMembersToWithHttpInfo(Guid fromId, Guid toId)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<GroupWrapper>("/api/2.0/group/{fromId}/members/{toId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Move group members Moves all the members from the selected group to another one specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GroupWrapper</returns>
+        public async System.Threading.Tasks.Task<GroupWrapper> MoveMembersToAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await MoveMembersToWithHttpInfoAsync(fromId, toId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move group members Moves all the members from the selected group to another one specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fromId">The group ID to move from.</param>
+        /// <param name="toId">The group ID to move to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GroupWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> MoveMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupWrapper>("/api/2.0/group/{fromId}/members/{toId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Remove group members Removes the group members specified in the request from the selected group.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1989,9 +2162,9 @@ namespace Docspace.Api
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper SetManager(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?))
+        public GroupWrapper SetGroupManager(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?))
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = SetManagerWithHttpInfo(id, setManagerRequest);
+            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = SetGroupManagerWithHttpInfo(id, setManagerRequest);
             return localVarResponse.Data;
         }
 
@@ -2002,7 +2175,7 @@ namespace Docspace.Api
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> SetManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?))
+        public Docspace.Client.ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2060,7 +2233,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetManager", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2075,9 +2248,9 @@ namespace Docspace.Api
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupWrapper</returns>
-        public async System.Threading.Tasks.Task<GroupWrapper> SetManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await SetManagerWithHttpInfoAsync(id, setManagerRequest, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await SetGroupManagerWithHttpInfoAsync(id, setManagerRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2089,7 +2262,7 @@ namespace Docspace.Api
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> SetManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default(SetManagerRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2150,7 +2323,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetManager", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2326,179 +2499,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Move group members Moves all the members from the selected group to another one specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <returns>GroupWrapper</returns>
-        public GroupWrapper TransferMembersTo(Guid fromId, Guid toId)
-        {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = TransferMembersToWithHttpInfo(fromId, toId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Move group members Moves all the members from the selected group to another one specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> TransferMembersToWithHttpInfo(Guid fromId, Guid toId)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupWrapper>("/api/2.0/group/{fromId}/members/{toId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TransferMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Move group members Moves all the members from the selected group to another one specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupWrapper</returns>
-        public async System.Threading.Tasks.Task<GroupWrapper> TransferMembersToAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await TransferMembersToWithHttpInfoAsync(fromId, toId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Move group members Moves all the members from the selected group to another one specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fromId">The group ID to move from.</param>
-        /// <param name="toId">The group ID to move to.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> TransferMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupWrapper>("/api/2.0/group/{fromId}/members/{toId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TransferMembersTo", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

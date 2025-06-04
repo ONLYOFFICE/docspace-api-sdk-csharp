@@ -4,15 +4,15 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GeInviteLink**](PortalUsersApi.md#geinvitelink) | **GET** /api/2.0/portal/users/invite/{employeeType} | Get an invitation link |
-| [**GetUser**](PortalUsersApi.md#getuser) | **GET** /api/2.0/portal/users/{userID} | Get a user by ID |
-| [**GetUsersCount**](PortalUsersApi.md#getuserscount) | **GET** /api/2.0/portal/userscount | Get a number of portal users |
-| [**MarkPresentAsReaded**](PortalUsersApi.md#markpresentasreaded) | **POST** /api/2.0/portal/present/mark | Mark a gift message as read |
+| [**GetInvitationLink**](PortalUsersApi.md#getinvitationlink) | **GET** /api/2.0/portal/users/invite/{employeeType} | Get an invitation link |
+| [**GetPortalUsersCount**](PortalUsersApi.md#getportaluserscount) | **GET** /api/2.0/portal/userscount | Get a number of portal users |
+| [**GetUserById**](PortalUsersApi.md#getuserbyid) | **GET** /api/2.0/portal/users/{userID} | Get a user by ID |
+| [**MarkGiftMessageAsRead**](PortalUsersApi.md#markgiftmessageasread) | **POST** /api/2.0/portal/present/mark | Mark a gift message as read |
 | [**SendCongratulations**](PortalUsersApi.md#sendcongratulations) | **POST** /api/2.0/portal/sendcongratulations | Send congratulations |
 
-<a id="geinvitelink"></a>
-# **GeInviteLink**
-> StringWrapper GeInviteLink (EmployeeType employeeType)
+<a id="getinvitationlink"></a>
+# **GetInvitationLink**
+> StringWrapper GetInvitationLink (EmployeeType employeeType)
 
 Get an invitation link
 
@@ -29,7 +29,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GeInviteLinkExample
+    public class GetInvitationLinkExample
     {
         public static void Main()
         {
@@ -60,12 +60,12 @@ namespace Example
             try
             {
                 // Get an invitation link
-                StringWrapper result = apiInstance.GeInviteLink(employeeType);
+                StringWrapper result = apiInstance.GetInvitationLink(employeeType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.GeInviteLink: " + e.Message);
+                Debug.Print("Exception when calling PortalUsersApi.GetInvitationLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -74,21 +74,21 @@ namespace Example
 }
 ```
 
-#### Using the GeInviteLinkWithHttpInfo variant
+#### Using the GetInvitationLinkWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get an invitation link
-    ApiResponse<StringWrapper> response = apiInstance.GeInviteLinkWithHttpInfo(employeeType);
+    ApiResponse<StringWrapper> response = apiInstance.GetInvitationLinkWithHttpInfo(employeeType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.GeInviteLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalUsersApi.GetInvitationLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -122,9 +122,116 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getuser"></a>
-# **GetUser**
-> UserInfoWrapper GetUser (Guid userID)
+<a id="getportaluserscount"></a>
+# **GetPortalUsersCount**
+> Int64Wrapper GetPortalUsersCount ()
+
+Get a number of portal users
+
+Returns a number of portal users.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetPortalUsersCountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get a number of portal users
+                Int64Wrapper result = apiInstance.GetPortalUsersCount();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalUsersApi.GetPortalUsersCount: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortalUsersCountWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get a number of portal users
+    ApiResponse<Int64Wrapper> response = apiInstance.GetPortalUsersCountWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalUsersApi.GetPortalUsersCountWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Int64Wrapper**](Int64Wrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Number of portal users |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getuserbyid"></a>
+# **GetUserById**
+> UserInfoWrapper GetUserById (Guid userID)
 
 Get a user by ID
 
@@ -141,7 +248,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetUserExample
+    public class GetUserByIdExample
     {
         public static void Main()
         {
@@ -172,12 +279,12 @@ namespace Example
             try
             {
                 // Get a user by ID
-                UserInfoWrapper result = apiInstance.GetUser(userID);
+                UserInfoWrapper result = apiInstance.GetUserById(userID);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.GetUser: " + e.Message);
+                Debug.Print("Exception when calling PortalUsersApi.GetUserById: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -186,21 +293,21 @@ namespace Example
 }
 ```
 
-#### Using the GetUserWithHttpInfo variant
+#### Using the GetUserByIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get a user by ID
-    ApiResponse<UserInfoWrapper> response = apiInstance.GetUserWithHttpInfo(userID);
+    ApiResponse<UserInfoWrapper> response = apiInstance.GetUserByIdWithHttpInfo(userID);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.GetUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalUsersApi.GetUserByIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -234,116 +341,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getuserscount"></a>
-# **GetUsersCount**
-> Int64Wrapper GetUsersCount ()
-
-Get a number of portal users
-
-Returns a number of portal users.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetUsersCountExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get a number of portal users
-                Int64Wrapper result = apiInstance.GetUsersCount();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PortalUsersApi.GetUsersCount: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetUsersCountWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get a number of portal users
-    ApiResponse<Int64Wrapper> response = apiInstance.GetUsersCountWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PortalUsersApi.GetUsersCountWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**Int64Wrapper**](Int64Wrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Number of portal users |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="markpresentasreaded"></a>
-# **MarkPresentAsReaded**
-> void MarkPresentAsReaded ()
+<a id="markgiftmessageasread"></a>
+# **MarkGiftMessageAsRead**
+> void MarkGiftMessageAsRead ()
 
 Mark a gift message as read
 
@@ -360,7 +360,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class MarkPresentAsReadedExample
+    public class MarkGiftMessageAsReadExample
     {
         public static void Main()
         {
@@ -390,11 +390,11 @@ namespace Example
             try
             {
                 // Mark a gift message as read
-                apiInstance.MarkPresentAsReaded();
+                apiInstance.MarkGiftMessageAsRead();
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.MarkPresentAsReaded: " + e.Message);
+                Debug.Print("Exception when calling PortalUsersApi.MarkGiftMessageAsRead: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -403,18 +403,18 @@ namespace Example
 }
 ```
 
-#### Using the MarkPresentAsReadedWithHttpInfo variant
+#### Using the MarkGiftMessageAsReadWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Mark a gift message as read
-    apiInstance.MarkPresentAsReadedWithHttpInfo();
+    apiInstance.MarkGiftMessageAsReadWithHttpInfo();
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.MarkPresentAsReadedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalUsersApi.MarkGiftMessageAsReadWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

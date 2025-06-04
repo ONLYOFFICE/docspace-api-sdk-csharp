@@ -7,13 +7,13 @@ All URIs are relative to *http://http:*
 | [**AddGroup**](GroupApi.md#addgroup) | **POST** /api/2.0/group | Add a new group |
 | [**AddMembersTo**](GroupApi.md#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
 | [**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
-| [**GetByUserId**](GroupApi.md#getbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
 | [**GetGroup**](GroupApi.md#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
+| [**GetGroupByUserId**](GroupApi.md#getgroupbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
 | [**GetGroups**](GroupApi.md#getgroups) | **GET** /api/2.0/group | Get groups |
+| [**MoveMembersTo**](GroupApi.md#movemembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
 | [**RemoveMembersFrom**](GroupApi.md#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
-| [**SetManager**](GroupApi.md#setmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
+| [**SetGroupManager**](GroupApi.md#setgroupmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
 | [**SetMembersTo**](GroupApi.md#setmembersto) | **POST** /api/2.0/group/{id}/members | Replace group members |
-| [**TransferMembersTo**](GroupApi.md#transfermembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
 | [**UpdateGroup**](GroupApi.md#updategroup) | **PUT** /api/2.0/group/{id} | Update a group |
 
 <a id="addgroup"></a>
@@ -356,118 +356,6 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getbyuserid"></a>
-# **GetByUserId**
-> GroupSummaryArrayWrapper GetByUserId (Guid userid)
-
-Get user groups
-
-Returns a list of groups for the user with the ID specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetByUserIdExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
-
-            try
-            {
-                // Get user groups
-                GroupSummaryArrayWrapper result = apiInstance.GetByUserId(userid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.GetByUserId: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetByUserIdWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get user groups
-    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetByUserIdWithHttpInfo(userid);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling GroupApi.GetByUserIdWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of groups |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="getgroup"></a>
 # **GetGroup**
 > GroupWrapper GetGroup (Guid id, bool? includeMembers = null)
@@ -583,6 +471,118 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getgroupbyuserid"></a>
+# **GetGroupByUserId**
+> GroupSummaryArrayWrapper GetGroupByUserId (Guid userid)
+
+Get user groups
+
+Returns a list of groups for the user with the ID specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetGroupByUserIdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
+            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
+
+            try
+            {
+                // Get user groups
+                GroupSummaryArrayWrapper result = apiInstance.GetGroupByUserId(userid);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupApi.GetGroupByUserId: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetGroupByUserIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get user groups
+    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetGroupByUserIdWithHttpInfo(userid);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupApi.GetGroupByUserIdWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of groups |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getgroups"></a>
 # **GetGroups**
 > GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null)
@@ -694,6 +694,121 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | List of groups |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="movemembersto"></a>
+# **MoveMembersTo**
+> GroupWrapper MoveMembersTo (Guid fromId, Guid toId)
+
+Move group members
+
+Moves all the members from the selected group to another one specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class MoveMembersToExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
+            var fromId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move from.
+            var toId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move to.
+
+            try
+            {
+                // Move group members
+                GroupWrapper result = apiInstance.MoveMembersTo(fromId, toId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupApi.MoveMembersTo: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the MoveMembersToWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Move group members
+    ApiResponse<GroupWrapper> response = apiInstance.MoveMembersToWithHttpInfo(fromId, toId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupApi.MoveMembersToWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fromId** | **Guid** | The group ID to move from. |  |
+| **toId** | **Guid** | The group ID to move to. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group with the detailed information |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Group not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -812,9 +927,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="setmanager"></a>
-# **SetManager**
-> GroupWrapper SetManager (Guid id, SetManagerRequest? setManagerRequest = null)
+<a id="setgroupmanager"></a>
+# **SetGroupManager**
+> GroupWrapper SetGroupManager (Guid id, SetManagerRequest? setManagerRequest = null)
 
 Set a group manager
 
@@ -831,7 +946,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SetManagerExample
+    public class SetGroupManagerExample
     {
         public static void Main()
         {
@@ -863,12 +978,12 @@ namespace Example
             try
             {
                 // Set a group manager
-                GroupWrapper result = apiInstance.SetManager(id, setManagerRequest);
+                GroupWrapper result = apiInstance.SetGroupManager(id, setManagerRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupApi.SetManager: " + e.Message);
+                Debug.Print("Exception when calling GroupApi.SetGroupManager: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -877,21 +992,21 @@ namespace Example
 }
 ```
 
-#### Using the SetManagerWithHttpInfo variant
+#### Using the SetGroupManagerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Set a group manager
-    ApiResponse<GroupWrapper> response = apiInstance.SetManagerWithHttpInfo(id, setManagerRequest);
+    ApiResponse<GroupWrapper> response = apiInstance.SetGroupManagerWithHttpInfo(id, setManagerRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling GroupApi.SetManagerWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GroupApi.SetGroupManagerWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1038,121 +1153,6 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Group with the detailed information |  -  |
 | **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="transfermembersto"></a>
-# **TransferMembersTo**
-> GroupWrapper TransferMembersTo (Guid fromId, Guid toId)
-
-Move group members
-
-Moves all the members from the selected group to another one specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class TransferMembersToExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var fromId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move from.
-            var toId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move to.
-
-            try
-            {
-                // Move group members
-                GroupWrapper result = apiInstance.TransferMembersTo(fromId, toId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.TransferMembersTo: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the TransferMembersToWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Move group members
-    ApiResponse<GroupWrapper> response = apiInstance.TransferMembersToWithHttpInfo(fromId, toId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling GroupApi.TransferMembersToWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fromId** | **Guid** | The group ID to move from. |  |
-| **toId** | **Guid** | The group ID to move to. |  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Group not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

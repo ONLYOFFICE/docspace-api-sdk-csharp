@@ -39,7 +39,7 @@ namespace Docspace.Api
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <returns>AccountInfoArrayWrapper</returns>
-        AccountInfoArrayWrapper GetAuthProviders(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?));
+        AccountInfoArrayWrapper GetThirdPartyAuthProviders(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?));
 
         /// <summary>
         /// Get third-party accounts
@@ -53,7 +53,7 @@ namespace Docspace.Api
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <returns>ApiResponse of AccountInfoArrayWrapper</returns>
-        ApiResponse<AccountInfoArrayWrapper> GetAuthProvidersWithHttpInfo(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?));
+        ApiResponse<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersWithHttpInfo(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?));
         /// <summary>
         /// Link a third-pary account
         /// </summary>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <returns></returns>
-        void LinkAccount(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?));
+        void LinkThirdPartyAccount(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?));
 
         /// <summary>
         /// Link a third-pary account
@@ -74,7 +74,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> LinkAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?));
+        ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?));
         /// <summary>
         /// Create a third-pary account
         /// </summary>
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <returns></returns>
-        void SignupAccount(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?));
+        void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?));
 
         /// <summary>
         /// Create a third-pary account
@@ -95,7 +95,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SignupAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?));
+        ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?));
         /// <summary>
         /// Unlink a third-pary account
         /// </summary>
@@ -105,7 +105,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <returns></returns>
-        void UnlinkAccount(string? provider = default(string?));
+        void UnlinkThirdPartyAccount(string? provider = default(string?));
 
         /// <summary>
         /// Unlink a third-pary account
@@ -116,7 +116,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UnlinkAccountWithHttpInfo(string? provider = default(string?));
+        ApiResponse<Object> UnlinkThirdPartyAccountWithHttpInfo(string? provider = default(string?));
         #endregion Synchronous Operations
     }
 
@@ -139,7 +139,7 @@ namespace Docspace.Api
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountInfoArrayWrapper</returns>
-        System.Threading.Tasks.Task<AccountInfoArrayWrapper> GetAuthProvidersAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get third-party accounts
@@ -154,7 +154,7 @@ namespace Docspace.Api
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountInfoArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountInfoArrayWrapper>> GetAuthProvidersWithHttpInfoAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountInfoArrayWrapper>> GetThirdPartyAuthProvidersWithHttpInfoAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Link a third-pary account
         /// </summary>
@@ -165,7 +165,7 @@ namespace Docspace.Api
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task LinkAccountAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task LinkThirdPartyAccountAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Link a third-pary account
@@ -177,7 +177,7 @@ namespace Docspace.Api
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> LinkAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> LinkThirdPartyAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create a third-pary account
         /// </summary>
@@ -188,7 +188,7 @@ namespace Docspace.Api
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SignupAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a third-pary account
@@ -200,7 +200,7 @@ namespace Docspace.Api
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SignupAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Unlink a third-pary account
         /// </summary>
@@ -211,7 +211,7 @@ namespace Docspace.Api
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UnlinkAccountAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UnlinkThirdPartyAccountAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Unlink a third-pary account
@@ -223,7 +223,7 @@ namespace Docspace.Api
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UnlinkAccountWithHttpInfoAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnlinkThirdPartyAccountWithHttpInfoAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -446,9 +446,9 @@ namespace Docspace.Api
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <returns>AccountInfoArrayWrapper</returns>
-        public AccountInfoArrayWrapper GetAuthProviders(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?))
+        public AccountInfoArrayWrapper GetThirdPartyAuthProviders(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?))
         {
-            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = GetAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
+            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = GetThirdPartyAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
             return localVarResponse.Data;
         }
 
@@ -461,7 +461,7 @@ namespace Docspace.Api
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <returns>ApiResponse of AccountInfoArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AccountInfoArrayWrapper> GetAuthProvidersWithHttpInfo(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?))
+        public Docspace.Client.ApiResponse<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersWithHttpInfo(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -502,7 +502,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuthProviders", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -519,9 +519,9 @@ namespace Docspace.Api
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountInfoArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<AccountInfoArrayWrapper> GetAuthProvidersAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = await GetAuthProvidersWithHttpInfoAsync(inviteView, settingsView, clientCallback, fromOnly, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = await GetThirdPartyAuthProvidersWithHttpInfoAsync(inviteView, settingsView, clientCallback, fromOnly, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -535,7 +535,7 @@ namespace Docspace.Api
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountInfoArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AccountInfoArrayWrapper>> GetAuthProvidersWithHttpInfoAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AccountInfoArrayWrapper>> GetThirdPartyAuthProvidersWithHttpInfoAsync(bool? inviteView = default(bool?), bool? settingsView = default(bool?), string? clientCallback = default(string?), string? fromOnly = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -579,7 +579,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuthProviders", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -592,9 +592,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <returns></returns>
-        public void LinkAccount(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?))
+        public void LinkThirdPartyAccount(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?))
         {
-            LinkAccountWithHttpInfo(linkAccountRequestDto);
+            LinkThirdPartyAccountWithHttpInfo(linkAccountRequestDto);
         }
 
         /// <summary>
@@ -603,7 +603,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> LinkAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?))
+        public Docspace.Client.ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -659,7 +659,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("LinkAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -673,9 +673,9 @@ namespace Docspace.Api
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task LinkAccountAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task LinkThirdPartyAccountAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await LinkAccountWithHttpInfoAsync(linkAccountRequestDto, cancellationToken).ConfigureAwait(false);
+            await LinkThirdPartyAccountWithHttpInfoAsync(linkAccountRequestDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -685,7 +685,7 @@ namespace Docspace.Api
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> LinkAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> LinkThirdPartyAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default(LinkAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -744,7 +744,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("LinkAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -757,9 +757,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <returns></returns>
-        public void SignupAccount(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?))
+        public void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?))
         {
-            SignupAccountWithHttpInfo(signupAccountRequestDto);
+            SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
         }
 
         /// <summary>
@@ -768,7 +768,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> SignupAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?))
+        public Docspace.Client.ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -794,7 +794,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SignupAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -808,9 +808,9 @@ namespace Docspace.Api
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SignupAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await SignupAccountWithHttpInfoAsync(signupAccountRequestDto, cancellationToken).ConfigureAwait(false);
+            await SignupThirdPartyAccountWithHttpInfoAsync(signupAccountRequestDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -820,7 +820,7 @@ namespace Docspace.Api
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SignupAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default(SignupAccountRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -849,7 +849,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SignupAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -862,9 +862,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <returns></returns>
-        public void UnlinkAccount(string? provider = default(string?))
+        public void UnlinkThirdPartyAccount(string? provider = default(string?))
         {
-            UnlinkAccountWithHttpInfo(provider);
+            UnlinkThirdPartyAccountWithHttpInfo(provider);
         }
 
         /// <summary>
@@ -873,7 +873,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> UnlinkAccountWithHttpInfo(string? provider = default(string?))
+        public Docspace.Client.ApiResponse<Object> UnlinkThirdPartyAccountWithHttpInfo(string? provider = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -931,7 +931,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -945,9 +945,9 @@ namespace Docspace.Api
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UnlinkAccountAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UnlinkThirdPartyAccountAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await UnlinkAccountWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
+            await UnlinkThirdPartyAccountWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -957,7 +957,7 @@ namespace Docspace.Api
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> UnlinkAccountWithHttpInfoAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> UnlinkThirdPartyAccountWithHttpInfoAsync(string? provider = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1018,7 +1018,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkAccount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

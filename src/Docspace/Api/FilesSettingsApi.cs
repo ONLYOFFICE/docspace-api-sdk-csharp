@@ -486,7 +486,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper UpdateIfExist(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?));
+        BooleanWrapper UpdateFileIfExist(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?));
 
         /// <summary>
         /// Update a file version if it exists
@@ -497,7 +497,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> UpdateIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?));
+        ApiResponse<BooleanWrapper> UpdateFileIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?));
         #endregion Synchronous Operations
     }
 
@@ -1011,7 +1011,7 @@ namespace Docspace.Api
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> UpdateIfExistAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BooleanWrapper> UpdateFileIfExistAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update a file version if it exists
@@ -1023,7 +1023,7 @@ namespace Docspace.Api
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdateIfExistWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdateFileIfExistWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -4797,9 +4797,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper UpdateIfExist(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?))
+        public BooleanWrapper UpdateFileIfExist(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?))
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = UpdateIfExistWithHttpInfo(settingsRequestDto);
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = UpdateFileIfExistWithHttpInfo(settingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4809,7 +4809,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> UpdateIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?))
+        public Docspace.Client.ApiResponse<BooleanWrapper> UpdateFileIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -4866,7 +4866,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateIfExist", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateFileIfExist", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4880,9 +4880,9 @@ namespace Docspace.Api
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> UpdateIfExistAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BooleanWrapper> UpdateFileIfExistAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await UpdateIfExistWithHttpInfoAsync(settingsRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await UpdateFileIfExistWithHttpInfoAsync(settingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4893,7 +4893,7 @@ namespace Docspace.Api
         /// <param name="settingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> UpdateIfExistWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> UpdateFileIfExistWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default(SettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -4953,7 +4953,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateIfExist", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateFileIfExist", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

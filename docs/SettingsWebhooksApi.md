@@ -6,12 +6,12 @@ All URIs are relative to *http://http:*
 |--------|--------------|-------------|
 | [**CreateWebhook**](SettingsWebhooksApi.md#createwebhook) | **POST** /api/2.0/settings/webhook | Create a webhook |
 | [**EnableWebhook**](SettingsWebhooksApi.md#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Enable a webhook |
-| [**GetJournal**](SettingsWebhooksApi.md#getjournal) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
 | [**GetTenantWebhooks**](SettingsWebhooksApi.md#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get webhooks |
+| [**GetWebhookTriggers**](SettingsWebhooksApi.md#getwebhooktriggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
+| [**GetWebhooksLogs**](SettingsWebhooksApi.md#getwebhookslogs) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
 | [**RemoveWebhook**](SettingsWebhooksApi.md#removewebhook) | **DELETE** /api/2.0/settings/webhook/{id} | Remove a webhook |
 | [**RetryWebhook**](SettingsWebhooksApi.md#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook |
 | [**RetryWebhooks**](SettingsWebhooksApi.md#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhooks |
-| [**Triggers**](SettingsWebhooksApi.md#triggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
 | [**UpdateWebhook**](SettingsWebhooksApi.md#updatewebhook) | **PUT** /api/2.0/settings/webhook | Update a webhook |
 
 <a id="createwebhook"></a>
@@ -238,132 +238,6 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getjournal"></a>
-# **GetJournal**
-> WebhooksLogArrayWrapper GetJournal (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null)
-
-Get webhook logs
-
-Returns the logs of the webhook activities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetJournalExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
-            var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
-            var hookUri = some text;  // string? | The destination URL where webhooks are delivered. (optional) 
-            var configId = 1234;  // int? | The webhook configuration identifier. (optional) 
-            var eventId = 1234;  // int? | The unique identifier of the event that triggered the webhook. (optional) 
-            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
-            var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
-
-            try
-            {
-                // Get webhook logs
-                WebhooksLogArrayWrapper result = apiInstance.GetJournal(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsWebhooksApi.GetJournal: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetJournalWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get webhook logs
-    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetJournalWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsWebhooksApi.GetJournalWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
-| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
-| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
-| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
-| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
-| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | The status of the webhook delivery group. | [optional]  |
-| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
-| **trigger** | [**WebhookTrigger?**](WebhookTrigger?.md) | The type of event that triggered the webhook. | [optional]  |
-
-### Return type
-
-[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Logs of the webhook activities |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="gettenantwebhooks"></a>
 # **GetTenantWebhooks**
 > WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks ()
@@ -467,6 +341,239 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of tenant webhooks with their config parameters |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getwebhooktriggers"></a>
+# **GetWebhookTriggers**
+> UnknownWrapper GetWebhookTriggers ()
+
+Get webhook triggers
+
+Returns a list of triggers for a webhook.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetWebhookTriggersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get webhook triggers
+                UnknownWrapper result = apiInstance.GetWebhookTriggers();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhookTriggers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetWebhookTriggersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get webhook triggers
+    ApiResponse<UnknownWrapper> response = apiInstance.GetWebhookTriggersWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhookTriggersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**UnknownWrapper**](UnknownWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of triggers for a webhook |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getwebhookslogs"></a>
+# **GetWebhooksLogs**
+> WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null)
+
+Get webhook logs
+
+Returns the logs of the webhook activities.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetWebhooksLogsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
+            var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
+            var hookUri = some text;  // string? | The destination URL where webhooks are delivered. (optional) 
+            var configId = 1234;  // int? | The webhook configuration identifier. (optional) 
+            var eventId = 1234;  // int? | The unique identifier of the event that triggered the webhook. (optional) 
+            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
+            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
+            var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
+
+            try
+            {
+                // Get webhook logs
+                WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhooksLogs: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetWebhooksLogsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get webhook logs
+    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhooksLogsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
+| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
+| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
+| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
+| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
+| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | The status of the webhook delivery group. | [optional]  |
+| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
+| **trigger** | [**WebhookTrigger?**](WebhookTrigger?.md) | The type of event that triggered the webhook. | [optional]  |
+
+### Return type
+
+[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Logs of the webhook activities |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -805,113 +912,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Logs of the webhook activities |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="triggers"></a>
-# **Triggers**
-> UnknownWrapper Triggers ()
-
-Get webhook triggers
-
-Returns a list of triggers for a webhook.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class TriggersExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get webhook triggers
-                UnknownWrapper result = apiInstance.Triggers();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsWebhooksApi.Triggers: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the TriggersWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get webhook triggers
-    ApiResponse<UnknownWrapper> response = apiInstance.TriggersWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsWebhooksApi.TriggersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**UnknownWrapper**](UnknownWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of triggers for a webhook |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

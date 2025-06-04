@@ -5,7 +5,7 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**EnableAdminMessageSettings**](SettingsMessagesApi.md#enableadminmessagesettings) | **POST** /api/2.0/settings/messagesettings | Enable the administrator message settings |
-| [**SendAdmMail**](SettingsMessagesApi.md#sendadmmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
+| [**SendAdminMail**](SettingsMessagesApi.md#sendadminmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
 | [**SendJoinInviteMail**](SettingsMessagesApi.md#sendjoininvitemail) | **POST** /api/2.0/settings/sendjoininvite | Sends an invitation email |
 
 <a id="enableadminmessagesettings"></a>
@@ -120,9 +120,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="sendadmmail"></a>
-# **SendAdmMail**
-> StringWrapper SendAdmMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
+<a id="sendadminmail"></a>
+# **SendAdminMail**
+> StringWrapper SendAdminMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
 
 Send a message to the administrator
 
@@ -139,7 +139,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SendAdmMailExample
+    public class SendAdminMailExample
     {
         public static void Main()
         {
@@ -154,12 +154,12 @@ namespace Example
             try
             {
                 // Send a message to the administrator
-                StringWrapper result = apiInstance.SendAdmMail(adminMessageSettingsRequestsDto);
+                StringWrapper result = apiInstance.SendAdminMail(adminMessageSettingsRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.SendAdmMail: " + e.Message);
+                Debug.Print("Exception when calling SettingsMessagesApi.SendAdminMail: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -168,21 +168,21 @@ namespace Example
 }
 ```
 
-#### Using the SendAdmMailWithHttpInfo variant
+#### Using the SendAdminMailWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Send a message to the administrator
-    ApiResponse<StringWrapper> response = apiInstance.SendAdmMailWithHttpInfo(adminMessageSettingsRequestsDto);
+    ApiResponse<StringWrapper> response = apiInstance.SendAdminMailWithHttpInfo(adminMessageSettingsRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.SendAdmMailWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsMessagesApi.SendAdminMailWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

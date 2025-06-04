@@ -213,14 +213,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetNewItems
+        /// Test GetNewFolderItems
         /// </summary>
         [Fact]
-        public void GetNewItemsTest()
+        public void GetNewFolderItemsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int folderId = null;
-            //var response = instance.GetNewItems(folderId);
+            //var response = instance.GetNewFolderItems(folderId);
             //Assert.IsType<FileEntryArrayWrapper>(response);
         }
 
@@ -326,15 +326,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SetFileOrder
+        /// Test SetFolderOrder
         /// </summary>
         [Fact]
-        public void SetFileOrderTest()
+        public void SetFolderOrderTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int folderId = null;
             //OrderRequestDto? orderRequestDto = null;
-            //var response = instance.SetFileOrder(folderId, orderRequestDto);
+            //var response = instance.SetFolderOrder(folderId, orderRequestDto);
             //Assert.IsType<FolderIntegerWrapper>(response);
         }
 

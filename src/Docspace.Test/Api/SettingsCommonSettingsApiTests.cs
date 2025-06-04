@@ -76,59 +76,93 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test DeleteColorTheme
+        /// Test ConfigureDeepLink
         /// </summary>
         [Fact]
-        public void DeleteColorThemeTest()
+        public void ConfigureDeepLinkTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = null;
+            //var response = instance.ConfigureDeepLink(deepLinkConfigurationRequestsDto);
+            //Assert.IsType<TenantDeepLinkSettingsWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test DeletePortalColorTheme
+        /// </summary>
+        [Fact]
+        public void DeletePortalColorThemeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? id = null;
-            //var response = instance.DeleteColorTheme(id);
+            //var response = instance.DeletePortalColorTheme(id);
             //Assert.IsType<CustomColorThemesSettingsWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetColorTheme
+        /// Test GetDeepLinkSettings
         /// </summary>
         [Fact]
-        public void GetColorThemeTest()
+        public void GetDeepLinkSettingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetColorTheme();
+            //var response = instance.GetDeepLinkSettings();
+            //Assert.IsType<TenantDeepLinkSettingsWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPaymentSettings
+        /// </summary>
+        [Fact]
+        public void GetPaymentSettingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetPaymentSettings();
+            //Assert.IsType<PaymentSettingsWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPortalColorTheme
+        /// </summary>
+        [Fact]
+        public void GetPortalColorThemeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetPortalColorTheme();
             //Assert.IsType<CustomColorThemesSettingsWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetLogo
+        /// Test GetPortalHostname
         /// </summary>
         [Fact]
-        public void GetLogoTest()
+        public void GetPortalHostnameTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetLogo();
-            //Assert.IsType<StringWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetMachineName
-        /// </summary>
-        [Fact]
-        public void GetMachineNameTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetMachineName();
+            //var response = instance.GetPortalHostname();
             //Assert.IsType<ObjectWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetSettings
+        /// Test GetPortalLogo
         /// </summary>
         [Fact]
-        public void GetSettingsTest()
+        public void GetPortalLogoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetPortalLogo();
+            //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPortalSettings
+        /// </summary>
+        [Fact]
+        public void GetPortalSettingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //bool? withpassword = null;
-            //var response = instance.GetSettings(withpassword);
+            //var response = instance.GetPortalSettings(withpassword);
             //Assert.IsType<SettingsWrapper>(response);
         }
 
@@ -166,60 +200,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetTimeZonesAsync
+        /// Test GetTimeZones
         /// </summary>
         [Fact]
-        public void GetTimeZonesAsyncTest()
+        public void GetTimeZonesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTimeZonesAsync();
+            //var response = instance.GetTimeZones();
             //Assert.IsType<TimezonesRequestsArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GettDeepLinkSettings
-        /// </summary>
-        [Fact]
-        public void GettDeepLinkSettingsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GettDeepLinkSettings();
-            //Assert.IsType<TenantDeepLinkSettingsWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test PaymentSettings
-        /// </summary>
-        [Fact]
-        public void PaymentSettingsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.PaymentSettings();
-            //Assert.IsType<PaymentSettingsWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SaveColorTheme
-        /// </summary>
-        [Fact]
-        public void SaveColorThemeTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = null;
-            //var response = instance.SaveColorTheme(customColorThemesSettingsRequestsDto);
-            //Assert.IsType<CustomColorThemesSettingsWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SaveConfigureDeepLink
-        /// </summary>
-        [Fact]
-        public void SaveConfigureDeepLinkTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = null;
-            //var response = instance.SaveConfigureDeepLink(deepLinkConfigurationRequestsDto);
-            //Assert.IsType<TenantDeepLinkSettingsWrapper>(response);
         }
 
         /// <summary>
@@ -244,6 +232,18 @@ namespace Docspace.Test.Api
             //MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = null;
             //var response = instance.SaveMailDomainSettings(mailDomainSettingsRequestsDto);
             //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SavePortalColorTheme
+        /// </summary>
+        [Fact]
+        public void SavePortalColorThemeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = null;
+            //var response = instance.SavePortalColorTheme(customColorThemesSettingsRequestsDto);
+            //Assert.IsType<CustomColorThemesSettingsWrapper>(response);
         }
 
         /// <summary>

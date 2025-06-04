@@ -54,6 +54,28 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetTfaAppCodes
+        /// </summary>
+        [Fact]
+        public void GetTfaAppCodesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetTfaAppCodes();
+            //Assert.IsType<ObjectArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetTfaConfirmUrl
+        /// </summary>
+        [Fact]
+        public void GetTfaConfirmUrlTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetTfaConfirmUrl();
+            //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetTfaSettings
         /// </summary>
         [Fact]
@@ -76,75 +98,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test TfaAppGetCodes
-        /// </summary>
-        [Fact]
-        public void TfaAppGetCodesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.TfaAppGetCodes();
-            //Assert.IsType<ObjectArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TfaAppNewApp
-        /// </summary>
-        [Fact]
-        public void TfaAppNewAppTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //TfaRequestsDto? tfaRequestsDto = null;
-            //var response = instance.TfaAppNewApp(tfaRequestsDto);
-            //Assert.IsType<StringWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TfaAppRequestNewCodes
-        /// </summary>
-        [Fact]
-        public void TfaAppRequestNewCodesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.TfaAppRequestNewCodes();
-            //Assert.IsType<ObjectArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TfaConfirmUrl
-        /// </summary>
-        [Fact]
-        public void TfaConfirmUrlTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.TfaConfirmUrl();
-            //Assert.IsType<StringWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TfaSettings
-        /// </summary>
-        [Fact]
-        public void TfaSettingsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //TfaRequestsDto? tfaRequestsDto = null;
-            //var response = instance.TfaSettings(tfaRequestsDto);
-            //Assert.IsType<BooleanWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TfaSettingsLink
-        /// </summary>
-        [Fact]
-        public void TfaSettingsLinkTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //TfaRequestsDto? tfaRequestsDto = null;
-            //var response = instance.TfaSettingsLink(tfaRequestsDto);
-            //Assert.IsType<StringWrapper>(response);
-        }
-
-        /// <summary>
         /// Test TfaValidateAuthCode
         /// </summary>
         [Fact]
@@ -154,6 +107,53 @@ namespace Docspace.Test.Api
             //TfaValidateRequestsDto? tfaValidateRequestsDto = null;
             //var response = instance.TfaValidateAuthCode(tfaValidateRequestsDto);
             //Assert.IsType<BooleanWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UnlinkTfaApp
+        /// </summary>
+        [Fact]
+        public void UnlinkTfaAppTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //TfaRequestsDto? tfaRequestsDto = null;
+            //var response = instance.UnlinkTfaApp(tfaRequestsDto);
+            //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdateTfaAppCodes
+        /// </summary>
+        [Fact]
+        public void UpdateTfaAppCodesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.UpdateTfaAppCodes();
+            //Assert.IsType<ObjectArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdateTfaSettings
+        /// </summary>
+        [Fact]
+        public void UpdateTfaSettingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //TfaRequestsDto? tfaRequestsDto = null;
+            //var response = instance.UpdateTfaSettings(tfaRequestsDto);
+            //Assert.IsType<BooleanWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdateTfaSettingsLink
+        /// </summary>
+        [Fact]
+        public void UpdateTfaSettingsLinkTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //TfaRequestsDto? tfaRequestsDto = null;
+            //var response = instance.UpdateTfaSettingsLink(tfaRequestsDto);
+            //Assert.IsType<StringWrapper>(response);
         }
     }
 }

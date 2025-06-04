@@ -28,6 +28,27 @@ namespace Docspace.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Calculate amount of the wallet payment
+        /// </summary>
+        /// <remarks>
+        /// Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>PaymentCalculationWrapper</returns>
+        PaymentCalculationWrapper CalculateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
+
+        /// <summary>
+        /// Calculate amount of the wallet payment
+        /// </summary>
+        /// <remarks>
+        /// Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of PaymentCalculationWrapper</returns>
+        ApiResponse<PaymentCalculationWrapper> CalculateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
+        /// <summary>
         /// Generate the customer operations report
         /// </summary>
         /// <remarks>
@@ -68,45 +89,26 @@ namespace Docspace.Api
         /// <returns>ApiResponse of CurrencyArrayWrapper</returns>
         ApiResponse<CurrencyArrayWrapper> GetAllCurrenciesWithHttpInfo();
         /// <summary>
-        /// Get the chechout setup page URL
+        /// Get the checkout setup page URL
         /// </summary>
         /// <remarks>
-        /// Returns the URL to the chechout setup page.
+        /// Returns the URL to the checkout setup page.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper GetChechoutSetupUrl(string? backUrl = default(string?));
+        StringWrapper GetCheckoutSetupUrl(string? backUrl = default(string?));
 
         /// <summary>
-        /// Get the chechout setup page URL
+        /// Get the checkout setup page URL
         /// </summary>
         /// <remarks>
-        /// Returns the URL to the chechout setup page.
+        /// Returns the URL to the checkout setup page.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> GetChechoutSetupUrlWithHttpInfo(string? backUrl = default(string?));
-        /// <summary>
-        /// Get currencies
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal currencies.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrenciesArrayWrapper</returns>
-        CurrenciesArrayWrapper GetCurrencies();
-
-        /// <summary>
-        /// Get currencies
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal currencies.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
-        ApiResponse<CurrenciesArrayWrapper> GetCurrenciesWithHttpInfo();
+        ApiResponse<StringWrapper> GetCheckoutSetupUrlWithHttpInfo(string? backUrl = default(string?));
         /// <summary>
         /// Get the customer balance
         /// </summary>
@@ -202,6 +204,46 @@ namespace Docspace.Api
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPaymentAccountWithHttpInfo(string? backUrl = default(string?));
         /// <summary>
+        /// Get currencies
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal currencies.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CurrenciesArrayWrapper</returns>
+        CurrenciesArrayWrapper GetPaymentCurrencies();
+
+        /// <summary>
+        /// Get currencies
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal currencies.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
+        ApiResponse<CurrenciesArrayWrapper> GetPaymentCurrenciesWithHttpInfo();
+        /// <summary>
+        /// Get quotas
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal quotas.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <returns>QuotaArrayWrapper</returns>
+        QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default(bool?));
+
+        /// <summary>
+        /// Get quotas
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal quotas.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
+        ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default(bool?));
+        /// <summary>
         /// Get the payment page URL
         /// </summary>
         /// <remarks>
@@ -230,7 +272,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetPrices();
+        ObjectWrapper GetPortalPrices();
 
         /// <summary>
         /// Get prices
@@ -240,7 +282,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetPricesWithHttpInfo();
+        ApiResponse<ObjectWrapper> GetPortalPricesWithHttpInfo();
         /// <summary>
         /// Get quota payment information
         /// </summary>
@@ -250,7 +292,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <returns>QuotaWrapper</returns>
-        QuotaWrapper GetQuotaInformation(bool? refresh = default(bool?));
+        QuotaWrapper GetQuotaPaymentInformation(bool? refresh = default(bool?));
 
         /// <summary>
         /// Get quota payment information
@@ -261,28 +303,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <returns>ApiResponse of QuotaWrapper</returns>
-        ApiResponse<QuotaWrapper> GetQuotaInformationWithHttpInfo(bool? refresh = default(bool?));
-        /// <summary>
-        /// Get quotas
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal quotas.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <returns>QuotaArrayWrapper</returns>
-        QuotaArrayWrapper GetQuotas(bool? wallet = default(bool?));
-
-        /// <summary>
-        /// Get quotas
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal quotas.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        ApiResponse<QuotaArrayWrapper> GetQuotasWithHttpInfo(bool? wallet = default(bool?));
+        ApiResponse<QuotaWrapper> GetQuotaPaymentInformationWithHttpInfo(bool? refresh = default(bool?));
         /// <summary>
         /// Get wallet auto top up settings
         /// </summary>
@@ -324,48 +345,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of SessionWrapper</returns>
         ApiResponse<SessionWrapper> OpenCustomerSessionWithHttpInfo(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default(OpenCustomerSessionRequestDto?));
         /// <summary>
-        /// Update the payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <returns>BooleanWrapper</returns>
-        BooleanWrapper PaymentUpdate(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?));
-
-        /// <summary>
-        /// Update the payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> PaymentUpdateWithHttpInfo(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?));
-        /// <summary>
-        /// Update the wallet payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the wallet payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <returns>BooleanWrapper</returns>
-        BooleanWrapper PaymentUpdateWallet(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
-
-        /// <summary>
-        /// Update the wallet payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the wallet payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> PaymentUpdateWalletWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
-        /// <summary>
         /// Perform customer operation
         /// </summary>
         /// <remarks>
@@ -395,7 +374,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <returns></returns>
-        void SendSalesRequest(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?));
+        void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?));
 
         /// <summary>
         /// Send a payment request
@@ -406,7 +385,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendSalesRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?));
+        ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?));
         /// <summary>
         /// Set wallet auto top up settings
         /// </summary>
@@ -449,6 +428,48 @@ namespace Docspace.Api
         /// <param name="topUpDepositRequestDto"> (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> TopUpDepositWithHttpInfo(TopUpDepositRequestDto? topUpDepositRequestDto = default(TopUpDepositRequestDto?));
+        /// <summary>
+        /// Update the payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper UpdatePayment(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?));
+
+        /// <summary>
+        /// Update the payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> UpdatePaymentWithHttpInfo(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?));
+        /// <summary>
+        /// Update the wallet payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the wallet payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper UpdateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
+
+        /// <summary>
+        /// Update the wallet payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the wallet payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> UpdateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?));
         #endregion Synchronous Operations
     }
 
@@ -458,6 +479,29 @@ namespace Docspace.Api
     public interface IPortalPaymentApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Calculate amount of the wallet payment
+        /// </summary>
+        /// <remarks>
+        /// Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PaymentCalculationWrapper</returns>
+        System.Threading.Tasks.Task<PaymentCalculationWrapper> CalculateWalletPaymentAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Calculate amount of the wallet payment
+        /// </summary>
+        /// <remarks>
+        /// Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PaymentCalculationWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PaymentCalculationWrapper>> CalculateWalletPaymentWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Generate the customer operations report
         /// </summary>
@@ -503,49 +547,28 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (CurrencyArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<CurrencyArrayWrapper>> GetAllCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get the chechout setup page URL
+        /// Get the checkout setup page URL
         /// </summary>
         /// <remarks>
-        /// Returns the URL to the chechout setup page.
+        /// Returns the URL to the checkout setup page.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> GetChechoutSetupUrlAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> GetCheckoutSetupUrlAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get the chechout setup page URL
+        /// Get the checkout setup page URL
         /// </summary>
         /// <remarks>
-        /// Returns the URL to the chechout setup page.
+        /// Returns the URL to the checkout setup page.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetChechoutSetupUrlWithHttpInfoAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get currencies
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal currencies.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrenciesArrayWrapper</returns>
-        System.Threading.Tasks.Task<CurrenciesArrayWrapper> GetCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get currencies
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal currencies.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrenciesArrayWrapper>> GetCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetCheckoutSetupUrlWithHttpInfoAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the customer balance
         /// </summary>
@@ -649,6 +672,50 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetPaymentAccountWithHttpInfoAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get currencies
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal currencies.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrenciesArrayWrapper</returns>
+        System.Threading.Tasks.Task<CurrenciesArrayWrapper> GetPaymentCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get currencies
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal currencies.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CurrenciesArrayWrapper>> GetPaymentCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get quotas
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal quotas.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of QuotaArrayWrapper</returns>
+        System.Threading.Tasks.Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get quotas
+        /// </summary>
+        /// <remarks>
+        /// Returns the available portal quotas.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get the payment page URL
         /// </summary>
         /// <remarks>
@@ -680,7 +747,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetPricesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectWrapper> GetPortalPricesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get prices
@@ -691,7 +758,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetPricesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetPortalPricesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get quota payment information
         /// </summary>
@@ -702,7 +769,7 @@ namespace Docspace.Api
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of QuotaWrapper</returns>
-        System.Threading.Tasks.Task<QuotaWrapper> GetQuotaInformationAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<QuotaWrapper> GetQuotaPaymentInformationAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get quota payment information
@@ -714,30 +781,7 @@ namespace Docspace.Api
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (QuotaWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QuotaWrapper>> GetQuotaInformationWithHttpInfoAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get quotas
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal quotas.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QuotaArrayWrapper</returns>
-        System.Threading.Tasks.Task<QuotaArrayWrapper> GetQuotasAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get quotas
-        /// </summary>
-        /// <remarks>
-        /// Returns the available portal quotas.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QuotaArrayWrapper>> GetQuotasWithHttpInfoAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<QuotaWrapper>> GetQuotaPaymentInformationWithHttpInfoAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get wallet auto top up settings
         /// </summary>
@@ -783,52 +827,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (SessionWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<SessionWrapper>> OpenCustomerSessionWithHttpInfoAsync(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default(OpenCustomerSessionRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Update the payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> PaymentUpdateAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Update the payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> PaymentUpdateWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Update the wallet payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the wallet payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> PaymentUpdateWalletAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Update the wallet payment quantity
-        /// </summary>
-        /// <remarks>
-        /// Updates the wallet payment quantity with the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> PaymentUpdateWalletWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Perform customer operation
         /// </summary>
         /// <remarks>
@@ -861,7 +859,7 @@ namespace Docspace.Api
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendSalesRequestAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SendPaymentRequestAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send a payment request
@@ -873,7 +871,7 @@ namespace Docspace.Api
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendSalesRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Set wallet auto top up settings
         /// </summary>
@@ -920,6 +918,52 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringWrapper>> TopUpDepositWithHttpInfoAsync(TopUpDepositRequestDto? topUpDepositRequestDto = default(TopUpDepositRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Update the payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        System.Threading.Tasks.Task<BooleanWrapper> UpdatePaymentAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update the payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdatePaymentWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Update the wallet payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the wallet payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        System.Threading.Tasks.Task<BooleanWrapper> UpdateWalletPaymentAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update the wallet payment quantity
+        /// </summary>
+        /// <remarks>
+        /// Updates the wallet payment quantity with the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdateWalletPaymentWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1131,6 +1175,175 @@ namespace Docspace.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>PaymentCalculationWrapper</returns>
+        public PaymentCalculationWrapper CalculateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
+        {
+            Docspace.Client.ApiResponse<PaymentCalculationWrapper> localVarResponse = CalculateWalletPaymentWithHttpInfo(walletQuantityRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of PaymentCalculationWrapper</returns>
+        public Docspace.Client.ApiResponse<PaymentCalculationWrapper> CalculateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = walletQuantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<PaymentCalculationWrapper>("/api/2.0/portal/payment/calculatewallet", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CalculateWalletPayment", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PaymentCalculationWrapper</returns>
+        public async System.Threading.Tasks.Task<PaymentCalculationWrapper> CalculateWalletPaymentAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<PaymentCalculationWrapper> localVarResponse = await CalculateWalletPaymentWithHttpInfoAsync(walletQuantityRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PaymentCalculationWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<PaymentCalculationWrapper>> CalculateWalletPaymentWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = walletQuantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PaymentCalculationWrapper>("/api/2.0/portal/payment/calculatewallet", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CalculateWalletPayment", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -1464,24 +1677,24 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Get the chechout setup page URL Returns the URL to the chechout setup page.
+        /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper GetChechoutSetupUrl(string? backUrl = default(string?))
+        public StringWrapper GetCheckoutSetupUrl(string? backUrl = default(string?))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetChechoutSetupUrlWithHttpInfo(backUrl);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetCheckoutSetupUrlWithHttpInfo(backUrl);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the chechout setup page URL Returns the URL to the chechout setup page.
+        /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> GetChechoutSetupUrlWithHttpInfo(string? backUrl = default(string?))
+        public Docspace.Client.ApiResponse<StringWrapper> GetCheckoutSetupUrlWithHttpInfo(string? backUrl = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1540,7 +1753,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetChechoutSetupUrl", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCheckoutSetupUrl", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1548,26 +1761,26 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Get the chechout setup page URL Returns the URL to the chechout setup page.
+        /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> GetChechoutSetupUrlAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> GetCheckoutSetupUrlAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetChechoutSetupUrlWithHttpInfoAsync(backUrl, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetCheckoutSetupUrlWithHttpInfoAsync(backUrl, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the chechout setup page URL Returns the URL to the chechout setup page.
+        /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetChechoutSetupUrlWithHttpInfoAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetCheckoutSetupUrlWithHttpInfoAsync(string? backUrl = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1629,168 +1842,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetChechoutSetupUrl", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get currencies Returns the available portal currencies.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrenciesArrayWrapper</returns>
-        public CurrenciesArrayWrapper GetCurrencies()
-        {
-            Docspace.Client.ApiResponse<CurrenciesArrayWrapper> localVarResponse = GetCurrenciesWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get currencies Returns the available portal currencies.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<CurrenciesArrayWrapper> GetCurrenciesWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CurrenciesArrayWrapper>("/api/2.0/portal/payment/currencies", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCurrencies", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get currencies Returns the available portal currencies.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrenciesArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<CurrenciesArrayWrapper> GetCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<CurrenciesArrayWrapper> localVarResponse = await GetCurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get currencies Returns the available portal currencies.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CurrenciesArrayWrapper>> GetCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CurrenciesArrayWrapper>("/api/2.0/portal/payment/currencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCurrencies", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCheckoutSetupUrl", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2550,6 +2602,340 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Get currencies Returns the available portal currencies.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CurrenciesArrayWrapper</returns>
+        public CurrenciesArrayWrapper GetPaymentCurrencies()
+        {
+            Docspace.Client.ApiResponse<CurrenciesArrayWrapper> localVarResponse = GetPaymentCurrenciesWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get currencies Returns the available portal currencies.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<CurrenciesArrayWrapper> GetPaymentCurrenciesWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CurrenciesArrayWrapper>("/api/2.0/portal/payment/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPaymentCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get currencies Returns the available portal currencies.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrenciesArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<CurrenciesArrayWrapper> GetPaymentCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<CurrenciesArrayWrapper> localVarResponse = await GetPaymentCurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get currencies Returns the available portal currencies.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CurrenciesArrayWrapper>> GetPaymentCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CurrenciesArrayWrapper>("/api/2.0/portal/payment/currencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPaymentCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get quotas Returns the available portal quotas.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <returns>QuotaArrayWrapper</returns>
+        public QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default(bool?))
+        {
+            Docspace.Client.ApiResponse<QuotaArrayWrapper> localVarResponse = GetPaymentQuotasWithHttpInfo(wallet);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get quotas Returns the available portal quotas.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default(bool?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (wallet != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<QuotaArrayWrapper>("/api/2.0/portal/payment/quotas", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPaymentQuotas", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get quotas Returns the available portal quotas.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of QuotaArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<QuotaArrayWrapper> localVarResponse = await GetPaymentQuotasWithHttpInfoAsync(wallet, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get quotas Returns the available portal quotas.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wallet">Get wallet quotas only (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (wallet != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<QuotaArrayWrapper>("/api/2.0/portal/payment/quotas", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPaymentQuotas", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the payment page URL Returns the URL to the payment page.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2723,9 +3109,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetPrices()
+        public ObjectWrapper GetPortalPrices()
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetPricesWithHttpInfo();
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetPortalPricesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -2734,7 +3120,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetPricesWithHttpInfo()
+        public Docspace.Client.ApiResponse<ObjectWrapper> GetPortalPricesWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2789,7 +3175,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPrices", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPortalPrices", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2802,9 +3188,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetPricesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectWrapper> GetPortalPricesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetPricesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetPortalPricesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2814,7 +3200,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetPricesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetPortalPricesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2872,7 +3258,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPrices", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPortalPrices", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2885,9 +3271,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <returns>QuotaWrapper</returns>
-        public QuotaWrapper GetQuotaInformation(bool? refresh = default(bool?))
+        public QuotaWrapper GetQuotaPaymentInformation(bool? refresh = default(bool?))
         {
-            Docspace.Client.ApiResponse<QuotaWrapper> localVarResponse = GetQuotaInformationWithHttpInfo(refresh);
+            Docspace.Client.ApiResponse<QuotaWrapper> localVarResponse = GetQuotaPaymentInformationWithHttpInfo(refresh);
             return localVarResponse.Data;
         }
 
@@ -2897,7 +3283,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <returns>ApiResponse of QuotaWrapper</returns>
-        public Docspace.Client.ApiResponse<QuotaWrapper> GetQuotaInformationWithHttpInfo(bool? refresh = default(bool?))
+        public Docspace.Client.ApiResponse<QuotaWrapper> GetQuotaPaymentInformationWithHttpInfo(bool? refresh = default(bool?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2956,7 +3342,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetQuotaInformation", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetQuotaPaymentInformation", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2970,9 +3356,9 @@ namespace Docspace.Api
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of QuotaWrapper</returns>
-        public async System.Threading.Tasks.Task<QuotaWrapper> GetQuotaInformationAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<QuotaWrapper> GetQuotaPaymentInformationAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<QuotaWrapper> localVarResponse = await GetQuotaInformationWithHttpInfoAsync(refresh, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<QuotaWrapper> localVarResponse = await GetQuotaPaymentInformationWithHttpInfoAsync(refresh, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2983,7 +3369,7 @@ namespace Docspace.Api
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (QuotaWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<QuotaWrapper>> GetQuotaInformationWithHttpInfoAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<QuotaWrapper>> GetQuotaPaymentInformationWithHttpInfoAsync(bool? refresh = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3045,180 +3431,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetQuotaInformation", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get quotas Returns the available portal quotas.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <returns>QuotaArrayWrapper</returns>
-        public QuotaArrayWrapper GetQuotas(bool? wallet = default(bool?))
-        {
-            Docspace.Client.ApiResponse<QuotaArrayWrapper> localVarResponse = GetQuotasWithHttpInfo(wallet);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get quotas Returns the available portal quotas.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<QuotaArrayWrapper> GetQuotasWithHttpInfo(bool? wallet = default(bool?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (wallet != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<QuotaArrayWrapper>("/api/2.0/portal/payment/quotas", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetQuotas", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get quotas Returns the available portal quotas.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QuotaArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<QuotaArrayWrapper> GetQuotasAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<QuotaArrayWrapper> localVarResponse = await GetQuotasWithHttpInfoAsync(wallet, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get quotas Returns the available portal quotas.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Get wallet quotas only (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<QuotaArrayWrapper>> GetQuotasWithHttpInfoAsync(bool? wallet = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (wallet != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<QuotaArrayWrapper>("/api/2.0/portal/payment/quotas", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetQuotas", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetQuotaPaymentInformation", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3556,344 +3769,6 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper PaymentUpdate(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = PaymentUpdateWithHttpInfo(quantityRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> PaymentUpdateWithHttpInfo(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = quantityRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<BooleanWrapper>("/api/2.0/portal/payment/update", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PaymentUpdate", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> PaymentUpdateAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await PaymentUpdateWithHttpInfoAsync(quantityRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> PaymentUpdateWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = quantityRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<BooleanWrapper>("/api/2.0/portal/payment/update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PaymentUpdate", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper PaymentUpdateWallet(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = PaymentUpdateWalletWithHttpInfo(walletQuantityRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> PaymentUpdateWalletWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = walletQuantityRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<BooleanWrapper>("/api/2.0/portal/payment/updatewallet", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PaymentUpdateWallet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> PaymentUpdateWalletAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await PaymentUpdateWalletWithHttpInfoAsync(walletQuantityRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> PaymentUpdateWalletWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = walletQuantityRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<BooleanWrapper>("/api/2.0/portal/payment/updatewallet", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PaymentUpdateWallet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Perform customer operation Perform customer operation and return true if the operation is succesfully provided.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4068,9 +3943,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <returns></returns>
-        public void SendSalesRequest(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?))
+        public void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?))
         {
-            SendSalesRequestWithHttpInfo(salesRequestsDto);
+            SendPaymentRequestWithHttpInfo(salesRequestsDto);
         }
 
         /// <summary>
@@ -4079,7 +3954,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> SendSalesRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?))
+        public Docspace.Client.ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -4135,7 +4010,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendSalesRequest", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendPaymentRequest", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4149,9 +4024,9 @@ namespace Docspace.Api
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendSalesRequestAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SendPaymentRequestAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await SendSalesRequestWithHttpInfoAsync(salesRequestsDto, cancellationToken).ConfigureAwait(false);
+            await SendPaymentRequestWithHttpInfoAsync(salesRequestsDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4161,7 +4036,7 @@ namespace Docspace.Api
         /// <param name="salesRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SendSalesRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default(SalesRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -4220,7 +4095,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendSalesRequest", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendPaymentRequest", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4559,6 +4434,344 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TopUpDeposit", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper UpdatePayment(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = UpdatePaymentWithHttpInfo(quantityRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public Docspace.Client.ApiResponse<BooleanWrapper> UpdatePaymentWithHttpInfo(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = quantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<BooleanWrapper>("/api/2.0/portal/payment/update", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdatePayment", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async System.Threading.Tasks.Task<BooleanWrapper> UpdatePaymentAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await UpdatePaymentWithHttpInfoAsync(quantityRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> UpdatePaymentWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default(QuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = quantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<BooleanWrapper>("/api/2.0/portal/payment/update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdatePayment", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper UpdateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = UpdateWalletPaymentWithHttpInfo(walletQuantityRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public Docspace.Client.ApiResponse<BooleanWrapper> UpdateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = walletQuantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<BooleanWrapper>("/api/2.0/portal/payment/updatewallet", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateWalletPayment", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async System.Threading.Tasks.Task<BooleanWrapper> UpdateWalletPaymentAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await UpdateWalletPaymentWithHttpInfoAsync(walletQuantityRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> UpdateWalletPaymentWithHttpInfoAsync(WalletQuantityRequestDto? walletQuantityRequestDto = default(WalletQuantityRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = walletQuantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<BooleanWrapper>("/api/2.0/portal/payment/updatewallet", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateWalletPayment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

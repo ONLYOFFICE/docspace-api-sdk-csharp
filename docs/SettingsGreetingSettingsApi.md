@@ -5,7 +5,7 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetGreetingSettings**](SettingsGreetingSettingsApi.md#getgreetingsettings) | **GET** /api/2.0/settings/greetingsettings | Get greeting settings |
-| [**IsDefault**](SettingsGreetingSettingsApi.md#isdefault) | **GET** /api/2.0/settings/greetingsettings/isdefault | Check the default greeting settings |
+| [**GetIsDefaultGreetingSettings**](SettingsGreetingSettingsApi.md#getisdefaultgreetingsettings) | **GET** /api/2.0/settings/greetingsettings/isdefault | Check the default greeting settings |
 | [**RestoreGreetingSettings**](SettingsGreetingSettingsApi.md#restoregreetingsettings) | **POST** /api/2.0/settings/greetingsettings/restore | Restore the greeting settings |
 | [**SaveGreetingSettings**](SettingsGreetingSettingsApi.md#savegreetingsettings) | **POST** /api/2.0/settings/greetingsettings | Save the greeting settings |
 
@@ -116,9 +116,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="isdefault"></a>
-# **IsDefault**
-> BooleanWrapper IsDefault ()
+<a id="getisdefaultgreetingsettings"></a>
+# **GetIsDefaultGreetingSettings**
+> BooleanWrapper GetIsDefaultGreetingSettings ()
 
 Check the default greeting settings
 
@@ -135,7 +135,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class IsDefaultExample
+    public class GetIsDefaultGreetingSettingsExample
     {
         public static void Main()
         {
@@ -165,12 +165,12 @@ namespace Example
             try
             {
                 // Check the default greeting settings
-                BooleanWrapper result = apiInstance.IsDefault();
+                BooleanWrapper result = apiInstance.GetIsDefaultGreetingSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsGreetingSettingsApi.IsDefault: " + e.Message);
+                Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetIsDefaultGreetingSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -179,21 +179,21 @@ namespace Example
 }
 ```
 
-#### Using the IsDefaultWithHttpInfo variant
+#### Using the GetIsDefaultGreetingSettingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Check the default greeting settings
-    ApiResponse<BooleanWrapper> response = apiInstance.IsDefaultWithHttpInfo();
+    ApiResponse<BooleanWrapper> response = apiInstance.GetIsDefaultGreetingSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsGreetingSettingsApi.IsDefaultWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetIsDefaultGreetingSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

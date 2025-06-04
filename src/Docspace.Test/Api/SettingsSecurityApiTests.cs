@@ -65,6 +65,19 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetIsProductAdministrator
+        /// </summary>
+        [Fact]
+        public void GetIsProductAdministratorTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? productid = null;
+            //Guid? userid = null;
+            //var response = instance.GetIsProductAdministrator(productid, userid);
+            //Assert.IsType<ProductAdministratorWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetPasswordSettings
         /// </summary>
         [Fact]
@@ -109,19 +122,6 @@ namespace Docspace.Test.Api
             //List<string>? ids = null;
             //var response = instance.GetWebItemSettingsSecurityInfo(ids);
             //Assert.IsType<SecurityArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test IsProductAdministrator
-        /// </summary>
-        [Fact]
-        public void IsProductAdministratorTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Guid? productid = null;
-            //Guid? userid = null;
-            //var response = instance.IsProductAdministrator(productid, userid);
-            //Assert.IsType<ProductAdministratorWrapper>(response);
         }
 
         /// <summary>

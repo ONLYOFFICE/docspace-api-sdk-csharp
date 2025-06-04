@@ -91,18 +91,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetByUserId
-        /// </summary>
-        [Fact]
-        public void GetByUserIdTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Guid userid = null;
-            //var response = instance.GetByUserId(userid);
-            //Assert.IsType<GroupSummaryArrayWrapper>(response);
-        }
-
-        /// <summary>
         /// Test GetGroup
         /// </summary>
         [Fact]
@@ -113,6 +101,18 @@ namespace Docspace.Test.Api
             //bool? includeMembers = null;
             //var response = instance.GetGroup(id, includeMembers);
             //Assert.IsType<GroupWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetGroupByUserId
+        /// </summary>
+        [Fact]
+        public void GetGroupByUserIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid userid = null;
+            //var response = instance.GetGroupByUserId(userid);
+            //Assert.IsType<GroupSummaryArrayWrapper>(response);
         }
 
         /// <summary>
@@ -129,6 +129,19 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test MoveMembersTo
+        /// </summary>
+        [Fact]
+        public void MoveMembersToTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid fromId = null;
+            //Guid toId = null;
+            //var response = instance.MoveMembersTo(fromId, toId);
+            //Assert.IsType<GroupWrapper>(response);
+        }
+
+        /// <summary>
         /// Test RemoveMembersFrom
         /// </summary>
         [Fact]
@@ -142,15 +155,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SetManager
+        /// Test SetGroupManager
         /// </summary>
         [Fact]
-        public void SetManagerTest()
+        public void SetGroupManagerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid id = null;
             //SetManagerRequest? setManagerRequest = null;
-            //var response = instance.SetManager(id, setManagerRequest);
+            //var response = instance.SetGroupManager(id, setManagerRequest);
             //Assert.IsType<GroupWrapper>(response);
         }
 
@@ -164,19 +177,6 @@ namespace Docspace.Test.Api
             //Guid id = null;
             //MembersRequest? membersRequest = null;
             //var response = instance.SetMembersTo(id, membersRequest);
-            //Assert.IsType<GroupWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test TransferMembersTo
-        /// </summary>
-        [Fact]
-        public void TransferMembersToTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Guid fromId = null;
-            //Guid toId = null;
-            //var response = instance.TransferMembersTo(fromId, toId);
             //Assert.IsType<GroupWrapper>(response);
         }
 

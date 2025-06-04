@@ -54,48 +54,48 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GeInviteLink
+        /// Test GetInvitationLink
         /// </summary>
         [Fact]
-        public void GeInviteLinkTest()
+        public void GetInvitationLinkTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //EmployeeType employeeType = null;
-            //var response = instance.GeInviteLink(employeeType);
+            //var response = instance.GetInvitationLink(employeeType);
             //Assert.IsType<StringWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetUser
+        /// Test GetPortalUsersCount
         /// </summary>
         [Fact]
-        public void GetUserTest()
+        public void GetPortalUsersCountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Guid userID = null;
-            //var response = instance.GetUser(userID);
-            //Assert.IsType<UserInfoWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetUsersCount
-        /// </summary>
-        [Fact]
-        public void GetUsersCountTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetUsersCount();
+            //var response = instance.GetPortalUsersCount();
             //Assert.IsType<Int64Wrapper>(response);
         }
 
         /// <summary>
-        /// Test MarkPresentAsReaded
+        /// Test GetUserById
         /// </summary>
         [Fact]
-        public void MarkPresentAsReadedTest()
+        public void GetUserByIdTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.MarkPresentAsReaded();
+            //Guid userID = null;
+            //var response = instance.GetUserById(userID);
+            //Assert.IsType<UserInfoWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test MarkGiftMessageAsRead
+        /// </summary>
+        [Fact]
+        public void MarkGiftMessageAsReadTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //instance.MarkGiftMessageAsRead();
         }
 
         /// <summary>

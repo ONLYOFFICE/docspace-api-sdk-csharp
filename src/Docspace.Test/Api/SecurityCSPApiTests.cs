@@ -54,25 +54,25 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Csp
+        /// Test ConfigureCsp
         /// </summary>
         [Fact]
-        public void CspTest()
+        public void ConfigureCspTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CspRequestsDto? cspRequestsDto = null;
-            //var response = instance.Csp(cspRequestsDto);
+            //var response = instance.ConfigureCsp(cspRequestsDto);
             //Assert.IsType<CspWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetCsp
+        /// Test GetCspSettings
         /// </summary>
         [Fact]
-        public void GetCspTest()
+        public void GetCspSettingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetCsp();
+            //var response = instance.GetCspSettings();
             //Assert.IsType<CspWrapper>(response);
         }
     }

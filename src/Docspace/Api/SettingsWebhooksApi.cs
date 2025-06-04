@@ -70,41 +70,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default(UpdateWebhooksConfigRequestsDto?));
         /// <summary>
-        /// Get webhook logs
-        /// </summary>
-        /// <remarks>
-        /// Returns the logs of the webhook activities.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <returns>WebhooksLogArrayWrapper</returns>
-        WebhooksLogArrayWrapper GetJournal(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
-
-        /// <summary>
-        /// Get webhook logs
-        /// </summary>
-        /// <remarks>
-        /// Returns the logs of the webhook activities.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        ApiResponse<WebhooksLogArrayWrapper> GetJournalWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
-        /// <summary>
         /// Get webhooks
         /// </summary>
         /// <remarks>
@@ -123,6 +88,60 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of WebhooksConfigWithStatusArrayWrapper</returns>
         ApiResponse<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksWithHttpInfo();
+        /// <summary>
+        /// Get webhook triggers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of triggers for a webhook.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>UnknownWrapper</returns>
+        UnknownWrapper GetWebhookTriggers();
+
+        /// <summary>
+        /// Get webhook triggers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of triggers for a webhook.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of UnknownWrapper</returns>
+        ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo();
+        /// <summary>
+        /// Get webhook logs
+        /// </summary>
+        /// <remarks>
+        /// Returns the logs of the webhook activities.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <returns>WebhooksLogArrayWrapper</returns>
+        WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
+
+        /// <summary>
+        /// Get webhook logs
+        /// </summary>
+        /// <remarks>
+        /// Returns the logs of the webhook activities.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
+        ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -186,25 +205,6 @@ namespace Docspace.Api
         /// <param name="webhookRetryRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default(WebhookRetryRequestsDto?));
-        /// <summary>
-        /// Get webhook triggers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of triggers for a webhook.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>UnknownWrapper</returns>
-        UnknownWrapper Triggers();
-
-        /// <summary>
-        /// Get webhook triggers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of triggers for a webhook.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of UnknownWrapper</returns>
-        ApiResponse<UnknownWrapper> TriggersWithHttpInfo();
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -282,43 +282,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default(UpdateWebhooksConfigRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get webhook logs
-        /// </summary>
-        /// <remarks>
-        /// Returns the logs of the webhook activities.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetJournalAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get webhook logs
-        /// </summary>
-        /// <remarks>
-        /// Returns the logs of the webhook activities.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> GetJournalWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Get webhooks
         /// </summary>
         /// <remarks>
@@ -339,6 +302,64 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhooksConfigWithStatusArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWithStatusArrayWrapper>> GetTenantWebhooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get webhook triggers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of triggers for a webhook.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UnknownWrapper</returns>
+        System.Threading.Tasks.Task<UnknownWrapper> GetWebhookTriggersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get webhook triggers
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of triggers for a webhook.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UnknownWrapper>> GetWebhookTriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get webhook logs
+        /// </summary>
+        /// <remarks>
+        /// Returns the logs of the webhook activities.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WebhooksLogArrayWrapper</returns>
+        System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get webhook logs
+        /// </summary>
+        /// <remarks>
+        /// Returns the logs of the webhook activities.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -408,27 +429,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default(WebhookRetryRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get webhook triggers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of triggers for a webhook.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnknownWrapper</returns>
-        System.Threading.Tasks.Task<UnknownWrapper> TriggersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get webhook triggers
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of triggers for a webhook.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnknownWrapper>> TriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -1004,263 +1004,6 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Get webhook logs Returns the logs of the webhook activities.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <returns>WebhooksLogArrayWrapper</returns>
-        public WebhooksLogArrayWrapper GetJournal(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
-        {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = GetJournalWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get webhook logs Returns the logs of the webhook activities.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> GetJournalWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (deliveryFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
-            }
-            if (deliveryTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
-            }
-            if (hookUri != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
-            }
-            if (configId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
-            }
-            if (eventId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
-            }
-            if (groupStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
-            }
-            if (userId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
-            }
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<WebhooksLogArrayWrapper>("/api/2.0/settings/webhooks/log", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetJournal", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get webhook logs Returns the logs of the webhook activities.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetJournalAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetJournalWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get webhook logs Returns the logs of the webhook activities.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
-        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
-        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
-        /// <param name="configId">The webhook configuration identifier. (optional)</param>
-        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
-        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
-        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
-        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> GetJournalWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (deliveryFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
-            }
-            if (deliveryTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
-            }
-            if (hookUri != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
-            }
-            if (configId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
-            }
-            if (eventId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
-            }
-            if (groupStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
-            }
-            if (userId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
-            }
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WebhooksLogArrayWrapper>("/api/2.0/settings/webhooks/log", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetJournal", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Get webhooks Returns a list of the tenant webhooks.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1415,6 +1158,424 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTenantWebhooks", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get webhook triggers Returns a list of triggers for a webhook.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>UnknownWrapper</returns>
+        public UnknownWrapper GetWebhookTriggers()
+        {
+            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = GetWebhookTriggersWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get webhook triggers Returns a list of triggers for a webhook.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of UnknownWrapper</returns>
+        public Docspace.Client.ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UnknownWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get webhook triggers Returns a list of triggers for a webhook.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UnknownWrapper</returns>
+        public async System.Threading.Tasks.Task<UnknownWrapper> GetWebhookTriggersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = await GetWebhookTriggersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get webhook triggers Returns a list of triggers for a webhook.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UnknownWrapper>> GetWebhookTriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UnknownWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get webhook logs Returns the logs of the webhook activities.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <returns>WebhooksLogArrayWrapper</returns>
+        public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
+        {
+            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get webhook logs Returns the logs of the webhook activities.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (deliveryFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
+            }
+            if (deliveryTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
+            }
+            if (hookUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
+            }
+            if (configId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
+            }
+            if (eventId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
+            }
+            if (groupStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+            }
+            if (trigger != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<WebhooksLogArrayWrapper>("/api/2.0/settings/webhooks/log", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get webhook logs Returns the logs of the webhook activities.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WebhooksLogArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get webhook logs Returns the logs of the webhook activities.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
+        /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
+        /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
+        /// <param name="configId">The webhook configuration identifier. (optional)</param>
+        /// <param name="eventId">The unique identifier of the event that triggered the webhook. (optional)</param>
+        /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
+        /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
+        /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (deliveryFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
+            }
+            if (deliveryTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
+            }
+            if (hookUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
+            }
+            if (configId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
+            }
+            if (eventId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
+            }
+            if (groupStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+            }
+            if (trigger != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WebhooksLogArrayWrapper>("/api/2.0/settings/webhooks/log", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1918,167 +2079,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RetryWebhooks", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get webhook triggers Returns a list of triggers for a webhook.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>UnknownWrapper</returns>
-        public UnknownWrapper Triggers()
-        {
-            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = TriggersWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get webhook triggers Returns a list of triggers for a webhook.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of UnknownWrapper</returns>
-        public Docspace.Client.ApiResponse<UnknownWrapper> TriggersWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<UnknownWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("Triggers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get webhook triggers Returns a list of triggers for a webhook.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnknownWrapper</returns>
-        public async System.Threading.Tasks.Task<UnknownWrapper> TriggersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = await TriggersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get webhook triggers Returns a list of triggers for a webhook.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UnknownWrapper>> TriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<UnknownWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("Triggers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

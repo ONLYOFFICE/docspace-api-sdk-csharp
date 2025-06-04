@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        TaskProgressResponseWrapper GetChangeTypeProgress(Guid userid);
+        TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userid);
 
         /// <summary>
         /// Get the progress of updating user type
@@ -47,7 +47,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        ApiResponse<TaskProgressResponseWrapper> GetChangeTypeProgressWithHttpInfo(Guid userid);
+        ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userid);
         /// <summary>
         /// Update user type
         /// </summary>
@@ -57,7 +57,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        TaskProgressResponseWrapper StartUpdateUserType(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?));
+        TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?));
 
         /// <summary>
         /// Update user type
@@ -68,7 +68,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        ApiResponse<TaskProgressResponseWrapper> StartUpdateUserTypeWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?));
+        ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?));
         /// <summary>
         /// Terminate update user type
         /// </summary>
@@ -78,7 +78,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        TaskProgressResponseWrapper TerminateChangeType(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?));
+        TaskProgressResponseWrapper TerminateUserTypeUpdate(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?));
 
         /// <summary>
         /// Terminate update user type
@@ -89,7 +89,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        ApiResponse<TaskProgressResponseWrapper> TerminateChangeTypeWithHttpInfo(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?));
+        ApiResponse<TaskProgressResponseWrapper> TerminateUserTypeUpdateWithHttpInfo(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?));
         /// <summary>
         /// Change a user type
         /// </summary>
@@ -132,7 +132,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetChangeTypeProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the progress of updating user type
@@ -144,7 +144,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetChangeTypeProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update user type
         /// </summary>
@@ -155,7 +155,7 @@ namespace Docspace.Api
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartUpdateUserTypeAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TaskProgressResponseWrapper> StarUserTypetUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update user type
@@ -167,7 +167,7 @@ namespace Docspace.Api
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartUpdateUserTypeWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StarUserTypetUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Terminate update user type
         /// </summary>
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateChangeTypeAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateUserTypeUpdateAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Terminate update user type
@@ -190,7 +190,7 @@ namespace Docspace.Api
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> TerminateChangeTypeWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> TerminateUserTypeUpdateWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Change a user type
         /// </summary>
@@ -435,9 +435,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        public TaskProgressResponseWrapper GetChangeTypeProgress(Guid userid)
+        public TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userid)
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = GetChangeTypeProgressWithHttpInfo(userid);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = GetUserTypeUpdateProgressWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -447,7 +447,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> GetChangeTypeProgressWithHttpInfo(Guid userid)
+        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userid)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -503,7 +503,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetChangeTypeProgress", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUserTypeUpdateProgress", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -517,9 +517,9 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetChangeTypeProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await GetChangeTypeProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await GetUserTypeUpdateProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -530,7 +530,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> GetChangeTypeProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -589,7 +589,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetChangeTypeProgress", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUserTypeUpdateProgress", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -602,9 +602,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        public TaskProgressResponseWrapper StartUpdateUserType(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?))
+        public TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?))
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = StartUpdateUserTypeWithHttpInfo(startUpdateUserTypeDto);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
             return localVarResponse.Data;
         }
 
@@ -614,7 +614,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> StartUpdateUserTypeWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?))
+        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -671,7 +671,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartUpdateUserType", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StarUserTypetUpdate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -685,9 +685,9 @@ namespace Docspace.Api
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartUpdateUserTypeAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> StarUserTypetUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await StartUpdateUserTypeWithHttpInfoAsync(startUpdateUserTypeDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await StarUserTypetUpdateWithHttpInfoAsync(startUpdateUserTypeDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -698,7 +698,7 @@ namespace Docspace.Api
         /// <param name="startUpdateUserTypeDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> StartUpdateUserTypeWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> StarUserTypetUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default(StartUpdateUserTypeDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -758,7 +758,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartUpdateUserType", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StarUserTypetUpdate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -771,9 +771,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <returns>TaskProgressResponseWrapper</returns>
-        public TaskProgressResponseWrapper TerminateChangeType(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?))
+        public TaskProgressResponseWrapper TerminateUserTypeUpdate(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?))
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = TerminateChangeTypeWithHttpInfo(terminateRequestDto);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = TerminateUserTypeUpdateWithHttpInfo(terminateRequestDto);
             return localVarResponse.Data;
         }
 
@@ -783,7 +783,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> TerminateChangeTypeWithHttpInfo(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?))
+        public Docspace.Client.ApiResponse<TaskProgressResponseWrapper> TerminateUserTypeUpdateWithHttpInfo(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -840,7 +840,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TerminateChangeType", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TerminateUserTypeUpdate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -854,9 +854,9 @@ namespace Docspace.Api
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateChangeTypeAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateUserTypeUpdateAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await TerminateChangeTypeWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<TaskProgressResponseWrapper> localVarResponse = await TerminateUserTypeUpdateWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -867,7 +867,7 @@ namespace Docspace.Api
         /// <param name="terminateRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> TerminateChangeTypeWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TaskProgressResponseWrapper>> TerminateUserTypeUpdateWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default(TerminateRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -927,7 +927,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TerminateChangeType", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TerminateUserTypeUpdate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

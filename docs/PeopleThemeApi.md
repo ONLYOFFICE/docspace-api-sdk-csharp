@@ -4,12 +4,12 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeTheme**](PeopleThemeApi.md#changetheme) | **PUT** /api/2.0/people/theme | Change the portal theme |
-| [**GetTheme**](PeopleThemeApi.md#gettheme) | **GET** /api/2.0/people/theme | Get the portal theme |
+| [**ChangePortalTheme**](PeopleThemeApi.md#changeportaltheme) | **PUT** /api/2.0/people/theme | Change the portal theme |
+| [**GetPortalTheme**](PeopleThemeApi.md#getportaltheme) | **GET** /api/2.0/people/theme | Get the portal theme |
 
-<a id="changetheme"></a>
-# **ChangeTheme**
-> DarkThemeSettingsWrapper ChangeTheme (DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null)
+<a id="changeportaltheme"></a>
+# **ChangePortalTheme**
+> DarkThemeSettingsWrapper ChangePortalTheme (DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null)
 
 Change the portal theme
 
@@ -26,7 +26,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class ChangeThemeExample
+    public class ChangePortalThemeExample
     {
         public static void Main()
         {
@@ -57,12 +57,12 @@ namespace Example
             try
             {
                 // Change the portal theme
-                DarkThemeSettingsWrapper result = apiInstance.ChangeTheme(darkThemeSettingsRequestDto);
+                DarkThemeSettingsWrapper result = apiInstance.ChangePortalTheme(darkThemeSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThemeApi.ChangeTheme: " + e.Message);
+                Debug.Print("Exception when calling PeopleThemeApi.ChangePortalTheme: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -71,21 +71,21 @@ namespace Example
 }
 ```
 
-#### Using the ChangeThemeWithHttpInfo variant
+#### Using the ChangePortalThemeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Change the portal theme
-    ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.ChangeThemeWithHttpInfo(darkThemeSettingsRequestDto);
+    ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.ChangePortalThemeWithHttpInfo(darkThemeSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThemeApi.ChangeThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThemeApi.ChangePortalThemeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -119,9 +119,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettheme"></a>
-# **GetTheme**
-> DarkThemeSettingsWrapper GetTheme ()
+<a id="getportaltheme"></a>
+# **GetPortalTheme**
+> DarkThemeSettingsWrapper GetPortalTheme ()
 
 Get the portal theme
 
@@ -138,7 +138,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetThemeExample
+    public class GetPortalThemeExample
     {
         public static void Main()
         {
@@ -168,12 +168,12 @@ namespace Example
             try
             {
                 // Get the portal theme
-                DarkThemeSettingsWrapper result = apiInstance.GetTheme();
+                DarkThemeSettingsWrapper result = apiInstance.GetPortalTheme();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThemeApi.GetTheme: " + e.Message);
+                Debug.Print("Exception when calling PeopleThemeApi.GetPortalTheme: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -182,21 +182,21 @@ namespace Example
 }
 ```
 
-#### Using the GetThemeWithHttpInfo variant
+#### Using the GetPortalThemeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get the portal theme
-    ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.GetThemeWithHttpInfo();
+    ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.GetPortalThemeWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThemeApi.GetThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThemeApi.GetPortalThemeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

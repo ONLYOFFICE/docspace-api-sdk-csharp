@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper GetGuestShareLink(Guid userid);
+        StringWrapper GetGuestSharingLink(Guid userid);
 
         /// <summary>
         /// Get a guest sharing link
@@ -47,7 +47,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> GetGuestShareLinkWithHttpInfo(Guid userid);
+        ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userid);
         #endregion Synchronous Operations
     }
 
@@ -67,7 +67,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> GetGuestShareLinkAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> GetGuestSharingLinkAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get a guest sharing link
@@ -79,7 +79,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetGuestShareLinkWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -299,9 +299,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper GetGuestShareLink(Guid userid)
+        public StringWrapper GetGuestSharingLink(Guid userid)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetGuestShareLinkWithHttpInfo(userid);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetGuestSharingLinkWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -311,7 +311,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> GetGuestShareLinkWithHttpInfo(Guid userid)
+        public Docspace.Client.ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userid)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -367,7 +367,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGuestShareLink", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetGuestSharingLink", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -381,9 +381,9 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> GetGuestShareLinkAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> GetGuestSharingLinkAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetGuestShareLinkWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetGuestSharingLinkWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -394,7 +394,7 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetGuestShareLinkWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -453,7 +453,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGuestShareLink", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetGuestSharingLink", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -74,56 +74,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetAdvanced
-        /// </summary>
-        [Fact]
-        public void GetAdvancedTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //EmployeeStatus status = null;
-            //string? query = null;
-            //var response = instance.GetAdvanced(status, query);
-            //Assert.IsType<EmployeeFullArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetFullByFilter
-        /// </summary>
-        [Fact]
-        public void GetFullByFilterTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //EmployeeStatus? employeeStatus = null;
-            //Guid? groupId = null;
-            //EmployeeActivationStatus? activationStatus = null;
-            //EmployeeType? employeeType = null;
-            //List<int>? employeeTypes = null;
-            //bool? isAdministrator = null;
-            //Payments? payments = null;
-            //AccountLoginType? accountLoginType = null;
-            //QuotaFilter? quotaFilter = null;
-            //bool? withoutGroup = null;
-            //bool? excludeGroup = null;
-            //bool? invitedByMe = null;
-            //Guid? inviterId = null;
-            //Area? area = null;
-            //var response = instance.GetFullByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
-            //Assert.IsType<EmployeeFullArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetPeopleSearch
-        /// </summary>
-        [Fact]
-        public void GetPeopleSearchTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
-            //var response = instance.GetPeopleSearch(query);
-            //Assert.IsType<EmployeeArrayWrapper>(response);
-        }
-
-        /// <summary>
         /// Test GetSearch
         /// </summary>
         [Fact]
@@ -177,6 +127,56 @@ namespace Docspace.Test.Api
             //Area? area = null;
             //List<EmployeeType>? employeeTypes = null;
             //var response = instance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+            //Assert.IsType<EmployeeFullArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SearchUsersByExtendedFilter
+        /// </summary>
+        [Fact]
+        public void SearchUsersByExtendedFilterTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //EmployeeStatus? employeeStatus = null;
+            //Guid? groupId = null;
+            //EmployeeActivationStatus? activationStatus = null;
+            //EmployeeType? employeeType = null;
+            //List<int>? employeeTypes = null;
+            //bool? isAdministrator = null;
+            //Payments? payments = null;
+            //AccountLoginType? accountLoginType = null;
+            //QuotaFilter? quotaFilter = null;
+            //bool? withoutGroup = null;
+            //bool? excludeGroup = null;
+            //bool? invitedByMe = null;
+            //Guid? inviterId = null;
+            //Area? area = null;
+            //var response = instance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            //Assert.IsType<EmployeeFullArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SearchUsersByQuery
+        /// </summary>
+        [Fact]
+        public void SearchUsersByQueryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string? query = null;
+            //var response = instance.SearchUsersByQuery(query);
+            //Assert.IsType<EmployeeArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SearchUsersByStatus
+        /// </summary>
+        [Fact]
+        public void SearchUsersByStatusTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //EmployeeStatus status = null;
+            //string? query = null;
+            //var response = instance.SearchUsersByStatus(status, query);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
     }

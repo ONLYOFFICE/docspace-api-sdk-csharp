@@ -11,7 +11,7 @@ All URIs are relative to *http://http:*
 | [**GetStorageProgress**](SettingsStorageApi.md#getstorageprogress) | **GET** /api/2.0/settings/storage/progress | Get the storage progress |
 | [**ResetCdnToDefault**](SettingsStorageApi.md#resetcdntodefault) | **DELETE** /api/2.0/settings/storage/cdn | Reset the CDN storage settings |
 | [**ResetStorageToDefault**](SettingsStorageApi.md#resetstoragetodefault) | **DELETE** /api/2.0/settings/storage | Reset the storage settings |
-| [**UpdateCdn**](SettingsStorageApi.md#updatecdn) | **PUT** /api/2.0/settings/storage/cdn | Update the CDN storage |
+| [**UpdateCdnStorage**](SettingsStorageApi.md#updatecdnstorage) | **PUT** /api/2.0/settings/storage/cdn | Update the CDN storage |
 | [**UpdateStorage**](SettingsStorageApi.md#updatestorage) | **PUT** /api/2.0/settings/storage | Update a storage |
 
 <a id="getallbackupstorages"></a>
@@ -765,9 +765,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatecdn"></a>
-# **UpdateCdn**
-> CdnStorageSettingsWrapper UpdateCdn (StorageRequestsDto? storageRequestsDto = null)
+<a id="updatecdnstorage"></a>
+# **UpdateCdnStorage**
+> CdnStorageSettingsWrapper UpdateCdnStorage (StorageRequestsDto? storageRequestsDto = null)
 
 Update the CDN storage
 
@@ -784,7 +784,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class UpdateCdnExample
+    public class UpdateCdnStorageExample
     {
         public static void Main()
         {
@@ -815,12 +815,12 @@ namespace Example
             try
             {
                 // Update the CDN storage
-                CdnStorageSettingsWrapper result = apiInstance.UpdateCdn(storageRequestsDto);
+                CdnStorageSettingsWrapper result = apiInstance.UpdateCdnStorage(storageRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.UpdateCdn: " + e.Message);
+                Debug.Print("Exception when calling SettingsStorageApi.UpdateCdnStorage: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -829,21 +829,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateCdnWithHttpInfo variant
+#### Using the UpdateCdnStorageWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update the CDN storage
-    ApiResponse<CdnStorageSettingsWrapper> response = apiInstance.UpdateCdnWithHttpInfo(storageRequestsDto);
+    ApiResponse<CdnStorageSettingsWrapper> response = apiInstance.UpdateCdnStorageWithHttpInfo(storageRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.UpdateCdnWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsStorageApi.UpdateCdnStorageWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

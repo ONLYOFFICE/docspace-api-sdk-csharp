@@ -96,6 +96,30 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetAuditTrailMappers
+        /// </summary>
+        [Fact]
+        public void GetAuditTrailMappersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //ProductType? productType = null;
+            //ModuleType? moduleType = null;
+            //var response = instance.GetAuditTrailMappers(productType, moduleType);
+            //Assert.IsType<ObjectWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetAuditTrailTypes
+        /// </summary>
+        [Fact]
+        public void GetAuditTrailTypesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetAuditTrailTypes();
+            //Assert.IsType<ObjectWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetLastAuditEvents
         /// </summary>
         [Fact]
@@ -104,30 +128,6 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetLastAuditEvents();
             //Assert.IsType<AuditEventArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetMappers
-        /// </summary>
-        [Fact]
-        public void GetMappersTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //ProductType? productType = null;
-            //ModuleType? moduleType = null;
-            //var response = instance.GetMappers(productType, moduleType);
-            //Assert.IsType<ObjectWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetTypes
-        /// </summary>
-        [Fact]
-        public void GetTypesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTypes();
-            //Assert.IsType<ObjectWrapper>(response);
         }
 
         /// <summary>

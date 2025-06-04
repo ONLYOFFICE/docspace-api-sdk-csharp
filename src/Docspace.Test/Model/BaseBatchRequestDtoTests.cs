@@ -55,6 +55,15 @@ namespace Docspace.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ReturnSingleOperation'
+        /// </summary>
+        [Fact]
+        public void ReturnSingleOperationTest()
+        {
+            // TODO unit test for the property 'ReturnSingleOperation'
+        }
+
+        /// <summary>
         /// Test the property 'FolderIds'
         /// </summary>
         [Fact]

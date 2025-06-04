@@ -78,10 +78,32 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetJournal
+        /// Test GetTenantWebhooks
         /// </summary>
         [Fact]
-        public void GetJournalTest()
+        public void GetTenantWebhooksTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetTenantWebhooks();
+            //Assert.IsType<WebhooksConfigWithStatusArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetWebhookTriggers
+        /// </summary>
+        [Fact]
+        public void GetWebhookTriggersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetWebhookTriggers();
+            //Assert.IsType<UnknownWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetWebhooksLogs
+        /// </summary>
+        [Fact]
+        public void GetWebhooksLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime? deliveryFrom = null;
@@ -92,19 +114,8 @@ namespace Docspace.Test.Api
             //WebhookGroupStatus? groupStatus = null;
             //Guid? userId = null;
             //WebhookTrigger? trigger = null;
-            //var response = instance.GetJournal(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+            //var response = instance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
             //Assert.IsType<WebhooksLogArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetTenantWebhooks
-        /// </summary>
-        [Fact]
-        public void GetTenantWebhooksTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTenantWebhooks();
-            //Assert.IsType<WebhooksConfigWithStatusArrayWrapper>(response);
         }
 
         /// <summary>
@@ -141,17 +152,6 @@ namespace Docspace.Test.Api
             //WebhookRetryRequestsDto? webhookRetryRequestsDto = null;
             //var response = instance.RetryWebhooks(webhookRetryRequestsDto);
             //Assert.IsType<WebhooksLogArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test Triggers
-        /// </summary>
-        [Fact]
-        public void TriggersTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Triggers();
-            //Assert.IsType<UnknownWrapper>(response);
         }
 
         /// <summary>

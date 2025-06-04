@@ -384,6 +384,8 @@ docs/PasswordHasher.md
 docs/PasswordSettingsDto.md
 docs/PasswordSettingsRequestsDto.md
 docs/PasswordSettingsWrapper.md
+docs/PaymentCalculation.md
+docs/PaymentCalculationWrapper.md
 docs/PaymentMethodStatus.md
 docs/PaymentSettingsDto.md
 docs/PaymentSettingsWrapper.md
@@ -1075,6 +1077,8 @@ src/Docspace.Test/Model/PasswordHasherTests.cs
 src/Docspace.Test/Model/PasswordSettingsDtoTests.cs
 src/Docspace.Test/Model/PasswordSettingsRequestsDtoTests.cs
 src/Docspace.Test/Model/PasswordSettingsWrapperTests.cs
+src/Docspace.Test/Model/PaymentCalculationTests.cs
+src/Docspace.Test/Model/PaymentCalculationWrapperTests.cs
 src/Docspace.Test/Model/PaymentMethodStatusTests.cs
 src/Docspace.Test/Model/PaymentSettingsDtoTests.cs
 src/Docspace.Test/Model/PaymentSettingsWrapperTests.cs
@@ -1734,6 +1738,8 @@ src/Docspace/Model/PasswordHasher.cs
 src/Docspace/Model/PasswordSettingsDto.cs
 src/Docspace/Model/PasswordSettingsRequestsDto.cs
 src/Docspace/Model/PasswordSettingsWrapper.cs
+src/Docspace/Model/PaymentCalculation.cs
+src/Docspace/Model/PaymentCalculationWrapper.cs
 src/Docspace/Model/PaymentMethodStatus.cs
 src/Docspace/Model/PaymentSettingsDto.cs
 src/Docspace/Model/PaymentSettingsWrapper.cs

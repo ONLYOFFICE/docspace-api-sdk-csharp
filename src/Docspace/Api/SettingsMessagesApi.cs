@@ -57,7 +57,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper SendAdmMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?));
+        StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?));
 
         /// <summary>
         /// Send a message to the administrator
@@ -68,7 +68,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SendAdmMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?));
+        ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?));
         /// <summary>
         /// Sends an invitation email
         /// </summary>
@@ -132,7 +132,7 @@ namespace Docspace.Api
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> SendAdmMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send a message to the administrator
@@ -144,7 +144,7 @@ namespace Docspace.Api
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SendAdmMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Sends an invitation email
         /// </summary>
@@ -556,9 +556,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SendAdmMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?))
+        public StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = SendAdmMailWithHttpInfo(adminMessageSettingsRequestsDto);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = SendAdminMailWithHttpInfo(adminMessageSettingsRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -568,7 +568,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> SendAdmMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?))
+        public Docspace.Client.ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -595,7 +595,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendAdmMail", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendAdminMail", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -609,9 +609,9 @@ namespace Docspace.Api
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> SendAdmMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await SendAdmMailWithHttpInfoAsync(adminMessageSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await SendAdminMailWithHttpInfoAsync(adminMessageSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -622,7 +622,7 @@ namespace Docspace.Api
         /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> SendAdmMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default(AdminMessageSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -652,7 +652,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendAdmMail", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendAdminMail", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

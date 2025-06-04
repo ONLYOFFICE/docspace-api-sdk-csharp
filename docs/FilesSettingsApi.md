@@ -26,7 +26,7 @@ All URIs are relative to *http://http:*
 | [**SetOpenEditorInSameTab**](FilesSettingsApi.md#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
 | [**StoreForcesave**](FilesSettingsApi.md#storeforcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
 | [**StoreOriginal**](FilesSettingsApi.md#storeoriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
-| [**UpdateIfExist**](FilesSettingsApi.md#updateifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
+| [**UpdateFileIfExist**](FilesSettingsApi.md#updatefileifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
 
 <a id="changeaccesstothirdparty"></a>
 # **ChangeAccessToThirdparty**
@@ -2429,9 +2429,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateifexist"></a>
-# **UpdateIfExist**
-> BooleanWrapper UpdateIfExist (SettingsRequestDto? settingsRequestDto = null)
+<a id="updatefileifexist"></a>
+# **UpdateFileIfExist**
+> BooleanWrapper UpdateFileIfExist (SettingsRequestDto? settingsRequestDto = null)
 
 Update a file version if it exists
 
@@ -2448,7 +2448,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class UpdateIfExistExample
+    public class UpdateFileIfExistExample
     {
         public static void Main()
         {
@@ -2479,12 +2479,12 @@ namespace Example
             try
             {
                 // Update a file version if it exists
-                BooleanWrapper result = apiInstance.UpdateIfExist(settingsRequestDto);
+                BooleanWrapper result = apiInstance.UpdateFileIfExist(settingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesSettingsApi.UpdateIfExist: " + e.Message);
+                Debug.Print("Exception when calling FilesSettingsApi.UpdateFileIfExist: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2493,21 +2493,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateIfExistWithHttpInfo variant
+#### Using the UpdateFileIfExistWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update a file version if it exists
-    ApiResponse<BooleanWrapper> response = apiInstance.UpdateIfExistWithHttpInfo(settingsRequestDto);
+    ApiResponse<BooleanWrapper> response = apiInstance.UpdateFileIfExistWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesSettingsApi.UpdateIfExistWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesSettingsApi.UpdateFileIfExistWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

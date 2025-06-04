@@ -35,15 +35,27 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DownloadRequestDto" /> class.
         /// </summary>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs to be downloaded..</param>
         /// <param name="fileIds">The list of file IDs to be downloaded..</param>
         /// <param name="fileConvertIds">The list of file IDs which will be converted..</param>
-        public DownloadRequestDto(List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<DownloadRequestItemDto> fileConvertIds = default(List<DownloadRequestItemDto>))
+        public DownloadRequestDto(bool returnSingleOperation = default(bool), List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<DownloadRequestItemDto> fileConvertIds = default(List<DownloadRequestItemDto>))
         {
+            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
             this.FileConvertIds = fileConvertIds;
         }
+
+        /// <summary>
+        /// Specifies whether to return only the current operation
+        /// </summary>
+        /// <value>Specifies whether to return only the current operation</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
+        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// The list of folder IDs to be downloaded.
@@ -74,6 +86,7 @@ namespace Docspace.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DownloadRequestDto {\n");
+            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("  FileConvertIds: ").Append(FileConvertIds).Append("\n");

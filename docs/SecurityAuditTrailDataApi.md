@@ -7,9 +7,9 @@ All URIs are relative to *http://http:*
 | [**CreateAuditTrailReport**](SecurityAuditTrailDataApi.md#createaudittrailreport) | **POST** /api/2.0/security/audit/events/report | Generate the audit trail report |
 | [**GetAuditEventsByFilter**](SecurityAuditTrailDataApi.md#getauditeventsbyfilter) | **GET** /api/2.0/security/audit/events/filter | Get filtered audit trail data |
 | [**GetAuditSettings**](SecurityAuditTrailDataApi.md#getauditsettings) | **GET** /api/2.0/security/audit/settings/lifetime | Get the audit trail settings |
+| [**GetAuditTrailMappers**](SecurityAuditTrailDataApi.md#getaudittrailmappers) | **GET** /api/2.0/security/audit/mappers | Get audit trail mappers |
+| [**GetAuditTrailTypes**](SecurityAuditTrailDataApi.md#getaudittrailtypes) | **GET** /api/2.0/security/audit/types | Get audit trail types |
 | [**GetLastAuditEvents**](SecurityAuditTrailDataApi.md#getlastauditevents) | **GET** /api/2.0/security/audit/events/last | Get audit trail data |
-| [**GetMappers**](SecurityAuditTrailDataApi.md#getmappers) | **GET** /api/2.0/security/audit/mappers | Get audit trail mappers |
-| [**GetTypes**](SecurityAuditTrailDataApi.md#gettypes) | **GET** /api/2.0/security/audit/types | Get audit trail types |
 | [**SetAuditSettings**](SecurityAuditTrailDataApi.md#setauditsettings) | **POST** /api/2.0/security/audit/settings/lifetime | Set the audit trail settings |
 
 <a id="createaudittrailreport"></a>
@@ -358,6 +358,193 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getaudittrailmappers"></a>
+# **GetAuditTrailMappers**
+> ObjectWrapper GetAuditTrailMappers (ProductType? productType = null, ModuleType? moduleType = null)
+
+Get audit trail mappers
+
+Returns the mappers for the audit trail types.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetAuditTrailMappersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var productType = new ProductType?(); // ProductType? | The type of product related to the audit trail. (optional) 
+            var moduleType = new ModuleType?(); // ModuleType? | The module within the product associated with the audit trail. (optional) 
+
+            try
+            {
+                // Get audit trail mappers
+                ObjectWrapper result = apiInstance.GetAuditTrailMappers(productType, moduleType);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailMappers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAuditTrailMappersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get audit trail mappers
+    ApiResponse<ObjectWrapper> response = apiInstance.GetAuditTrailMappersWithHttpInfo(productType, moduleType);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailMappersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit trail. | [optional]  |
+| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product associated with the audit trail. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Audit trail mappers |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getaudittrailtypes"></a>
+# **GetAuditTrailTypes**
+> ObjectWrapper GetAuditTrailTypes ()
+
+Get audit trail types
+
+Returns all the available audit trail types.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetAuditTrailTypesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get audit trail types
+                ObjectWrapper result = apiInstance.GetAuditTrailTypes();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailTypes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAuditTrailTypesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get audit trail types
+    ApiResponse<ObjectWrapper> response = apiInstance.GetAuditTrailTypesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailTypesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Audit trail types |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getlastauditevents"></a>
 # **GetLastAuditEvents**
 > AuditEventArrayWrapper GetLastAuditEvents ()
@@ -463,193 +650,6 @@ This endpoint does not need any parameter.
 | **200** | List of audit trail data |  -  |
 | **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getmappers"></a>
-# **GetMappers**
-> ObjectWrapper GetMappers (ProductType? productType = null, ModuleType? moduleType = null)
-
-Get audit trail mappers
-
-Returns the mappers for the audit trail types.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetMappersExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
-            var productType = new ProductType?(); // ProductType? | The type of product related to the audit trail. (optional) 
-            var moduleType = new ModuleType?(); // ModuleType? | The module within the product associated with the audit trail. (optional) 
-
-            try
-            {
-                // Get audit trail mappers
-                ObjectWrapper result = apiInstance.GetMappers(productType, moduleType);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetMappers: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetMappersWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get audit trail mappers
-    ApiResponse<ObjectWrapper> response = apiInstance.GetMappersWithHttpInfo(productType, moduleType);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetMappersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit trail. | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product associated with the audit trail. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Audit trail mappers |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="gettypes"></a>
-# **GetTypes**
-> ObjectWrapper GetTypes ()
-
-Get audit trail types
-
-Returns all the available audit trail types.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetTypesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get audit trail types
-                ObjectWrapper result = apiInstance.GetTypes();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetTypes: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetTypesWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get audit trail types
-    ApiResponse<ObjectWrapper> response = apiInstance.GetTypesWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetTypesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Audit trail types |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

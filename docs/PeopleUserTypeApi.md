@@ -4,14 +4,14 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetChangeTypeProgress**](PeopleUserTypeApi.md#getchangetypeprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
-| [**StartUpdateUserType**](PeopleUserTypeApi.md#startupdateusertype) | **POST** /api/2.0/people/type | Update user type |
-| [**TerminateChangeType**](PeopleUserTypeApi.md#terminatechangetype) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
+| [**GetUserTypeUpdateProgress**](PeopleUserTypeApi.md#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
+| [**StarUserTypetUpdate**](PeopleUserTypeApi.md#starusertypetupdate) | **POST** /api/2.0/people/type | Update user type |
+| [**TerminateUserTypeUpdate**](PeopleUserTypeApi.md#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
 | [**UpdateUserType**](PeopleUserTypeApi.md#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
 
-<a id="getchangetypeprogress"></a>
-# **GetChangeTypeProgress**
-> TaskProgressResponseWrapper GetChangeTypeProgress (Guid userid)
+<a id="getusertypeupdateprogress"></a>
+# **GetUserTypeUpdateProgress**
+> TaskProgressResponseWrapper GetUserTypeUpdateProgress (Guid userid)
 
 Get the progress of updating user type
 
@@ -28,7 +28,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetChangeTypeProgressExample
+    public class GetUserTypeUpdateProgressExample
     {
         public static void Main()
         {
@@ -59,12 +59,12 @@ namespace Example
             try
             {
                 // Get the progress of updating user type
-                TaskProgressResponseWrapper result = apiInstance.GetChangeTypeProgress(userid);
+                TaskProgressResponseWrapper result = apiInstance.GetUserTypeUpdateProgress(userid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.GetChangeTypeProgress: " + e.Message);
+                Debug.Print("Exception when calling PeopleUserTypeApi.GetUserTypeUpdateProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -73,21 +73,21 @@ namespace Example
 }
 ```
 
-#### Using the GetChangeTypeProgressWithHttpInfo variant
+#### Using the GetUserTypeUpdateProgressWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get the progress of updating user type
-    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.GetChangeTypeProgressWithHttpInfo(userid);
+    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.GetUserTypeUpdateProgressWithHttpInfo(userid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.GetChangeTypeProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleUserTypeApi.GetUserTypeUpdateProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -121,9 +121,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="startupdateusertype"></a>
-# **StartUpdateUserType**
-> TaskProgressResponseWrapper StartUpdateUserType (StartUpdateUserTypeDto? startUpdateUserTypeDto = null)
+<a id="starusertypetupdate"></a>
+# **StarUserTypetUpdate**
+> TaskProgressResponseWrapper StarUserTypetUpdate (StartUpdateUserTypeDto? startUpdateUserTypeDto = null)
 
 Update user type
 
@@ -140,7 +140,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class StartUpdateUserTypeExample
+    public class StarUserTypetUpdateExample
     {
         public static void Main()
         {
@@ -171,12 +171,12 @@ namespace Example
             try
             {
                 // Update user type
-                TaskProgressResponseWrapper result = apiInstance.StartUpdateUserType(startUpdateUserTypeDto);
+                TaskProgressResponseWrapper result = apiInstance.StarUserTypetUpdate(startUpdateUserTypeDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.StartUpdateUserType: " + e.Message);
+                Debug.Print("Exception when calling PeopleUserTypeApi.StarUserTypetUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -185,21 +185,21 @@ namespace Example
 }
 ```
 
-#### Using the StartUpdateUserTypeWithHttpInfo variant
+#### Using the StarUserTypetUpdateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update user type
-    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StartUpdateUserTypeWithHttpInfo(startUpdateUserTypeDto);
+    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.StartUpdateUserTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleUserTypeApi.StarUserTypetUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -234,9 +234,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="terminatechangetype"></a>
-# **TerminateChangeType**
-> TaskProgressResponseWrapper TerminateChangeType (TerminateRequestDto? terminateRequestDto = null)
+<a id="terminateusertypeupdate"></a>
+# **TerminateUserTypeUpdate**
+> TaskProgressResponseWrapper TerminateUserTypeUpdate (TerminateRequestDto? terminateRequestDto = null)
 
 Terminate update user type
 
@@ -253,7 +253,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class TerminateChangeTypeExample
+    public class TerminateUserTypeUpdateExample
     {
         public static void Main()
         {
@@ -284,12 +284,12 @@ namespace Example
             try
             {
                 // Terminate update user type
-                TaskProgressResponseWrapper result = apiInstance.TerminateChangeType(terminateRequestDto);
+                TaskProgressResponseWrapper result = apiInstance.TerminateUserTypeUpdate(terminateRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.TerminateChangeType: " + e.Message);
+                Debug.Print("Exception when calling PeopleUserTypeApi.TerminateUserTypeUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -298,21 +298,21 @@ namespace Example
 }
 ```
 
-#### Using the TerminateChangeTypeWithHttpInfo variant
+#### Using the TerminateUserTypeUpdateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Terminate update user type
-    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.TerminateChangeTypeWithHttpInfo(terminateRequestDto);
+    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.TerminateUserTypeUpdateWithHttpInfo(terminateRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.TerminateChangeTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleUserTypeApi.TerminateUserTypeUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

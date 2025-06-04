@@ -103,6 +103,48 @@ namespace Docspace.Api
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo();
         /// <summary>
+        /// Get audit trail mappers
+        /// </summary>
+        /// <remarks>
+        /// Returns the mappers for the audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <returns>ObjectWrapper</returns>
+        ObjectWrapper GetAuditTrailMappers(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?));
+
+        /// <summary>
+        /// Get audit trail mappers
+        /// </summary>
+        /// <remarks>
+        /// Returns the mappers for the audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?));
+        /// <summary>
+        /// Get audit trail types
+        /// </summary>
+        /// <remarks>
+        /// Returns all the available audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ObjectWrapper</returns>
+        ObjectWrapper GetAuditTrailTypes();
+
+        /// <summary>
+        /// Get audit trail types
+        /// </summary>
+        /// <remarks>
+        /// Returns all the available audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo();
+        /// <summary>
         /// Get audit trail data
         /// </summary>
         /// <remarks>
@@ -121,48 +163,6 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
         ApiResponse<AuditEventArrayWrapper> GetLastAuditEventsWithHttpInfo();
-        /// <summary>
-        /// Get audit trail mappers
-        /// </summary>
-        /// <remarks>
-        /// Returns the mappers for the audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetMappers(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?));
-
-        /// <summary>
-        /// Get audit trail mappers
-        /// </summary>
-        /// <remarks>
-        /// Returns the mappers for the audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetMappersWithHttpInfo(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?));
-        /// <summary>
-        /// Get audit trail types
-        /// </summary>
-        /// <remarks>
-        /// Returns all the available audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetTypes();
-
-        /// <summary>
-        /// Get audit trail types
-        /// </summary>
-        /// <remarks>
-        /// Returns all the available audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetTypesWithHttpInfo();
         /// <summary>
         /// Set the audit trail settings
         /// </summary>
@@ -275,6 +275,52 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get audit trail mappers
+        /// </summary>
+        /// <remarks>
+        /// Returns the mappers for the audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get audit trail mappers
+        /// </summary>
+        /// <remarks>
+        /// Returns the mappers for the audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get audit trail types
+        /// </summary>
+        /// <remarks>
+        /// Returns all the available audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailTypesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get audit trail types
+        /// </summary>
+        /// <remarks>
+        /// Returns all the available audit trail types.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get audit trail data
         /// </summary>
         /// <remarks>
@@ -295,52 +341,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuditEventArrayWrapper>> GetLastAuditEventsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get audit trail mappers
-        /// </summary>
-        /// <remarks>
-        /// Returns the mappers for the audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetMappersAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get audit trail mappers
-        /// </summary>
-        /// <remarks>
-        /// Returns the mappers for the audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetMappersWithHttpInfoAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get audit trail types
-        /// </summary>
-        /// <remarks>
-        /// Returns all the available audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetTypesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get audit trail types
-        /// </summary>
-        /// <remarks>
-        /// Returns all the available audit trail types.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Set the audit trail settings
         /// </summary>
@@ -1169,6 +1169,232 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Get audit trail mappers Returns the mappers for the audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <returns>ObjectWrapper</returns>
+        public ObjectWrapper GetAuditTrailMappers(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?))
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get audit trail mappers Returns the mappers for the audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        public Docspace.Client.ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (productType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+            }
+            if (moduleType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get audit trail mappers Returns the mappers for the audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        public async System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get audit trail mappers Returns the mappers for the audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
+        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (productType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+            }
+            if (moduleType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get audit trail types Returns all the available audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ObjectWrapper</returns>
+        public ObjectWrapper GetAuditTrailTypes()
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetAuditTrailTypesWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get audit trail types Returns all the available audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ObjectWrapper</returns>
+        public Docspace.Client.ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get audit trail types Returns all the available audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ObjectWrapper</returns>
+        public async System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailTypesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get audit trail types Returns all the available audit trail types.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get audit trail data Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1323,232 +1549,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLastAuditEvents", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get audit trail mappers Returns the mappers for the audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetMappers(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?))
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetMappersWithHttpInfo(productType, moduleType);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get audit trail mappers Returns the mappers for the audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetMappersWithHttpInfo(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (productType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
-            }
-            if (moduleType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMappers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get audit trail mappers Returns the mappers for the audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetMappersAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get audit trail mappers Returns the mappers for the audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetMappersWithHttpInfoAsync(ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (productType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
-            }
-            if (moduleType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMappers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get audit trail types Returns all the available audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetTypes()
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetTypesWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get audit trail types Returns all the available audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetTypesWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTypes", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get audit trail types Returns all the available audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetTypesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get audit trail types Returns all the available audit trail types.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTypes", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

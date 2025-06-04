@@ -54,15 +54,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test AddTags
+        /// Test AddRoomTags
         /// </summary>
         [Fact]
-        public void AddTagsTest()
+        public void AddRoomTagsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //BatchTagsRequestDto? batchTagsRequestDto = null;
-            //var response = instance.AddTags(id, batchTagsRequestDto);
+            //var response = instance.AddRoomTags(id, batchTagsRequestDto);
             //Assert.IsType<FolderIntegerWrapper>(response);
         }
 
@@ -130,6 +130,30 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test CreateRoomTag
+        /// </summary>
+        [Fact]
+        public void CreateRoomTagTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateTagRequestDto? createTagRequestDto = null;
+            //var response = instance.CreateRoomTag(createTagRequestDto);
+            //Assert.IsType<ObjectWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test CreateRoomTemplate
+        /// </summary>
+        [Fact]
+        public void CreateRoomTemplateTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //RoomTemplateDto? roomTemplateDto = null;
+            //var response = instance.CreateRoomTemplate(roomTemplateDto);
+            //Assert.IsType<RoomTemplateStatusWrapper>(response);
+        }
+
+        /// <summary>
         /// Test CreateRoomThirdParty
         /// </summary>
         [Fact]
@@ -140,30 +164,6 @@ namespace Docspace.Test.Api
             //CreateThirdPartyRoom? createThirdPartyRoom = null;
             //var response = instance.CreateRoomThirdParty(id, createThirdPartyRoom);
             //Assert.IsType<FolderStringWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test CreateTag
-        /// </summary>
-        [Fact]
-        public void CreateTagTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CreateTagRequestDto? createTagRequestDto = null;
-            //var response = instance.CreateTag(createTagRequestDto);
-            //Assert.IsType<ObjectWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test CreateTemplate
-        /// </summary>
-        [Fact]
-        public void CreateTemplateTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //RoomTemplateDto? roomTemplateDto = null;
-            //var response = instance.CreateTemplate(roomTemplateDto);
-            //Assert.IsType<RoomTemplateStatusWrapper>(response);
         }
 
         /// <summary>
@@ -203,27 +203,16 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test DeleteTags
+        /// Test DeleteRoomTags
         /// </summary>
         [Fact]
-        public void DeleteTagsTest()
+        public void DeleteRoomTagsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //BatchTagsRequestDto? batchTagsRequestDto = null;
-            //var response = instance.DeleteTags(id, batchTagsRequestDto);
+            //var response = instance.DeleteRoomTags(id, batchTagsRequestDto);
             //Assert.IsType<FolderIntegerWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetCovers
-        /// </summary>
-        [Fact]
-        public void GetCoversTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetCovers();
-            //Assert.IsType<CoversResultArrayWrapper>(response);
         }
 
         /// <summary>
@@ -236,6 +225,29 @@ namespace Docspace.Test.Api
             //int id = null;
             //var response = instance.GetNewRoomItems(id);
             //Assert.IsType<NewItemsFileEntryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPublicSettings
+        /// </summary>
+        [Fact]
+        public void GetPublicSettingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int id = null;
+            //var response = instance.GetPublicSettings(id);
+            //Assert.IsType<BooleanWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetRoomCovers
+        /// </summary>
+        [Fact]
+        public void GetRoomCoversTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetRoomCovers();
+            //Assert.IsType<CoversResultArrayWrapper>(response);
         }
 
         /// <summary>
@@ -299,6 +311,28 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetRoomTagsInfo
+        /// </summary>
+        [Fact]
+        public void GetRoomTagsInfoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetRoomTagsInfo();
+            //Assert.IsType<ObjectArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetRoomTemplateCreatingStatus
+        /// </summary>
+        [Fact]
+        public void GetRoomTemplateCreatingStatusTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetRoomTemplateCreatingStatus();
+            //Assert.IsType<RoomTemplateStatusWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetRoomsFolder
         /// </summary>
         [Fact]
@@ -343,40 +377,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetTagsInfo
-        /// </summary>
-        [Fact]
-        public void GetTagsInfoTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTagsInfo();
-            //Assert.IsType<ObjectArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetTemplateCreatingStatus
-        /// </summary>
-        [Fact]
-        public void GetTemplateCreatingStatusTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTemplateCreatingStatus();
-            //Assert.IsType<RoomTemplateStatusWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test IsPublic
-        /// </summary>
-        [Fact]
-        public void IsPublicTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int id = null;
-            //var response = instance.IsPublic(id);
-            //Assert.IsType<BooleanWrapper>(response);
-        }
-
-        /// <summary>
         /// Test PinRoom
         /// </summary>
         [Fact]
@@ -389,14 +389,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Reorder
+        /// Test ReorderRoom
         /// </summary>
         [Fact]
-        public void ReorderTest()
+        public void ReorderRoomTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
-            //var response = instance.Reorder(id);
+            //var response = instance.ReorderRoom(id);
             //Assert.IsType<FolderIntegerWrapper>(response);
         }
 
@@ -413,27 +413,27 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SetLink
+        /// Test SetPublicSettings
         /// </summary>
         [Fact]
-        public void SetLinkTest()
+        public void SetPublicSettingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //SetPublicDto? setPublicDto = null;
+            //instance.SetPublicSettings(setPublicDto);
+        }
+
+        /// <summary>
+        /// Test SetRoomLink
+        /// </summary>
+        [Fact]
+        public void SetRoomLinkTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //RoomLinkRequest? roomLinkRequest = null;
-            //var response = instance.SetLink(id, roomLinkRequest);
+            //var response = instance.SetRoomLink(id, roomLinkRequest);
             //Assert.IsType<FileShareWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test SetPublic
-        /// </summary>
-        [Fact]
-        public void SetPublicTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //SetPublicDto? setPublicDto = null;
-            //instance.SetPublic(setPublicDto);
         }
 
         /// <summary>

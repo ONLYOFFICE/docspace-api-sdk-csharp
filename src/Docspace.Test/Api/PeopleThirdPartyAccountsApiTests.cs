@@ -54,51 +54,51 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetAuthProviders
+        /// Test GetThirdPartyAuthProviders
         /// </summary>
         [Fact]
-        public void GetAuthProvidersTest()
+        public void GetThirdPartyAuthProvidersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //bool? inviteView = null;
             //bool? settingsView = null;
             //string? clientCallback = null;
             //string? fromOnly = null;
-            //var response = instance.GetAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
+            //var response = instance.GetThirdPartyAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
             //Assert.IsType<AccountInfoArrayWrapper>(response);
         }
 
         /// <summary>
-        /// Test LinkAccount
+        /// Test LinkThirdPartyAccount
         /// </summary>
         [Fact]
-        public void LinkAccountTest()
+        public void LinkThirdPartyAccountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //LinkAccountRequestDto? linkAccountRequestDto = null;
-            //instance.LinkAccount(linkAccountRequestDto);
+            //instance.LinkThirdPartyAccount(linkAccountRequestDto);
         }
 
         /// <summary>
-        /// Test SignupAccount
+        /// Test SignupThirdPartyAccount
         /// </summary>
         [Fact]
-        public void SignupAccountTest()
+        public void SignupThirdPartyAccountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //SignupAccountRequestDto? signupAccountRequestDto = null;
-            //instance.SignupAccount(signupAccountRequestDto);
+            //instance.SignupThirdPartyAccount(signupAccountRequestDto);
         }
 
         /// <summary>
-        /// Test UnlinkAccount
+        /// Test UnlinkThirdPartyAccount
         /// </summary>
         [Fact]
-        public void UnlinkAccountTest()
+        public void UnlinkThirdPartyAccountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string? provider = null;
-            //instance.UnlinkAccount(provider);
+            //instance.UnlinkThirdPartyAccount(provider);
         }
     }
 }

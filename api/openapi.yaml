@@ -1,7 +1,7 @@
 openapi: 3.0.4
 info:
   title: Api
-  version: 3.1.0
+  version: 3.2.0
 servers:
 - description: Server configuration
   url: "{baseUrl}"
@@ -398,7 +398,7 @@ paths:
   /api/2.0/migration/list:
     get:
       description: Returns a list of available migrations.
-      operationId: list
+      operationId: listMigrations
       responses:
         "200":
           content:
@@ -430,7 +430,7 @@ paths:
     post:
       description: Uploads and initializes a migration with a migrator name specified
         in the request.
-      operationId: uploadAndInit
+      operationId: uploadAndInitializeMigration
       parameters:
       - description: The migrator name extracted from the route parameters.
         explode: false
@@ -467,7 +467,7 @@ paths:
   /api/2.0/migration/status:
     get:
       description: Returns the migration status.
-      operationId: status
+      operationId: getMigrationStatus
       responses:
         "200":
           content:
@@ -498,7 +498,7 @@ paths:
   /api/2.0/migration/cancel:
     post:
       description: Cancels the migration.
-      operationId: cancel
+      operationId: cancelMigration
       responses:
         "200":
           description: Ok
@@ -525,7 +525,7 @@ paths:
   /api/2.0/migration/clear:
     post:
       description: Clears the migration.
-      operationId: clear
+      operationId: clearMigration
       responses:
         "200":
           description: Ok
@@ -552,7 +552,7 @@ paths:
   /api/2.0/migration/migrate:
     post:
       description: Starts the migration process.
-      operationId: migrate
+      operationId: startMigration
       requestBody:
         content:
           application/json:
@@ -584,7 +584,7 @@ paths:
   /api/2.0/migration/logs:
     get:
       description: Returns the migration logs.
-      operationId: logs
+      operationId: getMigrationLogs
       responses:
         "200":
           description: Ok
@@ -611,7 +611,7 @@ paths:
   /api/2.0/migration/finish:
     post:
       description: Finishes the migration process.
-      operationId: finish
+      operationId: finishMigration
       requestBody:
         content:
           application/json:
@@ -680,7 +680,7 @@ paths:
     put:
       description: Updates the payment quantity with the parameters specified in the
         request.
-      operationId: paymentUpdate
+      operationId: updatePayment
       requestBody:
         content:
           application/json:
@@ -717,7 +717,7 @@ paths:
     put:
       description: Updates the wallet payment quantity with the parameters specified
         in the request.
-      operationId: paymentUpdateWallet
+      operationId: updateWalletPayment
       requestBody:
         content:
           application/json:
@@ -748,6 +748,43 @@ paths:
         - write
       - OpenId: []
       summary: Update the wallet payment quantity
+      tags:
+      - Portal / Payment
+  /api/2.0/portal/payment/calculatewallet:
+    put:
+      description: Calculate amount of the wallet payment with the parameters specified
+        in the request.
+      operationId: calculateWalletPayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletQuantityRequestDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentCalculationWrapper'
+          description: Payment calculation
+        "401":
+          description: Unauthorized
+        "403":
+          description: No permissions to perform this action
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Calculate amount of the wallet payment
       tags:
       - Portal / Payment
   /api/2.0/portal/payment/account:
@@ -794,7 +831,7 @@ paths:
   /api/2.0/portal/payment/prices:
     get:
       description: Returns the available portal prices.
-      operationId: getPrices
+      operationId: getPortalPrices
       responses:
         "200":
           content:
@@ -823,7 +860,7 @@ paths:
   /api/2.0/portal/payment/currencies:
     get:
       description: Returns the available portal currencies.
-      operationId: getCurrencies
+      operationId: getPaymentCurrencies
       responses:
         "200":
           content:
@@ -852,7 +889,7 @@ paths:
   /api/2.0/portal/payment/quotas:
     get:
       description: Returns the available portal quotas.
-      operationId: getQuotas
+      operationId: getPaymentQuotas
       parameters:
       - description: Get wallet quotas only
         explode: true
@@ -891,7 +928,7 @@ paths:
   /api/2.0/portal/payment/quota:
     get:
       description: Returns the payment information about the current portal quota.
-      operationId: getQuotaInformation
+      operationId: getQuotaPaymentInformation
       parameters:
       - description: Specifies whether to refresh the payment information cache or
           not.
@@ -933,7 +970,7 @@ paths:
   /api/2.0/portal/payment/request:
     post:
       description: Sends a request for the portal payment.
-      operationId: sendSalesRequest
+      operationId: sendPaymentRequest
       requestBody:
         content:
           application/json:
@@ -966,8 +1003,8 @@ paths:
       - Portal / Payment
   /api/2.0/portal/payment/chechoutsetupurl:
     get:
-      description: Returns the URL to the chechout setup page.
-      operationId: getChechoutSetupUrl
+      description: Returns the URL to the checkout setup page.
+      operationId: getCheckoutSetupUrl
       parameters:
       - description: Back URL
         explode: true
@@ -984,7 +1021,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StringWrapper'
-          description: The URL to the chechout setup page
+          description: The URL to the checkout setup page
         "401":
           description: Unauthorized
         "403":
@@ -1002,7 +1039,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get the chechout setup page URL
+      summary: Get the checkout setup page URL
       tags:
       - Portal / Payment
   /api/2.0/portal/payment/customerinfo:
@@ -1424,7 +1461,7 @@ paths:
   /api/2.0/portal/usedspace:
     get:
       description: Returns the used space of the current portal.
-      operationId: getUsedSpace
+      operationId: getPortalUsedSpace
       responses:
         "200":
           content:
@@ -1453,7 +1490,7 @@ paths:
   /api/2.0/portal/tariff:
     get:
       description: Returns the current portal tariff.
-      operationId: getTariff
+      operationId: getPortalTariff
       parameters:
       - description: The value indicating whether the current portal tariff information
           should be refreshed.
@@ -1493,7 +1530,7 @@ paths:
   /api/2.0/portal/quota:
     get:
       description: Returns the current portal quota.
-      operationId: getQuota
+      operationId: getPortalQuota
       responses:
         "200":
           content:
@@ -1582,7 +1619,7 @@ paths:
   /api/2.0/portal/path:
     get:
       description: Returns the full absolute path to the current portal.
-      operationId: getFullAbsolutePath
+      operationId: getPortalPath
       parameters:
       - description: The virtual path for the portal resource access.
         explode: true
@@ -1749,7 +1786,7 @@ paths:
     get:
       description: Returns a user with the ID specified in the request from the current
         portal.
-      operationId: getUser
+      operationId: getUserById
       parameters:
       - description: The user ID extracted from the route parameters.
         explode: false
@@ -1789,7 +1826,7 @@ paths:
   /api/2.0/portal/users/invite/{employeeType}:
     get:
       description: Returns an invitation link for joining the portal.
-      operationId: geInviteLink
+      operationId: getInvitationLink
       parameters:
       - description: "The type of employee role for the invitation link (All, RoomAdmin,\
           \ Guest, DocSpaceAdmin, User)."
@@ -1828,7 +1865,7 @@ paths:
   /api/2.0/portal/userscount:
     get:
       description: Returns a number of portal users.
-      operationId: getUsersCount
+      operationId: getPortalUsersCount
       responses:
         "200":
           content:
@@ -1857,7 +1894,7 @@ paths:
   /api/2.0/portal/present/mark:
     post:
       description: Marks a gift message as read.
-      operationId: markPresentAsReaded
+      operationId: markGiftMessageAsRead
       responses:
         "200":
           description: OK
@@ -2287,7 +2324,7 @@ paths:
   /api/2.0/security/audit/types:
     get:
       description: Returns all the available audit trail types.
-      operationId: getTypes
+      operationId: getAuditTrailTypes
       responses:
         "200":
           content:
@@ -2301,7 +2338,7 @@ paths:
   /api/2.0/security/audit/mappers:
     get:
       description: Returns the mappers for the audit trail types.
-      operationId: getMappers
+      operationId: getAuditTrailMappers
       parameters:
       - description: The type of product related to the audit trail.
         explode: true
@@ -2434,7 +2471,7 @@ paths:
     get:
       description: Returns the CSP (Content Security Policy) settings for the current
         portal.
-      operationId: getCsp
+      operationId: getCspSettings
       responses:
         "200":
           content:
@@ -2448,7 +2485,7 @@ paths:
     post:
       description: Configures the CSP (Content Security Policy) settings for the current
         portal.
-      operationId: csp
+      operationId: configureCsp
       requestBody:
         content:
           application/json:
@@ -2939,7 +2976,7 @@ paths:
     get:
       description: Returns a list of all the available portal settings with the current
         values for each parameter.
-      operationId: getSettings
+      operationId: getPortalSettings
       parameters:
       - description: Specifies whether to include the password hashing configuration
           in the response.
@@ -2999,7 +3036,7 @@ paths:
   /api/2.0/settings/deeplink:
     get:
       description: Returns the deep link settings.
-      operationId: gettDeepLinkSettings
+      operationId: getDeepLinkSettings
       responses:
         "200":
           content:
@@ -3027,7 +3064,7 @@ paths:
       - Settings / Common settings
     post:
       description: Saves the deep link configuration settings for the portal.
-      operationId: saveConfigureDeepLink
+      operationId: configureDeepLink
       requestBody:
         content:
           application/json:
@@ -3078,7 +3115,7 @@ paths:
   /api/2.0/settings/timezones:
     get:
       description: Returns a list of all the available portal time zones.
-      operationId: getTimeZonesAsync
+      operationId: getTimeZones
       responses:
         "200":
           content:
@@ -3108,7 +3145,7 @@ paths:
   /api/2.0/settings/machine:
     get:
       description: Returns the portal hostname.
-      operationId: getMachineName
+      operationId: getPortalHostname
       responses:
         "200":
           content:
@@ -3178,7 +3215,7 @@ paths:
   /api/2.0/settings/logo:
     get:
       description: Returns the portal logo image URL.
-      operationId: getLogo
+      operationId: getPortalLogo
       responses:
         "200":
           content:
@@ -3246,7 +3283,7 @@ paths:
   /api/2.0/settings/colortheme:
     delete:
       description: Deletes the portal color theme with the ID specified in the request.
-      operationId: deleteColorTheme
+      operationId: deletePortalColorTheme
       parameters:
       - description: The ID of the portal theme to delete.
         explode: true
@@ -3286,7 +3323,7 @@ paths:
       - Settings / Common settings
     get:
       description: Returns the portal color theme.
-      operationId: getColorTheme
+      operationId: getPortalColorTheme
       responses:
         "200":
           content:
@@ -3299,7 +3336,7 @@ paths:
       - Settings / Common settings
     put:
       description: Saves the portal color theme specified in the request.
-      operationId: saveColorTheme
+      operationId: savePortalColorTheme
       requestBody:
         content:
           application/json:
@@ -3423,7 +3460,7 @@ paths:
   /api/2.0/settings/payment:
     get:
       description: Returns the portal payment settings.
-      operationId: paymentSettings
+      operationId: getPaymentSettings
       responses:
         "200":
           content:
@@ -3902,7 +3939,7 @@ paths:
     get:
       description: Checks if the greeting settings of the current portal are set to
         default or not.
-      operationId: isDefault
+      operationId: getIsDefaultGreetingSettings
       responses:
         "200":
           content:
@@ -4145,7 +4182,7 @@ paths:
   /api/2.0/settings/license/required:
     get:
       description: Requests a portal license if necessary.
-      operationId: requestLicense
+      operationId: getIsLicenseRequired
       responses:
         "200":
           content:
@@ -4330,7 +4367,7 @@ paths:
     post:
       description: Sends a message to the administrator email when unauthorized users
         encounter issues accessing DocSpace.
-      operationId: sendAdmMail
+      operationId: sendAdminMail
       requestBody:
         content:
           application/json:
@@ -4417,7 +4454,7 @@ paths:
   /api/2.0/settings/notification:
     post:
       description: Enables the notification type specified in the request.
-      operationId: setSettings
+      operationId: setNotificationSettings
       requestBody:
         content:
           application/json:
@@ -4550,7 +4587,7 @@ paths:
     put:
       description: Updates the current portal owner with a new one specified in the
         request.
-      operationId: owner
+      operationId: updatePortalOwner
       requestBody:
         content:
           application/json:
@@ -5672,7 +5709,7 @@ paths:
     get:
       description: Checks if the selected user is an administrator of a product with
         the ID specified in the request.
-      operationId: isProductAdministrator
+      operationId: getIsProductAdministrator
       parameters:
       - description: The ID of the product extracted from the query parameters.
         explode: true
@@ -6117,7 +6154,7 @@ paths:
       - Settings / Storage
     put:
       description: Updates the CDN storage with the parameters specified in the request.
-      operationId: updateCdn
+      operationId: updateCdnStorage
       requestBody:
         content:
           application/json:
@@ -6253,7 +6290,7 @@ paths:
     put:
       description: Updates the two-factor authentication settings with the parameters
         specified in the request.
-      operationId: tfaSettings
+      operationId: updateTfaSettings
       requestBody:
         content:
           application/json:
@@ -6325,7 +6362,7 @@ paths:
     get:
       description: Returns the confirmation email URL for authorization via SMS or
         TFA application.
-      operationId: tfaConfirmUrl
+      operationId: getTfaConfirmUrl
       responses:
         "200":
           content:
@@ -6354,7 +6391,7 @@ paths:
   /api/2.0/settings/tfaappwithlink:
     put:
       description: Returns the confirmation email URL for updating TFA settings.
-      operationId: tfaSettingsLink
+      operationId: updateTfaSettingsLink
       requestBody:
         content:
           application/json:
@@ -6419,7 +6456,7 @@ paths:
   /api/2.0/settings/tfaappcodes:
     get:
       description: Returns the two-factor authentication application codes.
-      operationId: tfaAppGetCodes
+      operationId: getTfaAppCodes
       responses:
         "200":
           content:
@@ -6451,7 +6488,7 @@ paths:
     put:
       description: Requests the new backup codes for the two-factor authentication
         application.
-      operationId: tfaAppRequestNewCodes
+      operationId: updateTfaAppCodes
       responses:
         "200":
           content:
@@ -6483,7 +6520,7 @@ paths:
     put:
       description: Unlinks the current two-factor authentication application from
         the user account specified in the request.
-      operationId: tfaAppNewApp
+      operationId: unlinkTfaApp
       requestBody:
         content:
           application/json:
@@ -6692,7 +6729,7 @@ paths:
   /api/2.0/settings/webhooks/log:
     get:
       description: Returns the logs of the webhook activities.
-      operationId: getJournal
+      operationId: getWebhooksLogs
       parameters:
       - description: The delivery start time for filtering webhook logs.
         explode: true
@@ -6875,7 +6912,7 @@ paths:
   /api/2.0/settings/webhook/triggers:
     get:
       description: Returns a list of triggers for a webhook.
-      operationId: triggers
+      operationId: getWebhookTriggers
       responses:
         "200":
           content:
@@ -7109,7 +7146,7 @@ paths:
         Returns a request to get the confirmation code from URL.
 
          **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
-      operationId: get
+      operationId: getThirdPartyCode
       parameters:
       - description: The identity provider used for authentication.
         explode: false
@@ -7583,7 +7620,7 @@ paths:
     get:
       description: Returns a list of groups for the user with the ID specified in
         the request.
-      operationId: getByUserId
+      operationId: getGroupByUserId
       parameters:
       - description: The user ID.
         explode: false
@@ -7624,7 +7661,7 @@ paths:
     put:
       description: Moves all the members from the selected group to another one specified
         in the request.
-      operationId: transferMembersTo
+      operationId: moveMembersTo
       parameters:
       - description: The group ID to move from.
         explode: false
@@ -7818,7 +7855,7 @@ paths:
   /api/2.0/group/{id}/manager:
     put:
       description: Sets a user with the ID specified in the request as a group manager.
-      operationId: setManager
+      operationId: setGroupManager
       parameters:
       - description: The group ID.
         explode: false
@@ -8662,7 +8699,7 @@ paths:
     get:
       description: Returns the detailed information about a profile of the user with
         the name specified in the request.
-      operationId: getById
+      operationId: getProfileByUserId
       parameters:
       - description: The user ID.
         explode: false
@@ -8788,7 +8825,7 @@ paths:
       - People / Profiles
     get:
       description: Returns the detailed information about the current user profile.
-      operationId: self
+      operationId: getSelfProfile
       responses:
         "200":
           content:
@@ -8818,7 +8855,7 @@ paths:
     get:
       description: Returns the detailed information about a profile of the user with
         the email specified in the request.
-      operationId: getByEmail
+      operationId: getProfileByEmail
       parameters:
       - description: The user email address.
         explode: true
@@ -9191,7 +9228,7 @@ paths:
   /api/2.0/people/status/{status}/search:
     get:
       description: Returns a list of users matching the status filter and search query.
-      operationId: getAdvanced
+      operationId: searchUsersByStatus
       parameters:
       - description: The user status.
         explode: false
@@ -9241,7 +9278,7 @@ paths:
     get:
       description: Returns a list of users with full information about them matching
         the parameters specified in the request.
-      operationId: getFullByFilter
+      operationId: searchUsersByExtendedFilter
       parameters:
       - description: The user status.
         explode: true
@@ -9419,7 +9456,7 @@ paths:
     get:
       description: Returns a list of users matching the search query. This method
         uses the query parameters.
-      operationId: getPeopleSearch
+      operationId: searchUsersByQuery
       parameters:
       - description: The search query.
         explode: true
@@ -9792,7 +9829,7 @@ paths:
   /api/2.0/people/theme:
     get:
       description: Returns a theme which is set to the current portal.
-      operationId: getTheme
+      operationId: getPortalTheme
       responses:
         "200":
           content:
@@ -9820,7 +9857,7 @@ paths:
       - People / Theme
     put:
       description: Changes the current portal theme.
-      operationId: changeTheme
+      operationId: changePortalTheme
       requestBody:
         content:
           application/json:
@@ -9854,7 +9891,7 @@ paths:
   /api/2.0/people/thirdparty/providers:
     get:
       description: Returns a list of the available third-party accounts.
-      operationId: getAuthProviders
+      operationId: getThirdPartyAuthProviders
       parameters:
       - description: "Specifies whether to return providers that are available for\
           \ invitation links, i.e. the user can login or register through these providers."
@@ -9908,7 +9945,7 @@ paths:
     put:
       description: Links a third-party account specified in the request to the user
         profile.
-      operationId: linkAccount
+      operationId: linkThirdPartyAccount
       requestBody:
         content:
           application/json:
@@ -9941,7 +9978,7 @@ paths:
     post:
       description: Creates a third-party account with the parameters specified in
         the request.
-      operationId: signupAccount
+      operationId: signupThirdPartyAccount
       requestBody:
         content:
           application/json:
@@ -9961,7 +9998,7 @@ paths:
     delete:
       description: Unlinks a third-party account specified in the request from the
         user profile.
-      operationId: unlinkAccount
+      operationId: unlinkThirdPartyAccount
       parameters:
       - description: The provider name.
         explode: true
@@ -10444,7 +10481,7 @@ paths:
     put:
       description: Sets the required activation status to the list of users with the
         IDs specified in the request.
-      operationId: updateEmployeeActivationStatus
+      operationId: updateUserActivationStatus
       parameters:
       - description: The new user activation status.
         explode: false
@@ -10533,7 +10570,7 @@ paths:
     post:
       description: Starts updating the type of the user or guest when reassigning
         rooms and shared files.
-      operationId: startUpdateUserType
+      operationId: starUserTypetUpdate
       requestBody:
         content:
           application/json:
@@ -10569,7 +10606,7 @@ paths:
   /api/2.0/people/type/progress/{userid}:
     get:
       description: Returns the progress of updating the user type.
-      operationId: getChangeTypeProgress
+      operationId: getUserTypeUpdateProgress
       parameters:
       - description: The user ID.
         explode: false
@@ -10609,7 +10646,7 @@ paths:
   /api/2.0/people/type/terminate:
     put:
       description: Terminates the process of updating the type of the user or guest.
-      operationId: terminateChangeType
+      operationId: terminateUserTypeUpdate
       requestBody:
         content:
           application/json:
@@ -10643,7 +10680,7 @@ paths:
   /api/2.0/people/guests/{userid}/share:
     get:
       description: Returns a link to share a guest with another user.
-      operationId: getGuestShareLink
+      operationId: getGuestSharingLink
       parameters:
       - description: The user ID.
         explode: false
@@ -10687,7 +10724,7 @@ paths:
   /api/2.0/files/file/{fileId}/saveediting:
     put:
       description: Saves edits to a file with the ID specified in the request.
-      operationId: saveEditingFromForm
+      operationId: saveEditingFileFromForm
       parameters:
       - description: The editing file ID from the request.
         explode: false
@@ -10712,7 +10749,7 @@ paths:
               Forcesave:
                 style: form
             schema:
-              $ref: '#/components/schemas/saveEditingFromForm_request'
+              $ref: '#/components/schemas/saveEditingFileFromForm_request'
       responses:
         "200":
           content:
@@ -10747,7 +10784,7 @@ paths:
       description: "Informs about opening a file with the ID specified in the request\
         \ for editing, locking it from being deleted or moved (this method is called\
         \ by the mobile editors)."
-      operationId: startEdit
+      operationId: startEditFile
       parameters:
       - description: The file ID to start editing.
         explode: false
@@ -10780,7 +10817,7 @@ paths:
   /api/2.0/files/file/{fileId}/startfilling:
     put:
       description: Starts filling a file with the ID specified in the request.
-      operationId: startFilling
+      operationId: startFillingFile
       parameters:
       - description: The file ID to start filling.
         explode: false
@@ -10878,7 +10915,7 @@ paths:
     get:
       description: Returns the initialization configuration of a file to open it in
         the editor.
-      operationId: openEdit
+      operationId: openEditFile
       parameters:
       - description: The file ID to open.
         explode: false
@@ -11030,7 +11067,7 @@ paths:
     get:
       description: Returns a list of users with their access rights to the protected
         file with the ID specified in the request.
-      operationId: protectUsers
+      operationId: getProtectedFileUsers
       parameters:
       - description: The file ID of the request.
         explode: false
@@ -11162,7 +11199,7 @@ paths:
     put:
       description: Changes the version history of a file with the ID specified in
         the request.
-      operationId: changeHistory
+      operationId: changeVersionHistory
       parameters:
       - description: The file Id to change its version history.
         explode: false
@@ -11784,7 +11821,7 @@ paths:
   /api/2.0/files/file/{fileId}/restoreversion:
     get:
       description: Restores a file version specified in the request.
-      operationId: restoreVersion
+      operationId: restoreFileVersion
       parameters:
       - description: The file ID of the restore version.
         explode: false
@@ -11910,7 +11947,7 @@ paths:
   /api/2.0/files/{fileId}/order:
     put:
       description: Sets order of the file with ID specified in the request.
-      operationId: setOrderFile
+      operationId: setFileOrder
       parameters:
       - description: The file unique identifier.
         explode: false
@@ -11995,7 +12032,7 @@ paths:
     get:
       description: Returns the external links of a file with the ID specified in the
         request.
-      operationId: getLinks
+      operationId: getFileLinks
       parameters:
       - description: The file ID of the request.
         explode: false
@@ -12081,7 +12118,7 @@ paths:
     post:
       description: Saves a file with the identifier specified in the request as a
         PDF document.
-      operationId: saveAsPdf
+      operationId: saveFileAsPdf
       parameters:
       - description: The file ID to save as PDF.
         explode: false
@@ -12258,7 +12295,7 @@ paths:
         Creates a new file in the "My documents" section with the title specified in the request.
 
          **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-      operationId: createFileMyDocuments
+      operationId: createFileInMyDocuments
       requestBody:
         content:
           application/json:
@@ -12293,7 +12330,7 @@ paths:
     post:
       description: Creates an HTML (.html) file in the "My documents" section with
         the title and contents specified in the request.
-      operationId: createHtmlFileInMy
+      operationId: createHtmlFileInMyDocuments
       requestBody:
         content:
           application/json:
@@ -12330,7 +12367,7 @@ paths:
     post:
       description: Creates a text (.txt) file in the "My documents" section with the
         title and contents specified in the request.
-      operationId: createTextFileInMy
+      operationId: createTextFileInMyDocuments
       requestBody:
         content:
           application/json:
@@ -12839,7 +12876,7 @@ paths:
   /api/2.0/files/folder/{folderId}/order:
     put:
       description: Sets the file order in the folder with ID specified in the request.
-      operationId: setFileOrder
+      operationId: setFolderOrder
       parameters:
       - description: The folder unique identifier.
         explode: false
@@ -12879,7 +12916,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Set file order
+      summary: Set folder order
       tags:
       - Files / Folders
   /api/2.0/files/{folderId}:
@@ -13082,7 +13119,7 @@ paths:
     get:
       description: Returns a list of all the new items from a folder with the ID specified
         in the request.
-      operationId: getNewItems
+      operationId: getNewFolderItems
       parameters:
       - description: The request folder ID.
         explode: false
@@ -13710,7 +13747,7 @@ paths:
     get:
       description: Checks the conversion status of a file with the ID specified in
         the request.
-      operationId: checkConversion
+      operationId: checkConversionStatus
       parameters:
       - description: The file ID to check conversion status.
         explode: false
@@ -13759,7 +13796,7 @@ paths:
     put:
       description: Starts a conversion operation of a file with the ID specified in
         the request.
-      operationId: startConversion
+      operationId: startFileConversion
       parameters:
       - description: The file ID to start conversion proccess.
         explode: false
@@ -13805,7 +13842,7 @@ paths:
   /api/2.0/files/file/{fileId}/comment:
     put:
       description: Updates a comment in a file with the ID specified in the request.
-      operationId: updateComment
+      operationId: updateFileComment
       parameters:
       - description: The file ID where the comment is located.
         explode: false
@@ -13981,6 +14018,16 @@ paths:
     put:
       description: Deletes all the files and folders from the "Trash" folder.
       operationId: emptyTrash
+      parameters:
+      - description: Specifies whether to return only the current operation
+        explode: true
+        in: query
+        name: Single
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -14010,6 +14057,16 @@ paths:
     get:
       description: Returns a list of all the active file operations.
       operationId: getOperationStatuses
+      parameters:
+      - description: The ID of the file operation.
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          example: "9846"
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -14034,6 +14091,15 @@ paths:
         schema:
           $ref: '#/components/schemas/FileOperationType'
         style: simple
+      - description: The ID of the file operation.
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          example: "9846"
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -14083,7 +14149,7 @@ paths:
     get:
       description: "Checks if files or folders can be moved or copied to the specified\
         \ folder, moves or copies them, and returns their information."
-      operationId: moveOrCopyBatchCheck
+      operationId: checkMoveOrCopyBatchItems
       parameters:
       - description: The request parameters for copying/moving files.
         explode: true
@@ -14195,7 +14261,7 @@ paths:
   /api/2.0/files/fileops/checkdestfolder:
     get:
       description: Checks if files can be moved or copied to the specified folder.
-      operationId: moveOrCopyDestFolderCheck
+      operationId: checkMoveOrCopyDestFolder
       parameters:
       - description: The request parameters for copying/moving files.
         explode: true
@@ -15031,7 +15097,7 @@ paths:
   /api/2.0/files/updateifexist:
     put:
       description: Updates a file version if a file with such a name already exists.
-      operationId: updateIfExist
+      operationId: updateFileIfExist
       requestBody:
         content:
           application/json:
@@ -15248,7 +15314,7 @@ paths:
     get:
       description: Returns a list of users with their access rights to the file with
         the ID specified in the request.
-      operationId: sharedUsers
+      operationId: getSharedUsers
       parameters:
       - description: The file ID of the request.
         explode: false
@@ -15335,7 +15401,7 @@ paths:
   /api/2.0/files/owner:
     post:
       description: Changes the owner of the file with the ID specified in the request.
-      operationId: changeOwner
+      operationId: changeFileOwner
       requestBody:
         content:
           application/json:
@@ -15438,7 +15504,7 @@ paths:
         Returns the list of the available providers.
 
          **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
-      operationId: capabilities
+      operationId: getCapabilities
       responses:
         "200":
           content:
@@ -15635,7 +15701,7 @@ paths:
   /api/2.0/files/roomtemplate:
     post:
       description: Starts creating the room template.
-      operationId: createTemplate
+      operationId: createRoomTemplate
       requestBody:
         content:
           application/json:
@@ -15669,7 +15735,7 @@ paths:
   /api/2.0/files/roomtemplate/status:
     get:
       description: Returns the progress status of the room template creation process.
-      operationId: getTemplateCreatingStatus
+      operationId: getRoomTemplateCreatingStatus
       responses:
         "200":
           content:
@@ -15699,7 +15765,7 @@ paths:
     get:
       description: Returns the public settings of the room template with the ID specified
         in the request.
-      operationId: isPublic
+      operationId: getPublicSettings
       parameters:
       - description: The room template ID.
         explode: false
@@ -15740,7 +15806,7 @@ paths:
     put:
       description: Sets the public settings for the room template with the ID specified
         in the request.
-      operationId: setPublic
+      operationId: setPublicSettings
       requestBody:
         content:
           application/json:
@@ -16339,7 +16405,7 @@ paths:
     put:
       description: Sets the room external or invitation link with the ID specified
         in the request.
-      operationId: setLink
+      operationId: setRoomLink
       parameters:
       - description: The room ID.
         explode: false
@@ -16428,7 +16494,7 @@ paths:
   /api/2.0/files/rooms/{id}/tags:
     delete:
       description: Removes the tags from a room with the ID specified in the request.
-      operationId: deleteTags
+      operationId: deleteRoomTags
       parameters:
       - description: The room Id.
         explode: false
@@ -16475,7 +16541,7 @@ paths:
       - Rooms
     put:
       description: Adds the tags to a room with the ID specified in the request.
-      operationId: addTags
+      operationId: addRoomTags
       parameters:
       - description: The room Id.
         explode: false
@@ -16660,7 +16726,7 @@ paths:
   /api/2.0/files/rooms/covers:
     get:
       description: Returns a list of all covers.
-      operationId: getCovers
+      operationId: getRoomCovers
       responses:
         "200":
           content:
@@ -16814,7 +16880,7 @@ paths:
   /api/2.0/files/rooms/{id}/reorder:
     put:
       description: Reorders the room with ID specified in the request.
-      operationId: reorder
+      operationId: reorderRoom
       parameters:
       - description: The room ID of the request.
         explode: false
@@ -16972,7 +17038,7 @@ paths:
       - Rooms
     get:
       description: Returns a list of custom tags.
-      operationId: getTagsInfo
+      operationId: getRoomTagsInfo
       responses:
         "200":
           content:
@@ -17000,7 +17066,7 @@ paths:
       - Rooms
     post:
       description: Creates a custom tag with the parameters specified in the request.
-      operationId: createTag
+      operationId: createRoomTag
       requestBody:
         content:
           application/json:
@@ -24418,6 +24484,63 @@ components:
           format: int32
           type: integer
       type: object
+    PaymentCalculation:
+      additionalProperties: false
+      description: The payment calculation.
+      example:
+        amount: 0.8008281904610115
+        quantity: 1234
+        operationId: 1234
+        currency: some text
+      properties:
+        operationId:
+          example: 1234
+          format: int64
+          type: integer
+        amount:
+          format: double
+          type: number
+        currency:
+          example: some text
+          nullable: true
+          type: string
+        quantity:
+          example: 1234
+          format: int32
+          type: integer
+      type: object
+    PaymentCalculationWrapper:
+      example:
+        response:
+          amount: 0.8008281904610115
+          quantity: 1234
+          operationId: 1234
+          currency: some text
+        count: 6
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 1
+        statusCode: 5
+      properties:
+        response:
+          $ref: '#/components/schemas/PaymentCalculation'
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: '#/components/schemas/ActiveConnectionsWrapper_links_inner'
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     PaymentMethodStatus:
       enum:
       - 0
@@ -24653,6 +24776,7 @@ components:
           type: integer
       type: object
     ProductQuantityType:
+      description: The product quantity type.
       enum:
       - 0
       - 1
@@ -33500,6 +33624,7 @@ components:
       additionalProperties: false
       description: The base batch request parameters.
       example:
+        returnSingleOperation: true
         fileIds:
         - null
         - null
@@ -33507,6 +33632,10 @@ components:
         - 1234
         - 1234
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         folderIds:
           description: The list of folder IDs of the base batch request.
           items:
@@ -33524,6 +33653,7 @@ components:
       additionalProperties: false
       description: The request parameters for copying/moving files.
       example:
+        returnSingleOperation: true
         deleteAfter: true
         fileIds:
         - null
@@ -33536,6 +33666,10 @@ components:
         toFillOut: true
         content: true
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         folderIds:
           description: The list of folder IDs to be copied/moved.
           items:
@@ -35443,6 +35577,7 @@ components:
       additionalProperties: false
       description: The request parameters for deleting files.
       example:
+        returnSingleOperation: true
         deleteAfter: true
         fileIds:
         - null
@@ -35452,6 +35587,10 @@ components:
         - 1234
         immediately: true
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         folderIds:
           description: The list of folder IDs to be deleted.
           items:
@@ -35509,11 +35648,16 @@ components:
       additionalProperties: false
       description: The request parameters for deleting file versions.
       example:
+        returnSingleOperation: true
         deleteAfter: true
         versions:
         - 1234
         fileId: 9846
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         deleteAfter:
           description: Specifies whether to delete a file after the editing session
             is finished or not.
@@ -35863,6 +36007,7 @@ components:
       additionalProperties: false
       description: The request parameters for downloading files.
       example:
+        returnSingleOperation: true
         fileConvertIds:
         - password: vfmf2vO1Kp
           value: some text
@@ -35877,6 +36022,10 @@ components:
         - 1234
         - 1234
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         folderIds:
           description: The list of folder IDs to be downloaded.
           items:
@@ -35955,6 +36104,7 @@ components:
       additionalProperties: false
       description: The duplicate request parameters.
       example:
+        returnSingleOperation: true
         fileIds:
         - null
         - null
@@ -35962,6 +36112,10 @@ components:
         - 1234
         - 1234
       properties:
+        returnSingleOperation:
+          description: Specifies whether to return only the current operation
+          example: true
+          type: boolean
         folderIds:
           description: The list of folder IDs.
           items:
@@ -48308,7 +48462,7 @@ components:
       required:
       - formCollection
       type: object
-    saveEditingFromForm_request:
+    saveEditingFileFromForm_request:
       properties:
         FileExtension:
           description: The editing file extension from the request.
@@ -48737,66 +48891,17 @@ components:
       name: x-signature
       type: apiKey
 x-tagGroups:
-- name: Api keys
-  tags:
-  - Api keys
-- name: Authentication
+- name: Api
   tags:
   - Authentication
-- name: Backup
-  tags:
-  - Backup
-- name: Capabilities
-  tags:
   - Capabilities
-- name: Files
-  tags:
-  - Files / Files
-  - Files / Folders
-  - Files / Operations
-  - Files / Quota
-  - Files / Settings
-  - Files / Sharing
-  - Files / Third-party integration
-- name: Group
-  tags:
-  - Group
-  - Group / Rooms
-- name: Migration
-  tags:
   - Migration
-- name: OAuth 2.0
-  tags:
-  - OAuth 2.0 / Authorization
-  - OAuth 2.0 / Client Management
-  - OAuth 2.0 / Client Querying
-  - OAuth 2.0 / Scope Management
-- name: People
-  tags:
-  - People / Contacts
-  - People / Guests
-  - People / Password
-  - People / Photos
-  - People / Profiles
-  - People / Quota
-  - People / Search
-  - People / Theme
-  - People / Third-party accounts
-  - People / User data
-  - People / User status
-  - People / User type
-- name: Portal
-  tags:
   - Portal / Payment
   - Portal / Quota
   - Portal / Settings
   - Portal / Users
-- name: Rooms
-  tags:
-  - Rooms
-- name: Security
-  tags:
   - Security / Access to DevTools
+  - Settings / Access to DevTools
   - Security / Active connections
   - Security / Audit trail data
   - Security / CSP
@@ -48804,9 +48909,6 @@ x-tagGroups:
   - Security / Login history
   - Security / OAuth2
   - Security / SMTP settings
-- name: Settings
-  tags:
-  - Settings / Access to DevTools
   - Settings / Authorization
   - Settings / Common settings
   - Settings / Cookies
@@ -48828,7 +48930,36 @@ x-tagGroups:
   - Settings / TFA settings
   - Settings / Webhooks
   - Settings / Webplugins
-- name: ThirdParty
-  tags:
   - ThirdParty
+  - Api keys
+  - Group
+  - Group / Rooms
+  - People / Contacts
+  - People / Guests
+  - People / Password
+  - People / Photos
+  - People / Profiles
+  - People / Quota
+  - People / Search
+  - People / Theme
+  - People / Third-party accounts
+  - People / User data
+  - People / User status
+  - People / User type
+  - Portal / Guests
+  - Files / Files
+  - Files / Folders
+  - Files / Operations
+  - Files / Quota
+  - Files / Settings
+  - Files / Third-party integration
+  - Files / Sharing
+  - Rooms
+  - Backup
+- name: ASC.Identity.Authorization
+  tags:
+  - OAuth 2.0 / Authorization
+  - OAuth 2.0 / Client Management
+  - OAuth 2.0 / Scope Management
+  - OAuth 2.0 / Client Querying
 

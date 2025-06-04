@@ -65,97 +65,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
         /// <summary>
-        /// Search users by status filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the status filter and search query.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetAdvanced(EmployeeStatus status, string? query = default(string?));
-
-        /// <summary>
-        /// Search users by status filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the status filter and search query.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetAdvancedWithHttpInfo(EmployeeStatus status, string? query = default(string?));
-        /// <summary>
-        /// Search users with detaailed information by extended filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetFullByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetFullByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
-        /// <summary>
-        /// Search users (using query parameters)
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the search query. This method uses the query parameters.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <returns>EmployeeArrayWrapper</returns>
-        EmployeeArrayWrapper GetPeopleSearch(string? query = default(string?));
-
-        /// <summary>
-        /// Search users (using query parameters)
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the search query. This method uses the query parameters.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        ApiResponse<EmployeeArrayWrapper> GetPeopleSearchWithHttpInfo(string? query = default(string?));
-        /// <summary>
         /// Search users
         /// </summary>
         /// <remarks>
@@ -260,6 +169,97 @@ namespace Docspace.Api
         /// <param name="employeeTypes">The list of user types. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
+        /// <summary>
+        /// Search users with detaailed information by extended filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+        /// <summary>
+        /// Search users (using query parameters)
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the search query. This method uses the query parameters.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <returns>EmployeeArrayWrapper</returns>
+        EmployeeArrayWrapper SearchUsersByQuery(string? query = default(string?));
+
+        /// <summary>
+        /// Search users (using query parameters)
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the search query. This method uses the query parameters.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
+        ApiResponse<EmployeeArrayWrapper> SearchUsersByQueryWithHttpInfo(string? query = default(string?));
+        /// <summary>
+        /// Search users by status filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the status filter and search query.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?));
+
+        /// <summary>
+        /// Search users by status filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the status filter and search query.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?));
         #endregion Synchronous Operations
     }
 
@@ -308,103 +308,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Search users by status filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the status filter and search query.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAdvancedAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Search users by status filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the status filter and search query.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetAdvancedWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Search users with detaailed information by extended filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetFullByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetFullByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Search users (using query parameters)
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the search query. This method uses the query parameters.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeArrayWrapper> GetPeopleSearchAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Search users (using query parameters)
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users matching the search query. This method uses the query parameters.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> GetPeopleSearchWithHttpInfoAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users
         /// </summary>
@@ -516,6 +419,103 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Search users with detaailed information by extended filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Search users (using query parameters)
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the search query. This method uses the query parameters.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeArrayWrapper</returns>
+        System.Threading.Tasks.Task<EmployeeArrayWrapper> SearchUsersByQueryAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search users (using query parameters)
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the search query. This method uses the query parameters.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> SearchUsersByQueryWithHttpInfoAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Search users by status filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the status filter and search query.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search users by status filter
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users matching the status filter and search query.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -985,686 +985,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users by status filter Returns a list of users matching the status filter and search query.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetAdvanced(EmployeeStatus status, string? query = default(string?))
-        {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetAdvancedWithHttpInfo(status, query);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users by status filter Returns a list of users matching the status filter and search query.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetAdvancedWithHttpInfo(EmployeeStatus status, string? query = default(string?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/status/{status}/search", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users by status filter Returns a list of users matching the status filter and search query.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAdvancedAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetAdvancedWithHttpInfoAsync(status, query, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users by status filter Returns a list of users matching the status filter and search query.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">The user status.</param>
-        /// <param name="query">The advanced search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetAdvancedWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/status/{status}/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetFullByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
-        {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetFullByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetFullByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (employeeStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
-            }
-            if (groupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
-            }
-            if (activationStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
-            }
-            if (employeeType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
-            }
-            if (employeeTypes != null)
-            {
-            }
-            if (isAdministrator != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
-            }
-            if (payments != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
-            }
-            if (accountLoginType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
-            }
-            if (quotaFilter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
-            }
-            if (withoutGroup != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
-            }
-            if (excludeGroup != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
-            }
-            if (invitedByMe != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
-            }
-            if (inviterId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
-            }
-            if (area != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/filter", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFullByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetFullByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetFullByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeStatus">The user status. (optional)</param>
-        /// <param name="groupId">The group ID. (optional)</param>
-        /// <param name="activationStatus">The user activation status. (optional)</param>
-        /// <param name="employeeType">The user type. (optional)</param>
-        /// <param name="employeeTypes">The list of user types. (optional)</param>
-        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
-        /// <param name="payments">The user payment status. (optional)</param>
-        /// <param name="accountLoginType">The account login type. (optional)</param>
-        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
-        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
-        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
-        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
-        /// <param name="inviterId">The inviter ID. (optional)</param>
-        /// <param name="area">The filter area. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetFullByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (employeeStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
-            }
-            if (groupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
-            }
-            if (activationStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
-            }
-            if (employeeType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
-            }
-            if (employeeTypes != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
-            }
-            if (isAdministrator != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
-            }
-            if (payments != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
-            }
-            if (accountLoginType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
-            }
-            if (quotaFilter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
-            }
-            if (withoutGroup != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
-            }
-            if (excludeGroup != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
-            }
-            if (invitedByMe != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
-            }
-            if (inviterId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
-            }
-            if (area != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/filter", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFullByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <returns>EmployeeArrayWrapper</returns>
-        public EmployeeArrayWrapper GetPeopleSearch(string? query = default(string?))
-        {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = GetPeopleSearchWithHttpInfo(query);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> GetPeopleSearchWithHttpInfo(string? query = default(string?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EmployeeArrayWrapper>("/api/2.0/people/search", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPeopleSearch", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EmployeeArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeArrayWrapper> GetPeopleSearchAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await GetPeopleSearchWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The search query. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> GetPeopleSearchWithHttpInfoAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeArrayWrapper>("/api/2.0/people/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPeopleSearch", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2430,6 +1750,686 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUsersWithRoomShared", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        {
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (employeeType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+            }
+            if (employeeTypes != null)
+            {
+            }
+            if (isAdministrator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+            }
+            if (payments != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+            }
+            if (accountLoginType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+            }
+            if (quotaFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+            }
+            if (withoutGroup != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+            }
+            if (excludeGroup != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/filter", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="groupId">The group ID. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="employeeType">The user type. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="isAdministrator">Specifies if the user is an administrator or not. (optional)</param>
+        /// <param name="payments">The user payment status. (optional)</param>
+        /// <param name="accountLoginType">The account login type. (optional)</param>
+        /// <param name="quotaFilter">The quota filter (All - 0, Default - 1, Custom - 2). (optional)</param>
+        /// <param name="withoutGroup">Specifies whether the user should be a member of a group or not. (optional)</param>
+        /// <param name="excludeGroup">Specifies whether the user should be a member of the group with the specified ID. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The filter area. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (employeeType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+            }
+            if (employeeTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (isAdministrator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+            }
+            if (payments != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+            }
+            if (accountLoginType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+            }
+            if (quotaFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+            }
+            if (withoutGroup != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+            }
+            if (excludeGroup != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/filter", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <returns>EmployeeArrayWrapper</returns>
+        public EmployeeArrayWrapper SearchUsersByQuery(string? query = default(string?))
+        {
+            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = SearchUsersByQueryWithHttpInfo(query);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> SearchUsersByQueryWithHttpInfo(string? query = default(string?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmployeeArrayWrapper>("/api/2.0/people/search", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<EmployeeArrayWrapper> SearchUsersByQueryAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await SearchUsersByQueryWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> SearchUsersByQueryWithHttpInfoAsync(string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeArrayWrapper>("/api/2.0/people/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users by status filter Returns a list of users matching the status filter and search query.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        public EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?))
+        {
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByStatusWithHttpInfo(status, query);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users by status filter Returns a list of users matching the status filter and search query.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/status/{status}/search", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search users by status filter Returns a list of users matching the status filter and search query.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByStatusWithHttpInfoAsync(status, query, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search users by status filter Returns a list of users matching the status filter and search query.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">The user status.</param>
+        /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/status/{status}/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

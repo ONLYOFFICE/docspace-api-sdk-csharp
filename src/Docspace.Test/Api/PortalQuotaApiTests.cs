@@ -54,14 +54,37 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetQuota
+        /// Test GetPortalQuota
         /// </summary>
         [Fact]
-        public void GetQuotaTest()
+        public void GetPortalQuotaTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetQuota();
+            //var response = instance.GetPortalQuota();
             //Assert.IsType<TenantQuotaWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPortalTariff
+        /// </summary>
+        [Fact]
+        public void GetPortalTariffTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //bool? refresh = null;
+            //var response = instance.GetPortalTariff(refresh);
+            //Assert.IsType<TariffWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPortalUsedSpace
+        /// </summary>
+        [Fact]
+        public void GetPortalUsedSpaceTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetPortalUsedSpace();
+            //Assert.IsType<DoubleWrapper>(response);
         }
 
         /// <summary>
@@ -73,29 +96,6 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetRightQuota();
             //Assert.IsType<TenantQuotaWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetTariff
-        /// </summary>
-        [Fact]
-        public void GetTariffTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //bool? refresh = null;
-            //var response = instance.GetTariff(refresh);
-            //Assert.IsType<TariffWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetUsedSpace
-        /// </summary>
-        [Fact]
-        public void GetUsedSpaceTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetUsedSpace();
-            //Assert.IsType<DoubleWrapper>(response);
         }
     }
 }

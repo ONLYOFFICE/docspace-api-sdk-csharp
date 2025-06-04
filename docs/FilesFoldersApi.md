@@ -16,14 +16,14 @@ All URIs are relative to *http://http:*
 | [**GetFolderPrimaryExternalLink**](FilesFoldersApi.md#getfolderprimaryexternallink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
 | [**GetFolders**](FilesFoldersApi.md#getfolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
 | [**GetMyFolder**](FilesFoldersApi.md#getmyfolder) | **GET** /api/2.0/files/@my | Get the \&quot;My documents\&quot; section |
-| [**GetNewItems**](FilesFoldersApi.md#getnewitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
+| [**GetNewFolderItems**](FilesFoldersApi.md#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
 | [**GetPrivacyFolder**](FilesFoldersApi.md#getprivacyfolder) | **GET** /api/2.0/files/@privacy | Get the \&quot;Private Room\&quot; section |
 | [**GetRootFolders**](FilesFoldersApi.md#getrootfolders) | **GET** /api/2.0/files/@root | Get filtered sections |
 | [**GetTrashFolder**](FilesFoldersApi.md#gettrashfolder) | **GET** /api/2.0/files/@trash | Get the \&quot;Trash\&quot; section |
 | [**InsertFile**](FilesFoldersApi.md#insertfile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
 | [**InsertFileToMyFromBody**](FilesFoldersApi.md#insertfiletomyfrombody) | **POST** /api/2.0/files/@my/insert | Insert a file to the \&quot;My documents\&quot; section |
 | [**RenameFolder**](FilesFoldersApi.md#renamefolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
-| [**SetFileOrder**](FilesFoldersApi.md#setfileorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set file order |
+| [**SetFolderOrder**](FilesFoldersApi.md#setfolderorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
 | [**UploadFile**](FilesFoldersApi.md#uploadfile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
 | [**UploadFileToMy**](FilesFoldersApi.md#uploadfiletomy) | **POST** /api/2.0/files/@my/upload | Upload a file to the \&quot;My documents\&quot; section |
 
@@ -1339,9 +1339,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getnewitems"></a>
-# **GetNewItems**
-> FileEntryArrayWrapper GetNewItems (int folderId)
+<a id="getnewfolderitems"></a>
+# **GetNewFolderItems**
+> FileEntryArrayWrapper GetNewFolderItems (int folderId)
 
 Get new folder items
 
@@ -1358,7 +1358,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetNewItemsExample
+    public class GetNewFolderItemsExample
     {
         public static void Main()
         {
@@ -1389,12 +1389,12 @@ namespace Example
             try
             {
                 // Get new folder items
-                FileEntryArrayWrapper result = apiInstance.GetNewItems(folderId);
+                FileEntryArrayWrapper result = apiInstance.GetNewFolderItems(folderId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFoldersApi.GetNewItems: " + e.Message);
+                Debug.Print("Exception when calling FilesFoldersApi.GetNewFolderItems: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1403,21 +1403,21 @@ namespace Example
 }
 ```
 
-#### Using the GetNewItemsWithHttpInfo variant
+#### Using the GetNewFolderItemsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get new folder items
-    ApiResponse<FileEntryArrayWrapper> response = apiInstance.GetNewItemsWithHttpInfo(folderId);
+    ApiResponse<FileEntryArrayWrapper> response = apiInstance.GetNewFolderItemsWithHttpInfo(folderId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFoldersApi.GetNewItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFoldersApi.GetNewFolderItemsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -2193,11 +2193,11 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="setfileorder"></a>
-# **SetFileOrder**
-> FolderIntegerWrapper SetFileOrder (int folderId, OrderRequestDto? orderRequestDto = null)
+<a id="setfolderorder"></a>
+# **SetFolderOrder**
+> FolderIntegerWrapper SetFolderOrder (int folderId, OrderRequestDto? orderRequestDto = null)
 
-Set file order
+Set folder order
 
 Sets the file order in the folder with ID specified in the request.
 
@@ -2212,7 +2212,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SetFileOrderExample
+    public class SetFolderOrderExample
     {
         public static void Main()
         {
@@ -2243,13 +2243,13 @@ namespace Example
 
             try
             {
-                // Set file order
-                FolderIntegerWrapper result = apiInstance.SetFileOrder(folderId, orderRequestDto);
+                // Set folder order
+                FolderIntegerWrapper result = apiInstance.SetFolderOrder(folderId, orderRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFoldersApi.SetFileOrder: " + e.Message);
+                Debug.Print("Exception when calling FilesFoldersApi.SetFolderOrder: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2258,21 +2258,21 @@ namespace Example
 }
 ```
 
-#### Using the SetFileOrderWithHttpInfo variant
+#### Using the SetFolderOrderWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Set file order
-    ApiResponse<FolderIntegerWrapper> response = apiInstance.SetFileOrderWithHttpInfo(folderId, orderRequestDto);
+    // Set folder order
+    ApiResponse<FolderIntegerWrapper> response = apiInstance.SetFolderOrderWithHttpInfo(folderId, orderRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFoldersApi.SetFileOrderWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFoldersApi.SetFolderOrderWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

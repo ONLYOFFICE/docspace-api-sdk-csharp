@@ -171,7 +171,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <returns>CdnStorageSettingsWrapper</returns>
-        CdnStorageSettingsWrapper UpdateCdn(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?));
+        CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?));
 
         /// <summary>
         /// Update the CDN storage
@@ -182,7 +182,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
-        ApiResponse<CdnStorageSettingsWrapper> UpdateCdnWithHttpInfo(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?));
+        ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?));
         /// <summary>
         /// Update a storage
         /// </summary>
@@ -372,7 +372,7 @@ namespace Docspace.Api
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CdnStorageSettingsWrapper</returns>
-        System.Threading.Tasks.Task<CdnStorageSettingsWrapper> UpdateCdnAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CdnStorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update the CDN storage
@@ -384,7 +384,7 @@ namespace Docspace.Api
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update a storage
         /// </summary>
@@ -1758,9 +1758,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <returns>CdnStorageSettingsWrapper</returns>
-        public CdnStorageSettingsWrapper UpdateCdn(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?))
+        public CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?))
         {
-            Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> localVarResponse = UpdateCdnWithHttpInfo(storageRequestsDto);
+            Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> localVarResponse = UpdateCdnStorageWithHttpInfo(storageRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -1770,7 +1770,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> UpdateCdnWithHttpInfo(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?))
+        public Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1827,7 +1827,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateCdn", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateCdnStorage", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1841,9 +1841,9 @@ namespace Docspace.Api
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CdnStorageSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<CdnStorageSettingsWrapper> UpdateCdnAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CdnStorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> localVarResponse = await UpdateCdnWithHttpInfoAsync(storageRequestsDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<CdnStorageSettingsWrapper> localVarResponse = await UpdateCdnStorageWithHttpInfoAsync(storageRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1854,7 +1854,7 @@ namespace Docspace.Api
         /// <param name="storageRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default(StorageRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1914,7 +1914,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateCdn", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateCdnStorage", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

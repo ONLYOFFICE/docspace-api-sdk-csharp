@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Defines ProductQuantityType
+    /// The product quantity type.
     /// </summary>
+    /// <value>The product quantity type.</value>
     public enum ProductQuantityType
     {
         /// <summary>

@@ -5,6 +5,7 @@ The request parameters for copying/moving files.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ReturnSingleOperation** | **bool** | Specifies whether to return only the current operation | [optional] 
 **FolderIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of folder IDs to be copied/moved. | [optional] 
 **FileIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of file IDs to be copied/moved. | [optional] 
 **DestFolderId** | [**BatchRequestDtoDestFolderId**](BatchRequestDtoDestFolderId.md) |  | [optional] 

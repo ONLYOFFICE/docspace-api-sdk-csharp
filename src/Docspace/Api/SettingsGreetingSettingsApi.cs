@@ -54,7 +54,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper IsDefault();
+        BooleanWrapper GetIsDefaultGreetingSettings();
 
         /// <summary>
         /// Check the default greeting settings
@@ -64,7 +64,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> IsDefaultWithHttpInfo();
+        ApiResponse<BooleanWrapper> GetIsDefaultGreetingSettingsWithHttpInfo();
         /// <summary>
         /// Restore the greeting settings
         /// </summary>
@@ -144,7 +144,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> IsDefaultAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BooleanWrapper> GetIsDefaultGreetingSettingsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Check the default greeting settings
@@ -155,7 +155,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> IsDefaultWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> GetIsDefaultGreetingSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Restore the greeting settings
         /// </summary>
@@ -579,9 +579,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper IsDefault()
+        public BooleanWrapper GetIsDefaultGreetingSettings()
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = IsDefaultWithHttpInfo();
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = GetIsDefaultGreetingSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -590,7 +590,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> IsDefaultWithHttpInfo()
+        public Docspace.Client.ApiResponse<BooleanWrapper> GetIsDefaultGreetingSettingsWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -645,7 +645,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("IsDefault", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetIsDefaultGreetingSettings", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -658,9 +658,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> IsDefaultAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BooleanWrapper> GetIsDefaultGreetingSettingsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await IsDefaultWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await GetIsDefaultGreetingSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -670,7 +670,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> IsDefaultWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> GetIsDefaultGreetingSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -728,7 +728,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("IsDefault", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetIsDefaultGreetingSettings", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

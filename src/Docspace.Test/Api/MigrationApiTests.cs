@@ -54,88 +54,88 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Cancel
+        /// Test CancelMigration
         /// </summary>
         [Fact]
-        public void CancelTest()
+        public void CancelMigrationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.Cancel();
+            //instance.CancelMigration();
         }
 
         /// <summary>
-        /// Test Clear
+        /// Test ClearMigration
         /// </summary>
         [Fact]
-        public void ClearTest()
+        public void ClearMigrationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.Clear();
+            //instance.ClearMigration();
         }
 
         /// <summary>
-        /// Test Finish
+        /// Test FinishMigration
         /// </summary>
         [Fact]
-        public void FinishTest()
+        public void FinishMigrationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //FinishDto? finishDto = null;
-            //instance.Finish(finishDto);
+            //instance.FinishMigration(finishDto);
         }
 
         /// <summary>
-        /// Test List
+        /// Test GetMigrationLogs
         /// </summary>
         [Fact]
-        public void ListTest()
+        public void GetMigrationLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.List();
-            //Assert.IsType<STRINGArrayWrapper>(response);
+            //instance.GetMigrationLogs();
         }
 
         /// <summary>
-        /// Test Logs
+        /// Test GetMigrationStatus
         /// </summary>
         [Fact]
-        public void LogsTest()
+        public void GetMigrationStatusTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.Logs();
-        }
-
-        /// <summary>
-        /// Test Migrate
-        /// </summary>
-        [Fact]
-        public void MigrateTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //MigrationApiInfo? migrationApiInfo = null;
-            //instance.Migrate(migrationApiInfo);
-        }
-
-        /// <summary>
-        /// Test Status
-        /// </summary>
-        [Fact]
-        public void StatusTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Status();
+            //var response = instance.GetMigrationStatus();
             //Assert.IsType<MigrationStatusWrapper>(response);
         }
 
         /// <summary>
-        /// Test UploadAndInit
+        /// Test ListMigrations
         /// </summary>
         [Fact]
-        public void UploadAndInitTest()
+        public void ListMigrationsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.ListMigrations();
+            //Assert.IsType<STRINGArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test StartMigration
+        /// </summary>
+        [Fact]
+        public void StartMigrationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MigrationApiInfo? migrationApiInfo = null;
+            //instance.StartMigration(migrationApiInfo);
+        }
+
+        /// <summary>
+        /// Test UploadAndInitializeMigration
+        /// </summary>
+        [Fact]
+        public void UploadAndInitializeMigrationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string migratorName = null;
-            //instance.UploadAndInit(migratorName);
+            //instance.UploadAndInitializeMigration(migratorName);
         }
     }
 }

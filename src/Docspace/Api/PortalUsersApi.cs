@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper GeInviteLink(EmployeeType employeeType);
+        StringWrapper GetInvitationLink(EmployeeType employeeType);
 
         /// <summary>
         /// Get an invitation link
@@ -47,7 +47,26 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> GeInviteLinkWithHttpInfo(EmployeeType employeeType);
+        ApiResponse<StringWrapper> GetInvitationLinkWithHttpInfo(EmployeeType employeeType);
+        /// <summary>
+        /// Get a number of portal users
+        /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Int64Wrapper</returns>
+        Int64Wrapper GetPortalUsersCount();
+
+        /// <summary>
+        /// Get a number of portal users
+        /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Int64Wrapper</returns>
+        ApiResponse<Int64Wrapper> GetPortalUsersCountWithHttpInfo();
         /// <summary>
         /// Get a user by ID
         /// </summary>
@@ -57,7 +76,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <returns>UserInfoWrapper</returns>
-        UserInfoWrapper GetUser(Guid userID);
+        UserInfoWrapper GetUserById(Guid userID);
 
         /// <summary>
         /// Get a user by ID
@@ -68,26 +87,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <returns>ApiResponse of UserInfoWrapper</returns>
-        ApiResponse<UserInfoWrapper> GetUserWithHttpInfo(Guid userID);
-        /// <summary>
-        /// Get a number of portal users
-        /// </summary>
-        /// <remarks>
-        /// Returns a number of portal users.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Int64Wrapper</returns>
-        Int64Wrapper GetUsersCount();
-
-        /// <summary>
-        /// Get a number of portal users
-        /// </summary>
-        /// <remarks>
-        /// Returns a number of portal users.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Int64Wrapper</returns>
-        ApiResponse<Int64Wrapper> GetUsersCountWithHttpInfo();
+        ApiResponse<UserInfoWrapper> GetUserByIdWithHttpInfo(Guid userID);
         /// <summary>
         /// Mark a gift message as read
         /// </summary>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
-        void MarkPresentAsReaded();
+        void MarkGiftMessageAsRead();
 
         /// <summary>
         /// Mark a gift message as read
@@ -106,7 +106,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MarkPresentAsReadedWithHttpInfo();
+        ApiResponse<Object> MarkGiftMessageAsReadWithHttpInfo();
         /// <summary>
         /// Send congratulations
         /// </summary>
@@ -149,7 +149,7 @@ namespace Docspace.Api
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> GeInviteLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get an invitation link
@@ -161,7 +161,28 @@ namespace Docspace.Api
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GeInviteLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get a number of portal users
+        /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Int64Wrapper</returns>
+        System.Threading.Tasks.Task<Int64Wrapper> GetPortalUsersCountAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get a number of portal users
+        /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get a user by ID
         /// </summary>
@@ -172,7 +193,7 @@ namespace Docspace.Api
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserInfoWrapper</returns>
-        System.Threading.Tasks.Task<UserInfoWrapper> GetUserAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get a user by ID
@@ -184,28 +205,7 @@ namespace Docspace.Api
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserInfoWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInfoWrapper>> GetUserWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get a number of portal users
-        /// </summary>
-        /// <remarks>
-        /// Returns a number of portal users.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Int64Wrapper</returns>
-        System.Threading.Tasks.Task<Int64Wrapper> GetUsersCountAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get a number of portal users
-        /// </summary>
-        /// <remarks>
-        /// Returns a number of portal users.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Int64Wrapper>> GetUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Mark a gift message as read
         /// </summary>
@@ -215,7 +215,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MarkPresentAsReadedAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task MarkGiftMessageAsReadAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Mark a gift message as read
@@ -226,7 +226,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MarkPresentAsReadedWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send congratulations
         /// </summary>
@@ -471,9 +471,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper GeInviteLink(EmployeeType employeeType)
+        public StringWrapper GetInvitationLink(EmployeeType employeeType)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GeInviteLinkWithHttpInfo(employeeType);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetInvitationLinkWithHttpInfo(employeeType);
             return localVarResponse.Data;
         }
 
@@ -483,7 +483,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> GeInviteLinkWithHttpInfo(EmployeeType employeeType)
+        public Docspace.Client.ApiResponse<StringWrapper> GetInvitationLinkWithHttpInfo(EmployeeType employeeType)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -539,7 +539,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GeInviteLink", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetInvitationLink", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -553,9 +553,9 @@ namespace Docspace.Api
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> GeInviteLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GeInviteLinkWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetInvitationLinkWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -566,7 +566,7 @@ namespace Docspace.Api
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GeInviteLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -625,7 +625,168 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GeInviteLink", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetInvitationLink", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get a number of portal users Returns a number of portal users.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Int64Wrapper</returns>
+        public Int64Wrapper GetPortalUsersCount()
+        {
+            Docspace.Client.ApiResponse<Int64Wrapper> localVarResponse = GetPortalUsersCountWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a number of portal users Returns a number of portal users.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Int64Wrapper</returns>
+        public Docspace.Client.ApiResponse<Int64Wrapper> GetPortalUsersCountWithHttpInfo()
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPortalUsersCount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get a number of portal users Returns a number of portal users.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Int64Wrapper</returns>
+        public async System.Threading.Tasks.Task<Int64Wrapper> GetPortalUsersCountAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<Int64Wrapper> localVarResponse = await GetPortalUsersCountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a number of portal users Returns a number of portal users.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPortalUsersCount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -638,9 +799,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <returns>UserInfoWrapper</returns>
-        public UserInfoWrapper GetUser(Guid userID)
+        public UserInfoWrapper GetUserById(Guid userID)
         {
-            Docspace.Client.ApiResponse<UserInfoWrapper> localVarResponse = GetUserWithHttpInfo(userID);
+            Docspace.Client.ApiResponse<UserInfoWrapper> localVarResponse = GetUserByIdWithHttpInfo(userID);
             return localVarResponse.Data;
         }
 
@@ -650,7 +811,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <returns>ApiResponse of UserInfoWrapper</returns>
-        public Docspace.Client.ApiResponse<UserInfoWrapper> GetUserWithHttpInfo(Guid userID)
+        public Docspace.Client.ApiResponse<UserInfoWrapper> GetUserByIdWithHttpInfo(Guid userID)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -706,7 +867,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUserById", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -720,9 +881,9 @@ namespace Docspace.Api
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserInfoWrapper</returns>
-        public async System.Threading.Tasks.Task<UserInfoWrapper> GetUserAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<UserInfoWrapper> localVarResponse = await GetUserWithHttpInfoAsync(userID, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<UserInfoWrapper> localVarResponse = await GetUserByIdWithHttpInfoAsync(userID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -733,7 +894,7 @@ namespace Docspace.Api
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserInfoWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UserInfoWrapper>> GetUserWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -792,168 +953,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Int64Wrapper</returns>
-        public Int64Wrapper GetUsersCount()
-        {
-            Docspace.Client.ApiResponse<Int64Wrapper> localVarResponse = GetUsersCountWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Int64Wrapper</returns>
-        public Docspace.Client.ApiResponse<Int64Wrapper> GetUsersCountWithHttpInfo()
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetUsersCount", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Int64Wrapper</returns>
-        public async System.Threading.Tasks.Task<Int64Wrapper> GetUsersCountAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<Int64Wrapper> localVarResponse = await GetUsersCountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Int64Wrapper>> GetUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetUsersCount", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUserById", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -965,9 +965,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
-        public void MarkPresentAsReaded()
+        public void MarkGiftMessageAsRead()
         {
-            MarkPresentAsReadedWithHttpInfo();
+            MarkGiftMessageAsReadWithHttpInfo();
         }
 
         /// <summary>
@@ -975,7 +975,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> MarkPresentAsReadedWithHttpInfo()
+        public Docspace.Client.ApiResponse<Object> MarkGiftMessageAsReadWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1029,7 +1029,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarkPresentAsReaded", localVarResponse);
+                Exception _exception = this.ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1042,9 +1042,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MarkPresentAsReadedAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task MarkGiftMessageAsReadAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await MarkPresentAsReadedWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            await MarkGiftMessageAsReadWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1053,7 +1053,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> MarkPresentAsReadedWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1110,7 +1110,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarkPresentAsReaded", localVarResponse);
+                Exception _exception = this.ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -5,17 +5,17 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddTemplates**](FilesFilesApi.md#addtemplates) | **POST** /api/2.0/files/templates | Add template files |
-| [**ChangeHistory**](FilesFilesApi.md#changehistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
+| [**ChangeVersionHistory**](FilesFilesApi.md#changeversionhistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
 | [**CheckFillFormDraft**](FilesFilesApi.md#checkfillformdraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft filling |
 | [**CopyFileAs**](FilesFilesApi.md#copyfileas) | **POST** /api/2.0/files/file/{fileId}/copyas | Copy a file |
 | [**CreateEditSession**](FilesFilesApi.md#createeditsession) | **POST** /api/2.0/files/file/{fileId}/edit_session | Create the editing session |
 | [**CreateFile**](FilesFilesApi.md#createfile) | **POST** /api/2.0/files/{folderId}/file | Create a file |
-| [**CreateFileMyDocuments**](FilesFilesApi.md#createfilemydocuments) | **POST** /api/2.0/files/@my/file | Create a file in the \&quot;My documents\&quot; section |
+| [**CreateFileInMyDocuments**](FilesFilesApi.md#createfileinmydocuments) | **POST** /api/2.0/files/@my/file | Create a file in the \&quot;My documents\&quot; section |
 | [**CreateHtmlFile**](FilesFilesApi.md#createhtmlfile) | **POST** /api/2.0/files/{folderId}/html | Create an HTML file |
-| [**CreateHtmlFileInMy**](FilesFilesApi.md#createhtmlfileinmy) | **POST** /api/2.0/files/@my/html | Create an HTML file in the \&quot;My documents\&quot; section |
+| [**CreateHtmlFileInMyDocuments**](FilesFilesApi.md#createhtmlfileinmydocuments) | **POST** /api/2.0/files/@my/html | Create an HTML file in the \&quot;My documents\&quot; section |
 | [**CreatePrimaryExternalLink**](FilesFilesApi.md#createprimaryexternallink) | **POST** /api/2.0/files/file/{id}/link | Create primary external link |
 | [**CreateTextFile**](FilesFilesApi.md#createtextfile) | **POST** /api/2.0/files/{folderId}/text | Create a text file |
-| [**CreateTextFileInMy**](FilesFilesApi.md#createtextfileinmy) | **POST** /api/2.0/files/@my/text | Create a text file in the \&quot;My documents\&quot; section |
+| [**CreateTextFileInMyDocuments**](FilesFilesApi.md#createtextfileinmydocuments) | **POST** /api/2.0/files/@my/text | Create a text file in the \&quot;My documents\&quot; section |
 | [**CreateThumbnails**](FilesFilesApi.md#createthumbnails) | **POST** /api/2.0/files/thumbnails | Create file thumbnails |
 | [**DeleteFile**](FilesFilesApi.md#deletefile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
 | [**DeleteRecent**](FilesFilesApi.md#deleterecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
@@ -25,28 +25,28 @@ All URIs are relative to *http://http:*
 | [**GetEditHistory**](FilesFilesApi.md#getedithistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
 | [**GetFileHistory**](FilesFilesApi.md#getfilehistory) | **GET** /api/2.0/files/file/{fileId}/log | Get file history |
 | [**GetFileInfo**](FilesFilesApi.md#getfileinfo) | **GET** /api/2.0/files/file/{fileId} | Get file information |
+| [**GetFileLinks**](FilesFilesApi.md#getfilelinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
 | [**GetFilePrimaryExternalLink**](FilesFilesApi.md#getfileprimaryexternallink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
 | [**GetFileVersionInfo**](FilesFilesApi.md#getfileversioninfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
 | [**GetFillResult**](FilesFilesApi.md#getfillresult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
-| [**GetLinks**](FilesFilesApi.md#getlinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
 | [**GetPresignedFileUri**](FilesFilesApi.md#getpresignedfileuri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
 | [**GetPresignedUri**](FilesFilesApi.md#getpresigneduri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
+| [**GetProtectedFileUsers**](FilesFilesApi.md#getprotectedfileusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
 | [**GetReferenceData**](FilesFilesApi.md#getreferencedata) | **POST** /api/2.0/files/file/referencedata | Get reference data |
 | [**IsFormPDF**](FilesFilesApi.md#isformpdf) | **GET** /api/2.0/files/file/{fileId}/isformpdf | Check the PDF file |
 | [**LockFile**](FilesFilesApi.md#lockfile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
 | [**ManageFormFilling**](FilesFilesApi.md#manageformfilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
-| [**OpenEdit**](FilesFilesApi.md#openedit) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
-| [**ProtectUsers**](FilesFilesApi.md#protectusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
-| [**RestoreVersion**](FilesFilesApi.md#restoreversion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
-| [**SaveAsPdf**](FilesFilesApi.md#saveaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
-| [**SaveEditingFromForm**](FilesFilesApi.md#saveeditingfromform) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
+| [**OpenEditFile**](FilesFilesApi.md#openeditfile) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
+| [**RestoreFileVersion**](FilesFilesApi.md#restorefileversion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
+| [**SaveEditingFileFromForm**](FilesFilesApi.md#saveeditingfilefromform) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
+| [**SaveFileAsPdf**](FilesFilesApi.md#savefileaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
 | [**SaveFormRoleMapping**](FilesFilesApi.md#saveformrolemapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
 | [**SetCustomFilterTag**](FilesFilesApi.md#setcustomfiltertag) | **PUT** /api/2.0/files/file/{fileId}/customfilter | Set the Custom Filter editing mode |
 | [**SetExternalLink**](FilesFilesApi.md#setexternallink) | **PUT** /api/2.0/files/file/{id}/links | Set an external link |
+| [**SetFileOrder**](FilesFilesApi.md#setfileorder) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
 | [**SetFilesOrder**](FilesFilesApi.md#setfilesorder) | **PUT** /api/2.0/files/order | Set order of files |
-| [**SetOrderFile**](FilesFilesApi.md#setorderfile) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
-| [**StartEdit**](FilesFilesApi.md#startedit) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
-| [**StartFilling**](FilesFilesApi.md#startfilling) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
+| [**StartEditFile**](FilesFilesApi.md#starteditfile) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
+| [**StartFillingFile**](FilesFilesApi.md#startfillingfile) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
 | [**TrackEditFile**](FilesFilesApi.md#trackeditfile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile | Track file editing |
 | [**UpdateFile**](FilesFilesApi.md#updatefile) | **PUT** /api/2.0/files/file/{fileId} | Update a file |
 
@@ -162,9 +162,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="changehistory"></a>
-# **ChangeHistory**
-> FileIntegerArrayWrapper ChangeHistory (int fileId, ChangeHistory? changeHistory = null)
+<a id="changeversionhistory"></a>
+# **ChangeVersionHistory**
+> FileIntegerArrayWrapper ChangeVersionHistory (int fileId, ChangeHistory? changeHistory = null)
 
 Change version history
 
@@ -181,7 +181,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class ChangeHistoryExample
+    public class ChangeVersionHistoryExample
     {
         public static void Main()
         {
@@ -213,12 +213,12 @@ namespace Example
             try
             {
                 // Change version history
-                FileIntegerArrayWrapper result = apiInstance.ChangeHistory(fileId, changeHistory);
+                FileIntegerArrayWrapper result = apiInstance.ChangeVersionHistory(fileId, changeHistory);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.ChangeHistory: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.ChangeVersionHistory: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -227,21 +227,21 @@ namespace Example
 }
 ```
 
-#### Using the ChangeHistoryWithHttpInfo variant
+#### Using the ChangeVersionHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Change version history
-    ApiResponse<FileIntegerArrayWrapper> response = apiInstance.ChangeHistoryWithHttpInfo(fileId, changeHistory);
+    ApiResponse<FileIntegerArrayWrapper> response = apiInstance.ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.ChangeHistoryWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.ChangeVersionHistoryWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -721,9 +721,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="createfilemydocuments"></a>
-# **CreateFileMyDocuments**
-> FileIntegerWrapper CreateFileMyDocuments (CreateFileJsonElement? createFileJsonElement = null)
+<a id="createfileinmydocuments"></a>
+# **CreateFileInMyDocuments**
+> FileIntegerWrapper CreateFileInMyDocuments (CreateFileJsonElement? createFileJsonElement = null)
 
 Create a file in the \"My documents\" section
 
@@ -740,7 +740,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class CreateFileMyDocumentsExample
+    public class CreateFileInMyDocumentsExample
     {
         public static void Main()
         {
@@ -771,12 +771,12 @@ namespace Example
             try
             {
                 // Create a file in the \"My documents\" section
-                FileIntegerWrapper result = apiInstance.CreateFileMyDocuments(createFileJsonElement);
+                FileIntegerWrapper result = apiInstance.CreateFileInMyDocuments(createFileJsonElement);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.CreateFileMyDocuments: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.CreateFileInMyDocuments: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -785,21 +785,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateFileMyDocumentsWithHttpInfo variant
+#### Using the CreateFileInMyDocumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Create a file in the \"My documents\" section
-    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateFileMyDocumentsWithHttpInfo(createFileJsonElement);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateFileInMyDocumentsWithHttpInfo(createFileJsonElement);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.CreateFileMyDocumentsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.CreateFileInMyDocumentsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -948,9 +948,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="createhtmlfileinmy"></a>
-# **CreateHtmlFileInMy**
-> FileIntegerWrapper CreateHtmlFileInMy (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
+<a id="createhtmlfileinmydocuments"></a>
+# **CreateHtmlFileInMyDocuments**
+> FileIntegerWrapper CreateHtmlFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
 Create an HTML file in the \"My documents\" section
 
@@ -967,7 +967,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class CreateHtmlFileInMyExample
+    public class CreateHtmlFileInMyDocumentsExample
     {
         public static void Main()
         {
@@ -998,12 +998,12 @@ namespace Example
             try
             {
                 // Create an HTML file in the \"My documents\" section
-                FileIntegerWrapper result = apiInstance.CreateHtmlFileInMy(createTextOrHtmlFile);
+                FileIntegerWrapper result = apiInstance.CreateHtmlFileInMyDocuments(createTextOrHtmlFile);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.CreateHtmlFileInMy: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.CreateHtmlFileInMyDocuments: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1012,21 +1012,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateHtmlFileInMyWithHttpInfo variant
+#### Using the CreateHtmlFileInMyDocumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Create an HTML file in the \"My documents\" section
-    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateHtmlFileInMyWithHttpInfo(createTextOrHtmlFile);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateHtmlFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.CreateHtmlFileInMyWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.CreateHtmlFileInMyDocumentsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1290,9 +1290,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="createtextfileinmy"></a>
-# **CreateTextFileInMy**
-> FileIntegerWrapper CreateTextFileInMy (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
+<a id="createtextfileinmydocuments"></a>
+# **CreateTextFileInMyDocuments**
+> FileIntegerWrapper CreateTextFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
 Create a text file in the \"My documents\" section
 
@@ -1309,7 +1309,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class CreateTextFileInMyExample
+    public class CreateTextFileInMyDocumentsExample
     {
         public static void Main()
         {
@@ -1340,12 +1340,12 @@ namespace Example
             try
             {
                 // Create a text file in the \"My documents\" section
-                FileIntegerWrapper result = apiInstance.CreateTextFileInMy(createTextOrHtmlFile);
+                FileIntegerWrapper result = apiInstance.CreateTextFileInMyDocuments(createTextOrHtmlFile);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.CreateTextFileInMy: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.CreateTextFileInMyDocuments: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1354,21 +1354,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateTextFileInMyWithHttpInfo variant
+#### Using the CreateTextFileInMyDocumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Create a text file in the \"My documents\" section
-    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateTextFileInMyWithHttpInfo(createTextOrHtmlFile);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.CreateTextFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.CreateTextFileInMyWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.CreateTextFileInMyDocumentsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -2355,6 +2355,118 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getfilelinks"></a>
+# **GetFileLinks**
+> FileShareArrayWrapper GetFileLinks (int id)
+
+Get file external links
+
+Returns the external links of a file with the ID specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetFileLinksExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The file ID of the request.
+
+            try
+            {
+                // Get file external links
+                FileShareArrayWrapper result = apiInstance.GetFileLinks(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.GetFileLinks: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFileLinksWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get file external links
+    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetFileLinksWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.GetFileLinksWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | File security information |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getfileprimaryexternallink"></a>
 # **GetFilePrimaryExternalLink**
 > FileShareWrapper GetFilePrimaryExternalLink (int id)
@@ -2641,118 +2753,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getlinks"></a>
-# **GetLinks**
-> FileShareArrayWrapper GetLinks (int id)
-
-Get file external links
-
-Returns the external links of a file with the ID specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetLinksExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID of the request.
-
-            try
-            {
-                // Get file external links
-                FileShareArrayWrapper result = apiInstance.GetLinks(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesFilesApi.GetLinks: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetLinksWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get file external links
-    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetLinksWithHttpInfo(id);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesFilesApi.GetLinksWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | File security information |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="getpresignedfileuri"></a>
 # **GetPresignedFileUri**
 > FileLinkWrapper GetPresignedFileUri (int fileId)
@@ -2973,6 +2973,118 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File download link |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getprotectedfileusers"></a>
+# **GetProtectedFileUsers**
+> MentionWrapperArrayWrapper GetProtectedFileUsers (int fileId)
+
+Get users access rights to the protected file
+
+Returns a list of users with their access rights to the protected file with the ID specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetProtectedFileUsersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = 9846;  // int | The file ID of the request.
+
+            try
+            {
+                // Get users access rights to the protected file
+                MentionWrapperArrayWrapper result = apiInstance.GetProtectedFileUsers(fileId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.GetProtectedFileUsers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetProtectedFileUsersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get users access rights to the protected file
+    ApiResponse<MentionWrapperArrayWrapper> response = apiInstance.GetProtectedFileUsersWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.GetProtectedFileUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of users with their access rights to the protected file |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3426,9 +3538,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="openedit"></a>
-# **OpenEdit**
-> ConfigurationIntegerWrapper OpenEdit (int fileId, int? version = null, bool? view = null, EditorType? editorType = null, bool? edit = null, bool? fill = null)
+<a id="openeditfile"></a>
+# **OpenEditFile**
+> ConfigurationIntegerWrapper OpenEditFile (int fileId, int? version = null, bool? view = null, EditorType? editorType = null, bool? edit = null, bool? fill = null)
 
 Open a file configuration
 
@@ -3445,7 +3557,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class OpenEditExample
+    public class OpenEditFileExample
     {
         public static void Main()
         {
@@ -3465,12 +3577,12 @@ namespace Example
             try
             {
                 // Open a file configuration
-                ConfigurationIntegerWrapper result = apiInstance.OpenEdit(fileId, version, view, editorType, edit, fill);
+                ConfigurationIntegerWrapper result = apiInstance.OpenEditFile(fileId, version, view, editorType, edit, fill);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.OpenEdit: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.OpenEditFile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -3479,21 +3591,21 @@ namespace Example
 }
 ```
 
-#### Using the OpenEditWithHttpInfo variant
+#### Using the OpenEditFileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Open a file configuration
-    ApiResponse<ConfigurationIntegerWrapper> response = apiInstance.OpenEditWithHttpInfo(fileId, version, view, editorType, edit, fill);
+    ApiResponse<ConfigurationIntegerWrapper> response = apiInstance.OpenEditFileWithHttpInfo(fileId, version, view, editorType, edit, fill);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.OpenEditWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.OpenEditFileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -3532,121 +3644,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="protectusers"></a>
-# **ProtectUsers**
-> MentionWrapperArrayWrapper ProtectUsers (int fileId)
-
-Get users access rights to the protected file
-
-Returns a list of users with their access rights to the protected file with the ID specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class ProtectUsersExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
-
-            try
-            {
-                // Get users access rights to the protected file
-                MentionWrapperArrayWrapper result = apiInstance.ProtectUsers(fileId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesFilesApi.ProtectUsers: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the ProtectUsersWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get users access rights to the protected file
-    ApiResponse<MentionWrapperArrayWrapper> response = apiInstance.ProtectUsersWithHttpInfo(fileId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesFilesApi.ProtectUsersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of users with their access rights to the protected file |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="restoreversion"></a>
-# **RestoreVersion**
-> EditHistoryArrayWrapper RestoreVersion (int fileId, int? version = null, string? url = null)
+<a id="restorefileversion"></a>
+# **RestoreFileVersion**
+> EditHistoryArrayWrapper RestoreFileVersion (int fileId, int? version = null, string? url = null)
 
 Restore a file version
 
@@ -3663,7 +3663,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class RestoreVersionExample
+    public class RestoreFileVersionExample
     {
         public static void Main()
         {
@@ -3680,12 +3680,12 @@ namespace Example
             try
             {
                 // Restore a file version
-                EditHistoryArrayWrapper result = apiInstance.RestoreVersion(fileId, version, url);
+                EditHistoryArrayWrapper result = apiInstance.RestoreFileVersion(fileId, version, url);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.RestoreVersion: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.RestoreFileVersion: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -3694,21 +3694,21 @@ namespace Example
 }
 ```
 
-#### Using the RestoreVersionWithHttpInfo variant
+#### Using the RestoreFileVersionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Restore a file version
-    ApiResponse<EditHistoryArrayWrapper> response = apiInstance.RestoreVersionWithHttpInfo(fileId, version, url);
+    ApiResponse<EditHistoryArrayWrapper> response = apiInstance.RestoreFileVersionWithHttpInfo(fileId, version, url);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.RestoreVersionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.RestoreFileVersionWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -3745,124 +3745,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="saveaspdf"></a>
-# **SaveAsPdf**
-> FileIntegerWrapper SaveAsPdf (int id, SaveAsPdfInteger? saveAsPdfInteger = null)
-
-Save a file as PDF
-
-Saves a file with the identifier specified in the request as a PDF document.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class SaveAsPdfExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID to save as PDF.
-            var saveAsPdfInteger = new SaveAsPdfInteger?(); // SaveAsPdfInteger? | The parameters for saving file as PDF. (optional) 
-
-            try
-            {
-                // Save a file as PDF
-                FileIntegerWrapper result = apiInstance.SaveAsPdf(id, saveAsPdfInteger);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesFilesApi.SaveAsPdf: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SaveAsPdfWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Save a file as PDF
-    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveAsPdfWithHttpInfo(id, saveAsPdfInteger);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesFilesApi.SaveAsPdfWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID to save as PDF. |  |
-| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger?.md) | The parameters for saving file as PDF. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | New file information |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | File not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="saveeditingfromform"></a>
-# **SaveEditingFromForm**
-> FileIntegerWrapper SaveEditingFromForm (int fileId, string? fileExtension = null, string? downloadUri = null, FileParameter? file = null, bool? forcesave = null)
+<a id="saveeditingfilefromform"></a>
+# **SaveEditingFileFromForm**
+> FileIntegerWrapper SaveEditingFileFromForm (int fileId, string? fileExtension = null, string? downloadUri = null, FileParameter? file = null, bool? forcesave = null)
 
 Save file edits
 
@@ -3879,7 +3764,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SaveEditingFromFormExample
+    public class SaveEditingFileFromFormExample
     {
         public static void Main()
         {
@@ -3914,12 +3799,12 @@ namespace Example
             try
             {
                 // Save file edits
-                FileIntegerWrapper result = apiInstance.SaveEditingFromForm(fileId, fileExtension, downloadUri, file, forcesave);
+                FileIntegerWrapper result = apiInstance.SaveEditingFileFromForm(fileId, fileExtension, downloadUri, file, forcesave);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.SaveEditingFromForm: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.SaveEditingFileFromForm: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -3928,21 +3813,21 @@ namespace Example
 }
 ```
 
-#### Using the SaveEditingFromFormWithHttpInfo variant
+#### Using the SaveEditingFileFromFormWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Save file edits
-    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveEditingFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveEditingFileFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.SaveEditingFromFormWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.SaveEditingFileFromFormWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -3979,6 +3864,121 @@ catch (ApiException e)
 | **400** | No file id or folder id toFolderId determine provider |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="savefileaspdf"></a>
+# **SaveFileAsPdf**
+> FileIntegerWrapper SaveFileAsPdf (int id, SaveAsPdfInteger? saveAsPdfInteger = null)
+
+Save a file as PDF
+
+Saves a file with the identifier specified in the request as a PDF document.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SaveFileAsPdfExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The file ID to save as PDF.
+            var saveAsPdfInteger = new SaveAsPdfInteger?(); // SaveAsPdfInteger? | The parameters for saving file as PDF. (optional) 
+
+            try
+            {
+                // Save a file as PDF
+                FileIntegerWrapper result = apiInstance.SaveFileAsPdf(id, saveAsPdfInteger);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.SaveFileAsPdf: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SaveFileAsPdfWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Save a file as PDF
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveFileAsPdfWithHttpInfo(id, saveAsPdfInteger);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.SaveFileAsPdfWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID to save as PDF. |  |
+| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger?.md) | The parameters for saving file as PDF. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | File not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4325,6 +4325,122 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="setfileorder"></a>
+# **SetFileOrder**
+> FileIntegerWrapper SetFileOrder (int fileId, OrderRequestDto? orderRequestDto = null)
+
+Set file order
+
+Sets order of the file with ID specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class SetFileOrderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
+            var fileId = 9846;  // int | The file unique identifier.
+            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The file order information. (optional) 
+
+            try
+            {
+                // Set file order
+                FileIntegerWrapper result = apiInstance.SetFileOrder(fileId, orderRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesFilesApi.SetFileOrder: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SetFileOrderWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Set file order
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SetFileOrderWithHttpInfo(fileId, orderRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesFilesApi.SetFileOrderWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file unique identifier. |  |
+| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The file order information. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated file information |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="setfilesorder"></a>
 # **SetFilesOrder**
 > FileIntegerArrayWrapper SetFilesOrder (OrdersRequestDtoInteger? ordersRequestDtoInteger = null)
@@ -4437,125 +4553,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="setorderfile"></a>
-# **SetOrderFile**
-> FileIntegerWrapper SetOrderFile (int fileId, OrderRequestDto? orderRequestDto = null)
-
-Set file order
-
-Sets order of the file with ID specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class SetOrderFileExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
-            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The file order information. (optional) 
-
-            try
-            {
-                // Set file order
-                FileIntegerWrapper result = apiInstance.SetOrderFile(fileId, orderRequestDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesFilesApi.SetOrderFile: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SetOrderFileWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Set file order
-    ApiResponse<FileIntegerWrapper> response = apiInstance.SetOrderFileWithHttpInfo(fileId, orderRequestDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesFilesApi.SetOrderFileWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file unique identifier. |  |
-| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The file order information. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Updated file information |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="startedit"></a>
-# **StartEdit**
-> StringWrapper StartEdit (int fileId, StartEdit? startEdit = null)
+<a id="starteditfile"></a>
+# **StartEditFile**
+> StringWrapper StartEditFile (int fileId, StartEdit? startEdit = null)
 
 Start file editing
 
@@ -4572,7 +4572,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class StartEditExample
+    public class StartEditFileExample
     {
         public static void Main()
         {
@@ -4588,12 +4588,12 @@ namespace Example
             try
             {
                 // Start file editing
-                StringWrapper result = apiInstance.StartEdit(fileId, startEdit);
+                StringWrapper result = apiInstance.StartEditFile(fileId, startEdit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.StartEdit: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.StartEditFile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -4602,21 +4602,21 @@ namespace Example
 }
 ```
 
-#### Using the StartEditWithHttpInfo variant
+#### Using the StartEditFileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Start file editing
-    ApiResponse<StringWrapper> response = apiInstance.StartEditWithHttpInfo(fileId, startEdit);
+    ApiResponse<StringWrapper> response = apiInstance.StartEditFileWithHttpInfo(fileId, startEdit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.StartEditWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.StartEditFileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -4651,9 +4651,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="startfilling"></a>
-# **StartFilling**
-> FileIntegerWrapper StartFilling (int fileId)
+<a id="startfillingfile"></a>
+# **StartFillingFile**
+> FileIntegerWrapper StartFillingFile (int fileId)
 
 Start file filling
 
@@ -4670,7 +4670,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class StartFillingExample
+    public class StartFillingFileExample
     {
         public static void Main()
         {
@@ -4701,12 +4701,12 @@ namespace Example
             try
             {
                 // Start file filling
-                FileIntegerWrapper result = apiInstance.StartFilling(fileId);
+                FileIntegerWrapper result = apiInstance.StartFillingFile(fileId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesFilesApi.StartFilling: " + e.Message);
+                Debug.Print("Exception when calling FilesFilesApi.StartFillingFile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -4715,21 +4715,21 @@ namespace Example
 }
 ```
 
-#### Using the StartFillingWithHttpInfo variant
+#### Using the StartFillingFileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Start file filling
-    ApiResponse<FileIntegerWrapper> response = apiInstance.StartFillingWithHttpInfo(fileId);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.StartFillingFileWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesFilesApi.StartFillingWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesFilesApi.StartFillingFileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -5,6 +5,7 @@ The request parameters for deleting files.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ReturnSingleOperation** | **bool** | Specifies whether to return only the current operation | [optional] 
 **FolderIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of folder IDs to be deleted. | [optional] 
 **FileIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of file IDs to be deleted. | [optional] 
 **DeleteAfter** | **bool** | Specifies whether to delete a file after the editing session is finished or not | [optional] 

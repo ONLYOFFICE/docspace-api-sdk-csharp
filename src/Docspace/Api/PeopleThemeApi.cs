@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <returns>DarkThemeSettingsWrapper</returns>
-        DarkThemeSettingsWrapper ChangeTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?));
+        DarkThemeSettingsWrapper ChangePortalTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?));
 
         /// <summary>
         /// Change the portal theme
@@ -47,7 +47,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
-        ApiResponse<DarkThemeSettingsWrapper> ChangeThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?));
+        ApiResponse<DarkThemeSettingsWrapper> ChangePortalThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?));
         /// <summary>
         /// Get the portal theme
         /// </summary>
@@ -56,7 +56,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DarkThemeSettingsWrapper</returns>
-        DarkThemeSettingsWrapper GetTheme();
+        DarkThemeSettingsWrapper GetPortalTheme();
 
         /// <summary>
         /// Get the portal theme
@@ -66,7 +66,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
-        ApiResponse<DarkThemeSettingsWrapper> GetThemeWithHttpInfo();
+        ApiResponse<DarkThemeSettingsWrapper> GetPortalThemeWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -86,7 +86,7 @@ namespace Docspace.Api
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
-        System.Threading.Tasks.Task<DarkThemeSettingsWrapper> ChangeThemeAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DarkThemeSettingsWrapper> ChangePortalThemeAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Change the portal theme
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DarkThemeSettingsWrapper>> ChangeThemeWithHttpInfoAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DarkThemeSettingsWrapper>> ChangePortalThemeWithHttpInfoAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the portal theme
         /// </summary>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
-        System.Threading.Tasks.Task<DarkThemeSettingsWrapper> GetThemeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DarkThemeSettingsWrapper> GetPortalThemeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the portal theme
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DarkThemeSettingsWrapper>> GetThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DarkThemeSettingsWrapper>> GetPortalThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -339,9 +339,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <returns>DarkThemeSettingsWrapper</returns>
-        public DarkThemeSettingsWrapper ChangeTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?))
+        public DarkThemeSettingsWrapper ChangePortalTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?))
         {
-            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = ChangeThemeWithHttpInfo(darkThemeSettingsRequestDto);
+            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = ChangePortalThemeWithHttpInfo(darkThemeSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -351,7 +351,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> ChangeThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?))
+        public Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> ChangePortalThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -408,7 +408,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeTheme", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangePortalTheme", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -422,9 +422,9 @@ namespace Docspace.Api
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<DarkThemeSettingsWrapper> ChangeThemeAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DarkThemeSettingsWrapper> ChangePortalThemeAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = await ChangeThemeWithHttpInfoAsync(darkThemeSettingsRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = await ChangePortalThemeWithHttpInfoAsync(darkThemeSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -435,7 +435,7 @@ namespace Docspace.Api
         /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DarkThemeSettingsWrapper>> ChangeThemeWithHttpInfoAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DarkThemeSettingsWrapper>> ChangePortalThemeWithHttpInfoAsync(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default(DarkThemeSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -495,7 +495,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeTheme", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangePortalTheme", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -507,9 +507,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DarkThemeSettingsWrapper</returns>
-        public DarkThemeSettingsWrapper GetTheme()
+        public DarkThemeSettingsWrapper GetPortalTheme()
         {
-            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = GetThemeWithHttpInfo();
+            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = GetPortalThemeWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -518,7 +518,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> GetThemeWithHttpInfo()
+        public Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> GetPortalThemeWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -573,7 +573,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTheme", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPortalTheme", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -586,9 +586,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<DarkThemeSettingsWrapper> GetThemeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DarkThemeSettingsWrapper> GetPortalThemeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = await GetThemeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<DarkThemeSettingsWrapper> localVarResponse = await GetPortalThemeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -598,7 +598,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DarkThemeSettingsWrapper>> GetThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DarkThemeSettingsWrapper>> GetPortalThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -656,7 +656,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTheme", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPortalTheme", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

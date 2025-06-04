@@ -66,15 +66,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test UpdateEmployeeActivationStatus
+        /// Test UpdateUserActivationStatus
         /// </summary>
         [Fact]
-        public void UpdateEmployeeActivationStatusTest()
+        public void UpdateUserActivationStatusTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //EmployeeActivationStatus activationstatus = null;
             //UpdateMembersRequestDto? updateMembersRequestDto = null;
-            //var response = instance.UpdateEmployeeActivationStatus(activationstatus, updateMembersRequestDto);
+            //var response = instance.UpdateUserActivationStatus(activationstatus, updateMembersRequestDto);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 

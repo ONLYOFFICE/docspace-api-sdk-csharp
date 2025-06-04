@@ -312,14 +312,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test UpdateIfExist
+        /// Test UpdateFileIfExist
         /// </summary>
         [Fact]
-        public void UpdateIfExistTest()
+        public void UpdateFileIfExistTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //SettingsRequestDto? settingsRequestDto = null;
-            //var response = instance.UpdateIfExist(settingsRequestDto);
+            //var response = instance.UpdateFileIfExist(settingsRequestDto);
             //Assert.IsType<BooleanWrapper>(response);
         }
     }

@@ -54,14 +54,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetGuestShareLink
+        /// Test GetGuestSharingLink
         /// </summary>
         [Fact]
-        public void GetGuestShareLinkTest()
+        public void GetGuestSharingLinkTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid userid = null;
-            //var response = instance.GetGuestShareLink(userid);
+            //var response = instance.GetGuestSharingLink(userid);
             //Assert.IsType<StringWrapper>(response);
         }
     }

@@ -5,7 +5,7 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetByStatus**](PeopleUserStatusApi.md#getbystatus) | **GET** /api/2.0/people/status/{status} | Get profiles by status |
-| [**UpdateEmployeeActivationStatus**](PeopleUserStatusApi.md#updateemployeeactivationstatus) | **PUT** /api/2.0/people/activationstatus/{activationstatus} | Set an activation status to the users |
+| [**UpdateUserActivationStatus**](PeopleUserStatusApi.md#updateuseractivationstatus) | **PUT** /api/2.0/people/activationstatus/{activationstatus} | Set an activation status to the users |
 | [**UpdateUserStatus**](PeopleUserStatusApi.md#updateuserstatus) | **PUT** /api/2.0/people/status/{status} | Change a user status |
 
 <a id="getbystatus"></a>
@@ -120,9 +120,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateemployeeactivationstatus"></a>
-# **UpdateEmployeeActivationStatus**
-> EmployeeFullArrayWrapper UpdateEmployeeActivationStatus (EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = null)
+<a id="updateuseractivationstatus"></a>
+# **UpdateUserActivationStatus**
+> EmployeeFullArrayWrapper UpdateUserActivationStatus (EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = null)
 
 Set an activation status to the users
 
@@ -139,7 +139,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class UpdateEmployeeActivationStatusExample
+    public class UpdateUserActivationStatusExample
     {
         public static void Main()
         {
@@ -171,12 +171,12 @@ namespace Example
             try
             {
                 // Set an activation status to the users
-                EmployeeFullArrayWrapper result = apiInstance.UpdateEmployeeActivationStatus(activationstatus, updateMembersRequestDto);
+                EmployeeFullArrayWrapper result = apiInstance.UpdateUserActivationStatus(activationstatus, updateMembersRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserStatusApi.UpdateEmployeeActivationStatus: " + e.Message);
+                Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserActivationStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -185,21 +185,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateEmployeeActivationStatusWithHttpInfo variant
+#### Using the UpdateUserActivationStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Set an activation status to the users
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.UpdateEmployeeActivationStatusWithHttpInfo(activationstatus, updateMembersRequestDto);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.UpdateUserActivationStatusWithHttpInfo(activationstatus, updateMembersRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserStatusApi.UpdateEmployeeActivationStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserActivationStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

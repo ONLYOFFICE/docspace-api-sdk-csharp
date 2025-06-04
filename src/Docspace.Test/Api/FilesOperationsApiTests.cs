@@ -66,16 +66,40 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test CheckConversion
+        /// Test CheckConversionStatus
         /// </summary>
         [Fact]
-        public void CheckConversionTest()
+        public void CheckConversionStatusTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //bool? start = null;
-            //var response = instance.CheckConversion(fileId, start);
+            //var response = instance.CheckConversionStatus(fileId, start);
             //Assert.IsType<ConversationResultArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test CheckMoveOrCopyBatchItems
+        /// </summary>
+        [Fact]
+        public void CheckMoveOrCopyBatchItemsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //BatchRequestDto? inDto = null;
+            //var response = instance.CheckMoveOrCopyBatchItems(inDto);
+            //Assert.IsType<FileEntryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test CheckMoveOrCopyDestFolder
+        /// </summary>
+        [Fact]
+        public void CheckMoveOrCopyDestFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //BatchRequestDto? inDto = null;
+            //var response = instance.CheckMoveOrCopyDestFolder(inDto);
+            //Assert.IsType<CheckDestFolderWrapper>(response);
         }
 
         /// <summary>
@@ -146,7 +170,8 @@ namespace Docspace.Test.Api
         public void EmptyTrashTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.EmptyTrash();
+            //bool? single = null;
+            //var response = instance.EmptyTrash(single);
             //Assert.IsType<FileOperationArrayWrapper>(response);
         }
 
@@ -157,7 +182,8 @@ namespace Docspace.Test.Api
         public void GetOperationStatusesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetOperationStatuses();
+            //string? id = null;
+            //var response = instance.GetOperationStatuses(id);
             //Assert.IsType<FileOperationArrayWrapper>(response);
         }
 
@@ -169,7 +195,8 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //FileOperationType operationType = null;
-            //var response = instance.GetOperationStatusesByType(operationType);
+            //string? id = null;
+            //var response = instance.GetOperationStatusesByType(operationType, id);
             //Assert.IsType<FileOperationArrayWrapper>(response);
         }
 
@@ -198,39 +225,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test MoveOrCopyBatchCheck
+        /// Test StartFileConversion
         /// </summary>
         [Fact]
-        public void MoveOrCopyBatchCheckTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //BatchRequestDto? inDto = null;
-            //var response = instance.MoveOrCopyBatchCheck(inDto);
-            //Assert.IsType<FileEntryArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test MoveOrCopyDestFolderCheck
-        /// </summary>
-        [Fact]
-        public void MoveOrCopyDestFolderCheckTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //BatchRequestDto? inDto = null;
-            //var response = instance.MoveOrCopyDestFolderCheck(inDto);
-            //Assert.IsType<CheckDestFolderWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test StartConversion
-        /// </summary>
-        [Fact]
-        public void StartConversionTest()
+        public void StartFileConversionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = null;
-            //var response = instance.StartConversion(fileId, checkConversionRequestDtoInteger);
+            //var response = instance.StartFileConversion(fileId, checkConversionRequestDtoInteger);
             //Assert.IsType<ConversationResultArrayWrapper>(response);
         }
 
@@ -247,15 +250,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test UpdateComment
+        /// Test UpdateFileComment
         /// </summary>
         [Fact]
-        public void UpdateCommentTest()
+        public void UpdateFileCommentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int fileId = null;
             //UpdateComment? updateComment = null;
-            //var response = instance.UpdateComment(fileId, updateComment);
+            //var response = instance.UpdateFileComment(fileId, updateComment);
             //Assert.IsType<StringWrapper>(response);
         }
     }

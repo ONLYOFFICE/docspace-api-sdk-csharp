@@ -4,14 +4,14 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAuthProviders**](PeopleThirdPartyAccountsApi.md#getauthproviders) | **GET** /api/2.0/people/thirdparty/providers | Get third-party accounts |
-| [**LinkAccount**](PeopleThirdPartyAccountsApi.md#linkaccount) | **PUT** /api/2.0/people/thirdparty/linkaccount | Link a third-pary account |
-| [**SignupAccount**](PeopleThirdPartyAccountsApi.md#signupaccount) | **POST** /api/2.0/people/thirdparty/signup | Create a third-pary account |
-| [**UnlinkAccount**](PeopleThirdPartyAccountsApi.md#unlinkaccount) | **DELETE** /api/2.0/people/thirdparty/unlinkaccount | Unlink a third-pary account |
+| [**GetThirdPartyAuthProviders**](PeopleThirdPartyAccountsApi.md#getthirdpartyauthproviders) | **GET** /api/2.0/people/thirdparty/providers | Get third-party accounts |
+| [**LinkThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#linkthirdpartyaccount) | **PUT** /api/2.0/people/thirdparty/linkaccount | Link a third-pary account |
+| [**SignupThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#signupthirdpartyaccount) | **POST** /api/2.0/people/thirdparty/signup | Create a third-pary account |
+| [**UnlinkThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#unlinkthirdpartyaccount) | **DELETE** /api/2.0/people/thirdparty/unlinkaccount | Unlink a third-pary account |
 
-<a id="getauthproviders"></a>
-# **GetAuthProviders**
-> AccountInfoArrayWrapper GetAuthProviders (bool? inviteView = null, bool? settingsView = null, string? clientCallback = null, string? fromOnly = null)
+<a id="getthirdpartyauthproviders"></a>
+# **GetThirdPartyAuthProviders**
+> AccountInfoArrayWrapper GetThirdPartyAuthProviders (bool? inviteView = null, bool? settingsView = null, string? clientCallback = null, string? fromOnly = null)
 
 Get third-party accounts
 
@@ -28,7 +28,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetAuthProvidersExample
+    public class GetThirdPartyAuthProvidersExample
     {
         public static void Main()
         {
@@ -46,12 +46,12 @@ namespace Example
             try
             {
                 // Get third-party accounts
-                AccountInfoArrayWrapper result = apiInstance.GetAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
+                AccountInfoArrayWrapper result = apiInstance.GetThirdPartyAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.GetAuthProviders: " + e.Message);
+                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.GetThirdPartyAuthProviders: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -60,21 +60,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAuthProvidersWithHttpInfo variant
+#### Using the GetThirdPartyAuthProvidersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get third-party accounts
-    ApiResponse<AccountInfoArrayWrapper> response = apiInstance.GetAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
+    ApiResponse<AccountInfoArrayWrapper> response = apiInstance.GetThirdPartyAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.GetAuthProvidersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.GetThirdPartyAuthProvidersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -110,9 +110,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="linkaccount"></a>
-# **LinkAccount**
-> void LinkAccount (LinkAccountRequestDto? linkAccountRequestDto = null)
+<a id="linkthirdpartyaccount"></a>
+# **LinkThirdPartyAccount**
+> void LinkThirdPartyAccount (LinkAccountRequestDto? linkAccountRequestDto = null)
 
 Link a third-pary account
 
@@ -129,7 +129,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class LinkAccountExample
+    public class LinkThirdPartyAccountExample
     {
         public static void Main()
         {
@@ -160,11 +160,11 @@ namespace Example
             try
             {
                 // Link a third-pary account
-                apiInstance.LinkAccount(linkAccountRequestDto);
+                apiInstance.LinkThirdPartyAccount(linkAccountRequestDto);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.LinkAccount: " + e.Message);
+                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.LinkThirdPartyAccount: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -173,18 +173,18 @@ namespace Example
 }
 ```
 
-#### Using the LinkAccountWithHttpInfo variant
+#### Using the LinkThirdPartyAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Link a third-pary account
-    apiInstance.LinkAccountWithHttpInfo(linkAccountRequestDto);
+    apiInstance.LinkThirdPartyAccountWithHttpInfo(linkAccountRequestDto);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.LinkAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.LinkThirdPartyAccountWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -219,9 +219,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="signupaccount"></a>
-# **SignupAccount**
-> void SignupAccount (SignupAccountRequestDto? signupAccountRequestDto = null)
+<a id="signupthirdpartyaccount"></a>
+# **SignupThirdPartyAccount**
+> void SignupThirdPartyAccount (SignupAccountRequestDto? signupAccountRequestDto = null)
 
 Create a third-pary account
 
@@ -238,7 +238,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SignupAccountExample
+    public class SignupThirdPartyAccountExample
     {
         public static void Main()
         {
@@ -253,11 +253,11 @@ namespace Example
             try
             {
                 // Create a third-pary account
-                apiInstance.SignupAccount(signupAccountRequestDto);
+                apiInstance.SignupThirdPartyAccount(signupAccountRequestDto);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.SignupAccount: " + e.Message);
+                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.SignupThirdPartyAccount: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -266,18 +266,18 @@ namespace Example
 }
 ```
 
-#### Using the SignupAccountWithHttpInfo variant
+#### Using the SignupThirdPartyAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Create a third-pary account
-    apiInstance.SignupAccountWithHttpInfo(signupAccountRequestDto);
+    apiInstance.SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.SignupAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.SignupThirdPartyAccountWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -312,9 +312,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="unlinkaccount"></a>
-# **UnlinkAccount**
-> void UnlinkAccount (string? provider = null)
+<a id="unlinkthirdpartyaccount"></a>
+# **UnlinkThirdPartyAccount**
+> void UnlinkThirdPartyAccount (string? provider = null)
 
 Unlink a third-pary account
 
@@ -331,7 +331,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class UnlinkAccountExample
+    public class UnlinkThirdPartyAccountExample
     {
         public static void Main()
         {
@@ -362,11 +362,11 @@ namespace Example
             try
             {
                 // Unlink a third-pary account
-                apiInstance.UnlinkAccount(provider);
+                apiInstance.UnlinkThirdPartyAccount(provider);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.UnlinkAccount: " + e.Message);
+                Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.UnlinkThirdPartyAccount: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -375,18 +375,18 @@ namespace Example
 }
 ```
 
-#### Using the UnlinkAccountWithHttpInfo variant
+#### Using the UnlinkThirdPartyAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Unlink a third-pary account
-    apiInstance.UnlinkAccountWithHttpInfo(provider);
+    apiInstance.UnlinkThirdPartyAccountWithHttpInfo(provider);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.UnlinkAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PeopleThirdPartyAccountsApi.UnlinkThirdPartyAccountWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

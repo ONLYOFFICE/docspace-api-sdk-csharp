@@ -54,38 +54,38 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetChangeTypeProgress
+        /// Test GetUserTypeUpdateProgress
         /// </summary>
         [Fact]
-        public void GetChangeTypeProgressTest()
+        public void GetUserTypeUpdateProgressTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid userid = null;
-            //var response = instance.GetChangeTypeProgress(userid);
+            //var response = instance.GetUserTypeUpdateProgress(userid);
             //Assert.IsType<TaskProgressResponseWrapper>(response);
         }
 
         /// <summary>
-        /// Test StartUpdateUserType
+        /// Test StarUserTypetUpdate
         /// </summary>
         [Fact]
-        public void StartUpdateUserTypeTest()
+        public void StarUserTypetUpdateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //StartUpdateUserTypeDto? startUpdateUserTypeDto = null;
-            //var response = instance.StartUpdateUserType(startUpdateUserTypeDto);
+            //var response = instance.StarUserTypetUpdate(startUpdateUserTypeDto);
             //Assert.IsType<TaskProgressResponseWrapper>(response);
         }
 
         /// <summary>
-        /// Test TerminateChangeType
+        /// Test TerminateUserTypeUpdate
         /// </summary>
         [Fact]
-        public void TerminateChangeTypeTest()
+        public void TerminateUserTypeUpdateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //TerminateRequestDto? terminateRequestDto = null;
-            //var response = instance.TerminateChangeType(terminateRequestDto);
+            //var response = instance.TerminateUserTypeUpdate(terminateRequestDto);
             //Assert.IsType<TaskProgressResponseWrapper>(response);
         }
 

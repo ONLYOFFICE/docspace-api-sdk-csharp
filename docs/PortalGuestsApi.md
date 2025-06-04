@@ -4,11 +4,11 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGuestShareLink**](PortalGuestsApi.md#getguestsharelink) | **GET** /api/2.0/people/guests/{userid}/share | Get a guest sharing link |
+| [**GetGuestSharingLink**](PortalGuestsApi.md#getguestsharinglink) | **GET** /api/2.0/people/guests/{userid}/share | Get a guest sharing link |
 
-<a id="getguestsharelink"></a>
-# **GetGuestShareLink**
-> StringWrapper GetGuestShareLink (Guid userid)
+<a id="getguestsharinglink"></a>
+# **GetGuestSharingLink**
+> StringWrapper GetGuestSharingLink (Guid userid)
 
 Get a guest sharing link
 
@@ -25,7 +25,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetGuestShareLinkExample
+    public class GetGuestSharingLinkExample
     {
         public static void Main()
         {
@@ -56,12 +56,12 @@ namespace Example
             try
             {
                 // Get a guest sharing link
-                StringWrapper result = apiInstance.GetGuestShareLink(userid);
+                StringWrapper result = apiInstance.GetGuestSharingLink(userid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalGuestsApi.GetGuestShareLink: " + e.Message);
+                Debug.Print("Exception when calling PortalGuestsApi.GetGuestSharingLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -70,21 +70,21 @@ namespace Example
 }
 ```
 
-#### Using the GetGuestShareLinkWithHttpInfo variant
+#### Using the GetGuestSharingLinkWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get a guest sharing link
-    ApiResponse<StringWrapper> response = apiInstance.GetGuestShareLinkWithHttpInfo(userid);
+    ApiResponse<StringWrapper> response = apiInstance.GetGuestSharingLinkWithHttpInfo(userid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalGuestsApi.GetGuestShareLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalGuestsApi.GetGuestSharingLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

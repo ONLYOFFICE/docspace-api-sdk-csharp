@@ -65,6 +65,17 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetIsLicenseRequired
+        /// </summary>
+        [Fact]
+        public void GetIsLicenseRequiredTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetIsLicenseRequired();
+            //Assert.IsType<BooleanWrapper>(response);
+        }
+
+        /// <summary>
         /// Test RefreshLicense
         /// </summary>
         [Fact]
@@ -72,17 +83,6 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.RefreshLicense();
-            //Assert.IsType<BooleanWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test RequestLicense
-        /// </summary>
-        [Fact]
-        public void RequestLicenseTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.RequestLicense();
             //Assert.IsType<BooleanWrapper>(response);
         }
 

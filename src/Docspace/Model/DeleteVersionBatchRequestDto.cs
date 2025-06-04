@@ -40,10 +40,11 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteVersionBatchRequestDto" /> class.
         /// </summary>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not..</param>
         /// <param name="fileId">The file ID to delete. (required).</param>
         /// <param name="versions">The collection of file versions to be deleted. (required).</param>
-        public DeleteVersionBatchRequestDto(bool deleteAfter = default(bool), int fileId = default(int), List<int> versions = default(List<int>))
+        public DeleteVersionBatchRequestDto(bool returnSingleOperation = default(bool), bool deleteAfter = default(bool), int fileId = default(int), List<int> versions = default(List<int>))
         {
             this.FileId = fileId;
             // to ensure "versions" is required (not null)
@@ -52,8 +53,19 @@ namespace Docspace.Model
                 throw new ArgumentNullException("versions is a required property for DeleteVersionBatchRequestDto and cannot be null");
             }
             this.Versions = versions;
+            this.ReturnSingleOperation = returnSingleOperation;
             this.DeleteAfter = deleteAfter;
         }
+
+        /// <summary>
+        /// Specifies whether to return only the current operation
+        /// </summary>
+        /// <value>Specifies whether to return only the current operation</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
+        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not.
@@ -93,6 +105,7 @@ namespace Docspace.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DeleteVersionBatchRequestDto {\n");
+            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  DeleteAfter: ").Append(DeleteAfter).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  Versions: ").Append(Versions).Append("\n");

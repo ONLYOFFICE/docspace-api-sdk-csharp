@@ -54,17 +54,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Owner
-        /// </summary>
-        [Fact]
-        public void OwnerTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null;
-            //instance.Owner(ownerIdSettingsRequestDto);
-        }
-
-        /// <summary>
         /// Test SendOwnerChangeInstructions
         /// </summary>
         [Fact]
@@ -74,6 +63,17 @@ namespace Docspace.Test.Api
             //OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null;
             //var response = instance.SendOwnerChangeInstructions(ownerIdSettingsRequestDto);
             //Assert.IsType<OwnerChangeInstructionsWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdatePortalOwner
+        /// </summary>
+        [Fact]
+        public void UpdatePortalOwnerTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null;
+            //instance.UpdatePortalOwner(ownerIdSettingsRequestDto);
         }
     }
 }

@@ -4,11 +4,11 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**Get**](ThirdPartyApi.md#get) | **GET** /api/2.0/thirdparty/{provider} | Get the code request |
+| [**GetThirdPartyCode**](ThirdPartyApi.md#getthirdpartycode) | **GET** /api/2.0/thirdparty/{provider} | Get the code request |
 
-<a id="get"></a>
-# **Get**
-> ObjectWrapper Get (LoginProvider provider)
+<a id="getthirdpartycode"></a>
+# **GetThirdPartyCode**
+> ObjectWrapper GetThirdPartyCode (LoginProvider provider)
 
 Get the code request
 
@@ -25,7 +25,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetExample
+    public class GetThirdPartyCodeExample
     {
         public static void Main()
         {
@@ -56,12 +56,12 @@ namespace Example
             try
             {
                 // Get the code request
-                ObjectWrapper result = apiInstance.Get(provider);
+                ObjectWrapper result = apiInstance.GetThirdPartyCode(provider);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ThirdPartyApi.Get: " + e.Message);
+                Debug.Print("Exception when calling ThirdPartyApi.GetThirdPartyCode: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -70,21 +70,21 @@ namespace Example
 }
 ```
 
-#### Using the GetWithHttpInfo variant
+#### Using the GetThirdPartyCodeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get the code request
-    ApiResponse<ObjectWrapper> response = apiInstance.GetWithHttpInfo(provider);
+    ApiResponse<ObjectWrapper> response = apiInstance.GetThirdPartyCodeWithHttpInfo(provider);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ThirdPartyApi.GetWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ThirdPartyApi.GetThirdPartyCodeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

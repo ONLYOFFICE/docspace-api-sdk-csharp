@@ -47,6 +47,29 @@ namespace Docspace.Api
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetEnabledModulesWithHttpInfo();
         /// <summary>
+        /// Check a product administrator
+        /// </summary>
+        /// <remarks>
+        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <returns>ProductAdministratorWrapper</returns>
+        ProductAdministratorWrapper GetIsProductAdministrator(Guid? productid = default(Guid?), Guid? userid = default(Guid?));
+
+        /// <summary>
+        /// Check a product administrator
+        /// </summary>
+        /// <remarks>
+        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
+        ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid? productid = default(Guid?), Guid? userid = default(Guid?));
+        /// <summary>
         /// Get the password settings
         /// </summary>
         /// <remarks>
@@ -128,29 +151,6 @@ namespace Docspace.Api
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
         ApiResponse<SecurityArrayWrapper> GetWebItemSettingsSecurityInfoWithHttpInfo(List<string>? ids = default(List<string>?));
-        /// <summary>
-        /// Check a product administrator
-        /// </summary>
-        /// <remarks>
-        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <returns>ProductAdministratorWrapper</returns>
-        ProductAdministratorWrapper IsProductAdministrator(Guid? productid = default(Guid?), Guid? userid = default(Guid?));
-
-        /// <summary>
-        /// Check a product administrator
-        /// </summary>
-        /// <remarks>
-        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        ApiResponse<ProductAdministratorWrapper> IsProductAdministratorWithHttpInfo(Guid? productid = default(Guid?), Guid? userid = default(Guid?));
         /// <summary>
         /// Set the security settings to modules
         /// </summary>
@@ -266,6 +266,31 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetEnabledModulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Check a product administrator
+        /// </summary>
+        /// <remarks>
+        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductAdministratorWrapper</returns>
+        System.Threading.Tasks.Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Check a product administrator
+        /// </summary>
+        /// <remarks>
+        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get the password settings
         /// </summary>
         /// <remarks>
@@ -355,31 +380,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<SecurityArrayWrapper>> GetWebItemSettingsSecurityInfoWithHttpInfoAsync(List<string>? ids = default(List<string>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Check a product administrator
-        /// </summary>
-        /// <remarks>
-        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ProductAdministratorWrapper</returns>
-        System.Threading.Tasks.Task<ProductAdministratorWrapper> IsProductAdministratorAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Check a product administrator
-        /// </summary>
-        /// <remarks>
-        /// Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductAdministratorWrapper>> IsProductAdministratorWithHttpInfoAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Set the security settings to modules
         /// </summary>
@@ -840,6 +840,191 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEnabledModules", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <returns>ProductAdministratorWrapper</returns>
+        public ProductAdministratorWrapper GetIsProductAdministrator(Guid? productid = default(Guid?), Guid? userid = default(Guid?))
+        {
+            Docspace.Client.ApiResponse<ProductAdministratorWrapper> localVarResponse = GetIsProductAdministratorWithHttpInfo(productid, userid);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
+        public Docspace.Client.ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid? productid = default(Guid?), Guid? userid = default(Guid?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (productid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productid", productid));
+            }
+            if (userid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userid", userid));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ProductAdministratorWrapper>("/api/2.0/settings/security/administrator", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIsProductAdministrator", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductAdministratorWrapper</returns>
+        public async System.Threading.Tasks.Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<ProductAdministratorWrapper> localVarResponse = await GetIsProductAdministratorWithHttpInfoAsync(productid, userid, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
+        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (productid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productid", productid));
+            }
+            if (userid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userid", userid));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ProductAdministratorWrapper>("/api/2.0/settings/security/administrator", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIsProductAdministrator", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1507,191 +1692,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWebItemSettingsSecurityInfo", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <returns>ProductAdministratorWrapper</returns>
-        public ProductAdministratorWrapper IsProductAdministrator(Guid? productid = default(Guid?), Guid? userid = default(Guid?))
-        {
-            Docspace.Client.ApiResponse<ProductAdministratorWrapper> localVarResponse = IsProductAdministratorWithHttpInfo(productid, userid);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        public Docspace.Client.ApiResponse<ProductAdministratorWrapper> IsProductAdministratorWithHttpInfo(Guid? productid = default(Guid?), Guid? userid = default(Guid?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (productid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productid", productid));
-            }
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userid", userid));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ProductAdministratorWrapper>("/api/2.0/settings/security/administrator", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("IsProductAdministrator", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ProductAdministratorWrapper</returns>
-        public async System.Threading.Tasks.Task<ProductAdministratorWrapper> IsProductAdministratorAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<ProductAdministratorWrapper> localVarResponse = await IsProductAdministratorWithHttpInfoAsync(productid, userid, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ProductAdministratorWrapper>> IsProductAdministratorWithHttpInfoAsync(Guid? productid = default(Guid?), Guid? userid = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (productid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productid", productid));
-            }
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userid", userid));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ProductAdministratorWrapper>("/api/2.0/settings/security/administrator", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("IsProductAdministrator", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

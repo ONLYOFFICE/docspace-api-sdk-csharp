@@ -58,7 +58,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <returns>FileIntegerArrayWrapper</returns>
-        FileIntegerArrayWrapper ChangeHistory(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?));
+        FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?));
 
         /// <summary>
         /// Change version history
@@ -70,7 +70,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
-        ApiResponse<FileIntegerArrayWrapper> ChangeHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?));
+        ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?));
         /// <summary>
         /// Check the form draft filling
         /// </summary>
@@ -172,7 +172,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateFileMyDocuments(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?));
+        FileIntegerWrapper CreateFileInMyDocuments(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?));
 
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section
@@ -183,7 +183,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateFileMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?));
+        ApiResponse<FileIntegerWrapper> CreateFileInMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?));
         /// <summary>
         /// Create an HTML file
         /// </summary>
@@ -216,7 +216,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateHtmlFileInMy(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
+        FileIntegerWrapper CreateHtmlFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
 
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section
@@ -227,7 +227,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
+        ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
         /// <summary>
         /// Create primary external link
         /// </summary>
@@ -283,7 +283,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateTextFileInMy(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
+        FileIntegerWrapper CreateTextFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
 
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section
@@ -294,7 +294,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateTextFileInMyWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
+        ApiResponse<FileIntegerWrapper> CreateTextFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?));
         /// <summary>
         /// Create file thumbnails
         /// </summary>
@@ -495,6 +495,27 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> GetFileInfoWithHttpInfo(int fileId, int? version = default(int?));
         /// <summary>
+        /// Get file external links
+        /// </summary>
+        /// <remarks>
+        /// Returns the external links of a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper GetFileLinks(int id);
+
+        /// <summary>
+        /// Get file external links
+        /// </summary>
+        /// <remarks>
+        /// Returns the external links of a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id);
+        /// <summary>
         /// Get primary external link
         /// </summary>
         /// <remarks>
@@ -558,27 +579,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
         ApiResponse<FillingFormResultIntegerWrapper> GetFillResultWithHttpInfo(string? fillingSessionId = default(string?));
         /// <summary>
-        /// Get file external links
-        /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper GetLinks(int id);
-
-        /// <summary>
-        /// Get file external links
-        /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> GetLinksWithHttpInfo(int id);
-        /// <summary>
         /// Get file download link asynchronously
         /// </summary>
         /// <remarks>
@@ -620,6 +620,27 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the request.</param>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPresignedUriWithHttpInfo(int fileId);
+        /// <summary>
+        /// Get users access rights to the protected file
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>MentionWrapperArrayWrapper</returns>
+        MentionWrapperArrayWrapper GetProtectedFileUsers(int fileId);
+
+        /// <summary>
+        /// Get users access rights to the protected file
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
+        ApiResponse<MentionWrapperArrayWrapper> GetProtectedFileUsersWithHttpInfo(int fileId);
         /// <summary>
         /// Get reference data
         /// </summary>
@@ -722,7 +743,7 @@ namespace Docspace.Api
         /// <param name="edit">Specifies if the document is opened in the editing mode or not. (optional)</param>
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <returns>ConfigurationIntegerWrapper</returns>
-        ConfigurationIntegerWrapper OpenEdit(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?));
+        ConfigurationIntegerWrapper OpenEditFile(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?));
 
         /// <summary>
         /// Open a file configuration
@@ -738,28 +759,7 @@ namespace Docspace.Api
         /// <param name="edit">Specifies if the document is opened in the editing mode or not. (optional)</param>
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <returns>ApiResponse of ConfigurationIntegerWrapper</returns>
-        ApiResponse<ConfigurationIntegerWrapper> OpenEditWithHttpInfo(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?));
-        /// <summary>
-        /// Get users access rights to the protected file
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        MentionWrapperArrayWrapper ProtectUsers(int fileId);
-
-        /// <summary>
-        /// Get users access rights to the protected file
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        ApiResponse<MentionWrapperArrayWrapper> ProtectUsersWithHttpInfo(int fileId);
+        ApiResponse<ConfigurationIntegerWrapper> OpenEditFileWithHttpInfo(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?));
         /// <summary>
         /// Restore a file version
         /// </summary>
@@ -771,7 +771,7 @@ namespace Docspace.Api
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <returns>EditHistoryArrayWrapper</returns>
-        EditHistoryArrayWrapper RestoreVersion(int fileId, int? version = default(int?), string? url = default(string?));
+        EditHistoryArrayWrapper RestoreFileVersion(int fileId, int? version = default(int?), string? url = default(string?));
 
         /// <summary>
         /// Restore a file version
@@ -784,30 +784,7 @@ namespace Docspace.Api
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
-        ApiResponse<EditHistoryArrayWrapper> RestoreVersionWithHttpInfo(int fileId, int? version = default(int?), string? url = default(string?));
-        /// <summary>
-        /// Save a file as PDF
-        /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SaveAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?));
-
-        /// <summary>
-        /// Save a file as PDF
-        /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SaveAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?));
+        ApiResponse<EditHistoryArrayWrapper> RestoreFileVersionWithHttpInfo(int fileId, int? version = default(int?), string? url = default(string?));
         /// <summary>
         /// Save file edits
         /// </summary>
@@ -821,7 +798,7 @@ namespace Docspace.Api
         /// <param name="file">The request file stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SaveEditingFromForm(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?));
+        FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?));
 
         /// <summary>
         /// Save file edits
@@ -836,7 +813,30 @@ namespace Docspace.Api
         /// <param name="file">The request file stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SaveEditingFromFormWithHttpInfo(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?));
+        ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?));
+        /// <summary>
+        /// Save a file as PDF
+        /// </summary>
+        /// <remarks>
+        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <returns>FileIntegerWrapper</returns>
+        FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?));
+
+        /// <summary>
+        /// Save a file as PDF
+        /// </summary>
+        /// <remarks>
+        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?));
         /// <summary>
         /// Save form role mapping
         /// </summary>
@@ -907,6 +907,29 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> SetExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default(FileLinkRequest?));
         /// <summary>
+        /// Set file order
+        /// </summary>
+        /// <remarks>
+        /// Sets order of the file with ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <returns>FileIntegerWrapper</returns>
+        FileIntegerWrapper SetFileOrder(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
+
+        /// <summary>
+        /// Set file order
+        /// </summary>
+        /// <remarks>
+        /// Sets order of the file with ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        ApiResponse<FileIntegerWrapper> SetFileOrderWithHttpInfo(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
+        /// <summary>
         /// Set order of files
         /// </summary>
         /// <remarks>
@@ -928,29 +951,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
         ApiResponse<FileIntegerArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default(OrdersRequestDtoInteger?));
         /// <summary>
-        /// Set file order
-        /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SetOrderFile(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
-
-        /// <summary>
-        /// Set file order
-        /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SetOrderFileWithHttpInfo(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
-        /// <summary>
         /// Start file editing
         /// </summary>
         /// <remarks>
@@ -960,7 +960,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper StartEdit(int fileId, StartEdit? startEdit = default(StartEdit?));
+        StringWrapper StartEditFile(int fileId, StartEdit? startEdit = default(StartEdit?));
 
         /// <summary>
         /// Start file editing
@@ -972,7 +972,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> StartEditWithHttpInfo(int fileId, StartEdit? startEdit = default(StartEdit?));
+        ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit? startEdit = default(StartEdit?));
         /// <summary>
         /// Start file filling
         /// </summary>
@@ -982,7 +982,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper StartFilling(int fileId);
+        FileIntegerWrapper StartFillingFile(int fileId);
 
         /// <summary>
         /// Start file filling
@@ -993,7 +993,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> StartFillingWithHttpInfo(int fileId);
+        ApiResponse<FileIntegerWrapper> StartFillingFileWithHttpInfo(int fileId);
         /// <summary>
         /// Track file editing
         /// </summary>
@@ -1087,7 +1087,7 @@ namespace Docspace.Api
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerArrayWrapper> ChangeHistoryAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Change version history
@@ -1100,7 +1100,7 @@ namespace Docspace.Api
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerArrayWrapper>> ChangeHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Check the form draft filling
         /// </summary>
@@ -1211,7 +1211,7 @@ namespace Docspace.Api
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> CreateFileMyDocumentsAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerWrapper> CreateFileInMyDocumentsAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section
@@ -1223,7 +1223,7 @@ namespace Docspace.Api
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateFileMyDocumentsWithHttpInfoAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateFileInMyDocumentsWithHttpInfoAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create an HTML file
         /// </summary>
@@ -1259,7 +1259,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> CreateHtmlFileInMyAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerWrapper> CreateHtmlFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section
@@ -1271,7 +1271,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileInMyWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create primary external link
         /// </summary>
@@ -1332,7 +1332,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> CreateTextFileInMyAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerWrapper> CreateTextFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section
@@ -1344,7 +1344,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateTextFileInMyWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> CreateTextFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create file thumbnails
         /// </summary>
@@ -1563,6 +1563,29 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> GetFileInfoWithHttpInfoAsync(int fileId, int? version = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get file external links
+        /// </summary>
+        /// <remarks>
+        /// Returns the external links of a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get file external links
+        /// </summary>
+        /// <remarks>
+        /// Returns the external links of a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get primary external link
         /// </summary>
         /// <remarks>
@@ -1632,29 +1655,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FillingFormResultIntegerWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FillingFormResultIntegerWrapper>> GetFillResultWithHttpInfoAsync(string? fillingSessionId = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get file external links
-        /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileShareArrayWrapper> GetLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get file external links
-        /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Get file download link asynchronously
         /// </summary>
         /// <remarks>
@@ -1700,6 +1700,29 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetPresignedUriWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get users access rights to the protected file
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MentionWrapperArrayWrapper</returns>
+        System.Threading.Tasks.Task<MentionWrapperArrayWrapper> GetProtectedFileUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get users access rights to the protected file
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MentionWrapperArrayWrapper>> GetProtectedFileUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get reference data
         /// </summary>
@@ -1811,7 +1834,7 @@ namespace Docspace.Api
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConfigurationIntegerWrapper</returns>
-        System.Threading.Tasks.Task<ConfigurationIntegerWrapper> OpenEditAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationIntegerWrapper> OpenEditFileAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Open a file configuration
@@ -1828,30 +1851,7 @@ namespace Docspace.Api
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConfigurationIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationIntegerWrapper>> OpenEditWithHttpInfoAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get users access rights to the protected file
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        System.Threading.Tasks.Task<MentionWrapperArrayWrapper> ProtectUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get users access rights to the protected file
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MentionWrapperArrayWrapper>> ProtectUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationIntegerWrapper>> OpenEditFileWithHttpInfoAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Restore a file version
         /// </summary>
@@ -1864,7 +1864,7 @@ namespace Docspace.Api
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EditHistoryArrayWrapper</returns>
-        System.Threading.Tasks.Task<EditHistoryArrayWrapper> RestoreVersionAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EditHistoryArrayWrapper> RestoreFileVersionAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Restore a file version
@@ -1878,32 +1878,7 @@ namespace Docspace.Api
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EditHistoryArrayWrapper>> RestoreVersionWithHttpInfoAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Save a file as PDF
-        /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> SaveAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Save a file as PDF
-        /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SaveAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EditHistoryArrayWrapper>> RestoreFileVersionWithHttpInfoAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Save file edits
         /// </summary>
@@ -1918,7 +1893,7 @@ namespace Docspace.Api
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> SaveEditingFromFormAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Save file edits
@@ -1934,7 +1909,32 @@ namespace Docspace.Api
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SaveEditingFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Save a file as PDF
+        /// </summary>
+        /// <remarks>
+        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        System.Threading.Tasks.Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Save a file as PDF
+        /// </summary>
+        /// <remarks>
+        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Save form role mapping
         /// </summary>
@@ -2011,6 +2011,31 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> SetExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default(FileLinkRequest?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Set file order
+        /// </summary>
+        /// <remarks>
+        /// Sets order of the file with ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        System.Threading.Tasks.Task<FileIntegerWrapper> SetFileOrderAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Set file order
+        /// </summary>
+        /// <remarks>
+        /// Sets order of the file with ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SetFileOrderWithHttpInfoAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Set order of files
         /// </summary>
         /// <remarks>
@@ -2034,31 +2059,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileIntegerArrayWrapper>> SetFilesOrderWithHttpInfoAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default(OrdersRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Set file order
-        /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> SetOrderFileAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Set file order
-        /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> SetOrderFileWithHttpInfoAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Start file editing
         /// </summary>
         /// <remarks>
@@ -2069,7 +2069,7 @@ namespace Docspace.Api
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> StartEditAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Start file editing
@@ -2082,7 +2082,7 @@ namespace Docspace.Api
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> StartEditWithHttpInfoAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Start file filling
         /// </summary>
@@ -2093,7 +2093,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> StartFillingAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileIntegerWrapper> StartFillingFileAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Start file filling
@@ -2105,7 +2105,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> StartFillingWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> StartFillingFileWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Track file editing
         /// </summary>
@@ -2549,9 +2549,9 @@ namespace Docspace.Api
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <returns>FileIntegerArrayWrapper</returns>
-        public FileIntegerArrayWrapper ChangeHistory(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?))
+        public FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?))
         {
-            Docspace.Client.ApiResponse<FileIntegerArrayWrapper> localVarResponse = ChangeHistoryWithHttpInfo(fileId, changeHistory);
+            Docspace.Client.ApiResponse<FileIntegerArrayWrapper> localVarResponse = ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
             return localVarResponse.Data;
         }
 
@@ -2562,7 +2562,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerArrayWrapper> ChangeHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?))
+        public Docspace.Client.ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2620,7 +2620,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeHistory", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangeVersionHistory", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2635,9 +2635,9 @@ namespace Docspace.Api
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerArrayWrapper> ChangeHistoryAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerArrayWrapper> localVarResponse = await ChangeHistoryWithHttpInfoAsync(fileId, changeHistory, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerArrayWrapper> localVarResponse = await ChangeVersionHistoryWithHttpInfoAsync(fileId, changeHistory, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2649,7 +2649,7 @@ namespace Docspace.Api
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerArrayWrapper>> ChangeHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default(ChangeHistory?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2710,7 +2710,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeHistory", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangeVersionHistory", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3367,9 +3367,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateFileMyDocuments(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?))
+        public FileIntegerWrapper CreateFileInMyDocuments(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateFileMyDocumentsWithHttpInfo(createFileJsonElement);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateFileInMyDocumentsWithHttpInfo(createFileJsonElement);
             return localVarResponse.Data;
         }
 
@@ -3379,7 +3379,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateFileMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?))
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateFileInMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3436,7 +3436,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateFileMyDocuments", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3450,9 +3450,9 @@ namespace Docspace.Api
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateFileMyDocumentsAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateFileInMyDocumentsAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateFileMyDocumentsWithHttpInfoAsync(createFileJsonElement, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateFileInMyDocumentsWithHttpInfoAsync(createFileJsonElement, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3463,7 +3463,7 @@ namespace Docspace.Api
         /// <param name="createFileJsonElement"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateFileMyDocumentsWithHttpInfoAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateFileInMyDocumentsWithHttpInfoAsync(CreateFileJsonElement? createFileJsonElement = default(CreateFileJsonElement?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3523,7 +3523,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateFileMyDocuments", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3711,9 +3711,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateHtmlFileInMy(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
+        public FileIntegerWrapper CreateHtmlFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateHtmlFileInMyWithHttpInfo(createTextOrHtmlFile);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateHtmlFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
             return localVarResponse.Data;
         }
 
@@ -3723,7 +3723,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3780,7 +3780,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateHtmlFileInMy", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateHtmlFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3794,9 +3794,9 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateHtmlFileInMyAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateHtmlFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateHtmlFileInMyWithHttpInfoAsync(createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateHtmlFileInMyDocumentsWithHttpInfoAsync(createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3807,7 +3807,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateHtmlFileInMyWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateHtmlFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3867,7 +3867,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateHtmlFileInMy", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateHtmlFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4230,9 +4230,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateTextFileInMy(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
+        public FileIntegerWrapper CreateTextFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateTextFileInMyWithHttpInfo(createTextOrHtmlFile);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = CreateTextFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
             return localVarResponse.Data;
         }
 
@@ -4242,7 +4242,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateTextFileInMyWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> CreateTextFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -4299,7 +4299,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTextFileInMy", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTextFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4313,9 +4313,9 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateTextFileInMyAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> CreateTextFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateTextFileInMyWithHttpInfoAsync(createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await CreateTextFileInMyDocumentsWithHttpInfoAsync(createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4326,7 +4326,7 @@ namespace Docspace.Api
         /// <param name="createTextOrHtmlFile"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateTextFileInMyWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> CreateTextFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default(CreateTextOrHtmlFile?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -4386,7 +4386,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTextFileInMy", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTextFileInMyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -5727,6 +5727,173 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Get file external links Returns the external links of a file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper GetFileLinks(int id)
+        {
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetFileLinksWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file external links Returns the external links of a file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<FileShareArrayWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileLinks", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get file external links Returns the external links of a file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetFileLinksWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file external links Returns the external links of a file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileShareArrayWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileLinks", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6047,173 +6214,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFillResult", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get file external links Returns the external links of a file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper GetLinks(int id)
-        {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetLinksWithHttpInfo(id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get file external links Returns the external links of a file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetLinksWithHttpInfo(int id)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FileShareArrayWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLinks", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get file external links Returns the external links of a file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetLinksWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get file external links Returns the external links of a file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileShareArrayWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLinks", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -6548,6 +6548,173 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPresignedUri", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>MentionWrapperArrayWrapper</returns>
+        public MentionWrapperArrayWrapper GetProtectedFileUsers(int fileId)
+        {
+            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = GetProtectedFileUsersWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> GetProtectedFileUsersWithHttpInfo(int fileId)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/protectusers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProtectedFileUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MentionWrapperArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<MentionWrapperArrayWrapper> GetProtectedFileUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await GetProtectedFileUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<MentionWrapperArrayWrapper>> GetProtectedFileUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/protectusers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProtectedFileUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7255,9 +7422,9 @@ namespace Docspace.Api
         /// <param name="edit">Specifies if the document is opened in the editing mode or not. (optional)</param>
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <returns>ConfigurationIntegerWrapper</returns>
-        public ConfigurationIntegerWrapper OpenEdit(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?))
+        public ConfigurationIntegerWrapper OpenEditFile(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?))
         {
-            Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> localVarResponse = OpenEditWithHttpInfo(fileId, version, view, editorType, edit, fill);
+            Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> localVarResponse = OpenEditFileWithHttpInfo(fileId, version, view, editorType, edit, fill);
             return localVarResponse.Data;
         }
 
@@ -7272,7 +7439,7 @@ namespace Docspace.Api
         /// <param name="edit">Specifies if the document is opened in the editing mode or not. (optional)</param>
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <returns>ApiResponse of ConfigurationIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> OpenEditWithHttpInfo(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?))
+        public Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> OpenEditFileWithHttpInfo(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -7318,7 +7485,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("OpenEdit", localVarResponse);
+                Exception _exception = this.ExceptionFactory("OpenEditFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7337,9 +7504,9 @@ namespace Docspace.Api
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConfigurationIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<ConfigurationIntegerWrapper> OpenEditAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationIntegerWrapper> OpenEditFileAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> localVarResponse = await OpenEditWithHttpInfoAsync(fileId, version, view, editorType, edit, fill, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ConfigurationIntegerWrapper> localVarResponse = await OpenEditFileWithHttpInfoAsync(fileId, version, view, editorType, edit, fill, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7355,7 +7522,7 @@ namespace Docspace.Api
         /// <param name="fill">Specifies if the document is opened in the form-filling mode or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConfigurationIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConfigurationIntegerWrapper>> OpenEditWithHttpInfoAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConfigurationIntegerWrapper>> OpenEditFileWithHttpInfoAsync(int fileId, int? version = default(int?), bool? view = default(bool?), EditorType? editorType = default(EditorType?), bool? edit = default(bool?), bool? fill = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -7404,174 +7571,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("OpenEdit", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        public MentionWrapperArrayWrapper ProtectUsers(int fileId)
-        {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = ProtectUsersWithHttpInfo(fileId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> ProtectUsersWithHttpInfo(int fileId)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/protectusers", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ProtectUsers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<MentionWrapperArrayWrapper> ProtectUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await ProtectUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<MentionWrapperArrayWrapper>> ProtectUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/protectusers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ProtectUsers", localVarResponse);
+                Exception _exception = this.ExceptionFactory("OpenEditFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7586,9 +7586,9 @@ namespace Docspace.Api
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <returns>EditHistoryArrayWrapper</returns>
-        public EditHistoryArrayWrapper RestoreVersion(int fileId, int? version = default(int?), string? url = default(string?))
+        public EditHistoryArrayWrapper RestoreFileVersion(int fileId, int? version = default(int?), string? url = default(string?))
         {
-            Docspace.Client.ApiResponse<EditHistoryArrayWrapper> localVarResponse = RestoreVersionWithHttpInfo(fileId, version, url);
+            Docspace.Client.ApiResponse<EditHistoryArrayWrapper> localVarResponse = RestoreFileVersionWithHttpInfo(fileId, version, url);
             return localVarResponse.Data;
         }
 
@@ -7600,7 +7600,7 @@ namespace Docspace.Api
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EditHistoryArrayWrapper> RestoreVersionWithHttpInfo(int fileId, int? version = default(int?), string? url = default(string?))
+        public Docspace.Client.ApiResponse<EditHistoryArrayWrapper> RestoreFileVersionWithHttpInfo(int fileId, int? version = default(int?), string? url = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -7634,7 +7634,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreVersion", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RestoreFileVersion", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7650,9 +7650,9 @@ namespace Docspace.Api
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EditHistoryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EditHistoryArrayWrapper> RestoreVersionAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EditHistoryArrayWrapper> RestoreFileVersionAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EditHistoryArrayWrapper> localVarResponse = await RestoreVersionWithHttpInfoAsync(fileId, version, url, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EditHistoryArrayWrapper> localVarResponse = await RestoreFileVersionWithHttpInfoAsync(fileId, version, url, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7665,7 +7665,7 @@ namespace Docspace.Api
         /// <param name="url">The file version URL of the restore. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EditHistoryArrayWrapper>> RestoreVersionWithHttpInfoAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EditHistoryArrayWrapper>> RestoreFileVersionWithHttpInfoAsync(int fileId, int? version = default(int?), string? url = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -7702,182 +7702,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreVersion", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SaveAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?))
-        {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SaveAsPdfWithHttpInfo(id, saveAsPdfInteger);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> SaveAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = saveAsPdfInteger;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FileIntegerWrapper>("/api/2.0/files/file/{id}/saveaspdf", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SaveAsPdf", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> SaveAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SaveAsPdfWithHttpInfoAsync(id, saveAsPdfInteger, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SaveAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = saveAsPdfInteger;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/file/{id}/saveaspdf", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SaveAsPdf", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RestoreFileVersion", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -7894,9 +7719,9 @@ namespace Docspace.Api
         /// <param name="file">The request file stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SaveEditingFromForm(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?))
+        public FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SaveEditingFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SaveEditingFileFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
             return localVarResponse.Data;
         }
 
@@ -7910,7 +7735,7 @@ namespace Docspace.Api
         /// <param name="file">The request file stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> SaveEditingFromFormWithHttpInfo(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?))
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -7983,7 +7808,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveEditingFromForm", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SaveEditingFileFromForm", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -8001,9 +7826,9 @@ namespace Docspace.Api
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> SaveEditingFromFormAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SaveEditingFromFormWithHttpInfoAsync(fileId, fileExtension, downloadUri, file, forcesave, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SaveEditingFileFromFormWithHttpInfoAsync(fileId, fileExtension, downloadUri, file, forcesave, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8018,7 +7843,7 @@ namespace Docspace.Api
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SaveEditingFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default(string?), string? downloadUri = default(string?), FileParameter? file = default(FileParameter?), bool? forcesave = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -8094,7 +7919,182 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveEditingFromForm", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SaveEditingFileFromForm", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <returns>FileIntegerWrapper</returns>
+        public FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?))
+        {
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SaveFileAsPdfWithHttpInfo(id, saveAsPdfInteger);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = saveAsPdfInteger;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<FileIntegerWrapper>("/api/2.0/files/file/{id}/saveaspdf", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveFileAsPdf", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SaveFileAsPdfWithHttpInfoAsync(id, saveAsPdfInteger, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID to save as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default(SaveAsPdfInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = saveAsPdfInteger;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/file/{id}/saveaspdf", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveFileAsPdf", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -8635,6 +8635,181 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Set file order Sets order of the file with ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <returns>FileIntegerWrapper</returns>
+        public FileIntegerWrapper SetFileOrder(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
+        {
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SetFileOrderWithHttpInfo(fileId, orderRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set file order Sets order of the file with ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> SetFileOrderWithHttpInfo(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.Data = orderRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<FileIntegerWrapper>("/api/2.0/files/{fileId}/order", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetFileOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set file order Sets order of the file with ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> SetFileOrderAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SetFileOrderWithHttpInfoAsync(fileId, orderRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set file order Sets order of the file with ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="orderRequestDto">The file order information. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SetFileOrderWithHttpInfoAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.Data = orderRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FileIntegerWrapper>("/api/2.0/files/{fileId}/order", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetFileOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Set order of files Sets order of the files.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8804,190 +8979,15 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Set file order Sets order of the file with ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SetOrderFile(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
-        {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = SetOrderFileWithHttpInfo(fileId, orderRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set file order Sets order of the file with ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> SetOrderFileWithHttpInfo(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-            localVarRequestOptions.Data = orderRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<FileIntegerWrapper>("/api/2.0/files/{fileId}/order", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetOrderFile", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Set file order Sets order of the file with ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> SetOrderFileAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await SetOrderFileWithHttpInfoAsync(fileId, orderRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set file order Sets order of the file with ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file unique identifier.</param>
-        /// <param name="orderRequestDto">The file order information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> SetOrderFileWithHttpInfoAsync(int fileId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-            localVarRequestOptions.Data = orderRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<FileIntegerWrapper>("/api/2.0/files/{fileId}/order", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetOrderFile", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Start file editing Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper StartEdit(int fileId, StartEdit? startEdit = default(StartEdit?))
+        public StringWrapper StartEditFile(int fileId, StartEdit? startEdit = default(StartEdit?))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = StartEditWithHttpInfo(fileId, startEdit);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = StartEditFileWithHttpInfo(fileId, startEdit);
             return localVarResponse.Data;
         }
 
@@ -8998,7 +8998,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> StartEditWithHttpInfo(int fileId, StartEdit? startEdit = default(StartEdit?))
+        public Docspace.Client.ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit? startEdit = default(StartEdit?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -9026,7 +9026,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartEdit", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartEditFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -9041,9 +9041,9 @@ namespace Docspace.Api
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> StartEditAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await StartEditWithHttpInfoAsync(fileId, startEdit, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await StartEditFileWithHttpInfoAsync(fileId, startEdit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9055,7 +9055,7 @@ namespace Docspace.Api
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> StartEditWithHttpInfoAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit? startEdit = default(StartEdit?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -9086,7 +9086,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartEdit", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartEditFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -9099,9 +9099,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper StartFilling(int fileId)
+        public FileIntegerWrapper StartFillingFile(int fileId)
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = StartFillingWithHttpInfo(fileId);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = StartFillingFileWithHttpInfo(fileId);
             return localVarResponse.Data;
         }
 
@@ -9111,7 +9111,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FileIntegerWrapper> StartFillingWithHttpInfo(int fileId)
+        public Docspace.Client.ApiResponse<FileIntegerWrapper> StartFillingFileWithHttpInfo(int fileId)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -9167,7 +9167,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartFilling", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartFillingFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -9181,9 +9181,9 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> StartFillingAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileIntegerWrapper> StartFillingFileAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await StartFillingWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileIntegerWrapper> localVarResponse = await StartFillingFileWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9194,7 +9194,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> StartFillingWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileIntegerWrapper>> StartFillingFileWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -9253,7 +9253,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartFilling", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartFillingFile", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

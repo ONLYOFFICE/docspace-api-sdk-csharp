@@ -4,26 +4,140 @@ All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CalculateWalletPayment**](PortalPaymentApi.md#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate amount of the wallet payment |
 | [**CreateCustomerOperationsReport**](PortalPaymentApi.md#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Generate the customer operations report |
 | [**GetAllCurrencies**](PortalPaymentApi.md#getallcurrencies) | **GET** /api/2.0/portal/payment/accounting/currencies | Get list of currencies |
-| [**GetChechoutSetupUrl**](PortalPaymentApi.md#getchechoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the chechout setup page URL |
-| [**GetCurrencies**](PortalPaymentApi.md#getcurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
+| [**GetCheckoutSetupUrl**](PortalPaymentApi.md#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the checkout setup page URL |
 | [**GetCustomerBalance**](PortalPaymentApi.md#getcustomerbalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
 | [**GetCustomerInfo**](PortalPaymentApi.md#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer info |
 | [**GetCustomerOperations**](PortalPaymentApi.md#getcustomeroperations) | **GET** /api/2.0/portal/payment/customer/operations | Get the customer operations |
 | [**GetPaymentAccount**](PortalPaymentApi.md#getpaymentaccount) | **GET** /api/2.0/portal/payment/account | Get the payment account |
+| [**GetPaymentCurrencies**](PortalPaymentApi.md#getpaymentcurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
+| [**GetPaymentQuotas**](PortalPaymentApi.md#getpaymentquotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
 | [**GetPaymentUrl**](PortalPaymentApi.md#getpaymenturl) | **PUT** /api/2.0/portal/payment/url | Get the payment page URL |
-| [**GetPrices**](PortalPaymentApi.md#getprices) | **GET** /api/2.0/portal/payment/prices | Get prices |
-| [**GetQuotaInformation**](PortalPaymentApi.md#getquotainformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
-| [**GetQuotas**](PortalPaymentApi.md#getquotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
+| [**GetPortalPrices**](PortalPaymentApi.md#getportalprices) | **GET** /api/2.0/portal/payment/prices | Get prices |
+| [**GetQuotaPaymentInformation**](PortalPaymentApi.md#getquotapaymentinformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
 | [**GetTenantWalletSettings**](PortalPaymentApi.md#gettenantwalletsettings) | **GET** /api/2.0/portal/payment/topupsettings | Get wallet auto top up settings |
 | [**OpenCustomerSession**](PortalPaymentApi.md#opencustomersession) | **POST** /api/2.0/portal/payment/customer/opensession | Open customer session |
-| [**PaymentUpdate**](PortalPaymentApi.md#paymentupdate) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
-| [**PaymentUpdateWallet**](PortalPaymentApi.md#paymentupdatewallet) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
 | [**PerformCustomerOperation**](PortalPaymentApi.md#performcustomeroperation) | **POST** /api/2.0/portal/payment/customer/performoperation | Perform customer operation |
-| [**SendSalesRequest**](PortalPaymentApi.md#sendsalesrequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
+| [**SendPaymentRequest**](PortalPaymentApi.md#sendpaymentrequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
 | [**SetTenantWalletSettings**](PortalPaymentApi.md#settenantwalletsettings) | **POST** /api/2.0/portal/payment/topupsettings | Set wallet auto top up settings |
 | [**TopUpDeposit**](PortalPaymentApi.md#topupdeposit) | **POST** /api/2.0/portal/payment/deposit | Put money on deposit |
+| [**UpdatePayment**](PortalPaymentApi.md#updatepayment) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
+| [**UpdateWalletPayment**](PortalPaymentApi.md#updatewalletpayment) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
+
+<a id="calculatewalletpayment"></a>
+# **CalculateWalletPayment**
+> PaymentCalculationWrapper CalculateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
+
+Calculate amount of the wallet payment
+
+Calculate amount of the wallet payment with the parameters specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class CalculateWalletPaymentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? |  (optional) 
+
+            try
+            {
+                // Calculate amount of the wallet payment
+                PaymentCalculationWrapper result = apiInstance.CalculateWalletPayment(walletQuantityRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalPaymentApi.CalculateWalletPayment: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CalculateWalletPaymentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Calculate amount of the wallet payment
+    ApiResponse<PaymentCalculationWrapper> response = apiInstance.CalculateWalletPaymentWithHttpInfo(walletQuantityRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalPaymentApi.CalculateWalletPaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto?.md) |  | [optional]  |
+
+### Return type
+
+[**PaymentCalculationWrapper**](PaymentCalculationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Payment calculation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="createcustomeroperationsreport"></a>
 # **CreateCustomerOperationsReport**
@@ -245,13 +359,13 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getchechoutsetupurl"></a>
-# **GetChechoutSetupUrl**
-> StringWrapper GetChechoutSetupUrl (string? backUrl = null)
+<a id="getcheckoutsetupurl"></a>
+# **GetCheckoutSetupUrl**
+> StringWrapper GetCheckoutSetupUrl (string? backUrl = null)
 
-Get the chechout setup page URL
+Get the checkout setup page URL
 
-Returns the URL to the chechout setup page.
+Returns the URL to the checkout setup page.
 
 ### Example
 ```csharp
@@ -264,7 +378,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetChechoutSetupUrlExample
+    public class GetCheckoutSetupUrlExample
     {
         public static void Main()
         {
@@ -294,13 +408,13 @@ namespace Example
 
             try
             {
-                // Get the chechout setup page URL
-                StringWrapper result = apiInstance.GetChechoutSetupUrl(backUrl);
+                // Get the checkout setup page URL
+                StringWrapper result = apiInstance.GetCheckoutSetupUrl(backUrl);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetChechoutSetupUrl: " + e.Message);
+                Debug.Print("Exception when calling PortalPaymentApi.GetCheckoutSetupUrl: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -309,21 +423,21 @@ namespace Example
 }
 ```
 
-#### Using the GetChechoutSetupUrlWithHttpInfo variant
+#### Using the GetCheckoutSetupUrlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get the chechout setup page URL
-    ApiResponse<StringWrapper> response = apiInstance.GetChechoutSetupUrlWithHttpInfo(backUrl);
+    // Get the checkout setup page URL
+    ApiResponse<StringWrapper> response = apiInstance.GetCheckoutSetupUrlWithHttpInfo(backUrl);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetChechoutSetupUrlWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalPaymentApi.GetCheckoutSetupUrlWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -352,116 +466,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The URL to the chechout setup page |  -  |
+| **200** | The URL to the checkout setup page |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getcurrencies"></a>
-# **GetCurrencies**
-> CurrenciesArrayWrapper GetCurrencies ()
-
-Get currencies
-
-Returns the available portal currencies.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetCurrenciesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get currencies
-                CurrenciesArrayWrapper result = apiInstance.GetCurrencies();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PortalPaymentApi.GetCurrencies: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetCurrenciesWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get currencies
-    ApiResponse<CurrenciesArrayWrapper> response = apiInstance.GetCurrenciesWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PortalPaymentApi.GetCurrenciesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CurrenciesArrayWrapper**](CurrenciesArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of available portal currencies |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -927,6 +934,225 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getpaymentcurrencies"></a>
+# **GetPaymentCurrencies**
+> CurrenciesArrayWrapper GetPaymentCurrencies ()
+
+Get currencies
+
+Returns the available portal currencies.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetPaymentCurrenciesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get currencies
+                CurrenciesArrayWrapper result = apiInstance.GetPaymentCurrencies();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentCurrencies: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPaymentCurrenciesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get currencies
+    ApiResponse<CurrenciesArrayWrapper> response = apiInstance.GetPaymentCurrenciesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentCurrenciesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CurrenciesArrayWrapper**](CurrenciesArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of available portal currencies |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getpaymentquotas"></a>
+# **GetPaymentQuotas**
+> QuotaArrayWrapper GetPaymentQuotas (bool? wallet = null)
+
+Get quotas
+
+Returns the available portal quotas.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class GetPaymentQuotasExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var wallet = true;  // bool? | Get wallet quotas only (optional) 
+
+            try
+            {
+                // Get quotas
+                QuotaArrayWrapper result = apiInstance.GetPaymentQuotas(wallet);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentQuotas: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPaymentQuotasWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get quotas
+    ApiResponse<QuotaArrayWrapper> response = apiInstance.GetPaymentQuotasWithHttpInfo(wallet);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentQuotasWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **wallet** | **bool?** | Get wallet quotas only | [optional]  |
+
+### Return type
+
+[**QuotaArrayWrapper**](QuotaArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of available portal quotas |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getpaymenturl"></a>
 # **GetPaymentUrl**
 > StringWrapper GetPaymentUrl (PaymentUrlRequestsDto? paymentUrlRequestsDto = null)
@@ -1040,9 +1266,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getprices"></a>
-# **GetPrices**
-> ObjectWrapper GetPrices ()
+<a id="getportalprices"></a>
+# **GetPortalPrices**
+> ObjectWrapper GetPortalPrices ()
 
 Get prices
 
@@ -1059,7 +1285,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetPricesExample
+    public class GetPortalPricesExample
     {
         public static void Main()
         {
@@ -1089,12 +1315,12 @@ namespace Example
             try
             {
                 // Get prices
-                ObjectWrapper result = apiInstance.GetPrices();
+                ObjectWrapper result = apiInstance.GetPortalPrices();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPrices: " + e.Message);
+                Debug.Print("Exception when calling PortalPaymentApi.GetPortalPrices: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1103,21 +1329,21 @@ namespace Example
 }
 ```
 
-#### Using the GetPricesWithHttpInfo variant
+#### Using the GetPortalPricesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get prices
-    ApiResponse<ObjectWrapper> response = apiInstance.GetPricesWithHttpInfo();
+    ApiResponse<ObjectWrapper> response = apiInstance.GetPortalPricesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPricesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalPaymentApi.GetPortalPricesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1147,9 +1373,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getquotainformation"></a>
-# **GetQuotaInformation**
-> QuotaWrapper GetQuotaInformation (bool? refresh = null)
+<a id="getquotapaymentinformation"></a>
+# **GetQuotaPaymentInformation**
+> QuotaWrapper GetQuotaPaymentInformation (bool? refresh = null)
 
 Get quota payment information
 
@@ -1166,7 +1392,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetQuotaInformationExample
+    public class GetQuotaPaymentInformationExample
     {
         public static void Main()
         {
@@ -1197,12 +1423,12 @@ namespace Example
             try
             {
                 // Get quota payment information
-                QuotaWrapper result = apiInstance.GetQuotaInformation(refresh);
+                QuotaWrapper result = apiInstance.GetQuotaPaymentInformation(refresh);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetQuotaInformation: " + e.Message);
+                Debug.Print("Exception when calling PortalPaymentApi.GetQuotaPaymentInformation: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1211,21 +1437,21 @@ namespace Example
 }
 ```
 
-#### Using the GetQuotaInformationWithHttpInfo variant
+#### Using the GetQuotaPaymentInformationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get quota payment information
-    ApiResponse<QuotaWrapper> response = apiInstance.GetQuotaInformationWithHttpInfo(refresh);
+    ApiResponse<QuotaWrapper> response = apiInstance.GetQuotaPaymentInformationWithHttpInfo(refresh);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetQuotaInformationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalPaymentApi.GetQuotaPaymentInformationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1257,118 +1483,6 @@ catch (ApiException e)
 | **200** | Payment information about the current portal quota |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getquotas"></a>
-# **GetQuotas**
-> QuotaArrayWrapper GetQuotas (bool? wallet = null)
-
-Get quotas
-
-Returns the available portal quotas.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetQuotasExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var wallet = true;  // bool? | Get wallet quotas only (optional) 
-
-            try
-            {
-                // Get quotas
-                QuotaArrayWrapper result = apiInstance.GetQuotas(wallet);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PortalPaymentApi.GetQuotas: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetQuotasWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get quotas
-    ApiResponse<QuotaArrayWrapper> response = apiInstance.GetQuotasWithHttpInfo(wallet);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PortalPaymentApi.GetQuotasWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **wallet** | **bool?** | Get wallet quotas only | [optional]  |
-
-### Return type
-
-[**QuotaArrayWrapper**](QuotaArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of available portal quotas |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1593,232 +1707,6 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="paymentupdate"></a>
-# **PaymentUpdate**
-> BooleanWrapper PaymentUpdate (QuantityRequestDto? quantityRequestDto = null)
-
-Update the payment quantity
-
-Updates the payment quantity with the parameters specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class PaymentUpdateExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? |  (optional) 
-
-            try
-            {
-                // Update the payment quantity
-                BooleanWrapper result = apiInstance.PaymentUpdate(quantityRequestDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PortalPaymentApi.PaymentUpdate: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the PaymentUpdateWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update the payment quantity
-    ApiResponse<BooleanWrapper> response = apiInstance.PaymentUpdateWithHttpInfo(quantityRequestDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PortalPaymentApi.PaymentUpdateWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="paymentupdatewallet"></a>
-# **PaymentUpdateWallet**
-> BooleanWrapper PaymentUpdateWallet (WalletQuantityRequestDto? walletQuantityRequestDto = null)
-
-Update the wallet payment quantity
-
-Updates the wallet payment quantity with the parameters specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class PaymentUpdateWalletExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? |  (optional) 
-
-            try
-            {
-                // Update the wallet payment quantity
-                BooleanWrapper result = apiInstance.PaymentUpdateWallet(walletQuantityRequestDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PortalPaymentApi.PaymentUpdateWallet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the PaymentUpdateWalletWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update the wallet payment quantity
-    ApiResponse<BooleanWrapper> response = apiInstance.PaymentUpdateWalletWithHttpInfo(walletQuantityRequestDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PortalPaymentApi.PaymentUpdateWalletWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="performcustomeroperation"></a>
 # **PerformCustomerOperation**
 > BooleanWrapper PerformCustomerOperation (PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = null)
@@ -1932,9 +1820,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="sendsalesrequest"></a>
-# **SendSalesRequest**
-> void SendSalesRequest (SalesRequestsDto? salesRequestsDto = null)
+<a id="sendpaymentrequest"></a>
+# **SendPaymentRequest**
+> void SendPaymentRequest (SalesRequestsDto? salesRequestsDto = null)
 
 Send a payment request
 
@@ -1951,7 +1839,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class SendSalesRequestExample
+    public class SendPaymentRequestExample
     {
         public static void Main()
         {
@@ -1982,11 +1870,11 @@ namespace Example
             try
             {
                 // Send a payment request
-                apiInstance.SendSalesRequest(salesRequestsDto);
+                apiInstance.SendPaymentRequest(salesRequestsDto);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.SendSalesRequest: " + e.Message);
+                Debug.Print("Exception when calling PortalPaymentApi.SendPaymentRequest: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1995,18 +1883,18 @@ namespace Example
 }
 ```
 
-#### Using the SendSalesRequestWithHttpInfo variant
+#### Using the SendPaymentRequestWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Send a payment request
-    apiInstance.SendSalesRequestWithHttpInfo(salesRequestsDto);
+    apiInstance.SendPaymentRequestWithHttpInfo(salesRequestsDto);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.SendSalesRequestWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalPaymentApi.SendPaymentRequestWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -2263,6 +2151,232 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success status |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updatepayment"></a>
+# **UpdatePayment**
+> BooleanWrapper UpdatePayment (QuantityRequestDto? quantityRequestDto = null)
+
+Update the payment quantity
+
+Updates the payment quantity with the parameters specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class UpdatePaymentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? |  (optional) 
+
+            try
+            {
+                // Update the payment quantity
+                BooleanWrapper result = apiInstance.UpdatePayment(quantityRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalPaymentApi.UpdatePayment: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdatePaymentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update the payment quantity
+    ApiResponse<BooleanWrapper> response = apiInstance.UpdatePaymentWithHttpInfo(quantityRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalPaymentApi.UpdatePaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto?.md) |  | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updatewalletpayment"></a>
+# **UpdateWalletPayment**
+> BooleanWrapper UpdateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
+
+Update the wallet payment quantity
+
+Updates the wallet payment quantity with the parameters specified in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class UpdateWalletPaymentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? |  (optional) 
+
+            try
+            {
+                // Update the wallet payment quantity
+                BooleanWrapper result = apiInstance.UpdateWalletPayment(walletQuantityRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortalPaymentApi.UpdateWalletPayment: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateWalletPaymentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update the wallet payment quantity
+    ApiResponse<BooleanWrapper> response = apiInstance.UpdateWalletPaymentWithHttpInfo(walletQuantityRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortalPaymentApi.UpdateWalletPaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto?.md) |  | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the operation is successful |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 

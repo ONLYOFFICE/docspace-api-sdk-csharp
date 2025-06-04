@@ -65,13 +65,13 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test IsDefault
+        /// Test GetIsDefaultGreetingSettings
         /// </summary>
         [Fact]
-        public void IsDefaultTest()
+        public void GetIsDefaultGreetingSettingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.IsDefault();
+            //var response = instance.GetIsDefaultGreetingSettings();
             //Assert.IsType<BooleanWrapper>(response);
         }
 

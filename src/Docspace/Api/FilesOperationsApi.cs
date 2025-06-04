@@ -58,7 +58,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <returns>ConversationResultArrayWrapper</returns>
-        ConversationResultArrayWrapper CheckConversion(int fileId, bool? start = default(bool?));
+        ConversationResultArrayWrapper CheckConversionStatus(int fileId, bool? start = default(bool?));
 
         /// <summary>
         /// Get conversion status
@@ -70,7 +70,49 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <returns>ApiResponse of ConversationResultArrayWrapper</returns>
-        ApiResponse<ConversationResultArrayWrapper> CheckConversionWithHttpInfo(int fileId, bool? start = default(bool?));
+        ApiResponse<ConversationResultArrayWrapper> CheckConversionStatusWithHttpInfo(int fileId, bool? start = default(bool?));
+        /// <summary>
+        /// Check and move or copy to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>FileEntryArrayWrapper</returns>
+        FileEntryArrayWrapper CheckMoveOrCopyBatchItems(BatchRequestDto? inDto = default(BatchRequestDto?));
+
+        /// <summary>
+        /// Check and move or copy to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
+        ApiResponse<FileEntryArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?));
+        /// <summary>
+        /// Check for moving or copying to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files can be moved or copied to the specified folder.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>CheckDestFolderWrapper</returns>
+        CheckDestFolderWrapper CheckMoveOrCopyDestFolder(BatchRequestDto? inDto = default(BatchRequestDto?));
+
+        /// <summary>
+        /// Check for moving or copying to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files can be moved or copied to the specified folder.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
+        ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?));
         /// <summary>
         /// Copy to the folder
         /// </summary>
@@ -185,8 +227,9 @@ namespace Docspace.Api
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper EmptyTrash();
+        FileOperationArrayWrapper EmptyTrash(bool? single = default(bool?));
 
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder
@@ -195,8 +238,9 @@ namespace Docspace.Api
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo();
+        ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default(bool?));
         /// <summary>
         /// Get active file operations
         /// </summary>
@@ -204,8 +248,9 @@ namespace Docspace.Api
         /// Returns a list of all the active file operations.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper GetOperationStatuses();
+        FileOperationArrayWrapper GetOperationStatuses(string? id = default(string?));
 
         /// <summary>
         /// Get active file operations
@@ -214,8 +259,9 @@ namespace Docspace.Api
         /// Returns a list of all the active file operations.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> GetOperationStatusesWithHttpInfo();
+        ApiResponse<FileOperationArrayWrapper> GetOperationStatusesWithHttpInfo(string? id = default(string?));
         /// <summary>
         /// Get file operation statuses
         /// </summary>
@@ -224,8 +270,9 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper GetOperationStatusesByType(FileOperationType operationType);
+        FileOperationArrayWrapper GetOperationStatusesByType(FileOperationType operationType, string? id = default(string?));
 
         /// <summary>
         /// Get file operation statuses
@@ -235,8 +282,9 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> GetOperationStatusesByTypeWithHttpInfo(FileOperationType operationType);
+        ApiResponse<FileOperationArrayWrapper> GetOperationStatusesByTypeWithHttpInfo(FileOperationType operationType, string? id = default(string?));
         /// <summary>
         /// Mark as read
         /// </summary>
@@ -280,48 +328,6 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> MoveBatchItemsWithHttpInfo(BatchRequestDto? batchRequestDto = default(BatchRequestDto?));
         /// <summary>
-        /// Check and move or copy to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>FileEntryArrayWrapper</returns>
-        FileEntryArrayWrapper MoveOrCopyBatchCheck(BatchRequestDto? inDto = default(BatchRequestDto?));
-
-        /// <summary>
-        /// Check and move or copy to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        ApiResponse<FileEntryArrayWrapper> MoveOrCopyBatchCheckWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?));
-        /// <summary>
-        /// Check for moving or copying to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files can be moved or copied to the specified folder.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>CheckDestFolderWrapper</returns>
-        CheckDestFolderWrapper MoveOrCopyDestFolderCheck(BatchRequestDto? inDto = default(BatchRequestDto?));
-
-        /// <summary>
-        /// Check for moving or copying to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files can be moved or copied to the specified folder.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        ApiResponse<CheckDestFolderWrapper> MoveOrCopyDestFolderCheckWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?));
-        /// <summary>
         /// Start file conversion
         /// </summary>
         /// <remarks>
@@ -331,7 +337,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <returns>ConversationResultArrayWrapper</returns>
-        ConversationResultArrayWrapper StartConversion(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?));
+        ConversationResultArrayWrapper StartFileConversion(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?));
 
         /// <summary>
         /// Start file conversion
@@ -343,7 +349,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <returns>ApiResponse of ConversationResultArrayWrapper</returns>
-        ApiResponse<ConversationResultArrayWrapper> StartConversionWithHttpInfo(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?));
+        ApiResponse<ConversationResultArrayWrapper> StartFileConversionWithHttpInfo(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?));
         /// <summary>
         /// Finish active operations
         /// </summary>
@@ -375,7 +381,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateComment(int fileId, UpdateComment? updateComment = default(UpdateComment?));
+        StringWrapper UpdateFileComment(int fileId, UpdateComment? updateComment = default(UpdateComment?));
 
         /// <summary>
         /// Update a comment
@@ -387,7 +393,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default(UpdateComment?));
+        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default(UpdateComment?));
         #endregion Synchronous Operations
     }
 
@@ -431,7 +437,7 @@ namespace Docspace.Api
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConversationResultArrayWrapper</returns>
-        System.Threading.Tasks.Task<ConversationResultArrayWrapper> CheckConversionAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConversationResultArrayWrapper> CheckConversionStatusAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get conversion status
@@ -444,7 +450,53 @@ namespace Docspace.Api
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConversationResultArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationResultArrayWrapper>> CheckConversionWithHttpInfoAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConversationResultArrayWrapper>> CheckConversionStatusWithHttpInfoAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Check and move or copy to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileEntryArrayWrapper</returns>
+        System.Threading.Tasks.Task<FileEntryArrayWrapper> CheckMoveOrCopyBatchItemsAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Check and move or copy to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Check for moving or copying to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files can be moved or copied to the specified folder.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CheckDestFolderWrapper</returns>
+        System.Threading.Tasks.Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Check for moving or copying to a folder
+        /// </summary>
+        /// <remarks>
+        /// Checks if files can be moved or copied to the specified folder.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Copy to the folder
         /// </summary>
@@ -569,9 +621,10 @@ namespace Docspace.Api
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileOperationArrayWrapper> EmptyTrashAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder
@@ -580,9 +633,10 @@ namespace Docspace.Api
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get active file operations
         /// </summary>
@@ -590,9 +644,10 @@ namespace Docspace.Api
         /// Returns a list of all the active file operations.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesAsync(string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get active file operations
@@ -601,9 +656,10 @@ namespace Docspace.Api
         /// Returns a list of all the active file operations.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesWithHttpInfoAsync(string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get file operation statuses
         /// </summary>
@@ -612,9 +668,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesByTypeAsync(FileOperationType operationType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesByTypeAsync(FileOperationType operationType, string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get file operation statuses
@@ -624,9 +681,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesByTypeWithHttpInfoAsync(FileOperationType operationType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesByTypeWithHttpInfoAsync(FileOperationType operationType, string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Mark as read
         /// </summary>
@@ -674,52 +732,6 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> MoveBatchItemsWithHttpInfoAsync(BatchRequestDto? batchRequestDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Check and move or copy to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> MoveOrCopyBatchCheckAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Check and move or copy to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> MoveOrCopyBatchCheckWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Check for moving or copying to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files can be moved or copied to the specified folder.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CheckDestFolderWrapper</returns>
-        System.Threading.Tasks.Task<CheckDestFolderWrapper> MoveOrCopyDestFolderCheckAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Check for moving or copying to a folder
-        /// </summary>
-        /// <remarks>
-        /// Checks if files can be moved or copied to the specified folder.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckDestFolderWrapper>> MoveOrCopyDestFolderCheckWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Start file conversion
         /// </summary>
         /// <remarks>
@@ -730,7 +742,7 @@ namespace Docspace.Api
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConversationResultArrayWrapper</returns>
-        System.Threading.Tasks.Task<ConversationResultArrayWrapper> StartConversionAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConversationResultArrayWrapper> StartFileConversionAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Start file conversion
@@ -743,7 +755,7 @@ namespace Docspace.Api
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConversationResultArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationResultArrayWrapper>> StartConversionWithHttpInfoAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConversationResultArrayWrapper>> StartFileConversionWithHttpInfoAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Finish active operations
         /// </summary>
@@ -778,7 +790,7 @@ namespace Docspace.Api
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> UpdateCommentAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update a comment
@@ -791,7 +803,7 @@ namespace Docspace.Api
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> UpdateCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1121,9 +1133,9 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <returns>ConversationResultArrayWrapper</returns>
-        public ConversationResultArrayWrapper CheckConversion(int fileId, bool? start = default(bool?))
+        public ConversationResultArrayWrapper CheckConversionStatus(int fileId, bool? start = default(bool?))
         {
-            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = CheckConversionWithHttpInfo(fileId, start);
+            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = CheckConversionStatusWithHttpInfo(fileId, start);
             return localVarResponse.Data;
         }
 
@@ -1134,7 +1146,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <returns>ApiResponse of ConversationResultArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ConversationResultArrayWrapper> CheckConversionWithHttpInfo(int fileId, bool? start = default(bool?))
+        public Docspace.Client.ApiResponse<ConversationResultArrayWrapper> CheckConversionStatusWithHttpInfo(int fileId, bool? start = default(bool?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1194,7 +1206,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CheckConversion", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CheckConversionStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1209,9 +1221,9 @@ namespace Docspace.Api
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConversationResultArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<ConversationResultArrayWrapper> CheckConversionAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConversationResultArrayWrapper> CheckConversionStatusAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = await CheckConversionWithHttpInfoAsync(fileId, start, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = await CheckConversionStatusWithHttpInfoAsync(fileId, start, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1223,7 +1235,7 @@ namespace Docspace.Api
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConversationResultArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConversationResultArrayWrapper>> CheckConversionWithHttpInfoAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConversationResultArrayWrapper>> CheckConversionStatusWithHttpInfoAsync(int fileId, bool? start = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1286,7 +1298,353 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CheckConversion", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CheckConversionStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>FileEntryArrayWrapper</returns>
+        public FileEntryArrayWrapper CheckMoveOrCopyBatchItems(BatchRequestDto? inDto = default(BatchRequestDto?))
+        {
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = CheckMoveOrCopyBatchItemsWithHttpInfo(inDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (inDto != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<FileEntryArrayWrapper>("/api/2.0/files/fileops/move", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckMoveOrCopyBatchItems", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FileEntryArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> CheckMoveOrCopyBatchItemsAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await CheckMoveOrCopyBatchItemsWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (inDto != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/fileops/move", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckMoveOrCopyBatchItems", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>CheckDestFolderWrapper</returns>
+        public CheckDestFolderWrapper CheckMoveOrCopyDestFolder(BatchRequestDto? inDto = default(BatchRequestDto?))
+        {
+            Docspace.Client.ApiResponse<CheckDestFolderWrapper> localVarResponse = CheckMoveOrCopyDestFolderWithHttpInfo(inDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
+        public Docspace.Client.ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (inDto != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CheckDestFolderWrapper>("/api/2.0/files/fileops/checkdestfolder", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckMoveOrCopyDestFolder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CheckDestFolderWrapper</returns>
+        public async System.Threading.Tasks.Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<CheckDestFolderWrapper> localVarResponse = await CheckMoveOrCopyDestFolderWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (inDto != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CheckDestFolderWrapper>("/api/2.0/files/fileops/checkdestfolder", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckMoveOrCopyDestFolder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2148,10 +2506,11 @@ namespace Docspace.Api
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper EmptyTrash()
+        public FileOperationArrayWrapper EmptyTrash(bool? single = default(bool?))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = EmptyTrashWithHttpInfo();
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = EmptyTrashWithHttpInfo(single);
             return localVarResponse.Data;
         }
 
@@ -2159,8 +2518,9 @@ namespace Docspace.Api
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo()
+        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default(bool?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2178,6 +2538,10 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (single != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Single", single));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2226,11 +2590,12 @@ namespace Docspace.Api
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> EmptyTrashAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await EmptyTrashWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await EmptyTrashWithHttpInfoAsync(single, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2238,9 +2603,10 @@ namespace Docspace.Api
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2260,6 +2626,10 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (single != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Single", single));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2309,10 +2679,11 @@ namespace Docspace.Api
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper GetOperationStatuses()
+        public FileOperationArrayWrapper GetOperationStatuses(string? id = default(string?))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = GetOperationStatusesWithHttpInfo();
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = GetOperationStatusesWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -2320,8 +2691,9 @@ namespace Docspace.Api
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> GetOperationStatusesWithHttpInfo()
+        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> GetOperationStatusesWithHttpInfo(string? id = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2339,6 +2711,10 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            }
 
 
             // make the HTTP request
@@ -2357,11 +2733,12 @@ namespace Docspace.Api
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesAsync(string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await GetOperationStatusesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await GetOperationStatusesWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2369,9 +2746,10 @@ namespace Docspace.Api
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesWithHttpInfoAsync(string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2391,6 +2769,10 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            }
 
 
             // make the HTTP request
@@ -2411,10 +2793,11 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper GetOperationStatusesByType(FileOperationType operationType)
+        public FileOperationArrayWrapper GetOperationStatusesByType(FileOperationType operationType, string? id = default(string?))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = GetOperationStatusesByTypeWithHttpInfo(operationType);
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = GetOperationStatusesByTypeWithHttpInfo(operationType, id);
             return localVarResponse.Data;
         }
 
@@ -2423,8 +2806,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> GetOperationStatusesByTypeWithHttpInfo(FileOperationType operationType)
+        public Docspace.Client.ApiResponse<FileOperationArrayWrapper> GetOperationStatusesByTypeWithHttpInfo(FileOperationType operationType, string? id = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2443,6 +2827,10 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("operationType", Docspace.Client.ClientUtils.ParameterToString(operationType)); // path parameter
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            }
 
 
             // make the HTTP request
@@ -2462,11 +2850,12 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesByTypeAsync(FileOperationType operationType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> GetOperationStatusesByTypeAsync(FileOperationType operationType, string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await GetOperationStatusesByTypeWithHttpInfoAsync(operationType, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileOperationArrayWrapper> localVarResponse = await GetOperationStatusesByTypeWithHttpInfoAsync(operationType, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2475,9 +2864,10 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
+        /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesByTypeWithHttpInfoAsync(FileOperationType operationType, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationArrayWrapper>> GetOperationStatusesByTypeWithHttpInfoAsync(FileOperationType operationType, string? id = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2498,6 +2888,10 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("operationType", Docspace.Client.ClientUtils.ParameterToString(operationType)); // path parameter
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            }
 
 
             // make the HTTP request
@@ -2852,361 +3246,15 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>FileEntryArrayWrapper</returns>
-        public FileEntryArrayWrapper MoveOrCopyBatchCheck(BatchRequestDto? inDto = default(BatchRequestDto?))
-        {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = MoveOrCopyBatchCheckWithHttpInfo(inDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> MoveOrCopyBatchCheckWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (inDto != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FileEntryArrayWrapper>("/api/2.0/files/fileops/move", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MoveOrCopyBatchCheck", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> MoveOrCopyBatchCheckAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await MoveOrCopyBatchCheckWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> MoveOrCopyBatchCheckWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (inDto != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/fileops/move", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MoveOrCopyBatchCheck", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>CheckDestFolderWrapper</returns>
-        public CheckDestFolderWrapper MoveOrCopyDestFolderCheck(BatchRequestDto? inDto = default(BatchRequestDto?))
-        {
-            Docspace.Client.ApiResponse<CheckDestFolderWrapper> localVarResponse = MoveOrCopyDestFolderCheckWithHttpInfo(inDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        public Docspace.Client.ApiResponse<CheckDestFolderWrapper> MoveOrCopyDestFolderCheckWithHttpInfo(BatchRequestDto? inDto = default(BatchRequestDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (inDto != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CheckDestFolderWrapper>("/api/2.0/files/fileops/checkdestfolder", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MoveOrCopyDestFolderCheck", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CheckDestFolderWrapper</returns>
-        public async System.Threading.Tasks.Task<CheckDestFolderWrapper> MoveOrCopyDestFolderCheckAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<CheckDestFolderWrapper> localVarResponse = await MoveOrCopyDestFolderCheckWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CheckDestFolderWrapper>> MoveOrCopyDestFolderCheckWithHttpInfoAsync(BatchRequestDto? inDto = default(BatchRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (inDto != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CheckDestFolderWrapper>("/api/2.0/files/fileops/checkdestfolder", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MoveOrCopyDestFolderCheck", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Start file conversion Starts a conversion operation of a file with the ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <returns>ConversationResultArrayWrapper</returns>
-        public ConversationResultArrayWrapper StartConversion(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?))
+        public ConversationResultArrayWrapper StartFileConversion(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?))
         {
-            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = StartConversionWithHttpInfo(fileId, checkConversionRequestDtoInteger);
+            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = StartFileConversionWithHttpInfo(fileId, checkConversionRequestDtoInteger);
             return localVarResponse.Data;
         }
 
@@ -3217,7 +3265,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <returns>ApiResponse of ConversationResultArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ConversationResultArrayWrapper> StartConversionWithHttpInfo(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?))
+        public Docspace.Client.ApiResponse<ConversationResultArrayWrapper> StartFileConversionWithHttpInfo(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3275,7 +3323,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartConversion", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartFileConversion", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3290,9 +3338,9 @@ namespace Docspace.Api
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConversationResultArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<ConversationResultArrayWrapper> StartConversionAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConversationResultArrayWrapper> StartFileConversionAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = await StartConversionWithHttpInfoAsync(fileId, checkConversionRequestDtoInteger, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ConversationResultArrayWrapper> localVarResponse = await StartFileConversionWithHttpInfoAsync(fileId, checkConversionRequestDtoInteger, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3304,7 +3352,7 @@ namespace Docspace.Api
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConversationResultArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConversationResultArrayWrapper>> StartConversionWithHttpInfoAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ConversationResultArrayWrapper>> StartFileConversionWithHttpInfoAsync(int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = default(CheckConversionRequestDtoInteger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3365,7 +3413,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartConversion", localVarResponse);
+                Exception _exception = this.ExceptionFactory("StartFileConversion", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3494,9 +3542,9 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateComment(int fileId, UpdateComment? updateComment = default(UpdateComment?))
+        public StringWrapper UpdateFileComment(int fileId, UpdateComment? updateComment = default(UpdateComment?))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = UpdateCommentWithHttpInfo(fileId, updateComment);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateComment);
             return localVarResponse.Data;
         }
 
@@ -3507,7 +3555,7 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> UpdateCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default(UpdateComment?))
+        public Docspace.Client.ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default(UpdateComment?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3565,7 +3613,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateComment", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateFileComment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3580,9 +3628,9 @@ namespace Docspace.Api
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> UpdateCommentAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await UpdateCommentWithHttpInfoAsync(fileId, updateComment, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateComment, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3594,7 +3642,7 @@ namespace Docspace.Api
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> UpdateCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default(UpdateComment?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3655,7 +3703,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateComment", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateFileComment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

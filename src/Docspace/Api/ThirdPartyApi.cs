@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <returns>ObjectWrapper</returns>
-        ObjectWrapper Get(LoginProvider provider);
+        ObjectWrapper GetThirdPartyCode(LoginProvider provider);
 
         /// <summary>
         /// Get the code request
@@ -47,7 +47,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetWithHttpInfo(LoginProvider provider);
+        ApiResponse<ObjectWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider);
         #endregion Synchronous Operations
     }
 
@@ -67,7 +67,7 @@ namespace Docspace.Api
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectWrapper> GetThirdPartyCodeAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the code request
@@ -79,7 +79,7 @@ namespace Docspace.Api
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetWithHttpInfoAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -299,9 +299,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper Get(LoginProvider provider)
+        public ObjectWrapper GetThirdPartyCode(LoginProvider provider)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetWithHttpInfo(provider);
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetThirdPartyCodeWithHttpInfo(provider);
             return localVarResponse.Data;
         }
 
@@ -311,7 +311,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetWithHttpInfo(LoginProvider provider)
+        public Docspace.Client.ApiResponse<ObjectWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -367,7 +367,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Get", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetThirdPartyCode", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -381,9 +381,9 @@ namespace Docspace.Api
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectWrapper> GetThirdPartyCodeAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetThirdPartyCodeWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -394,7 +394,7 @@ namespace Docspace.Api
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetWithHttpInfoAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -453,7 +453,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Get", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetThirdPartyCode", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

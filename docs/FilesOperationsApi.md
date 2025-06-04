@@ -5,7 +5,9 @@ All URIs are relative to *http://http:*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**BulkDownload**](FilesOperationsApi.md#bulkdownload) | **PUT** /api/2.0/files/fileops/bulkdownload | Bulk download |
-| [**CheckConversion**](FilesOperationsApi.md#checkconversion) | **GET** /api/2.0/files/file/{fileId}/checkconversion | Get conversion status |
+| [**CheckConversionStatus**](FilesOperationsApi.md#checkconversionstatus) | **GET** /api/2.0/files/file/{fileId}/checkconversion | Get conversion status |
+| [**CheckMoveOrCopyBatchItems**](FilesOperationsApi.md#checkmoveorcopybatchitems) | **GET** /api/2.0/files/fileops/move | Check and move or copy to a folder |
+| [**CheckMoveOrCopyDestFolder**](FilesOperationsApi.md#checkmoveorcopydestfolder) | **GET** /api/2.0/files/fileops/checkdestfolder | Check for moving or copying to a folder |
 | [**CopyBatchItems**](FilesOperationsApi.md#copybatchitems) | **PUT** /api/2.0/files/fileops/copy | Copy to the folder |
 | [**CreateUploadSession**](FilesOperationsApi.md#createuploadsession) | **POST** /api/2.0/files/{folderId}/upload/create_session | Chunked upload |
 | [**DeleteBatchItems**](FilesOperationsApi.md#deletebatchitems) | **PUT** /api/2.0/files/fileops/delete | Delete files and folders |
@@ -16,11 +18,9 @@ All URIs are relative to *http://http:*
 | [**GetOperationStatusesByType**](FilesOperationsApi.md#getoperationstatusesbytype) | **GET** /api/2.0/files/fileops/{operationType} | Get file operation statuses |
 | [**MarkAsRead**](FilesOperationsApi.md#markasread) | **PUT** /api/2.0/files/fileops/markasread | Mark as read |
 | [**MoveBatchItems**](FilesOperationsApi.md#movebatchitems) | **PUT** /api/2.0/files/fileops/move | Move or copy to a folder |
-| [**MoveOrCopyBatchCheck**](FilesOperationsApi.md#moveorcopybatchcheck) | **GET** /api/2.0/files/fileops/move | Check and move or copy to a folder |
-| [**MoveOrCopyDestFolderCheck**](FilesOperationsApi.md#moveorcopydestfoldercheck) | **GET** /api/2.0/files/fileops/checkdestfolder | Check for moving or copying to a folder |
-| [**StartConversion**](FilesOperationsApi.md#startconversion) | **PUT** /api/2.0/files/file/{fileId}/checkconversion | Start file conversion |
+| [**StartFileConversion**](FilesOperationsApi.md#startfileconversion) | **PUT** /api/2.0/files/file/{fileId}/checkconversion | Start file conversion |
 | [**TerminateTasks**](FilesOperationsApi.md#terminatetasks) | **PUT** /api/2.0/files/fileops/terminate/{id} | Finish active operations |
-| [**UpdateComment**](FilesOperationsApi.md#updatecomment) | **PUT** /api/2.0/files/file/{fileId}/comment | Update a comment |
+| [**UpdateFileComment**](FilesOperationsApi.md#updatefilecomment) | **PUT** /api/2.0/files/file/{fileId}/comment | Update a comment |
 
 <a id="bulkdownload"></a>
 # **BulkDownload**
@@ -118,9 +118,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="checkconversion"></a>
-# **CheckConversion**
-> ConversationResultArrayWrapper CheckConversion (int fileId, bool? start = null)
+<a id="checkconversionstatus"></a>
+# **CheckConversionStatus**
+> ConversationResultArrayWrapper CheckConversionStatus (int fileId, bool? start = null)
 
 Get conversion status
 
@@ -137,7 +137,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class CheckConversionExample
+    public class CheckConversionStatusExample
     {
         public static void Main()
         {
@@ -169,12 +169,12 @@ namespace Example
             try
             {
                 // Get conversion status
-                ConversationResultArrayWrapper result = apiInstance.CheckConversion(fileId, start);
+                ConversationResultArrayWrapper result = apiInstance.CheckConversionStatus(fileId, start);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesOperationsApi.CheckConversion: " + e.Message);
+                Debug.Print("Exception when calling FilesOperationsApi.CheckConversionStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -183,21 +183,21 @@ namespace Example
 }
 ```
 
-#### Using the CheckConversionWithHttpInfo variant
+#### Using the CheckConversionStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get conversion status
-    ApiResponse<ConversationResultArrayWrapper> response = apiInstance.CheckConversionWithHttpInfo(fileId, start);
+    ApiResponse<ConversationResultArrayWrapper> response = apiInstance.CheckConversionStatusWithHttpInfo(fileId, start);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesOperationsApi.CheckConversionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesOperationsApi.CheckConversionStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -229,6 +229,232 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Conversion result |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="checkmoveorcopybatchitems"></a>
+# **CheckMoveOrCopyBatchItems**
+> FileEntryArrayWrapper CheckMoveOrCopyBatchItems (BatchRequestDto? inDto = null)
+
+Check and move or copy to a folder
+
+Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class CheckMoveOrCopyBatchItemsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
+            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
+
+            try
+            {
+                // Check and move or copy to a folder
+                FileEntryArrayWrapper result = apiInstance.CheckMoveOrCopyBatchItems(inDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesOperationsApi.CheckMoveOrCopyBatchItems: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CheckMoveOrCopyBatchItemsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check and move or copy to a folder
+    ApiResponse<FileEntryArrayWrapper> response = apiInstance.CheckMoveOrCopyBatchItemsWithHttpInfo(inDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesOperationsApi.CheckMoveOrCopyBatchItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of file entry information |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You don&#39;t have enough permission to create |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="checkmoveorcopydestfolder"></a>
+# **CheckMoveOrCopyDestFolder**
+> CheckDestFolderWrapper CheckMoveOrCopyDestFolder (BatchRequestDto? inDto = null)
+
+Check for moving or copying to a folder
+
+Checks if files can be moved or copied to the specified folder.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Docspace.Api;
+using Docspace.Client;
+using Docspace.Model;
+
+namespace Example
+{
+    public class CheckMoveOrCopyDestFolderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
+            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
+
+            try
+            {
+                // Check for moving or copying to a folder
+                CheckDestFolderWrapper result = apiInstance.CheckMoveOrCopyDestFolder(inDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesOperationsApi.CheckMoveOrCopyDestFolder: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CheckMoveOrCopyDestFolderWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check for moving or copying to a folder
+    ApiResponse<CheckDestFolderWrapper> response = apiInstance.CheckMoveOrCopyDestFolderWithHttpInfo(inDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesOperationsApi.CheckMoveOrCopyDestFolderWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**CheckDestFolderWrapper**](CheckDestFolderWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Result |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You don&#39;t have enough permission to create |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -800,7 +1026,7 @@ catch (ApiException e)
 
 <a id="emptytrash"></a>
 # **EmptyTrash**
-> FileOperationArrayWrapper EmptyTrash ()
+> FileOperationArrayWrapper EmptyTrash (bool? single = null)
 
 Empty the \"Trash\" folder
 
@@ -843,11 +1069,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
+            var single = true;  // bool? | Specifies whether to return only the current operation (optional) 
 
             try
             {
                 // Empty the \"Trash\" folder
-                FileOperationArrayWrapper result = apiInstance.EmptyTrash();
+                FileOperationArrayWrapper result = apiInstance.EmptyTrash(single);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -868,7 +1095,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Empty the \"Trash\" folder
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.EmptyTrashWithHttpInfo();
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.EmptyTrashWithHttpInfo(single);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -882,7 +1109,11 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **single** | **bool?** | Specifies whether to return only the current operation | [optional]  |
+
 ### Return type
 
 [**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
@@ -907,7 +1138,7 @@ This endpoint does not need any parameter.
 
 <a id="getoperationstatuses"></a>
 # **GetOperationStatuses**
-> FileOperationArrayWrapper GetOperationStatuses ()
+> FileOperationArrayWrapper GetOperationStatuses (string? id = null)
 
 Get active file operations
 
@@ -934,11 +1165,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // string? | The ID of the file operation. (optional) 
 
             try
             {
                 // Get active file operations
-                FileOperationArrayWrapper result = apiInstance.GetOperationStatuses();
+                FileOperationArrayWrapper result = apiInstance.GetOperationStatuses(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -959,7 +1191,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get active file operations
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesWithHttpInfo();
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -973,7 +1205,11 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string?** | The ID of the file operation. | [optional]  |
+
 ### Return type
 
 [**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
@@ -997,7 +1233,7 @@ No authorization required
 
 <a id="getoperationstatusesbytype"></a>
 # **GetOperationStatusesByType**
-> FileOperationArrayWrapper GetOperationStatusesByType (FileOperationType operationType)
+> FileOperationArrayWrapper GetOperationStatusesByType (FileOperationType operationType, string? id = null)
 
 Get file operation statuses
 
@@ -1025,11 +1261,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
             var operationType = (FileOperationType) "0";  // FileOperationType | Specifies the type of file operation to be retrieved.
+            var id = 9846;  // string? | The ID of the file operation. (optional) 
 
             try
             {
                 // Get file operation statuses
-                FileOperationArrayWrapper result = apiInstance.GetOperationStatusesByType(operationType);
+                FileOperationArrayWrapper result = apiInstance.GetOperationStatusesByType(operationType, id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1050,7 +1287,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get file operation statuses
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesByTypeWithHttpInfo(operationType);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesByTypeWithHttpInfo(operationType, id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1068,6 +1305,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **operationType** | **FileOperationType** | Specifies the type of file operation to be retrieved. |  |
+| **id** | **string?** | The ID of the file operation. | [optional]  |
 
 ### Return type
 
@@ -1315,235 +1553,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="moveorcopybatchcheck"></a>
-# **MoveOrCopyBatchCheck**
-> FileEntryArrayWrapper MoveOrCopyBatchCheck (BatchRequestDto? inDto = null)
-
-Check and move or copy to a folder
-
-Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class MoveOrCopyBatchCheckExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
-
-            try
-            {
-                // Check and move or copy to a folder
-                FileEntryArrayWrapper result = apiInstance.MoveOrCopyBatchCheck(inDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesOperationsApi.MoveOrCopyBatchCheck: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveOrCopyBatchCheckWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Check and move or copy to a folder
-    ApiResponse<FileEntryArrayWrapper> response = apiInstance.MoveOrCopyBatchCheckWithHttpInfo(inDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesOperationsApi.MoveOrCopyBatchCheckWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="moveorcopydestfoldercheck"></a>
-# **MoveOrCopyDestFolderCheck**
-> CheckDestFolderWrapper MoveOrCopyDestFolderCheck (BatchRequestDto? inDto = null)
-
-Check for moving or copying to a folder
-
-Checks if files can be moved or copied to the specified folder.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class MoveOrCopyDestFolderCheckExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var inDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
-
-            try
-            {
-                // Check for moving or copying to a folder
-                CheckDestFolderWrapper result = apiInstance.MoveOrCopyDestFolderCheck(inDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FilesOperationsApi.MoveOrCopyDestFolderCheck: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveOrCopyDestFolderCheckWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Check for moving or copying to a folder
-    ApiResponse<CheckDestFolderWrapper> response = apiInstance.MoveOrCopyDestFolderCheckWithHttpInfo(inDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FilesOperationsApi.MoveOrCopyDestFolderCheckWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
-
-### Return type
-
-[**CheckDestFolderWrapper**](CheckDestFolderWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Result |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="startconversion"></a>
-# **StartConversion**
-> ConversationResultArrayWrapper StartConversion (int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = null)
+<a id="startfileconversion"></a>
+# **StartFileConversion**
+> ConversationResultArrayWrapper StartFileConversion (int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = null)
 
 Start file conversion
 
@@ -1560,7 +1572,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class StartConversionExample
+    public class StartFileConversionExample
     {
         public static void Main()
         {
@@ -1592,12 +1604,12 @@ namespace Example
             try
             {
                 // Start file conversion
-                ConversationResultArrayWrapper result = apiInstance.StartConversion(fileId, checkConversionRequestDtoInteger);
+                ConversationResultArrayWrapper result = apiInstance.StartFileConversion(fileId, checkConversionRequestDtoInteger);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesOperationsApi.StartConversion: " + e.Message);
+                Debug.Print("Exception when calling FilesOperationsApi.StartFileConversion: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1606,21 +1618,21 @@ namespace Example
 }
 ```
 
-#### Using the StartConversionWithHttpInfo variant
+#### Using the StartFileConversionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Start file conversion
-    ApiResponse<ConversationResultArrayWrapper> response = apiInstance.StartConversionWithHttpInfo(fileId, checkConversionRequestDtoInteger);
+    ApiResponse<ConversationResultArrayWrapper> response = apiInstance.StartFileConversionWithHttpInfo(fileId, checkConversionRequestDtoInteger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesOperationsApi.StartConversionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesOperationsApi.StartFileConversionWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1750,9 +1762,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatecomment"></a>
-# **UpdateComment**
-> StringWrapper UpdateComment (int fileId, UpdateComment? updateComment = null)
+<a id="updatefilecomment"></a>
+# **UpdateFileComment**
+> StringWrapper UpdateFileComment (int fileId, UpdateComment? updateComment = null)
 
 Update a comment
 
@@ -1769,7 +1781,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class UpdateCommentExample
+    public class UpdateFileCommentExample
     {
         public static void Main()
         {
@@ -1801,12 +1813,12 @@ namespace Example
             try
             {
                 // Update a comment
-                StringWrapper result = apiInstance.UpdateComment(fileId, updateComment);
+                StringWrapper result = apiInstance.UpdateFileComment(fileId, updateComment);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesOperationsApi.UpdateComment: " + e.Message);
+                Debug.Print("Exception when calling FilesOperationsApi.UpdateFileComment: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1815,21 +1827,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateCommentWithHttpInfo variant
+#### Using the UpdateFileCommentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update a comment
-    ApiResponse<StringWrapper> response = apiInstance.UpdateCommentWithHttpInfo(fileId, updateComment);
+    ApiResponse<StringWrapper> response = apiInstance.UpdateFileCommentWithHttpInfo(fileId, updateComment);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling FilesOperationsApi.UpdateCommentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FilesOperationsApi.UpdateFileCommentWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

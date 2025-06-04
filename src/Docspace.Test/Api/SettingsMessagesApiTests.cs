@@ -66,14 +66,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SendAdmMail
+        /// Test SendAdminMail
         /// </summary>
         [Fact]
-        public void SendAdmMailTest()
+        public void SendAdminMailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null;
-            //var response = instance.SendAdmMail(adminMessageSettingsRequestsDto);
+            //var response = instance.SendAdminMail(adminMessageSettingsRequestsDto);
             //Assert.IsType<StringWrapper>(response);
         }
 

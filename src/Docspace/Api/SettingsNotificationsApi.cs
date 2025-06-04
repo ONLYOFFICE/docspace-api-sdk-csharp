@@ -68,6 +68,27 @@ namespace Docspace.Api
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         ApiResponse<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsWithHttpInfo();
         /// <summary>
+        /// Enable notifications
+        /// </summary>
+        /// <remarks>
+        /// Enables the notification type specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <returns>NotificationSettingsWrapper</returns>
+        NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?));
+
+        /// <summary>
+        /// Enable notifications
+        /// </summary>
+        /// <remarks>
+        /// Enables the notification type specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
+        ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?));
+        /// <summary>
         /// Set room notification status
         /// </summary>
         /// <remarks>
@@ -88,27 +109,6 @@ namespace Docspace.Api
         /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         ApiResponse<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusWithHttpInfo(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default(RoomsNotificationsSettingsRequestDto?));
-        /// <summary>
-        /// Enable notifications
-        /// </summary>
-        /// <remarks>
-        /// Enables the notification type specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <returns>NotificationSettingsWrapper</returns>
-        NotificationSettingsWrapper SetSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?));
-
-        /// <summary>
-        /// Enable notifications
-        /// </summary>
-        /// <remarks>
-        /// Enables the notification type specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        ApiResponse<NotificationSettingsWrapper> SetSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?));
         #endregion Synchronous Operations
     }
 
@@ -163,6 +163,29 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<RoomsNotificationSettingsWrapper>> GetRoomsNotificationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Enable notifications
+        /// </summary>
+        /// <remarks>
+        /// Enables the notification type specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of NotificationSettingsWrapper</returns>
+        System.Threading.Tasks.Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Enable notifications
+        /// </summary>
+        /// <remarks>
+        /// Enables the notification type specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Set room notification status
         /// </summary>
         /// <remarks>
@@ -185,29 +208,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<RoomsNotificationSettingsWrapper>> SetRoomsNotificationStatusWithHttpInfoAsync(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default(RoomsNotificationsSettingsRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Enable notifications
-        /// </summary>
-        /// <remarks>
-        /// Enables the notification type specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of NotificationSettingsWrapper</returns>
-        System.Threading.Tasks.Task<NotificationSettingsWrapper> SetSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Enable notifications
-        /// </summary>
-        /// <remarks>
-        /// Enables the notification type specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NotificationSettingsWrapper>> SetSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -750,6 +750,175 @@ namespace Docspace.Api
         }
 
         /// <summary>
+        /// Enable notifications Enables the notification type specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <returns>NotificationSettingsWrapper</returns>
+        public NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?))
+        {
+            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = SetNotificationSettingsWithHttpInfo(notificationSettingsRequestsDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable notifications Enables the notification type specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
+        public Docspace.Client.ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?))
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = notificationSettingsRequestsDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<NotificationSettingsWrapper>("/api/2.0/settings/notification", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Enable notifications Enables the notification type specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of NotificationSettingsWrapper</returns>
+        public async System.Threading.Tasks.Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = await SetNotificationSettingsWithHttpInfoAsync(notificationSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable notifications Enables the notification type specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = notificationSettingsRequestsDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationSettingsWrapper>("/api/2.0/settings/notification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Set room notification status Sets a notification status for a room with the ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -912,175 +1081,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetRoomsNotificationStatus", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Enable notifications Enables the notification type specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <returns>NotificationSettingsWrapper</returns>
-        public NotificationSettingsWrapper SetSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?))
-        {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = SetSettingsWithHttpInfo(notificationSettingsRequestsDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Enable notifications Enables the notification type specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<NotificationSettingsWrapper> SetSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?))
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = notificationSettingsRequestsDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NotificationSettingsWrapper>("/api/2.0/settings/notification", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetSettings", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Enable notifications Enables the notification type specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of NotificationSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<NotificationSettingsWrapper> SetSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = await SetSettingsWithHttpInfoAsync(notificationSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Enable notifications Enables the notification type specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NotificationSettingsWrapper>> SetSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default(NotificationSettingsRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = notificationSettingsRequestsDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationSettingsWrapper>("/api/2.0/settings/notification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SetSettings", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

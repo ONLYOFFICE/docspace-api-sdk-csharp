@@ -36,7 +36,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <returns>CspWrapper</returns>
-        CspWrapper Csp(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?));
+        CspWrapper ConfigureCsp(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?));
 
         /// <summary>
         /// Configure CSP settings
@@ -47,7 +47,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of CspWrapper</returns>
-        ApiResponse<CspWrapper> CspWithHttpInfo(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?));
+        ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?));
         /// <summary>
         /// Get CSP settings
         /// </summary>
@@ -56,7 +56,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CspWrapper</returns>
-        CspWrapper GetCsp();
+        CspWrapper GetCspSettings();
 
         /// <summary>
         /// Get CSP settings
@@ -66,7 +66,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CspWrapper</returns>
-        ApiResponse<CspWrapper> GetCspWithHttpInfo();
+        ApiResponse<CspWrapper> GetCspSettingsWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -86,7 +86,7 @@ namespace Docspace.Api
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CspWrapper</returns>
-        System.Threading.Tasks.Task<CspWrapper> CspAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CspWrapper> ConfigureCspAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Configure CSP settings
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CspWrapper>> CspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get CSP settings
         /// </summary>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CspWrapper</returns>
-        System.Threading.Tasks.Task<CspWrapper> GetCspAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CspWrapper> GetCspSettingsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get CSP settings
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CspWrapper>> GetCspWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CspWrapper>> GetCspSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -339,9 +339,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <returns>CspWrapper</returns>
-        public CspWrapper Csp(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?))
+        public CspWrapper ConfigureCsp(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?))
         {
-            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = CspWithHttpInfo(cspRequestsDto);
+            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = ConfigureCspWithHttpInfo(cspRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -351,7 +351,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <returns>ApiResponse of CspWrapper</returns>
-        public Docspace.Client.ApiResponse<CspWrapper> CspWithHttpInfo(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?))
+        public Docspace.Client.ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -408,7 +408,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Csp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ConfigureCsp", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -422,9 +422,9 @@ namespace Docspace.Api
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CspWrapper</returns>
-        public async System.Threading.Tasks.Task<CspWrapper> CspAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CspWrapper> ConfigureCspAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = await CspWithHttpInfoAsync(cspRequestsDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = await ConfigureCspWithHttpInfoAsync(cspRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -435,7 +435,7 @@ namespace Docspace.Api
         /// <param name="cspRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CspWrapper>> CspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default(CspRequestsDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -495,7 +495,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Csp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ConfigureCsp", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -507,9 +507,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CspWrapper</returns>
-        public CspWrapper GetCsp()
+        public CspWrapper GetCspSettings()
         {
-            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = GetCspWithHttpInfo();
+            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = GetCspSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -518,7 +518,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CspWrapper</returns>
-        public Docspace.Client.ApiResponse<CspWrapper> GetCspWithHttpInfo()
+        public Docspace.Client.ApiResponse<CspWrapper> GetCspSettingsWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -543,7 +543,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCsp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCspSettings", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -556,9 +556,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CspWrapper</returns>
-        public async System.Threading.Tasks.Task<CspWrapper> GetCspAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CspWrapper> GetCspSettingsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = await GetCspWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<CspWrapper> localVarResponse = await GetCspSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -568,7 +568,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CspWrapper>> GetCspWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CspWrapper>> GetCspSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -596,7 +596,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCsp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCspSettings", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

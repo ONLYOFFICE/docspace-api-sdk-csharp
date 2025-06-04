@@ -54,17 +54,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Capabilities
-        /// </summary>
-        [Fact]
-        public void CapabilitiesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Capabilities();
-            //Assert.IsType<ArrayArrayWrapper>(response);
-        }
-
-        /// <summary>
         /// Test DeleteThirdParty
         /// </summary>
         [Fact]
@@ -96,6 +85,17 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetBackupThirdPartyAccount();
             //Assert.IsType<FolderStringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetCapabilities
+        /// </summary>
+        [Fact]
+        public void GetCapabilitiesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetCapabilities();
+            //Assert.IsType<ArrayArrayWrapper>(response);
         }
 
         /// <summary>

@@ -318,7 +318,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <returns>FileEntryArrayWrapper</returns>
-        FileEntryArrayWrapper GetNewItems(int folderId);
+        FileEntryArrayWrapper GetNewFolderItems(int folderId);
 
         /// <summary>
         /// Get new folder items
@@ -329,7 +329,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        ApiResponse<FileEntryArrayWrapper> GetNewItemsWithHttpInfo(int folderId);
+        ApiResponse<FileEntryArrayWrapper> GetNewFolderItemsWithHttpInfo(int folderId);
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
         /// </summary>
@@ -515,7 +515,7 @@ namespace Docspace.Api
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder? createFolder = default(CreateFolder?));
         /// <summary>
-        /// Set file order
+        /// Set folder order
         /// </summary>
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
@@ -524,10 +524,10 @@ namespace Docspace.Api
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper SetFileOrder(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
+        FolderIntegerWrapper SetFolderOrder(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
 
         /// <summary>
-        /// Set file order
+        /// Set folder order
         /// </summary>
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
@@ -536,7 +536,7 @@ namespace Docspace.Api
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> SetFileOrderWithHttpInfo(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
+        ApiResponse<FolderIntegerWrapper> SetFolderOrderWithHttpInfo(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?));
         /// <summary>
         /// Upload a file
         /// </summary>
@@ -906,7 +906,7 @@ namespace Docspace.Api
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get new folder items
@@ -918,7 +918,7 @@ namespace Docspace.Api
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetNewItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
         /// </summary>
@@ -1116,7 +1116,7 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default(CreateFolder?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Set file order
+        /// Set folder order
         /// </summary>
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
@@ -1126,10 +1126,10 @@ namespace Docspace.Api
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> SetFileOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Set file order
+        /// Set folder order
         /// </summary>
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
@@ -1139,7 +1139,7 @@ namespace Docspace.Api
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> SetFileOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Upload a file
         /// </summary>
@@ -3351,9 +3351,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <returns>FileEntryArrayWrapper</returns>
-        public FileEntryArrayWrapper GetNewItems(int folderId)
+        public FileEntryArrayWrapper GetNewFolderItems(int folderId)
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = GetNewItemsWithHttpInfo(folderId);
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = GetNewFolderItemsWithHttpInfo(folderId);
             return localVarResponse.Data;
         }
 
@@ -3363,7 +3363,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> GetNewItemsWithHttpInfo(int folderId)
+        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> GetNewFolderItemsWithHttpInfo(int folderId)
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3419,7 +3419,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNewItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetNewFolderItems", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3433,9 +3433,9 @@ namespace Docspace.Api
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await GetNewItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await GetNewFolderItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3446,7 +3446,7 @@ namespace Docspace.Api
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> GetNewItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3505,7 +3505,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNewItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetNewFolderItems", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4887,26 +4887,26 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Set file order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper SetFileOrder(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
+        public FolderIntegerWrapper SetFolderOrder(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = SetFileOrderWithHttpInfo(folderId, orderRequestDto);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = SetFolderOrderWithHttpInfo(folderId, orderRequestDto);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set file order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> SetFileOrderWithHttpInfo(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
+        public Docspace.Client.ApiResponse<FolderIntegerWrapper> SetFolderOrderWithHttpInfo(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -4964,7 +4964,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetFileOrder", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetFolderOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4972,28 +4972,28 @@ namespace Docspace.Api
         }
 
         /// <summary>
-        /// Set file order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> SetFileOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await SetFileOrderWithHttpInfoAsync(folderId, orderRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await SetFolderOrderWithHttpInfoAsync(folderId, orderRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set file order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> SetFileOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default(OrderRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5054,7 +5054,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetFileOrder", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetFolderOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -35,13 +35,25 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseBatchRequestDto" /> class.
         /// </summary>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs of the base batch request..</param>
         /// <param name="fileIds">The list of file IDs of the base batch request..</param>
-        public BaseBatchRequestDto(List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>))
+        public BaseBatchRequestDto(bool returnSingleOperation = default(bool), List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>))
         {
+            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
         }
+
+        /// <summary>
+        /// Specifies whether to return only the current operation
+        /// </summary>
+        /// <value>Specifies whether to return only the current operation</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
+        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// The list of folder IDs of the base batch request.
@@ -65,6 +77,7 @@ namespace Docspace.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BaseBatchRequestDto {\n");
+            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("}\n");

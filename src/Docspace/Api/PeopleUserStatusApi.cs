@@ -58,7 +58,7 @@ namespace Docspace.Api
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper UpdateEmployeeActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?));
+        EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?));
 
         /// <summary>
         /// Set an activation status to the users
@@ -70,7 +70,7 @@ namespace Docspace.Api
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> UpdateEmployeeActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?));
+        ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?));
         /// <summary>
         /// Change a user status
         /// </summary>
@@ -137,7 +137,7 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> UpdateEmployeeActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Set an activation status to the users
@@ -150,7 +150,7 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateEmployeeActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Change a user status
         /// </summary>
@@ -563,9 +563,9 @@ namespace Docspace.Api
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper UpdateEmployeeActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?))
+        public EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = UpdateEmployeeActivationStatusWithHttpInfo(activationstatus, updateMembersRequestDto);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = UpdateUserActivationStatusWithHttpInfo(activationstatus, updateMembersRequestDto);
             return localVarResponse.Data;
         }
 
@@ -576,7 +576,7 @@ namespace Docspace.Api
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> UpdateEmployeeActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?))
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -634,7 +634,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateEmployeeActivationStatus", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateUserActivationStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -649,9 +649,9 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> UpdateEmployeeActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await UpdateEmployeeActivationStatusWithHttpInfoAsync(activationstatus, updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await UpdateUserActivationStatusWithHttpInfoAsync(activationstatus, updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -663,7 +663,7 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> UpdateEmployeeActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default(UpdateMembersRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -724,7 +724,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateEmployeeActivationStatus", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateUserActivationStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

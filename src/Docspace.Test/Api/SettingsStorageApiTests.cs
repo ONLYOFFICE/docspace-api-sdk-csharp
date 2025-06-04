@@ -130,14 +130,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test UpdateCdn
+        /// Test UpdateCdnStorage
         /// </summary>
         [Fact]
-        public void UpdateCdnTest()
+        public void UpdateCdnStorageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //StorageRequestsDto? storageRequestsDto = null;
-            //var response = instance.UpdateCdn(storageRequestsDto);
+            //var response = instance.UpdateCdnStorage(storageRequestsDto);
             //Assert.IsType<CdnStorageSettingsWrapper>(response);
         }
 

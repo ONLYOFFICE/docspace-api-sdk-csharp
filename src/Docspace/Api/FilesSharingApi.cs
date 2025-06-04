@@ -59,7 +59,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <returns>FileEntryArrayWrapper</returns>
-        FileEntryArrayWrapper ChangeOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?));
+        FileEntryArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?));
 
         /// <summary>
         /// Change the file owner
@@ -70,7 +70,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        ApiResponse<FileEntryArrayWrapper> ChangeOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?));
+        ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?));
         /// <summary>
         /// Get the external data
         /// </summary>
@@ -95,6 +95,27 @@ namespace Docspace.Api
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
         ApiResponse<ExternalShareWrapper> GetExternalShareDataWithHttpInfo(string key, string? fileId = default(string?));
         /// <summary>
+        /// Get user access rights by file ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>MentionWrapperArrayWrapper</returns>
+        MentionWrapperArrayWrapper GetSharedUsers(int fileId);
+
+        /// <summary>
+        /// Get user access rights by file ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
+        ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
+        /// <summary>
         /// Send the mention message
         /// </summary>
         /// <remarks>
@@ -117,27 +138,6 @@ namespace Docspace.Api
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
         ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default(MentionMessageWrapper?));
-        /// <summary>
-        /// Get user access rights by file ID
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        MentionWrapperArrayWrapper SharedUsers(int fileId);
-
-        /// <summary>
-        /// Get user access rights by file ID
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        ApiResponse<MentionWrapperArrayWrapper> SharedUsersWithHttpInfo(int fileId);
         #endregion Synchronous Operations
     }
 
@@ -182,7 +182,7 @@ namespace Docspace.Api
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> ChangeOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileEntryArrayWrapper> ChangeFileOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Change the file owner
@@ -194,7 +194,7 @@ namespace Docspace.Api
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> ChangeOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> ChangeFileOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the external data
         /// </summary>
@@ -221,6 +221,29 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExternalShareWrapper>> GetExternalShareDataWithHttpInfoAsync(string key, string? fileId = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get user access rights by file ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MentionWrapperArrayWrapper</returns>
+        System.Threading.Tasks.Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get user access rights by file ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Send the mention message
         /// </summary>
         /// <remarks>
@@ -245,29 +268,6 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default(MentionMessageWrapper?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get user access rights by file ID
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        System.Threading.Tasks.Task<MentionWrapperArrayWrapper> SharedUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get user access rights by file ID
-        /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MentionWrapperArrayWrapper>> SharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -610,9 +610,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <returns>FileEntryArrayWrapper</returns>
-        public FileEntryArrayWrapper ChangeOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?))
+        public FileEntryArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?))
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = ChangeOwnerWithHttpInfo(changeOwnerRequestDto);
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = ChangeFileOwnerWithHttpInfo(changeOwnerRequestDto);
             return localVarResponse.Data;
         }
 
@@ -622,7 +622,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> ChangeOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?))
+        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -679,7 +679,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeOwner", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -693,9 +693,9 @@ namespace Docspace.Api
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> ChangeOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> ChangeFileOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await ChangeOwnerWithHttpInfoAsync(changeOwnerRequestDto, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await ChangeFileOwnerWithHttpInfoAsync(changeOwnerRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -706,7 +706,7 @@ namespace Docspace.Api
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> ChangeOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> ChangeFileOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default(ChangeOwnerRequestDto?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -766,7 +766,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeOwner", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -894,6 +894,173 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetExternalShareData", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>MentionWrapperArrayWrapper</returns>
+        public MentionWrapperArrayWrapper GetSharedUsers(int fileId)
+        {
+            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = GetSharedUsersWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
+        public Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
+        {
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MentionWrapperArrayWrapper</returns>
+        public async System.Threading.Tasks.Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await GetSharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </summary>
+        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1069,173 +1236,6 @@ namespace Docspace.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SendEditorNotify", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        public MentionWrapperArrayWrapper SharedUsers(int fileId)
-        {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = SharedUsersWithHttpInfo(fileId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> SharedUsersWithHttpInfo(int fileId)
-        {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SharedUsers", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<MentionWrapperArrayWrapper> SharedUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await SharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
-        /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<MentionWrapperArrayWrapper>> SharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SharedUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

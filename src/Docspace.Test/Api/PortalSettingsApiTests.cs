@@ -75,18 +75,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetFullAbsolutePath
-        /// </summary>
-        [Fact]
-        public void GetFullAbsolutePathTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string? virtualPath = null;
-            //var response = instance.GetFullAbsolutePath(virtualPath);
-            //Assert.IsType<ObjectWrapper>(response);
-        }
-
-        /// <summary>
         /// Test GetPortalInformation
         /// </summary>
         [Fact]
@@ -95,6 +83,18 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetPortalInformation();
             //Assert.IsType<TenantWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPortalPath
+        /// </summary>
+        [Fact]
+        public void GetPortalPathTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string? virtualPath = null;
+            //var response = instance.GetPortalPath(virtualPath);
+            //Assert.IsType<ObjectWrapper>(response);
         }
 
         /// <summary>

@@ -100,31 +100,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetByEmail
-        /// </summary>
-        [Fact]
-        public void GetByEmailTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string? email = null;
-            //string? culture = null;
-            //var response = instance.GetByEmail(email, culture);
-            //Assert.IsType<EmployeeFullWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetById
-        /// </summary>
-        [Fact]
-        public void GetByIdTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string userid = null;
-            //var response = instance.GetById(userid);
-            //Assert.IsType<EmployeeFullWrapper>(response);
-        }
-
-        /// <summary>
         /// Test GetClaims
         /// </summary>
         [Fact]
@@ -133,6 +108,42 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetClaims();
             //Assert.IsType<ObjectWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetProfileByEmail
+        /// </summary>
+        [Fact]
+        public void GetProfileByEmailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string? email = null;
+            //string? culture = null;
+            //var response = instance.GetProfileByEmail(email, culture);
+            //Assert.IsType<EmployeeFullWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetProfileByUserId
+        /// </summary>
+        [Fact]
+        public void GetProfileByUserIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string userid = null;
+            //var response = instance.GetProfileByUserId(userid);
+            //Assert.IsType<EmployeeFullWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetSelfProfile
+        /// </summary>
+        [Fact]
+        public void GetSelfProfileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetSelfProfile();
+            //Assert.IsType<EmployeeFullWrapper>(response);
         }
 
         /// <summary>
@@ -169,17 +180,6 @@ namespace Docspace.Test.Api
             //UpdateMembersRequestDto? updateMembersRequestDto = null;
             //var response = instance.ResendUserInvites(updateMembersRequestDto);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test Self
-        /// </summary>
-        [Fact]
-        public void SelfTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Self();
-            //Assert.IsType<EmployeeFullWrapper>(response);
         }
 
         /// <summary>

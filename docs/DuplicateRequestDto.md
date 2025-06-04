@@ -5,6 +5,7 @@ The duplicate request parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ReturnSingleOperation** | **bool** | Specifies whether to return only the current operation | [optional] 
 **FolderIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of folder IDs. | [optional] 
 **FileIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of file IDs. | [optional] 
 

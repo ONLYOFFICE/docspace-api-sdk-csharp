@@ -54,14 +54,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test Get
+        /// Test GetThirdPartyCode
         /// </summary>
         [Fact]
-        public void GetTest()
+        public void GetThirdPartyCodeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //LoginProvider provider = null;
-            //var response = instance.Get(provider);
+            //var response = instance.GetThirdPartyCode(provider);
             //Assert.IsType<ObjectWrapper>(response);
         }
     }

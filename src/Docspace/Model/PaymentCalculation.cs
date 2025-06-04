@@ -27,47 +27,58 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// The duplicate request parameters.
+    /// The payment calculation.
     /// </summary>
-    [DataContract(Name = "DuplicateRequestDto")]
-    public partial class DuplicateRequestDto : IValidatableObject
+    [DataContract(Name = "PaymentCalculation")]
+    public partial class PaymentCalculation : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DuplicateRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="PaymentCalculation" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
-        /// <param name="folderIds">The list of folder IDs..</param>
-        /// <param name="fileIds">The list of file IDs..</param>
-        public DuplicateRequestDto(bool returnSingleOperation = default(bool), List<BaseBatchRequestDtoFolderIdsInner> folderIds = default(List<BaseBatchRequestDtoFolderIdsInner>), List<BaseBatchRequestDtoFolderIdsInner> fileIds = default(List<BaseBatchRequestDtoFolderIdsInner>))
+        /// <param name="operationId">operationId.</param>
+        /// <param name="amount">amount.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="quantity">quantity.</param>
+        public PaymentCalculation(long operationId = default(long), double amount = default(double), string currency = default(string), int quantity = default(int))
         {
-            this.ReturnSingleOperation = returnSingleOperation;
-            this.FolderIds = folderIds;
-            this.FileIds = fileIds;
+            this.OperationId = operationId;
+            this.Amount = amount;
+            this.Currency = currency;
+            this.Quantity = quantity;
         }
 
         /// <summary>
-        /// Specifies whether to return only the current operation
+        /// Gets or Sets OperationId
         /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
         /*
-        <example>true</example>
+        <example>1234</example>
         */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
+        [DataMember(Name = "operationId", EmitDefaultValue = false)]
+        public long OperationId { get; set; }
 
         /// <summary>
-        /// The list of folder IDs.
+        /// Gets or Sets Amount
         /// </summary>
-        /// <value>The list of folder IDs.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public double Amount { get; set; }
 
         /// <summary>
-        /// The list of file IDs.
+        /// Gets or Sets Currency
         /// </summary>
-        /// <value>The list of file IDs.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Quantity
+        /// </summary>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        public int Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,10 +87,11 @@ namespace Docspace.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DuplicateRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
-            sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
-            sb.Append("  FileIds: ").Append(FileIds).Append("\n");
+            sb.Append("class PaymentCalculation {\n");
+            sb.Append("  OperationId: ").Append(OperationId).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

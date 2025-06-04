@@ -54,6 +54,18 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test CalculateWalletPayment
+        /// </summary>
+        [Fact]
+        public void CalculateWalletPaymentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //WalletQuantityRequestDto? walletQuantityRequestDto = null;
+            //var response = instance.CalculateWalletPayment(walletQuantityRequestDto);
+            //Assert.IsType<PaymentCalculationWrapper>(response);
+        }
+
+        /// <summary>
         /// Test CreateCustomerOperationsReport
         /// </summary>
         [Fact]
@@ -77,26 +89,15 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetChechoutSetupUrl
+        /// Test GetCheckoutSetupUrl
         /// </summary>
         [Fact]
-        public void GetChechoutSetupUrlTest()
+        public void GetCheckoutSetupUrlTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string? backUrl = null;
-            //var response = instance.GetChechoutSetupUrl(backUrl);
+            //var response = instance.GetCheckoutSetupUrl(backUrl);
             //Assert.IsType<StringWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetCurrencies
-        /// </summary>
-        [Fact]
-        public void GetCurrenciesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetCurrencies();
-            //Assert.IsType<CurrenciesArrayWrapper>(response);
         }
 
         /// <summary>
@@ -153,6 +154,29 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
+        /// Test GetPaymentCurrencies
+        /// </summary>
+        [Fact]
+        public void GetPaymentCurrenciesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetPaymentCurrencies();
+            //Assert.IsType<CurrenciesArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPaymentQuotas
+        /// </summary>
+        [Fact]
+        public void GetPaymentQuotasTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //bool? wallet = null;
+            //var response = instance.GetPaymentQuotas(wallet);
+            //Assert.IsType<QuotaArrayWrapper>(response);
+        }
+
+        /// <summary>
         /// Test GetPaymentUrl
         /// </summary>
         [Fact]
@@ -165,38 +189,26 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetPrices
+        /// Test GetPortalPrices
         /// </summary>
         [Fact]
-        public void GetPricesTest()
+        public void GetPortalPricesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetPrices();
+            //var response = instance.GetPortalPrices();
             //Assert.IsType<ObjectWrapper>(response);
         }
 
         /// <summary>
-        /// Test GetQuotaInformation
+        /// Test GetQuotaPaymentInformation
         /// </summary>
         [Fact]
-        public void GetQuotaInformationTest()
+        public void GetQuotaPaymentInformationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //bool? refresh = null;
-            //var response = instance.GetQuotaInformation(refresh);
+            //var response = instance.GetQuotaPaymentInformation(refresh);
             //Assert.IsType<QuotaWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test GetQuotas
-        /// </summary>
-        [Fact]
-        public void GetQuotasTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //bool? wallet = null;
-            //var response = instance.GetQuotas(wallet);
-            //Assert.IsType<QuotaArrayWrapper>(response);
         }
 
         /// <summary>
@@ -223,30 +235,6 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test PaymentUpdate
-        /// </summary>
-        [Fact]
-        public void PaymentUpdateTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //QuantityRequestDto? quantityRequestDto = null;
-            //var response = instance.PaymentUpdate(quantityRequestDto);
-            //Assert.IsType<BooleanWrapper>(response);
-        }
-
-        /// <summary>
-        /// Test PaymentUpdateWallet
-        /// </summary>
-        [Fact]
-        public void PaymentUpdateWalletTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //WalletQuantityRequestDto? walletQuantityRequestDto = null;
-            //var response = instance.PaymentUpdateWallet(walletQuantityRequestDto);
-            //Assert.IsType<BooleanWrapper>(response);
-        }
-
-        /// <summary>
         /// Test PerformCustomerOperation
         /// </summary>
         [Fact]
@@ -259,14 +247,14 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test SendSalesRequest
+        /// Test SendPaymentRequest
         /// </summary>
         [Fact]
-        public void SendSalesRequestTest()
+        public void SendPaymentRequestTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //SalesRequestsDto? salesRequestsDto = null;
-            //instance.SendSalesRequest(salesRequestsDto);
+            //instance.SendPaymentRequest(salesRequestsDto);
         }
 
         /// <summary>
@@ -291,6 +279,30 @@ namespace Docspace.Test.Api
             //TopUpDepositRequestDto? topUpDepositRequestDto = null;
             //var response = instance.TopUpDeposit(topUpDepositRequestDto);
             //Assert.IsType<StringWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdatePayment
+        /// </summary>
+        [Fact]
+        public void UpdatePaymentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //QuantityRequestDto? quantityRequestDto = null;
+            //var response = instance.UpdatePayment(quantityRequestDto);
+            //Assert.IsType<BooleanWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UpdateWalletPayment
+        /// </summary>
+        [Fact]
+        public void UpdateWalletPaymentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //WalletQuantityRequestDto? walletQuantityRequestDto = null;
+            //var response = instance.UpdateWalletPayment(walletQuantityRequestDto);
+            //Assert.IsType<BooleanWrapper>(response);
         }
     }
 }
