@@ -10,7 +10,7 @@ All URIs are relative to *http://http:*
 
 <a id="getbystatus"></a>
 # **GetByStatus**
-> EmployeeFullArrayWrapper GetByStatus (EmployeeStatus status)
+> EmployeeFullArrayWrapper GetByStatus (EmployeeStatus status, string? filterBy = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Get profiles by status
 
@@ -54,11 +54,18 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserStatusApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
+            var filterBy = some text;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
+            var count = 1234;  // int? | The maximum number of user profiles to retrieve. (optional) 
+            var startIndex = 1234;  // int? | The starting index for retrieving data in a paginated request. (optional) 
+            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterSeparator = some text;  // string? | Represents the separator used to split multiple filter criteria in a query string. (optional) 
+            var filterValue = some text;  // string? | A string value representing additional filter criteria used in query parameters. (optional) 
 
             try
             {
                 // Get profiles by status
-                EmployeeFullArrayWrapper result = apiInstance.GetByStatus(status);
+                EmployeeFullArrayWrapper result = apiInstance.GetByStatus(status, filterBy, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -79,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get profiles by status
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetByStatusWithHttpInfo(status);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetByStatusWithHttpInfo(status, filterBy, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -97,6 +104,13 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **status** | **EmployeeStatus** | The user status. |  |
+| **filterBy** | **string?** | Specifies the criteria used to filter the profiles in the request. | [optional]  |
+| **count** | **int?** | The maximum number of user profiles to retrieve. | [optional]  |
+| **startIndex** | **int?** | The starting index for retrieving data in a paginated request. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split multiple filter criteria in a query string. | [optional]  |
+| **filterValue** | **string?** | A string value representing additional filter criteria used in query parameters. | [optional]  |
 
 ### Return type
 

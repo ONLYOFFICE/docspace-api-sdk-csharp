@@ -36,8 +36,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <returns>GroupArrayWrapper</returns>
-        GroupArrayWrapper GetGroupsWithShared(int id, bool? excludeShared = default(bool?));
+        GroupArrayWrapper GetGroupsWithShared(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get groups with sharing settings
@@ -48,8 +51,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default(bool?));
+        ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
         #endregion Synchronous Operations
     }
 
@@ -68,9 +74,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupArrayWrapper</returns>
-        System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsWithSharedAsync(int id, bool? excludeShared = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsWithSharedAsync(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get groups with sharing settings
@@ -81,9 +90,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -303,10 +315,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <returns>GroupArrayWrapper</returns>
-        public GroupArrayWrapper GetGroupsWithShared(int id, bool? excludeShared = default(bool?))
+        public GroupArrayWrapper GetGroupsWithShared(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithSharedWithHttpInfo(id, excludeShared);
+            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithSharedWithHttpInfo(id, excludeShared, count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -316,8 +331,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default(bool?))
+        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -339,6 +357,18 @@ namespace Docspace.Api
             if (excludeShared != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -390,11 +420,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsWithSharedAsync(int id, bool? excludeShared = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsWithSharedAsync(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithSharedWithHttpInfoAsync(id, excludeShared, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithSharedWithHttpInfoAsync(id, excludeShared, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -404,9 +437,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="excludeShared">Specifies whether to exclude the group sharing settings from the response. (optional)</param>
+        /// <param name="count">The number of groups to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index from which to begin retrieving groups with their sharing settings. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -430,6 +466,18 @@ namespace Docspace.Api
             if (excludeShared != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

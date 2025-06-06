@@ -62,8 +62,10 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <returns>AuditEventArrayWrapper</returns>
-        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?));
+        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get filtered audit trail data
@@ -81,8 +83,10 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?));
+        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -230,9 +234,11 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        System.Threading.Tasks.Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get filtered audit trail data
@@ -250,9 +256,11 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -751,10 +759,12 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <returns>AuditEventArrayWrapper</returns>
-        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?))
+        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to);
+            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -771,8 +781,10 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?))
+        public Docspace.Client.ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -825,6 +837,14 @@ namespace Docspace.Api
             if (to != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -883,11 +903,13 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, productType, moduleType, actionType, action, entryType, target, from, to, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -904,9 +926,11 @@ namespace Docspace.Api
         /// <param name="target">The target object affected by the audit event (e.g., document ID, user account). (optional)</param>
         /// <param name="from">The starting date and time for filtering audit events. (optional)</param>
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
+        /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
+        /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), ProductType? productType = default(ProductType?), ModuleType? moduleType = default(ModuleType?), ActionType? actionType = default(ActionType?), MessageAction? action = default(MessageAction?), EntryType? entryType = default(EntryType?), string? target = default(string?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -961,6 +985,14 @@ namespace Docspace.Api
             if (to != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required

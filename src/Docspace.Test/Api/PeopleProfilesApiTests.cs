@@ -95,7 +95,14 @@ namespace Docspace.Test.Api
         public void GetAllProfilesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetAllProfiles();
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterBy = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 

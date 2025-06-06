@@ -454,7 +454,7 @@ This endpoint does not need any parameter.
 
 <a id="getwebhookslogs"></a>
 # **GetWebhooksLogs**
-> WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null)
+> WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null, int? count = null, int? startIndex = null)
 
 Get webhook logs
 
@@ -505,11 +505,13 @@ namespace Example
             var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
             var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
+            var count = 1234;  // int? | The maximum number of webhook log records to return in the query response. (optional) 
+            var startIndex = 1234;  // int? | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional) 
 
             try
             {
                 // Get webhook logs
-                WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+                WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -530,7 +532,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get webhook logs
-    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -555,6 +557,8 @@ catch (ApiException e)
 | **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | The status of the webhook delivery group. | [optional]  |
 | **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
 | **trigger** | [**WebhookTrigger?**](WebhookTrigger?.md) | The type of event that triggered the webhook. | [optional]  |
+| **count** | **int?** | The maximum number of webhook log records to return in the query response. | [optional]  |
+| **startIndex** | **int?** | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional]  |
 
 ### Return type
 

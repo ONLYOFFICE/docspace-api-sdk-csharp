@@ -358,7 +358,7 @@ This endpoint does not need any parameter.
 
 <a id="getallprofiles"></a>
 # **GetAllProfiles**
-> EmployeeFullArrayWrapper GetAllProfiles ()
+> EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Get profiles
 
@@ -401,11 +401,18 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var filterBy = some text;  // string? | Specifies the filter criteria for user-related queries. (optional) 
+            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = some text;  // string? | The text value used as an additional filter criterion for profiles retrieval. (optional) 
 
             try
             {
                 // Get profiles
-                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles();
+                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -426,7 +433,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get profiles
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo();
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -440,7 +447,17 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **filterBy** | **string?** | Specifies the filter criteria for user-related queries. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The text value used as an additional filter criterion for profiles retrieval. | [optional]  |
+
 ### Return type
 
 [**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)

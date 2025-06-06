@@ -69,7 +69,11 @@ namespace Docspace.Test.Api
             //Guid? inviterId = null;
             //Area? area = null;
             //List<EmployeeType>? employeeTypes = null;
-            //var response = instance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             //Assert.IsType<ObjectArrayWrapper>(response);
         }
 
@@ -81,7 +85,9 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //var response = instance.GetSearch(query);
+            //string? filterBy = null;
+            //string? filterValue = null;
+            //var response = instance.GetSearch(query, filterBy, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 
@@ -106,7 +112,13 @@ namespace Docspace.Test.Api
             //bool? invitedByMe = null;
             //Guid? inviterId = null;
             //Area? area = null;
-            //var response = instance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             //Assert.IsType<EmployeeArrayWrapper>(response);
         }
 
@@ -126,7 +138,11 @@ namespace Docspace.Test.Api
             //Guid? inviterId = null;
             //Area? area = null;
             //List<EmployeeType>? employeeTypes = null;
-            //var response = instance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 
@@ -151,7 +167,13 @@ namespace Docspace.Test.Api
             //bool? invitedByMe = null;
             //Guid? inviterId = null;
             //Area? area = null;
-            //var response = instance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 
@@ -176,7 +198,9 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //EmployeeStatus status = null;
             //string? query = null;
-            //var response = instance.SearchUsersByStatus(status, query);
+            //string? filterBy = null;
+            //string? filterValue = null;
+            //var response = instance.SearchUsersByStatus(status, query, filterBy, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
     }

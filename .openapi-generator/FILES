@@ -510,6 +510,7 @@ docs/SmtpOperationStatusRequestsDto.md
 docs/SmtpOperationStatusRequestsWrapper.md
 docs/SmtpSettingsDto.md
 docs/SmtpSettingsWrapper.md
+docs/SortOrder.md
 docs/SortedByType.md
 docs/SsoCertificate.md
 docs/SsoFieldMapping.md
@@ -1155,6 +1156,7 @@ src/Docspace.Test/Model/SmtpOperationStatusRequestsDtoTests.cs
 src/Docspace.Test/Model/SmtpOperationStatusRequestsWrapperTests.cs
 src/Docspace.Test/Model/SmtpSettingsDtoTests.cs
 src/Docspace.Test/Model/SmtpSettingsWrapperTests.cs
+src/Docspace.Test/Model/SortOrderTests.cs
 src/Docspace.Test/Model/SortedByTypeTests.cs
 src/Docspace.Test/Model/SsoCertificateTests.cs
 src/Docspace.Test/Model/SsoFieldMappingTests.cs
@@ -1816,6 +1818,7 @@ src/Docspace/Model/SmtpOperationStatusRequestsDto.cs
 src/Docspace/Model/SmtpOperationStatusRequestsWrapper.cs
 src/Docspace/Model/SmtpSettingsDto.cs
 src/Docspace/Model/SmtpSettingsWrapper.cs
+src/Docspace/Model/SortOrder.cs
 src/Docspace/Model/SortedByType.cs
 src/Docspace/Model/SsoCertificate.cs
 src/Docspace/Model/SsoFieldMapping.cs

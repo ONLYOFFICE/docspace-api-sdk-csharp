@@ -114,7 +114,9 @@ namespace Docspace.Test.Api
             //WebhookGroupStatus? groupStatus = null;
             //Guid? userId = null;
             //WebhookTrigger? trigger = null;
-            //var response = instance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
             //Assert.IsType<WebhooksLogArrayWrapper>(response);
         }
 

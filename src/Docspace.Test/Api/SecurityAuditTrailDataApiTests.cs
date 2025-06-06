@@ -80,7 +80,9 @@ namespace Docspace.Test.Api
             //string? target = null;
             //ApiDateTime? from = null;
             //ApiDateTime? to = null;
-            //var response = instance.GetAuditEventsByFilter(userId, productType, moduleType, actionType, action, entryType, target, from, to);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetAuditEventsByFilter(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
             //Assert.IsType<AuditEventArrayWrapper>(response);
         }
 

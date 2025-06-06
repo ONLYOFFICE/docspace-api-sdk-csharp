@@ -14,7 +14,7 @@ All URIs are relative to *http://http:*
 
 <a id="getaccountsentrieswithshared"></a>
 # **GetAccountsEntriesWithShared**
-> ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
+> ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Get account entries
 
@@ -66,11 +66,15 @@ namespace Example
             var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The area of the account entries. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
+            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
 
             try
             {
                 // Get account entries
-                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -91,7 +95,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get account entries
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -117,6 +121,10 @@ catch (ApiException e)
 | **inviterId** | **Guid?** | The inviter ID. | [optional]  |
 | **area** | [**Area?**](Area?.md) | The area of the account entries. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
+| **count** | **int?** | The number of items to retrieve in a request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+| **filterSeparator** | **string?** | Specifies the separator used in filter expressions. | [optional]  |
+| **filterValue** | **string?** | The text filter applied to the accounts search query. | [optional]  |
 
 ### Return type
 
@@ -143,7 +151,7 @@ catch (ApiException e)
 
 <a id="getsearch"></a>
 # **GetSearch**
-> EmployeeFullArrayWrapper GetSearch (string query)
+> EmployeeFullArrayWrapper GetSearch (string query, string? filterBy = null, string? filterValue = null)
 
 Search users
 
@@ -187,11 +195,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
             var query = some text;  // string | The search query.
+            var filterBy = some text;  // string? | Specifies a filter criteria for the user search query. (optional) 
+            var filterValue = some text;  // string? | The value used for filtering users, allowing additional constraints for the query. (optional) 
 
             try
             {
                 // Search users
-                EmployeeFullArrayWrapper result = apiInstance.GetSearch(query);
+                EmployeeFullArrayWrapper result = apiInstance.GetSearch(query, filterBy, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -212,7 +222,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetSearchWithHttpInfo(query);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetSearchWithHttpInfo(query, filterBy, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -230,6 +240,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | The search query. |  |
+| **filterBy** | **string?** | Specifies a filter criteria for the user search query. | [optional]  |
+| **filterValue** | **string?** | The value used for filtering users, allowing additional constraints for the query. | [optional]  |
 
 ### Return type
 
@@ -256,7 +268,7 @@ catch (ApiException e)
 
 <a id="getsimplebyfilter"></a>
 # **GetSimpleByFilter**
-> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
+> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Search users by extended filter
 
@@ -313,11 +325,17 @@ namespace Example
             var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
             var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The filter area. (optional) 
+            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
+            var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
 
             try
             {
                 // Search users by extended filter
-                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -338,7 +356,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users by extended filter
-    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -369,6 +387,12 @@ catch (ApiException e)
 | **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
 | **inviterId** | **Guid?** | The inviter ID. | [optional]  |
 | **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
+| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
 
 ### Return type
 
@@ -395,7 +419,7 @@ catch (ApiException e)
 
 <a id="getuserswithroomshared"></a>
 # **GetUsersWithRoomShared**
-> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
+> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Get users with room sharing settings
 
@@ -447,11 +471,15 @@ namespace Example
             var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The user area. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
+            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
 
             try
             {
                 // Get users with room sharing settings
-                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -472,7 +500,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get users with room sharing settings
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -498,6 +526,10 @@ catch (ApiException e)
 | **inviterId** | **Guid?** | The inviter ID. | [optional]  |
 | **area** | [**Area?**](Area?.md) | The user area. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
+| **count** | **int?** | The maximum number of users to be retrieved in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first record to retrieve in a paged query. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The filter text value used for searching or filtering user results. | [optional]  |
 
 ### Return type
 
@@ -524,7 +556,7 @@ catch (ApiException e)
 
 <a id="searchusersbyextendedfilter"></a>
 # **SearchUsersByExtendedFilter**
-> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
+> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Search users with detaailed information by extended filter
 
@@ -581,11 +613,17 @@ namespace Example
             var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
             var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The filter area. (optional) 
+            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
+            var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
 
             try
             {
                 // Search users with detaailed information by extended filter
-                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -606,7 +644,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users with detaailed information by extended filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -637,6 +675,12 @@ catch (ApiException e)
 | **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
 | **inviterId** | **Guid?** | The inviter ID. | [optional]  |
 | **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
+| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
 
 ### Return type
 
@@ -775,7 +819,7 @@ catch (ApiException e)
 
 <a id="searchusersbystatus"></a>
 # **SearchUsersByStatus**
-> EmployeeFullArrayWrapper SearchUsersByStatus (EmployeeStatus status, string? query = null)
+> EmployeeFullArrayWrapper SearchUsersByStatus (EmployeeStatus status, string? query = null, string? filterBy = null, string? filterValue = null)
 
 Search users by status filter
 
@@ -820,11 +864,13 @@ namespace Example
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
             var query = some text;  // string? | The advanced search query. (optional) 
+            var filterBy = some text;  // string? | Specifies the criteria used to filter search results in advanced queries. (optional) 
+            var filterValue = some text;  // string? | The value used to filter the search query. (optional) 
 
             try
             {
                 // Search users by status filter
-                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByStatus(status, query);
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByStatus(status, query, filterBy, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -845,7 +891,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users by status filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByStatusWithHttpInfo(status, query);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByStatusWithHttpInfo(status, query, filterBy, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -864,6 +910,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **status** | **EmployeeStatus** | The user status. |  |
 | **query** | **string?** | The advanced search query. | [optional]  |
+| **filterBy** | **string?** | Specifies the criteria used to filter search results in advanced queries. | [optional]  |
+| **filterValue** | **string?** | The value used to filter the search query. | [optional]  |
 
 ### Return type
 

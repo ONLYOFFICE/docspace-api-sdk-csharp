@@ -122,8 +122,10 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
+        WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get webhook logs
@@ -140,8 +142,10 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?));
+        ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -338,9 +342,11 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get webhook logs
@@ -357,9 +363,11 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -1337,10 +1345,12 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
+        public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger);
+            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -1356,8 +1366,10 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?))
+        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1406,6 +1418,14 @@ namespace Docspace.Api
             if (trigger != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -1463,11 +1483,13 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1483,9 +1505,11 @@ namespace Docspace.Api
         /// <param name="groupStatus">The status of the webhook delivery group. (optional)</param>
         /// <param name="userId">The identifier of the user associated with the webhook event. (optional)</param>
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
+        /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
+        /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default(DateTime?), DateTime? deliveryTo = default(DateTime?), string? hookUri = default(string?), int? configId = default(int?), int? eventId = default(int?), WebhookGroupStatus? groupStatus = default(WebhookGroupStatus?), Guid? userId = default(Guid?), WebhookTrigger? trigger = default(WebhookTrigger?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1536,6 +1560,14 @@ namespace Docspace.Api
             if (trigger != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required

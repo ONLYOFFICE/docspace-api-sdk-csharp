@@ -585,7 +585,7 @@ catch (ApiException e)
 
 <a id="getgroups"></a>
 # **GetGroups**
-> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null)
+> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get groups
 
@@ -630,11 +630,16 @@ namespace Example
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID. (optional) 
             var manager = true;  // bool? | Specifies if the user is a manager or not. (optional) 
+            var count = 1234;  // int? | The number of records to retrieve. (optional) 
+            var startIndex = 1234;  // int? | The starting index for paginated results. (optional) 
+            var sortBy = some text;  // string? | Specifies the property used to sort the query results. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used for filtering or searching group data. (optional) 
 
             try
             {
                 // Get groups
-                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager);
+                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -655,7 +660,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get groups
-    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager);
+    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -674,6 +679,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **userId** | **Guid?** | The user ID. | [optional]  |
 | **manager** | **bool?** | Specifies if the user is a manager or not. | [optional]  |
+| **count** | **int?** | The number of records to retrieve. | [optional]  |
+| **startIndex** | **int?** | The starting index for paginated results. | [optional]  |
+| **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
 
 ### Return type
 

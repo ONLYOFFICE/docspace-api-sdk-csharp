@@ -226,7 +226,7 @@ This endpoint does not need any parameter.
 
 <a id="getlogineventsbyfilter"></a>
 # **GetLoginEventsByFilter**
-> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null)
+> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
 Get filtered login events
 
@@ -273,11 +273,13 @@ namespace Example
             var action = new MessageAction?(); // MessageAction? | The login-related action to filter events by. (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering login events. (optional) 
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering login events. (optional) 
+            var count = 1234;  // int? | The number of login events to retrieve in the query. (optional) 
+            var startIndex = 1234;  // int? | The starting index for fetching a subset of login events from the query results. (optional) 
 
             try
             {
                 // Get filtered login events
-                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to);
+                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -298,7 +300,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered login events
-    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to);
+    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -319,6 +321,8 @@ catch (ApiException e)
 | **action** | [**MessageAction?**](MessageAction?.md) | The login-related action to filter events by. | [optional]  |
 | **from** | [**ApiDateTime?**](ApiDateTime?.md) | The starting date and time for filtering login events. | [optional]  |
 | **to** | [**ApiDateTime?**](ApiDateTime?.md) | The ending date and time for filtering login events. | [optional]  |
+| **count** | **int?** | The number of login events to retrieve in the query. | [optional]  |
+| **startIndex** | **int?** | The starting index for fetching a subset of login events from the query results. | [optional]  |
 
 ### Return type
 

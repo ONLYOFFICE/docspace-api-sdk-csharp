@@ -86,7 +86,9 @@ namespace Docspace.Test.Api
             //MessageAction? action = null;
             //ApiDateTime? from = null;
             //ApiDateTime? to = null;
-            //var response = instance.GetLoginEventsByFilter(userId, action, from, to);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetLoginEventsByFilter(userId, action, from, to, count, startIndex);
             //Assert.IsType<LoginEventArrayWrapper>(response);
         }
     }

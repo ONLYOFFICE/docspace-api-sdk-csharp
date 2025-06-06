@@ -43,8 +43,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
+        ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get account entries
@@ -62,8 +66,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
+        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Search users
         /// </summary>
@@ -72,8 +80,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetSearch(string query);
+        EmployeeFullArrayWrapper GetSearch(string query, string? filterBy = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Search users
@@ -83,8 +93,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query);
+        ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query, string? filterBy = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Search users by extended filter
         /// </summary>
@@ -106,8 +118,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>EmployeeArrayWrapper</returns>
-        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Search users by extended filter
@@ -130,8 +148,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Get users with room sharing settings
         /// </summary>
@@ -148,8 +172,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
+        EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get users with room sharing settings
@@ -167,8 +195,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?));
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Search users with detaailed information by extended filter
         /// </summary>
@@ -190,8 +222,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Search users with detaailed information by extended filter
@@ -214,8 +252,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?));
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Search users (using query parameters)
         /// </summary>
@@ -246,8 +290,10 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?));
+        EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Search users by status filter
@@ -258,8 +304,10 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?));
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?));
         #endregion Synchronous Operations
     }
 
@@ -285,9 +333,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        System.Threading.Tasks.Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get account entries
@@ -305,9 +357,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users
         /// </summary>
@@ -316,9 +372,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetSearchAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetSearchAsync(string query, string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search users
@@ -328,9 +386,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users by extended filter
         /// </summary>
@@ -352,9 +412,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search users by extended filter
@@ -377,9 +443,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get users with room sharing settings
         /// </summary>
@@ -396,9 +468,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get users with room sharing settings
@@ -416,9 +492,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users with detaailed information by extended filter
         /// </summary>
@@ -440,9 +520,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search users with detaailed information by extended filter
@@ -465,9 +551,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users (using query parameters)
         /// </summary>
@@ -500,9 +592,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search users by status filter
@@ -513,9 +607,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -742,10 +838,14 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?))
+        public ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -762,8 +862,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?))
+        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -812,6 +916,22 @@ namespace Docspace.Api
             }
             if (employeeTypes != null)
             {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -870,11 +990,15 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetAccountsEntriesWithSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetAccountsEntriesWithSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -891,9 +1015,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The area of the account entries. (optional)</param>
         /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -946,6 +1074,22 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -996,10 +1140,12 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetSearch(string query)
+        public EmployeeFullArrayWrapper GetSearch(string query, string? filterBy = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetSearchWithHttpInfo(query);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetSearchWithHttpInfo(query, filterBy, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1008,8 +1154,10 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query)
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query, string? filterBy = default(string?), string? filterValue = default(string?))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1032,6 +1180,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("query", Docspace.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1081,11 +1237,13 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetSearchAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetSearchAsync(string query, string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetSearchWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetSearchWithHttpInfoAsync(query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1094,9 +1252,11 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
+        /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
+        /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1121,6 +1281,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("query", Docspace.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1184,10 +1352,16 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>EmployeeArrayWrapper</returns>
-        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1209,8 +1383,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1282,6 +1462,30 @@ namespace Docspace.Api
             if (area != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1345,11 +1549,17 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1371,9 +1581,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1449,6 +1665,30 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
             }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1507,10 +1747,14 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?))
+        public EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1527,8 +1771,12 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?))
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1577,6 +1825,22 @@ namespace Docspace.Api
             }
             if (employeeTypes != null)
             {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1635,11 +1899,15 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1656,9 +1924,13 @@ namespace Docspace.Api
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The user area. (optional)</param>
         /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default(EmployeeStatus?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), bool? excludeShared = default(bool?), bool? includeShared = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), List<EmployeeType>? employeeTypes = default(List<EmployeeType>?), int? count = default(int?), int? startIndex = default(int?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1710,6 +1982,22 @@ namespace Docspace.Api
             if (employeeTypes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1774,10 +2062,16 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1799,8 +2093,14 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?))
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1873,6 +2173,30 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
             }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1935,11 +2259,17 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1961,9 +2291,15 @@ namespace Docspace.Api
         /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
         /// <param name="inviterId">The inviter ID. (optional)</param>
         /// <param name="area">The filter area. (optional)</param>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
+        /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default(EmployeeStatus?), Guid? groupId = default(Guid?), EmployeeActivationStatus? activationStatus = default(EmployeeActivationStatus?), EmployeeType? employeeType = default(EmployeeType?), List<int>? employeeTypes = default(List<int>?), bool? isAdministrator = default(bool?), Payments? payments = default(Payments?), AccountLoginType? accountLoginType = default(AccountLoginType?), QuotaFilter? quotaFilter = default(QuotaFilter?), bool? withoutGroup = default(bool?), bool? excludeGroup = default(bool?), bool? invitedByMe = default(bool?), Guid? inviterId = default(Guid?), Area? area = default(Area?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2038,6 +2374,30 @@ namespace Docspace.Api
             if (area != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -2263,10 +2623,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?))
+        public EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByStatusWithHttpInfo(status, query);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByStatusWithHttpInfo(status, query, filterBy, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2276,8 +2638,10 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?))
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2299,6 +2663,14 @@ namespace Docspace.Api
             if (query != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -2350,11 +2722,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByStatusWithHttpInfoAsync(status, query, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByStatusWithHttpInfoAsync(status, query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2364,9 +2738,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
+        /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
+        /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default(string?), string? filterBy = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2390,6 +2766,14 @@ namespace Docspace.Api
             if (query != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

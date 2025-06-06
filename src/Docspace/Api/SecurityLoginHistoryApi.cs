@@ -76,8 +76,10 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <returns>LoginEventArrayWrapper</returns>
-        LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?));
+        LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get filtered login events
@@ -90,8 +92,10 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
-        ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?));
+        ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -154,9 +158,11 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoginEventArrayWrapper</returns>
-        System.Threading.Tasks.Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get filtered login events
@@ -169,9 +175,11 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -715,10 +723,12 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <returns>LoginEventArrayWrapper</returns>
-        public LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?))
+        public LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<LoginEventArrayWrapper> localVarResponse = GetLoginEventsByFilterWithHttpInfo(userId, action, from, to);
+            Docspace.Client.ApiResponse<LoginEventArrayWrapper> localVarResponse = GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -730,8 +740,10 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?))
+        public Docspace.Client.ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -764,6 +776,14 @@ namespace Docspace.Api
             if (to != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -817,11 +837,13 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoginEventArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<LoginEventArrayWrapper> localVarResponse = await GetLoginEventsByFilterWithHttpInfoAsync(userId, action, from, to, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<LoginEventArrayWrapper> localVarResponse = await GetLoginEventsByFilterWithHttpInfoAsync(userId, action, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -833,9 +855,11 @@ namespace Docspace.Api
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
         /// <param name="to">The ending date and time for filtering login events. (optional)</param>
+        /// <param name="count">The number of login events to retrieve in the query. (optional)</param>
+        /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default(Guid?), MessageAction? action = default(MessageAction?), ApiDateTime? from = default(ApiDateTime?), ApiDateTime? to = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -870,6 +894,14 @@ namespace Docspace.Api
             if (to != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required

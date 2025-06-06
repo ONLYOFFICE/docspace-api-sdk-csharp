@@ -61,7 +61,14 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //EmployeeStatus status = null;
-            //var response = instance.GetByStatus(status);
+            //string? filterBy = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterSeparator = null;
+            //string? filterValue = null;
+            //var response = instance.GetByStatus(status, filterBy, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             //Assert.IsType<EmployeeFullArrayWrapper>(response);
         }
 

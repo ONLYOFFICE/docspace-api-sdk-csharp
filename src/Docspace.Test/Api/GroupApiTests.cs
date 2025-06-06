@@ -124,7 +124,12 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //Guid? userId = null;
             //bool? manager = null;
-            //var response = instance.GetGroups(userId, manager);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<GroupArrayWrapper>(response);
         }
 

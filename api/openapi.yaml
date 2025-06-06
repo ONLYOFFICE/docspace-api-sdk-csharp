@@ -2294,6 +2294,29 @@ paths:
         schema:
           $ref: '#/components/schemas/ApiDateTime'
         style: form
+      - description: The maximum number of audit event records to retrieve.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The index of the first audit event record to retrieve in a paged
+          query.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -2658,6 +2681,29 @@ paths:
         required: false
         schema:
           $ref: '#/components/schemas/ApiDateTime'
+        style: form
+      - description: The number of login events to retrieve in the query.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The starting index for fetching a subset of login events from
+          the query results.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
         style: form
       responses:
         "200":
@@ -6806,6 +6852,30 @@ paths:
         schema:
           $ref: '#/components/schemas/WebhookTrigger'
         style: form
+      - description: The maximum number of webhook log records to return in the query
+          response.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: "Specifies the starting index for retrieving webhook logs.\r\n\
+          Used for pagination in the webhook delivery log queries."
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -7413,6 +7483,54 @@ paths:
           example: true
           type: boolean
         style: form
+      - description: The number of records to retrieve.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The starting index for paginated results.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the property used to sort the query results.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The order in which the results are sorted.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: The text used for filtering or searching group data.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7924,6 +8042,39 @@ paths:
         schema:
           example: true
           type: boolean
+        style: form
+      - description: The number of groups to retrieve in the request.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The starting index from which to begin retrieving groups with
+          their sharing settings.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: The text used as a filter for retrieving groups with their sharing
+          settings.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
         style: form
       responses:
         "200":
@@ -8519,6 +8670,77 @@ paths:
     get:
       description: Returns a list of profiles for all the portal users.
       operationId: getAllProfiles
+      parameters:
+      - description: The maximum number of items to be retrieved in the response.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The zero-based index of the first item to be retrieved in a filtered
+          result set.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the filter criteria for user-related queries.
+        explode: true
+        in: query
+        name: filterBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: Specifies the property or field name by which the results should
+          be sorted.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The order in which the results are sorted.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: The character or string used to separate multiple filter values
+          in a filtering query.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The text value used as an additional filter criterion for profiles
+          retrieval.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9198,6 +9420,46 @@ paths:
             $ref: '#/components/schemas/EmployeeType'
           type: array
         style: deepObject
+      - description: The number of items to retrieve in a request.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The starting index for the query results.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the separator used in filter expressions.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The text filter applied to the accounts search query.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9242,6 +9504,25 @@ paths:
         explode: true
         in: query
         name: query
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: Specifies the criteria used to filter search results in advanced
+          queries.
+        explode: true
+        in: query
+        name: filterBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The value used to filter the search query.
+        explode: true
+        in: query
+        name: filterValue
         required: false
         schema:
           example: some text
@@ -9425,6 +9706,66 @@ paths:
         schema:
           $ref: '#/components/schemas/Area'
         style: form
+      - description: The maximum number of items to be retrieved in the response.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The zero-based index of the first item to be retrieved in a filtered
+          result set.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the property or field name by which the results should
+          be sorted.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The order in which the results are sorted.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: Represents the separator used to split filter criteria in query
+          parameters.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The search text used to filter results based on user input.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9506,6 +9847,25 @@ paths:
           example: some text
           type: string
         style: simple
+      - description: Specifies a filter criteria for the user search query.
+        explode: true
+        in: query
+        name: filterBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: "The value used for filtering users, allowing additional constraints\
+          \ for the query."
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9684,6 +10044,66 @@ paths:
         schema:
           $ref: '#/components/schemas/Area'
         style: form
+      - description: The maximum number of items to be retrieved in the response.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The zero-based index of the first item to be retrieved in a filtered
+          result set.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the property or field name by which the results should
+          be sorted.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The order in which the results are sorted.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: Represents the separator used to split filter criteria in query
+          parameters.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The search text used to filter results based on user input.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9799,6 +10219,48 @@ paths:
             $ref: '#/components/schemas/EmployeeType'
           type: array
         style: deepObject
+      - description: The maximum number of users to be retrieved in the request.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The zero-based index of the first record to retrieve in a paged
+          query.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: The character or string used to separate multiple filter values
+          in a filtering query.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The filter text value used for searching or filtering user results.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -10409,6 +10871,75 @@ paths:
         schema:
           $ref: '#/components/schemas/EmployeeStatus'
         style: simple
+      - description: Specifies the criteria used to filter the profiles in the request.
+        explode: true
+        in: query
+        name: filterBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The maximum number of user profiles to retrieve.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: The starting index for retrieving data in a paginated request.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the property or field name by which the results should
+          be sorted.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: The order in which the results are sorted.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: Represents the separator used to split multiple filter criteria
+          in a query string.
+        explode: true
+        in: query
+        name: filterSeparator
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
+      - description: A string value representing additional filter criteria used in
+          query parameters.
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: some text
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -32846,6 +33377,12 @@ components:
           nullable: true
           type: string
       type: object
+    SortOrder:
+      enum:
+      - 0
+      - 1
+      format: int32
+      type: integer
     StartReassignRequestDto:
       additionalProperties: false
       description: The request parameters for starting the reassignment process.
@@ -48891,17 +49428,66 @@ components:
       name: x-signature
       type: apiKey
 x-tagGroups:
-- name: Api
+- name: Api keys
+  tags:
+  - Api keys
+- name: Authentication
   tags:
   - Authentication
+- name: Backup
+  tags:
+  - Backup
+- name: Capabilities
+  tags:
   - Capabilities
+- name: Files
+  tags:
+  - Files / Files
+  - Files / Folders
+  - Files / Operations
+  - Files / Quota
+  - Files / Settings
+  - Files / Sharing
+  - Files / Third-party integration
+- name: Group
+  tags:
+  - Group
+  - Group / Rooms
+- name: Migration
+  tags:
   - Migration
+- name: OAuth 2.0
+  tags:
+  - OAuth 2.0 / Authorization
+  - OAuth 2.0 / Client Management
+  - OAuth 2.0 / Client Querying
+  - OAuth 2.0 / Scope Management
+- name: People
+  tags:
+  - People / Contacts
+  - People / Guests
+  - People / Password
+  - People / Photos
+  - People / Profiles
+  - People / Quota
+  - People / Search
+  - People / Theme
+  - People / Third-party accounts
+  - People / User data
+  - People / User status
+  - People / User type
+- name: Portal
+  tags:
   - Portal / Payment
   - Portal / Quota
   - Portal / Settings
   - Portal / Users
+- name: Rooms
+  tags:
+  - Rooms
+- name: Security
+  tags:
   - Security / Access to DevTools
-  - Settings / Access to DevTools
   - Security / Active connections
   - Security / Audit trail data
   - Security / CSP
@@ -48909,6 +49495,9 @@ x-tagGroups:
   - Security / Login history
   - Security / OAuth2
   - Security / SMTP settings
+- name: Settings
+  tags:
+  - Settings / Access to DevTools
   - Settings / Authorization
   - Settings / Common settings
   - Settings / Cookies
@@ -48930,36 +49519,7 @@ x-tagGroups:
   - Settings / TFA settings
   - Settings / Webhooks
   - Settings / Webplugins
-  - ThirdParty
-  - Api keys
-  - Group
-  - Group / Rooms
-  - People / Contacts
-  - People / Guests
-  - People / Password
-  - People / Photos
-  - People / Profiles
-  - People / Quota
-  - People / Search
-  - People / Theme
-  - People / Third-party accounts
-  - People / User data
-  - People / User status
-  - People / User type
-  - Portal / Guests
-  - Files / Files
-  - Files / Folders
-  - Files / Operations
-  - Files / Quota
-  - Files / Settings
-  - Files / Third-party integration
-  - Files / Sharing
-  - Rooms
-  - Backup
-- name: ASC.Identity.Authorization
+- name: ThirdParty
   tags:
-  - OAuth 2.0 / Authorization
-  - OAuth 2.0 / Client Management
-  - OAuth 2.0 / Scope Management
-  - OAuth 2.0 / Client Querying
+  - ThirdParty
 

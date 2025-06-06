@@ -8,7 +8,7 @@ All URIs are relative to *http://http:*
 
 <a id="getgroupswithshared"></a>
 # **GetGroupsWithShared**
-> GroupArrayWrapper GetGroupsWithShared (int id, bool? excludeShared = null)
+> GroupArrayWrapper GetGroupsWithShared (int id, bool? excludeShared = null, int? count = null, int? startIndex = null, string? filterValue = null)
 
 Get groups with sharing settings
 
@@ -53,11 +53,14 @@ namespace Example
             var apiInstance = new GroupRoomsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The group ID.
             var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
+            var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
+            var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
+            var filterValue = some text;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
 
             try
             {
                 // Get groups with sharing settings
-                GroupArrayWrapper result = apiInstance.GetGroupsWithShared(id, excludeShared);
+                GroupArrayWrapper result = apiInstance.GetGroupsWithShared(id, excludeShared, count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -78,7 +81,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get groups with sharing settings
-    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithSharedWithHttpInfo(id, excludeShared);
+    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithSharedWithHttpInfo(id, excludeShared, count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -97,6 +100,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** | The group ID. |  |
 | **excludeShared** | **bool?** | Specifies whether to exclude the group sharing settings from the response. | [optional]  |
+| **count** | **int?** | The number of groups to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index from which to begin retrieving groups with their sharing settings. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter for retrieving groups with their sharing settings. | [optional]  |
 
 ### Return type
 

@@ -145,8 +145,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <returns>GroupArrayWrapper</returns>
-        GroupArrayWrapper GetGroups(Guid? userId = default(Guid?), bool? manager = default(bool?));
+        GroupArrayWrapper GetGroups(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get groups
@@ -157,8 +162,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default(Guid?), bool? manager = default(bool?));
+        ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Move group members
         /// </summary>
@@ -411,9 +421,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupArrayWrapper</returns>
-        System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get groups
@@ -424,9 +439,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Move group members
         /// </summary>
@@ -1628,10 +1648,15 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <returns>GroupArrayWrapper</returns>
-        public GroupArrayWrapper GetGroups(Guid? userId = default(Guid?), bool? manager = default(bool?))
+        public GroupArrayWrapper GetGroups(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithHttpInfo(userId, manager);
+            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1641,8 +1666,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default(Guid?), bool? manager = default(bool?))
+        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1667,6 +1697,26 @@ namespace Docspace.Api
             if (manager != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "manager", manager));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1718,11 +1768,16 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1732,9 +1787,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
+        /// <param name="count">The number of records to retrieve. (optional)</param>
+        /// <param name="startIndex">The starting index for paginated results. (optional)</param>
+        /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default(Guid?), bool? manager = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1761,6 +1821,26 @@ namespace Docspace.Api
             if (manager != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "manager", manager));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

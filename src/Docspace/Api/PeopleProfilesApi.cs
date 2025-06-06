@@ -95,8 +95,15 @@ namespace Docspace.Api
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetAllProfiles();
+        EmployeeFullArrayWrapper GetAllProfiles(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get profiles
@@ -105,8 +112,15 @@ namespace Docspace.Api
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo();
+        ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?));
         /// <summary>
         /// Returns the user claims.
         /// </summary>
@@ -402,9 +416,16 @@ namespace Docspace.Api
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get profiles
@@ -413,9 +434,16 @@ namespace Docspace.Api
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Returns the user claims.
         /// </summary>
@@ -1370,10 +1398,17 @@ namespace Docspace.Api
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetAllProfiles()
+        public EmployeeFullArrayWrapper GetAllProfiles(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetAllProfilesWithHttpInfo();
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1381,8 +1416,15 @@ namespace Docspace.Api
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo()
+        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1400,6 +1442,34 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1448,11 +1518,18 @@ namespace Docspace.Api
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetAllProfilesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetAllProfilesWithHttpInfoAsync(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1460,9 +1537,16 @@ namespace Docspace.Api
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
+        /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
+        /// <param name="sortBy">Specifies the property or field name by which the results should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterBy = default(string?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterSeparator = default(string?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1482,6 +1566,34 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required

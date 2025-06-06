@@ -62,7 +62,10 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //bool? excludeShared = null;
-            //var response = instance.GetGroupsWithShared(id, excludeShared);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterValue = null;
+            //var response = instance.GetGroupsWithShared(id, excludeShared, count, startIndex, filterValue);
             //Assert.IsType<GroupArrayWrapper>(response);
         }
     }

@@ -142,7 +142,7 @@ namespace Docspace.Model
             // Email (string) minLength
             if (this.Email != null && this.Email.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 0.", new [] { "Email" });
+                yield return new System.ComponentModel.DataAnnotations. ValidationResult("Invalid value for Email, length must be greater than 0.", new [] { "Email" });
             }
 
             yield break;
