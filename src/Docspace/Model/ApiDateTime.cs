@@ -133,8 +133,7 @@ namespace Docspace.Model
 
         public override void WriteJson(JsonWriter writer, ApiDateTime value, Newtonsoft.Json.JsonSerializer serializer)
         {
-            var dateTimeOffset = new DateTimeOffset((DateTime)value.UtcTime, TimeSpan.Parse(value.TimeZoneOffset));
-            writer.WriteValue(dateTimeOffset.ToString("o"));
+            writer.WriteValue(value.UtcTime.ToString("o"));
         }
     }
 
