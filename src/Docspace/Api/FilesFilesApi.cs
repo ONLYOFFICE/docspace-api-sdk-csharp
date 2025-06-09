@@ -456,8 +456,10 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <returns>HistoryArrayWrapper</returns>
-        HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?));
+        HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get file history
@@ -469,8 +471,10 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?));
+        ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Get file information
         /// </summary>
@@ -502,8 +506,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper GetFileLinks(int id);
+        FileShareArrayWrapper GetFileLinks(int id, int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get file external links
@@ -513,8 +519,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id);
+        ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id, int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Get primary external link
         /// </summary>
@@ -523,8 +531,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper GetFilePrimaryExternalLink(int id);
+        FileShareWrapper GetFilePrimaryExternalLink(int id, int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get primary external link
@@ -534,8 +544,10 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> GetFilePrimaryExternalLinkWithHttpInfo(int id);
+        ApiResponse<FileShareWrapper> GetFilePrimaryExternalLinkWithHttpInfo(int id, int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Get file versions
         /// </summary>
@@ -1520,9 +1532,11 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        System.Threading.Tasks.Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get file history
@@ -1534,9 +1548,11 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get file information
         /// </summary>
@@ -1570,9 +1586,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get file external links
@@ -1582,9 +1600,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get primary external link
         /// </summary>
@@ -1593,9 +1613,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareWrapper</returns>
-        System.Threading.Tasks.Task<FileShareWrapper> GetFilePrimaryExternalLinkAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileShareWrapper> GetFilePrimaryExternalLinkAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get primary external link
@@ -1605,9 +1627,11 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetFilePrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetFilePrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get file versions
         /// </summary>
@@ -5423,10 +5447,12 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <returns>HistoryArrayWrapper</returns>
-        public HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?))
+        public HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = GetFileHistoryWithHttpInfo(fileId, fromDate, toDate);
+            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = GetFileHistoryWithHttpInfo(fileId, fromDate, toDate, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -5437,8 +5463,10 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?))
+        public Docspace.Client.ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5464,6 +5492,14 @@ namespace Docspace.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -5516,11 +5552,13 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = await GetFileHistoryWithHttpInfoAsync(fileId, fromDate, toDate, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = await GetFileHistoryWithHttpInfoAsync(fileId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5531,9 +5569,11 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
+        /// <param name="count">The number of history entries to retrieve for the file log. (optional)</param>
+        /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5561,6 +5601,14 @@ namespace Docspace.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -5731,10 +5779,12 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper GetFileLinks(int id)
+        public FileShareArrayWrapper GetFileLinks(int id, int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetFileLinksWithHttpInfo(id);
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetFileLinksWithHttpInfo(id, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -5743,8 +5793,10 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id)
+        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id, int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5763,6 +5815,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5812,11 +5872,13 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetFileLinksAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetFileLinksWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetFileLinksWithHttpInfoAsync(id, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5825,9 +5887,11 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5848,6 +5912,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5898,10 +5970,12 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper GetFilePrimaryExternalLink(int id)
+        public FileShareWrapper GetFilePrimaryExternalLink(int id, int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = GetFilePrimaryExternalLinkWithHttpInfo(id);
+            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = GetFilePrimaryExternalLinkWithHttpInfo(id, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -5910,8 +5984,10 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareWrapper> GetFilePrimaryExternalLinkWithHttpInfo(int id)
+        public Docspace.Client.ApiResponse<FileShareWrapper> GetFilePrimaryExternalLinkWithHttpInfo(int id, int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5930,6 +6006,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
 
             // make the HTTP request
@@ -5949,11 +6033,13 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareWrapper> GetFilePrimaryExternalLinkAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileShareWrapper> GetFilePrimaryExternalLinkAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await GetFilePrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await GetFilePrimaryExternalLinkWithHttpInfoAsync(id, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5962,9 +6048,11 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> GetFilePrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> GetFilePrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5985,6 +6073,14 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
 
             // make the HTTP request

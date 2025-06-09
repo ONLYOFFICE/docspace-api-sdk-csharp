@@ -573,7 +573,7 @@ No authorization required
 
 <a id="getfolderbyfolderid"></a>
 # **GetFolderByFolderId**
-> FolderContentIntegerWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, FilterType? filterType = null, int? roomId = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null)
+> FolderContentIntegerWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, FilterType? filterType = null, int? roomId = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get a folder by ID
 
@@ -610,11 +610,16 @@ namespace Example
             var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
             var formsItemKey = some text;  // string? | The forms item key. (optional) 
             var formsItemType = some text;  // string? | The forms item type. (optional) 
+            var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated request. (optional) 
+            var sortBy = some text;  // string? | Specifies the property used for sorting the folder request results. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text value used as a filter parameter for folder content queries. (optional) 
 
             try
             {
                 // Get a folder by ID
-                FolderContentIntegerWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType);
+                FolderContentIntegerWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -635,7 +640,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a folder by ID
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -662,6 +667,11 @@ catch (ApiException e)
 | **searchArea** | [**SearchArea?**](SearchArea?.md) | The search area. | [optional]  |
 | **formsItemKey** | **string?** | The forms item key. | [optional]  |
 | **formsItemType** | **string?** | The forms item type. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated request. | [optional]  |
+| **sortBy** | **string?** | Specifies the property used for sorting the folder request results. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text value used as a filter parameter for folder content queries. | [optional]  |
 
 ### Return type
 
@@ -688,7 +698,7 @@ No authorization required
 
 <a id="getfolderhistory"></a>
 # **GetFolderHistory**
-> HistoryArrayWrapper GetFolderHistory (int folderId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null)
+> HistoryArrayWrapper GetFolderHistory (int folderId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null, int? count = null, int? startIndex = null)
 
 Get folder history
 
@@ -734,11 +744,13 @@ namespace Example
             var folderId = 9846;  // int | The folder ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history request. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history request. (optional) 
+            var count = 1234;  // int? | The number of records to retrieve for the folder history. (optional) 
+            var startIndex = 1234;  // int? | The starting index from which the history records are retrieved in the request. (optional) 
 
             try
             {
                 // Get folder history
-                HistoryArrayWrapper result = apiInstance.GetFolderHistory(folderId, fromDate, toDate);
+                HistoryArrayWrapper result = apiInstance.GetFolderHistory(folderId, fromDate, toDate, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -759,7 +771,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get folder history
-    ApiResponse<HistoryArrayWrapper> response = apiInstance.GetFolderHistoryWithHttpInfo(folderId, fromDate, toDate);
+    ApiResponse<HistoryArrayWrapper> response = apiInstance.GetFolderHistoryWithHttpInfo(folderId, fromDate, toDate, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -779,6 +791,8 @@ catch (ApiException e)
 | **folderId** | **int** | The folder ID of the history request. |  |
 | **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history request. | [optional]  |
 | **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history request. | [optional]  |
+| **count** | **int?** | The number of records to retrieve for the folder history. | [optional]  |
+| **startIndex** | **int?** | The starting index from which the history records are retrieved in the request. | [optional]  |
 
 ### Return type
 
@@ -1223,7 +1237,7 @@ catch (ApiException e)
 
 <a id="getmyfolder"></a>
 # **GetMyFolder**
-> FolderContentIntegerWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null)
+> FolderContentIntegerWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get the \"My documents\" section
 
@@ -1269,11 +1283,16 @@ namespace Example
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
+            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
 
             try
             {
                 // Get the \"My documents\" section
-                FolderContentIntegerWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption);
+                FolderContentIntegerWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1294,7 +1313,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"My documents\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1314,6 +1333,11 @@ catch (ApiException e)
 | **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
 | **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
 
 ### Return type
 
@@ -1454,7 +1478,7 @@ catch (ApiException e)
 
 <a id="getprivacyfolder"></a>
 # **GetPrivacyFolder**
-> FolderContentIntegerWrapper GetPrivacyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null)
+> FolderContentIntegerWrapper GetPrivacyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get the \"Private Room\" section
 
@@ -1499,11 +1523,16 @@ namespace Example
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated list. (optional) 
+            var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
 
             try
             {
                 // Get the \"Private Room\" section
-                FolderContentIntegerWrapper result = apiInstance.GetPrivacyFolder(userIdOrGroupId, filterType);
+                FolderContentIntegerWrapper result = apiInstance.GetPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1524,7 +1553,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"Private Room\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1543,6 +1572,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated list. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter or search criterion for folder content queries. | [optional]  |
 
 ### Return type
 
@@ -1570,7 +1604,7 @@ catch (ApiException e)
 
 <a id="getrootfolders"></a>
 # **GetRootFolders**
-> FolderContentIntegerArrayWrapper GetRootFolders (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? withoutTrash = null)
+> FolderContentIntegerArrayWrapper GetRootFolders (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? withoutTrash = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get filtered sections
 
@@ -1616,11 +1650,16 @@ namespace Example
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var withoutTrash = true;  // bool? | Specifies whether to return the \"Trash\" section or not. (optional) 
+            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used as a filter for searching or retrieving folder contents. (optional) 
 
             try
             {
                 // Get filtered sections
-                FolderContentIntegerArrayWrapper result = apiInstance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash);
+                FolderContentIntegerArrayWrapper result = apiInstance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1641,7 +1680,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered sections
-    ApiResponse<FolderContentIntegerArrayWrapper> response = apiInstance.GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash);
+    ApiResponse<FolderContentIntegerArrayWrapper> response = apiInstance.GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1661,6 +1700,11 @@ catch (ApiException e)
 | **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
 | **withoutTrash** | **bool?** | Specifies whether to return the \&quot;Trash\&quot; section or not. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter for searching or retrieving folder contents. | [optional]  |
 
 ### Return type
 
@@ -1688,7 +1732,7 @@ catch (ApiException e)
 
 <a id="gettrashfolder"></a>
 # **GetTrashFolder**
-> FolderContentIntegerWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null)
+> FolderContentIntegerWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get the \"Trash\" section
 
@@ -1734,11 +1778,16 @@ namespace Example
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
+            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
 
             try
             {
                 // Get the \"Trash\" section
-                FolderContentIntegerWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption);
+                FolderContentIntegerWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1759,7 +1808,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"Trash\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1779,6 +1828,11 @@ catch (ApiException e)
 | **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
 | **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
 
 ### Return type
 

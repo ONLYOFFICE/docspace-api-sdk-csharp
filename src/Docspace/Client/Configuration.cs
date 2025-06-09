@@ -118,7 +118,7 @@ namespace Docspace.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
-            BasePath = "http://http:";
+            BasePath = "http://localhost:8092";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -146,7 +146,7 @@ namespace Docspace.Client
             };
 
             // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = TimeSpan.FromSeconds(100);
+            Timeout = 100000;
         }
 
         /// <summary>
@@ -230,9 +230,9 @@ namespace Docspace.Client
         public virtual IDictionary<string, string> DefaultHeaders { get; set; }
 
         /// <summary>
-        /// Gets or sets the HTTP timeout of ApiClient. Defaults to 100 seconds.
+        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
-        public virtual TimeSpan Timeout { get; set; }
+        public virtual int Timeout { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy

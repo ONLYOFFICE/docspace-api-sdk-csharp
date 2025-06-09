@@ -78,13 +78,13 @@ namespace Docspace.Test.Api
         }
 
         /// <summary>
-        /// Test GetAllCurrencies
+        /// Test GetAccountingCurrencies
         /// </summary>
         [Fact]
-        public void GetAllCurrenciesTest()
+        public void GetAccountingCurrenciesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetAllCurrencies();
+            //var response = instance.GetAccountingCurrencies();
             //Assert.IsType<CurrencyArrayWrapper>(response);
         }
 

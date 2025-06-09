@@ -2272,7 +2272,7 @@ catch (ApiException e)
 
 <a id="getroomsecurityinfo"></a>
 # **GetRoomSecurityInfo**
-> FileShareArrayWrapper GetRoomSecurityInfo (int id, ShareFilterType? filterType = null)
+> FileShareArrayWrapper GetRoomSecurityInfo (int id, ShareFilterType? filterType = null, int? count = null, int? startIndex = null, string? filterValue = null)
 
 Get the room access rights
 
@@ -2317,11 +2317,14 @@ namespace Example
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The room ID.
             var filterType = new ShareFilterType?(); // ShareFilterType? | The filter type of the access rights. (optional) 
+            var count = 1234;  // int? | The number of items to be retrieved or processed. (optional) 
+            var startIndex = 1234;  // int? | The starting index of the items to retrieve in a paginated request. (optional) 
+            var filterValue = some text;  // string? | The text filter value used for filtering room security information. (optional) 
 
             try
             {
                 // Get the room access rights
-                FileShareArrayWrapper result = apiInstance.GetRoomSecurityInfo(id, filterType);
+                FileShareArrayWrapper result = apiInstance.GetRoomSecurityInfo(id, filterType, count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2342,7 +2345,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the room access rights
-    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetRoomSecurityInfoWithHttpInfo(id, filterType);
+    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetRoomSecurityInfoWithHttpInfo(id, filterType, count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2361,6 +2364,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** | The room ID. |  |
 | **filterType** | [**ShareFilterType?**](ShareFilterType?.md) | The filter type of the access rights. | [optional]  |
+| **count** | **int?** | The number of items to be retrieved or processed. | [optional]  |
+| **startIndex** | **int?** | The starting index of the items to retrieve in a paginated request. | [optional]  |
+| **filterValue** | **string?** | The text filter value used for filtering room security information. | [optional]  |
 
 ### Return type
 
@@ -2386,7 +2392,7 @@ catch (ApiException e)
 
 <a id="getroomtagsinfo"></a>
 # **GetRoomTagsInfo**
-> ObjectArrayWrapper GetRoomTagsInfo ()
+> ObjectArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null)
 
 Get tags
 
@@ -2429,11 +2435,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
+            var count = 1234;  // int? | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional) 
+            var startIndex = 1234;  // int? | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional) 
+            var filterValue = some text;  // string? | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional) 
 
             try
             {
                 // Get tags
-                ObjectArrayWrapper result = apiInstance.GetRoomTagsInfo();
+                ObjectArrayWrapper result = apiInstance.GetRoomTagsInfo(count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2454,7 +2463,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get tags
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo();
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2468,7 +2477,13 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **count** | **int?** | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. | [optional]  |
+| **startIndex** | **int?** | Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional]  |
+| **filterValue** | **string?** | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. | [optional]  |
+
 ### Return type
 
 [**ObjectArrayWrapper**](ObjectArrayWrapper.md)
@@ -2600,7 +2615,7 @@ This endpoint does not need any parameter.
 
 <a id="getroomsfolder"></a>
 # **GetRoomsFolder**
-> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null)
+> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get rooms
 
@@ -2653,11 +2668,16 @@ namespace Example
             var subjectFilter = new SubjectFilter?(); // SubjectFilter? | The filter by user (Owner - 0, Member - 1). (optional) 
             var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The filter by quota (All - 0, Default - 1, Custom - 2). (optional) 
             var storageFilter = new StorageFilter?(); // StorageFilter? | The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional) 
+            var count = 1234;  // int? | Specifies the maximum number of items to retrieve. (optional) 
+            var startIndex = 1234;  // int? | The index from which to start retrieving the room content. (optional) 
+            var sortBy = some text;  // string? | Specifies the field by which the room content should be sorted. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text filter value used to refine search or query operations. (optional) 
 
             try
             {
                 // Get rooms
-                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter);
+                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2678,7 +2698,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get rooms
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2705,6 +2725,11 @@ catch (ApiException e)
 | **subjectFilter** | [**SubjectFilter?**](SubjectFilter?.md) | The filter by user (Owner - 0, Member - 1). | [optional]  |
 | **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The filter by quota (All - 0, Default - 1, Custom - 2). | [optional]  |
 | **storageFilter** | [**StorageFilter?**](StorageFilter?.md) | The filter by storage (None - 0, Internal - 1, ThirdParty - 2). | [optional]  |
+| **count** | **int?** | Specifies the maximum number of items to retrieve. | [optional]  |
+| **startIndex** | **int?** | The index from which to start retrieving the room content. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the room content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text filter value used to refine search or query operations. | [optional]  |
 
 ### Return type
 

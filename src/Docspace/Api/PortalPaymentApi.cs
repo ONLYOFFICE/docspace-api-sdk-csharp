@@ -77,7 +77,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrencyArrayWrapper</returns>
-        CurrencyArrayWrapper GetAllCurrencies();
+        CurrencyArrayWrapper GetAccountingCurrencies();
 
         /// <summary>
         /// Get list of currencies
@@ -87,7 +87,7 @@ namespace Docspace.Api
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrencyArrayWrapper</returns>
-        ApiResponse<CurrencyArrayWrapper> GetAllCurrenciesWithHttpInfo();
+        ApiResponse<CurrencyArrayWrapper> GetAccountingCurrenciesWithHttpInfo();
         /// <summary>
         /// Get the checkout setup page URL
         /// </summary>
@@ -534,7 +534,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrencyArrayWrapper</returns>
-        System.Threading.Tasks.Task<CurrencyArrayWrapper> GetAllCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrencyArrayWrapper> GetAccountingCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get list of currencies
@@ -545,7 +545,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrencyArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrencyArrayWrapper>> GetAllCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrencyArrayWrapper>> GetAccountingCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the checkout setup page URL
         /// </summary>
@@ -1520,9 +1520,9 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrencyArrayWrapper</returns>
-        public CurrencyArrayWrapper GetAllCurrencies()
+        public CurrencyArrayWrapper GetAccountingCurrencies()
         {
-            Docspace.Client.ApiResponse<CurrencyArrayWrapper> localVarResponse = GetAllCurrenciesWithHttpInfo();
+            Docspace.Client.ApiResponse<CurrencyArrayWrapper> localVarResponse = GetAccountingCurrenciesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1531,7 +1531,7 @@ namespace Docspace.Api
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrencyArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<CurrencyArrayWrapper> GetAllCurrenciesWithHttpInfo()
+        public Docspace.Client.ApiResponse<CurrencyArrayWrapper> GetAccountingCurrenciesWithHttpInfo()
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -1586,7 +1586,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllCurrencies", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAccountingCurrencies", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1599,9 +1599,9 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrencyArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<CurrencyArrayWrapper> GetAllCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrencyArrayWrapper> GetAccountingCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<CurrencyArrayWrapper> localVarResponse = await GetAllCurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<CurrencyArrayWrapper> localVarResponse = await GetAccountingCurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1611,7 +1611,7 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrencyArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CurrencyArrayWrapper>> GetAllCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CurrencyArrayWrapper>> GetAccountingCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -1669,7 +1669,7 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllCurrencies", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAccountingCurrencies", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

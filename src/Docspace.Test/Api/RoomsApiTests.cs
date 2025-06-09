@@ -306,7 +306,10 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //ShareFilterType? filterType = null;
-            //var response = instance.GetRoomSecurityInfo(id, filterType);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterValue = null;
+            //var response = instance.GetRoomSecurityInfo(id, filterType, count, startIndex, filterValue);
             //Assert.IsType<FileShareArrayWrapper>(response);
         }
 
@@ -317,7 +320,10 @@ namespace Docspace.Test.Api
         public void GetRoomTagsInfoTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetRoomTagsInfo();
+            //int? count = null;
+            //int? startIndex = null;
+            //string? filterValue = null;
+            //var response = instance.GetRoomTagsInfo(count, startIndex, filterValue);
             //Assert.IsType<ObjectArrayWrapper>(response);
         }
 
@@ -349,7 +355,12 @@ namespace Docspace.Test.Api
             //SubjectFilter? subjectFilter = null;
             //QuotaFilter? quotaFilter = null;
             //StorageFilter? storageFilter = null;
-            //var response = instance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerWrapper>(response);
         }
 

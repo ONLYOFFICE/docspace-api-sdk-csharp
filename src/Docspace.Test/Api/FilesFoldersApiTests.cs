@@ -132,7 +132,12 @@ namespace Docspace.Test.Api
             //SearchArea? searchArea = null;
             //string? formsItemKey = null;
             //string? formsItemType = null;
-            //var response = instance.GetFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerWrapper>(response);
         }
 
@@ -146,7 +151,9 @@ namespace Docspace.Test.Api
             //int folderId = null;
             //ApiDateTime? fromDate = null;
             //ApiDateTime? toDate = null;
-            //var response = instance.GetFolderHistory(folderId, fromDate, toDate);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetFolderHistory(folderId, fromDate, toDate, count, startIndex);
             //Assert.IsType<HistoryArrayWrapper>(response);
         }
 
@@ -208,7 +215,12 @@ namespace Docspace.Test.Api
             //Guid? userIdOrGroupId = null;
             //FilterType? filterType = null;
             //ApplyFilterOption? applyFilterOption = null;
-            //var response = instance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerWrapper>(response);
         }
 
@@ -233,7 +245,12 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //Guid? userIdOrGroupId = null;
             //FilterType? filterType = null;
-            //var response = instance.GetPrivacyFolder(userIdOrGroupId, filterType);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerWrapper>(response);
         }
 
@@ -247,7 +264,12 @@ namespace Docspace.Test.Api
             //Guid? userIdOrGroupId = null;
             //FilterType? filterType = null;
             //bool? withoutTrash = null;
-            //var response = instance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerArrayWrapper>(response);
         }
 
@@ -261,7 +283,12 @@ namespace Docspace.Test.Api
             //Guid? userIdOrGroupId = null;
             //FilterType? filterType = null;
             //ApplyFilterOption? applyFilterOption = null;
-            //var response = instance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption);
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             //Assert.IsType<FolderContentIntegerWrapper>(response);
         }
 

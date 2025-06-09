@@ -36,8 +36,8 @@ namespace Docspace.Model
         /// Initializes a new instance of the <see cref="TopUpDepositRequestDto" /> class.
         /// </summary>
         /// <param name="amount">Amount.</param>
-        /// <param name="currency">Currency.</param>
-        public TopUpDepositRequestDto(double amount = default(double), string currency = default(string))
+        /// <param name="currency">The three-character ISO 4217 currency symbol.</param>
+        public TopUpDepositRequestDto(int amount = default(int), string currency = default(string))
         {
             this.Amount = amount;
             this.Currency = currency;
@@ -47,13 +47,16 @@ namespace Docspace.Model
         /// Amount
         /// </summary>
         /// <value>Amount</value>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public double Amount { get; set; }
+        public int Amount { get; set; }
 
         /// <summary>
-        /// Currency
+        /// The three-character ISO 4217 currency symbol
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>The three-character ISO 4217 currency symbol</value>
         /*
         <example>some text</example>
         */
@@ -90,6 +93,18 @@ namespace Docspace.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Amount (int) maximum
+            if (this.Amount > (int)999999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 999999.", new [] { "Amount" });
+            }
+
+            // Amount (int) minimum
+            if (this.Amount < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new [] { "Amount" });
+            }
+
             yield break;
         }
     }

@@ -71,10 +71,10 @@ namespace Docspace.Client
         string TempFolderPath { get; }
 
         /// <summary>
-        /// Gets the HTTP connection timeout.
+        /// Gets the HTTP connection timeout (in milliseconds)
         /// </summary>
         /// <value>HTTP connection timeout.</value>
-        TimeSpan Timeout { get; }
+        int Timeout { get; }
 
         /// <summary>
         /// Gets the proxy.

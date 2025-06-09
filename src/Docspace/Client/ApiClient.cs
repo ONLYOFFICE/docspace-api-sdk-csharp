@@ -483,7 +483,7 @@ namespace Docspace.Client
 
             try
             {
-                if (configuration.Timeout > TimeSpan.Zero)
+                if (configuration.Timeout > 0)
                 {
                     timeoutTokenSource = new CancellationTokenSource(configuration.Timeout);
                     finalTokenSource = CancellationTokenSource.CreateLinkedTokenSource(finalToken, timeoutTokenSource.Token);

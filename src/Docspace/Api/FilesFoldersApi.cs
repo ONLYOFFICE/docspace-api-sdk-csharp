@@ -153,8 +153,13 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?));
+        FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get a folder by ID
@@ -173,8 +178,13 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?));
+        ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -185,8 +195,10 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <returns>HistoryArrayWrapper</returns>
-        HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?));
+        HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
 
         /// <summary>
         /// Get folder history
@@ -198,8 +210,10 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?));
+        ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?));
         /// <summary>
         /// Get folder information
         /// </summary>
@@ -294,8 +308,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?));
+        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get the \&quot;My documents\&quot; section
@@ -307,8 +326,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?));
+        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Get new folder items
         /// </summary>
@@ -339,8 +363,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?));
+        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
@@ -351,8 +380,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?));
+        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Get filtered sections
         /// </summary>
@@ -363,8 +397,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?));
+        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get filtered sections
@@ -376,8 +415,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?));
+        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
         /// </summary>
@@ -388,8 +432,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?));
+        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
@@ -401,8 +450,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?));
+        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Insert a file
         /// </summary>
@@ -726,9 +780,14 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get a folder by ID
@@ -747,9 +806,14 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -760,9 +824,11 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get folder history
@@ -774,9 +840,11 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get folder information
         /// </summary>
@@ -879,9 +947,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the \&quot;My documents\&quot; section
@@ -893,9 +966,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get new folder items
         /// </summary>
@@ -928,9 +1006,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
@@ -941,9 +1024,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get filtered sections
         /// </summary>
@@ -954,9 +1042,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get filtered sections
@@ -968,9 +1061,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
         /// </summary>
@@ -981,9 +1079,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
@@ -995,9 +1098,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Insert a file
         /// </summary>
@@ -2208,10 +2316,15 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?))
+        public FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2229,8 +2342,13 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2284,6 +2402,26 @@ namespace Docspace.Api
             if (formsItemType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "formsItemType", formsItemType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
 
@@ -2313,11 +2451,16 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2335,9 +2478,14 @@ namespace Docspace.Api
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
+        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? roomId = default(int?), bool? excludeSubject = default(bool?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), string? extension = default(string?), SearchArea? searchArea = default(SearchArea?), string? formsItemKey = default(string?), string? formsItemType = default(string?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2394,6 +2542,26 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "formsItemType", formsItemType));
             }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
 
             // make the HTTP request
@@ -2416,10 +2584,12 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <returns>HistoryArrayWrapper</returns>
-        public HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?))
+        public HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
-            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = GetFolderHistoryWithHttpInfo(folderId, fromDate, toDate);
+            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = GetFolderHistoryWithHttpInfo(folderId, fromDate, toDate, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -2430,8 +2600,10 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?))
+        public Docspace.Client.ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -2457,6 +2629,14 @@ namespace Docspace.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -2509,11 +2689,13 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = await GetFolderHistoryWithHttpInfoAsync(folderId, fromDate, toDate, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<HistoryArrayWrapper> localVarResponse = await GetFolderHistoryWithHttpInfoAsync(folderId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2524,9 +2706,11 @@ namespace Docspace.Api
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
+        /// <param name="count">The number of records to retrieve for the folder history. (optional)</param>
+        /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default(ApiDateTime?), ApiDateTime? toDate = default(ApiDateTime?), int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -2554,6 +2738,14 @@ namespace Docspace.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -3155,10 +3347,15 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?))
+        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -3169,8 +3366,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3199,6 +3401,26 @@ namespace Docspace.Api
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3251,11 +3473,16 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3266,9 +3493,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3299,6 +3531,26 @@ namespace Docspace.Api
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3518,10 +3770,15 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?))
+        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -3531,8 +3788,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3557,6 +3819,26 @@ namespace Docspace.Api
             if (filterType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3608,11 +3890,16 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3622,9 +3909,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3651,6 +3943,26 @@ namespace Docspace.Api
             if (filterType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3704,10 +4016,15 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?))
+        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash);
+            Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -3718,8 +4035,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3748,6 +4070,26 @@ namespace Docspace.Api
             if (withoutTrash != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutTrash", withoutTrash));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3800,11 +4142,16 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper> localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3815,9 +4162,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), bool? withoutTrash = default(bool?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -3848,6 +4200,26 @@ namespace Docspace.Api
             if (withoutTrash != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutTrash", withoutTrash));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3901,10 +4273,15 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?))
+        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -3915,8 +4292,13 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -3945,6 +4327,26 @@ namespace Docspace.Api
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3997,11 +4399,16 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4012,9 +4419,14 @@ namespace Docspace.Api
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default(Guid?), FilterType? filterType = default(FilterType?), ApplyFilterOption? applyFilterOption = default(ApplyFilterOption?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -4045,6 +4457,26 @@ namespace Docspace.Api
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

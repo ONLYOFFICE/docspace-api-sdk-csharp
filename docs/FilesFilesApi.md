@@ -2142,7 +2142,7 @@ No authorization required
 
 <a id="getfilehistory"></a>
 # **GetFileHistory**
-> HistoryArrayWrapper GetFileHistory (int fileId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null)
+> HistoryArrayWrapper GetFileHistory (int fileId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null, int? count = null, int? startIndex = null)
 
 Get file history
 
@@ -2188,11 +2188,13 @@ namespace Example
             var fileId = 9846;  // int | The file ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history. (optional) 
+            var count = 1234;  // int? | The number of history entries to retrieve for the file log. (optional) 
+            var startIndex = 1234;  // int? | The starting index for retrieving a subset of file history entries. (optional) 
 
             try
             {
                 // Get file history
-                HistoryArrayWrapper result = apiInstance.GetFileHistory(fileId, fromDate, toDate);
+                HistoryArrayWrapper result = apiInstance.GetFileHistory(fileId, fromDate, toDate, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2213,7 +2215,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get file history
-    ApiResponse<HistoryArrayWrapper> response = apiInstance.GetFileHistoryWithHttpInfo(fileId, fromDate, toDate);
+    ApiResponse<HistoryArrayWrapper> response = apiInstance.GetFileHistoryWithHttpInfo(fileId, fromDate, toDate, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2233,6 +2235,8 @@ catch (ApiException e)
 | **fileId** | **int** | The file ID of the history request. |  |
 | **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history. | [optional]  |
 | **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history. | [optional]  |
+| **count** | **int?** | The number of history entries to retrieve for the file log. | [optional]  |
+| **startIndex** | **int?** | The starting index for retrieving a subset of file history entries. | [optional]  |
 
 ### Return type
 
@@ -2357,7 +2361,7 @@ No authorization required
 
 <a id="getfilelinks"></a>
 # **GetFileLinks**
-> FileShareArrayWrapper GetFileLinks (int id)
+> FileShareArrayWrapper GetFileLinks (int id, int? count = null, int? startIndex = null)
 
 Get file external links
 
@@ -2401,11 +2405,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The file ID of the request.
+            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
             try
             {
                 // Get file external links
-                FileShareArrayWrapper result = apiInstance.GetFileLinks(id);
+                FileShareArrayWrapper result = apiInstance.GetFileLinks(id, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2426,7 +2432,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get file external links
-    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetFileLinksWithHttpInfo(id);
+    ApiResponse<FileShareArrayWrapper> response = apiInstance.GetFileLinksWithHttpInfo(id, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2444,6 +2450,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The file ID of the request. |  |
+| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
 
 ### Return type
 
@@ -2469,7 +2477,7 @@ catch (ApiException e)
 
 <a id="getfileprimaryexternallink"></a>
 # **GetFilePrimaryExternalLink**
-> FileShareWrapper GetFilePrimaryExternalLink (int id)
+> FileShareWrapper GetFilePrimaryExternalLink (int id, int? count = null, int? startIndex = null)
 
 Get primary external link
 
@@ -2497,11 +2505,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The file ID of the request.
+            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
             try
             {
                 // Get primary external link
-                FileShareWrapper result = apiInstance.GetFilePrimaryExternalLink(id);
+                FileShareWrapper result = apiInstance.GetFilePrimaryExternalLink(id, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2522,7 +2532,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get primary external link
-    ApiResponse<FileShareWrapper> response = apiInstance.GetFilePrimaryExternalLinkWithHttpInfo(id);
+    ApiResponse<FileShareWrapper> response = apiInstance.GetFilePrimaryExternalLinkWithHttpInfo(id, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2540,6 +2550,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The file ID of the request. |  |
+| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
 
 ### Return type
 

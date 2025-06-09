@@ -301,7 +301,9 @@ namespace Docspace.Test.Api
             //int fileId = null;
             //ApiDateTime? fromDate = null;
             //ApiDateTime? toDate = null;
-            //var response = instance.GetFileHistory(fileId, fromDate, toDate);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetFileHistory(fileId, fromDate, toDate, count, startIndex);
             //Assert.IsType<HistoryArrayWrapper>(response);
         }
 
@@ -326,7 +328,9 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
-            //var response = instance.GetFileLinks(id);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetFileLinks(id, count, startIndex);
             //Assert.IsType<FileShareArrayWrapper>(response);
         }
 
@@ -338,7 +342,9 @@ namespace Docspace.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
-            //var response = instance.GetFilePrimaryExternalLink(id);
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetFilePrimaryExternalLink(id, count, startIndex);
             //Assert.IsType<FileShareWrapper>(response);
         }
 

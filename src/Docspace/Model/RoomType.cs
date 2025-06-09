@@ -27,9 +27,9 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI room]
+    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]
     /// </summary>
-    /// <value>[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI room]</value>
+    /// <value>[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]</value>
     public enum RoomType
     {
         /// <summary>
@@ -55,12 +55,7 @@ namespace Docspace.Model
         /// <summary>
         /// Enum VirtualDataRoom for value: 8
         /// </summary>
-        VirtualDataRoom = 8,
-
-        /// <summary>
-        /// Enum AiRoom for value: 9
-        /// </summary>
-        AiRoom = 9
+        VirtualDataRoom = 8
     }
 
 }

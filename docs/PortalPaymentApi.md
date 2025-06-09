@@ -6,7 +6,7 @@ All URIs are relative to *http://http:*
 |--------|--------------|-------------|
 | [**CalculateWalletPayment**](PortalPaymentApi.md#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate amount of the wallet payment |
 | [**CreateCustomerOperationsReport**](PortalPaymentApi.md#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Generate the customer operations report |
-| [**GetAllCurrencies**](PortalPaymentApi.md#getallcurrencies) | **GET** /api/2.0/portal/payment/accounting/currencies | Get list of currencies |
+| [**GetAccountingCurrencies**](PortalPaymentApi.md#getaccountingcurrencies) | **GET** /api/2.0/portal/payment/accounting/currencies | Get list of currencies |
 | [**GetCheckoutSetupUrl**](PortalPaymentApi.md#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the checkout setup page URL |
 | [**GetCustomerBalance**](PortalPaymentApi.md#getcustomerbalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
 | [**GetCustomerInfo**](PortalPaymentApi.md#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer info |
@@ -251,9 +251,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getallcurrencies"></a>
-# **GetAllCurrencies**
-> CurrencyArrayWrapper GetAllCurrencies ()
+<a id="getaccountingcurrencies"></a>
+# **GetAccountingCurrencies**
+> CurrencyArrayWrapper GetAccountingCurrencies ()
 
 Get list of currencies
 
@@ -270,7 +270,7 @@ using Docspace.Model;
 
 namespace Example
 {
-    public class GetAllCurrenciesExample
+    public class GetAccountingCurrenciesExample
     {
         public static void Main()
         {
@@ -300,12 +300,12 @@ namespace Example
             try
             {
                 // Get list of currencies
-                CurrencyArrayWrapper result = apiInstance.GetAllCurrencies();
+                CurrencyArrayWrapper result = apiInstance.GetAccountingCurrencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetAllCurrencies: " + e.Message);
+                Debug.Print("Exception when calling PortalPaymentApi.GetAccountingCurrencies: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -314,21 +314,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllCurrenciesWithHttpInfo variant
+#### Using the GetAccountingCurrenciesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get list of currencies
-    ApiResponse<CurrencyArrayWrapper> response = apiInstance.GetAllCurrenciesWithHttpInfo();
+    ApiResponse<CurrencyArrayWrapper> response = apiInstance.GetAccountingCurrenciesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetAllCurrenciesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PortalPaymentApi.GetAccountingCurrenciesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

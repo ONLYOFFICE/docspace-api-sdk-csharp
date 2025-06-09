@@ -466,8 +466,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default(ShareFilterType?));
+        FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get the room access rights
@@ -478,8 +481,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default(ShareFilterType?));
+        ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
         /// <summary>
         /// Get tags
         /// </summary>
@@ -487,8 +493,11 @@ namespace Docspace.Api
         /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetRoomTagsInfo();
+        ObjectArrayWrapper GetRoomTagsInfo(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get tags
@@ -497,8 +506,11 @@ namespace Docspace.Api
         /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo();
+        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?));
         /// <summary>
         /// Get status of room template creation
         /// </summary>
@@ -535,8 +547,13 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?));
+        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
 
         /// <summary>
         /// Get rooms
@@ -555,8 +572,13 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?));
+        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?));
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -1345,9 +1367,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the room access rights
@@ -1358,9 +1383,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get tags
         /// </summary>
@@ -1368,9 +1396,12 @@ namespace Docspace.Api
         /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get tags
@@ -1379,9 +1410,12 @@ namespace Docspace.Api
         /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get status of room template creation
         /// </summary>
@@ -1420,9 +1454,14 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get rooms
@@ -1441,9 +1480,14 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -5335,10 +5379,13 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default(ShareFilterType?))
+        public FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetRoomSecurityInfoWithHttpInfo(id, filterType);
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetRoomSecurityInfoWithHttpInfo(id, filterType, count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5348,8 +5395,11 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default(ShareFilterType?))
+        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5371,6 +5421,18 @@ namespace Docspace.Api
             if (filterType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -5422,11 +5484,14 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomSecurityInfoWithHttpInfoAsync(id, filterType, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomSecurityInfoWithHttpInfoAsync(id, filterType, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5436,9 +5501,12 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
+        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
+        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
+        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default(ShareFilterType?), int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5462,6 +5530,18 @@ namespace Docspace.Api
             if (filterType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -5512,10 +5592,13 @@ namespace Docspace.Api
         /// Get tags Returns a list of custom tags.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetRoomTagsInfo()
+        public ObjectArrayWrapper GetRoomTagsInfo(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetRoomTagsInfoWithHttpInfo();
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5523,8 +5606,11 @@ namespace Docspace.Api
         /// Get tags Returns a list of custom tags.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo()
+        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5542,6 +5628,18 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5590,11 +5688,14 @@ namespace Docspace.Api
         /// Get tags Returns a list of custom tags.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5602,9 +5703,12 @@ namespace Docspace.Api
         /// Get tags Returns a list of custom tags.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
+        /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
+        /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -5624,6 +5728,18 @@ namespace Docspace.Api
             var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5844,10 +5960,15 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?))
+        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5865,8 +5986,13 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?))
+        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?))
         {
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
 
@@ -5922,6 +6048,26 @@ namespace Docspace.Api
             if (storageFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -5981,11 +6127,16 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, cancellationToken).ConfigureAwait(false);
+            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6003,9 +6154,14 @@ namespace Docspace.Api
         /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
+        /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default(List<RoomType>?), string? subjectId = default(string?), SearchArea? searchArea = default(SearchArea?), bool? withoutTags = default(bool?), string? tags = default(string?), bool? excludeSubject = default(bool?), ProviderFilter? provider = default(ProviderFilter?), SubjectFilter? subjectFilter = default(SubjectFilter?), QuotaFilter? quotaFilter = default(QuotaFilter?), StorageFilter? storageFilter = default(StorageFilter?), int? count = default(int?), int? startIndex = default(int?), string? sortBy = default(string?), SortOrder? sortOrder = default(SortOrder?), string? filterValue = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
@@ -6064,6 +6220,26 @@ namespace Docspace.Api
             if (storageFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

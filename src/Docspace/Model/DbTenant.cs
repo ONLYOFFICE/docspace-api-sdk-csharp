@@ -58,7 +58,7 @@ namespace Docspace.Model
         /// <param name="alias">The tenant alias..</param>
         /// <param name="mappedDomain">Mapped domain.</param>
         /// <param name="varVersion">The tenant version..</param>
-        /// <param name="version_Changed">The Version_changed field..</param>
+        /// <param name="versionChanged">The Version_changed field..</param>
         /// <param name="versionChanged">The date and time when the version was changed..</param>
         /// <param name="language">The tenant language..</param>
         /// <param name="varTimeZone">The tenant time zone..</param>
