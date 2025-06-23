@@ -1,17 +1,17 @@
 # Docspace.Api.PeopleThemeApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeTheme**](PeopleThemeApi.md#changetheme) | **PUT** /api/2.0/people/theme | Change portal theme |
-| [**GetTheme**](PeopleThemeApi.md#gettheme) | **GET** /api/2.0/people/theme | Get portal theme |
+| [**ChangeTheme**](PeopleThemeApi.md#changetheme) | **PUT** /api/2.0/people/theme | Change the portal theme |
+| [**GetTheme**](PeopleThemeApi.md#gettheme) | **GET** /api/2.0/people/theme | Get the portal theme |
 
 <a id="changetheme"></a>
 # **ChangeTheme**
 > DarkThemeSettingsWrapper ChangeTheme (DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null)
 
-Change portal theme
+Change the portal theme
 
 Changes the current portal theme.
 
@@ -31,11 +31,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -45,7 +54,7 @@ namespace Example
 
             try
             {
-                // Change portal theme
+                // Change the portal theme
                 DarkThemeSettingsWrapper result = apiInstance.ChangeTheme(darkThemeSettingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -66,7 +75,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change portal theme
+    // Change the portal theme
     ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.ChangeThemeWithHttpInfo(darkThemeSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -92,7 +101,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -112,7 +121,7 @@ catch (ApiException e)
 # **GetTheme**
 > DarkThemeSettingsWrapper GetTheme ()
 
-Get portal theme
+Get the portal theme
 
 Returns a theme which is set to the current portal.
 
@@ -132,11 +141,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -145,7 +163,7 @@ namespace Example
 
             try
             {
-                // Get portal theme
+                // Get the portal theme
                 DarkThemeSettingsWrapper result = apiInstance.GetTheme();
                 Debug.WriteLine(result);
             }
@@ -166,7 +184,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get portal theme
+    // Get the portal theme
     ApiResponse<DarkThemeSettingsWrapper> response = apiInstance.GetThemeWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -188,7 +206,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

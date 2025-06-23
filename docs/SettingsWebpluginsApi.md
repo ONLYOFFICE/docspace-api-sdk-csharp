@@ -1,22 +1,22 @@
 # Docspace.Api.SettingsWebpluginsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddWebPluginFromFile**](SettingsWebpluginsApi.md#addwebpluginfromfile) | **POST** /api/2.0/settings/webplugins | Adds web plugins from file |
-| [**DeleteWebPlugin**](SettingsWebpluginsApi.md#deletewebplugin) | **DELETE** /api/2.0/settings/webplugins/{name} | Deletes web plugins by name specified in request |
-| [**GetWebPlugin**](SettingsWebpluginsApi.md#getwebplugin) | **GET** /api/2.0/settings/webplugins/{name} | Gets web plugins by name specified in request |
-| [**GetWebPlugins**](SettingsWebpluginsApi.md#getwebplugins) | **GET** /api/2.0/settings/webplugins | Gets web plugins |
-| [**UpdateWebPlugin**](SettingsWebpluginsApi.md#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Updates web plugins |
+| [**AddWebPluginFromFile**](SettingsWebpluginsApi.md#addwebpluginfromfile) | **POST** /api/2.0/settings/webplugins | Add a web plugin |
+| [**DeleteWebPlugin**](SettingsWebpluginsApi.md#deletewebplugin) | **DELETE** /api/2.0/settings/webplugins/{name} | Delete a web plugin |
+| [**GetWebPlugin**](SettingsWebpluginsApi.md#getwebplugin) | **GET** /api/2.0/settings/webplugins/{name} | Get a web plugin by name |
+| [**GetWebPlugins**](SettingsWebpluginsApi.md#getwebplugins) | **GET** /api/2.0/settings/webplugins | Get web plugins |
+| [**UpdateWebPlugin**](SettingsWebpluginsApi.md#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Update a web plugin |
 
 <a id="addwebpluginfromfile"></a>
 # **AddWebPluginFromFile**
 > WebPluginWrapper AddWebPluginFromFile (bool? varSystem = null)
 
-Adds web plugins from file
+Add a web plugin
 
-Adds web plugins from file
+Adds a web plugin from a file to the current portal.
 
 ### Example
 ```csharp
@@ -34,21 +34,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var varSystem = true;  // bool? | System (optional) 
+            var varSystem = true;  // bool? | Specifies whether to load the system plugins or not. (optional) 
 
             try
             {
-                // Adds web plugins from file
+                // Add a web plugin
                 WebPluginWrapper result = apiInstance.AddWebPluginFromFile(varSystem);
                 Debug.WriteLine(result);
             }
@@ -69,7 +78,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Adds web plugins from file
+    // Add a web plugin
     ApiResponse<WebPluginWrapper> response = apiInstance.AddWebPluginFromFileWithHttpInfo(varSystem);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -87,7 +96,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **varSystem** | **bool?** | System | [optional]  |
+| **varSystem** | **bool?** | Specifies whether to load the system plugins or not. | [optional]  |
 
 ### Return type
 
@@ -95,7 +104,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -117,9 +126,9 @@ catch (ApiException e)
 # **DeleteWebPlugin**
 > void DeleteWebPlugin (string name)
 
-Deletes web plugins by name specified in request
+Delete a web plugin
 
-Deletes web plugins by name specified in request
+Deletes a web plugin by the name specified in the request.
 
 ### Example
 ```csharp
@@ -137,21 +146,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | Name
+            var name = Winfield Upton;  // string | The web plugin name.
 
             try
             {
-                // Deletes web plugins by name specified in request
+                // Delete a web plugin
                 apiInstance.DeleteWebPlugin(name);
             }
             catch (ApiException  e)
@@ -171,7 +189,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Deletes web plugins by name specified in request
+    // Delete a web plugin
     apiInstance.DeleteWebPluginWithHttpInfo(name);
 }
 catch (ApiException e)
@@ -186,7 +204,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **name** | **string** | Name |  |
+| **name** | **string** | The web plugin name. |  |
 
 ### Return type
 
@@ -194,7 +212,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -215,9 +233,9 @@ void (empty response body)
 # **GetWebPlugin**
 > WebPluginWrapper GetWebPlugin (string name)
 
-Gets web plugins by name specified in request
+Get a web plugin by name
 
-Gets web plugins by name specified in request
+Returns a web plugin by the name specified in the request.
 
 ### Example
 ```csharp
@@ -235,21 +253,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | Name
+            var name = Winfield Upton;  // string | The web plugin name.
 
             try
             {
-                // Gets web plugins by name specified in request
+                // Get a web plugin by name
                 WebPluginWrapper result = apiInstance.GetWebPlugin(name);
                 Debug.WriteLine(result);
             }
@@ -270,7 +297,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets web plugins by name specified in request
+    // Get a web plugin by name
     ApiResponse<WebPluginWrapper> response = apiInstance.GetWebPluginWithHttpInfo(name);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -288,7 +315,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **name** | **string** | Name |  |
+| **name** | **string** | The web plugin name. |  |
 
 ### Return type
 
@@ -296,7 +323,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -317,9 +344,9 @@ catch (ApiException e)
 # **GetWebPlugins**
 > WebPluginArrayWrapper GetWebPlugins (bool? enabled = null)
 
-Gets web plugins
+Get web plugins
 
-Gets web plugins
+Returns the portal web plugins.
 
 ### Example
 ```csharp
@@ -337,21 +364,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var enabled = true;  // bool? | Enabled (optional) 
+            var enabled = true;  // bool? | The optional filter for the plugin enabled state. (optional) 
 
             try
             {
-                // Gets web plugins
+                // Get web plugins
                 WebPluginArrayWrapper result = apiInstance.GetWebPlugins(enabled);
                 Debug.WriteLine(result);
             }
@@ -372,7 +408,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets web plugins
+    // Get web plugins
     ApiResponse<WebPluginArrayWrapper> response = apiInstance.GetWebPluginsWithHttpInfo(enabled);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -390,7 +426,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **enabled** | **bool?** | Enabled | [optional]  |
+| **enabled** | **bool?** | The optional filter for the plugin enabled state. | [optional]  |
 
 ### Return type
 
@@ -398,7 +434,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -419,9 +455,9 @@ catch (ApiException e)
 # **UpdateWebPlugin**
 > void UpdateWebPlugin (string name, WebPluginRequests? webPluginRequests = null)
 
-Updates web plugins
+Update a web plugin
 
-Updates web plugins
+Updates a web plugin with the parameters specified in the request.
 
 ### Example
 ```csharp
@@ -439,22 +475,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | Name
-            var webPluginRequests = new WebPluginRequests?(); // WebPluginRequests? | Web plugin (optional) 
+            var name = Winfield Upton;  // string | The web plugin name.
+            var webPluginRequests = new WebPluginRequests?(); // WebPluginRequests? | The configuration settings for the web plugin instance. (optional) 
 
             try
             {
-                // Updates web plugins
+                // Update a web plugin
                 apiInstance.UpdateWebPlugin(name, webPluginRequests);
             }
             catch (ApiException  e)
@@ -474,7 +519,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Updates web plugins
+    // Update a web plugin
     apiInstance.UpdateWebPluginWithHttpInfo(name, webPluginRequests);
 }
 catch (ApiException e)
@@ -489,8 +534,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **name** | **string** | Name |  |
-| **webPluginRequests** | [**WebPluginRequests?**](WebPluginRequests?.md) | Web plugin | [optional]  |
+| **name** | **string** | The web plugin name. |  |
+| **webPluginRequests** | [**WebPluginRequests?**](WebPluginRequests?.md) | The configuration settings for the web plugin instance. | [optional]  |
 
 ### Return type
 
@@ -498,7 +543,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

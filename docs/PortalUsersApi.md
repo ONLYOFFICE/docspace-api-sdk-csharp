@@ -1,6 +1,6 @@
 # Docspace.Api.PortalUsersApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -34,17 +34,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
-            var employeeType = (EmployeeType) "0";  // EmployeeType | Employee type (All, RoomAdmin, Guest, DocSpaceAdmin, User)
+            var employeeType = (EmployeeType) "0";  // EmployeeType | The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).
 
             try
             {
@@ -87,7 +96,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **employeeType** | **EmployeeType** | Employee type (All, RoomAdmin, Guest, DocSpaceAdmin, User) |  |
+| **employeeType** | **EmployeeType** | The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User). |  |
 
 ### Return type
 
@@ -95,7 +104,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -135,17 +144,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
-            var userID = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | User ID
+            var userID = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
 
             try
             {
@@ -188,7 +206,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userID** | **Guid** | User ID |  |
+| **userID** | **Guid** | The user ID extracted from the route parameters. |  |
 
 ### Return type
 
@@ -196,7 +214,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -236,11 +254,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -292,7 +319,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -332,11 +359,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -384,7 +420,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -406,7 +442,7 @@ void (empty response body)
 
 Send congratulations
 
-Sends congratulations to the user after registering the portal.
+Sends congratulations to the user after registering a portal.
 
 ### Example
 ```csharp
@@ -424,13 +460,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
-            var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User ID (optional) 
-            var key = some text;  // string? | Email key (optional) 
+            var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user ID to receive the congratulatory message. (optional) 
+            var key = some text;  // string? | The template identifier or email configuration key. (optional) 
 
             try
             {
@@ -469,8 +505,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid?** | User ID | [optional]  |
-| **key** | **string?** | Email key | [optional]  |
+| **userid** | **Guid?** | The user ID to receive the congratulatory message. | [optional]  |
+| **key** | **string?** | The template identifier or email configuration key. | [optional]  |
 
 ### Return type
 

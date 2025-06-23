@@ -1,5 +1,5 @@
 # Docspace.Model.AdditionalWhiteLabelSettingsWrapper
-Additional white label settings
+The additional white label settings wrapper.
 
 ## Properties
 

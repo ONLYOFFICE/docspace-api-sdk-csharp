@@ -1,6 +1,6 @@
 # Docspace.Api.FilesSettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -13,16 +13,16 @@ All URIs are relative to *http://localhost:8092*
 | [**DisplayFileExtension**](FilesSettingsApi.md#displayfileextension) | **PUT** /api/2.0/files/displayfileextension | Display a file extension |
 | [**ExternalShare**](FilesSettingsApi.md#externalshare) | **PUT** /api/2.0/files/settings/external | Change the external sharing ability |
 | [**ExternalShareSocialMedia**](FilesSettingsApi.md#externalsharesocialmedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
-| [**Forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcasaving ability |
+| [**Forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
 | [**GetAutomaticallyCleanUp**](FilesSettingsApi.md#getautomaticallycleanup) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
-| [**GetFilesModule**](FilesSettingsApi.md#getfilesmodule) | **GET** /api/2.0/files/info | Get the Documents information |
+| [**GetFilesModule**](FilesSettingsApi.md#getfilesmodule) | **GET** /api/2.0/files/info | Get the \&quot;Documents\&quot; information |
 | [**GetFilesSettings**](FilesSettingsApi.md#getfilessettings) | **GET** /api/2.0/files/settings | Get file settings |
-| [**HideConfirmCancelOperation**](FilesSettingsApi.md#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operation |
+| [**HideConfirmCancelOperation**](FilesSettingsApi.md#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operations |
 | [**HideConfirmConvert**](FilesSettingsApi.md#hideconfirmconvert) | **PUT** /api/2.0/files/hideconfirmconvert | Hide the confirmation dialog when converting |
 | [**HideConfirmRoomLifetime**](FilesSettingsApi.md#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
-| [**IsAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the Private Room availability |
+| [**IsAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the \&quot;Private Room\&quot; availability |
 | [**KeepNewFileName**](FilesSettingsApi.md#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
-| [**SetOpenEditorInSameTab**](FilesSettingsApi.md#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in same browser tab |
+| [**SetOpenEditorInSameTab**](FilesSettingsApi.md#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
 | [**StoreForcesave**](FilesSettingsApi.md#storeforcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
 | [**StoreOriginal**](FilesSettingsApi.md#storeoriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
 | [**UpdateIfExist**](FilesSettingsApi.md#updateifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
@@ -51,11 +51,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -112,7 +121,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -152,11 +161,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -213,7 +231,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -231,7 +249,7 @@ catch (ApiException e)
 
 <a id="changedefaultaccessrights"></a>
 # **ChangeDefaultAccessRights**
-> FileShareArrayWrapper ChangeDefaultAccessRights (List<FileShare>? fileShare = null)
+> FileShareArrayWrapper ChangeDefaultAccessRights (List<int>? requestBody = null)
 
 Change the default access rights
 
@@ -253,22 +271,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var fileShare = new List<FileShare>?(); // List<FileShare>? | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator) (optional) 
+            var requestBody = new List<int>?(); // List<int>? | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional) 
 
             try
             {
                 // Change the default access rights
-                FileShareArrayWrapper result = apiInstance.ChangeDefaultAccessRights(fileShare);
+                FileShareArrayWrapper result = apiInstance.ChangeDefaultAccessRights(requestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -289,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change the default access rights
-    ApiResponse<FileShareArrayWrapper> response = apiInstance.ChangeDefaultAccessRightsWithHttpInfo(fileShare);
+    ApiResponse<FileShareArrayWrapper> response = apiInstance.ChangeDefaultAccessRightsWithHttpInfo(requestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -306,7 +333,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileShare** | [**List&lt;FileShare&gt;?**](FileShare.md) | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator) | [optional]  |
+| **requestBody** | [**List&lt;int&gt;?**](int.md) | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). | [optional]  |
 
 ### Return type
 
@@ -314,7 +341,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -354,11 +381,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -415,7 +451,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -455,11 +491,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -516,7 +561,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -538,7 +583,7 @@ catch (ApiException e)
 
 Check the document service URL
 
-Checks the document service location.
+Checks the document service location URL.
 
 ### Example
 ```csharp
@@ -556,11 +601,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -617,7 +671,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -658,11 +712,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -719,7 +782,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -759,11 +822,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -820,7 +892,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -860,11 +932,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -921,7 +1002,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -941,9 +1022,9 @@ catch (ApiException e)
 # **Forcesave**
 > BooleanWrapper Forcesave ()
 
-Change the forcasaving ability
+Change the forcesaving ability
 
-Changes the ability to force save a file.
+Specifies if the file forcesaving is enabled or not.
 
 ### Example
 ```csharp
@@ -961,11 +1042,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -974,7 +1064,7 @@ namespace Example
 
             try
             {
-                // Change the forcasaving ability
+                // Change the forcesaving ability
                 BooleanWrapper result = apiInstance.Forcesave();
                 Debug.WriteLine(result);
             }
@@ -995,7 +1085,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the forcasaving ability
+    // Change the forcesaving ability
     ApiResponse<BooleanWrapper> response = apiInstance.ForcesaveWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1017,7 +1107,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1057,11 +1147,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1113,7 +1212,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1133,9 +1232,9 @@ This endpoint does not need any parameter.
 # **GetFilesModule**
 > ModuleWrapper GetFilesModule ()
 
-Get the Documents information
+Get the \"Documents\" information
 
-Returns the information about the Documents module.
+Returns the information about the \"Documents\" module.
 
 ### Example
 ```csharp
@@ -1153,11 +1252,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1166,7 +1274,7 @@ namespace Example
 
             try
             {
-                // Get the Documents information
+                // Get the \"Documents\" information
                 ModuleWrapper result = apiInstance.GetFilesModule();
                 Debug.WriteLine(result);
             }
@@ -1187,7 +1295,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the Documents information
+    // Get the \"Documents\" information
     ApiResponse<ModuleWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1209,7 +1317,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1249,7 +1357,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1319,9 +1427,9 @@ No authorization required
 # **HideConfirmCancelOperation**
 > BooleanWrapper HideConfirmCancelOperation (SettingsRequestDto? settingsRequestDto = null)
 
-Hide confirmation dialog when canceling operation
+Hide confirmation dialog when canceling operations
 
-Hide confirmation dialog when canceling operation.
+Hides the confirmation dialog when canceling operations.
 
 ### Example
 ```csharp
@@ -1339,11 +1447,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1353,7 +1470,7 @@ namespace Example
 
             try
             {
-                // Hide confirmation dialog when canceling operation
+                // Hide confirmation dialog when canceling operations
                 BooleanWrapper result = apiInstance.HideConfirmCancelOperation(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1374,7 +1491,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Hide confirmation dialog when canceling operation
+    // Hide confirmation dialog when canceling operations
     ApiResponse<BooleanWrapper> response = apiInstance.HideConfirmCancelOperationWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1400,7 +1517,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1440,11 +1557,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1501,7 +1627,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1523,7 +1649,7 @@ catch (ApiException e)
 
 Hide confirmation dialog when changing room lifetime settings
 
-Hide confirmation dialog when changing room lifetime settings.
+Hides the confirmation dialog when changing the room lifetime settings.
 
 ### Example
 ```csharp
@@ -1541,11 +1667,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1602,7 +1737,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1622,9 +1757,9 @@ catch (ApiException e)
 # **IsAvailablePrivacyRoomSettings**
 > BooleanWrapper IsAvailablePrivacyRoomSettings ()
 
-Check the Private Room availability
+Check the \"Private Room\" availability
 
-Checks if the Private Room settings are available or not.
+Checks if the \"Private Room\" settings are available or not.
 
 ### Example
 ```csharp
@@ -1642,11 +1777,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1655,7 +1799,7 @@ namespace Example
 
             try
             {
-                // Check the Private Room availability
+                // Check the \"Private Room\" availability
                 BooleanWrapper result = apiInstance.IsAvailablePrivacyRoomSettings();
                 Debug.WriteLine(result);
             }
@@ -1676,7 +1820,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check the Private Room availability
+    // Check the \"Private Room\" availability
     ApiResponse<BooleanWrapper> response = apiInstance.IsAvailablePrivacyRoomSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1698,7 +1842,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1738,11 +1882,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1799,7 +1952,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1819,9 +1972,9 @@ catch (ApiException e)
 # **SetOpenEditorInSameTab**
 > BooleanWrapper SetOpenEditorInSameTab (SettingsRequestDto? settingsRequestDto = null)
 
-Open document in same browser tab
+Open document in the same browser tab
 
-Change the ability to open in a document in the same browser tab
+Changes the ability to open the document in the same browser tab.
 
 ### Example
 ```csharp
@@ -1839,11 +1992,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1853,7 +2015,7 @@ namespace Example
 
             try
             {
-                // Open document in same browser tab
+                // Open document in the same browser tab
                 BooleanWrapper result = apiInstance.SetOpenEditorInSameTab(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1874,7 +2036,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Open document in same browser tab
+    // Open document in the same browser tab
     ApiResponse<BooleanWrapper> response = apiInstance.SetOpenEditorInSameTabWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1900,7 +2062,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1940,11 +2102,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -1996,7 +2167,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2036,11 +2207,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -2097,7 +2277,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2137,11 +2317,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -2198,7 +2387,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

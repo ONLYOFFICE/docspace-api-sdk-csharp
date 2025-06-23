@@ -1,6 +1,6 @@
 # Docspace.Api.PeoplePhotosApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost:8092*
 
 Create photo thumbnails
 
-Creates photo thumbnails by coordinates of the original image specified in the request.
+Creates the user photo thumbnails by coordinates of the original image specified in the request.
 
 ### Example
 ```csharp
@@ -34,18 +34,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | User ID
-            var thumbnailsRequest = new ThumbnailsRequest?(); // ThumbnailsRequest? | Thumbnails (optional) 
+            var userid = 9846;  // string | The user ID.
+            var thumbnailsRequest = new ThumbnailsRequest?(); // ThumbnailsRequest? | The thumbnail request. (optional) 
 
             try
             {
@@ -88,8 +97,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **string** | User ID |  |
-| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest?.md) | Thumbnails | [optional]  |
+| **userid** | **string** | The user ID. |  |
+| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest?.md) | The thumbnail request. | [optional]  |
 
 ### Return type
 
@@ -97,7 +106,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -139,17 +148,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | User ID
+            var userid = 9846;  // string | The user ID.
 
             try
             {
@@ -192,7 +210,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **string** | User ID |  |
+| **userid** | **string** | The user ID. |  |
 
 ### Return type
 
@@ -200,7 +218,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -242,17 +260,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | User ID
+            var userid = 9846;  // string | The user ID.
 
             try
             {
@@ -295,7 +322,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **string** | User ID |  |
+| **userid** | **string** | The user ID. |  |
 
 ### Return type
 
@@ -303,7 +330,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -345,18 +372,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | User ID
-            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest?(); // UpdatePhotoMemberRequest? | Update photo (optional) 
+            var userid = 9846;  // string | The user ID.
+            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest?(); // UpdatePhotoMemberRequest? | The request parameters for updating a photo. (optional) 
 
             try
             {
@@ -399,8 +435,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **string** | User ID |  |
-| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest?.md) | Update photo | [optional]  |
+| **userid** | **string** | The user ID. |  |
+| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest?.md) | The request parameters for updating a photo. | [optional]  |
 
 ### Return type
 
@@ -408,7 +444,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -428,7 +464,7 @@ catch (ApiException e)
 
 <a id="uploadmemberphoto"></a>
 # **UploadMemberPhoto**
-> FileUploadResultWrapper UploadMemberPhoto (string userid, List<KeyValuePairStringStringValues>? formCollection = null)
+> FileUploadResultWrapper UploadMemberPhoto (string userid, List<KeyValuePairStringStringValues> formCollection)
 
 Upload a user photo
 
@@ -450,18 +486,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | User ID
-            var formCollection = new List<KeyValuePairStringStringValues>?(); // List<KeyValuePairStringStringValues>? | Image data (optional) 
+            var userid = 9846;  // string | The user ID.
+            var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
 
             try
             {
@@ -504,8 +549,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **string** | User ID |  |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;?**](KeyValuePairStringStringValues.md) | Image data | [optional]  |
+| **userid** | **string** | The user ID. |  |
+| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
 
 ### Return type
 
@@ -513,7 +558,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -525,7 +570,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Result of file uploading |  -  |
+| **400** | The uploaded file could not be found |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **413** | Image size is too large |  -  |
+| **415** | Unknown image file type |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

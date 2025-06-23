@@ -1,17 +1,17 @@
 # Docspace.Model.RoomLinkRequest
-Link parameters
+The room link parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LinkId** | **Guid** | Link ID | [optional] 
+**LinkId** | **Guid** | The room link ID. | [optional] 
 **Access** | **FileShare** |  | [optional] 
 **ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Title** | **string** | Link name | [optional] 
+**Title** | **string** | The link name. | [optional] 
 **LinkType** | **LinkType** |  | [optional] 
-**Password** | **string** | Link password | [optional] 
-**DenyDownload** | **bool** | Specifies whether downloading a file from a link is disabled or not | [optional] 
+**Password** | **string** | The link password. | [optional] 
+**DenyDownload** | **bool** | Specifies if downloading the file from the link is disabled or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

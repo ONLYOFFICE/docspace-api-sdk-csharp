@@ -1,4 +1,5 @@
 # Docspace.Model.Options
+The document options.
 
 ## Properties
 

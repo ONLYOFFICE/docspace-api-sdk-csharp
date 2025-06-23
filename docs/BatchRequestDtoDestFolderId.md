@@ -1,5 +1,5 @@
 # Docspace.Model.BatchRequestDtoDestFolderId
-Destination folder ID
+The destination folder ID.
 
 ## Properties
 

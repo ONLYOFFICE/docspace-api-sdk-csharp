@@ -1,10 +1,10 @@
 # Docspace.Api.FilesFoldersApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CheckUpload**](FilesFoldersApi.md#checkupload) | **POST** /api/2.0/files/{folderId}/upload/check | Checks upload |
+| [**CheckUpload**](FilesFoldersApi.md#checkupload) | **POST** /api/2.0/files/{folderId}/upload/check | Check file uploads |
 | [**CreateFolder**](FilesFoldersApi.md#createfolder) | **POST** /api/2.0/files/folder/{folderId} | Create a folder |
 | [**DeleteFolder**](FilesFoldersApi.md#deletefolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
 | [**GetFilesUsedSpace**](FilesFoldersApi.md#getfilesusedspace) | **GET** /api/2.0/files/filesusedspace | Get used space of files |
@@ -23,7 +23,7 @@ All URIs are relative to *http://localhost:8092*
 | [**InsertFile**](FilesFoldersApi.md#insertfile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
 | [**InsertFileToMyFromBody**](FilesFoldersApi.md#insertfiletomyfrombody) | **POST** /api/2.0/files/@my/insert | Insert a file to the \&quot;My documents\&quot; section |
 | [**RenameFolder**](FilesFoldersApi.md#renamefolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
-| [**SetFileOrder**](FilesFoldersApi.md#setfileorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Sets file order in the folder with ID specified in the request |
+| [**SetFileOrder**](FilesFoldersApi.md#setfileorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set file order |
 | [**UploadFile**](FilesFoldersApi.md#uploadfile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
 | [**UploadFileToMy**](FilesFoldersApi.md#uploadfiletomy) | **POST** /api/2.0/files/@my/upload | Upload a file to the \&quot;My documents\&quot; section |
 
@@ -31,9 +31,9 @@ All URIs are relative to *http://localhost:8092*
 # **CheckUpload**
 > STRINGArrayWrapper CheckUpload (int folderId, CheckUploadRequest? checkUploadRequest = null)
 
-Checks upload
+Check file uploads
 
-Checks upload
+Checks the file uploads to the folder with the ID specified in the request.
 
 ### Example
 ```csharp
@@ -51,22 +51,31 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var checkUploadRequest = new CheckUploadRequest?(); // CheckUploadRequest? | Parameters for checking files uploading (optional) 
+            var folderId = 9846;  // int | The folder ID.
+            var checkUploadRequest = new CheckUploadRequest?(); // CheckUploadRequest? | The request parameters for checking file uploads. (optional) 
 
             try
             {
-                // Checks upload
+                // Check file uploads
                 STRINGArrayWrapper result = apiInstance.CheckUpload(folderId, checkUploadRequest);
                 Debug.WriteLine(result);
             }
@@ -87,7 +96,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Checks upload
+    // Check file uploads
     ApiResponse<STRINGArrayWrapper> response = apiInstance.CheckUploadWithHttpInfo(folderId, checkUploadRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -105,8 +114,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **checkUploadRequest** | [**CheckUploadRequest?**](CheckUploadRequest?.md) | Parameters for checking files uploading | [optional]  |
+| **folderId** | **int** | The folder ID. |  |
+| **checkUploadRequest** | [**CheckUploadRequest?**](CheckUploadRequest?.md) | The request parameters for checking file uploads. | [optional]  |
 
 ### Return type
 
@@ -114,7 +123,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -154,18 +163,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var createFolder = new CreateFolder?(); // CreateFolder? | Folder (optional) 
+            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var createFolder = new CreateFolder?(); // CreateFolder? | The parameters for creating a folder. (optional) 
 
             try
             {
@@ -208,8 +226,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | Folder | [optional]  |
+| **folderId** | **int** | The folder ID for the folder creation. |  |
+| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | The parameters for creating a folder. | [optional]  |
 
 ### Return type
 
@@ -217,7 +235,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -257,18 +275,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var deleteFolder = new DeleteFolder?(); // DeleteFolder? | Parameters for deleting a folder (optional) 
+            var folderId = 9846;  // int | The folder ID to delete.
+            var deleteFolder = new DeleteFolder?(); // DeleteFolder? | The parameters for deleting a folder. (optional) 
 
             try
             {
@@ -311,8 +338,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **deleteFolder** | [**DeleteFolder?**](DeleteFolder?.md) | Parameters for deleting a folder | [optional]  |
+| **folderId** | **int** | The folder ID to delete. |  |
+| **deleteFolder** | [**DeleteFolder?**](DeleteFolder?.md) | The parameters for deleting a folder. | [optional]  |
 
 ### Return type
 
@@ -320,7 +347,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -360,11 +387,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -416,7 +452,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -438,7 +474,7 @@ This endpoint does not need any parameter.
 
 Get folder form filter
 
-Get form filter of a folder with id specified in request
+Returns the form filter of a folder with the ID specified in the request.
 
 ### Example
 ```csharp
@@ -456,12 +492,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
+            var folderId = 9846;  // int | The request folder ID.
 
             try
             {
@@ -504,7 +540,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
+| **folderId** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -551,21 +587,21 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User or group ID (optional) 
-            var filterType = new FilterType?(); // FilterType? | Filter type (optional) 
-            var roomId = 9846;  // int? | Room ID (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude a subject or not (optional) 
-            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements from the specified folder (optional) 
-            var extension = .txt;  // string? | Specifies whether to search for a specific file extension (optional) 
-            var searchArea = new SearchArea?(); // SearchArea? | Search area (optional) 
-            var formsItemKey = some text;  // string? |  (optional) 
-            var formsItemType = some text;  // string? |  (optional) 
+            var folderId = 9846;  // int | The folder ID of the request.
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var roomId = 9846;  // int? | The room ID. (optional) 
+            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements from the specified folder. (optional) 
+            var extension = .txt;  // string? | Specifies whether to search for the specific file extension. (optional) 
+            var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
+            var formsItemKey = some text;  // string? | The forms item key. (optional) 
+            var formsItemType = some text;  // string? | The forms item type. (optional) 
 
             try
             {
@@ -608,16 +644,16 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **userIdOrGroupId** | **Guid?** | User or group ID | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | Filter type | [optional]  |
-| **roomId** | **int?** | Room ID | [optional]  |
-| **excludeSubject** | **bool?** | Specifies whether to exclude a subject or not | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements from the specified folder | [optional]  |
-| **extension** | **string?** | Specifies whether to search for a specific file extension | [optional]  |
-| **searchArea** | [**SearchArea?**](SearchArea?.md) | Search area | [optional]  |
-| **formsItemKey** | **string?** |  | [optional]  |
-| **formsItemType** | **string?** |  | [optional]  |
+| **folderId** | **int** | The folder ID of the request. |  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
+| **roomId** | **int?** | The room ID. | [optional]  |
+| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements from the specified folder. | [optional]  |
+| **extension** | **string?** | Specifies whether to search for the specific file extension. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea?.md) | The search area. | [optional]  |
+| **formsItemKey** | **string?** | The forms item key. | [optional]  |
+| **formsItemType** | **string?** | The forms item type. | [optional]  |
 
 ### Return type
 
@@ -648,7 +684,7 @@ No authorization required
 
 Get folder history
 
-Get the activity history of a folder with a specified identifier
+Returns the activity history of a folder with a specified identifier.
 
 ### Example
 ```csharp
@@ -666,19 +702,28 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | File ID
-            var fromDate = new ApiDateTime?(); // ApiDateTime? | Start date (optional) 
-            var toDate = new ApiDateTime?(); // ApiDateTime? | End date (optional) 
+            var folderId = 9846;  // int | The folder ID of the history request.
+            var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history request. (optional) 
+            var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history request. (optional) 
 
             try
             {
@@ -721,9 +766,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | File ID |  |
-| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | Start date | [optional]  |
-| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | End date | [optional]  |
+| **folderId** | **int** | The folder ID of the history request. |  |
+| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history request. | [optional]  |
+| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history request. | [optional]  |
 
 ### Return type
 
@@ -731,7 +776,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -773,12 +818,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
+            var folderId = 9846;  // int | The request folder ID.
 
             try
             {
@@ -821,7 +866,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
+| **folderId** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -868,17 +913,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
+            var folderId = 9846;  // int | The request folder ID.
 
             try
             {
@@ -921,7 +975,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
+| **folderId** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -929,7 +983,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -970,12 +1024,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | Folder Id
+            var id = 9846;  // int | The request folder ID.
 
             try
             {
@@ -1018,7 +1072,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Folder Id |  |
+| **id** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -1066,17 +1120,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
+            var folderId = 9846;  // int | The request folder ID.
 
             try
             {
@@ -1119,7 +1182,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
+| **folderId** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -1127,7 +1190,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1168,19 +1231,28 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User or group ID (optional) 
-            var filterType = new FilterType?(); // FilterType? | Filter type (optional) 
-            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements from the specified folder (optional) 
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
 
             try
             {
@@ -1223,9 +1295,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | User or group ID | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | Filter type | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements from the specified folder | [optional]  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
 
 ### Return type
 
@@ -1233,7 +1305,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1275,17 +1347,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
+            var folderId = 9846;  // int | The request folder ID.
 
             try
             {
@@ -1328,7 +1409,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
+| **folderId** | **int** | The request folder ID. |  |
 
 ### Return type
 
@@ -1336,7 +1417,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1377,18 +1458,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User or group ID (optional) 
-            var filterType = new FilterType?(); // FilterType? | Filter type (optional) 
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
 
             try
             {
@@ -1431,8 +1521,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | User or group ID | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | Filter type | [optional]  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
 
 ### Return type
 
@@ -1440,7 +1530,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1482,19 +1572,28 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User or group ID (optional) 
-            var filterType = new FilterType?(); // FilterType? | Filter type (optional) 
-            var withoutTrash = true;  // bool? | Specifies whether to return the \"Trash\" section or not (optional) 
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var withoutTrash = true;  // bool? | Specifies whether to return the \"Trash\" section or not. (optional) 
 
             try
             {
@@ -1537,9 +1636,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | User or group ID | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | Filter type | [optional]  |
-| **withoutTrash** | **bool?** | Specifies whether to return the \&quot;Trash\&quot; section or not | [optional]  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
+| **withoutTrash** | **bool?** | Specifies whether to return the \&quot;Trash\&quot; section or not. | [optional]  |
 
 ### Return type
 
@@ -1547,7 +1646,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1589,19 +1688,28 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | User or group ID (optional) 
-            var filterType = new FilterType?(); // FilterType? | Filter type (optional) 
-            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements from the specified folder (optional) 
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
 
             try
             {
@@ -1644,9 +1752,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | User or group ID | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | Filter type | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements from the specified folder | [optional]  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
 
 ### Return type
 
@@ -1654,7 +1762,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1696,21 +1804,30 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var insertFileFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | File (optional) 
-            var insertFileTitle = "insertFileTitle_example";  // string? | File name (optional) 
-            var insertFileCreateNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not (optional) 
-            var insertFileKeepConvertStatus = true;  // bool? | Specifies whether to keep the file converting status or not (optional) 
+            var folderId = 9846;  // int | The folder ID for inserting a file.
+            var insertFileFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file to be inserted. (optional) 
+            var insertFileTitle = "insertFileTitle_example";  // string? | The file title to be inserted. (optional) 
+            var insertFileCreateNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not. (optional) 
+            var insertFileKeepConvertStatus = true;  // bool? | Specifies whether to keep the file converting status or not. (optional) 
             var insertFileStreamCanRead = true;  // bool? |  (optional) 
             var insertFileStreamCanWrite = true;  // bool? |  (optional) 
             var insertFileStreamCanSeek = true;  // bool? |  (optional) 
@@ -1761,11 +1878,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **insertFileFile** | **FileParameter?****FileParameter?** | File | [optional]  |
-| **insertFileTitle** | **string?** | File name | [optional]  |
-| **insertFileCreateNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not | [optional]  |
-| **insertFileKeepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not | [optional]  |
+| **folderId** | **int** | The folder ID for inserting a file. |  |
+| **insertFileFile** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
+| **insertFileTitle** | **string?** | The file title to be inserted. | [optional]  |
+| **insertFileCreateNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
+| **insertFileKeepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
 | **insertFileStreamCanRead** | **bool?** |  | [optional]  |
 | **insertFileStreamCanWrite** | **bool?** |  | [optional]  |
 | **insertFileStreamCanSeek** | **bool?** |  | [optional]  |
@@ -1781,7 +1898,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1823,20 +1940,29 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | File (optional) 
-            var title = "title_example";  // string? | File name (optional) 
-            var createNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not (optional) 
-            var keepConvertStatus = true;  // bool? | Specifies whether to keep the file converting status or not (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file to be inserted. (optional) 
+            var title = "title_example";  // string? | The file title to be inserted. (optional) 
+            var createNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not. (optional) 
+            var keepConvertStatus = true;  // bool? | Specifies whether to keep the file converting status or not. (optional) 
             var streamCanRead = true;  // bool? |  (optional) 
             var streamCanWrite = true;  // bool? |  (optional) 
             var streamCanSeek = true;  // bool? |  (optional) 
@@ -1887,10 +2013,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **FileParameter?****FileParameter?** | File | [optional]  |
-| **title** | **string?** | File name | [optional]  |
-| **createNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not | [optional]  |
-| **keepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
+| **title** | **string?** | The file title to be inserted. | [optional]  |
+| **createNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
+| **keepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
 | **streamCanRead** | **bool?** |  | [optional]  |
 | **streamCanWrite** | **bool?** |  | [optional]  |
 | **streamCanSeek** | **bool?** |  | [optional]  |
@@ -1906,7 +2032,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1948,18 +2074,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var createFolder = new CreateFolder?(); // CreateFolder? | Folder (optional) 
+            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var createFolder = new CreateFolder?(); // CreateFolder? | The parameters for creating a folder. (optional) 
 
             try
             {
@@ -2002,8 +2137,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | Folder | [optional]  |
+| **folderId** | **int** | The folder ID for the folder creation. |  |
+| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | The parameters for creating a folder. | [optional]  |
 
 ### Return type
 
@@ -2011,7 +2146,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2030,11 +2165,11 @@ catch (ApiException e)
 
 <a id="setfileorder"></a>
 # **SetFileOrder**
-> void SetFileOrder (int folderId, OrderRequestDto? orderRequestDto = null)
+> FolderIntegerWrapper SetFileOrder (int folderId, OrderRequestDto? orderRequestDto = null)
 
-Sets file order in the folder with ID specified in the request
+Set file order
 
-Sets file order in the folder with ID specified in the request
+Sets the file order in the folder with ID specified in the request.
 
 ### Example
 ```csharp
@@ -2052,23 +2187,33 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The unique identifier of the folder
-            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | Order information for the folder (optional) 
+            var folderId = 9846;  // int | The folder unique identifier.
+            var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The folder order information. (optional) 
 
             try
             {
-                // Sets file order in the folder with ID specified in the request
-                apiInstance.SetFileOrder(folderId, orderRequestDto);
+                // Set file order
+                FolderIntegerWrapper result = apiInstance.SetFileOrder(folderId, orderRequestDto);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -2087,8 +2232,11 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Sets file order in the folder with ID specified in the request
-    apiInstance.SetFileOrderWithHttpInfo(folderId, orderRequestDto);
+    // Set file order
+    ApiResponse<FolderIntegerWrapper> response = apiInstance.SetFileOrderWithHttpInfo(folderId, orderRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -2102,21 +2250,21 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The unique identifier of the folder |  |
-| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | Order information for the folder | [optional]  |
+| **folderId** | **int** | The folder unique identifier. |  |
+| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The folder order information. | [optional]  |
 
 ### Return type
 
-void (empty response body)
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -2151,18 +2299,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | Folder ID
-            var uploadRequestDto = new UploadRequestDto?(); // UploadRequestDto? | Upload data (optional) 
+            var folderId = 9846;  // int | The folder ID to upload a file.
+            var uploadRequestDto = new UploadRequestDto?(); // UploadRequestDto? | The request parameters for uploading a file. (optional) 
 
             try
             {
@@ -2205,8 +2362,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | Folder ID |  |
-| **uploadRequestDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | Upload data | [optional]  |
+| **folderId** | **int** | The folder ID to upload a file. |  |
+| **uploadRequestDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | The request parameters for uploading a file. | [optional]  |
 
 ### Return type
 
@@ -2214,7 +2371,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -2256,17 +2413,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFoldersApi(httpClient, config, httpClientHandler);
-            var inDto = new UploadRequestDto?(); // UploadRequestDto? | Request parameters for uploading a file (optional) 
+            var inDto = new UploadRequestDto?(); // UploadRequestDto? | The request parameters for uploading a file. (optional) 
 
             try
             {
@@ -2309,7 +2475,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **inDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | Request parameters for uploading a file | [optional]  |
+| **inDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | The request parameters for uploading a file. | [optional]  |
 
 ### Return type
 
@@ -2317,7 +2483,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

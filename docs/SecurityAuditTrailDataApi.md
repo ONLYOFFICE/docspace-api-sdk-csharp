@@ -1,6 +1,6 @@
 # Docspace.Api.SecurityAuditTrailDataApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -36,11 +36,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -92,7 +101,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -134,25 +143,34 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | User ID (optional) 
-            var productType = new ProductType?(); // ProductType? | Product (optional) 
-            var moduleType = new ModuleType?(); // ModuleType? | Module (optional) 
-            var actionType = new ActionType?(); // ActionType? | Action type (optional) 
-            var action = new MessageAction?(); // MessageAction? | Action (optional) 
-            var entryType = new EntryType?(); // EntryType? | Entry (optional) 
-            var target = some text;  // string? | Target (optional) 
-            var from = new ApiDateTime?(); // ApiDateTime? | Start date (optional) 
-            var to = new ApiDateTime?(); // ApiDateTime? | End date (optional) 
+            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user who triggered the audit event. (optional) 
+            var productType = new ProductType?(); // ProductType? | The type of product related to the audit event. (optional) 
+            var moduleType = new ModuleType?(); // ModuleType? | The module within the product where the audit event occurred. (optional) 
+            var actionType = new ActionType?(); // ActionType? | The type of action performed in the audit event (e.g., Create, Update, Delete). (optional) 
+            var action = new MessageAction?(); // MessageAction? | The specific action that occurred within the audit event. (optional) 
+            var entryType = new EntryType?(); // EntryType? | The type of audit entry (e.g., Folder, User, File). (optional) 
+            var target = some text;  // string? | The target object affected by the audit event (e.g., document ID, user account). (optional) 
+            var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering audit events. (optional) 
+            var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering audit events. (optional) 
 
             try
             {
@@ -195,15 +213,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userId** | **Guid?** | User ID | [optional]  |
-| **productType** | [**ProductType?**](ProductType?.md) | Product | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType?.md) | Module | [optional]  |
-| **actionType** | [**ActionType?**](ActionType?.md) | Action type | [optional]  |
-| **action** | [**MessageAction?**](MessageAction?.md) | Action | [optional]  |
-| **entryType** | [**EntryType?**](EntryType?.md) | Entry | [optional]  |
-| **target** | **string?** | Target | [optional]  |
-| **from** | [**ApiDateTime?**](ApiDateTime?.md) | Start date | [optional]  |
-| **to** | [**ApiDateTime?**](ApiDateTime?.md) | End date | [optional]  |
+| **userId** | **Guid?** | The ID of the user who triggered the audit event. | [optional]  |
+| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit event. | [optional]  |
+| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product where the audit event occurred. | [optional]  |
+| **actionType** | [**ActionType?**](ActionType?.md) | The type of action performed in the audit event (e.g., Create, Update, Delete). | [optional]  |
+| **action** | [**MessageAction?**](MessageAction?.md) | The specific action that occurred within the audit event. | [optional]  |
+| **entryType** | [**EntryType?**](EntryType?.md) | The type of audit entry (e.g., Folder, User, File). | [optional]  |
+| **target** | **string?** | The target object affected by the audit event (e.g., document ID, user account). | [optional]  |
+| **from** | [**ApiDateTime?**](ApiDateTime?.md) | The starting date and time for filtering audit events. | [optional]  |
+| **to** | [**ApiDateTime?**](ApiDateTime?.md) | The ending date and time for filtering audit events. | [optional]  |
 
 ### Return type
 
@@ -211,7 +229,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -252,11 +270,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -308,7 +335,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -331,7 +358,7 @@ This endpoint does not need any parameter.
 
 Get audit trail data
 
-Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities (tasks, opportunities, files, etc.) on the portal.
+Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
 
 ### Example
 ```csharp
@@ -349,11 +376,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -405,7 +441,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -446,13 +482,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
-            var productType = new ProductType?(); // ProductType? | Product (optional) 
-            var moduleType = new ModuleType?(); // ModuleType? | Module (optional) 
+            var productType = new ProductType?(); // ProductType? | The type of product related to the audit trail. (optional) 
+            var moduleType = new ModuleType?(); // ModuleType? | The module within the product associated with the audit trail. (optional) 
 
             try
             {
@@ -495,8 +531,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productType** | [**ProductType?**](ProductType?.md) | Product | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType?.md) | Module | [optional]  |
+| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit trail. | [optional]  |
+| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product associated with the audit trail. | [optional]  |
 
 ### Return type
 
@@ -543,7 +579,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -633,11 +669,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -694,7 +739,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,5 @@
 # Docspace.Model.DeepLinkConfigurationRequestsDto
+The request parameters for managing the deep link configuration.
 
 ## Properties
 

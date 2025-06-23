@@ -1,19 +1,19 @@
 # Docspace.Api.FilesQuotaApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ResetRoomQuota**](FilesQuotaApi.md#resetroomquota) | **PUT** /api/2.0/files/rooms/resetquota | Reset a room quota limit |
-| [**UpdateRoomsQuota**](FilesQuotaApi.md#updateroomsquota) | **PUT** /api/2.0/files/rooms/roomquota | Change a room quota limit |
+| [**ResetRoomQuota**](FilesQuotaApi.md#resetroomquota) | **PUT** /api/2.0/files/rooms/resetquota | Reset the room quota limit |
+| [**UpdateRoomsQuota**](FilesQuotaApi.md#updateroomsquota) | **PUT** /api/2.0/files/rooms/roomquota | Change the room quota limit |
 
 <a id="resetroomquota"></a>
 # **ResetRoomQuota**
 > FolderIntegerArrayWrapper ResetRoomQuota (UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = null)
 
-Reset a room quota limit
+Reset the room quota limit
 
-Resets a quota limit for the rooms with the IDs specified in the request.
+Resets the quota limit for the rooms with the IDs specified in the request.
 
 ### Example
 ```csharp
@@ -31,11 +31,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -45,7 +54,7 @@ namespace Example
 
             try
             {
-                // Reset a room quota limit
+                // Reset the room quota limit
                 FolderIntegerArrayWrapper result = apiInstance.ResetRoomQuota(updateRoomsRoomIdsRequestDtoInteger);
                 Debug.WriteLine(result);
             }
@@ -66,7 +75,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Reset a room quota limit
+    // Reset the room quota limit
     ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.ResetRoomQuotaWithHttpInfo(updateRoomsRoomIdsRequestDtoInteger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -92,7 +101,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -112,9 +121,9 @@ catch (ApiException e)
 # **UpdateRoomsQuota**
 > FolderIntegerArrayWrapper UpdateRoomsQuota (UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = null)
 
-Change a room quota limit
+Change the room quota limit
 
-Changes a quota limit for the rooms with the IDs specified in the request.
+Changes the quota limit for the rooms with the IDs specified in the request.
 
 ### Example
 ```csharp
@@ -132,11 +141,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -146,7 +164,7 @@ namespace Example
 
             try
             {
-                // Change a room quota limit
+                // Change the room quota limit
                 FolderIntegerArrayWrapper result = apiInstance.UpdateRoomsQuota(updateRoomsQuotaRequestDtoInteger);
                 Debug.WriteLine(result);
             }
@@ -167,7 +185,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change a room quota limit
+    // Change the room quota limit
     ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.UpdateRoomsQuotaWithHttpInfo(updateRoomsQuotaRequestDtoInteger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -193,7 +211,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

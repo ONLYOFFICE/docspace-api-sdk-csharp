@@ -1,17 +1,18 @@
 # Docspace.Model.FolderContentDtoInteger
+The folder content information.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Files** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | List of files | [optional] 
-**Folders** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | List of folders | [optional] 
+**Files** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of files in the folder. | [optional] 
+**Folders** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of folders in the folder. | [optional] 
 **Current** | [**FolderDtoInteger**](FolderDtoInteger.md) |  | [optional] 
-**PathParts** | **Object** | Folder path | [optional] 
-**StartIndex** | **int** | Folder start index | [optional] 
-**Count** | **int** | Number of folder elements | [optional] 
-**Total** | **int** | Total number of elements in the folder | [optional] 
-**New** | **int** | New element index | [optional] 
+**PathParts** | **Object** | The folder path. | [optional] 
+**StartIndex** | **int** | The folder start index. | [optional] 
+**Count** | **int** | The number of folder elements. | [optional] 
+**Total** | **int** | The total number of elements in the folder. | [optional] 
+**New** | **int** | The new element index in the folder. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,4 +1,5 @@
 # Docspace.Model.FormsItemDto
+The forms item information.
 
 ## Properties
 

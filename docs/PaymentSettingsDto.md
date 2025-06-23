@@ -1,15 +1,16 @@
 # Docspace.Model.PaymentSettingsDto
+The payment settings parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SalesEmail** | **string** | Email address for sales inquiries and support | [optional] 
-**FeedbackAndSupportUrl** | **string** | URL for accessing feedback and support resources | [optional] 
-**BuyUrl** | **string** | URL for purchasing or upgrading the product | [optional] 
-**Standalone** | **bool** | Indicates whether the system is running in standalone mode | [optional] 
+**SalesEmail** | **string** | The email address for sales inquiries and support. | [optional] 
+**FeedbackAndSupportUrl** | **string** | The URL for accessing the feedback and support resources. | [optional] 
+**BuyUrl** | **string** | The URL for purchasing or upgrading the product. | [optional] 
+**Standalone** | **bool** | Indicates whether the system is running in standalone mode. | [optional] 
 **CurrentLicense** | [**CurrentLicenseInfo**](CurrentLicenseInfo.md) |  | [optional] 
-**Max** | **int** | Maximum value for a specific setting | [optional] 
+**Max** | **int** | The maximum quota quantity. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

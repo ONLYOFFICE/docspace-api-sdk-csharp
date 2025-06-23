@@ -1,5 +1,5 @@
 # Docspace.Model.FileConflictResolveType
-[0 - Skip, 1 - Overwrite, 2 - Duplicate]
+The overwriting behavior of the file copying or moving.
 
 ## Properties
 

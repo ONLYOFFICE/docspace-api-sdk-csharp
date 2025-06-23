@@ -1,12 +1,12 @@
 # Docspace.Model.AdminMessageBaseSettingsRequestsDto
-Request parameters for administrator message settings
+The request parameters for the administrator message configuration.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | Email | [optional] 
-**Culture** | **string** | Culture | [optional] 
+**Email** | **string** | The email address used for sending administrator messages. | 
+**Culture** | **string** | The locale identifier for message localization. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

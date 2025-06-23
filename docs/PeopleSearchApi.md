@@ -1,24 +1,24 @@
 # Docspace.Api.PeopleSearchApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *http://http:*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAccountsEntriesWithShared**](PeopleSearchApi.md#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Gets accounts entries with shared |
+| [**GetAccountsEntriesWithShared**](PeopleSearchApi.md#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
 | [**GetAdvanced**](PeopleSearchApi.md#getadvanced) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
-| [**GetFullByFilter**](PeopleSearchApi.md#getfullbyfilter) | **GET** /api/2.0/people/filter | Search users and their information by extended filter |
+| [**GetFullByFilter**](PeopleSearchApi.md#getfullbyfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
 | [**GetPeopleSearch**](PeopleSearchApi.md#getpeoplesearch) | **GET** /api/2.0/people/search | Search users (using query parameters) |
 | [**GetSearch**](PeopleSearchApi.md#getsearch) | **GET** /api/2.0/people/@search/{query} | Search users |
 | [**GetSimpleByFilter**](PeopleSearchApi.md#getsimplebyfilter) | **GET** /api/2.0/people/simple/filter | Search users by extended filter |
-| [**GetUsersWithRoomShared**](PeopleSearchApi.md#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Gets users with shared in room ID specified in request |
+| [**GetUsersWithRoomShared**](PeopleSearchApi.md#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
 
 <a id="getaccountsentrieswithshared"></a>
 # **GetAccountsEntriesWithShared**
-> ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
+> ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
 
-Gets accounts entries with shared
+Get account entries
 
-Gets accounts entries with shared
+Returns the account entries with their sharing settings.
 
 ### Example
 ```csharp
@@ -36,29 +36,39 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | ID
-            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | Employee status (optional) 
-            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | Activation status (optional) 
-            var excludeShared = true;  // bool? | Exclude shared (optional) 
-            var invitedByMe = true;  // bool? | Invited by me (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Inviter Id (optional) 
-            var area = new Area?(); // Area? | Area (optional) 
-            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Employee Types (optional) 
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The area of the account entries. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
 
             try
             {
-                // Gets accounts entries with shared
-                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, invitedByMe, inviterId, area, employeeTypes);
+                // Get account entries
+                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -78,8 +88,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets accounts entries with shared
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, invitedByMe, inviterId, area, employeeTypes);
+    // Get account entries
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -96,14 +106,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | ID |  |
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | Employee status | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | Activation status | [optional]  |
-| **excludeShared** | **bool?** | Exclude shared | [optional]  |
-| **invitedByMe** | **bool?** | Invited by me | [optional]  |
-| **inviterId** | **Guid?** | Inviter Id | [optional]  |
-| **area** | [**Area?**](Area?.md) | Area | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Employee Types | [optional]  |
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the account sharing settings from the response. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the account sharing settings in the response. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area?.md) | The area of the account entries. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
 
 ### Return type
 
@@ -111,7 +122,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -152,18 +163,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | User status
-            var query = some text;  // string? | Search query (optional) 
+            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
+            var query = some text;  // string? | The advanced search query. (optional) 
 
             try
             {
@@ -206,8 +226,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **status** | **EmployeeStatus** | User status |  |
-| **query** | **string?** | Search query | [optional]  |
+| **status** | **EmployeeStatus** | The user status. |  |
+| **query** | **string?** | The advanced search query. | [optional]  |
 
 ### Return type
 
@@ -215,7 +235,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -234,9 +254,9 @@ catch (ApiException e)
 
 <a id="getfullbyfilter"></a>
 # **GetFullByFilter**
-> EmployeeFullArrayWrapper GetFullByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<EmployeeType>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
+> EmployeeFullArrayWrapper GetFullByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
 
-Search users and their information by extended filter
+Search users with detaailed information by extended filter
 
 Returns a list of users with full information about them matching the parameters specified in the request.
 
@@ -256,34 +276,43 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | User status (optional) 
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Group ID (optional) 
-            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | Activation status (optional) 
-            var employeeType = new EmployeeType?(); // EmployeeType? | User type (optional) 
-            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | List of user types (optional) 
-            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not (optional) 
-            var payments = new Payments?(); // Payments? | User payment status (optional) 
-            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | Account login type (optional) 
-            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | Filter by quota (All - 0, Default - 1, Custom - 2) (optional) 
-            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not (optional) 
-            var excludeGroup = true;  // bool? | Specifies whether or not the user should be a member of the group with the specified ID (optional) 
-            var invitedByMe = true;  // bool? | Invited by me (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Inviter Id (optional) 
-            var area = new Area?(); // Area? | Area (optional) 
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
+            var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
+            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
+            var payments = new Payments?(); // Payments? | The user payment status. (optional) 
+            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
+            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
+            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
+            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The filter area. (optional) 
 
             try
             {
-                // Search users and their information by extended filter
+                // Search users with detaailed information by extended filter
                 EmployeeFullArrayWrapper result = apiInstance.GetFullByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
                 Debug.WriteLine(result);
             }
@@ -304,7 +333,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Search users and their information by extended filter
+    // Search users with detaailed information by extended filter
     ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetFullByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -322,20 +351,20 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | User status | [optional]  |
-| **groupId** | **Guid?** | Group ID | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | Activation status | [optional]  |
-| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | User type | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | List of user types | [optional]  |
-| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not | [optional]  |
-| **payments** | [**Payments?**](Payments?.md) | User payment status | [optional]  |
-| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | Account login type | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | Filter by quota (All - 0, Default - 1, Custom - 2) | [optional]  |
-| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not | [optional]  |
-| **excludeGroup** | **bool?** | Specifies whether or not the user should be a member of the group with the specified ID | [optional]  |
-| **invitedByMe** | **bool?** | Invited by me | [optional]  |
-| **inviterId** | **Guid?** | Inviter Id | [optional]  |
-| **area** | [**Area?**](Area?.md) | Area | [optional]  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
+| **groupId** | **Guid?** | The group ID. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
+| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
+| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
+| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
+| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
+| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
+| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
 
 ### Return type
 
@@ -343,7 +372,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -384,17 +413,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var query = some text;  // string? | Search query (optional) 
+            var query = some text;  // string? | The search query. (optional) 
 
             try
             {
@@ -437,7 +475,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | Search query | [optional]  |
+| **query** | **string?** | The search query. | [optional]  |
 
 ### Return type
 
@@ -445,7 +483,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -485,17 +523,26 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var query = some text;  // string | Search query
+            var query = some text;  // string | The search query.
 
             try
             {
@@ -538,7 +585,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string** | Search query |  |
+| **query** | **string** | The search query. |  |
 
 ### Return type
 
@@ -546,7 +593,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -565,7 +612,7 @@ catch (ApiException e)
 
 <a id="getsimplebyfilter"></a>
 # **GetSimpleByFilter**
-> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<EmployeeType>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
+> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null)
 
 Search users by extended filter
 
@@ -587,30 +634,39 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | User status (optional) 
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Group ID (optional) 
-            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | Activation status (optional) 
-            var employeeType = new EmployeeType?(); // EmployeeType? | User type (optional) 
-            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | List of user types (optional) 
-            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not (optional) 
-            var payments = new Payments?(); // Payments? | User payment status (optional) 
-            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | Account login type (optional) 
-            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | Filter by quota (All - 0, Default - 1, Custom - 2) (optional) 
-            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not (optional) 
-            var excludeGroup = true;  // bool? | Specifies whether or not the user should be a member of the group with the specified ID (optional) 
-            var invitedByMe = true;  // bool? | Invited by me (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Inviter Id (optional) 
-            var area = new Area?(); // Area? | Area (optional) 
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
+            var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
+            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
+            var payments = new Payments?(); // Payments? | The user payment status. (optional) 
+            var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
+            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
+            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
+            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The filter area. (optional) 
 
             try
             {
@@ -653,20 +709,20 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | User status | [optional]  |
-| **groupId** | **Guid?** | Group ID | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | Activation status | [optional]  |
-| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | User type | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | List of user types | [optional]  |
-| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not | [optional]  |
-| **payments** | [**Payments?**](Payments?.md) | User payment status | [optional]  |
-| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | Account login type | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | Filter by quota (All - 0, Default - 1, Custom - 2) | [optional]  |
-| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not | [optional]  |
-| **excludeGroup** | **bool?** | Specifies whether or not the user should be a member of the group with the specified ID | [optional]  |
-| **invitedByMe** | **bool?** | Invited by me | [optional]  |
-| **inviterId** | **Guid?** | Inviter Id | [optional]  |
-| **area** | [**Area?**](Area?.md) | Area | [optional]  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
+| **groupId** | **Guid?** | The group ID. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
+| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
+| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
+| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
+| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
+| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
+| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
 
 ### Return type
 
@@ -674,7 +730,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -693,11 +749,11 @@ catch (ApiException e)
 
 <a id="getuserswithroomshared"></a>
 # **GetUsersWithRoomShared**
-> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
+> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null)
 
-Gets users with shared in room ID specified in request
+Get users with room sharing settings
 
-Gets users with shared in room ID specified in request
+Returns the users with the sharing settings in a room with the ID specified in request.
 
 ### Example
 ```csharp
@@ -715,29 +771,39 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "http://http:";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure Bearer token for authorization: ApiKeyBearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | Id
-            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | Employee status (optional) 
-            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | Activation status (optional) 
-            var excludeShared = true;  // bool? | Exclude shared (optional) 
-            var invitedByMe = true;  // bool? | Invited by me (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | Inviter Id (optional) 
-            var area = new Area?(); // Area? | Area (optional) 
-            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Employee Types (optional) 
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The user area. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
 
             try
             {
-                // Gets users with shared in room ID specified in request
-                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, invitedByMe, inviterId, area, employeeTypes);
+                // Get users with room sharing settings
+                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -757,8 +823,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets users with shared in room ID specified in request
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, invitedByMe, inviterId, area, employeeTypes);
+    // Get users with room sharing settings
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -775,14 +841,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Id |  |
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | Employee status | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | Activation status | [optional]  |
-| **excludeShared** | **bool?** | Exclude shared | [optional]  |
-| **invitedByMe** | **bool?** | Invited by me | [optional]  |
-| **inviterId** | **Guid?** | Inviter Id | [optional]  |
-| **area** | [**Area?**](Area?.md) | Area | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Employee Types | [optional]  |
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the user sharing settings or not. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the user sharing settings or not. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user was invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area?.md) | The user area. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
 
 ### Return type
 
@@ -790,7 +857,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

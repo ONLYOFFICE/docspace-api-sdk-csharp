@@ -1,20 +1,22 @@
 # Docspace.Model.WebhooksLogDto
+The webhook log parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | ID | [optional] 
-**ConfigName** | **string** | Config name | [optional] 
-**CreationTime** | **DateTime** | Creation time | [optional] 
-**Method** | **string** | Method | [optional] 
-**Route** | **string** | Route | [optional] 
-**RequestHeaders** | **string** | Request headers | [optional] 
-**RequestPayload** | **string** | Request payload | [optional] 
-**ResponseHeaders** | **string** | Response headers | [optional] 
-**ResponsePayload** | **string** | Response payload | [optional] 
-**Status** | **int** | Status | [optional] 
-**Delivery** | **DateTime?** | Delivery time | [optional] 
+**Id** | **int** | The webhook log ID. | [optional] 
+**ConfigName** | **string** | The webhook configuration name. | [optional] 
+**Trigger** | **WebhookTrigger** |  | [optional] 
+**CreationTime** | **DateTime** | The webhook creation time. | [optional] 
+**Method** | **string** | The webhook method. | [optional] 
+**Route** | **string** | The webhook route. | [optional] 
+**RequestHeaders** | **string** | The webhook request headers. | [optional] 
+**RequestPayload** | **string** | The webhook request payload. | [optional] 
+**ResponseHeaders** | **string** | The webhook response headers. | [optional] 
+**ResponsePayload** | **string** | The webhook response payload. | [optional] 
+**Status** | **int** | The webhook status. | [optional] 
+**Delivery** | **DateTime?** | The webhook delivery time. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

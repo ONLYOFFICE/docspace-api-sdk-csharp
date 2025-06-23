@@ -1,5 +1,5 @@
 # Docspace.Model.FileDtoIntegerSecurity
-Security
+The actions that can be perforrmed with the file entry.
 
 ## Properties
 
@@ -38,6 +38,11 @@ Name | Type | Description | Notes
 **Embed** | **bool** |  | [optional] 
 **ChangeOwner** | **bool** |  | [optional] 
 **IndexExport** | **bool** |  | [optional] 
+**StartFilling** | **bool** |  | [optional] 
+**FillingStatus** | **bool** |  | [optional] 
+**ResetFilling** | **bool** |  | [optional] 
+**StopFilling** | **bool** |  | [optional] 
+**OpenForm** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

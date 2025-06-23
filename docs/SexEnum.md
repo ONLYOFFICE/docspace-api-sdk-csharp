@@ -1,5 +1,5 @@
 # Docspace.Model.SexEnum
-[0 - Female, 1 - Male]
+The user sex.
 
 ## Properties
 
