@@ -202,6 +202,7 @@ docs/EncryptionSettings.md
 docs/EncryptionSettingsWrapper.md
 docs/EntryType.md
 docs/ErrorResponse.md
+docs/ExchangeToken200Response.md
 docs/ExternalShareDto.md
 docs/ExternalShareRequestParam.md
 docs/ExternalShareWrapper.md
@@ -363,7 +364,6 @@ docs/OAuth20ClientManagementApi.md
 docs/OAuth20ClientQueryingApi.md
 docs/OAuth20ScopeManagementApi.md
 docs/OAuth20Token.md
-docs/Oauth2TokenPost200Response.md
 docs/ObjectArrayWrapper.md
 docs/ObjectWrapper.md
 docs/OpenCustomerSessionRequestDto.md
@@ -648,6 +648,8 @@ docs/WizardRequestsDto.md
 docs/WizardSettings.md
 docs/WizardSettingsWrapper.md
 git_push.sh
+src/Docspace.Example/Docspace.Example.csproj
+src/Docspace.Example/Program.cs
 src/Docspace.Test/Api/ApiKeysApiTests.cs
 src/Docspace.Test/Api/AuthenticationApiTests.cs
 src/Docspace.Test/Api/BackupApiTests.cs
@@ -910,6 +912,7 @@ src/Docspace.Test/Model/EncryptionSettingsTests.cs
 src/Docspace.Test/Model/EncryptionSettingsWrapperTests.cs
 src/Docspace.Test/Model/EntryTypeTests.cs
 src/Docspace.Test/Model/ErrorResponseTests.cs
+src/Docspace.Test/Model/ExchangeToken200ResponseTests.cs
 src/Docspace.Test/Model/ExternalShareDtoTests.cs
 src/Docspace.Test/Model/ExternalShareRequestParamTests.cs
 src/Docspace.Test/Model/ExternalShareWrapperTests.cs
@@ -1057,7 +1060,6 @@ src/Docspace.Test/Model/NotificationSettingsRequestsDtoTests.cs
 src/Docspace.Test/Model/NotificationSettingsWrapperTests.cs
 src/Docspace.Test/Model/NotificationTypeTests.cs
 src/Docspace.Test/Model/OAuth20TokenTests.cs
-src/Docspace.Test/Model/Oauth2TokenPost200ResponseTests.cs
 src/Docspace.Test/Model/ObjectArrayWrapperTests.cs
 src/Docspace.Test/Model/ObjectWrapperTests.cs
 src/Docspace.Test/Model/OpenCustomerSessionRequestDtoTests.cs
@@ -1572,6 +1574,7 @@ src/Docspace/Model/EncryptionSettings.cs
 src/Docspace/Model/EncryptionSettingsWrapper.cs
 src/Docspace/Model/EntryType.cs
 src/Docspace/Model/ErrorResponse.cs
+src/Docspace/Model/ExchangeToken200Response.cs
 src/Docspace/Model/ExternalShareDto.cs
 src/Docspace/Model/ExternalShareRequestParam.cs
 src/Docspace/Model/ExternalShareWrapper.cs
@@ -1719,7 +1722,6 @@ src/Docspace/Model/NotificationSettingsRequestsDto.cs
 src/Docspace/Model/NotificationSettingsWrapper.cs
 src/Docspace/Model/NotificationType.cs
 src/Docspace/Model/OAuth20Token.cs
-src/Docspace/Model/Oauth2TokenPost200Response.cs
 src/Docspace/Model/ObjectArrayWrapper.cs
 src/Docspace/Model/ObjectWrapper.cs
 src/Docspace/Model/OpenCustomerSessionRequestDto.cs

@@ -1,5 +1,9 @@
 openapi: 3.0.4
 info:
+  contact:
+    email: support@example.com
+    name: API Support
+    url: https://www.example.com/support
   title: Api
   version: 3.2.0
 servers:
@@ -7,7 +11,7 @@ servers:
   url: "{baseUrl}"
   variables:
     baseUrl:
-      default: ""
+      default: http://localhost:8092/
       description: Default URL
 tags:
 - description: Operations for authenticating users.
@@ -18654,6 +18658,7 @@ paths:
   /oauth2/authorize:
     get:
       description: Initiates the OAuth2 authorization flow.
+      operationId: authorizeOAuth
       parameters:
       - description: "The OAuth 2.0 response type, must be 'code' for authorization\
           \ code flow."
@@ -18706,11 +18711,12 @@ paths:
       - OAuth 2.0 / Authorization
     post:
       description: Sends a consent request with the specified parameters.
+      operationId: submitConsent
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/_oauth2_authorize_post_request'
+              $ref: '#/components/schemas/submitConsent_request'
       responses:
         "302":
           description: Redirect to the client's redirect URI with authorization code
@@ -18727,17 +18733,18 @@ paths:
     post:
       description: Exchanges an authorization code specified in the request for the
         access token.
+      operationId: exchangeToken
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/_oauth2_token_post_request'
+              $ref: '#/components/schemas/exchangeToken_request'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/_oauth2_token_post_200_response'
+                $ref: '#/components/schemas/exchangeToken_200_response'
           description: The authorization code was successfully exchanged for the access
             token
         "400":
@@ -49569,7 +49576,7 @@ components:
             $ref: '#/components/schemas/KeyValuePairStringStringValues'
           type: array
       type: object
-    _oauth2_authorize_post_request:
+    submitConsent_request:
       properties:
         client_id:
           description: The client identifier issued to the client during registration.
@@ -49584,7 +49591,7 @@ components:
           example: files:read
           type: string
       type: object
-    _oauth2_token_post_request:
+    exchangeToken_request:
       properties:
         grant_type:
           description: "The OAuth2 grant type, must be 'authorization_code' for the\
@@ -49610,7 +49617,7 @@ components:
           example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
           type: string
       type: object
-    _oauth2_token_post_200_response:
+    exchangeToken_200_response:
       example:
         access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
         refresh_token: def502...

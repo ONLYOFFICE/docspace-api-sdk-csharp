@@ -1,4 +1,4 @@
-# Docspace.Model.Oauth2TokenPost200Response
+# Docspace.Model.ExchangeToken200Response
 
 ## Properties
 
