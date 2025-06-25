@@ -247,9 +247,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PortalQuotaApi : IDisposable, IPortalQuotaApi
+    public class PortalQuotaApi : IDisposable, IPortalQuotaApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PortalQuotaApi"/> class.
@@ -272,32 +272,32 @@ namespace Docspace.Api
         public PortalQuotaApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortalQuotaApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PortalQuotaApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PortalQuotaApi(Docspace.Client.Configuration configuration)
+        public PortalQuotaApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -333,20 +333,20 @@ namespace Docspace.Api
         /// </remarks>
         public PortalQuotaApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortalQuotaApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PortalQuotaApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -357,16 +357,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PortalQuotaApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public PortalQuotaApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -380,11 +380,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PortalQuotaApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public PortalQuotaApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -397,23 +397,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -428,12 +428,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -443,7 +443,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -454,7 +454,7 @@ namespace Docspace.Api
         /// <returns>TenantQuotaWrapper</returns>
         public TenantQuotaWrapper GetPortalQuota()
         {
-            Docspace.Client.ApiResponse<TenantQuotaWrapper> localVarResponse = GetPortalQuotaWithHttpInfo();
+            var localVarResponse = GetPortalQuotaWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -464,22 +464,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
-        public Docspace.Client.ApiResponse<TenantQuotaWrapper> GetPortalQuotaWithHttpInfo()
+        public ApiResponse<TenantQuotaWrapper> GetPortalQuotaWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -487,7 +484,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -519,8 +516,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalQuota", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalQuota", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -535,7 +532,7 @@ namespace Docspace.Api
         /// <returns>Task of TenantQuotaWrapper</returns>
         public async System.Threading.Tasks.Task<TenantQuotaWrapper> GetPortalQuotaAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TenantQuotaWrapper> localVarResponse = await GetPortalQuotaWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<TenantQuotaWrapper> localVarResponse = await GetPortalQuotaWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -546,24 +543,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TenantQuotaWrapper>> GetPortalQuotaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TenantQuotaWrapper>> GetPortalQuotaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -571,7 +565,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -604,8 +598,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalQuota", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalQuota", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -620,7 +614,7 @@ namespace Docspace.Api
         /// <returns>TariffWrapper</returns>
         public TariffWrapper GetPortalTariff(bool? refresh = default)
         {
-            Docspace.Client.ApiResponse<TariffWrapper> localVarResponse = GetPortalTariffWithHttpInfo(refresh);
+            var localVarResponse = GetPortalTariffWithHttpInfo(refresh);
             return localVarResponse.Data;
         }
 
@@ -631,34 +625,31 @@ namespace Docspace.Api
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>ApiResponse of TariffWrapper</returns>
-        public Docspace.Client.ApiResponse<TariffWrapper> GetPortalTariffWithHttpInfo(bool? refresh = default)
+        public ApiResponse<TariffWrapper> GetPortalTariffWithHttpInfo(bool? refresh = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (refresh != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "refresh", refresh));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "refresh", refresh));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -690,8 +681,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalTariff", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalTariff", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -707,7 +698,7 @@ namespace Docspace.Api
         /// <returns>Task of TariffWrapper</returns>
         public async System.Threading.Tasks.Task<TariffWrapper> GetPortalTariffAsync(bool? refresh = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TariffWrapper> localVarResponse = await GetPortalTariffWithHttpInfoAsync(refresh, cancellationToken).ConfigureAwait(false);
+            ApiResponse<TariffWrapper> localVarResponse = await GetPortalTariffWithHttpInfoAsync(refresh, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -719,24 +710,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>Task of ApiResponse (TariffWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TariffWrapper>> GetPortalTariffWithHttpInfoAsync(bool? refresh = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TariffWrapper>> GetPortalTariffWithHttpInfoAsync(bool? refresh = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (refresh != null)
@@ -748,7 +736,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -781,8 +769,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalTariff", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalTariff", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -796,7 +784,7 @@ namespace Docspace.Api
         /// <returns>DoubleWrapper</returns>
         public DoubleWrapper GetPortalUsedSpace()
         {
-            Docspace.Client.ApiResponse<DoubleWrapper> localVarResponse = GetPortalUsedSpaceWithHttpInfo();
+            var localVarResponse = GetPortalUsedSpaceWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -806,22 +794,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
-        public Docspace.Client.ApiResponse<DoubleWrapper> GetPortalUsedSpaceWithHttpInfo()
+        public ApiResponse<DoubleWrapper> GetPortalUsedSpaceWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -829,7 +814,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -861,8 +846,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalUsedSpace", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalUsedSpace", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -877,7 +862,7 @@ namespace Docspace.Api
         /// <returns>Task of DoubleWrapper</returns>
         public async System.Threading.Tasks.Task<DoubleWrapper> GetPortalUsedSpaceAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<DoubleWrapper> localVarResponse = await GetPortalUsedSpaceWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<DoubleWrapper> localVarResponse = await GetPortalUsedSpaceWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -888,24 +873,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DoubleWrapper>> GetPortalUsedSpaceWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<DoubleWrapper>> GetPortalUsedSpaceWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -913,7 +895,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -946,8 +928,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPortalUsedSpace", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPortalUsedSpace", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -961,7 +943,7 @@ namespace Docspace.Api
         /// <returns>TenantQuotaWrapper</returns>
         public TenantQuotaWrapper GetRightQuota()
         {
-            Docspace.Client.ApiResponse<TenantQuotaWrapper> localVarResponse = GetRightQuotaWithHttpInfo();
+            var localVarResponse = GetRightQuotaWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -971,22 +953,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
-        public Docspace.Client.ApiResponse<TenantQuotaWrapper> GetRightQuotaWithHttpInfo()
+        public ApiResponse<TenantQuotaWrapper> GetRightQuotaWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -994,7 +973,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1026,8 +1005,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRightQuota", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRightQuota", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1042,7 +1021,7 @@ namespace Docspace.Api
         /// <returns>Task of TenantQuotaWrapper</returns>
         public async System.Threading.Tasks.Task<TenantQuotaWrapper> GetRightQuotaAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TenantQuotaWrapper> localVarResponse = await GetRightQuotaWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<TenantQuotaWrapper> localVarResponse = await GetRightQuotaWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1053,24 +1032,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TenantQuotaWrapper>> GetRightQuotaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TenantQuotaWrapper>> GetRightQuotaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1078,7 +1054,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1111,8 +1087,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRightQuota", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRightQuota", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

@@ -49,6 +49,35 @@ namespace Docspace.Model
     /// <value>[0 - Ok, 1 - Invalid, 2 - Expired, 3 - Required password, 4 - Invalid password, 5 - External access denied]</value>
     public enum Status
     {
+        /// <summary>
+        /// Enum Ok for value: 0
+        /// </summary>
+        Ok = 0,
+
+        /// <summary>
+        /// Enum Invalid for value: 1
+        /// </summary>
+        Invalid = 1,
+
+        /// <summary>
+        /// Enum Expired for value: 2
+        /// </summary>
+        Expired = 2,
+
+        /// <summary>
+        /// Enum RequiredPassword for value: 3
+        /// </summary>
+        RequiredPassword = 3,
+
+        /// <summary>
+        /// Enum InvalidPassword for value: 4
+        /// </summary>
+        InvalidPassword = 4,
+
+        /// <summary>
+        /// Enum ExternalAccessDenied for value: 5
+        /// </summary>
+        ExternalAccessDenied = 5
     }
 
 }

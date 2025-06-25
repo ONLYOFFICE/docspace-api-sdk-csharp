@@ -25,59 +25,82 @@
 // International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
 
 
+using Xunit;
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using Docspace.Model;
+using Docspace.Client;
+using System.Reflection;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = Docspace.Client.FileParameter;
-using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 
-namespace Docspace.Model
+namespace Docspace.Test.Model
 {
     /// <summary>
-    /// [0 - None, 1 - Not sent, 2 - Status2xx, 4 - Status3xx, 8 - Status4xx, 16 - Status5xx]
+    ///  Class for testing CustomerOperationsReportRequestDto
     /// </summary>
-    /// <value>[0 - None, 1 - Not sent, 2 - Status2xx, 4 - Status3xx, 8 - Status4xx, 16 - Status5xx]</value>
-    public enum WebhookGroupStatus
+    public class CustomerOperationsReportRequestDtoTests : IDisposable
     {
-        /// <summary>
-        /// Enum None for value: 0
-        /// </summary>
-        None = 0,
+        // TODO uncomment below to declare an instance variable for CustomerOperationsReportRequestDto
+        //private CustomerOperationsReportRequestDto instance;
+
+        public CustomerOperationsReportRequestDtoTests()
+        {
+            // TODO uncomment below to create an instance of CustomerOperationsReportRequestDto
+            //instance = new CustomerOperationsReportRequestDto();
+        }
+
+        public void Dispose()
+        {
+            // Cleanup when everything is done.
+        }
 
         /// <summary>
-        /// Enum NotSent for value: 1
+        /// Test an instance of CustomerOperationsReportRequestDto
         /// </summary>
-        NotSent = 1,
+        [Fact]
+        public void CustomerOperationsReportRequestDtoInstanceTest()
+        {
+            // TODO uncomment below to test "IsType" CustomerOperationsReportRequestDto
+            //Assert.IsType<CustomerOperationsReportRequestDto>(instance);
+        }
 
         /// <summary>
-        /// Enum Status2xx for value: 2
+        /// Test the property 'StartDate'
         /// </summary>
-        Status2xx = 2,
+        [Fact]
+        public void StartDateTest()
+        {
+            // TODO unit test for the property 'StartDate'
+        }
 
         /// <summary>
-        /// Enum Status3xx for value: 4
+        /// Test the property 'EndDate'
         /// </summary>
-        Status3xx = 4,
+        [Fact]
+        public void EndDateTest()
+        {
+            // TODO unit test for the property 'EndDate'
+        }
 
         /// <summary>
-        /// Enum Status4xx for value: 8
+        /// Test the property 'Credit'
         /// </summary>
-        Status4xx = 8,
+        [Fact]
+        public void CreditTest()
+        {
+            // TODO unit test for the property 'Credit'
+        }
 
         /// <summary>
-        /// Enum Status5xx for value: 16
+        /// Test the property 'Withdrawal'
         /// </summary>
-        Status5xx = 16
+        [Fact]
+        public void WithdrawalTest()
+        {
+            // TODO unit test for the property 'Withdrawal'
+        }
     }
-
 }

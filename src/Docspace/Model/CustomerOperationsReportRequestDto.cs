@@ -46,17 +46,17 @@ namespace Docspace.Model
     /// <summary>
     /// Parameters of the request for generating the report on client operations
     /// </summary>
-    [DataContract(Name = "CustomerOperationsReportDto")]
-    public partial class CustomerOperationsReportDto : IValidatableObject
+    [DataContract(Name = "CustomerOperationsReportRequestDto")]
+    public partial class CustomerOperationsReportRequestDto : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerOperationsReportDto" /> class.
+        /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
         /// <param name="startDate">Start date.</param>
         /// <param name="endDate">End date.</param>
         /// <param name="credit">Include credit operations.</param>
         /// <param name="withdrawal">Include withdrawal operations.</param>
-        public CustomerOperationsReportDto(DateTime? startDate = default, DateTime? endDate = default, bool? credit = default, bool? withdrawal = default)
+        public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, bool? credit = default, bool? withdrawal = default)
         {
             this.StartDate = startDate;
             this.EndDate = endDate;
@@ -111,7 +111,7 @@ namespace Docspace.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CustomerOperationsReportDto {\n");
+            sb.Append("class CustomerOperationsReportRequestDto {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");

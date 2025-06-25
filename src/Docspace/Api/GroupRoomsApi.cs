@@ -131,9 +131,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class GroupRoomsApi : IDisposable, IGroupRoomsApi
+    public class GroupRoomsApi : IDisposable, IGroupRoomsApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRoomsApi"/> class.
@@ -156,32 +156,32 @@ namespace Docspace.Api
         public GroupRoomsApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupRoomsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="GroupRoomsApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public GroupRoomsApi(Docspace.Client.Configuration configuration)
+        public GroupRoomsApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -217,20 +217,20 @@ namespace Docspace.Api
         /// </remarks>
         public GroupRoomsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupRoomsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="GroupRoomsApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -241,16 +241,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public GroupRoomsApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public GroupRoomsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -264,11 +264,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public GroupRoomsApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public GroupRoomsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -281,23 +281,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -312,12 +312,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -327,7 +327,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -343,7 +343,7 @@ namespace Docspace.Api
         /// <returns>GroupArrayWrapper</returns>
         public GroupArrayWrapper GetGroupsWithShared(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithSharedWithHttpInfo(id, excludeShared, count, startIndex, filterValue);
+            var localVarResponse = GetGroupsWithSharedWithHttpInfo(id, excludeShared, count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -358,47 +358,44 @@ namespace Docspace.Api
         /// <param name="filterValue">The text used as a filter for retrieving groups with their sharing settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-with-shared/">REST API Reference for GetGroupsWithShared Operation</seealso>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default)
+        public ApiResponse<GroupArrayWrapper> GetGroupsWithSharedWithHttpInfo(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (excludeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -430,8 +427,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroupsWithShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroupsWithShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -451,7 +448,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupArrayWrapper</returns>
         public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsWithSharedAsync(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithSharedWithHttpInfoAsync(id, excludeShared, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithSharedWithHttpInfoAsync(id, excludeShared, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -467,27 +464,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-with-shared/">REST API Reference for GetGroupsWithShared Operation</seealso>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithSharedWithHttpInfoAsync(int id, bool? excludeShared = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (excludeShared != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
@@ -509,7 +503,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -542,8 +536,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroupsWithShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroupsWithShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

@@ -431,9 +431,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SecurityAuditTrailDataApi : IDisposable, ISecurityAuditTrailDataApi
+    public class SecurityAuditTrailDataApi : IDisposable, ISecurityAuditTrailDataApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityAuditTrailDataApi"/> class.
@@ -456,32 +456,32 @@ namespace Docspace.Api
         public SecurityAuditTrailDataApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SecurityAuditTrailDataApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SecurityAuditTrailDataApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SecurityAuditTrailDataApi(Docspace.Client.Configuration configuration)
+        public SecurityAuditTrailDataApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -517,20 +517,20 @@ namespace Docspace.Api
         /// </remarks>
         public SecurityAuditTrailDataApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SecurityAuditTrailDataApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SecurityAuditTrailDataApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -541,16 +541,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SecurityAuditTrailDataApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SecurityAuditTrailDataApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -564,11 +564,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SecurityAuditTrailDataApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SecurityAuditTrailDataApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -581,23 +581,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -612,12 +612,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -627,7 +627,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -638,7 +638,7 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper CreateAuditTrailReport()
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = CreateAuditTrailReportWithHttpInfo();
+            var localVarResponse = CreateAuditTrailReportWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -648,22 +648,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo()
+        public ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -671,7 +668,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -703,8 +700,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateAuditTrailReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateAuditTrailReport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -719,7 +716,7 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> CreateAuditTrailReportAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -730,24 +727,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> CreateAuditTrailReportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> CreateAuditTrailReportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -755,7 +749,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -788,8 +782,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateAuditTrailReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateAuditTrailReport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -814,7 +808,7 @@ namespace Docspace.Api
         /// <returns>AuditEventArrayWrapper</returns>
         public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
+            var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -835,74 +829,71 @@ namespace Docspace.Api
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
+        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (productType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
             }
             if (actionType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "actionType", actionType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
             }
             if (action != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "action", action));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action", action));
             }
             if (entryType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "entryType", entryType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entryType", entryType));
             }
             if (target != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "target", target));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "target", target));
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "from", from));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -934,8 +925,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditEventsByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditEventsByFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -961,7 +952,7 @@ namespace Docspace.Api
         /// <returns>Task of AuditEventArrayWrapper</returns>
         public async System.Threading.Tasks.Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
+            ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -983,24 +974,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
@@ -1052,7 +1040,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1085,8 +1073,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditEventsByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditEventsByFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1100,7 +1088,7 @@ namespace Docspace.Api
         /// <returns>TenantAuditSettingsWrapper</returns>
         public TenantAuditSettingsWrapper GetAuditSettings()
         {
-            Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> localVarResponse = GetAuditSettingsWithHttpInfo();
+            var localVarResponse = GetAuditSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1110,22 +1098,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo()
+        public ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1133,7 +1118,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1165,8 +1150,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1181,7 +1166,7 @@ namespace Docspace.Api
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<TenantAuditSettingsWrapper> GetAuditSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> localVarResponse = await GetAuditSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<TenantAuditSettingsWrapper> localVarResponse = await GetAuditSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1192,24 +1177,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1217,7 +1199,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1250,8 +1232,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1267,7 +1249,7 @@ namespace Docspace.Api
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, ModuleType? moduleType = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
+            var localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
             return localVarResponse.Data;
         }
 
@@ -1279,31 +1261,28 @@ namespace Docspace.Api
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, ModuleType? moduleType = default)
+        public ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, ModuleType? moduleType = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (productType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
             }
 
 
@@ -1312,8 +1291,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1330,7 +1309,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, ModuleType? moduleType = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1343,24 +1322,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, ModuleType? moduleType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, ModuleType? moduleType = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (productType != null)
@@ -1379,8 +1355,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditTrailMappers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1394,7 +1370,7 @@ namespace Docspace.Api
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetAuditTrailTypes()
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetAuditTrailTypesWithHttpInfo();
+            var localVarResponse = GetAuditTrailTypesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1404,22 +1380,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo()
+        public ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1429,8 +1402,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1445,7 +1418,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectWrapper> GetAuditTrailTypesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectWrapper> localVarResponse = await GetAuditTrailTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1456,24 +1429,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1484,8 +1454,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAuditTrailTypes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1499,7 +1469,7 @@ namespace Docspace.Api
         /// <returns>AuditEventArrayWrapper</returns>
         public AuditEventArrayWrapper GetLastAuditEvents()
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = GetLastAuditEventsWithHttpInfo();
+            var localVarResponse = GetLastAuditEventsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1509,22 +1479,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AuditEventArrayWrapper> GetLastAuditEventsWithHttpInfo()
+        public ApiResponse<AuditEventArrayWrapper> GetLastAuditEventsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1532,7 +1499,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1564,8 +1531,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetLastAuditEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetLastAuditEvents", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1580,7 +1547,7 @@ namespace Docspace.Api
         /// <returns>Task of AuditEventArrayWrapper</returns>
         public async System.Threading.Tasks.Task<AuditEventArrayWrapper> GetLastAuditEventsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetLastAuditEventsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<AuditEventArrayWrapper> localVarResponse = await GetLastAuditEventsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1591,24 +1558,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AuditEventArrayWrapper>> GetLastAuditEventsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AuditEventArrayWrapper>> GetLastAuditEventsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1616,7 +1580,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1649,8 +1613,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetLastAuditEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetLastAuditEvents", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1665,7 +1629,7 @@ namespace Docspace.Api
         /// <returns>TenantAuditSettingsWrapper</returns>
         public TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
         {
-            Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> localVarResponse = SetAuditSettingsWithHttpInfo(tenantAuditSettingsWrapper);
+            var localVarResponse = SetAuditSettingsWithHttpInfo(tenantAuditSettingsWrapper);
             return localVarResponse.Data;
         }
 
@@ -1676,32 +1640,28 @@ namespace Docspace.Api
         /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
+        public ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tenantAuditSettingsWrapper;
+            if (tenantAuditSettingsWrapper != null) localVarRequestOptions.Data = tenantAuditSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1733,8 +1693,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetAuditSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetAuditSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1750,7 +1710,7 @@ namespace Docspace.Api
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<TenantAuditSettingsWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TenantAuditSettingsWrapper> localVarResponse = await SetAuditSettingsWithHttpInfoAsync(tenantAuditSettingsWrapper, cancellationToken).ConfigureAwait(false);
+            ApiResponse<TenantAuditSettingsWrapper> localVarResponse = await SetAuditSettingsWithHttpInfoAsync(tenantAuditSettingsWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1762,34 +1722,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tenantAuditSettingsWrapper;
+            if (tenantAuditSettingsWrapper != null) localVarRequestOptions.Data = tenantAuditSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1822,8 +1778,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetAuditSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetAuditSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

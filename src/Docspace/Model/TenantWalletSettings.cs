@@ -55,7 +55,7 @@ namespace Docspace.Model
         /// <param name="enabled">Enabled.</param>
         /// <param name="minBalance">Minimun balance.</param>
         /// <param name="upToBalance">Up to balance.</param>
-        /// <param name="currency">Currency.</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
         /// <param name="lastModified">lastModified.</param>
         public TenantWalletSettings(bool enabled = default, int minBalance = default, int upToBalance = default, string currency = default, DateTime lastModified = default)
         {
@@ -97,9 +97,9 @@ namespace Docspace.Model
         public int UpToBalance { get; set; }
 
         /// <summary>
-        /// Currency
+        /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>The three-character ISO 4217 currency symbol.</value>
         /*
         <example>some text</example>
         */

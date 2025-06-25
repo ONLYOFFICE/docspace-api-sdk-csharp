@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Paid, 1 - Free]</value>
     public enum Payments
     {
+        /// <summary>
+        /// Enum Paid for value: 0
+        /// </summary>
+        Paid = 0,
+
+        /// <summary>
+        /// Enum Free for value: 1
+        /// </summary>
+        Free = 1
     }
 
 }

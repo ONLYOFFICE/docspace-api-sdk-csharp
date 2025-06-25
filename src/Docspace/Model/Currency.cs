@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Currency
+    /// Represents a currency.
     /// </summary>
     [DataContract(Name = "Currency")]
     public partial class Currency : IValidatableObject
@@ -52,8 +52,8 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Currency" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="code">code.</param>
+        /// <param name="id">Unique identifier of the currency..</param>
+        /// <param name="code">The three-character ISO 4217 currency symbol..</param>
         public Currency(int id = default, string code = default)
         {
             this.Id = id;
@@ -61,8 +61,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier of the currency.
         /// </summary>
+        /// <value>Unique identifier of the currency.</value>
         /*
         <example>9846</example>
         */
@@ -70,8 +71,9 @@ namespace Docspace.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The three-character ISO 4217 currency symbol.
         /// </summary>
+        /// <value>The three-character ISO 4217 currency symbol.</value>
         /*
         <example>some text</example>
         */

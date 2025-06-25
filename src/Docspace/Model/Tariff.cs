@@ -65,7 +65,8 @@ namespace Docspace.Model
         /// <param name="licenseDate">The tariff license date..</param>
         /// <param name="customerId">The tariff customer ID..</param>
         /// <param name="quotas">The list of tariff quotas..</param>
-        public Tariff(int id = default, TariffState? state = default, DateTime dueDate = default, DateTime delayDueDate = default, DateTime licenseDate = default, string customerId = default, List<Quota> quotas = default)
+        /// <param name="overdueQuotas">The list of overdue tariff quotas..</param>
+        public Tariff(int id = default, TariffState? state = default, DateTime dueDate = default, DateTime delayDueDate = default, DateTime licenseDate = default, string customerId = default, List<Quota> quotas = default, List<Quota> overdueQuotas = default)
         {
             this.Id = id;
             this.State = state;
@@ -74,6 +75,7 @@ namespace Docspace.Model
             this.LicenseDate = licenseDate;
             this.CustomerId = customerId;
             this.Quotas = quotas;
+            this.OverdueQuotas = overdueQuotas;
         }
 
         /// <summary>
@@ -134,6 +136,13 @@ namespace Docspace.Model
         public List<Quota> Quotas { get; set; }
 
         /// <summary>
+        /// The list of overdue tariff quotas.
+        /// </summary>
+        /// <value>The list of overdue tariff quotas.</value>
+        [DataMember(Name = "overdueQuotas", EmitDefaultValue = true)]
+        public List<Quota> OverdueQuotas { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +157,7 @@ namespace Docspace.Model
             sb.Append("  LicenseDate: ").Append(LicenseDate).Append("\n");
             sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("  Quotas: ").Append(Quotas).Append("\n");
+            sb.Append("  OverdueQuotas: ").Append(OverdueQuotas).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

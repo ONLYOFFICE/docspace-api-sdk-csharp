@@ -271,9 +271,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PeopleThirdPartyAccountsApi : IDisposable, IPeopleThirdPartyAccountsApi
+    public class PeopleThirdPartyAccountsApi : IDisposable, IPeopleThirdPartyAccountsApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PeopleThirdPartyAccountsApi"/> class.
@@ -296,32 +296,32 @@ namespace Docspace.Api
         public PeopleThirdPartyAccountsApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleThirdPartyAccountsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleThirdPartyAccountsApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PeopleThirdPartyAccountsApi(Docspace.Client.Configuration configuration)
+        public PeopleThirdPartyAccountsApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -357,20 +357,20 @@ namespace Docspace.Api
         /// </remarks>
         public PeopleThirdPartyAccountsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleThirdPartyAccountsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleThirdPartyAccountsApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -381,16 +381,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PeopleThirdPartyAccountsApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public PeopleThirdPartyAccountsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -404,11 +404,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PeopleThirdPartyAccountsApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public PeopleThirdPartyAccountsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -421,23 +421,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -452,12 +452,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -467,7 +467,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace Docspace.Api
         /// <returns>AccountInfoArrayWrapper</returns>
         public AccountInfoArrayWrapper GetThirdPartyAuthProviders(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default)
         {
-            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = GetThirdPartyAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
+            var localVarResponse = GetThirdPartyAuthProvidersWithHttpInfo(inviteView, settingsView, clientCallback, fromOnly);
             return localVarResponse.Data;
         }
 
@@ -496,39 +496,36 @@ namespace Docspace.Api
         /// <param name="fromOnly">The provider name if a response is required only from this provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-auth-providers/">REST API Reference for GetThirdPartyAuthProviders Operation</seealso>
         /// <returns>ApiResponse of AccountInfoArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersWithHttpInfo(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default)
+        public ApiResponse<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersWithHttpInfo(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (inviteView != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviteView", inviteView));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviteView", inviteView));
             }
             if (settingsView != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "settingsView", settingsView));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settingsView", settingsView));
             }
             if (clientCallback != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "clientCallback", clientCallback));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "clientCallback", clientCallback));
             }
             if (fromOnly != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fromOnly", fromOnly));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromOnly", fromOnly));
             }
 
 
@@ -537,8 +534,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -557,7 +554,7 @@ namespace Docspace.Api
         /// <returns>Task of AccountInfoArrayWrapper</returns>
         public async System.Threading.Tasks.Task<AccountInfoArrayWrapper> GetThirdPartyAuthProvidersAsync(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AccountInfoArrayWrapper> localVarResponse = await GetThirdPartyAuthProvidersWithHttpInfoAsync(inviteView, settingsView, clientCallback, fromOnly, cancellationToken).ConfigureAwait(false);
+            ApiResponse<AccountInfoArrayWrapper> localVarResponse = await GetThirdPartyAuthProvidersWithHttpInfoAsync(inviteView, settingsView, clientCallback, fromOnly, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -572,24 +569,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-auth-providers/">REST API Reference for GetThirdPartyAuthProviders Operation</seealso>
         /// <returns>Task of ApiResponse (AccountInfoArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AccountInfoArrayWrapper>> GetThirdPartyAuthProvidersWithHttpInfoAsync(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AccountInfoArrayWrapper>> GetThirdPartyAuthProvidersWithHttpInfoAsync(bool? inviteView = default, bool? settingsView = default, string? clientCallback = default, string? fromOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (inviteView != null)
@@ -616,8 +610,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetThirdPartyAuthProviders", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -642,31 +636,28 @@ namespace Docspace.Api
         /// <param name="linkAccountRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default)
+        public ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = linkAccountRequestDto;
+            if (linkAccountRequestDto != null) localVarRequestOptions.Data = linkAccountRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -698,8 +689,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -726,33 +717,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> LinkThirdPartyAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> LinkThirdPartyAccountWithHttpInfoAsync(LinkAccountRequestDto? linkAccountRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = linkAccountRequestDto;
+            if (linkAccountRequestDto != null) localVarRequestOptions.Data = linkAccountRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -785,8 +773,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("LinkThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -811,25 +799,22 @@ namespace Docspace.Api
         /// <param name="signupAccountRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default)
+        public ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = signupAccountRequestDto;
+            if (signupAccountRequestDto != null) localVarRequestOptions.Data = signupAccountRequestDto;
 
 
             // make the HTTP request
@@ -837,8 +822,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -865,27 +850,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = signupAccountRequestDto;
+            if (signupAccountRequestDto != null) localVarRequestOptions.Data = signupAccountRequestDto;
 
 
             // make the HTTP request
@@ -894,8 +876,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SignupThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -920,33 +902,31 @@ namespace Docspace.Api
         /// <param name="provider">The provider name. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> UnlinkThirdPartyAccountWithHttpInfo(string? provider = default)
+        public ApiResponse<Object> UnlinkThirdPartyAccountWithHttpInfo(string? provider = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (provider != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "provider", provider));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "provider", provider));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -978,8 +958,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1006,23 +986,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> UnlinkThirdPartyAccountWithHttpInfoAsync(string? provider = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UnlinkThirdPartyAccountWithHttpInfoAsync(string? provider = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (provider != null)
@@ -1034,7 +1012,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1067,8 +1045,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnlinkThirdPartyAccount", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

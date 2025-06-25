@@ -527,9 +527,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SettingsWebhooksApi : IDisposable, ISettingsWebhooksApi
+    public class SettingsWebhooksApi : IDisposable, ISettingsWebhooksApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsWebhooksApi"/> class.
@@ -552,32 +552,32 @@ namespace Docspace.Api
         public SettingsWebhooksApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsWebhooksApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsWebhooksApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SettingsWebhooksApi(Docspace.Client.Configuration configuration)
+        public SettingsWebhooksApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -613,20 +613,20 @@ namespace Docspace.Api
         /// </remarks>
         public SettingsWebhooksApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsWebhooksApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsWebhooksApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -637,16 +637,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SettingsWebhooksApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SettingsWebhooksApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -660,11 +660,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SettingsWebhooksApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SettingsWebhooksApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -677,23 +677,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -708,12 +708,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -723,7 +723,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -735,7 +735,7 @@ namespace Docspace.Api
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = CreateWebhookWithHttpInfo(createWebhooksConfigRequestsDto);
+            var localVarResponse = CreateWebhookWithHttpInfo(createWebhooksConfigRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -746,32 +746,28 @@ namespace Docspace.Api
         /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
+            if (createWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -803,8 +799,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -820,7 +816,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksConfigWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksConfigWrapper> CreateWebhookAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = await CreateWebhookWithHttpInfoAsync(createWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksConfigWrapper> localVarResponse = await CreateWebhookWithHttpInfoAsync(createWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -832,34 +828,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
+            if (createWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -892,8 +884,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -908,7 +900,7 @@ namespace Docspace.Api
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = EnableWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+            var localVarResponse = EnableWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -919,32 +911,28 @@ namespace Docspace.Api
         /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -976,8 +964,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("EnableWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("EnableWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -993,7 +981,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksConfigWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksConfigWrapper> EnableWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = await EnableWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksConfigWrapper> localVarResponse = await EnableWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1005,34 +993,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1065,8 +1049,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("EnableWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("EnableWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1080,7 +1064,7 @@ namespace Docspace.Api
         /// <returns>WebhooksConfigWithStatusArrayWrapper</returns>
         public WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks()
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWithStatusArrayWrapper> localVarResponse = GetTenantWebhooksWithHttpInfo();
+            var localVarResponse = GetTenantWebhooksWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1090,22 +1074,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWithStatusArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksWithHttpInfo()
+        public ApiResponse<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1113,7 +1094,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1145,8 +1126,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantWebhooks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTenantWebhooks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1161,7 +1142,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksConfigWithStatusArrayWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWithStatusArrayWrapper> localVarResponse = await GetTenantWebhooksWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksConfigWithStatusArrayWrapper> localVarResponse = await GetTenantWebhooksWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1172,24 +1153,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWithStatusArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksConfigWithStatusArrayWrapper>> GetTenantWebhooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWithStatusArrayWrapper>> GetTenantWebhooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1197,7 +1175,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1230,8 +1208,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantWebhooks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTenantWebhooks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1245,7 +1223,7 @@ namespace Docspace.Api
         /// <returns>UnknownWrapper</returns>
         public UnknownWrapper GetWebhookTriggers()
         {
-            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = GetWebhookTriggersWithHttpInfo();
+            var localVarResponse = GetWebhookTriggersWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1255,22 +1233,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>ApiResponse of UnknownWrapper</returns>
-        public Docspace.Client.ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo()
+        public ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1278,7 +1253,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1310,8 +1285,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1326,7 +1301,7 @@ namespace Docspace.Api
         /// <returns>Task of UnknownWrapper</returns>
         public async System.Threading.Tasks.Task<UnknownWrapper> GetWebhookTriggersAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<UnknownWrapper> localVarResponse = await GetWebhookTriggersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<UnknownWrapper> localVarResponse = await GetWebhookTriggersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1337,24 +1312,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UnknownWrapper>> GetWebhookTriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<UnknownWrapper>> GetWebhookTriggersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1362,7 +1334,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1395,8 +1367,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWebhookTriggers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1420,7 +1392,7 @@ namespace Docspace.Api
         /// <returns>WebhooksLogArrayWrapper</returns>
         public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default)
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
+            var localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -1440,70 +1412,67 @@ namespace Docspace.Api
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default)
+        public ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (deliveryFrom != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
             }
             if (deliveryTo != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
             }
             if (hookUri != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
             }
             if (configId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "configId", configId));
             }
             if (eventId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "eventId", eventId));
             }
             if (groupStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
             }
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (trigger != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "trigger", trigger));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1535,8 +1504,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1561,7 +1530,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1582,24 +1551,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (deliveryFrom != null)
@@ -1647,7 +1613,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1680,8 +1646,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWebhooksLogs", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1696,7 +1662,7 @@ namespace Docspace.Api
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper RemoveWebhook(int id)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = RemoveWebhookWithHttpInfo(id);
+            var localVarResponse = RemoveWebhookWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1707,31 +1673,28 @@ namespace Docspace.Api
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksConfigWrapper> RemoveWebhookWithHttpInfo(int id)
+        public ApiResponse<WebhooksConfigWrapper> RemoveWebhookWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1763,8 +1726,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1780,7 +1743,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksConfigWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksConfigWrapper> RemoveWebhookAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = await RemoveWebhookWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksConfigWrapper> localVarResponse = await RemoveWebhookWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1792,33 +1755,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksConfigWrapper>> RemoveWebhookWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWrapper>> RemoveWebhookWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1851,8 +1811,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1867,7 +1827,7 @@ namespace Docspace.Api
         /// <returns>WebhooksLogWrapper</returns>
         public WebhooksLogWrapper RetryWebhook(int id)
         {
-            Docspace.Client.ApiResponse<WebhooksLogWrapper> localVarResponse = RetryWebhookWithHttpInfo(id);
+            var localVarResponse = RetryWebhookWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1878,31 +1838,28 @@ namespace Docspace.Api
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksLogWrapper> RetryWebhookWithHttpInfo(int id)
+        public ApiResponse<WebhooksLogWrapper> RetryWebhookWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1934,8 +1891,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RetryWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RetryWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1951,7 +1908,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksLogWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksLogWrapper> RetryWebhookAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksLogWrapper> localVarResponse = await RetryWebhookWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksLogWrapper> localVarResponse = await RetryWebhookWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1963,33 +1920,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogWrapper>> RetryWebhookWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksLogWrapper>> RetryWebhookWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2022,8 +1976,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RetryWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RetryWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2038,7 +1992,7 @@ namespace Docspace.Api
         /// <returns>WebhooksLogArrayWrapper</returns>
         public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = RetryWebhooksWithHttpInfo(webhookRetryRequestsDto);
+            var localVarResponse = RetryWebhooksWithHttpInfo(webhookRetryRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -2049,32 +2003,28 @@ namespace Docspace.Api
         /// <param name="webhookRetryRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
+        public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = webhookRetryRequestsDto;
+            if (webhookRetryRequestsDto != null) localVarRequestOptions.Data = webhookRetryRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2106,8 +2056,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RetryWebhooks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RetryWebhooks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2123,7 +2073,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksLogArrayWrapper> RetryWebhooksAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await RetryWebhooksWithHttpInfoAsync(webhookRetryRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksLogArrayWrapper> localVarResponse = await RetryWebhooksWithHttpInfoAsync(webhookRetryRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2135,34 +2085,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = webhookRetryRequestsDto;
+            if (webhookRetryRequestsDto != null) localVarRequestOptions.Data = webhookRetryRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2195,8 +2141,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RetryWebhooks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RetryWebhooks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2211,7 +2157,7 @@ namespace Docspace.Api
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+            var localVarResponse = UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -2222,32 +2168,28 @@ namespace Docspace.Api
         /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public Docspace.Client.ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2279,8 +2221,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2296,7 +2238,7 @@ namespace Docspace.Api
         /// <returns>Task of WebhooksConfigWrapper</returns>
         public async System.Threading.Tasks.Task<WebhooksConfigWrapper> UpdateWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WebhooksConfigWrapper> localVarResponse = await UpdateWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WebhooksConfigWrapper> localVarResponse = await UpdateWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2308,34 +2250,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2368,8 +2306,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateWebhook", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

@@ -85,8 +85,8 @@ namespace Docspace.Test.Api
         public void CreateCustomerOperationsReportTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CustomerOperationsReportDto? customerOperationsReportDto = null;
-            //var response = instance.CreateCustomerOperationsReport(customerOperationsReportDto);
+            //CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = null;
+            //var response = instance.CreateCustomerOperationsReport(customerOperationsReportRequestDto);
             //Assert.IsType<StringWrapper>(response);
         }
 
@@ -291,7 +291,7 @@ namespace Docspace.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //TopUpDepositRequestDto? topUpDepositRequestDto = null;
             //var response = instance.TopUpDeposit(topUpDepositRequestDto);
-            //Assert.IsType<StringWrapper>(response);
+            //Assert.IsType<BooleanWrapper>(response);
         }
 
         /// <summary>

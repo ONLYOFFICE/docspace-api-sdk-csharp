@@ -255,9 +255,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SettingsNotificationsApi : IDisposable, ISettingsNotificationsApi
+    public class SettingsNotificationsApi : IDisposable, ISettingsNotificationsApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsNotificationsApi"/> class.
@@ -280,32 +280,32 @@ namespace Docspace.Api
         public SettingsNotificationsApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsNotificationsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsNotificationsApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SettingsNotificationsApi(Docspace.Client.Configuration configuration)
+        public SettingsNotificationsApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -341,20 +341,20 @@ namespace Docspace.Api
         /// </remarks>
         public SettingsNotificationsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsNotificationsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsNotificationsApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -365,16 +365,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SettingsNotificationsApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SettingsNotificationsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -388,11 +388,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SettingsNotificationsApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SettingsNotificationsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -405,23 +405,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -436,12 +436,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -451,7 +451,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -463,7 +463,7 @@ namespace Docspace.Api
         /// <returns>NotificationSettingsWrapper</returns>
         public NotificationSettingsWrapper GetNotificationSettings(NotificationType type)
         {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = GetNotificationSettingsWithHttpInfo(type);
+            var localVarResponse = GetNotificationSettingsWithHttpInfo(type);
             return localVarResponse.Data;
         }
 
@@ -474,31 +474,28 @@ namespace Docspace.Api
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<NotificationSettingsWrapper> GetNotificationSettingsWithHttpInfo(NotificationType type)
+        public ApiResponse<NotificationSettingsWrapper> GetNotificationSettingsWithHttpInfo(NotificationType type)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("type", Docspace.Client.ClientUtils.ParameterToString(type)); // path parameter
+            localVarRequestOptions.PathParameters.Add("type", ClientUtils.ParameterToString(type)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -530,8 +527,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -547,7 +544,7 @@ namespace Docspace.Api
         /// <returns>Task of NotificationSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<NotificationSettingsWrapper> GetNotificationSettingsAsync(NotificationType type, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = await GetNotificationSettingsWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
+            ApiResponse<NotificationSettingsWrapper> localVarResponse = await GetNotificationSettingsWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -559,33 +556,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NotificationSettingsWrapper>> GetNotificationSettingsWithHttpInfoAsync(NotificationType type, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<NotificationSettingsWrapper>> GetNotificationSettingsWithHttpInfoAsync(NotificationType type, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("type", Docspace.Client.ClientUtils.ParameterToString(type)); // path parameter
+            localVarRequestOptions.PathParameters.Add("type", ClientUtils.ParameterToString(type)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -618,8 +612,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -633,7 +627,7 @@ namespace Docspace.Api
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         public RoomsNotificationSettingsWrapper GetRoomsNotificationSettings()
         {
-            Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = GetRoomsNotificationSettingsWithHttpInfo();
+            var localVarResponse = GetRoomsNotificationSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -643,22 +637,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsWithHttpInfo()
+        public ApiResponse<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -666,7 +657,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -698,8 +689,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -714,7 +705,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = await GetRoomsNotificationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = await GetRoomsNotificationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -725,24 +716,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper>> GetRoomsNotificationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomsNotificationSettingsWrapper>> GetRoomsNotificationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -750,7 +738,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -783,8 +771,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -799,7 +787,7 @@ namespace Docspace.Api
         /// <returns>NotificationSettingsWrapper</returns>
         public NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = SetNotificationSettingsWithHttpInfo(notificationSettingsRequestsDto);
+            var localVarResponse = SetNotificationSettingsWithHttpInfo(notificationSettingsRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -810,32 +798,28 @@ namespace Docspace.Api
         /// <param name="notificationSettingsRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
+        public ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = notificationSettingsRequestsDto;
+            if (notificationSettingsRequestsDto != null) localVarRequestOptions.Data = notificationSettingsRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -867,8 +851,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -884,7 +868,7 @@ namespace Docspace.Api
         /// <returns>Task of NotificationSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<NotificationSettingsWrapper> localVarResponse = await SetNotificationSettingsWithHttpInfoAsync(notificationSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<NotificationSettingsWrapper> localVarResponse = await SetNotificationSettingsWithHttpInfoAsync(notificationSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -896,34 +880,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = notificationSettingsRequestsDto;
+            if (notificationSettingsRequestsDto != null) localVarRequestOptions.Data = notificationSettingsRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -956,8 +936,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetNotificationSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -972,7 +952,7 @@ namespace Docspace.Api
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         public RoomsNotificationSettingsWrapper SetRoomsNotificationStatus(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default)
         {
-            Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = SetRoomsNotificationStatusWithHttpInfo(roomsNotificationsSettingsRequestDto);
+            var localVarResponse = SetRoomsNotificationStatusWithHttpInfo(roomsNotificationsSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -983,32 +963,28 @@ namespace Docspace.Api
         /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusWithHttpInfo(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default)
+        public ApiResponse<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusWithHttpInfo(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = roomsNotificationsSettingsRequestDto;
+            if (roomsNotificationsSettingsRequestDto != null) localVarRequestOptions.Data = roomsNotificationsSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1040,8 +1016,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomsNotificationStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomsNotificationStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1057,7 +1033,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusAsync(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = await SetRoomsNotificationStatusWithHttpInfoAsync(roomsNotificationsSettingsRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomsNotificationSettingsWrapper> localVarResponse = await SetRoomsNotificationStatusWithHttpInfoAsync(roomsNotificationsSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1069,34 +1045,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomsNotificationSettingsWrapper>> SetRoomsNotificationStatusWithHttpInfoAsync(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomsNotificationSettingsWrapper>> SetRoomsNotificationStatusWithHttpInfoAsync(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = roomsNotificationsSettingsRequestDto;
+            if (roomsNotificationsSettingsRequestDto != null) localVarRequestOptions.Data = roomsNotificationsSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1129,8 +1101,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomsNotificationStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomsNotificationStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

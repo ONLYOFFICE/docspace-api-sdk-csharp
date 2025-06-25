@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - SSO, 1 - LDAP, 2 - Standart]</value>
     public enum AccountLoginType
     {
+        /// <summary>
+        /// Enum SSO for value: 0
+        /// </summary>
+        SSO = 0,
+
+        /// <summary>
+        /// Enum LDAP for value: 1
+        /// </summary>
+        LDAP = 1,
+
+        /// <summary>
+        /// Enum Standart for value: 2
+        /// </summary>
+        Standart = 2
     }
 
 }

@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - All, 1 - People, 2 - Guests]</value>
     public enum Area
     {
+        /// <summary>
+        /// Enum All for value: 0
+        /// </summary>
+        All = 0,
+
+        /// <summary>
+        /// Enum People for value: 1
+        /// </summary>
+        People = 1,
+
+        /// <summary>
+        /// Enum Guests for value: 2
+        /// </summary>
+        Guests = 2
     }
 
 }

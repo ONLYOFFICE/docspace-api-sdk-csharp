@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[1 - Folder, 2 - File]</value>
     public enum FileEntryType
     {
+        /// <summary>
+        /// Enum Folder for value: 1
+        /// </summary>
+        Folder = 1,
+
+        /// <summary>
+        /// Enum File for value: 2
+        /// </summary>
+        File = 2
     }
 
 }

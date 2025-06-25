@@ -49,6 +49,40 @@ namespace Docspace.Model
     /// <value>[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]</value>
     public enum TenantStatus
     {
+        /// <summary>
+        /// Enum Active for value: 0
+        /// </summary>
+        Active = 0,
+
+        /// <summary>
+        /// Enum Suspended for value: 1
+        /// </summary>
+        Suspended = 1,
+
+        /// <summary>
+        /// Enum RemovePending for value: 2
+        /// </summary>
+        RemovePending = 2,
+
+        /// <summary>
+        /// Enum Transfering for value: 3
+        /// </summary>
+        Transfering = 3,
+
+        /// <summary>
+        /// Enum Restoring for value: 4
+        /// </summary>
+        Restoring = 4,
+
+        /// <summary>
+        /// Enum Migrating for value: 5
+        /// </summary>
+        Migrating = 5,
+
+        /// <summary>
+        /// Enum Encryption for value: 6
+        /// </summary>
+        Encryption = 6
     }
 
 }

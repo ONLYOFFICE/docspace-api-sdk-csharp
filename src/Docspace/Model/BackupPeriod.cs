@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Every day, 1 - Every week, 2 - Every month]</value>
     public enum BackupPeriod
     {
+        /// <summary>
+        /// Enum EveryDay for value: 0
+        /// </summary>
+        EveryDay = 0,
+
+        /// <summary>
+        /// Enum EveryWeek for value: 1
+        /// </summary>
+        EveryWeek = 1,
+
+        /// <summary>
+        /// Enum EveryMonth for value: 2
+        /// </summary>
+        EveryMonth = 2
     }
 
 }

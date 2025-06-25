@@ -86,6 +86,15 @@ namespace Docspace.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ImageLight'
+        /// </summary>
+        [Fact]
+        public void ImageLightTest()
+        {
+            // TODO unit test for the property 'ImageLight'
+        }
+
+        /// <summary>
         /// Test the property 'ImageEmbedded'
         /// </summary>
         [Fact]

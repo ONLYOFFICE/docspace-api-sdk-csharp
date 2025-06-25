@@ -49,6 +49,40 @@ namespace Docspace.Model
     /// <value>[0 - User or group, 1 - Invitation link, 2 - External link, 4 - Additional external link, 8 - Primary external link, 16 - User, 32 - Group]</value>
     public enum ShareFilterType
     {
+        /// <summary>
+        /// Enum UserOrGroup for value: 0
+        /// </summary>
+        UserOrGroup = 0,
+
+        /// <summary>
+        /// Enum InvitationLink for value: 1
+        /// </summary>
+        InvitationLink = 1,
+
+        /// <summary>
+        /// Enum ExternalLink for value: 2
+        /// </summary>
+        ExternalLink = 2,
+
+        /// <summary>
+        /// Enum AdditionalExternalLink for value: 4
+        /// </summary>
+        AdditionalExternalLink = 4,
+
+        /// <summary>
+        /// Enum PrimaryExternalLink for value: 8
+        /// </summary>
+        PrimaryExternalLink = 8,
+
+        /// <summary>
+        /// Enum User for value: 16
+        /// </summary>
+        User = 16,
+
+        /// <summary>
+        /// Enum Group for value: 32
+        /// </summary>
+        Group = 32
     }
 
 }

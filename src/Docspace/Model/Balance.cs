@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Balance
+    /// Represents a balance with an account number and a list of sub-accounts.
     /// </summary>
     [DataContract(Name = "Balance")]
     public partial class Balance : IValidatableObject
@@ -52,8 +52,8 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Balance" /> class.
         /// </summary>
-        /// <param name="accountNumber">accountNumber.</param>
-        /// <param name="subAccounts">subAccounts.</param>
+        /// <param name="accountNumber">The account number..</param>
+        /// <param name="subAccounts">A list of sub-accounts..</param>
         public Balance(int accountNumber = default, List<SubAccount> subAccounts = default)
         {
             this.AccountNumber = accountNumber;
@@ -61,8 +61,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets AccountNumber
+        /// The account number.
         /// </summary>
+        /// <value>The account number.</value>
         /*
         <example>1234</example>
         */
@@ -70,8 +71,9 @@ namespace Docspace.Model
         public int AccountNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets SubAccounts
+        /// A list of sub-accounts.
         /// </summary>
+        /// <value>A list of sub-accounts.</value>
         [DataMember(Name = "subAccounts", EmitDefaultValue = true)]
         public List<SubAccount> SubAccounts { get; set; }
 

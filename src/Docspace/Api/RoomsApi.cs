@@ -1999,9 +1999,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class RoomsApi : IDisposable, IRoomsApi
+    public class RoomsApi : IDisposable, IRoomsApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomsApi"/> class.
@@ -2024,32 +2024,32 @@ namespace Docspace.Api
         public RoomsApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoomsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="RoomsApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public RoomsApi(Docspace.Client.Configuration configuration)
+        public RoomsApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -2085,20 +2085,20 @@ namespace Docspace.Api
         /// </remarks>
         public RoomsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoomsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="RoomsApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -2109,16 +2109,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public RoomsApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public RoomsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -2132,11 +2132,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public RoomsApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public RoomsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -2149,23 +2149,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -2180,12 +2180,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -2195,7 +2195,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -2208,7 +2208,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = AddRoomTagsWithHttpInfo(id, batchTagsRequestDto);
+            var localVarResponse = AddRoomTagsWithHttpInfo(id, batchTagsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2220,33 +2220,29 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
+        public ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2278,8 +2274,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2296,7 +2292,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> AddRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await AddRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await AddRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2309,35 +2305,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> AddRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> AddRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2370,8 +2362,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddRoomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2387,7 +2379,7 @@ namespace Docspace.Api
         /// <returns>FileOperationWrapper</returns>
         public FileOperationWrapper ArchiveRoom(int id, ArchiveRoomRequest? archiveRoomRequest = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = ArchiveRoomWithHttpInfo(id, archiveRoomRequest);
+            var localVarResponse = ArchiveRoomWithHttpInfo(id, archiveRoomRequest);
             return localVarResponse.Data;
         }
 
@@ -2399,33 +2391,29 @@ namespace Docspace.Api
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/archive-room/">REST API Reference for ArchiveRoom Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationWrapper> ArchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default)
+        public ApiResponse<FileOperationWrapper> ArchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = archiveRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2457,8 +2445,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ArchiveRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ArchiveRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2475,7 +2463,7 @@ namespace Docspace.Api
         /// <returns>Task of FileOperationWrapper</returns>
         public async System.Threading.Tasks.Task<FileOperationWrapper> ArchiveRoomAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = await ArchiveRoomWithHttpInfoAsync(id, archiveRoomRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileOperationWrapper> localVarResponse = await ArchiveRoomWithHttpInfoAsync(id, archiveRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2488,35 +2476,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/archive-room/">REST API Reference for ArchiveRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationWrapper>> ArchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileOperationWrapper>> ArchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = archiveRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2549,8 +2533,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ArchiveRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ArchiveRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2566,7 +2550,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto? coverRequestDto = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = ChangeRoomCoverWithHttpInfo(id, coverRequestDto);
+            var localVarResponse = ChangeRoomCoverWithHttpInfo(id, coverRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2578,33 +2562,29 @@ namespace Docspace.Api
         /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto? coverRequestDto = default)
+        public ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto? coverRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = coverRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (coverRequestDto != null) localVarRequestOptions.Data = coverRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2636,8 +2616,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeRoomCover", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeRoomCover", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2654,7 +2634,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto? coverRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await ChangeRoomCoverWithHttpInfoAsync(id, coverRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await ChangeRoomCoverWithHttpInfoAsync(id, coverRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2667,35 +2647,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto? coverRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto? coverRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = coverRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (coverRequestDto != null) localVarRequestOptions.Data = coverRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2728,8 +2704,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeRoomCover", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeRoomCover", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2744,7 +2720,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper CreateRoom(CreateRoomRequestDto? createRoomRequestDto = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = CreateRoomWithHttpInfo(createRoomRequestDto);
+            var localVarResponse = CreateRoomWithHttpInfo(createRoomRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2755,32 +2731,28 @@ namespace Docspace.Api
         /// <param name="createRoomRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/">REST API Reference for CreateRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> CreateRoomWithHttpInfo(CreateRoomRequestDto? createRoomRequestDto = default)
+        public ApiResponse<FolderIntegerWrapper> CreateRoomWithHttpInfo(CreateRoomRequestDto? createRoomRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createRoomRequestDto;
+            if (createRoomRequestDto != null) localVarRequestOptions.Data = createRoomRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2812,8 +2784,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2829,7 +2801,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> CreateRoomAsync(CreateRoomRequestDto? createRoomRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await CreateRoomWithHttpInfoAsync(createRoomRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await CreateRoomWithHttpInfoAsync(createRoomRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2841,34 +2813,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/">REST API Reference for CreateRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> CreateRoomWithHttpInfoAsync(CreateRoomRequestDto? createRoomRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> CreateRoomWithHttpInfoAsync(CreateRoomRequestDto? createRoomRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createRoomRequestDto;
+            if (createRoomRequestDto != null) localVarRequestOptions.Data = createRoomRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2901,8 +2869,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2917,7 +2885,7 @@ namespace Docspace.Api
         /// <returns>RoomFromTemplateStatusWrapper</returns>
         public RoomFromTemplateStatusWrapper CreateRoomFromTemplate(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default)
         {
-            Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = CreateRoomFromTemplateWithHttpInfo(createRoomFromTemplateDto);
+            var localVarResponse = CreateRoomFromTemplateWithHttpInfo(createRoomFromTemplateDto);
             return localVarResponse.Data;
         }
 
@@ -2928,32 +2896,28 @@ namespace Docspace.Api
         /// <param name="createRoomFromTemplateDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/">REST API Reference for CreateRoomFromTemplate Operation</seealso>
         /// <returns>ApiResponse of RoomFromTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> CreateRoomFromTemplateWithHttpInfo(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default)
+        public ApiResponse<RoomFromTemplateStatusWrapper> CreateRoomFromTemplateWithHttpInfo(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createRoomFromTemplateDto;
+            if (createRoomFromTemplateDto != null) localVarRequestOptions.Data = createRoomFromTemplateDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2985,8 +2949,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomFromTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomFromTemplate", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3002,7 +2966,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomFromTemplateStatusWrapper</returns>
         public async System.Threading.Tasks.Task<RoomFromTemplateStatusWrapper> CreateRoomFromTemplateAsync(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = await CreateRoomFromTemplateWithHttpInfoAsync(createRoomFromTemplateDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = await CreateRoomFromTemplateWithHttpInfoAsync(createRoomFromTemplateDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3014,34 +2978,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/">REST API Reference for CreateRoomFromTemplate Operation</seealso>
         /// <returns>Task of ApiResponse (RoomFromTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper>> CreateRoomFromTemplateWithHttpInfoAsync(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomFromTemplateStatusWrapper>> CreateRoomFromTemplateWithHttpInfoAsync(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createRoomFromTemplateDto;
+            if (createRoomFromTemplateDto != null) localVarRequestOptions.Data = createRoomFromTemplateDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3074,8 +3034,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomFromTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomFromTemplate", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3091,7 +3051,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest? logoRequest = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = CreateRoomLogoWithHttpInfo(id, logoRequest);
+            var localVarResponse = CreateRoomLogoWithHttpInfo(id, logoRequest);
             return localVarResponse.Data;
         }
 
@@ -3103,33 +3063,29 @@ namespace Docspace.Api
         /// <param name="logoRequest">The logo request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest? logoRequest = default)
+        public ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest? logoRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = logoRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (logoRequest != null) localVarRequestOptions.Data = logoRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3161,8 +3117,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3179,7 +3135,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest? logoRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await CreateRoomLogoWithHttpInfoAsync(id, logoRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await CreateRoomLogoWithHttpInfoAsync(id, logoRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3192,35 +3148,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest? logoRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest? logoRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = logoRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (logoRequest != null) localVarRequestOptions.Data = logoRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3253,8 +3205,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3269,7 +3221,7 @@ namespace Docspace.Api
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = CreateRoomTagWithHttpInfo(createTagRequestDto);
+            var localVarResponse = CreateRoomTagWithHttpInfo(createTagRequestDto);
             return localVarResponse.Data;
         }
 
@@ -3280,32 +3232,28 @@ namespace Docspace.Api
         /// <param name="createTagRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default)
+        public ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createTagRequestDto;
+            if (createTagRequestDto != null) localVarRequestOptions.Data = createTagRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3337,8 +3285,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3354,7 +3302,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await CreateRoomTagWithHttpInfoAsync(createTagRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectWrapper> localVarResponse = await CreateRoomTagWithHttpInfoAsync(createTagRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3366,34 +3314,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createTagRequestDto;
+            if (createTagRequestDto != null) localVarRequestOptions.Data = createTagRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3426,8 +3370,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomTag", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3442,7 +3386,7 @@ namespace Docspace.Api
         /// <returns>RoomTemplateStatusWrapper</returns>
         public RoomTemplateStatusWrapper CreateRoomTemplate(RoomTemplateDto? roomTemplateDto = default)
         {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = CreateRoomTemplateWithHttpInfo(roomTemplateDto);
+            var localVarResponse = CreateRoomTemplateWithHttpInfo(roomTemplateDto);
             return localVarResponse.Data;
         }
 
@@ -3453,32 +3397,28 @@ namespace Docspace.Api
         /// <param name="roomTemplateDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/">REST API Reference for CreateRoomTemplate Operation</seealso>
         /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> CreateRoomTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default)
+        public ApiResponse<RoomTemplateStatusWrapper> CreateRoomTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = roomTemplateDto;
+            if (roomTemplateDto != null) localVarRequestOptions.Data = roomTemplateDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3510,8 +3450,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3527,7 +3467,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomTemplateStatusWrapper</returns>
         public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> CreateRoomTemplateAsync(RoomTemplateDto? roomTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await CreateRoomTemplateWithHttpInfoAsync(roomTemplateDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await CreateRoomTemplateWithHttpInfoAsync(roomTemplateDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3539,34 +3479,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/">REST API Reference for CreateRoomTemplate Operation</seealso>
         /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> CreateRoomTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> CreateRoomTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = roomTemplateDto;
+            if (roomTemplateDto != null) localVarRequestOptions.Data = roomTemplateDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3599,8 +3535,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomTemplate", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3616,7 +3552,7 @@ namespace Docspace.Api
         /// <returns>FolderStringWrapper</returns>
         public FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom? createThirdPartyRoom = default)
         {
-            Docspace.Client.ApiResponse<FolderStringWrapper> localVarResponse = CreateRoomThirdPartyWithHttpInfo(id, createThirdPartyRoom);
+            var localVarResponse = CreateRoomThirdPartyWithHttpInfo(id, createThirdPartyRoom);
             return localVarResponse.Data;
         }
 
@@ -3628,37 +3564,33 @@ namespace Docspace.Api
         /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom? createThirdPartyRoom = default)
+        public ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom? createThirdPartyRoom = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
+                throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = createThirdPartyRoom;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3690,8 +3622,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomThirdParty", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomThirdParty", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3708,7 +3640,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderStringWrapper</returns>
         public async System.Threading.Tasks.Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderStringWrapper> localVarResponse = await CreateRoomThirdPartyWithHttpInfoAsync(id, createThirdPartyRoom, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderStringWrapper> localVarResponse = await CreateRoomThirdPartyWithHttpInfoAsync(id, createThirdPartyRoom, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3721,39 +3653,35 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
+                throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = createThirdPartyRoom;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3786,8 +3714,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateRoomThirdParty", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateRoomThirdParty", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3812,31 +3740,28 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> DeleteCustomTagsWithHttpInfo(BatchTagsRequestDto? batchTagsRequestDto = default)
+        public ApiResponse<Object> DeleteCustomTagsWithHttpInfo(BatchTagsRequestDto? batchTagsRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3868,8 +3793,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteCustomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteCustomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3896,33 +3821,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> DeleteCustomTagsWithHttpInfoAsync(BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomTagsWithHttpInfoAsync(BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3955,8 +3877,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteCustomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteCustomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3972,7 +3894,7 @@ namespace Docspace.Api
         /// <returns>FileOperationWrapper</returns>
         public FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest? deleteRoomRequest = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = DeleteRoomWithHttpInfo(id, deleteRoomRequest);
+            var localVarResponse = DeleteRoomWithHttpInfo(id, deleteRoomRequest);
             return localVarResponse.Data;
         }
 
@@ -3984,33 +3906,29 @@ namespace Docspace.Api
         /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest? deleteRoomRequest = default)
+        public ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest? deleteRoomRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = deleteRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (deleteRoomRequest != null) localVarRequestOptions.Data = deleteRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4042,8 +3960,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4060,7 +3978,7 @@ namespace Docspace.Api
         /// <returns>Task of FileOperationWrapper</returns>
         public async System.Threading.Tasks.Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = await DeleteRoomWithHttpInfoAsync(id, deleteRoomRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileOperationWrapper> localVarResponse = await DeleteRoomWithHttpInfoAsync(id, deleteRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4073,35 +3991,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = deleteRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (deleteRoomRequest != null) localVarRequestOptions.Data = deleteRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4134,8 +4048,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4150,7 +4064,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper DeleteRoomLogo(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = DeleteRoomLogoWithHttpInfo(id);
+            var localVarResponse = DeleteRoomLogoWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -4161,31 +4075,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> DeleteRoomLogoWithHttpInfo(int id)
+        public ApiResponse<FolderIntegerWrapper> DeleteRoomLogoWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4217,8 +4128,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4234,7 +4145,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteRoomLogoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteRoomLogoWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteRoomLogoWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4246,33 +4157,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> DeleteRoomLogoWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomLogoWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4305,8 +4213,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4322,7 +4230,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = DeleteRoomTagsWithHttpInfo(id, batchTagsRequestDto);
+            var localVarResponse = DeleteRoomTagsWithHttpInfo(id, batchTagsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4334,33 +4242,29 @@ namespace Docspace.Api
         /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
+        public ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4392,8 +4296,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4410,7 +4314,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> DeleteRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await DeleteRoomTagsWithHttpInfoAsync(id, batchTagsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4423,35 +4327,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = batchTagsRequestDto;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4484,8 +4384,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteRoomTags", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4500,7 +4400,7 @@ namespace Docspace.Api
         /// <returns>NewItemsFileEntryArrayWrapper</returns>
         public NewItemsFileEntryArrayWrapper GetNewRoomItems(int id)
         {
-            Docspace.Client.ApiResponse<NewItemsFileEntryArrayWrapper> localVarResponse = GetNewRoomItemsWithHttpInfo(id);
+            var localVarResponse = GetNewRoomItemsWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -4511,31 +4411,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsFileEntryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<NewItemsFileEntryArrayWrapper> GetNewRoomItemsWithHttpInfo(int id)
+        public ApiResponse<NewItemsFileEntryArrayWrapper> GetNewRoomItemsWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4567,8 +4464,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNewRoomItems", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetNewRoomItems", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4584,7 +4481,7 @@ namespace Docspace.Api
         /// <returns>Task of NewItemsFileEntryArrayWrapper</returns>
         public async System.Threading.Tasks.Task<NewItemsFileEntryArrayWrapper> GetNewRoomItemsAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<NewItemsFileEntryArrayWrapper> localVarResponse = await GetNewRoomItemsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<NewItemsFileEntryArrayWrapper> localVarResponse = await GetNewRoomItemsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4596,33 +4493,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>Task of ApiResponse (NewItemsFileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NewItemsFileEntryArrayWrapper>> GetNewRoomItemsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<NewItemsFileEntryArrayWrapper>> GetNewRoomItemsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4655,8 +4549,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetNewRoomItems", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetNewRoomItems", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4671,7 +4565,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetPublicSettings(int id)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = GetPublicSettingsWithHttpInfo(id);
+            var localVarResponse = GetPublicSettingsWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -4682,31 +4576,28 @@ namespace Docspace.Api
         /// <param name="id">The room template ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/">REST API Reference for GetPublicSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id)
+        public ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4738,8 +4629,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4755,7 +4646,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> GetPublicSettingsAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await GetPublicSettingsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await GetPublicSettingsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4767,33 +4658,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/">REST API Reference for GetPublicSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4826,8 +4714,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetPublicSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4841,7 +4729,7 @@ namespace Docspace.Api
         /// <returns>CoversResultArrayWrapper</returns>
         public CoversResultArrayWrapper GetRoomCovers()
         {
-            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = GetRoomCoversWithHttpInfo();
+            var localVarResponse = GetRoomCoversWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -4851,22 +4739,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<CoversResultArrayWrapper> GetRoomCoversWithHttpInfo()
+        public ApiResponse<CoversResultArrayWrapper> GetRoomCoversWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -4874,7 +4759,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4906,8 +4791,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4922,7 +4807,7 @@ namespace Docspace.Api
         /// <returns>Task of CoversResultArrayWrapper</returns>
         public async System.Threading.Tasks.Task<CoversResultArrayWrapper> GetRoomCoversAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<CoversResultArrayWrapper> localVarResponse = await GetRoomCoversWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<CoversResultArrayWrapper> localVarResponse = await GetRoomCoversWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4933,24 +4818,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CoversResultArrayWrapper>> GetRoomCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<CoversResultArrayWrapper>> GetRoomCoversWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -4958,7 +4840,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4991,8 +4873,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomCovers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5006,7 +4888,7 @@ namespace Docspace.Api
         /// <returns>RoomFromTemplateStatusWrapper</returns>
         public RoomFromTemplateStatusWrapper GetRoomCreatingStatus()
         {
-            Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = GetRoomCreatingStatusWithHttpInfo();
+            var localVarResponse = GetRoomCreatingStatusWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -5016,22 +4898,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomFromTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> GetRoomCreatingStatusWithHttpInfo()
+        public ApiResponse<RoomFromTemplateStatusWrapper> GetRoomCreatingStatusWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -5039,7 +4918,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5071,8 +4950,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomCreatingStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5087,7 +4966,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomFromTemplateStatusWrapper</returns>
         public async System.Threading.Tasks.Task<RoomFromTemplateStatusWrapper> GetRoomCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = await GetRoomCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomFromTemplateStatusWrapper> localVarResponse = await GetRoomCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5098,24 +4977,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>Task of ApiResponse (RoomFromTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomFromTemplateStatusWrapper>> GetRoomCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomFromTemplateStatusWrapper>> GetRoomCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -5123,7 +4999,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5156,8 +5032,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomCreatingStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5171,7 +5047,7 @@ namespace Docspace.Api
         /// <returns>DocumentBuilderTaskWrapper</returns>
         public DocumentBuilderTaskWrapper GetRoomIndexExport()
         {
-            Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = GetRoomIndexExportWithHttpInfo();
+            var localVarResponse = GetRoomIndexExportWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -5181,22 +5057,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
-        public Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> GetRoomIndexExportWithHttpInfo()
+        public ApiResponse<DocumentBuilderTaskWrapper> GetRoomIndexExportWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -5204,7 +5077,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5236,8 +5109,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5252,7 +5125,7 @@ namespace Docspace.Api
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
         public async System.Threading.Tasks.Task<DocumentBuilderTaskWrapper> GetRoomIndexExportAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = await GetRoomIndexExportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = await GetRoomIndexExportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5263,24 +5136,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper>> GetRoomIndexExportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentBuilderTaskWrapper>> GetRoomIndexExportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -5288,7 +5158,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5321,8 +5191,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5337,7 +5207,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper GetRoomInfo(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = GetRoomInfoWithHttpInfo(id);
+            var localVarResponse = GetRoomInfoWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -5348,25 +5218,22 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> GetRoomInfoWithHttpInfo(int id)
+        public ApiResponse<FolderIntegerWrapper> GetRoomInfoWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -5374,8 +5241,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5391,7 +5258,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> GetRoomInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await GetRoomInfoWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await GetRoomInfoWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5403,27 +5270,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> GetRoomInfoWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> GetRoomInfoWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -5432,8 +5296,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5449,7 +5313,7 @@ namespace Docspace.Api
         /// <returns>FileShareArrayWrapper</returns>
         public FileShareArrayWrapper GetRoomLinks(int id, LinkType? type = default)
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetRoomLinksWithHttpInfo(id, type);
+            var localVarResponse = GetRoomLinksWithHttpInfo(id, type);
             return localVarResponse.Data;
         }
 
@@ -5461,35 +5325,32 @@ namespace Docspace.Api
         /// <param name="type">The link type. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-links/">REST API Reference for GetRoomLinks Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetRoomLinksWithHttpInfo(int id, LinkType? type = default)
+        public ApiResponse<FileShareArrayWrapper> GetRoomLinksWithHttpInfo(int id, LinkType? type = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5521,8 +5382,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomLinks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomLinks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5539,7 +5400,7 @@ namespace Docspace.Api
         /// <returns>Task of FileShareArrayWrapper</returns>
         public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomLinksAsync(int id, LinkType? type = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomLinksWithHttpInfoAsync(id, type, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomLinksWithHttpInfoAsync(id, type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5552,27 +5413,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-links/">REST API Reference for GetRoomLinks Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetRoomLinksWithHttpInfoAsync(int id, LinkType? type = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetRoomLinksWithHttpInfoAsync(int id, LinkType? type = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "type", type));
@@ -5582,7 +5440,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5615,8 +5473,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomLinks", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomLinks", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5635,7 +5493,7 @@ namespace Docspace.Api
         /// <returns>FileShareArrayWrapper</returns>
         public FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = GetRoomSecurityInfoWithHttpInfo(id, filterType, count, startIndex, filterValue);
+            var localVarResponse = GetRoomSecurityInfoWithHttpInfo(id, filterType, count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5650,47 +5508,44 @@ namespace Docspace.Api
         /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-security-info/">REST API Reference for GetRoomSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default)
+        public ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5722,8 +5577,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomSecurityInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomSecurityInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5743,7 +5598,7 @@ namespace Docspace.Api
         /// <returns>Task of FileShareArrayWrapper</returns>
         public async System.Threading.Tasks.Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomSecurityInfoWithHttpInfoAsync(id, filterType, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileShareArrayWrapper> localVarResponse = await GetRoomSecurityInfoWithHttpInfoAsync(id, filterType, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5759,27 +5614,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-security-info/">REST API Reference for GetRoomSecurityInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (filterType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
@@ -5801,7 +5653,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5834,8 +5686,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomSecurityInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomSecurityInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5852,7 +5704,7 @@ namespace Docspace.Api
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
+            var localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5865,42 +5717,39 @@ namespace Docspace.Api
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
+        public ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -5932,8 +5781,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -5951,7 +5800,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectArrayWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectArrayWrapper> localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5965,24 +5814,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (count != null)
@@ -6002,7 +5848,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6035,8 +5881,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomTagsInfo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6050,7 +5896,7 @@ namespace Docspace.Api
         /// <returns>RoomTemplateStatusWrapper</returns>
         public RoomTemplateStatusWrapper GetRoomTemplateCreatingStatus()
         {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = GetRoomTemplateCreatingStatusWithHttpInfo();
+            var localVarResponse = GetRoomTemplateCreatingStatusWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -6060,22 +5906,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusWithHttpInfo()
+        public ApiResponse<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -6083,7 +5926,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6115,8 +5958,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6131,7 +5974,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomTemplateStatusWrapper</returns>
         public async System.Threading.Tasks.Task<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await GetRoomTemplateCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomTemplateStatusWrapper> localVarResponse = await GetRoomTemplateCreatingStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6142,24 +5985,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomTemplateStatusWrapper>> GetRoomTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomTemplateStatusWrapper>> GetRoomTemplateCreatingStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -6167,7 +6007,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6200,8 +6040,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomTemplateCreatingStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6230,7 +6070,7 @@ namespace Docspace.Api
         /// <returns>FolderContentIntegerWrapper</returns>
         public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -6255,22 +6095,19 @@ namespace Docspace.Api
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
@@ -6278,66 +6115,66 @@ namespace Docspace.Api
             }
             if (subjectId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
             }
             if (searchArea != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
             }
             if (withoutTags != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutTags", withoutTags));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutTags", withoutTags));
             }
             if (tags != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "tags", tags));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tags", tags));
             }
             if (excludeSubject != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
             }
             if (provider != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "provider", provider));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "provider", provider));
             }
             if (subjectFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "subjectFilter", subjectFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectFilter", subjectFilter));
             }
             if (quotaFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
             }
             if (storageFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6369,8 +6206,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsFolder", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsFolder", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6400,7 +6237,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderContentIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6426,24 +6263,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
@@ -6511,7 +6345,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6544,8 +6378,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsFolder", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsFolder", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6559,7 +6393,7 @@ namespace Docspace.Api
         /// <returns>NewItemsRoomNewItemsArrayWrapper</returns>
         public NewItemsRoomNewItemsArrayWrapper GetRoomsNewItems()
         {
-            Docspace.Client.ApiResponse<NewItemsRoomNewItemsArrayWrapper> localVarResponse = GetRoomsNewItemsWithHttpInfo();
+            var localVarResponse = GetRoomsNewItemsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -6569,22 +6403,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsRoomNewItemsArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<NewItemsRoomNewItemsArrayWrapper> GetRoomsNewItemsWithHttpInfo()
+        public ApiResponse<NewItemsRoomNewItemsArrayWrapper> GetRoomsNewItemsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -6592,7 +6423,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6624,8 +6455,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsNewItems", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsNewItems", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6640,7 +6471,7 @@ namespace Docspace.Api
         /// <returns>Task of NewItemsRoomNewItemsArrayWrapper</returns>
         public async System.Threading.Tasks.Task<NewItemsRoomNewItemsArrayWrapper> GetRoomsNewItemsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<NewItemsRoomNewItemsArrayWrapper> localVarResponse = await GetRoomsNewItemsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<NewItemsRoomNewItemsArrayWrapper> localVarResponse = await GetRoomsNewItemsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6651,24 +6482,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>Task of ApiResponse (NewItemsRoomNewItemsArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NewItemsRoomNewItemsArrayWrapper>> GetRoomsNewItemsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<NewItemsRoomNewItemsArrayWrapper>> GetRoomsNewItemsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -6676,7 +6504,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6709,8 +6537,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsNewItems", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsNewItems", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6725,7 +6553,7 @@ namespace Docspace.Api
         /// <returns>FileShareWrapper</returns>
         public FileShareWrapper GetRoomsPrimaryExternalLink(int id)
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = GetRoomsPrimaryExternalLinkWithHttpInfo(id);
+            var localVarResponse = GetRoomsPrimaryExternalLinkWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -6736,31 +6564,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id)
+        public ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6792,8 +6617,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsPrimaryExternalLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsPrimaryExternalLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6809,7 +6634,7 @@ namespace Docspace.Api
         /// <returns>Task of FileShareWrapper</returns>
         public async System.Threading.Tasks.Task<FileShareWrapper> GetRoomsPrimaryExternalLinkAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await GetRoomsPrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileShareWrapper> localVarResponse = await GetRoomsPrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6821,33 +6646,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> GetRoomsPrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetRoomsPrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6880,8 +6702,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRoomsPrimaryExternalLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetRoomsPrimaryExternalLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6896,7 +6718,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper PinRoom(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = PinRoomWithHttpInfo(id);
+            var localVarResponse = PinRoomWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -6907,31 +6729,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> PinRoomWithHttpInfo(int id)
+        public ApiResponse<FolderIntegerWrapper> PinRoomWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -6963,8 +6782,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PinRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("PinRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -6980,7 +6799,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> PinRoomAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await PinRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await PinRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6992,33 +6811,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> PinRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> PinRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7051,8 +6867,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PinRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("PinRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7067,7 +6883,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper ReorderRoom(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = ReorderRoomWithHttpInfo(id);
+            var localVarResponse = ReorderRoomWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -7078,31 +6894,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id)
+        public ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7134,8 +6947,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7151,7 +6964,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> ReorderRoomAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await ReorderRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await ReorderRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7163,33 +6976,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> ReorderRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> ReorderRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7222,8 +7032,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ReorderRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7250,32 +7060,29 @@ namespace Docspace.Api
         /// <param name="userInvitation">The user invitation parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation? userInvitation = default)
+        public ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation? userInvitation = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = userInvitation;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (userInvitation != null) localVarRequestOptions.Data = userInvitation;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7307,8 +7114,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResendEmailInvitations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResendEmailInvitations", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7337,34 +7144,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation? userInvitation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation? userInvitation = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = userInvitation;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (userInvitation != null) localVarRequestOptions.Data = userInvitation;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7397,8 +7201,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResendEmailInvitations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResendEmailInvitations", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7423,31 +7227,28 @@ namespace Docspace.Api
         /// <param name="setPublicDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/">REST API Reference for SetPublicSettings Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> SetPublicSettingsWithHttpInfo(SetPublicDto? setPublicDto = default)
+        public ApiResponse<Object> SetPublicSettingsWithHttpInfo(SetPublicDto? setPublicDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = setPublicDto;
+            if (setPublicDto != null) localVarRequestOptions.Data = setPublicDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7479,8 +7280,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7507,33 +7308,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/">REST API Reference for SetPublicSettings Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> SetPublicSettingsWithHttpInfoAsync(SetPublicDto? setPublicDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SetPublicSettingsWithHttpInfoAsync(SetPublicDto? setPublicDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = setPublicDto;
+            if (setPublicDto != null) localVarRequestOptions.Data = setPublicDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7566,8 +7364,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetPublicSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7583,7 +7381,7 @@ namespace Docspace.Api
         /// <returns>FileShareWrapper</returns>
         public FileShareWrapper SetRoomLink(int id, RoomLinkRequest? roomLinkRequest = default)
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = SetRoomLinkWithHttpInfo(id, roomLinkRequest);
+            var localVarResponse = SetRoomLinkWithHttpInfo(id, roomLinkRequest);
             return localVarResponse.Data;
         }
 
@@ -7595,33 +7393,29 @@ namespace Docspace.Api
         /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public Docspace.Client.ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default)
+        public ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = roomLinkRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (roomLinkRequest != null) localVarRequestOptions.Data = roomLinkRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7653,8 +7447,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7671,7 +7465,7 @@ namespace Docspace.Api
         /// <returns>Task of FileShareWrapper</returns>
         public async System.Threading.Tasks.Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileShareWrapper> localVarResponse = await SetRoomLinkWithHttpInfoAsync(id, roomLinkRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileShareWrapper> localVarResponse = await SetRoomLinkWithHttpInfoAsync(id, roomLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7684,35 +7478,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = roomLinkRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (roomLinkRequest != null) localVarRequestOptions.Data = roomLinkRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7745,8 +7535,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7762,7 +7552,7 @@ namespace Docspace.Api
         /// <returns>RoomSecurityWrapper</returns>
         public RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest? roomInvitationRequest = default)
         {
-            Docspace.Client.ApiResponse<RoomSecurityWrapper> localVarResponse = SetRoomSecurityWithHttpInfo(id, roomInvitationRequest);
+            var localVarResponse = SetRoomSecurityWithHttpInfo(id, roomInvitationRequest);
             return localVarResponse.Data;
         }
 
@@ -7774,33 +7564,29 @@ namespace Docspace.Api
         /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>ApiResponse of RoomSecurityWrapper</returns>
-        public Docspace.Client.ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest? roomInvitationRequest = default)
+        public ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest? roomInvitationRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = roomInvitationRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (roomInvitationRequest != null) localVarRequestOptions.Data = roomInvitationRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7832,8 +7618,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomSecurity", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomSecurity", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7850,7 +7636,7 @@ namespace Docspace.Api
         /// <returns>Task of RoomSecurityWrapper</returns>
         public async System.Threading.Tasks.Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<RoomSecurityWrapper> localVarResponse = await SetRoomSecurityWithHttpInfoAsync(id, roomInvitationRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<RoomSecurityWrapper> localVarResponse = await SetRoomSecurityWithHttpInfoAsync(id, roomInvitationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7863,35 +7649,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (RoomSecurityWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = roomInvitationRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (roomInvitationRequest != null) localVarRequestOptions.Data = roomInvitationRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -7924,8 +7706,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetRoomSecurity", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetRoomSecurity", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -7940,7 +7722,7 @@ namespace Docspace.Api
         /// <returns>DocumentBuilderTaskWrapper</returns>
         public DocumentBuilderTaskWrapper StartRoomIndexExport(int id)
         {
-            Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = StartRoomIndexExportWithHttpInfo(id);
+            var localVarResponse = StartRoomIndexExportWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -7951,31 +7733,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
-        public Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> StartRoomIndexExportWithHttpInfo(int id)
+        public ApiResponse<DocumentBuilderTaskWrapper> StartRoomIndexExportWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8007,8 +7786,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("StartRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8024,7 +7803,7 @@ namespace Docspace.Api
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
         public async System.Threading.Tasks.Task<DocumentBuilderTaskWrapper> StartRoomIndexExportAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = await StartRoomIndexExportWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<DocumentBuilderTaskWrapper> localVarResponse = await StartRoomIndexExportWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8036,33 +7815,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<DocumentBuilderTaskWrapper>> StartRoomIndexExportWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentBuilderTaskWrapper>> StartRoomIndexExportWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8095,8 +7871,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StartRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("StartRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8119,21 +7895,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Docspace.Client.ApiResponse<Object> TerminateRoomIndexExportWithHttpInfo()
+        public ApiResponse<Object> TerminateRoomIndexExportWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -8141,7 +7915,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8173,8 +7947,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TerminateRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TerminateRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8199,23 +7973,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> TerminateRoomIndexExportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> TerminateRoomIndexExportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] accepts = [];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -8223,7 +7995,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8256,8 +8028,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TerminateRoomIndexExport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TerminateRoomIndexExport", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8273,7 +8045,7 @@ namespace Docspace.Api
         /// <returns>FileOperationWrapper</returns>
         public FileOperationWrapper UnarchiveRoom(int id, ArchiveRoomRequest? archiveRoomRequest = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = UnarchiveRoomWithHttpInfo(id, archiveRoomRequest);
+            var localVarResponse = UnarchiveRoomWithHttpInfo(id, archiveRoomRequest);
             return localVarResponse.Data;
         }
 
@@ -8285,33 +8057,29 @@ namespace Docspace.Api
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unarchive-room/">REST API Reference for UnarchiveRoom Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
-        public Docspace.Client.ApiResponse<FileOperationWrapper> UnarchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default)
+        public ApiResponse<FileOperationWrapper> UnarchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = archiveRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8343,8 +8111,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnarchiveRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnarchiveRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8361,7 +8129,7 @@ namespace Docspace.Api
         /// <returns>Task of FileOperationWrapper</returns>
         public async System.Threading.Tasks.Task<FileOperationWrapper> UnarchiveRoomAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileOperationWrapper> localVarResponse = await UnarchiveRoomWithHttpInfoAsync(id, archiveRoomRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileOperationWrapper> localVarResponse = await UnarchiveRoomWithHttpInfoAsync(id, archiveRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8374,35 +8142,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unarchive-room/">REST API Reference for UnarchiveRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileOperationWrapper>> UnarchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileOperationWrapper>> UnarchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = archiveRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8435,8 +8199,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnarchiveRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnarchiveRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8451,7 +8215,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper UnpinRoom(int id)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = UnpinRoomWithHttpInfo(id);
+            var localVarResponse = UnpinRoomWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -8462,31 +8226,28 @@ namespace Docspace.Api
         /// <param name="id">The room ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> UnpinRoomWithHttpInfo(int id)
+        public ApiResponse<FolderIntegerWrapper> UnpinRoomWithHttpInfo(int id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8518,8 +8279,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnpinRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnpinRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8535,7 +8296,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> UnpinRoomAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await UnpinRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await UnpinRoomWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8547,33 +8308,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> UnpinRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> UnpinRoomWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8606,8 +8364,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnpinRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnpinRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8623,7 +8381,7 @@ namespace Docspace.Api
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest? updateRoomRequest = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = UpdateRoomWithHttpInfo(id, updateRoomRequest);
+            var localVarResponse = UpdateRoomWithHttpInfo(id, updateRoomRequest);
             return localVarResponse.Data;
         }
 
@@ -8635,33 +8393,29 @@ namespace Docspace.Api
         /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public Docspace.Client.ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest? updateRoomRequest = default)
+        public ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest? updateRoomRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (updateRoomRequest != null) localVarRequestOptions.Data = updateRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8693,8 +8447,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8711,7 +8465,7 @@ namespace Docspace.Api
         /// <returns>Task of FolderIntegerWrapper</returns>
         public async System.Threading.Tasks.Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest? updateRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FolderIntegerWrapper> localVarResponse = await UpdateRoomWithHttpInfoAsync(id, updateRoomRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FolderIntegerWrapper> localVarResponse = await UpdateRoomWithHttpInfoAsync(id, updateRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8724,35 +8478,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest? updateRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest? updateRoomRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateRoomRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (updateRoomRequest != null) localVarRequestOptions.Data = updateRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8785,8 +8535,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateRoom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateRoom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8801,7 +8551,7 @@ namespace Docspace.Api
         /// <returns>UploadResultWrapper</returns>
         public UploadResultWrapper UploadRoomLogo(List<KeyValuePairStringStringValues>? formCollection = default)
         {
-            Docspace.Client.ApiResponse<UploadResultWrapper> localVarResponse = UploadRoomLogoWithHttpInfo(formCollection);
+            var localVarResponse = UploadRoomLogoWithHttpInfo(formCollection);
             return localVarResponse.Data;
         }
 
@@ -8812,35 +8562,31 @@ namespace Docspace.Api
         /// <param name="formCollection">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>ApiResponse of UploadResultWrapper</returns>
-        public Docspace.Client.ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(List<KeyValuePairStringStringValues>? formCollection = default)
+        public ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(List<KeyValuePairStringStringValues>? formCollection = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (formCollection != null)
             {
-                localVarRequestOptions.FormParameters.Add("FormCollection", Docspace.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
+                localVarRequestOptions.FormParameters.Add("FormCollection",ClientUtils.ParameterToString(formCollection)); // form parameter
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8872,8 +8618,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UploadRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UploadRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -8889,7 +8635,7 @@ namespace Docspace.Api
         /// <returns>Task of UploadResultWrapper</returns>
         public async System.Threading.Tasks.Task<UploadResultWrapper> UploadRoomLogoAsync(List<KeyValuePairStringStringValues>? formCollection = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<UploadResultWrapper> localVarResponse = await UploadRoomLogoWithHttpInfoAsync(formCollection, cancellationToken).ConfigureAwait(false);
+            ApiResponse<UploadResultWrapper> localVarResponse = await UploadRoomLogoWithHttpInfoAsync(formCollection, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8901,25 +8647,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (UploadResultWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(List<KeyValuePairStringStringValues>? formCollection = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(List<KeyValuePairStringStringValues>? formCollection = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (formCollection != null)
@@ -8931,7 +8673,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -8964,8 +8706,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UploadRoomLogo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UploadRoomLogo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

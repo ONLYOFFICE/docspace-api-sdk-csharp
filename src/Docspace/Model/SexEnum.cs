@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Female, 1 - Male]</value>
     public enum SexEnum
     {
+        /// <summary>
+        /// Enum Female for value: 0
+        /// </summary>
+        Female = 0,
+
+        /// <summary>
+        /// Enum Male for value: 1
+        /// </summary>
+        Male = 1
     }
 
 }

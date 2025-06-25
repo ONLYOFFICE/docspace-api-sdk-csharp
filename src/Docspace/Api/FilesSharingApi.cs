@@ -319,9 +319,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class FilesSharingApi : IDisposable, IFilesSharingApi
+    public class FilesSharingApi : IDisposable, IFilesSharingApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesSharingApi"/> class.
@@ -344,32 +344,32 @@ namespace Docspace.Api
         public FilesSharingApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilesSharingApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="FilesSharingApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public FilesSharingApi(Docspace.Client.Configuration configuration)
+        public FilesSharingApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -405,20 +405,20 @@ namespace Docspace.Api
         /// </remarks>
         public FilesSharingApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilesSharingApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="FilesSharingApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -429,16 +429,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public FilesSharingApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public FilesSharingApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -452,11 +452,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public FilesSharingApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public FilesSharingApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -469,23 +469,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -500,12 +500,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -515,7 +515,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -528,7 +528,7 @@ namespace Docspace.Api
         /// <returns>ExternalShareWrapper</returns>
         public ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam? externalShareRequestParam = default)
         {
-            Docspace.Client.ApiResponse<ExternalShareWrapper> localVarResponse = ApplyExternalSharePasswordWithHttpInfo(key, externalShareRequestParam);
+            var localVarResponse = ApplyExternalSharePasswordWithHttpInfo(key, externalShareRequestParam);
             return localVarResponse.Data;
         }
 
@@ -540,31 +540,27 @@ namespace Docspace.Api
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
-        public Docspace.Client.ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam? externalShareRequestParam = default)
+        public ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam? externalShareRequestParam = default)
         {
             // verify the required parameter 'key' is set
             if (key == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->ApplyExternalSharePassword");
+                throw new ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->ApplyExternalSharePassword");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("key", Docspace.Client.ClientUtils.ParameterToString(key)); // path parameter
-            localVarRequestOptions.Data = externalShareRequestParam;
+            localVarRequestOptions.PathParameters.Add("key", ClientUtils.ParameterToString(key)); // path parameter
+            if (externalShareRequestParam != null) localVarRequestOptions.Data = externalShareRequestParam;
 
 
             // make the HTTP request
@@ -572,8 +568,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApplyExternalSharePassword", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ApplyExternalSharePassword", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -590,7 +586,7 @@ namespace Docspace.Api
         /// <returns>Task of ExternalShareWrapper</returns>
         public async System.Threading.Tasks.Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ExternalShareWrapper> localVarResponse = await ApplyExternalSharePasswordWithHttpInfoAsync(key, externalShareRequestParam, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ExternalShareWrapper> localVarResponse = await ApplyExternalSharePasswordWithHttpInfoAsync(key, externalShareRequestParam, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -603,33 +599,29 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'key' is set
             if (key == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->ApplyExternalSharePassword");
+                throw new ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->ApplyExternalSharePassword");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("key", Docspace.Client.ClientUtils.ParameterToString(key)); // path parameter
-            localVarRequestOptions.Data = externalShareRequestParam;
+            localVarRequestOptions.PathParameters.Add("key", ClientUtils.ParameterToString(key)); // path parameter
+            if (externalShareRequestParam != null) localVarRequestOptions.Data = externalShareRequestParam;
 
 
             // make the HTTP request
@@ -638,8 +630,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApplyExternalSharePassword", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ApplyExternalSharePassword", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -654,7 +646,7 @@ namespace Docspace.Api
         /// <returns>FileEntryArrayWrapper</returns>
         public FileEntryArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default)
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = ChangeFileOwnerWithHttpInfo(changeOwnerRequestDto);
+            var localVarResponse = ChangeFileOwnerWithHttpInfo(changeOwnerRequestDto);
             return localVarResponse.Data;
         }
 
@@ -665,32 +657,28 @@ namespace Docspace.Api
         /// <param name="changeOwnerRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default)
+        public ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = changeOwnerRequestDto;
+            if (changeOwnerRequestDto != null) localVarRequestOptions.Data = changeOwnerRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -722,8 +710,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -739,7 +727,7 @@ namespace Docspace.Api
         /// <returns>Task of FileEntryArrayWrapper</returns>
         public async System.Threading.Tasks.Task<FileEntryArrayWrapper> ChangeFileOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileEntryArrayWrapper> localVarResponse = await ChangeFileOwnerWithHttpInfoAsync(changeOwnerRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileEntryArrayWrapper> localVarResponse = await ChangeFileOwnerWithHttpInfoAsync(changeOwnerRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -751,34 +739,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileEntryArrayWrapper>> ChangeFileOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> ChangeFileOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = changeOwnerRequestDto;
+            if (changeOwnerRequestDto != null) localVarRequestOptions.Data = changeOwnerRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -811,8 +795,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeFileOwner", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -828,7 +812,7 @@ namespace Docspace.Api
         /// <returns>ExternalShareWrapper</returns>
         public ExternalShareWrapper GetExternalShareData(string key, string? fileId = default)
         {
-            Docspace.Client.ApiResponse<ExternalShareWrapper> localVarResponse = GetExternalShareDataWithHttpInfo(key, fileId);
+            var localVarResponse = GetExternalShareDataWithHttpInfo(key, fileId);
             return localVarResponse.Data;
         }
 
@@ -840,32 +824,29 @@ namespace Docspace.Api
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
-        public Docspace.Client.ApiResponse<ExternalShareWrapper> GetExternalShareDataWithHttpInfo(string key, string? fileId = default)
+        public ApiResponse<ExternalShareWrapper> GetExternalShareDataWithHttpInfo(string key, string? fileId = default)
         {
             // verify the required parameter 'key' is set
             if (key == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->GetExternalShareData");
+                throw new ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->GetExternalShareData");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("key", Docspace.Client.ClientUtils.ParameterToString(key)); // path parameter
+            localVarRequestOptions.PathParameters.Add("key", ClientUtils.ParameterToString(key)); // path parameter
             if (fileId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fileId", fileId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileId", fileId));
             }
 
 
@@ -874,8 +855,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetExternalShareData", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetExternalShareData", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -892,7 +873,7 @@ namespace Docspace.Api
         /// <returns>Task of ExternalShareWrapper</returns>
         public async System.Threading.Tasks.Task<ExternalShareWrapper> GetExternalShareDataAsync(string key, string? fileId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ExternalShareWrapper> localVarResponse = await GetExternalShareDataWithHttpInfoAsync(key, fileId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ExternalShareWrapper> localVarResponse = await GetExternalShareDataWithHttpInfoAsync(key, fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -905,31 +886,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ExternalShareWrapper>> GetExternalShareDataWithHttpInfoAsync(string key, string? fileId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ExternalShareWrapper>> GetExternalShareDataWithHttpInfoAsync(string key, string? fileId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'key' is set
             if (key == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->GetExternalShareData");
+                throw new ApiException(400, "Missing required parameter 'key' when calling FilesSharingApi->GetExternalShareData");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("key", Docspace.Client.ClientUtils.ParameterToString(key)); // path parameter
+            localVarRequestOptions.PathParameters.Add("key", ClientUtils.ParameterToString(key)); // path parameter
             if (fileId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fileId", fileId));
@@ -942,8 +920,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetExternalShareData", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetExternalShareData", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -958,7 +936,7 @@ namespace Docspace.Api
         /// <returns>MentionWrapperArrayWrapper</returns>
         public MentionWrapperArrayWrapper GetSharedUsers(int fileId)
         {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = GetSharedUsersWithHttpInfo(fileId);
+            var localVarResponse = GetSharedUsersWithHttpInfo(fileId);
             return localVarResponse.Data;
         }
 
@@ -969,31 +947,28 @@ namespace Docspace.Api
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
+        public ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1025,8 +1000,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1042,7 +1017,7 @@ namespace Docspace.Api
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
         public async System.Threading.Tasks.Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await GetSharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<MentionWrapperArrayWrapper> localVarResponse = await GetSharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1054,33 +1029,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1113,8 +1085,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSharedUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1130,7 +1102,7 @@ namespace Docspace.Api
         /// <returns>AceShortWrapperArrayWrapper</returns>
         public AceShortWrapperArrayWrapper SendEditorNotify(int fileId, MentionMessageWrapper? mentionMessageWrapper = default)
         {
-            Docspace.Client.ApiResponse<AceShortWrapperArrayWrapper> localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageWrapper);
+            var localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageWrapper);
             return localVarResponse.Data;
         }
 
@@ -1142,33 +1114,29 @@ namespace Docspace.Api
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default)
+        public ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-            localVarRequestOptions.Data = mentionMessageWrapper;
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1200,8 +1168,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendEditorNotify", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SendEditorNotify", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1218,7 +1186,7 @@ namespace Docspace.Api
         /// <returns>Task of AceShortWrapperArrayWrapper</returns>
         public async System.Threading.Tasks.Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AceShortWrapperArrayWrapper> localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageWrapper, cancellationToken).ConfigureAwait(false);
+            ApiResponse<AceShortWrapperArrayWrapper> localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1231,35 +1199,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", Docspace.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-            localVarRequestOptions.Data = mentionMessageWrapper;
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1292,8 +1256,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendEditorNotify", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SendEditorNotify", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

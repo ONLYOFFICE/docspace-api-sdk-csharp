@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - All, 1 - Default, 2 - Custom]</value>
     public enum QuotaFilter
     {
+        /// <summary>
+        /// Enum All for value: 0
+        /// </summary>
+        All = 0,
+
+        /// <summary>
+        /// Enum Default for value: 1
+        /// </summary>
+        Default = 1,
+
+        /// <summary>
+        /// Enum Custom for value: 2
+        /// </summary>
+        Custom = 2
     }
 
 }

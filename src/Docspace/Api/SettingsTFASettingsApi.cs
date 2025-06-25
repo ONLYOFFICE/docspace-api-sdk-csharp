@@ -219,7 +219,7 @@ namespace Docspace.Api
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
         /// <summary>
-        /// Get confirmation email for updating TFA settings
+        /// Get a confirmation email for updating TFA settings
         /// </summary>
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
@@ -231,7 +231,7 @@ namespace Docspace.Api
         StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default);
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings
+        /// Get a confirmation email for updating TFA settings
         /// </summary>
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
@@ -441,7 +441,7 @@ namespace Docspace.Api
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get confirmation email for updating TFA settings
+        /// Get a confirmation email for updating TFA settings
         /// </summary>
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
@@ -454,7 +454,7 @@ namespace Docspace.Api
         System.Threading.Tasks.Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings
+        /// Get a confirmation email for updating TFA settings
         /// </summary>
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
@@ -479,9 +479,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SettingsTFASettingsApi : IDisposable, ISettingsTFASettingsApi
+    public class SettingsTFASettingsApi : IDisposable, ISettingsTFASettingsApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsTFASettingsApi"/> class.
@@ -504,32 +504,32 @@ namespace Docspace.Api
         public SettingsTFASettingsApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsTFASettingsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsTFASettingsApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SettingsTFASettingsApi(Docspace.Client.Configuration configuration)
+        public SettingsTFASettingsApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -565,20 +565,20 @@ namespace Docspace.Api
         /// </remarks>
         public SettingsTFASettingsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsTFASettingsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsTFASettingsApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -589,16 +589,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SettingsTFASettingsApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SettingsTFASettingsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -612,11 +612,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SettingsTFASettingsApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SettingsTFASettingsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -629,23 +629,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -660,12 +660,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -675,7 +675,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -686,7 +686,7 @@ namespace Docspace.Api
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper GetTfaAppCodes()
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetTfaAppCodesWithHttpInfo();
+            var localVarResponse = GetTfaAppCodesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -696,22 +696,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo()
+        public ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -719,7 +716,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -751,8 +748,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaAppCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaAppCodes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -767,7 +764,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectArrayWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetTfaAppCodesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectArrayWrapper> localVarResponse = await GetTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -778,24 +775,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -803,7 +797,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -836,8 +830,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaAppCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaAppCodes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -851,7 +845,7 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper GetTfaConfirmUrl()
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetTfaConfirmUrlWithHttpInfo();
+            var localVarResponse = GetTfaConfirmUrlWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -861,22 +855,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo()
+        public ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -884,7 +875,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -916,8 +907,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -932,7 +923,7 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> GetTfaConfirmUrlAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetTfaConfirmUrlWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await GetTfaConfirmUrlWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -943,24 +934,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetTfaConfirmUrlWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetTfaConfirmUrlWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -968,7 +956,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1001,8 +989,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1016,7 +1004,7 @@ namespace Docspace.Api
         /// <returns>TfaSettingsArrayWrapper</returns>
         public TfaSettingsArrayWrapper GetTfaSettings()
         {
-            Docspace.Client.ApiResponse<TfaSettingsArrayWrapper> localVarResponse = GetTfaSettingsWithHttpInfo();
+            var localVarResponse = GetTfaSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1026,22 +1014,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>ApiResponse of TfaSettingsArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<TfaSettingsArrayWrapper> GetTfaSettingsWithHttpInfo()
+        public ApiResponse<TfaSettingsArrayWrapper> GetTfaSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1049,7 +1034,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1081,8 +1066,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1097,7 +1082,7 @@ namespace Docspace.Api
         /// <returns>Task of TfaSettingsArrayWrapper</returns>
         public async System.Threading.Tasks.Task<TfaSettingsArrayWrapper> GetTfaSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<TfaSettingsArrayWrapper> localVarResponse = await GetTfaSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<TfaSettingsArrayWrapper> localVarResponse = await GetTfaSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1108,24 +1093,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TfaSettingsArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<TfaSettingsArrayWrapper>> GetTfaSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<TfaSettingsArrayWrapper>> GetTfaSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1133,7 +1115,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1166,8 +1148,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTfaSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetTfaSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1181,7 +1163,7 @@ namespace Docspace.Api
         /// <returns>SetupCodeWrapper</returns>
         public SetupCodeWrapper TfaAppGenerateSetupCode()
         {
-            Docspace.Client.ApiResponse<SetupCodeWrapper> localVarResponse = TfaAppGenerateSetupCodeWithHttpInfo();
+            var localVarResponse = TfaAppGenerateSetupCodeWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1191,22 +1173,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>ApiResponse of SetupCodeWrapper</returns>
-        public Docspace.Client.ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo()
+        public ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1214,7 +1193,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1246,8 +1225,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TfaAppGenerateSetupCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TfaAppGenerateSetupCode", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1262,7 +1241,7 @@ namespace Docspace.Api
         /// <returns>Task of SetupCodeWrapper</returns>
         public async System.Threading.Tasks.Task<SetupCodeWrapper> TfaAppGenerateSetupCodeAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<SetupCodeWrapper> localVarResponse = await TfaAppGenerateSetupCodeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<SetupCodeWrapper> localVarResponse = await TfaAppGenerateSetupCodeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1273,24 +1252,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>Task of ApiResponse (SetupCodeWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<SetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<SetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1298,7 +1274,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1331,8 +1307,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TfaAppGenerateSetupCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TfaAppGenerateSetupCode", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1347,7 +1323,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper TfaValidateAuthCode(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = TfaValidateAuthCodeWithHttpInfo(tfaValidateRequestsDto);
+            var localVarResponse = TfaValidateAuthCodeWithHttpInfo(tfaValidateRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -1358,32 +1334,28 @@ namespace Docspace.Api
         /// <param name="tfaValidateRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
+        public ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaValidateRequestsDto;
+            if (tfaValidateRequestsDto != null) localVarRequestOptions.Data = tfaValidateRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1415,8 +1387,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TfaValidateAuthCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TfaValidateAuthCode", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1432,7 +1404,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> TfaValidateAuthCodeAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await TfaValidateAuthCodeWithHttpInfoAsync(tfaValidateRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await TfaValidateAuthCodeWithHttpInfoAsync(tfaValidateRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1444,34 +1416,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaValidateRequestsDto;
+            if (tfaValidateRequestsDto != null) localVarRequestOptions.Data = tfaValidateRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1504,8 +1472,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TfaValidateAuthCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("TfaValidateAuthCode", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1520,7 +1488,7 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper UnlinkTfaApp(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = UnlinkTfaAppWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UnlinkTfaAppWithHttpInfo(tfaRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -1531,32 +1499,28 @@ namespace Docspace.Api
         /// <param name="tfaRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1588,8 +1552,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkTfaApp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnlinkTfaApp", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1605,7 +1569,7 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> UnlinkTfaAppAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await UnlinkTfaAppWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await UnlinkTfaAppWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1617,34 +1581,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1677,8 +1637,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnlinkTfaApp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UnlinkTfaApp", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1692,7 +1652,7 @@ namespace Docspace.Api
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper UpdateTfaAppCodes()
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = UpdateTfaAppCodesWithHttpInfo();
+            var localVarResponse = UpdateTfaAppCodesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1702,22 +1662,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo()
+        public ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1725,7 +1682,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1757,8 +1714,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaAppCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaAppCodes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1773,7 +1730,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectArrayWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectArrayWrapper> UpdateTfaAppCodesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await UpdateTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectArrayWrapper> localVarResponse = await UpdateTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1784,24 +1741,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1809,7 +1763,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1842,8 +1796,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaAppCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaAppCodes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1858,7 +1812,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper UpdateTfaSettings(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = UpdateTfaSettingsWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UpdateTfaSettingsWithHttpInfo(tfaRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -1869,32 +1823,28 @@ namespace Docspace.Api
         /// <param name="tfaRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1926,8 +1876,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1943,7 +1893,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> UpdateTfaSettingsAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await UpdateTfaSettingsWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await UpdateTfaSettingsWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1955,34 +1905,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2015,15 +1961,15 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
+        /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto"> (optional)</param>
@@ -2031,43 +1977,39 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = UpdateTfaSettingsLinkWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UpdateTfaSettingsLinkWithHttpInfo(tfaRequestsDto);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
+        /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2099,15 +2041,15 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaSettingsLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaSettingsLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
+        /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto"> (optional)</param>
@@ -2116,46 +2058,42 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await UpdateTfaSettingsLinkWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await UpdateTfaSettingsLinkWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
+        /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2188,8 +2126,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTfaSettingsLink", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateTfaSettingsLink", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

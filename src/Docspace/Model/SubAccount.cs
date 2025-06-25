@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// SubAccount
+    /// Represents a sub-account with a specific currency and amount.
     /// </summary>
     [DataContract(Name = "SubAccount")]
     public partial class SubAccount : IValidatableObject
@@ -52,8 +52,8 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccount" /> class.
         /// </summary>
-        /// <param name="currency">currency.</param>
-        /// <param name="amount">amount.</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol of the sub-account..</param>
+        /// <param name="amount">The amount of the sub-account..</param>
         public SubAccount(string currency = default, double amount = default)
         {
             this.Currency = currency;
@@ -61,8 +61,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// The three-character ISO 4217 currency symbol of the sub-account.
         /// </summary>
+        /// <value>The three-character ISO 4217 currency symbol of the sub-account.</value>
         /*
         <example>some text</example>
         */
@@ -70,8 +71,9 @@ namespace Docspace.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// The amount of the sub-account.
         /// </summary>
+        /// <value>The amount of the sub-account.</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 

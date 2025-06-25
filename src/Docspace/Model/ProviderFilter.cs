@@ -49,6 +49,55 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Box, 2 - DropBox, 3 - GoogleDrive, 4 - kDrive, 5 - OneDrive, 6 - SharePoint, 7 - WebDav, 8 - Yandex, 9 - Storage]</value>
     public enum ProviderFilter
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Box for value: 1
+        /// </summary>
+        Box = 1,
+
+        /// <summary>
+        /// Enum DropBox for value: 2
+        /// </summary>
+        DropBox = 2,
+
+        /// <summary>
+        /// Enum GoogleDrive for value: 3
+        /// </summary>
+        GoogleDrive = 3,
+
+        /// <summary>
+        /// Enum kDrive for value: 4
+        /// </summary>
+        kDrive = 4,
+
+        /// <summary>
+        /// Enum OneDrive for value: 5
+        /// </summary>
+        OneDrive = 5,
+
+        /// <summary>
+        /// Enum SharePoint for value: 6
+        /// </summary>
+        SharePoint = 6,
+
+        /// <summary>
+        /// Enum WebDav for value: 7
+        /// </summary>
+        WebDav = 7,
+
+        /// <summary>
+        /// Enum Yandex for value: 8
+        /// </summary>
+        Yandex = 8,
+
+        /// <summary>
+        /// Enum Storage for value: 9
+        /// </summary>
+        Storage = 9
     }
 
 }

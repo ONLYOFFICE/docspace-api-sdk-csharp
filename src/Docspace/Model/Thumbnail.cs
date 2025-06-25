@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[0 - Waiting, 1 - Created, 2 - Error, 3 - Not required, 4 - Creating]</value>
     public enum Thumbnail
     {
+        /// <summary>
+        /// Enum Waiting for value: 0
+        /// </summary>
+        Waiting = 0,
+
+        /// <summary>
+        /// Enum Created for value: 1
+        /// </summary>
+        Created = 1,
+
+        /// <summary>
+        /// Enum Error for value: 2
+        /// </summary>
+        Error = 2,
+
+        /// <summary>
+        /// Enum NotRequired for value: 3
+        /// </summary>
+        NotRequired = 3,
+
+        /// <summary>
+        /// Enum Creating for value: 4
+        /// </summary>
+        Creating = 4
     }
 
 }

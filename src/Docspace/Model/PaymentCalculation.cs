@@ -52,10 +52,10 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentCalculation" /> class.
         /// </summary>
-        /// <param name="operationId">operationId.</param>
-        /// <param name="amount">amount.</param>
-        /// <param name="currency">currency.</param>
-        /// <param name="quantity">quantity.</param>
+        /// <param name="operationId">Unique identifier of the operation..</param>
+        /// <param name="amount">The amount of the payment calculation..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol of the payment calculation..</param>
+        /// <param name="quantity">The quantity associated with the payment calculation..</param>
         public PaymentCalculation(long operationId = default, double amount = default, string currency = default, int quantity = default)
         {
             this.OperationId = operationId;
@@ -65,8 +65,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets OperationId
+        /// Unique identifier of the operation.
         /// </summary>
+        /// <value>Unique identifier of the operation.</value>
         /*
         <example>1234</example>
         */
@@ -74,14 +75,16 @@ namespace Docspace.Model
         public long OperationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// The amount of the payment calculation.
         /// </summary>
+        /// <value>The amount of the payment calculation.</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// The three-character ISO 4217 currency symbol of the payment calculation.
         /// </summary>
+        /// <value>The three-character ISO 4217 currency symbol of the payment calculation.</value>
         /*
         <example>some text</example>
         */
@@ -89,8 +92,9 @@ namespace Docspace.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// The quantity associated with the payment calculation.
         /// </summary>
+        /// <value>The quantity associated with the payment calculation.</value>
         /*
         <example>1234</example>
         */

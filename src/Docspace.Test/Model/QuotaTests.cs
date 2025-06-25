@@ -111,5 +111,14 @@ namespace Docspace.Test.Model
         {
             // TODO unit test for the property 'NextQuantity'
         }
+
+        /// <summary>
+        /// Test the property 'State'
+        /// </summary>
+        [Fact]
+        public void StateTest()
+        {
+            // TODO unit test for the property 'State'
+        }
     }
 }

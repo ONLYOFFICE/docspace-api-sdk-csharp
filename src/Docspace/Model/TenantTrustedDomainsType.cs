@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Custom, 2 - All]</value>
     public enum TenantTrustedDomainsType
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Custom for value: 1
+        /// </summary>
+        Custom = 1,
+
+        /// <summary>
+        /// Enum All for value: 2
+        /// </summary>
+        All = 2
     }
 
 }

@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - All allowed, 1 - Part allowed, 2 - None allowed]</value>
     public enum CheckDestFolderResult
     {
+        /// <summary>
+        /// Enum AllAllowed for value: 0
+        /// </summary>
+        AllAllowed = 0,
+
+        /// <summary>
+        /// Enum PartAllowed for value: 1
+        /// </summary>
+        PartAllowed = 1,
+
+        /// <summary>
+        /// Enum NoneAllowed for value: 2
+        /// </summary>
+        NoneAllowed = 2
     }
 
 }

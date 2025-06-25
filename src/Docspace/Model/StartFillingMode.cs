@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Share to fill out, 2 - Start filling]</value>
     public enum StartFillingMode
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum ShareToFillOut for value: 1
+        /// </summary>
+        ShareToFillOut = 1,
+
+        /// <summary>
+        /// Enum StartFilling for value: 2
+        /// </summary>
+        StartFilling = 2
     }
 
 }

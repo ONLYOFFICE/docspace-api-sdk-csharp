@@ -671,9 +671,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PeopleSearchApi : IDisposable, IPeopleSearchApi
+    public class PeopleSearchApi : IDisposable, IPeopleSearchApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PeopleSearchApi"/> class.
@@ -696,32 +696,32 @@ namespace Docspace.Api
         public PeopleSearchApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleSearchApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleSearchApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PeopleSearchApi(Docspace.Client.Configuration configuration)
+        public PeopleSearchApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -757,20 +757,20 @@ namespace Docspace.Api
         /// </remarks>
         public PeopleSearchApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleSearchApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleSearchApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -781,16 +781,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PeopleSearchApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public PeopleSearchApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -804,11 +804,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PeopleSearchApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public PeopleSearchApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -821,23 +821,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -852,12 +852,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -867,7 +867,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -891,7 +891,7 @@ namespace Docspace.Api
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            var localVarResponse = GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -914,78 +914,75 @@ namespace Docspace.Api
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (excludeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
             }
             if (includeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (employeeTypes != null)
             {
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1017,8 +1014,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1046,7 +1043,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectArrayWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectArrayWrapper> localVarResponse = await GetAccountsEntriesWithSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectArrayWrapper> localVarResponse = await GetAccountsEntriesWithSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1070,27 +1067,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
@@ -1144,7 +1138,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1177,8 +1171,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1195,7 +1189,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper GetSearch(string query, string? filterBy = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetSearchWithHttpInfo(query, filterBy, filterValue);
+            var localVarResponse = GetSearchWithHttpInfo(query, filterBy, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1208,43 +1202,40 @@ namespace Docspace.Api
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-search/">REST API Reference for GetSearch Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query, string? filterBy = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetSearchWithHttpInfo(string query, string? filterBy = default, string? filterValue = default)
         {
             // verify the required parameter 'query' is set
             if (query == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'query' when calling PeopleSearchApi->GetSearch");
+                throw new ApiException(400, "Missing required parameter 'query' when calling PeopleSearchApi->GetSearch");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("query", Docspace.Client.ClientUtils.ParameterToString(query)); // path parameter
+            localVarRequestOptions.PathParameters.Add("query", ClientUtils.ParameterToString(query)); // path parameter
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1276,8 +1267,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSearch", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1295,7 +1286,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetSearchAsync(string query, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetSearchWithHttpInfoAsync(query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetSearchWithHttpInfoAsync(query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1309,31 +1300,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-search/">REST API Reference for GetSearch Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetSearchWithHttpInfoAsync(string query, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'query' is set
             if (query == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'query' when calling PeopleSearchApi->GetSearch");
+                throw new ApiException(400, "Missing required parameter 'query' when calling PeopleSearchApi->GetSearch");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("query", Docspace.Client.ClientUtils.ParameterToString(query)); // path parameter
+            localVarRequestOptions.PathParameters.Add("query", ClientUtils.ParameterToString(query)); // path parameter
             if (filterBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
@@ -1347,7 +1335,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1380,8 +1368,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSearch", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1415,7 +1403,7 @@ namespace Docspace.Api
         /// <returns>EmployeeArrayWrapper</returns>
         public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+            var localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1445,109 +1433,106 @@ namespace Docspace.Api
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (groupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (employeeType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
             }
             if (employeeTypes != null)
             {
             }
             if (isAdministrator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
             }
             if (payments != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "payments", payments));
             }
             if (accountLoginType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
             }
             if (quotaFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
             }
             if (withoutGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
             }
             if (excludeGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1579,8 +1564,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSimpleByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSimpleByFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1615,7 +1600,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeArrayWrapper> localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1646,24 +1631,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (employeeStatus != null)
@@ -1751,7 +1733,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1784,8 +1766,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSimpleByFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSimpleByFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1812,7 +1794,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            var localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1835,78 +1817,75 @@ namespace Docspace.Api
         /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (excludeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
             }
             if (includeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (employeeTypes != null)
             {
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1938,8 +1917,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUsersWithRoomShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetUsersWithRoomShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1967,7 +1946,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1991,27 +1970,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
@@ -2065,7 +2041,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2098,8 +2074,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUsersWithRoomShared", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetUsersWithRoomShared", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2133,7 +2109,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+            var localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2163,109 +2139,106 @@ namespace Docspace.Api
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (groupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (employeeType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
             }
             if (employeeTypes != null)
             {
             }
             if (isAdministrator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
             }
             if (payments != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "payments", payments));
             }
             if (accountLoginType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
             }
             if (quotaFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
             }
             if (withoutGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
             }
             if (excludeGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2297,8 +2270,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2333,7 +2306,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2364,24 +2337,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (employeeStatus != null)
@@ -2469,7 +2439,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2502,8 +2472,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByExtendedFilter", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2518,7 +2488,7 @@ namespace Docspace.Api
         /// <returns>EmployeeArrayWrapper</returns>
         public EmployeeArrayWrapper SearchUsersByQuery(string? query = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = SearchUsersByQueryWithHttpInfo(query);
+            var localVarResponse = SearchUsersByQueryWithHttpInfo(query);
             return localVarResponse.Data;
         }
 
@@ -2529,34 +2499,31 @@ namespace Docspace.Api
         /// <param name="query">The search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> SearchUsersByQueryWithHttpInfo(string? query = default)
+        public ApiResponse<EmployeeArrayWrapper> SearchUsersByQueryWithHttpInfo(string? query = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2588,8 +2555,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2605,7 +2572,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeArrayWrapper> SearchUsersByQueryAsync(string? query = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await SearchUsersByQueryWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeArrayWrapper> localVarResponse = await SearchUsersByQueryWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2617,24 +2584,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> SearchUsersByQueryWithHttpInfoAsync(string? query = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> SearchUsersByQueryWithHttpInfoAsync(string? query = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (query != null)
@@ -2646,7 +2610,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2679,8 +2643,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByQuery", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2698,7 +2662,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper SearchUsersByStatus(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = SearchUsersByStatusWithHttpInfo(status, query, filterBy, filterValue);
+            var localVarResponse = SearchUsersByStatusWithHttpInfo(status, query, filterBy, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2712,43 +2676,40 @@ namespace Docspace.Api
         /// <param name="filterValue">The value used to filter the search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-status/">REST API Reference for SearchUsersByStatus Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByStatusWithHttpInfo(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
+            localVarRequestOptions.PathParameters.Add("status", ClientUtils.ParameterToString(status)); // path parameter
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
             }
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2780,8 +2741,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2800,7 +2761,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> SearchUsersByStatusAsync(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByStatusWithHttpInfoAsync(status, query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await SearchUsersByStatusWithHttpInfoAsync(status, query, filterBy, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2815,27 +2776,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-status/">REST API Reference for SearchUsersByStatus Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByStatusWithHttpInfoAsync(EmployeeStatus status, string? query = default, string? filterBy = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("status", Docspace.Client.ClientUtils.ParameterToString(status)); // path parameter
+            localVarRequestOptions.PathParameters.Add("status", ClientUtils.ParameterToString(status)); // path parameter
             if (query != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
@@ -2853,7 +2811,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2886,8 +2844,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SearchUsersByStatus", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

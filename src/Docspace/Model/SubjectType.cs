@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link]</value>
     public enum SubjectType
     {
+        /// <summary>
+        /// Enum User for value: 0
+        /// </summary>
+        User = 0,
+
+        /// <summary>
+        /// Enum ExternalLink for value: 1
+        /// </summary>
+        ExternalLink = 1,
+
+        /// <summary>
+        /// Enum Group for value: 2
+        /// </summary>
+        Group = 2,
+
+        /// <summary>
+        /// Enum InvitationLink for value: 3
+        /// </summary>
+        InvitationLink = 3,
+
+        /// <summary>
+        /// Enum PrimaryExternalLink for value: 4
+        /// </summary>
+        PrimaryExternalLink = 4
     }
 
 }

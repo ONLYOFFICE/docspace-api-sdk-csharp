@@ -49,6 +49,25 @@ namespace Docspace.Model
     /// <value>[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]</value>
     public enum RecaptchaType
     {
+        /// <summary>
+        /// Enum Default for value: 0
+        /// </summary>
+        Default = 0,
+
+        /// <summary>
+        /// Enum AndroidV2 for value: 1
+        /// </summary>
+        AndroidV2 = 1,
+
+        /// <summary>
+        /// Enum iOSV2 for value: 2
+        /// </summary>
+        iOSV2 = 2,
+
+        /// <summary>
+        /// Enum hCaptcha for value: 3
+        /// </summary>
+        hCaptcha = 3
     }
 
 }

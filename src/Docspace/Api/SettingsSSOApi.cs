@@ -291,9 +291,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SettingsSSOApi : IDisposable, ISettingsSSOApi
+    public class SettingsSSOApi : IDisposable, ISettingsSSOApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsSSOApi"/> class.
@@ -316,32 +316,32 @@ namespace Docspace.Api
         public SettingsSSOApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsSSOApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsSSOApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SettingsSSOApi(Docspace.Client.Configuration configuration)
+        public SettingsSSOApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -377,20 +377,20 @@ namespace Docspace.Api
         /// </remarks>
         public SettingsSSOApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsSSOApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsSSOApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -401,16 +401,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SettingsSSOApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SettingsSSOApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -424,11 +424,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SettingsSSOApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SettingsSSOApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -441,23 +441,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -472,12 +472,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -487,7 +487,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -498,7 +498,7 @@ namespace Docspace.Api
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper GetDefaultSsoSettingsV2()
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = GetDefaultSsoSettingsV2WithHttpInfo();
+            var localVarResponse = GetDefaultSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -508,22 +508,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo()
+        public ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -531,7 +528,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -563,8 +560,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetDefaultSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetDefaultSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -579,7 +576,7 @@ namespace Docspace.Api
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
         public async System.Threading.Tasks.Task<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2Async(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await GetDefaultSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await GetDefaultSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -590,24 +587,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<SsoSettingsV2Wrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<SsoSettingsV2Wrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -615,7 +609,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -648,8 +642,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetDefaultSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetDefaultSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -663,7 +657,7 @@ namespace Docspace.Api
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper GetSsoSettingsV2()
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = GetSsoSettingsV2WithHttpInfo();
+            var localVarResponse = GetSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -673,22 +667,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo()
+        public ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -698,8 +689,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -714,7 +705,7 @@ namespace Docspace.Api
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
         public async System.Threading.Tasks.Task<SsoSettingsV2Wrapper> GetSsoSettingsV2Async(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await GetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await GetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -725,24 +716,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<SsoSettingsV2Wrapper>> GetSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<SsoSettingsV2Wrapper>> GetSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -753,8 +741,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -768,7 +756,7 @@ namespace Docspace.Api
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetSsoSettingsV2Constants()
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetSsoSettingsV2ConstantsWithHttpInfo();
+            var localVarResponse = GetSsoSettingsV2ConstantsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -778,22 +766,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
+        public ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -801,7 +786,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -833,8 +818,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSsoSettingsV2Constants", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSsoSettingsV2Constants", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -849,7 +834,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectWrapper> GetSsoSettingsV2ConstantsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetSsoSettingsV2ConstantsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectWrapper> localVarResponse = await GetSsoSettingsV2ConstantsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -860,24 +845,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -885,7 +867,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -918,8 +900,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSsoSettingsV2Constants", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSsoSettingsV2Constants", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -933,7 +915,7 @@ namespace Docspace.Api
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper ResetSsoSettingsV2()
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = ResetSsoSettingsV2WithHttpInfo();
+            var localVarResponse = ResetSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -943,22 +925,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo()
+        public ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -966,7 +945,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -998,8 +977,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResetSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResetSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1014,7 +993,7 @@ namespace Docspace.Api
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
         public async System.Threading.Tasks.Task<SsoSettingsV2Wrapper> ResetSsoSettingsV2Async(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await ResetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await ResetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1025,24 +1004,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<SsoSettingsV2Wrapper>> ResetSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<SsoSettingsV2Wrapper>> ResetSsoSettingsV2WithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1050,7 +1026,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1083,8 +1059,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResetSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResetSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1099,7 +1075,7 @@ namespace Docspace.Api
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper SaveSsoSettingsV2(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = SaveSsoSettingsV2WithHttpInfo(ssoSettingsRequestsDto);
+            var localVarResponse = SaveSsoSettingsV2WithHttpInfo(ssoSettingsRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -1110,32 +1086,28 @@ namespace Docspace.Api
         /// <param name="ssoSettingsRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
+        public ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = ssoSettingsRequestsDto;
+            if (ssoSettingsRequestsDto != null) localVarRequestOptions.Data = ssoSettingsRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1167,8 +1139,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1184,7 +1156,7 @@ namespace Docspace.Api
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
         public async System.Threading.Tasks.Task<SsoSettingsV2Wrapper> SaveSsoSettingsV2Async(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await SaveSsoSettingsV2WithHttpInfoAsync(ssoSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<SsoSettingsV2Wrapper> localVarResponse = await SaveSsoSettingsV2WithHttpInfoAsync(ssoSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1196,34 +1168,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<SsoSettingsV2Wrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<SsoSettingsV2Wrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = ssoSettingsRequestsDto;
+            if (ssoSettingsRequestsDto != null) localVarRequestOptions.Data = ssoSettingsRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1256,8 +1224,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveSsoSettingsV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveSsoSettingsV2", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

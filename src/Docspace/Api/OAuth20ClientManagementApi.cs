@@ -363,9 +363,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class OAuth20ClientManagementApi : IDisposable, IOAuth20ClientManagementApi
+    public class OAuth20ClientManagementApi : IDisposable, IOAuth20ClientManagementApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuth20ClientManagementApi"/> class.
@@ -388,32 +388,32 @@ namespace Docspace.Api
         public OAuth20ClientManagementApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OAuth20ClientManagementApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="OAuth20ClientManagementApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public OAuth20ClientManagementApi(Docspace.Client.Configuration configuration)
+        public OAuth20ClientManagementApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -449,20 +449,20 @@ namespace Docspace.Api
         /// </remarks>
         public OAuth20ClientManagementApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OAuth20ClientManagementApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="OAuth20ClientManagementApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -473,16 +473,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public OAuth20ClientManagementApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public OAuth20ClientManagementApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -496,11 +496,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public OAuth20ClientManagementApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public OAuth20ClientManagementApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -513,23 +513,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -544,12 +544,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -559,7 +559,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -572,7 +572,7 @@ namespace Docspace.Api
         /// <returns>Object</returns>
         public Object ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = ChangeActivationWithHttpInfo(clientId, changeClientActivationRequest);
+            var localVarResponse = ChangeActivationWithHttpInfo(clientId, changeClientActivationRequest);
             return localVarResponse.Data;
         }
 
@@ -584,35 +584,31 @@ namespace Docspace.Api
         /// <param name="changeClientActivationRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        public Docspace.Client.ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
+        public ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->ChangeActivation");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->ChangeActivation");
 
             // verify the required parameter 'changeClientActivationRequest' is set
             if (changeClientActivationRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'changeClientActivationRequest' when calling OAuth20ClientManagementApi->ChangeActivation");
+                throw new ApiException(400, "Missing required parameter 'changeClientActivationRequest' when calling OAuth20ClientManagementApi->ChangeActivation");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            localVarRequestOptions.Data = changeClientActivationRequest;
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
+            if (changeClientActivationRequest != null) localVarRequestOptions.Data = changeClientActivationRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -626,8 +622,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeActivation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeActivation", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -644,7 +640,7 @@ namespace Docspace.Api
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = await ChangeActivationWithHttpInfoAsync(clientId, changeClientActivationRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<Object> localVarResponse = await ChangeActivationWithHttpInfoAsync(clientId, changeClientActivationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -657,37 +653,33 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> ChangeActivationWithHttpInfoAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ChangeActivationWithHttpInfoAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->ChangeActivation");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->ChangeActivation");
 
             // verify the required parameter 'changeClientActivationRequest' is set
             if (changeClientActivationRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'changeClientActivationRequest' when calling OAuth20ClientManagementApi->ChangeActivation");
+                throw new ApiException(400, "Missing required parameter 'changeClientActivationRequest' when calling OAuth20ClientManagementApi->ChangeActivation");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            localVarRequestOptions.Data = changeClientActivationRequest;
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
+            if (changeClientActivationRequest != null) localVarRequestOptions.Data = changeClientActivationRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -702,8 +694,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ChangeActivation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ChangeActivation", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -718,7 +710,7 @@ namespace Docspace.Api
         /// <returns>ClientResponse</returns>
         public ClientResponse CreateClient(CreateClientRequest createClientRequest)
         {
-            Docspace.Client.ApiResponse<ClientResponse> localVarResponse = CreateClientWithHttpInfo(createClientRequest);
+            var localVarResponse = CreateClientWithHttpInfo(createClientRequest);
             return localVarResponse.Data;
         }
 
@@ -729,30 +721,26 @@ namespace Docspace.Api
         /// <param name="createClientRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
-        public Docspace.Client.ApiResponse<ClientResponse> CreateClientWithHttpInfo(CreateClientRequest createClientRequest)
+        public ApiResponse<ClientResponse> CreateClientWithHttpInfo(CreateClientRequest createClientRequest)
         {
             // verify the required parameter 'createClientRequest' is set
             if (createClientRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'createClientRequest' when calling OAuth20ClientManagementApi->CreateClient");
+                throw new ApiException(400, "Missing required parameter 'createClientRequest' when calling OAuth20ClientManagementApi->CreateClient");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createClientRequest;
+            if (createClientRequest != null) localVarRequestOptions.Data = createClientRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -766,8 +754,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -783,7 +771,7 @@ namespace Docspace.Api
         /// <returns>Task of ClientResponse</returns>
         public async System.Threading.Tasks.Task<ClientResponse> CreateClientAsync(CreateClientRequest createClientRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ClientResponse> localVarResponse = await CreateClientWithHttpInfoAsync(createClientRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ClientResponse> localVarResponse = await CreateClientWithHttpInfoAsync(createClientRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -795,32 +783,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ClientResponse>> CreateClientWithHttpInfoAsync(CreateClientRequest createClientRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ClientResponse>> CreateClientWithHttpInfoAsync(CreateClientRequest createClientRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'createClientRequest' is set
             if (createClientRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'createClientRequest' when calling OAuth20ClientManagementApi->CreateClient");
+                throw new ApiException(400, "Missing required parameter 'createClientRequest' when calling OAuth20ClientManagementApi->CreateClient");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createClientRequest;
+            if (createClientRequest != null) localVarRequestOptions.Data = createClientRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -835,8 +819,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -851,7 +835,7 @@ namespace Docspace.Api
         /// <returns>Object</returns>
         public Object DeleteClient(string clientId)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = DeleteClientWithHttpInfo(clientId);
+            var localVarResponse = DeleteClientWithHttpInfo(clientId);
             return localVarResponse.Data;
         }
 
@@ -862,29 +846,26 @@ namespace Docspace.Api
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        public Docspace.Client.ApiResponse<Object> DeleteClientWithHttpInfo(string clientId)
+        public ApiResponse<Object> DeleteClientWithHttpInfo(string clientId)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->DeleteClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->DeleteClient");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -898,8 +879,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -915,7 +896,7 @@ namespace Docspace.Api
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> DeleteClientAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = await DeleteClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<Object> localVarResponse = await DeleteClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -927,31 +908,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> DeleteClientWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteClientWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->DeleteClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->DeleteClient");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -966,8 +944,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -982,7 +960,7 @@ namespace Docspace.Api
         /// <returns>ClientSecretResponse</returns>
         public ClientSecretResponse RegenerateSecret(string clientId)
         {
-            Docspace.Client.ApiResponse<ClientSecretResponse> localVarResponse = RegenerateSecretWithHttpInfo(clientId);
+            var localVarResponse = RegenerateSecretWithHttpInfo(clientId);
             return localVarResponse.Data;
         }
 
@@ -993,29 +971,26 @@ namespace Docspace.Api
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>ApiResponse of ClientSecretResponse</returns>
-        public Docspace.Client.ApiResponse<ClientSecretResponse> RegenerateSecretWithHttpInfo(string clientId)
+        public ApiResponse<ClientSecretResponse> RegenerateSecretWithHttpInfo(string clientId)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RegenerateSecret");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RegenerateSecret");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1029,8 +1004,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RegenerateSecret", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RegenerateSecret", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1046,7 +1021,7 @@ namespace Docspace.Api
         /// <returns>Task of ClientSecretResponse</returns>
         public async System.Threading.Tasks.Task<ClientSecretResponse> RegenerateSecretAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ClientSecretResponse> localVarResponse = await RegenerateSecretWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ClientSecretResponse> localVarResponse = await RegenerateSecretWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1058,31 +1033,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>Task of ApiResponse (ClientSecretResponse)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ClientSecretResponse>> RegenerateSecretWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ClientSecretResponse>> RegenerateSecretWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RegenerateSecret");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RegenerateSecret");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1097,8 +1069,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RegenerateSecret", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RegenerateSecret", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1113,7 +1085,7 @@ namespace Docspace.Api
         /// <returns>Object</returns>
         public Object RevokeUserClient(string clientId)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = RevokeUserClientWithHttpInfo(clientId);
+            var localVarResponse = RevokeUserClientWithHttpInfo(clientId);
             return localVarResponse.Data;
         }
 
@@ -1124,29 +1096,26 @@ namespace Docspace.Api
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        public Docspace.Client.ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId)
+        public ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RevokeUserClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RevokeUserClient");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1160,8 +1129,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RevokeUserClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RevokeUserClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1177,7 +1146,7 @@ namespace Docspace.Api
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> RevokeUserClientAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = await RevokeUserClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<Object> localVarResponse = await RevokeUserClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1189,31 +1158,28 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> RevokeUserClientWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RevokeUserClientWithHttpInfoAsync(string clientId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RevokeUserClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->RevokeUserClient");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1228,8 +1194,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RevokeUserClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RevokeUserClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1245,7 +1211,7 @@ namespace Docspace.Api
         /// <returns>Object</returns>
         public Object UpdateClient(string clientId, UpdateClientRequest updateClientRequest)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = UpdateClientWithHttpInfo(clientId, updateClientRequest);
+            var localVarResponse = UpdateClientWithHttpInfo(clientId, updateClientRequest);
             return localVarResponse.Data;
         }
 
@@ -1257,35 +1223,31 @@ namespace Docspace.Api
         /// <param name="updateClientRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        public Docspace.Client.ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest)
+        public ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->UpdateClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->UpdateClient");
 
             // verify the required parameter 'updateClientRequest' is set
             if (updateClientRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'updateClientRequest' when calling OAuth20ClientManagementApi->UpdateClient");
+                throw new ApiException(400, "Missing required parameter 'updateClientRequest' when calling OAuth20ClientManagementApi->UpdateClient");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            localVarRequestOptions.Data = updateClientRequest;
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
+            if (updateClientRequest != null) localVarRequestOptions.Data = updateClientRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1299,8 +1261,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1317,7 +1279,7 @@ namespace Docspace.Api
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> UpdateClientAsync(string clientId, UpdateClientRequest updateClientRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<Object> localVarResponse = await UpdateClientWithHttpInfoAsync(clientId, updateClientRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<Object> localVarResponse = await UpdateClientWithHttpInfoAsync(clientId, updateClientRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1330,37 +1292,33 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<Object>> UpdateClientWithHttpInfoAsync(string clientId, UpdateClientRequest updateClientRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateClientWithHttpInfoAsync(string clientId, UpdateClientRequest updateClientRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->UpdateClient");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OAuth20ClientManagementApi->UpdateClient");
 
             // verify the required parameter 'updateClientRequest' is set
             if (updateClientRequest == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'updateClientRequest' when calling OAuth20ClientManagementApi->UpdateClient");
+                throw new ApiException(400, "Missing required parameter 'updateClientRequest' when calling OAuth20ClientManagementApi->UpdateClient");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("clientId", Docspace.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            localVarRequestOptions.Data = updateClientRequest;
+            localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
+            if (updateClientRequest != null) localVarRequestOptions.Data = updateClientRequest;
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -1375,8 +1333,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateClient", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateClient", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

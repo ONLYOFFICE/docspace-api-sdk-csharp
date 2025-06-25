@@ -49,6 +49,25 @@ namespace Docspace.Model
     /// <value>[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]</value>
     public enum TariffState
     {
+        /// <summary>
+        /// Enum Trial for value: 0
+        /// </summary>
+        Trial = 0,
+
+        /// <summary>
+        /// Enum Paid for value: 1
+        /// </summary>
+        Paid = 1,
+
+        /// <summary>
+        /// Enum Delay for value: 2
+        /// </summary>
+        Delay = 2,
+
+        /// <summary>
+        /// Enum NotPaid for value: 3
+        /// </summary>
+        NotPaid = 3
     }
 
 }

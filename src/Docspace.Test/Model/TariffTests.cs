@@ -129,5 +129,14 @@ namespace Docspace.Test.Model
         {
             // TODO unit test for the property 'Quotas'
         }
+
+        /// <summary>
+        /// Test the property 'OverdueQuotas'
+        /// </summary>
+        [Fact]
+        public void OverdueQuotasTest()
+        {
+            // TODO unit test for the property 'OverdueQuotas'
+        }
     }
 }

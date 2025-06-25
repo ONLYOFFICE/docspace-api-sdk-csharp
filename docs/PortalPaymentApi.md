@@ -141,7 +141,7 @@ catch (ApiException e)
 
 <a id="createcustomeroperationsreport"></a>
 # **CreateCustomerOperationsReport**
-> StringWrapper CreateCustomerOperationsReport (CustomerOperationsReportDto? customerOperationsReportDto = null)
+> StringWrapper CreateCustomerOperationsReport (CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = null)
 
 Generate the customer operations report
 
@@ -184,12 +184,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var customerOperationsReportDto = new CustomerOperationsReportDto?(); // CustomerOperationsReportDto? |  (optional) 
+            var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? |  (optional) 
 
             try
             {
                 // Generate the customer operations report
-                StringWrapper result = apiInstance.CreateCustomerOperationsReport(customerOperationsReportDto);
+                StringWrapper result = apiInstance.CreateCustomerOperationsReport(customerOperationsReportRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -210,7 +210,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Generate the customer operations report
-    ApiResponse<StringWrapper> response = apiInstance.CreateCustomerOperationsReportWithHttpInfo(customerOperationsReportDto);
+    ApiResponse<StringWrapper> response = apiInstance.CreateCustomerOperationsReportWithHttpInfo(customerOperationsReportRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -227,7 +227,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customerOperationsReportDto** | [**CustomerOperationsReportDto?**](CustomerOperationsReportDto?.md) |  | [optional]  |
+| **customerOperationsReportRequestDto** | [**CustomerOperationsReportRequestDto?**](CustomerOperationsReportRequestDto?.md) |  | [optional]  |
 
 ### Return type
 
@@ -2045,7 +2045,7 @@ catch (ApiException e)
 
 <a id="topupdeposit"></a>
 # **TopUpDeposit**
-> StringWrapper TopUpDeposit (TopUpDepositRequestDto? topUpDepositRequestDto = null)
+> BooleanWrapper TopUpDeposit (TopUpDepositRequestDto? topUpDepositRequestDto = null)
 
 Put money on deposit
 
@@ -2093,7 +2093,7 @@ namespace Example
             try
             {
                 // Put money on deposit
-                StringWrapper result = apiInstance.TopUpDeposit(topUpDepositRequestDto);
+                BooleanWrapper result = apiInstance.TopUpDeposit(topUpDepositRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2114,7 +2114,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Put money on deposit
-    ApiResponse<StringWrapper> response = apiInstance.TopUpDepositWithHttpInfo(topUpDepositRequestDto);
+    ApiResponse<BooleanWrapper> response = apiInstance.TopUpDepositWithHttpInfo(topUpDepositRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2135,7 +2135,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**StringWrapper**](StringWrapper.md)
+[**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
@@ -2150,7 +2150,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success status |  -  |
+| **200** | Boolean value: true if the operation is successful |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 

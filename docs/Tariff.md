@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LicenseDate** | **DateTime** | The tariff license date. | [optional] 
 **CustomerId** | **string** | The tariff customer ID. | [optional] 
 **Quotas** | [**List&lt;Quota&gt;**](Quota.md) | The list of tariff quotas. | [optional] 
+**OverdueQuotas** | [**List&lt;Quota&gt;**](Quota.md) | The list of overdue tariff quotas. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

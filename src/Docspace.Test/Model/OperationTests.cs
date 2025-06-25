@@ -86,6 +86,15 @@ namespace Docspace.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Fact]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+
+        /// <summary>
         /// Test the property 'ServiceUnit'
         /// </summary>
         [Fact]

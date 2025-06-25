@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Backup, 1 - Restore, 2 - Transfer]</value>
     public enum BackupProgressEnum
     {
+        /// <summary>
+        /// Enum Backup for value: 0
+        /// </summary>
+        Backup = 0,
+
+        /// <summary>
+        /// Enum Restore for value: 1
+        /// </summary>
+        Restore = 1,
+
+        /// <summary>
+        /// Enum Transfer for value: 2
+        /// </summary>
+        Transfer = 2
     }
 
 }

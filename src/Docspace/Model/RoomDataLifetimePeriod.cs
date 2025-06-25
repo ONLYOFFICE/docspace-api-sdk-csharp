@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Day, 1 - Month, 2 - Year]</value>
     public enum RoomDataLifetimePeriod
     {
+        /// <summary>
+        /// Enum Day for value: 0
+        /// </summary>
+        Day = 0,
+
+        /// <summary>
+        /// Enum Month for value: 1
+        /// </summary>
+        Month = 1,
+
+        /// <summary>
+        /// Enum Year for value: 2
+        /// </summary>
+        Year = 2
     }
 
 }

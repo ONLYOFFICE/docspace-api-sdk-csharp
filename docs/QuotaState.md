@@ -1,5 +1,5 @@
-# Docspace.Model.PaymentMethodStatus
-[0 - None, 1 - Set, 2 - Expired]
+# Docspace.Model.QuotaState
+[0 - Active, 1 - Overdue]
 
 ## Properties
 

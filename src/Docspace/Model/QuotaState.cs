@@ -44,75 +44,20 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// [0 - Date and time, 1 - AZ, 2 - Size, 3 - Author, 4 - Type, 5 - New, 6 - Date and time creation, 7 - Room type, 8 - Tags, 9 - Room, 10 - Custom order, 11 - Last opened, 12 - Used space]
+    /// [0 - Active, 1 - Overdue]
     /// </summary>
-    /// <value>[0 - Date and time, 1 - AZ, 2 - Size, 3 - Author, 4 - Type, 5 - New, 6 - Date and time creation, 7 - Room type, 8 - Tags, 9 - Room, 10 - Custom order, 11 - Last opened, 12 - Used space]</value>
-    public enum SortedByType
+    /// <value>[0 - Active, 1 - Overdue]</value>
+    public enum QuotaState
     {
         /// <summary>
-        /// Enum DateAndTime for value: 0
+        /// Enum Active for value: 0
         /// </summary>
-        DateAndTime = 0,
+        Active = 0,
 
         /// <summary>
-        /// Enum AZ for value: 1
+        /// Enum Overdue for value: 1
         /// </summary>
-        AZ = 1,
-
-        /// <summary>
-        /// Enum Size for value: 2
-        /// </summary>
-        Size = 2,
-
-        /// <summary>
-        /// Enum Author for value: 3
-        /// </summary>
-        Author = 3,
-
-        /// <summary>
-        /// Enum Type for value: 4
-        /// </summary>
-        Type = 4,
-
-        /// <summary>
-        /// Enum New for value: 5
-        /// </summary>
-        New = 5,
-
-        /// <summary>
-        /// Enum DateAndTimeCreation for value: 6
-        /// </summary>
-        DateAndTimeCreation = 6,
-
-        /// <summary>
-        /// Enum RoomType for value: 7
-        /// </summary>
-        RoomType = 7,
-
-        /// <summary>
-        /// Enum Tags for value: 8
-        /// </summary>
-        Tags = 8,
-
-        /// <summary>
-        /// Enum Room for value: 9
-        /// </summary>
-        Room = 9,
-
-        /// <summary>
-        /// Enum CustomOrder for value: 10
-        /// </summary>
-        CustomOrder = 10,
-
-        /// <summary>
-        /// Enum LastOpened for value: 11
-        /// </summary>
-        LastOpened = 11,
-
-        /// <summary>
-        /// Enum UsedSpace for value: 12
-        /// </summary>
-        UsedSpace = 12
+        Overdue = 1
     }
 
 }

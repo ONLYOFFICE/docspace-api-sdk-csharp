@@ -49,6 +49,50 @@ namespace Docspace.Model
     /// <value>[0 - Unknown, 1 - Archive, 2 - Video, 3 - Audio, 4 - Image, 5 - Spreadsheet, 6 - Presentation, 7 - Document, 10 - Pdf]</value>
     public enum FileType
     {
+        /// <summary>
+        /// Enum Unknown for value: 0
+        /// </summary>
+        Unknown = 0,
+
+        /// <summary>
+        /// Enum Archive for value: 1
+        /// </summary>
+        Archive = 1,
+
+        /// <summary>
+        /// Enum Video for value: 2
+        /// </summary>
+        Video = 2,
+
+        /// <summary>
+        /// Enum Audio for value: 3
+        /// </summary>
+        Audio = 3,
+
+        /// <summary>
+        /// Enum Image for value: 4
+        /// </summary>
+        Image = 4,
+
+        /// <summary>
+        /// Enum Spreadsheet for value: 5
+        /// </summary>
+        Spreadsheet = 5,
+
+        /// <summary>
+        /// Enum Presentation for value: 6
+        /// </summary>
+        Presentation = 6,
+
+        /// <summary>
+        /// Enum Document for value: 7
+        /// </summary>
+        Document = 7,
+
+        /// <summary>
+        /// Enum Pdf for value: 10
+        /// </summary>
+        Pdf = 10
     }
 
 }

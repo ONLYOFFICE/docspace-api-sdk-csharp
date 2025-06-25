@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Desktop, 1 - Mobile, 2 - Embedded]</value>
     public enum EditorType
     {
+        /// <summary>
+        /// Enum Desktop for value: 0
+        /// </summary>
+        Desktop = 0,
+
+        /// <summary>
+        /// Enum Mobile for value: 1
+        /// </summary>
+        Mobile = 1,
+
+        /// <summary>
+        /// Enum Embedded for value: 2
+        /// </summary>
+        Embedded = 2
     }
 
 }

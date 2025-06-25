@@ -763,9 +763,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PeopleProfilesApi : IDisposable, IPeopleProfilesApi
+    public class PeopleProfilesApi : IDisposable, IPeopleProfilesApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PeopleProfilesApi"/> class.
@@ -788,32 +788,32 @@ namespace Docspace.Api
         public PeopleProfilesApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleProfilesApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleProfilesApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PeopleProfilesApi(Docspace.Client.Configuration configuration)
+        public PeopleProfilesApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -849,20 +849,20 @@ namespace Docspace.Api
         /// </remarks>
         public PeopleProfilesApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleProfilesApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeopleProfilesApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -873,16 +873,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PeopleProfilesApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public PeopleProfilesApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -896,11 +896,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PeopleProfilesApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public PeopleProfilesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -913,23 +913,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -944,12 +944,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -959,7 +959,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -971,7 +971,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper AddMember(MemberRequestDto? memberRequestDto = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = AddMemberWithHttpInfo(memberRequestDto);
+            var localVarResponse = AddMemberWithHttpInfo(memberRequestDto);
             return localVarResponse.Data;
         }
 
@@ -982,32 +982,28 @@ namespace Docspace.Api
         /// <param name="memberRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> AddMemberWithHttpInfo(MemberRequestDto? memberRequestDto = default)
+        public ApiResponse<EmployeeFullWrapper> AddMemberWithHttpInfo(MemberRequestDto? memberRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = memberRequestDto;
+            if (memberRequestDto != null) localVarRequestOptions.Data = memberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1039,8 +1035,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1056,7 +1052,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> AddMemberAsync(MemberRequestDto? memberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await AddMemberWithHttpInfoAsync(memberRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await AddMemberWithHttpInfoAsync(memberRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1068,34 +1064,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> AddMemberWithHttpInfoAsync(MemberRequestDto? memberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> AddMemberWithHttpInfoAsync(MemberRequestDto? memberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = memberRequestDto;
+            if (memberRequestDto != null) localVarRequestOptions.Data = memberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1128,8 +1120,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1144,7 +1136,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper DeleteMember(string userid)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = DeleteMemberWithHttpInfo(userid);
+            var localVarResponse = DeleteMemberWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -1155,35 +1147,32 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> DeleteMemberWithHttpInfo(string userid)
+        public ApiResponse<EmployeeFullWrapper> DeleteMemberWithHttpInfo(string userid)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->DeleteMember");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->DeleteMember");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1215,8 +1204,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1232,7 +1221,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> DeleteMemberAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await DeleteMemberWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await DeleteMemberWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1244,37 +1233,34 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> DeleteMemberWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> DeleteMemberWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->DeleteMember");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->DeleteMember");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1307,8 +1293,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1322,7 +1308,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper DeleteProfile()
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = DeleteProfileWithHttpInfo();
+            var localVarResponse = DeleteProfileWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1332,22 +1318,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> DeleteProfileWithHttpInfo()
+        public ApiResponse<EmployeeFullWrapper> DeleteProfileWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1355,7 +1338,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1387,8 +1370,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteProfile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteProfile", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1403,7 +1386,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> DeleteProfileAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await DeleteProfileWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await DeleteProfileWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1414,24 +1397,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> DeleteProfileWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> DeleteProfileWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1439,7 +1419,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1472,8 +1452,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteProfile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteProfile", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1494,7 +1474,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper GetAllProfiles(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
+            var localVarResponse = GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1511,58 +1491,55 @@ namespace Docspace.Api
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1594,8 +1571,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAllProfiles", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1617,7 +1594,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetAllProfilesWithHttpInfoAsync(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await GetAllProfilesWithHttpInfoAsync(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1635,24 +1612,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (count != null)
@@ -1688,7 +1662,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1721,8 +1695,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAllProfiles", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1736,7 +1710,7 @@ namespace Docspace.Api
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetClaims()
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = GetClaimsWithHttpInfo();
+            var localVarResponse = GetClaimsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1746,22 +1720,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public Docspace.Client.ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo()
+        public ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1769,7 +1740,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1801,8 +1772,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetClaims", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetClaims", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1817,7 +1788,7 @@ namespace Docspace.Api
         /// <returns>Task of ObjectWrapper</returns>
         public async System.Threading.Tasks.Task<ObjectWrapper> GetClaimsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ObjectWrapper> localVarResponse = await GetClaimsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<ObjectWrapper> localVarResponse = await GetClaimsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1828,24 +1799,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ObjectWrapper>> GetClaimsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetClaimsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1853,7 +1821,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1886,8 +1854,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetClaims", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetClaims", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1903,7 +1871,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper GetProfileByEmail(string? email = default, string? culture = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = GetProfileByEmailWithHttpInfo(email, culture);
+            var localVarResponse = GetProfileByEmailWithHttpInfo(email, culture);
             return localVarResponse.Data;
         }
 
@@ -1915,38 +1883,35 @@ namespace Docspace.Api
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? culture = default)
+        public ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? culture = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (email != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "email", email));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
             }
             if (culture != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "culture", culture));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "culture", culture));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1978,8 +1943,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetProfileByEmail", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetProfileByEmail", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1996,7 +1961,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> GetProfileByEmailAsync(string? email = default, string? culture = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await GetProfileByEmailWithHttpInfoAsync(email, culture, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await GetProfileByEmailWithHttpInfoAsync(email, culture, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2009,24 +1974,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? culture = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? culture = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (email != null)
@@ -2042,7 +2004,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2075,8 +2037,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetProfileByEmail", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetProfileByEmail", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2091,7 +2053,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper GetProfileByUserId(string userid)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = GetProfileByUserIdWithHttpInfo(userid);
+            var localVarResponse = GetProfileByUserIdWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -2102,35 +2064,32 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> GetProfileByUserIdWithHttpInfo(string userid)
+        public ApiResponse<EmployeeFullWrapper> GetProfileByUserIdWithHttpInfo(string userid)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->GetProfileByUserId");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->GetProfileByUserId");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2162,8 +2121,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetProfileByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetProfileByUserId", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2179,7 +2138,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> GetProfileByUserIdAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await GetProfileByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await GetProfileByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2191,37 +2150,34 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> GetProfileByUserIdWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> GetProfileByUserIdWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->GetProfileByUserId");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->GetProfileByUserId");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2254,8 +2210,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetProfileByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetProfileByUserId", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2269,7 +2225,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper GetSelfProfile()
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = GetSelfProfileWithHttpInfo();
+            var localVarResponse = GetSelfProfileWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -2279,22 +2235,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> GetSelfProfileWithHttpInfo()
+        public ApiResponse<EmployeeFullWrapper> GetSelfProfileWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -2302,7 +2255,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2334,8 +2287,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSelfProfile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSelfProfile", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2350,7 +2303,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> GetSelfProfileAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await GetSelfProfileWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await GetSelfProfileWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2361,24 +2314,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> GetSelfProfileWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> GetSelfProfileWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -2386,7 +2336,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2419,8 +2369,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSelfProfile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetSelfProfile", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2435,7 +2385,7 @@ namespace Docspace.Api
         /// <returns>EmployeeArrayWrapper</returns>
         public EmployeeArrayWrapper InviteUsers(InviteUsersRequestDto? inviteUsersRequestDto = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = InviteUsersWithHttpInfo(inviteUsersRequestDto);
+            var localVarResponse = InviteUsersWithHttpInfo(inviteUsersRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2446,32 +2396,28 @@ namespace Docspace.Api
         /// <param name="inviteUsersRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeArrayWrapper> InviteUsersWithHttpInfo(InviteUsersRequestDto? inviteUsersRequestDto = default)
+        public ApiResponse<EmployeeArrayWrapper> InviteUsersWithHttpInfo(InviteUsersRequestDto? inviteUsersRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = inviteUsersRequestDto;
+            if (inviteUsersRequestDto != null) localVarRequestOptions.Data = inviteUsersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2503,8 +2449,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("InviteUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("InviteUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2520,7 +2466,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeArrayWrapper> InviteUsersAsync(InviteUsersRequestDto? inviteUsersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeArrayWrapper> localVarResponse = await InviteUsersWithHttpInfoAsync(inviteUsersRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeArrayWrapper> localVarResponse = await InviteUsersWithHttpInfoAsync(inviteUsersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2532,34 +2478,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeArrayWrapper>> InviteUsersWithHttpInfoAsync(InviteUsersRequestDto? inviteUsersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeArrayWrapper>> InviteUsersWithHttpInfoAsync(InviteUsersRequestDto? inviteUsersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = inviteUsersRequestDto;
+            if (inviteUsersRequestDto != null) localVarRequestOptions.Data = inviteUsersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2592,8 +2534,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("InviteUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("InviteUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2608,7 +2550,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper RemoveUsers(UpdateMembersRequestDto? updateMembersRequestDto = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = RemoveUsersWithHttpInfo(updateMembersRequestDto);
+            var localVarResponse = RemoveUsersWithHttpInfo(updateMembersRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2619,32 +2561,28 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> RemoveUsersWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public ApiResponse<EmployeeFullArrayWrapper> RemoveUsersWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMembersRequestDto;
+            if (updateMembersRequestDto != null) localVarRequestOptions.Data = updateMembersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2676,8 +2614,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2693,7 +2631,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> RemoveUsersAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await RemoveUsersWithHttpInfoAsync(updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await RemoveUsersWithHttpInfoAsync(updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2705,34 +2643,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> RemoveUsersWithHttpInfoAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> RemoveUsersWithHttpInfoAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMembersRequestDto;
+            if (updateMembersRequestDto != null) localVarRequestOptions.Data = updateMembersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2765,8 +2699,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveUsers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveUsers", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2781,7 +2715,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper ResendUserInvites(UpdateMembersRequestDto? updateMembersRequestDto = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = ResendUserInvitesWithHttpInfo(updateMembersRequestDto);
+            var localVarResponse = ResendUserInvitesWithHttpInfo(updateMembersRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2792,32 +2726,28 @@ namespace Docspace.Api
         /// <param name="updateMembersRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> ResendUserInvitesWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public ApiResponse<EmployeeFullArrayWrapper> ResendUserInvitesWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMembersRequestDto;
+            if (updateMembersRequestDto != null) localVarRequestOptions.Data = updateMembersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2849,8 +2779,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResendUserInvites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResendUserInvites", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2866,7 +2796,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullArrayWrapper> ResendUserInvitesAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await ResendUserInvitesWithHttpInfoAsync(updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullArrayWrapper> localVarResponse = await ResendUserInvitesWithHttpInfoAsync(updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2878,34 +2808,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullArrayWrapper>> ResendUserInvitesWithHttpInfoAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullArrayWrapper>> ResendUserInvitesWithHttpInfoAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMembersRequestDto;
+            if (updateMembersRequestDto != null) localVarRequestOptions.Data = updateMembersRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2938,8 +2864,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResendUserInvites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("ResendUserInvites", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2954,7 +2880,7 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper SendEmailChangeInstructions(UpdateMemberRequestDto? updateMemberRequestDto = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = SendEmailChangeInstructionsWithHttpInfo(updateMemberRequestDto);
+            var localVarResponse = SendEmailChangeInstructionsWithHttpInfo(updateMemberRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2965,32 +2891,28 @@ namespace Docspace.Api
         /// <param name="updateMemberRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default)
+        public ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMemberRequestDto;
+            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3022,8 +2944,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3039,7 +2961,7 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> SendEmailChangeInstructionsAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await SendEmailChangeInstructionsWithHttpInfoAsync(updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await SendEmailChangeInstructionsWithHttpInfoAsync(updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3051,34 +2973,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> SendEmailChangeInstructionsWithHttpInfoAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SendEmailChangeInstructionsWithHttpInfoAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = updateMemberRequestDto;
+            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3111,8 +3029,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3128,7 +3046,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper UpdateMember(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = UpdateMemberWithHttpInfo(userid, updateMemberRequestDto);
+            var localVarResponse = UpdateMemberWithHttpInfo(userid, updateMemberRequestDto);
             return localVarResponse.Data;
         }
 
@@ -3140,37 +3058,33 @@ namespace Docspace.Api
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default)
+        public ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMember");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMember");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = updateMemberRequestDto;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3202,8 +3116,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3220,7 +3134,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> UpdateMemberAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await UpdateMemberWithHttpInfoAsync(userid, updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await UpdateMemberWithHttpInfoAsync(userid, updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3233,39 +3147,35 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMember");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMember");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = updateMemberRequestDto;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3298,8 +3208,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMember", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3315,7 +3225,7 @@ namespace Docspace.Api
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper UpdateMemberCulture(string userid, Culture? culture = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = UpdateMemberCultureWithHttpInfo(userid, culture);
+            var localVarResponse = UpdateMemberCultureWithHttpInfo(userid, culture);
             return localVarResponse.Data;
         }
 
@@ -3327,37 +3237,33 @@ namespace Docspace.Api
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public Docspace.Client.ApiResponse<EmployeeFullWrapper> UpdateMemberCultureWithHttpInfo(string userid, Culture? culture = default)
+        public ApiResponse<EmployeeFullWrapper> UpdateMemberCultureWithHttpInfo(string userid, Culture? culture = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMemberCulture");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMemberCulture");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = culture;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (culture != null) localVarRequestOptions.Data = culture;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3389,8 +3295,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMemberCulture", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMemberCulture", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3407,7 +3313,7 @@ namespace Docspace.Api
         /// <returns>Task of EmployeeFullWrapper</returns>
         public async System.Threading.Tasks.Task<EmployeeFullWrapper> UpdateMemberCultureAsync(string userid, Culture? culture = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<EmployeeFullWrapper> localVarResponse = await UpdateMemberCultureWithHttpInfoAsync(userid, culture, cancellationToken).ConfigureAwait(false);
+            ApiResponse<EmployeeFullWrapper> localVarResponse = await UpdateMemberCultureWithHttpInfoAsync(userid, culture, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3420,39 +3326,35 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<EmployeeFullWrapper>> UpdateMemberCultureWithHttpInfoAsync(string userid, Culture? culture = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberCultureWithHttpInfoAsync(string userid, Culture? culture = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMemberCulture");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeopleProfilesApi->UpdateMemberCulture");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = culture;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (culture != null) localVarRequestOptions.Data = culture;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3485,8 +3387,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMemberCulture", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMemberCulture", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

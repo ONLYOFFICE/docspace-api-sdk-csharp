@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Not activated, 1 - Activated]</value>
     public enum MobilePhoneActivationStatus
     {
+        /// <summary>
+        /// Enum NotActivated for value: 0
+        /// </summary>
+        NotActivated = 0,
+
+        /// <summary>
+        /// Enum Activated for value: 1
+        /// </summary>
+        Activated = 1
     }
 
 }

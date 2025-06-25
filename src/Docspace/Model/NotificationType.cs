@@ -49,6 +49,25 @@ namespace Docspace.Model
     /// <value>[0 - Badges, 1 - Rooms activity, 2 - Daily feed, 3 - Usefull tips]</value>
     public enum NotificationType
     {
+        /// <summary>
+        /// Enum Badges for value: 0
+        /// </summary>
+        Badges = 0,
+
+        /// <summary>
+        /// Enum RoomsActivity for value: 1
+        /// </summary>
+        RoomsActivity = 1,
+
+        /// <summary>
+        /// Enum DailyFeed for value: 2
+        /// </summary>
+        DailyFeed = 2,
+
+        /// <summary>
+        /// Enum UsefullTips for value: 3
+        /// </summary>
+        UsefullTips = 3
     }
 
 }

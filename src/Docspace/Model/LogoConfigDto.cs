@@ -54,13 +54,15 @@ namespace Docspace.Model
         /// </summary>
         /// <param name="image">The image of the logo..</param>
         /// <param name="imageDark">The dark image of the logo..</param>
+        /// <param name="imageLight">The light image of the logo..</param>
         /// <param name="imageEmbedded">The embedded image of the logo..</param>
         /// <param name="url">The url link of the logo..</param>
         /// <param name="visible">Specifies if the logo is visible..</param>
-        public LogoConfigDto(string image = default, string imageDark = default, string imageEmbedded = default, string url = default, bool visible = default)
+        public LogoConfigDto(string image = default, string imageDark = default, string imageLight = default, string imageEmbedded = default, string url = default, bool visible = default)
         {
             this.Image = image;
             this.ImageDark = imageDark;
+            this.ImageLight = imageLight;
             this.ImageEmbedded = imageEmbedded;
             this.Url = url;
             this.Visible = visible;
@@ -85,6 +87,16 @@ namespace Docspace.Model
         */
         [DataMember(Name = "imageDark", EmitDefaultValue = true)]
         public string ImageDark { get; set; }
+
+        /// <summary>
+        /// The light image of the logo.
+        /// </summary>
+        /// <value>The light image of the logo.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "imageLight", EmitDefaultValue = true)]
+        public string ImageLight { get; set; }
 
         /// <summary>
         /// The embedded image of the logo.
@@ -126,6 +138,7 @@ namespace Docspace.Model
             sb.Append("class LogoConfigDto {\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  ImageDark: ").Append(ImageDark).Append("\n");
+            sb.Append("  ImageLight: ").Append(ImageLight).Append("\n");
             sb.Append("  ImageEmbedded: ").Append(ImageEmbedded).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");

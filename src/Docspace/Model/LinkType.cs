@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Invitation, 1 - External]</value>
     public enum LinkType
     {
+        /// <summary>
+        /// Enum Invitation for value: 0
+        /// </summary>
+        Invitation = 0,
+
+        /// <summary>
+        /// Enum External for value: 1
+        /// </summary>
+        External = 1
     }
 
 }

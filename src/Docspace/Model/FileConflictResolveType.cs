@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Skip, 1 - Overwrite, 2 - Duplicate]</value>
     public enum FileConflictResolveType
     {
+        /// <summary>
+        /// Enum Skip for value: 0
+        /// </summary>
+        Skip = 0,
+
+        /// <summary>
+        /// Enum Overwrite for value: 1
+        /// </summary>
+        Overwrite = 1,
+
+        /// <summary>
+        /// Enum Duplicate for value: 2
+        /// </summary>
+        Duplicate = 2
     }
 
 }

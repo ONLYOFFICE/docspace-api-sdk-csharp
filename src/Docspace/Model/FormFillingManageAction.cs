@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Stop, 1 - Resume]</value>
     public enum FormFillingManageAction
     {
+        /// <summary>
+        /// Enum Stop for value: 0
+        /// </summary>
+        Stop = 0,
+
+        /// <summary>
+        /// Enum Resume for value: 1
+        /// </summary>
+        Resume = 1
     }
 
 }

@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - Base, 1 - Dark, 2 - System]</value>
     public enum DarkThemeSettingsType
     {
+        /// <summary>
+        /// Enum Base for value: 0
+        /// </summary>
+        Base = 0,
+
+        /// <summary>
+        /// Enum Dark for value: 1
+        /// </summary>
+        Dark = 1,
+
+        /// <summary>
+        /// Enum System for value: 2
+        /// </summary>
+        System = 2
     }
 
 }

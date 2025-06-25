@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>The error type.</value>
     public enum RoomSecurityError
     {
+        /// <summary>
+        /// Enum NUMBER_0 for value: 0
+        /// </summary>
+        NUMBER_0 = 0,
+
+        /// <summary>
+        /// Enum NUMBER_1 for value: 1
+        /// </summary>
+        NUMBER_1 = 1
     }
 
 }

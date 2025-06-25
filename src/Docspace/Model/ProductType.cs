@@ -49,6 +49,35 @@ namespace Docspace.Model
     /// <value>[0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7 - Settings]</value>
     public enum ProductType
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Documents for value: 2
+        /// </summary>
+        Documents = 2,
+
+        /// <summary>
+        /// Enum Login for value: 3
+        /// </summary>
+        Login = 3,
+
+        /// <summary>
+        /// Enum Others for value: 4
+        /// </summary>
+        Others = 4,
+
+        /// <summary>
+        /// Enum People for value: 5
+        /// </summary>
+        People = 5,
+
+        /// <summary>
+        /// Enum Settings for value: 7
+        /// </summary>
+        Settings = 7
     }
 
 }

@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]</value>
     public enum EmployeeType
     {
+        /// <summary>
+        /// Enum All for value: 0
+        /// </summary>
+        All = 0,
+
+        /// <summary>
+        /// Enum RoomAdmin for value: 1
+        /// </summary>
+        RoomAdmin = 1,
+
+        /// <summary>
+        /// Enum Guest for value: 2
+        /// </summary>
+        Guest = 2,
+
+        /// <summary>
+        /// Enum DocSpaceAdmin for value: 3
+        /// </summary>
+        DocSpaceAdmin = 3,
+
+        /// <summary>
+        /// Enum User for value: 4
+        /// </summary>
+        User = 4
     }
 
 }

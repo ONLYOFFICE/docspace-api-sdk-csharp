@@ -1,9 +1,9 @@
 openapi: 3.0.4
 info:
   contact:
-    email: support@example.com
+    email: support@onlyoffice.com
     name: API Support
-    url: https://www.example.com/support
+    url: https://helpdesk.onlyoffice.com/hc/en-us
   title: Api
   version: 3.2.0
 servers:
@@ -1102,8 +1102,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StringWrapper'
-          description: Success status
+                $ref: '#/components/schemas/BooleanWrapper'
+          description: "Boolean value: true if the operation is successful"
         "401":
           description: Unauthorized
         "403":
@@ -1339,7 +1339,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomerOperationsReportDto'
+              $ref: '#/components/schemas/CustomerOperationsReportRequestDto'
       responses:
         "200":
           content:
@@ -2306,7 +2306,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -2694,7 +2694,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -5828,6 +5828,8 @@ paths:
           description: Unauthorized
         "402":
           description: Your pricing plan does not support this option
+        "403":
+          description: Only portal owner can set user as administrator
       security:
       - asc_auth_key:
         - read
@@ -6456,6 +6458,11 @@ paths:
           description: Confirmation email URL
         "401":
           description: Unauthorized
+        "403":
+          description: No permissions to perform this action
+        "405":
+          description: SMS settings are not available/TFA application settings are
+            not available
       security:
       - asc_auth_key:
         - read
@@ -6469,7 +6476,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get confirmation email for updating TFA settings
+      summary: Get a confirmation email for updating TFA settings
       tags:
       - Settings / TFA settings
   /api/2.0/settings/tfaapp/setup:
@@ -6865,7 +6872,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -7495,7 +7502,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -8055,7 +8062,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -8683,7 +8690,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -9432,7 +9439,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -9718,7 +9725,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -10056,7 +10063,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -10231,7 +10238,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -10892,7 +10899,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -11679,7 +11686,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -12449,7 +12456,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -12631,7 +12638,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -13263,7 +13270,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -13648,7 +13655,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -13930,7 +13937,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -14032,7 +14039,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -14144,7 +14151,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -14255,7 +14262,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -16806,7 +16813,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -17210,7 +17217,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -18000,7 +18007,7 @@ paths:
         schema:
           example: 1234
           format: int32
-          maximum: 1000
+          maximum: 100
           minimum: 1
           type: integer
         style: form
@@ -20529,6 +20536,7 @@ components:
       type: object
     Balance:
       additionalProperties: false
+      description: Represents a balance with an account number and a list of sub-accounts.
       example:
         subAccounts:
         - amount: 0.8008281904610115
@@ -20538,10 +20546,12 @@ components:
         accountNumber: 1234
       properties:
         accountNumber:
+          description: The account number.
           example: 1234
           format: int32
           type: integer
         subAccounts:
+          description: A list of sub-accounts.
           items:
             $ref: '#/components/schemas/SubAccount'
           nullable: true
@@ -21401,15 +21411,18 @@ components:
       type: object
     Currency:
       additionalProperties: false
+      description: Represents a currency.
       example:
         code: some text
         id: 9846
       properties:
         id:
+          description: Unique identifier of the currency.
           example: 9846
           format: int32
           type: integer
         code:
+          description: The three-character ISO 4217 currency symbol.
           example: some text
           nullable: true
           type: string
@@ -21768,18 +21781,21 @@ components:
       type: object
     CustomerInfo:
       additionalProperties: false
+      description: The customer information.
       example:
         portalId: some text
         paymentMethodStatus: 0
         email: Sydney_Roberts4@hotmail.com
       properties:
         portalId:
+          description: The portal ID.
           example: some text
           nullable: true
           type: string
         paymentMethodStatus:
           $ref: '#/components/schemas/PaymentMethodStatus'
         email:
+          description: The email address of the customer.
           example: Sydney_Roberts4@hotmail.com
           nullable: true
           type: string
@@ -21790,14 +21806,14 @@ components:
           portalId: some text
           paymentMethodStatus: 0
           email: Sydney_Roberts4@hotmail.com
-        count: 6
+        count: 0
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 1
-        statusCode: 5
+        status: 6
+        statusCode: 1
       properties:
         response:
           $ref: '#/components/schemas/CustomerInfo'
@@ -21815,7 +21831,7 @@ components:
           format: int32
           type: integer
       type: object
-    CustomerOperationsReportDto:
+    CustomerOperationsReportRequestDto:
       additionalProperties: false
       description: Parameters of the request for generating the report on client operations
       example:
@@ -25233,39 +25249,53 @@ components:
       type: object
     Operation:
       additionalProperties: false
+      description: Represents an operation.
       example:
         date: 2008-04-10T06:30:00+04:00
         quantity: 1234
         service: some text
         serviceUnit: some text
+        description: some text
         currency: some text
         withdrawal: 6.027456183070403
         credit: 0.8008281904610115
       properties:
         date:
+          description: Date of the operation.
           example: 2008-04-10T06:30:00+04:00
           format: date-time
           type: string
         service:
+          description: Service related to the operation.
+          example: some text
+          nullable: true
+          type: string
+        description:
+          description: Brief description of the operation.
           example: some text
           nullable: true
           type: string
         serviceUnit:
+          description: Unit of the service.
           example: some text
           nullable: true
           type: string
         quantity:
+          description: Quantity of the service used.
           example: 1234
           format: int32
           type: integer
         currency:
+          description: The three-character ISO 4217 currency symbol of the operation.
           example: some text
           nullable: true
           type: string
         credit:
+          description: Credit amount of the operation.
           format: double
           type: number
         withdrawal:
+          description: Withdrawal amount of the operation.
           format: double
           type: number
       type: object
@@ -25485,17 +25515,22 @@ components:
         currency: some text
       properties:
         operationId:
+          description: Unique identifier of the operation.
           example: 1234
           format: int64
           type: integer
         amount:
+          description: The amount of the payment calculation.
           format: double
           type: number
         currency:
+          description: The three-character ISO 4217 currency symbol of the payment
+            calculation.
           example: some text
           nullable: true
           type: string
         quantity:
+          description: The quantity associated with the payment calculation.
           example: 1234
           format: int32
           type: integer
@@ -25533,12 +25568,21 @@ components:
           type: integer
       type: object
     PaymentMethodStatus:
+      description: "[0 - None, 1 - Set, 2 - Expired]"
       enum:
       - 0
       - 1
       - 2
-      format: int32
+      example: 0
       type: integer
+      x-enum-varnames:
+      - None
+      - Set
+      - Expired
+      x-enum-descriptions:
+      - None
+      - Set
+      - Expired
     PaymentSettingsDto:
       additionalProperties: false
       description: The payment settings parameters.
@@ -25829,6 +25873,7 @@ components:
         wallet: true
         dueDate: 2008-04-10T06:30:00+04:00
         id: 9846
+        state: 0
         nextQuantity: 1234
       properties:
         id:
@@ -25857,6 +25902,8 @@ components:
           format: int32
           nullable: true
           type: integer
+        state:
+          $ref: '#/components/schemas/QuotaState'
       type: object
     QuotaArrayWrapper:
       example:
@@ -26114,6 +26161,19 @@ components:
       required:
       - defaultQuota
       type: object
+    QuotaState:
+      description: "[0 - Active, 1 - Overdue]"
+      enum:
+      - 0
+      - 1
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - Active
+      - Overdue
+      x-enum-descriptions:
+      - Active
+      - Overdue
     QuotaWrapper:
       example:
         response:
@@ -26217,6 +26277,7 @@ components:
       - hCaptcha
     Report:
       additionalProperties: false
+      description: Represents a report containing a collection of operations.
       example:
         totalQuantity: 1234
         offset: 1234
@@ -26227,6 +26288,7 @@ components:
           quantity: 1234
           service: some text
           serviceUnit: some text
+          description: some text
           currency: some text
           withdrawal: 6.027456183070403
           credit: 0.8008281904610115
@@ -26234,33 +26296,40 @@ components:
           quantity: 1234
           service: some text
           serviceUnit: some text
+          description: some text
           currency: some text
           withdrawal: 6.027456183070403
           credit: 0.8008281904610115
         currentPage: 1234
       properties:
         collection:
+          description: Collection of operations.
           items:
             $ref: '#/components/schemas/Operation'
           nullable: true
           type: array
         offset:
+          description: Offset of the report data.
           example: 1234
           format: int32
           type: integer
         limit:
+          description: Limit of the report data.
           example: 1234
           format: int32
           type: integer
         totalQuantity:
+          description: Total quantity of operations in the report.
           example: 1234
           format: int32
           type: integer
         totalPage:
+          description: Total number of pages in the report.
           example: 1234
           format: int32
           type: integer
         currentPage:
+          description: Current page number of the report.
           example: 1234
           format: int32
           type: integer
@@ -26277,6 +26346,7 @@ components:
             quantity: 1234
             service: some text
             serviceUnit: some text
+            description: some text
             currency: some text
             withdrawal: 6.027456183070403
             credit: 0.8008281904610115
@@ -26284,6 +26354,7 @@ components:
             quantity: 1234
             service: some text
             serviceUnit: some text
+            description: some text
             currency: some text
             withdrawal: 6.027456183070403
             credit: 0.8008281904610115
@@ -26433,16 +26504,19 @@ components:
         userName:
           description: The name of the user submitting the sales request.
           example: some text
+          maxLength: 255
           nullable: true
           type: string
         email:
           description: The contact email address for the sales inquiry.
           example: Sydney_Roberts4@hotmail.com
+          maxLength: 64
           nullable: true
           type: string
         message:
           description: The details of the sales inquiry or payment request.
           example: some text
+          maxLength: 255
           nullable: true
           type: string
       required:
@@ -26637,19 +26711,24 @@ components:
       type: object
     Session:
       additionalProperties: false
+      description: Represents a session with reserved amount and currency.
       example:
         reservedAmount: 0.8008281904610115
         currency: some text
         sessionId: 1234
       properties:
         sessionId:
+          description: Unique identifier of the session.
           example: 1234
           format: int32
           type: integer
         reservedAmount:
+          description: Amount reserved for the session.
           format: double
           type: number
         currency:
+          description: The three-character ISO 4217 currency symbol of the reserved
+            amount.
           example: some text
           nullable: true
           type: string
@@ -28021,15 +28100,18 @@ components:
       type: object
     SubAccount:
       additionalProperties: false
+      description: Represents a sub-account with a specific currency and amount.
       example:
         amount: 0.8008281904610115
         currency: some text
       properties:
         currency:
+          description: The three-character ISO 4217 currency symbol of the sub-account.
           example: some text
           nullable: true
           type: string
         amount:
+          description: The amount of the sub-account.
           format: double
           type: number
       type: object
@@ -28042,11 +28124,26 @@ components:
           wallet: true
           dueDate: 2008-04-10T06:30:00+04:00
           id: 9846
+          state: 0
           nextQuantity: 1234
         - quantity: 1234
           wallet: true
           dueDate: 2008-04-10T06:30:00+04:00
           id: 9846
+          state: 0
+          nextQuantity: 1234
+        overdueQuotas:
+        - quantity: 1234
+          wallet: true
+          dueDate: 2008-04-10T06:30:00+04:00
+          id: 9846
+          state: 0
+          nextQuantity: 1234
+        - quantity: 1234
+          wallet: true
+          dueDate: 2008-04-10T06:30:00+04:00
+          id: 9846
+          state: 0
           nextQuantity: 1234
         dueDate: 2008-04-10T06:30:00+04:00
         customerId: some text
@@ -28088,6 +28185,12 @@ components:
             $ref: '#/components/schemas/Quota'
           nullable: true
           type: array
+        overdueQuotas:
+          description: The list of overdue tariff quotas.
+          items:
+            $ref: '#/components/schemas/Quota'
+          nullable: true
+          type: array
       type: object
     TariffState:
       description: "[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]"
@@ -28116,11 +28219,26 @@ components:
             wallet: true
             dueDate: 2008-04-10T06:30:00+04:00
             id: 9846
+            state: 0
             nextQuantity: 1234
           - quantity: 1234
             wallet: true
             dueDate: 2008-04-10T06:30:00+04:00
             id: 9846
+            state: 0
+            nextQuantity: 1234
+          overdueQuotas:
+          - quantity: 1234
+            wallet: true
+            dueDate: 2008-04-10T06:30:00+04:00
+            id: 9846
+            state: 0
+            nextQuantity: 1234
+          - quantity: 1234
+            wallet: true
+            dueDate: 2008-04-10T06:30:00+04:00
+            id: 9846
+            state: 0
             nextQuantity: 1234
           dueDate: 2008-04-10T06:30:00+04:00
           customerId: some text
@@ -29201,7 +29319,7 @@ components:
           minimum: 6
           type: integer
         currency:
-          description: Currency
+          description: The three-character ISO 4217 currency symbol.
           example: some text
           nullable: true
           type: string
@@ -35369,6 +35487,7 @@ components:
               imageDark: some text
               imageEmbedded: some text
               visible: true
+              imageLight: some text
               url: some text
             startFillingForm:
               text: some text
@@ -35673,6 +35792,7 @@ components:
                 imageDark: some text
                 imageEmbedded: some text
                 visible: true
+                imageLight: some text
                 url: some text
               startFillingForm:
                 text: some text
@@ -36485,6 +36605,7 @@ components:
           imageDark: some text
           imageEmbedded: some text
           visible: true
+          imageLight: some text
           url: some text
         startFillingForm:
           text: some text
@@ -37470,6 +37591,7 @@ components:
             imageDark: some text
             imageEmbedded: some text
             visible: true
+            imageLight: some text
             url: some text
           startFillingForm:
             text: some text
@@ -37600,7 +37722,6 @@ components:
             the document embedded into the web page.
           example: some text
           nullable: true
-          readOnly: true
           type: string
         saveUrl:
           description: The absolute URL that will allow the document to be saved onto
@@ -37619,7 +37740,6 @@ components:
             document.
           example: some text
           nullable: true
-          readOnly: true
           type: string
         toolbarDocked:
           description: "The place for the embedded viewer toolbar, can be either \"\
@@ -44662,6 +44782,7 @@ components:
         imageDark: some text
         imageEmbedded: some text
         visible: true
+        imageLight: some text
         url: some text
       properties:
         image:
@@ -44671,6 +44792,11 @@ components:
           type: string
         imageDark:
           description: The dark image of the logo.
+          example: some text
+          nullable: true
+          type: string
+        imageLight:
+          description: The light image of the logo.
           example: some text
           nullable: true
           type: string
@@ -49882,17 +50008,67 @@ components:
       name: x-signature
       type: apiKey
 x-tagGroups:
-- name: Api
+- name: Api keys
+  tags:
+  - Api keys
+- name: Authentication
   tags:
   - Authentication
+- name: Backup
+  tags:
+  - Backup
+- name: Capabilities
+  tags:
   - Capabilities
+- name: Files
+  tags:
+  - Files / Files
+  - Files / Folders
+  - Files / Operations
+  - Files / Quota
+  - Files / Settings
+  - Files / Sharing
+  - Files / Third-party integration
+- name: Group
+  tags:
+  - Group
+  - Group / Rooms
+- name: Migration
+  tags:
   - Migration
+- name: OAuth 2.0
+  tags:
+  - OAuth 2.0 / Authorization
+  - OAuth 2.0 / Client Management
+  - OAuth 2.0 / Client Querying
+  - OAuth 2.0 / Scope Management
+- name: People
+  tags:
+  - People / Contacts
+  - People / Guests
+  - People / Password
+  - People / Photos
+  - People / Profiles
+  - People / Quota
+  - People / Search
+  - People / Theme
+  - People / Third-party accounts
+  - People / User data
+  - People / User status
+  - People / User type
+- name: Portal
+  tags:
+  - Portal / Guests
   - Portal / Payment
   - Portal / Quota
   - Portal / Settings
   - Portal / Users
+- name: Rooms
+  tags:
+  - Rooms
+- name: Security
+  tags:
   - Security / Access to DevTools
-  - Settings / Access to DevTools
   - Security / Active connections
   - Security / Audit trail data
   - Security / CSP
@@ -49900,6 +50076,9 @@ x-tagGroups:
   - Security / Login history
   - Security / OAuth2
   - Security / SMTP settings
+- name: Settings
+  tags:
+  - Settings / Access to DevTools
   - Settings / Authorization
   - Settings / Common settings
   - Settings / Cookies
@@ -49921,36 +50100,7 @@ x-tagGroups:
   - Settings / TFA settings
   - Settings / Webhooks
   - Settings / Webplugins
-  - ThirdParty
-  - Api keys
-  - Group
-  - Group / Rooms
-  - People / Contacts
-  - People / Guests
-  - People / Password
-  - People / Photos
-  - People / Profiles
-  - People / Quota
-  - People / Search
-  - People / Theme
-  - People / Third-party accounts
-  - People / User data
-  - People / User status
-  - People / User type
-  - Portal / Guests
-  - Files / Files
-  - Files / Folders
-  - Files / Operations
-  - Files / Quota
-  - Files / Settings
-  - Files / Third-party integration
-  - Files / Sharing
-  - Rooms
-  - Backup
-- name: ASC.Identity.Authorization
+- name: ThirdParty
   tags:
-  - OAuth 2.0 / Authorization
-  - OAuth 2.0 / Client Management
-  - OAuth 2.0 / Scope Management
-  - OAuth 2.0 / Client Querying
+  - ThirdParty
 

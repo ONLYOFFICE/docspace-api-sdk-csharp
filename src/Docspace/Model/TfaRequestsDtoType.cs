@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Sms, 2 - App]</value>
     public enum TfaRequestsDtoType
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Sms for value: 1
+        /// </summary>
+        Sms = 1,
+
+        /// <summary>
+        /// Enum App for value: 2
+        /// </summary>
+        App = 2
     }
 
 }

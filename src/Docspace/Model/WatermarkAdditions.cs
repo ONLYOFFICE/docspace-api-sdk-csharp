@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current date, 16 - Room name]</value>
     public enum WatermarkAdditions
     {
+        /// <summary>
+        /// Enum UserName for value: 1
+        /// </summary>
+        UserName = 1,
+
+        /// <summary>
+        /// Enum UserEmail for value: 2
+        /// </summary>
+        UserEmail = 2,
+
+        /// <summary>
+        /// Enum UserIpAdress for value: 4
+        /// </summary>
+        UserIpAdress = 4,
+
+        /// <summary>
+        /// Enum CurrentDate for value: 8
+        /// </summary>
+        CurrentDate = 8,
+
+        /// <summary>
+        /// Enum RoomName for value: 16
+        /// </summary>
+        RoomName = 16
     }
 
 }

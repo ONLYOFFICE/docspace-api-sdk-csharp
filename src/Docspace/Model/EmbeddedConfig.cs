@@ -52,10 +52,14 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedConfig" /> class.
         /// </summary>
+        /// <param name="embedUrl">The absolute URL to the document serving as a source file for the document embedded into the web page..</param>
         /// <param name="shareLinkParam">The shared URL parameter..</param>
-        public EmbeddedConfig(string shareLinkParam = default)
+        /// <param name="shareUrl">The absolute URL that will allow other users to share this document..</param>
+        public EmbeddedConfig(string embedUrl = default, string shareLinkParam = default, string shareUrl = default)
         {
+            this.EmbedUrl = embedUrl;
             this.ShareLinkParam = shareLinkParam;
+            this.ShareUrl = shareUrl;
         }
 
         /// <summary>
@@ -66,16 +70,8 @@ namespace Docspace.Model
         <example>some text</example>
         */
         [DataMember(Name = "embedUrl", EmitDefaultValue = true)]
-        public string EmbedUrl { get; private set; }
+        public string EmbedUrl { get; set; }
 
-        /// <summary>
-        /// Returns false as EmbedUrl should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeEmbedUrl()
-        {
-            return false;
-        }
         /// <summary>
         /// The absolute URL that will allow the document to be saved onto the user personal computer.
         /// </summary>
@@ -112,16 +108,8 @@ namespace Docspace.Model
         <example>some text</example>
         */
         [DataMember(Name = "shareUrl", EmitDefaultValue = true)]
-        public string ShareUrl { get; private set; }
+        public string ShareUrl { get; set; }
 
-        /// <summary>
-        /// Returns false as ShareUrl should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeShareUrl()
-        {
-            return false;
-        }
         /// <summary>
         /// The place for the embedded viewer toolbar, can be either \&quot;top\&quot; or \&quot;bottom\&quot;.
         /// </summary>

@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost:8092*
 | [**UnlinkTfaApp**](SettingsTFASettingsApi.md#unlinktfaapp) | **PUT** /api/2.0/settings/tfaappnewapp | Unlink the TFA application |
 | [**UpdateTfaAppCodes**](SettingsTFASettingsApi.md#updatetfaappcodes) | **PUT** /api/2.0/settings/tfaappnewcodes | Update the TFA codes |
 | [**UpdateTfaSettings**](SettingsTFASettingsApi.md#updatetfasettings) | **PUT** /api/2.0/settings/tfaapp | Update the TFA settings |
-| [**UpdateTfaSettingsLink**](SettingsTFASettingsApi.md#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Get confirmation email for updating TFA settings |
+| [**UpdateTfaSettingsLink**](SettingsTFASettingsApi.md#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Get a confirmation email for updating TFA settings |
 
 <a id="gettfaappcodes"></a>
 # **GetTfaAppCodes**
@@ -895,7 +895,7 @@ catch (ApiException e)
 # **UpdateTfaSettingsLink**
 > StringWrapper UpdateTfaSettingsLink (TfaRequestsDto? tfaRequestsDto = null)
 
-Get confirmation email for updating TFA settings
+Get a confirmation email for updating TFA settings
 
 Returns the confirmation email URL for updating TFA settings.
 
@@ -940,7 +940,7 @@ namespace Example
 
             try
             {
-                // Get confirmation email for updating TFA settings
+                // Get a confirmation email for updating TFA settings
                 StringWrapper result = apiInstance.UpdateTfaSettingsLink(tfaRequestsDto);
                 Debug.WriteLine(result);
             }
@@ -961,7 +961,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get confirmation email for updating TFA settings
+    // Get a confirmation email for updating TFA settings
     ApiResponse<StringWrapper> response = apiInstance.UpdateTfaSettingsLinkWithHttpInfo(tfaRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1000,6 +1000,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Confirmation email URL |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **405** | SMS settings are not available/TFA application settings are not available |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -319,9 +319,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PeoplePhotosApi : IDisposable, IPeoplePhotosApi
+    public class PeoplePhotosApi : IDisposable, IPeoplePhotosApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PeoplePhotosApi"/> class.
@@ -344,32 +344,32 @@ namespace Docspace.Api
         public PeoplePhotosApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeoplePhotosApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeoplePhotosApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PeoplePhotosApi(Docspace.Client.Configuration configuration)
+        public PeoplePhotosApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -405,20 +405,20 @@ namespace Docspace.Api
         /// </remarks>
         public PeoplePhotosApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeoplePhotosApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="PeoplePhotosApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -429,16 +429,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PeoplePhotosApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public PeoplePhotosApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -452,11 +452,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PeoplePhotosApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public PeoplePhotosApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -469,23 +469,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -500,12 +500,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -515,7 +515,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -528,7 +528,7 @@ namespace Docspace.Api
         /// <returns>ThumbnailsDataWrapper</returns>
         public ThumbnailsDataWrapper CreateMemberPhotoThumbnails(string userid, ThumbnailsRequest? thumbnailsRequest = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = CreateMemberPhotoThumbnailsWithHttpInfo(userid, thumbnailsRequest);
+            var localVarResponse = CreateMemberPhotoThumbnailsWithHttpInfo(userid, thumbnailsRequest);
             return localVarResponse.Data;
         }
 
@@ -540,37 +540,33 @@ namespace Docspace.Api
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public Docspace.Client.ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest? thumbnailsRequest = default)
+        public ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest? thumbnailsRequest = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->CreateMemberPhotoThumbnails");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->CreateMemberPhotoThumbnails");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = thumbnailsRequest;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (thumbnailsRequest != null) localVarRequestOptions.Data = thumbnailsRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -602,8 +598,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateMemberPhotoThumbnails", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateMemberPhotoThumbnails", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -620,7 +616,7 @@ namespace Docspace.Api
         /// <returns>Task of ThumbnailsDataWrapper</returns>
         public async System.Threading.Tasks.Task<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = await CreateMemberPhotoThumbnailsWithHttpInfoAsync(userid, thumbnailsRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ThumbnailsDataWrapper> localVarResponse = await CreateMemberPhotoThumbnailsWithHttpInfoAsync(userid, thumbnailsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -633,39 +629,35 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->CreateMemberPhotoThumbnails");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->CreateMemberPhotoThumbnails");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = thumbnailsRequest;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (thumbnailsRequest != null) localVarRequestOptions.Data = thumbnailsRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -698,8 +690,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateMemberPhotoThumbnails", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("CreateMemberPhotoThumbnails", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -714,7 +706,7 @@ namespace Docspace.Api
         /// <returns>ThumbnailsDataWrapper</returns>
         public ThumbnailsDataWrapper DeleteMemberPhoto(string userid)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = DeleteMemberPhotoWithHttpInfo(userid);
+            var localVarResponse = DeleteMemberPhotoWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -725,35 +717,32 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public Docspace.Client.ApiResponse<ThumbnailsDataWrapper> DeleteMemberPhotoWithHttpInfo(string userid)
+        public ApiResponse<ThumbnailsDataWrapper> DeleteMemberPhotoWithHttpInfo(string userid)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->DeleteMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->DeleteMemberPhoto");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -785,8 +774,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -802,7 +791,7 @@ namespace Docspace.Api
         /// <returns>Task of ThumbnailsDataWrapper</returns>
         public async System.Threading.Tasks.Task<ThumbnailsDataWrapper> DeleteMemberPhotoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = await DeleteMemberPhotoWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ThumbnailsDataWrapper> localVarResponse = await DeleteMemberPhotoWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -814,37 +803,34 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ThumbnailsDataWrapper>> DeleteMemberPhotoWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ThumbnailsDataWrapper>> DeleteMemberPhotoWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->DeleteMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->DeleteMemberPhoto");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -877,8 +863,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -893,7 +879,7 @@ namespace Docspace.Api
         /// <returns>ThumbnailsDataWrapper</returns>
         public ThumbnailsDataWrapper GetMemberPhoto(string userid)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = GetMemberPhotoWithHttpInfo(userid);
+            var localVarResponse = GetMemberPhotoWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -904,35 +890,32 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public Docspace.Client.ApiResponse<ThumbnailsDataWrapper> GetMemberPhotoWithHttpInfo(string userid)
+        public ApiResponse<ThumbnailsDataWrapper> GetMemberPhotoWithHttpInfo(string userid)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->GetMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->GetMemberPhoto");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -964,8 +947,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -981,7 +964,7 @@ namespace Docspace.Api
         /// <returns>Task of ThumbnailsDataWrapper</returns>
         public async System.Threading.Tasks.Task<ThumbnailsDataWrapper> GetMemberPhotoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = await GetMemberPhotoWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ThumbnailsDataWrapper> localVarResponse = await GetMemberPhotoWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -993,37 +976,34 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ThumbnailsDataWrapper>> GetMemberPhotoWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ThumbnailsDataWrapper>> GetMemberPhotoWithHttpInfoAsync(string userid, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->GetMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->GetMemberPhoto");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1056,8 +1036,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1073,7 +1053,7 @@ namespace Docspace.Api
         /// <returns>ThumbnailsDataWrapper</returns>
         public ThumbnailsDataWrapper UpdateMemberPhoto(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = UpdateMemberPhotoWithHttpInfo(userid, updatePhotoMemberRequest);
+            var localVarResponse = UpdateMemberPhotoWithHttpInfo(userid, updatePhotoMemberRequest);
             return localVarResponse.Data;
         }
 
@@ -1085,37 +1065,33 @@ namespace Docspace.Api
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public Docspace.Client.ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default)
+        public ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UpdateMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UpdateMemberPhoto");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = updatePhotoMemberRequest;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (updatePhotoMemberRequest != null) localVarRequestOptions.Data = updatePhotoMemberRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1147,8 +1123,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1165,7 +1141,7 @@ namespace Docspace.Api
         /// <returns>Task of ThumbnailsDataWrapper</returns>
         public async System.Threading.Tasks.Task<ThumbnailsDataWrapper> UpdateMemberPhotoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<ThumbnailsDataWrapper> localVarResponse = await UpdateMemberPhotoWithHttpInfoAsync(userid, updatePhotoMemberRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<ThumbnailsDataWrapper> localVarResponse = await UpdateMemberPhotoWithHttpInfoAsync(userid, updatePhotoMemberRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1178,39 +1154,35 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UpdateMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UpdateMemberPhoto");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.Data = updatePhotoMemberRequest;
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            if (updatePhotoMemberRequest != null) localVarRequestOptions.Data = updatePhotoMemberRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1243,8 +1215,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1260,7 +1232,7 @@ namespace Docspace.Api
         /// <returns>FileUploadResultWrapper</returns>
         public FileUploadResultWrapper UploadMemberPhoto(string userid, List<KeyValuePairStringStringValues> formCollection)
         {
-            Docspace.Client.ApiResponse<FileUploadResultWrapper> localVarResponse = UploadMemberPhotoWithHttpInfo(userid, formCollection);
+            var localVarResponse = UploadMemberPhotoWithHttpInfo(userid, formCollection);
             return localVarResponse.Data;
         }
 
@@ -1272,41 +1244,37 @@ namespace Docspace.Api
         /// <param name="formCollection">The image data.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of FileUploadResultWrapper</returns>
-        public Docspace.Client.ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, List<KeyValuePairStringStringValues> formCollection)
+        public ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, List<KeyValuePairStringStringValues> formCollection)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UploadMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UploadMemberPhoto");
 
             // verify the required parameter 'formCollection' is set
             if (formCollection == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'formCollection' when calling PeoplePhotosApi->UploadMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'formCollection' when calling PeoplePhotosApi->UploadMemberPhoto");
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.FormParameters.Add("formCollection", Docspace.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.FormParameters.Add("formCollection", ClientUtils.ParameterToString(formCollection)); // form parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1338,8 +1306,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UploadMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UploadMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1356,7 +1324,7 @@ namespace Docspace.Api
         /// <returns>Task of FileUploadResultWrapper</returns>
         public async System.Threading.Tasks.Task<FileUploadResultWrapper> UploadMemberPhotoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<FileUploadResultWrapper> localVarResponse = await UploadMemberPhotoWithHttpInfoAsync(userid, formCollection, cancellationToken).ConfigureAwait(false);
+            ApiResponse<FileUploadResultWrapper> localVarResponse = await UploadMemberPhotoWithHttpInfoAsync(userid, formCollection, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1369,43 +1337,39 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (FileUploadResultWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UploadMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'userid' when calling PeoplePhotosApi->UploadMemberPhoto");
 
             // verify the required parameter 'formCollection' is set
             if (formCollection == null)
-                throw new Docspace.Client.ApiException(400, "Missing required parameter 'formCollection' when calling PeoplePhotosApi->UploadMemberPhoto");
+                throw new ApiException(400, "Missing required parameter 'formCollection' when calling PeoplePhotosApi->UploadMemberPhoto");
 
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
             localVarRequestOptions.FormParameters.Add("formCollection", Docspace.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1438,8 +1402,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UploadMemberPhoto", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UploadMemberPhoto", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

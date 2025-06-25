@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Report
+    /// Represents a report containing a collection of operations.
     /// </summary>
     [DataContract(Name = "Report")]
     public partial class Report : IValidatableObject
@@ -52,12 +52,12 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Report" /> class.
         /// </summary>
-        /// <param name="collection">collection.</param>
-        /// <param name="offset">offset.</param>
-        /// <param name="limit">limit.</param>
-        /// <param name="totalQuantity">totalQuantity.</param>
-        /// <param name="totalPage">totalPage.</param>
-        /// <param name="currentPage">currentPage.</param>
+        /// <param name="collection">Collection of operations..</param>
+        /// <param name="offset">Offset of the report data..</param>
+        /// <param name="limit">Limit of the report data..</param>
+        /// <param name="totalQuantity">Total quantity of operations in the report..</param>
+        /// <param name="totalPage">Total number of pages in the report..</param>
+        /// <param name="currentPage">Current page number of the report..</param>
         public Report(List<Operation> collection = default, int offset = default, int limit = default, int totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
@@ -69,14 +69,16 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets Collection
+        /// Collection of operations.
         /// </summary>
+        /// <value>Collection of operations.</value>
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<Operation> Collection { get; set; }
 
         /// <summary>
-        /// Gets or Sets Offset
+        /// Offset of the report data.
         /// </summary>
+        /// <value>Offset of the report data.</value>
         /*
         <example>1234</example>
         */
@@ -84,8 +86,9 @@ namespace Docspace.Model
         public int Offset { get; set; }
 
         /// <summary>
-        /// Gets or Sets Limit
+        /// Limit of the report data.
         /// </summary>
+        /// <value>Limit of the report data.</value>
         /*
         <example>1234</example>
         */
@@ -93,8 +96,9 @@ namespace Docspace.Model
         public int Limit { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalQuantity
+        /// Total quantity of operations in the report.
         /// </summary>
+        /// <value>Total quantity of operations in the report.</value>
         /*
         <example>1234</example>
         */
@@ -102,8 +106,9 @@ namespace Docspace.Model
         public int TotalQuantity { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalPage
+        /// Total number of pages in the report.
         /// </summary>
+        /// <value>Total number of pages in the report.</value>
         /*
         <example>1234</example>
         */
@@ -111,8 +116,9 @@ namespace Docspace.Model
         public int TotalPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrentPage
+        /// Current page number of the report.
         /// </summary>
+        /// <value>Current page number of the report.</value>
         /*
         <example>1234</example>
         */

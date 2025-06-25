@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Owner, 1 - Member]</value>
     public enum SubjectFilter
     {
+        /// <summary>
+        /// Enum Owner for value: 0
+        /// </summary>
+        Owner = 0,
+
+        /// <summary>
+        /// Enum Member for value: 1
+        /// </summary>
+        Member = 1
     }
 
 }

@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Session
+    /// Represents a session with reserved amount and currency.
     /// </summary>
     [DataContract(Name = "Session")]
     public partial class Session : IValidatableObject
@@ -52,9 +52,9 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Session" /> class.
         /// </summary>
-        /// <param name="sessionId">sessionId.</param>
-        /// <param name="reservedAmount">reservedAmount.</param>
-        /// <param name="currency">currency.</param>
+        /// <param name="sessionId">Unique identifier of the session..</param>
+        /// <param name="reservedAmount">Amount reserved for the session..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol of the reserved amount..</param>
         public Session(int sessionId = default, double reservedAmount = default, string currency = default)
         {
             this.SessionId = sessionId;
@@ -63,8 +63,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets SessionId
+        /// Unique identifier of the session.
         /// </summary>
+        /// <value>Unique identifier of the session.</value>
         /*
         <example>1234</example>
         */
@@ -72,14 +73,16 @@ namespace Docspace.Model
         public int SessionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReservedAmount
+        /// Amount reserved for the session.
         /// </summary>
+        /// <value>Amount reserved for the session.</value>
         [DataMember(Name = "reservedAmount", EmitDefaultValue = false)]
         public double ReservedAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// The three-character ISO 4217 currency symbol of the reserved amount.
         /// </summary>
+        /// <value>The three-character ISO 4217 currency symbol of the reserved amount.</value>
         /*
         <example>some text</example>
         */

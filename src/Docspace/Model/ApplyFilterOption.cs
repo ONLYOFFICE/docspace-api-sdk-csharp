@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - All, 1 - Files, 2 - Folders]</value>
     public enum ApplyFilterOption
     {
+        /// <summary>
+        /// Enum All for value: 0
+        /// </summary>
+        All = 0,
+
+        /// <summary>
+        /// Enum Files for value: 1
+        /// </summary>
+        Files = 1,
+
+        /// <summary>
+        /// Enum Folders for value: 2
+        /// </summary>
+        Folders = 2
     }
 
 }

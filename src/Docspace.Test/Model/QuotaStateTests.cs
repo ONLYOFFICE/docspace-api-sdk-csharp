@@ -39,17 +39,17 @@ using Newtonsoft.Json;
 namespace Docspace.Test.Model
 {
     /// <summary>
-    ///  Class for testing CustomerOperationsReportDto
+    ///  Class for testing QuotaState
     /// </summary>
-    public class CustomerOperationsReportDtoTests : IDisposable
+    public class QuotaStateTests : IDisposable
     {
-        // TODO uncomment below to declare an instance variable for CustomerOperationsReportDto
-        //private CustomerOperationsReportDto instance;
+        // TODO uncomment below to declare an instance variable for QuotaState
+        //private QuotaState instance;
 
-        public CustomerOperationsReportDtoTests()
+        public QuotaStateTests()
         {
-            // TODO uncomment below to create an instance of CustomerOperationsReportDto
-            //instance = new CustomerOperationsReportDto();
+            // TODO uncomment below to create an instance of QuotaState
+            //instance = new QuotaState();
         }
 
         public void Dispose()
@@ -58,49 +58,13 @@ namespace Docspace.Test.Model
         }
 
         /// <summary>
-        /// Test an instance of CustomerOperationsReportDto
+        /// Test an instance of QuotaState
         /// </summary>
         [Fact]
-        public void CustomerOperationsReportDtoInstanceTest()
+        public void QuotaStateInstanceTest()
         {
-            // TODO uncomment below to test "IsType" CustomerOperationsReportDto
-            //Assert.IsType<CustomerOperationsReportDto>(instance);
-        }
-
-        /// <summary>
-        /// Test the property 'StartDate'
-        /// </summary>
-        [Fact]
-        public void StartDateTest()
-        {
-            // TODO unit test for the property 'StartDate'
-        }
-
-        /// <summary>
-        /// Test the property 'EndDate'
-        /// </summary>
-        [Fact]
-        public void EndDateTest()
-        {
-            // TODO unit test for the property 'EndDate'
-        }
-
-        /// <summary>
-        /// Test the property 'Credit'
-        /// </summary>
-        [Fact]
-        public void CreditTest()
-        {
-            // TODO unit test for the property 'Credit'
-        }
-
-        /// <summary>
-        /// Test the property 'Withdrawal'
-        /// </summary>
-        [Fact]
-        public void WithdrawalTest()
-        {
-            // TODO unit test for the property 'Withdrawal'
+            // TODO uncomment below to test "IsType" QuotaState
+            //Assert.IsType<QuotaState>(instance);
         }
     }
 }

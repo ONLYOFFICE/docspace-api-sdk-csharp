@@ -49,6 +49,20 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Internal, 2 - ThirdParty]</value>
     public enum StorageFilter
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Internal for value: 1
+        /// </summary>
+        Internal = 1,
+
+        /// <summary>
+        /// Enum ThirdParty for value: 2
+        /// </summary>
+        ThirdParty = 2
     }
 
 }

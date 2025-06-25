@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// CustomerInfo
+    /// The customer information.
     /// </summary>
     [DataContract(Name = "CustomerInfo")]
     public partial class CustomerInfo : IValidatableObject
@@ -58,9 +58,9 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerInfo" /> class.
         /// </summary>
-        /// <param name="portalId">portalId.</param>
+        /// <param name="portalId">The portal ID..</param>
         /// <param name="paymentMethodStatus">paymentMethodStatus.</param>
-        /// <param name="email">email.</param>
+        /// <param name="email">The email address of the customer..</param>
         public CustomerInfo(string portalId = default, PaymentMethodStatus? paymentMethodStatus = default, string email = default)
         {
             this.PortalId = portalId;
@@ -69,8 +69,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets PortalId
+        /// The portal ID.
         /// </summary>
+        /// <value>The portal ID.</value>
         /*
         <example>some text</example>
         */
@@ -78,8 +79,9 @@ namespace Docspace.Model
         public string PortalId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// The email address of the customer.
         /// </summary>
+        /// <value>The email address of the customer.</value>
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */

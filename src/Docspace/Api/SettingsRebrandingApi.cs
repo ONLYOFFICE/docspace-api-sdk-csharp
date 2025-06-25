@@ -903,9 +903,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SettingsRebrandingApi : IDisposable, ISettingsRebrandingApi
+    public class SettingsRebrandingApi : IDisposable, ISettingsRebrandingApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsRebrandingApi"/> class.
@@ -928,32 +928,32 @@ namespace Docspace.Api
         public SettingsRebrandingApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsRebrandingApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsRebrandingApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public SettingsRebrandingApi(Docspace.Client.Configuration configuration)
+        public SettingsRebrandingApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -989,20 +989,20 @@ namespace Docspace.Api
         /// </remarks>
         public SettingsRebrandingApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsRebrandingApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="SettingsRebrandingApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -1013,16 +1013,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public SettingsRebrandingApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public SettingsRebrandingApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -1036,11 +1036,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public SettingsRebrandingApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public SettingsRebrandingApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -1053,23 +1053,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -1084,12 +1084,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -1099,7 +1099,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -1110,7 +1110,7 @@ namespace Docspace.Api
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         public AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings()
         {
-            Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
+            var localVarResponse = DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1120,22 +1120,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo()
+        public ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1143,7 +1140,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1175,8 +1172,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1191,7 +1188,7 @@ namespace Docspace.Api
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = await DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = await DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1202,24 +1199,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1227,7 +1221,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1260,8 +1254,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1275,7 +1269,7 @@ namespace Docspace.Api
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         public CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings()
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = DeleteCompanyWhiteLabelSettingsWithHttpInfo();
+            var localVarResponse = DeleteCompanyWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1285,22 +1279,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo()
+        public ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1308,7 +1299,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1340,8 +1331,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1356,7 +1347,7 @@ namespace Docspace.Api
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = await DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = await DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1367,24 +1358,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1392,7 +1380,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1425,8 +1413,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1440,7 +1428,7 @@ namespace Docspace.Api
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         public AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings()
         {
-            Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = GetAdditionalWhiteLabelSettingsWithHttpInfo();
+            var localVarResponse = GetAdditionalWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1450,22 +1438,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo()
+        public ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1473,7 +1458,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1505,8 +1490,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1521,7 +1506,7 @@ namespace Docspace.Api
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = await GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<AdditionalWhiteLabelSettingsWrapper> localVarResponse = await GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1532,24 +1517,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<AdditionalWhiteLabelSettingsWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1557,7 +1539,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1590,8 +1572,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1605,7 +1587,7 @@ namespace Docspace.Api
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         public CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings()
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = GetCompanyWhiteLabelSettingsWithHttpInfo();
+            var localVarResponse = GetCompanyWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1615,22 +1597,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        public Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo()
+        public ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1638,7 +1617,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1670,8 +1649,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1686,7 +1665,7 @@ namespace Docspace.Api
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
         public async System.Threading.Tasks.Task<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = await GetCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<CompanyWhiteLabelSettingsWrapper> localVarResponse = await GetCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1697,24 +1676,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1722,7 +1698,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1755,8 +1731,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1770,7 +1746,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetEnableWhitelabel()
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = GetEnableWhitelabelWithHttpInfo();
+            var localVarResponse = GetEnableWhitelabelWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1780,22 +1756,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> GetEnableWhitelabelWithHttpInfo()
+        public ApiResponse<BooleanWrapper> GetEnableWhitelabelWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1803,7 +1776,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1835,8 +1808,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetEnableWhitelabel", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetEnableWhitelabel", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1851,7 +1824,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> GetEnableWhitelabelAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await GetEnableWhitelabelWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await GetEnableWhitelabelWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1862,24 +1835,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> GetEnableWhitelabelWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> GetEnableWhitelabelWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -1887,7 +1857,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1920,8 +1890,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetEnableWhitelabel", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetEnableWhitelabel", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1937,7 +1907,7 @@ namespace Docspace.Api
         /// <returns>IsDefaultWhiteLabelLogosWrapper</returns>
         public IsDefaultWhiteLabelLogosWrapper GetIsDefaultWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosWrapper> localVarResponse = GetIsDefaultWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
+            var localVarResponse = GetIsDefaultWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -1949,38 +1919,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of IsDefaultWhiteLabelLogosWrapper</returns>
-        public Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosWrapper> GetIsDefaultWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<IsDefaultWhiteLabelLogosWrapper> GetIsDefaultWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2012,8 +1979,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2030,7 +1997,7 @@ namespace Docspace.Api
         /// <returns>Task of IsDefaultWhiteLabelLogosWrapper</returns>
         public async System.Threading.Tasks.Task<IsDefaultWhiteLabelLogosWrapper> GetIsDefaultWhiteLabelLogoTextAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosWrapper> localVarResponse = await GetIsDefaultWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<IsDefaultWhiteLabelLogosWrapper> localVarResponse = await GetIsDefaultWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2043,24 +2010,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (IsDefaultWhiteLabelLogosWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosWrapper>> GetIsDefaultWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<IsDefaultWhiteLabelLogosWrapper>> GetIsDefaultWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -2076,7 +2040,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2109,8 +2073,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2126,7 +2090,7 @@ namespace Docspace.Api
         /// <returns>IsDefaultWhiteLabelLogosArrayWrapper</returns>
         public IsDefaultWhiteLabelLogosArrayWrapper GetIsDefaultWhiteLabelLogos(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper> localVarResponse = GetIsDefaultWhiteLabelLogosWithHttpInfo(isDark, isDefault);
+            var localVarResponse = GetIsDefaultWhiteLabelLogosWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -2138,38 +2102,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
         /// <returns>ApiResponse of IsDefaultWhiteLabelLogosArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper> GetIsDefaultWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper> GetIsDefaultWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2201,8 +2162,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2219,7 +2180,7 @@ namespace Docspace.Api
         /// <returns>Task of IsDefaultWhiteLabelLogosArrayWrapper</returns>
         public async System.Threading.Tasks.Task<IsDefaultWhiteLabelLogosArrayWrapper> GetIsDefaultWhiteLabelLogosAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper> localVarResponse = await GetIsDefaultWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper> localVarResponse = await GetIsDefaultWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2232,24 +2193,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
         /// <returns>Task of ApiResponse (IsDefaultWhiteLabelLogosArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper>> GetIsDefaultWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<IsDefaultWhiteLabelLogosArrayWrapper>> GetIsDefaultWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -2265,7 +2223,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2298,8 +2256,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetIsDefaultWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2313,7 +2271,7 @@ namespace Docspace.Api
         /// <returns>CompanyWhiteLabelSettingsArrayWrapper</returns>
         public CompanyWhiteLabelSettingsArrayWrapper GetLicensorData()
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> localVarResponse = GetLicensorDataWithHttpInfo();
+            var localVarResponse = GetLicensorDataWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -2323,22 +2281,19 @@ namespace Docspace.Api
         /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> GetLicensorDataWithHttpInfo()
+        public ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> GetLicensorDataWithHttpInfo()
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -2346,7 +2301,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2378,8 +2333,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetLicensorData", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetLicensorData", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2394,7 +2349,7 @@ namespace Docspace.Api
         /// <returns>Task of CompanyWhiteLabelSettingsArrayWrapper</returns>
         public async System.Threading.Tasks.Task<CompanyWhiteLabelSettingsArrayWrapper> GetLicensorDataAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> localVarResponse = await GetLicensorDataWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> localVarResponse = await GetLicensorDataWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2405,24 +2360,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<CompanyWhiteLabelSettingsArrayWrapper>> GetLicensorDataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyWhiteLabelSettingsArrayWrapper>> GetLicensorDataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
@@ -2430,7 +2382,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2463,8 +2415,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetLicensorData", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetLicensorData", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2480,7 +2432,7 @@ namespace Docspace.Api
         /// <returns>StringWrapper</returns>
         public StringWrapper GetWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = GetWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
+            var localVarResponse = GetWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -2492,38 +2444,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public Docspace.Client.ApiResponse<StringWrapper> GetWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<StringWrapper> GetWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2555,8 +2504,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2573,7 +2522,7 @@ namespace Docspace.Api
         /// <returns>Task of StringWrapper</returns>
         public async System.Threading.Tasks.Task<StringWrapper> GetWhiteLabelLogoTextAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<StringWrapper> localVarResponse = await GetWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<StringWrapper> localVarResponse = await GetWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2586,24 +2535,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<StringWrapper>> GetWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -2619,7 +2565,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2652,8 +2598,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2669,7 +2615,7 @@ namespace Docspace.Api
         /// <returns>WhiteLabelItemArrayWrapper</returns>
         public WhiteLabelItemArrayWrapper GetWhiteLabelLogos(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<WhiteLabelItemArrayWrapper> localVarResponse = GetWhiteLabelLogosWithHttpInfo(isDark, isDefault);
+            var localVarResponse = GetWhiteLabelLogosWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -2681,31 +2627,28 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
         /// <returns>ApiResponse of WhiteLabelItemArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<WhiteLabelItemArrayWrapper> GetWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<WhiteLabelItemArrayWrapper> GetWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
 
@@ -2714,8 +2657,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2732,7 +2675,7 @@ namespace Docspace.Api
         /// <returns>Task of WhiteLabelItemArrayWrapper</returns>
         public async System.Threading.Tasks.Task<WhiteLabelItemArrayWrapper> GetWhiteLabelLogosAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<WhiteLabelItemArrayWrapper> localVarResponse = await GetWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<WhiteLabelItemArrayWrapper> localVarResponse = await GetWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2745,24 +2688,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
         /// <returns>Task of ApiResponse (WhiteLabelItemArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<WhiteLabelItemArrayWrapper>> GetWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<WhiteLabelItemArrayWrapper>> GetWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -2781,8 +2721,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2798,7 +2738,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper RestoreWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = RestoreWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
+            var localVarResponse = RestoreWhiteLabelLogoTextWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -2810,38 +2750,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> RestoreWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<BooleanWrapper> RestoreWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2873,8 +2810,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RestoreWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2891,7 +2828,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> RestoreWhiteLabelLogoTextAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await RestoreWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await RestoreWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2904,24 +2841,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> RestoreWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> RestoreWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -2937,7 +2871,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2970,8 +2904,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RestoreWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2987,7 +2921,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper RestoreWhiteLabelLogos(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = RestoreWhiteLabelLogosWithHttpInfo(isDark, isDefault);
+            var localVarResponse = RestoreWhiteLabelLogosWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -2999,38 +2933,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> RestoreWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<BooleanWrapper> RestoreWhiteLabelLogosWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3062,8 +2993,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RestoreWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3080,7 +3011,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> RestoreWhiteLabelLogosAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await RestoreWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await RestoreWhiteLabelLogosWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3093,24 +3024,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> RestoreWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> RestoreWhiteLabelLogosWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -3126,7 +3054,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3159,8 +3087,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RestoreWhiteLabelLogos", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RestoreWhiteLabelLogos", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3175,7 +3103,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveAdditionalWhiteLabelSettings(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = SaveAdditionalWhiteLabelSettingsWithHttpInfo(additionalWhiteLabelSettingsWrapper);
+            var localVarResponse = SaveAdditionalWhiteLabelSettingsWithHttpInfo(additionalWhiteLabelSettingsWrapper);
             return localVarResponse.Data;
         }
 
@@ -3186,32 +3114,28 @@ namespace Docspace.Api
         /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> SaveAdditionalWhiteLabelSettingsWithHttpInfo(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default)
+        public ApiResponse<BooleanWrapper> SaveAdditionalWhiteLabelSettingsWithHttpInfo(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = additionalWhiteLabelSettingsWrapper;
+            if (additionalWhiteLabelSettingsWrapper != null) localVarRequestOptions.Data = additionalWhiteLabelSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3243,8 +3167,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3260,7 +3184,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> SaveAdditionalWhiteLabelSettingsAsync(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await SaveAdditionalWhiteLabelSettingsWithHttpInfoAsync(additionalWhiteLabelSettingsWrapper, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await SaveAdditionalWhiteLabelSettingsWithHttpInfoAsync(additionalWhiteLabelSettingsWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3272,34 +3196,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> SaveAdditionalWhiteLabelSettingsWithHttpInfoAsync(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> SaveAdditionalWhiteLabelSettingsWithHttpInfoAsync(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = additionalWhiteLabelSettingsWrapper;
+            if (additionalWhiteLabelSettingsWrapper != null) localVarRequestOptions.Data = additionalWhiteLabelSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3332,8 +3252,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveAdditionalWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveAdditionalWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3348,7 +3268,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveCompanyWhiteLabelSettings(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = SaveCompanyWhiteLabelSettingsWithHttpInfo(companyWhiteLabelSettingsWrapper);
+            var localVarResponse = SaveCompanyWhiteLabelSettingsWithHttpInfo(companyWhiteLabelSettingsWrapper);
             return localVarResponse.Data;
         }
 
@@ -3359,32 +3279,28 @@ namespace Docspace.Api
         /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> SaveCompanyWhiteLabelSettingsWithHttpInfo(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default)
+        public ApiResponse<BooleanWrapper> SaveCompanyWhiteLabelSettingsWithHttpInfo(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = companyWhiteLabelSettingsWrapper;
+            if (companyWhiteLabelSettingsWrapper != null) localVarRequestOptions.Data = companyWhiteLabelSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3416,8 +3332,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3433,7 +3349,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> SaveCompanyWhiteLabelSettingsAsync(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await SaveCompanyWhiteLabelSettingsWithHttpInfoAsync(companyWhiteLabelSettingsWrapper, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await SaveCompanyWhiteLabelSettingsWithHttpInfoAsync(companyWhiteLabelSettingsWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3445,34 +3361,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> SaveCompanyWhiteLabelSettingsWithHttpInfoAsync(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> SaveCompanyWhiteLabelSettingsWithHttpInfoAsync(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = companyWhiteLabelSettingsWrapper;
+            if (companyWhiteLabelSettingsWrapper != null) localVarRequestOptions.Data = companyWhiteLabelSettingsWrapper;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3505,8 +3417,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveCompanyWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveCompanyWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3523,7 +3435,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = SaveWhiteLabelLogoTextWithHttpInfo(isDark, isDefault, whiteLabelRequestsDto);
+            var localVarResponse = SaveWhiteLabelLogoTextWithHttpInfo(isDark, isDefault, whiteLabelRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -3536,40 +3448,36 @@ namespace Docspace.Api
         /// <param name="whiteLabelRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> SaveWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
+        public ApiResponse<BooleanWrapper> SaveWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
-            localVarRequestOptions.Data = whiteLabelRequestsDto;
+            if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3601,8 +3509,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3620,7 +3528,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> SaveWhiteLabelLogoTextAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, whiteLabelRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelLogoTextWithHttpInfoAsync(isDark, isDefault, whiteLabelRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3634,25 +3542,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> SaveWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> SaveWhiteLabelLogoTextWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -3663,13 +3567,13 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
-            localVarRequestOptions.Data = whiteLabelRequestsDto;
+            if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3702,8 +3606,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelLogoText", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelLogoText", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3720,7 +3624,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveWhiteLabelSettings(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = SaveWhiteLabelSettingsWithHttpInfo(isDark, isDefault, whiteLabelRequestsDto);
+            var localVarResponse = SaveWhiteLabelSettingsWithHttpInfo(isDark, isDefault, whiteLabelRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -3733,40 +3637,36 @@ namespace Docspace.Api
         /// <param name="whiteLabelRequestsDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
+        public ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
-            localVarRequestOptions.Data = whiteLabelRequestsDto;
+            if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3798,8 +3698,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3817,7 +3717,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> SaveWhiteLabelSettingsAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelSettingsWithHttpInfoAsync(isDark, isDefault, whiteLabelRequestsDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelSettingsWithHttpInfoAsync(isDark, isDefault, whiteLabelRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3831,25 +3731,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> SaveWhiteLabelSettingsWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> SaveWhiteLabelSettingsWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -3860,13 +3756,13 @@ namespace Docspace.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
-            localVarRequestOptions.Data = whiteLabelRequestsDto;
+            if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3899,8 +3795,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelSettings", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelSettings", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -3916,7 +3812,7 @@ namespace Docspace.Api
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveWhiteLabelSettingsFromFiles(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = SaveWhiteLabelSettingsFromFilesWithHttpInfo(isDark, isDefault);
+            var localVarResponse = SaveWhiteLabelSettingsFromFilesWithHttpInfo(isDark, isDefault);
             return localVarResponse.Data;
         }
 
@@ -3928,38 +3824,35 @@ namespace Docspace.Api
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public Docspace.Client.ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsFromFilesWithHttpInfo(bool? isDark = default, bool? isDefault = default)
+        public ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsFromFilesWithHttpInfo(bool? isDark = default, bool? isDefault = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -3991,8 +3884,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelSettingsFromFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelSettingsFromFiles", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -4009,7 +3902,7 @@ namespace Docspace.Api
         /// <returns>Task of BooleanWrapper</returns>
         public async System.Threading.Tasks.Task<BooleanWrapper> SaveWhiteLabelSettingsFromFilesAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelSettingsFromFilesWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
+            ApiResponse<BooleanWrapper> localVarResponse = await SaveWhiteLabelSettingsFromFilesWithHttpInfoAsync(isDark, isDefault, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4022,24 +3915,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<BooleanWrapper>> SaveWhiteLabelSettingsFromFilesWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> SaveWhiteLabelSettingsFromFilesWithHttpInfoAsync(bool? isDark = default, bool? isDefault = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (isDark != null)
@@ -4055,7 +3945,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -4088,8 +3978,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SaveWhiteLabelSettingsFromFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SaveWhiteLabelSettingsFromFiles", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

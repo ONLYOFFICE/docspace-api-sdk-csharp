@@ -49,6 +49,35 @@ namespace Docspace.Model
     /// <value>[1 - One week, 2 - Two weeks, 3 - One month, 4 - Thirty days, 5 - Two months, 6 - Three months]</value>
     public enum DateToAutoCleanUp
     {
+        /// <summary>
+        /// Enum OneWeek for value: 1
+        /// </summary>
+        OneWeek = 1,
+
+        /// <summary>
+        /// Enum TwoWeeks for value: 2
+        /// </summary>
+        TwoWeeks = 2,
+
+        /// <summary>
+        /// Enum OneMonth for value: 3
+        /// </summary>
+        OneMonth = 3,
+
+        /// <summary>
+        /// Enum ThirtyDays for value: 4
+        /// </summary>
+        ThirtyDays = 4,
+
+        /// <summary>
+        /// Enum TwoMonths for value: 5
+        /// </summary>
+        TwoMonths = 5,
+
+        /// <summary>
+        /// Enum ThreeMonths for value: 6
+        /// </summary>
+        ThreeMonths = 6
     }
 
 }

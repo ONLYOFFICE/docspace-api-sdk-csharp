@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]</value>
     public enum SearchArea
     {
+        /// <summary>
+        /// Enum Active for value: 0
+        /// </summary>
+        Active = 0,
+
+        /// <summary>
+        /// Enum Archive for value: 1
+        /// </summary>
+        Archive = 1,
+
+        /// <summary>
+        /// Enum Any for value: 2
+        /// </summary>
+        Any = 2,
+
+        /// <summary>
+        /// Enum RecentByLinks for value: 3
+        /// </summary>
+        RecentByLinks = 3,
+
+        /// <summary>
+        /// Enum Templates for value: 4
+        /// </summary>
+        Templates = 4
     }
 
 }

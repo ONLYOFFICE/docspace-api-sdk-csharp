@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]</value>
     public enum RoomType
     {
+        /// <summary>
+        /// Enum FillingFormsRoom for value: 1
+        /// </summary>
+        FillingFormsRoom = 1,
+
+        /// <summary>
+        /// Enum EditingRoom for value: 2
+        /// </summary>
+        EditingRoom = 2,
+
+        /// <summary>
+        /// Enum CustomRoom for value: 5
+        /// </summary>
+        CustomRoom = 5,
+
+        /// <summary>
+        /// Enum PublicRoom for value: 6
+        /// </summary>
+        PublicRoom = 6,
+
+        /// <summary>
+        /// Enum VirtualDataRoom for value: 8
+        /// </summary>
+        VirtualDataRoom = 8
     }
 
 }

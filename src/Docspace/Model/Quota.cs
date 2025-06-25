@@ -49,6 +49,12 @@ namespace Docspace.Model
     [DataContract(Name = "Quota")]
     public partial class Quota : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public QuotaState? State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Quota" /> class.
         /// </summary>
@@ -57,13 +63,15 @@ namespace Docspace.Model
         /// <param name="wallet">The quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="nextQuantity">The quota next quantity..</param>
-        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default)
+        /// <param name="state">state.</param>
+        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, QuotaState? state = default)
         {
             this.Id = id;
             this.Quantity = quantity;
             this.Wallet = wallet;
             this.DueDate = dueDate;
             this.NextQuantity = nextQuantity;
+            this.State = state;
         }
 
         /// <summary>
@@ -129,6 +137,7 @@ namespace Docspace.Model
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  NextQuantity: ").Append(NextQuantity).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

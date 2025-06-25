@@ -49,6 +49,35 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - Draft, 2 - You turn, 3 - In progress, 4 - Complete, 5 - Stoped]</value>
     public enum FormFillingStatus
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Draft for value: 1
+        /// </summary>
+        Draft = 1,
+
+        /// <summary>
+        /// Enum YouTurn for value: 2
+        /// </summary>
+        YouTurn = 2,
+
+        /// <summary>
+        /// Enum InProgress for value: 3
+        /// </summary>
+        InProgress = 3,
+
+        /// <summary>
+        /// Enum Complete for value: 4
+        /// </summary>
+        Complete = 4,
+
+        /// <summary>
+        /// Enum Stoped for value: 5
+        /// </summary>
+        Stoped = 5
     }
 
 }

@@ -49,6 +49,45 @@ namespace Docspace.Model
     /// <value>[0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate]</value>
     public enum FileOperationType
     {
+        /// <summary>
+        /// Enum Move for value: 0
+        /// </summary>
+        Move = 0,
+
+        /// <summary>
+        /// Enum Copy for value: 1
+        /// </summary>
+        Copy = 1,
+
+        /// <summary>
+        /// Enum Delete for value: 2
+        /// </summary>
+        Delete = 2,
+
+        /// <summary>
+        /// Enum Download for value: 3
+        /// </summary>
+        Download = 3,
+
+        /// <summary>
+        /// Enum MarkAsRead for value: 4
+        /// </summary>
+        MarkAsRead = 4,
+
+        /// <summary>
+        /// Enum Import for value: 5
+        /// </summary>
+        Import = 5,
+
+        /// <summary>
+        /// Enum Convert for value: 6
+        /// </summary>
+        Convert = 6,
+
+        /// <summary>
+        /// Enum Duplicate for value: 7
+        /// </summary>
+        Duplicate = 7
     }
 
 }

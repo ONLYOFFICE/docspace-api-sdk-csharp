@@ -49,6 +49,30 @@ namespace Docspace.Model
     /// <value>[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]</value>
     public enum EmployeeStatus
     {
+        /// <summary>
+        /// Enum Active for value: 1
+        /// </summary>
+        Active = 1,
+
+        /// <summary>
+        /// Enum Terminated for value: 2
+        /// </summary>
+        Terminated = 2,
+
+        /// <summary>
+        /// Enum Pending for value: 4
+        /// </summary>
+        Pending = 4,
+
+        /// <summary>
+        /// Enum Default for value: 5
+        /// </summary>
+        Default = 5,
+
+        /// <summary>
+        /// Enum All for value: 7
+        /// </summary>
+        All = 7
     }
 
 }

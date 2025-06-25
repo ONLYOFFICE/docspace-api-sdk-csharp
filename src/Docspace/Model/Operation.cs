@@ -44,7 +44,7 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Operation
+    /// Represents an operation.
     /// </summary>
     [DataContract(Name = "Operation")]
     public partial class Operation : IValidatableObject
@@ -52,17 +52,19 @@ namespace Docspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Operation" /> class.
         /// </summary>
-        /// <param name="date">date.</param>
-        /// <param name="service">service.</param>
-        /// <param name="serviceUnit">serviceUnit.</param>
-        /// <param name="quantity">quantity.</param>
-        /// <param name="currency">currency.</param>
-        /// <param name="credit">credit.</param>
-        /// <param name="withdrawal">withdrawal.</param>
-        public Operation(DateTime date = default, string service = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double withdrawal = default)
+        /// <param name="date">Date of the operation..</param>
+        /// <param name="service">Service related to the operation..</param>
+        /// <param name="description">Brief description of the operation..</param>
+        /// <param name="serviceUnit">Unit of the service..</param>
+        /// <param name="quantity">Quantity of the service used..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol of the operation..</param>
+        /// <param name="credit">Credit amount of the operation..</param>
+        /// <param name="withdrawal">Withdrawal amount of the operation..</param>
+        public Operation(DateTime date = default, string service = default, string description = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double withdrawal = default)
         {
             this.Date = date;
             this.Service = service;
+            this.Description = description;
             this.ServiceUnit = serviceUnit;
             this.Quantity = quantity;
             this.Currency = currency;
@@ -71,8 +73,9 @@ namespace Docspace.Model
         }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// Date of the operation.
         /// </summary>
+        /// <value>Date of the operation.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
@@ -80,8 +83,9 @@ namespace Docspace.Model
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Service
+        /// Service related to the operation.
         /// </summary>
+        /// <value>Service related to the operation.</value>
         /*
         <example>some text</example>
         */
@@ -89,8 +93,19 @@ namespace Docspace.Model
         public string Service { get; set; }
 
         /// <summary>
-        /// Gets or Sets ServiceUnit
+        /// Brief description of the operation.
         /// </summary>
+        /// <value>Brief description of the operation.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Unit of the service.
+        /// </summary>
+        /// <value>Unit of the service.</value>
         /*
         <example>some text</example>
         */
@@ -98,8 +113,9 @@ namespace Docspace.Model
         public string ServiceUnit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity of the service used.
         /// </summary>
+        /// <value>Quantity of the service used.</value>
         /*
         <example>1234</example>
         */
@@ -107,8 +123,9 @@ namespace Docspace.Model
         public int Quantity { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// The three-character ISO 4217 currency symbol of the operation.
         /// </summary>
+        /// <value>The three-character ISO 4217 currency symbol of the operation.</value>
         /*
         <example>some text</example>
         */
@@ -116,14 +133,16 @@ namespace Docspace.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets Credit
+        /// Credit amount of the operation.
         /// </summary>
+        /// <value>Credit amount of the operation.</value>
         [DataMember(Name = "credit", EmitDefaultValue = false)]
         public double Credit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Withdrawal
+        /// Withdrawal amount of the operation.
         /// </summary>
+        /// <value>Withdrawal amount of the operation.</value>
         [DataMember(Name = "withdrawal", EmitDefaultValue = false)]
         public double Withdrawal { get; set; }
 
@@ -137,6 +156,7 @@ namespace Docspace.Model
             sb.Append("class Operation {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Service: ").Append(Service).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ServiceUnit: ").Append(ServiceUnit).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");

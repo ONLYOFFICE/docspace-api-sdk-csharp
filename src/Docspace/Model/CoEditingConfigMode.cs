@@ -49,6 +49,15 @@ namespace Docspace.Model
     /// <value>[0 - Fast, 1 - Strict]</value>
     public enum CoEditingConfigMode
     {
+        /// <summary>
+        /// Enum Fast for value: 0
+        /// </summary>
+        Fast = 0,
+
+        /// <summary>
+        /// Enum Strict for value: 1
+        /// </summary>
+        Strict = 1
     }
 
 }

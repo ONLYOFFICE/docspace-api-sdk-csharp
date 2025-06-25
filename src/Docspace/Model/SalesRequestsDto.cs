@@ -138,6 +138,24 @@ namespace Docspace.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // UserName (string) maxLength
+            if (this.UserName != null && this.UserName.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserName, length must be less than 255.", new [] { "UserName" });
+            }
+
+            // Email (string) maxLength
+            if (this.Email != null && this.Email.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 64.", new [] { "Email" });
+            }
+
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 255.", new [] { "Message" });
+            }
+
             yield break;
         }
     }

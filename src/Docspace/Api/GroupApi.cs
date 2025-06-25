@@ -647,9 +647,9 @@ namespace Docspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class GroupApi : IDisposable, IGroupApi
+    public class GroupApi : IDisposable, IGroupApi
     {
-        private Docspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupApi"/> class.
@@ -672,32 +672,32 @@ namespace Docspace.Api
         public GroupApi(string basePath)
         {
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="GroupApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public GroupApi(Docspace.Client.Configuration configuration)
+        public GroupApi(Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -733,20 +733,20 @@ namespace Docspace.Api
         /// </remarks>
         public GroupApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
-                new Docspace.Client.Configuration { BasePath = basePath }
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="GroupApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -757,16 +757,16 @@ namespace Docspace.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public GroupApi(HttpClient client, Docspace.Client.Configuration configuration, HttpClientHandler handler = null)
+        public GroupApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
-                Docspace.Client.GlobalConfiguration.Instance,
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new Docspace.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
@@ -780,11 +780,11 @@ namespace Docspace.Api
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public GroupApi(Docspace.Client.ISynchronousClient client, Docspace.Client.IAsynchronousClient asyncClient, Docspace.Client.IReadableConfiguration configuration)
+        public GroupApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -797,23 +797,23 @@ namespace Docspace.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient?.Dispose();
+            this.ApiClient.Dispose();
         }
 
         /// <summary>
         /// Holds the ApiClient if created
         /// </summary>
-        public Docspace.Client.ApiClient ApiClient { get; set; } = null;
+        public ApiClient ApiClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public Docspace.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public Docspace.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -828,12 +828,12 @@ namespace Docspace.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Docspace.Client.IReadableConfiguration Configuration { get; set; }
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Docspace.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -843,7 +843,7 @@ namespace Docspace.Api
                 }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value; 
         }
 
         /// <summary>
@@ -855,7 +855,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper AddGroup(GroupRequestDto? groupRequestDto = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = AddGroupWithHttpInfo(groupRequestDto);
+            var localVarResponse = AddGroupWithHttpInfo(groupRequestDto);
             return localVarResponse.Data;
         }
 
@@ -866,32 +866,28 @@ namespace Docspace.Api
         /// <param name="groupRequestDto"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> AddGroupWithHttpInfo(GroupRequestDto? groupRequestDto = default)
+        public ApiResponse<GroupWrapper> AddGroupWithHttpInfo(GroupRequestDto? groupRequestDto = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = groupRequestDto;
+            if (groupRequestDto != null) localVarRequestOptions.Data = groupRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -923,8 +919,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -940,7 +936,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> AddGroupAsync(GroupRequestDto? groupRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await AddGroupWithHttpInfoAsync(groupRequestDto, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await AddGroupWithHttpInfoAsync(groupRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -952,34 +948,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> AddGroupWithHttpInfoAsync(GroupRequestDto? groupRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> AddGroupWithHttpInfoAsync(GroupRequestDto? groupRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = groupRequestDto;
+            if (groupRequestDto != null) localVarRequestOptions.Data = groupRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1012,8 +1004,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1029,7 +1021,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper AddMembersTo(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = AddMembersToWithHttpInfo(id, membersRequest);
+            var localVarResponse = AddMembersToWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
         }
 
@@ -1041,33 +1033,29 @@ namespace Docspace.Api
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1099,8 +1087,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1117,7 +1105,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> AddMembersToAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await AddMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await AddMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1130,35 +1118,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1191,8 +1175,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("AddMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1207,7 +1191,7 @@ namespace Docspace.Api
         /// <returns>NoContentResultWrapper</returns>
         public NoContentResultWrapper DeleteGroup(Guid id)
         {
-            Docspace.Client.ApiResponse<NoContentResultWrapper> localVarResponse = DeleteGroupWithHttpInfo(id);
+            var localVarResponse = DeleteGroupWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1218,31 +1202,28 @@ namespace Docspace.Api
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
-        public Docspace.Client.ApiResponse<NoContentResultWrapper> DeleteGroupWithHttpInfo(Guid id)
+        public ApiResponse<NoContentResultWrapper> DeleteGroupWithHttpInfo(Guid id)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1274,8 +1255,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1291,7 +1272,7 @@ namespace Docspace.Api
         /// <returns>Task of NoContentResultWrapper</returns>
         public async System.Threading.Tasks.Task<NoContentResultWrapper> DeleteGroupAsync(Guid id, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<NoContentResultWrapper> localVarResponse = await DeleteGroupWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ApiResponse<NoContentResultWrapper> localVarResponse = await DeleteGroupWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1303,33 +1284,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<NoContentResultWrapper>> DeleteGroupWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<NoContentResultWrapper>> DeleteGroupWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1362,8 +1340,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1379,7 +1357,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper GetGroup(Guid id, bool? includeMembers = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = GetGroupWithHttpInfo(id, includeMembers);
+            var localVarResponse = GetGroupWithHttpInfo(id, includeMembers);
             return localVarResponse.Data;
         }
 
@@ -1391,35 +1369,32 @@ namespace Docspace.Api
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> GetGroupWithHttpInfo(Guid id, bool? includeMembers = default)
+        public ApiResponse<GroupWrapper> GetGroupWithHttpInfo(Guid id, bool? includeMembers = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (includeMembers != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1451,8 +1426,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1469,7 +1444,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> GetGroupAsync(Guid id, bool? includeMembers = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await GetGroupWithHttpInfoAsync(id, includeMembers, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await GetGroupWithHttpInfoAsync(id, includeMembers, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1482,27 +1457,24 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> GetGroupWithHttpInfoAsync(Guid id, bool? includeMembers = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> GetGroupWithHttpInfoAsync(Guid id, bool? includeMembers = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (includeMembers != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
@@ -1512,7 +1484,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1545,8 +1517,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1561,7 +1533,7 @@ namespace Docspace.Api
         /// <returns>GroupSummaryArrayWrapper</returns>
         public GroupSummaryArrayWrapper GetGroupByUserId(Guid userid)
         {
-            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = GetGroupByUserIdWithHttpInfo(userid);
+            var localVarResponse = GetGroupByUserIdWithHttpInfo(userid);
             return localVarResponse.Data;
         }
 
@@ -1572,31 +1544,28 @@ namespace Docspace.Api
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid)
+        public ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1628,8 +1597,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1645,7 +1614,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupSummaryArrayWrapper</returns>
         public async System.Threading.Tasks.Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupSummaryArrayWrapper> localVarResponse = await GetGroupByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupSummaryArrayWrapper> localVarResponse = await GetGroupByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1657,33 +1626,30 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", Docspace.Client.ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1716,8 +1682,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroupByUserId", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1738,7 +1704,7 @@ namespace Docspace.Api
         /// <returns>GroupArrayWrapper</returns>
         public GroupArrayWrapper GetGroups(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1755,58 +1721,55 @@ namespace Docspace.Api
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (manager != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "manager", manager));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "manager", manager));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1838,8 +1801,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroups", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1861,7 +1824,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupArrayWrapper</returns>
         public async System.Threading.Tasks.Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupArrayWrapper> localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1879,24 +1842,21 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
@@ -1932,7 +1892,7 @@ namespace Docspace.Api
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -1965,8 +1925,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("GetGroups", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -1982,7 +1942,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper MoveMembersTo(Guid fromId, Guid toId)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = MoveMembersToWithHttpInfo(fromId, toId);
+            var localVarResponse = MoveMembersToWithHttpInfo(fromId, toId);
             return localVarResponse.Data;
         }
 
@@ -1994,32 +1954,29 @@ namespace Docspace.Api
         /// <param name="toId">The group ID to move to.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> MoveMembersToWithHttpInfo(Guid fromId, Guid toId)
+        public ApiResponse<GroupWrapper> MoveMembersToWithHttpInfo(Guid fromId, Guid toId)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fromId", ClientUtils.ParameterToString(fromId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("toId", ClientUtils.ParameterToString(toId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2051,8 +2008,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2069,7 +2026,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> MoveMembersToAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await MoveMembersToWithHttpInfoAsync(fromId, toId, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await MoveMembersToWithHttpInfoAsync(fromId, toId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2082,34 +2039,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> MoveMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> MoveMembersToWithHttpInfoAsync(Guid fromId, Guid toId, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fromId", Docspace.Client.ClientUtils.ParameterToString(fromId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("toId", Docspace.Client.ClientUtils.ParameterToString(toId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fromId", ClientUtils.ParameterToString(fromId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("toId", ClientUtils.ParameterToString(toId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2142,8 +2096,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("MoveMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2159,7 +2113,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper RemoveMembersFrom(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = RemoveMembersFromWithHttpInfo(id, membersRequest);
+            var localVarResponse = RemoveMembersFromWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
         }
 
@@ -2171,33 +2125,29 @@ namespace Docspace.Api
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2229,8 +2179,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveMembersFrom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveMembersFrom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2247,7 +2197,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> RemoveMembersFromAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await RemoveMembersFromWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await RemoveMembersFromWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2260,35 +2210,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2321,8 +2267,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RemoveMembersFrom", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("RemoveMembersFrom", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2338,7 +2284,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper SetGroupManager(Guid id, SetManagerRequest? setManagerRequest = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = SetGroupManagerWithHttpInfo(id, setManagerRequest);
+            var localVarResponse = SetGroupManagerWithHttpInfo(id, setManagerRequest);
             return localVarResponse.Data;
         }
 
@@ -2350,33 +2296,29 @@ namespace Docspace.Api
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default)
+        public ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = setManagerRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (setManagerRequest != null) localVarRequestOptions.Data = setManagerRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2408,8 +2350,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2426,7 +2368,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await SetGroupManagerWithHttpInfoAsync(id, setManagerRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await SetGroupManagerWithHttpInfoAsync(id, setManagerRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2439,35 +2381,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = setManagerRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (setManagerRequest != null) localVarRequestOptions.Data = setManagerRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2500,8 +2438,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetGroupManager", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2517,7 +2455,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper SetMembersTo(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = SetMembersToWithHttpInfo(id, membersRequest);
+            var localVarResponse = SetMembersToWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
         }
 
@@ -2529,33 +2467,29 @@ namespace Docspace.Api
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2587,8 +2521,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2605,7 +2539,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> SetMembersToAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await SetMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await SetMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2618,35 +2552,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = membersRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (membersRequest != null) localVarRequestOptions.Data = membersRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2679,8 +2609,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SetMembersTo", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("SetMembersTo", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2696,7 +2626,7 @@ namespace Docspace.Api
         /// <returns>GroupWrapper</returns>
         public GroupWrapper UpdateGroup(Guid id, UpdateGroupRequest? updateGroupRequest = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = UpdateGroupWithHttpInfo(id, updateGroupRequest);
+            var localVarResponse = UpdateGroupWithHttpInfo(id, updateGroupRequest);
             return localVarResponse.Data;
         }
 
@@ -2708,33 +2638,29 @@ namespace Docspace.Api
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public Docspace.Client.ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest? updateGroupRequest = default)
+        public ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest? updateGroupRequest = default)
         {
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = ["application/json"];
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateGroupRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (updateGroupRequest != null) localVarRequestOptions.Data = updateGroupRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2766,8 +2692,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;
@@ -2784,7 +2710,7 @@ namespace Docspace.Api
         /// <returns>Task of GroupWrapper</returns>
         public async System.Threading.Tasks.Task<GroupWrapper> UpdateGroupAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Docspace.Client.ApiResponse<GroupWrapper> localVarResponse = await UpdateGroupWithHttpInfoAsync(id, updateGroupRequest, cancellationToken).ConfigureAwait(false);
+            ApiResponse<GroupWrapper> localVarResponse = await UpdateGroupWithHttpInfoAsync(id, updateGroupRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2797,35 +2723,31 @@ namespace Docspace.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async System.Threading.Tasks.Task<Docspace.Client.ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Docspace.Client.RequestOptions localVarRequestOptions = new Docspace.Client.RequestOptions();
+            RequestOptions localVarRequestOptions = new RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
+            string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] accepts = [" application/json"];
 
 
-            var localVarContentType = Docspace.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = Docspace.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Docspace.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateGroupRequest;
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (updateGroupRequest != null) localVarRequestOptions.Data = updateGroupRequest;
 
             // authentication (Basic) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Docspace.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
@@ -2858,8 +2780,8 @@ namespace Docspace.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
+                if (exception != null) throw exception;
             }
 
             return localVarResponse;

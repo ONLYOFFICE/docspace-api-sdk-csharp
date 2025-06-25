@@ -44,10 +44,25 @@ using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
 namespace Docspace.Model
 {
     /// <summary>
-    /// Defines PaymentMethodStatus
+    /// [0 - None, 1 - Set, 2 - Expired]
     /// </summary>
+    /// <value>[0 - None, 1 - Set, 2 - Expired]</value>
     public enum PaymentMethodStatus
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum Set for value: 1
+        /// </summary>
+        Set = 1,
+
+        /// <summary>
+        /// Enum Expired for value: 2
+        /// </summary>
+        Expired = 2
     }
 
 }

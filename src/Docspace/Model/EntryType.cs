@@ -49,6 +49,40 @@ namespace Docspace.Model
     /// <value>[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]</value>
     public enum EntryType
     {
+        /// <summary>
+        /// Enum None for value: 0
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Enum File for value: 1
+        /// </summary>
+        File = 1,
+
+        /// <summary>
+        /// Enum Folder for value: 2
+        /// </summary>
+        Folder = 2,
+
+        /// <summary>
+        /// Enum User for value: 23
+        /// </summary>
+        User = 23,
+
+        /// <summary>
+        /// Enum Group for value: 24
+        /// </summary>
+        Group = 24,
+
+        /// <summary>
+        /// Enum Room for value: 25
+        /// </summary>
+        Room = 25,
+
+        /// <summary>
+        /// Enum Tag for value: 26
+        /// </summary>
+        Tag = 26
     }
 
 }

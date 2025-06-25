@@ -49,6 +49,40 @@ namespace Docspace.Model
     /// <value>[0 - Ok, 1 - Invalid, 2 - Expired, 3 - Tariff limit, 4 - User existed, 5 - User excluded, 6 - Quota failed]</value>
     public enum ValidationResult
     {
+        /// <summary>
+        /// Enum Ok for value: 0
+        /// </summary>
+        Ok = 0,
+
+        /// <summary>
+        /// Enum Invalid for value: 1
+        /// </summary>
+        Invalid = 1,
+
+        /// <summary>
+        /// Enum Expired for value: 2
+        /// </summary>
+        Expired = 2,
+
+        /// <summary>
+        /// Enum TariffLimit for value: 3
+        /// </summary>
+        TariffLimit = 3,
+
+        /// <summary>
+        /// Enum UserExisted for value: 4
+        /// </summary>
+        UserExisted = 4,
+
+        /// <summary>
+        /// Enum UserExcluded for value: 5
+        /// </summary>
+        UserExcluded = 5,
+
+        /// <summary>
+        /// Enum QuotaFailed for value: 6
+        /// </summary>
+        QuotaFailed = 6
     }
 
 }
