@@ -35,7 +35,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Utility functions providing some benefit to API client consumers.

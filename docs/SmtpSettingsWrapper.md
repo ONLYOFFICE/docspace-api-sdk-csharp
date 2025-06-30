@@ -1,12 +1,12 @@
-# Docspace.Model.SmtpSettingsWrapper
+# DocSpace.Model.SmtpSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**SmtpSettingsDto**](SmtpSettingsDto.md) |  | [optional] 
+**Response** | [**SmtpSettingsDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

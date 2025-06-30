@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsMessagesApi
+# DocSpace.Api.SettingsMessagesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,30 @@ All URIs are relative to *http://localhost:8092*
 # **EnableAdminMessageSettings**
 > StringWrapper EnableAdminMessageSettings (TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = null)
 
-Enable the administrator message settings
-
 Displays the contact form on the \"Sign In\" page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **turnOnAdminMessageSettingsRequestDto** | [**TurnOnAdminMessageSettingsRequestDto?**](TurnOnAdminMessageSettingsRequestDto.md) | The request parameters for enabling or disabling administrator messaging system. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -53,7 +65,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var turnOnAdminMessageSettingsRequestDto = new TurnOnAdminMessageSettingsRequestDto?(); // TurnOnAdminMessageSettingsRequestDto? |  (optional) 
+            var turnOnAdminMessageSettingsRequestDto = new TurnOnAdminMessageSettingsRequestDto?(); // TurnOnAdminMessageSettingsRequestDto? | The request parameters for enabling or disabling administrator messaging system. (optional) 
 
             try
             {
@@ -92,20 +104,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **turnOnAdminMessageSettingsRequestDto** | [**TurnOnAdminMessageSettingsRequestDto?**](TurnOnAdminMessageSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -124,18 +122,30 @@ catch (ApiException e)
 # **SendAdminMail**
 > StringWrapper SendAdminMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
 
-Send a message to the administrator
-
 Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **adminMessageSettingsRequestsDto** | [**AdminMessageSettingsRequestsDto?**](AdminMessageSettingsRequestsDto.md) | The request parameters for configuring the administrator message content. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -149,7 +159,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? |  (optional) 
+            var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? | The request parameters for configuring the administrator message content. (optional) 
 
             try
             {
@@ -188,20 +198,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **adminMessageSettingsRequestsDto** | [**AdminMessageSettingsRequestsDto?**](AdminMessageSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -221,18 +217,30 @@ No authorization required
 # **SendJoinInviteMail**
 > StringWrapper SendJoinInviteMail (AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = null)
 
-Sends an invitation email
-
 Sends an invitation email with a link to the DocSpace.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **adminMessageBaseSettingsRequestsDto** | [**AdminMessageBaseSettingsRequestsDto?**](AdminMessageBaseSettingsRequestsDto.md) | The request parameters for the administrator message configuration. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -246,7 +254,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? |  (optional) 
+            var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? | The request parameters for the administrator message configuration. (optional) 
 
             try
             {
@@ -284,20 +292,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **adminMessageBaseSettingsRequestsDto** | [**AdminMessageBaseSettingsRequestsDto?**](AdminMessageBaseSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

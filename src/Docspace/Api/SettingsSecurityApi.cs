@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the enabled modules.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetEnabledModules();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the enabled modules.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetEnabledModulesWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
         PasswordSettingsWrapper GetPasswordSettings();
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
         ApiResponse<PasswordSettingsWrapper> GetPasswordSettingsWithHttpInfo();
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the administrators of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
@@ -129,7 +129,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the administrators of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
@@ -140,7 +140,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the availability of the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -152,7 +152,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the availability of the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -163,7 +163,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the security settings for the modules specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
@@ -175,7 +175,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the security settings for the modules specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
@@ -186,8 +186,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the modules with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
         SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default);
@@ -198,8 +198,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the modules with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
         ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default);
@@ -209,8 +209,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
         ProductAdministratorWrapper SetProductAdministrator(SecurityRequestsDto? securityRequestsDto = default);
@@ -221,8 +221,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
         ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestsDto? securityRequestsDto = default);
@@ -232,8 +232,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
         SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default);
@@ -244,8 +244,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
         ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default);
@@ -255,8 +255,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
         PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default);
@@ -267,8 +267,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
         ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default);
@@ -287,7 +287,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the enabled modules.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -299,7 +299,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the enabled modules.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -310,7 +310,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -324,7 +324,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -337,7 +337,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
@@ -349,7 +349,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>
@@ -360,7 +360,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the administrators of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
@@ -373,7 +373,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the administrators of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
@@ -385,7 +385,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the availability of the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
@@ -398,7 +398,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the availability of the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
@@ -410,7 +410,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the security settings for the modules specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
@@ -423,7 +423,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the security settings for the modules specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
@@ -435,8 +435,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the modules with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
@@ -448,8 +448,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the modules with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
@@ -460,8 +460,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
@@ -473,8 +473,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
@@ -485,8 +485,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
@@ -498,8 +498,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the security settings to the module with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
@@ -510,8 +510,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
@@ -523,8 +523,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the portal password settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>
@@ -567,14 +567,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsSecurityApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -589,14 +589,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -631,14 +631,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -658,14 +658,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -685,7 +685,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -745,7 +745,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the enabled modules Returns a list of all the enabled modules.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetEnabledModules()
@@ -757,7 +757,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the enabled modules Returns a list of all the enabled modules.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetEnabledModulesWithHttpInfo()
@@ -822,7 +822,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the enabled modules Returns a list of all the enabled modules.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -835,7 +835,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the enabled modules Returns a list of all the enabled modules.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -904,7 +904,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
@@ -918,7 +918,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
@@ -993,7 +993,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1008,7 +1008,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check a product administrator Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
         /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1033,11 +1033,11 @@ namespace Docspace.Api
 
             if (productid != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productid", productid));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
             }
             if (userid != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userid", userid));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
             }
 
             // authentication (Basic) required
@@ -1087,7 +1087,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the password settings Returns the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
         public PasswordSettingsWrapper GetPasswordSettings()
@@ -1099,7 +1099,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the password settings Returns the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
         public ApiResponse<PasswordSettingsWrapper> GetPasswordSettingsWithHttpInfo()
@@ -1164,7 +1164,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the password settings Returns the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
@@ -1177,7 +1177,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the password settings Returns the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/">REST API Reference for GetPasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>
@@ -1246,7 +1246,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the product administrators Returns a list of all the administrators of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
@@ -1259,7 +1259,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the product administrators Returns a list of all the administrators of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
@@ -1326,7 +1326,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the product administrators Returns a list of all the administrators of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
@@ -1340,7 +1340,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the product administrators Returns a list of all the administrators of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productid">The ID of the product extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
@@ -1411,7 +1411,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the module availability Returns the availability of the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -1424,7 +1424,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the module availability Returns the availability of the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -1491,7 +1491,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the module availability Returns the availability of the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
@@ -1505,7 +1505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the module availability Returns the availability of the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/">REST API Reference for GetWebItemSecurityInfo Operation</seealso>
@@ -1576,7 +1576,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the security settings Returns the security settings for the modules specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
@@ -1589,7 +1589,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the security settings Returns the security settings for the modules specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
@@ -1658,7 +1658,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the security settings Returns the security settings for the modules specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
@@ -1672,7 +1672,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the security settings Returns the security settings for the modules specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The list of module identifiers for which to retrieve the security settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/">REST API Reference for GetWebItemSettingsSecurityInfo Operation</seealso>
@@ -1696,7 +1696,7 @@ namespace Docspace.Api
 
             if (ids != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             }
 
             // authentication (Basic) required
@@ -1746,8 +1746,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the security settings to modules Sets the security settings to the modules with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
         public SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default)
@@ -1759,8 +1759,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the security settings to modules Sets the security settings to the modules with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
         public ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default)
@@ -1826,8 +1826,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the security settings to modules Sets the security settings to the modules with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
@@ -1840,8 +1840,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the security settings to modules Sets the security settings to the modules with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemsSecurityRequestsDto">The request parameters for configuring security settings across multiple web modules. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
@@ -1911,8 +1911,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a product administrator Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
         public ProductAdministratorWrapper SetProductAdministrator(SecurityRequestsDto? securityRequestsDto = default)
@@ -1924,8 +1924,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a product administrator Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
         public ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestsDto? securityRequestsDto = default)
@@ -1991,8 +1991,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a product administrator Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
@@ -2005,8 +2005,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a product administrator Sets the selected user as an administrator of a product with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityRequestsDto">The request parameters for managing user security and access permissions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
@@ -2076,8 +2076,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the module security settings Sets the security settings to the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
         public SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default)
@@ -2089,8 +2089,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the module security settings Sets the security settings to the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
         public ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default)
@@ -2156,8 +2156,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the module security settings Sets the security settings to the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
@@ -2170,8 +2170,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the module security settings Sets the security settings to the module with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webItemSecurityRequestsDto">The request parameters for configuring security settings of a single web module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
@@ -2241,8 +2241,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the password settings Sets the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
         public PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default)
@@ -2254,8 +2254,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the password settings Sets the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
         public ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default)
@@ -2321,8 +2321,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the password settings Sets the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
@@ -2335,8 +2335,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the password settings Sets the portal password settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="passwordSettingsRequestsDto">The request parameters for configuring the password complexity requirements. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>

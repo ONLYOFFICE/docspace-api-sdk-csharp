@@ -1,4 +1,4 @@
-# Docspace.Model.LockFileParameters
+# DocSpace.Model.LockFileParameters
 The parameters for locking a file.
 
 ## Properties

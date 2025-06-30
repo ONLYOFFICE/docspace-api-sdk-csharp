@@ -1,13 +1,13 @@
-# Docspace.Model.FolderContentDtoInteger
+# DocSpace.Model.FolderContentDtoInteger
 The folder content information.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Files** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of files in the folder. | [optional] 
-**Folders** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of folders in the folder. | [optional] 
-**Current** | [**FolderDtoInteger**](FolderDtoInteger.md) |  | [optional] 
+**Files** | [**List&lt;FileEntryDto&gt;**](.md) | The list of files in the folder. | [optional] 
+**Folders** | [**List&lt;FileEntryDto&gt;**](.md) | The list of folders in the folder. | [optional] 
+**Current** | [**FolderDtoInteger**](.md) |  | [optional] 
 **PathParts** | **Object** | The folder path. | [optional] 
 **StartIndex** | **int** | The folder start index. | [optional] 
 **Count** | **int** | The number of folder elements. | [optional] 

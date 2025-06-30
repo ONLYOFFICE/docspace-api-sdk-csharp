@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsStorageApi
+# DocSpace.Api.SettingsStorageApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -18,18 +18,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetAllBackupStorages**
 > StorageArrayWrapper GetAllBackupStorages (bool? dump = null)
 
-Get the backup storages
-
 Returns a list of all the backup storages.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** |  | [optional]  |
+
+### Return type
+
+[**StorageArrayWrapper**](StorageArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -98,20 +110,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** |  | [optional]  |
-
-### Return type
-
-[**StorageArrayWrapper**](StorageArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -131,18 +129,26 @@ catch (ApiException e)
 # **GetAllCdnStorages**
 > StorageArrayWrapper GetAllCdnStorages ()
 
-Get the CDN storages
-
 Returns a list of all the CDN storages.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StorageArrayWrapper**](StorageArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -210,16 +216,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StorageArrayWrapper**](StorageArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -239,18 +235,26 @@ This endpoint does not need any parameter.
 # **GetAllStorages**
 > StorageArrayWrapper GetAllStorages ()
 
-Get storages
-
 Returns a list of all the portal storages.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StorageArrayWrapper**](StorageArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -318,16 +322,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StorageArrayWrapper**](StorageArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -347,18 +341,26 @@ This endpoint does not need any parameter.
 # **GetAmazonS3Regions**
 > ObjectWrapper GetAmazonS3Regions ()
 
-Get Amazon regions
-
 Returns a list of all Amazon regions.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -426,16 +428,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -454,18 +446,26 @@ This endpoint does not need any parameter.
 # **GetStorageProgress**
 > DoubleWrapper GetStorageProgress ()
 
-Get the storage progress
-
 Returns the storage progress.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**DoubleWrapper**](DoubleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -533,16 +533,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**DoubleWrapper**](DoubleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -561,18 +551,26 @@ This endpoint does not need any parameter.
 # **ResetCdnToDefault**
 > void ResetCdnToDefault ()
 
-Reset the CDN storage settings
-
 Resets the CDN storage settings to the default parameters.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -636,16 +634,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -665,18 +653,26 @@ void (empty response body)
 # **ResetStorageToDefault**
 > void ResetStorageToDefault ()
 
-Reset the storage settings
-
 Resets the storage settings to the default parameters.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -740,16 +736,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -769,18 +755,30 @@ void (empty response body)
 # **UpdateCdnStorage**
 > CdnStorageSettingsWrapper UpdateCdnStorage (StorageRequestsDto? storageRequestsDto = null)
 
-Update the CDN storage
-
 Updates the CDN storage with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **storageRequestsDto** | [**StorageRequestsDto?**](StorageRequestsDto.md) | The request parameters for configuring the storage module settings. | [optional]  |
+
+### Return type
+
+[**CdnStorageSettingsWrapper**](CdnStorageSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -810,7 +808,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
-            var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? |  (optional) 
+            var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? | The request parameters for configuring the storage module settings. (optional) 
 
             try
             {
@@ -849,20 +847,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **storageRequestsDto** | [**StorageRequestsDto?**](StorageRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**CdnStorageSettingsWrapper**](CdnStorageSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -883,18 +867,30 @@ catch (ApiException e)
 # **UpdateStorage**
 > StorageSettingsWrapper UpdateStorage (StorageRequestsDto? storageRequestsDto = null)
 
-Update a storage
-
 Updates a storage with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **storageRequestsDto** | [**StorageRequestsDto?**](StorageRequestsDto.md) | The request parameters for configuring the storage module settings. | [optional]  |
+
+### Return type
+
+[**StorageSettingsWrapper**](StorageSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -924,7 +920,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
-            var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? |  (optional) 
+            var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? | The request parameters for configuring the storage module settings. (optional) 
 
             try
             {
@@ -962,20 +958,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **storageRequestsDto** | [**StorageRequestsDto?**](StorageRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StorageSettingsWrapper**](StorageSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

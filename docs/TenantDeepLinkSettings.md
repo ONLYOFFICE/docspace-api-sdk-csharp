@@ -1,4 +1,4 @@
-# Docspace.Model.TenantDeepLinkSettings
+# DocSpace.Model.TenantDeepLinkSettings
 The deep link settings.
 
 ## Properties

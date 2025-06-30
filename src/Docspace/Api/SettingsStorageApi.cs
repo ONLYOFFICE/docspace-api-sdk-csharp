@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the backup storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the backup storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the CDN storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         StorageArrayWrapper GetAllCdnStorages();
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the CDN storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         ApiResponse<StorageArrayWrapper> GetAllCdnStoragesWithHttpInfo();
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the portal storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         StorageArrayWrapper GetAllStorages();
@@ -105,7 +105,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the portal storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         ApiResponse<StorageArrayWrapper> GetAllStoragesWithHttpInfo();
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all Amazon regions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetAmazonS3Regions();
@@ -126,7 +126,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all Amazon regions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetAmazonS3RegionsWithHttpInfo();
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         DoubleWrapper GetStorageProgress();
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         ApiResponse<DoubleWrapper> GetStorageProgressWithHttpInfo();
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the CDN storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns></returns>
         void ResetCdnToDefault();
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the CDN storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetCdnToDefaultWithHttpInfo();
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns></returns>
         void ResetStorageToDefault();
@@ -189,7 +189,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetStorageToDefaultWithHttpInfo();
@@ -199,8 +199,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the CDN storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>CdnStorageSettingsWrapper</returns>
         CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default);
@@ -211,8 +211,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the CDN storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
         ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default);
@@ -222,8 +222,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>StorageSettingsWrapper</returns>
         StorageSettingsWrapper UpdateStorage(StorageRequestsDto? storageRequestsDto = default);
@@ -234,8 +234,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>ApiResponse of StorageSettingsWrapper</returns>
         ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default);
@@ -254,7 +254,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the backup storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
@@ -267,7 +267,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the backup storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
@@ -279,7 +279,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the CDN storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -291,7 +291,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the CDN storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>
@@ -302,7 +302,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the portal storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the portal storages.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>
@@ -325,7 +325,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all Amazon regions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -337,7 +337,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all Amazon regions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -348,7 +348,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -360,7 +360,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -371,7 +371,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the CDN storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>Task of void</returns>
@@ -383,7 +383,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the CDN storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -394,7 +394,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>Task of void</returns>
@@ -406,7 +406,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the storage settings to the default parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -417,8 +417,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the CDN storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>Task of CdnStorageSettingsWrapper</returns>
@@ -430,8 +430,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the CDN storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
@@ -442,8 +442,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of StorageSettingsWrapper</returns>
@@ -455,8 +455,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a storage with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>
@@ -499,14 +499,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsStorageApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -521,14 +521,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -563,14 +563,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -590,14 +590,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -617,7 +617,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -677,7 +677,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup storages Returns a list of all the backup storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
@@ -690,7 +690,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup storages Returns a list of all the backup storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
@@ -760,7 +760,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup storages Returns a list of all the backup storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
@@ -774,7 +774,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup storages Returns a list of all the backup storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
@@ -798,7 +798,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -848,7 +848,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the CDN storages Returns a list of all the CDN storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         public StorageArrayWrapper GetAllCdnStorages()
@@ -860,7 +860,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the CDN storages Returns a list of all the CDN storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         public ApiResponse<StorageArrayWrapper> GetAllCdnStoragesWithHttpInfo()
@@ -925,7 +925,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the CDN storages Returns a list of all the CDN storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -938,7 +938,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the CDN storages Returns a list of all the CDN storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/">REST API Reference for GetAllCdnStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>
@@ -1007,7 +1007,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get storages Returns a list of all the portal storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         public StorageArrayWrapper GetAllStorages()
@@ -1019,7 +1019,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get storages Returns a list of all the portal storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         public ApiResponse<StorageArrayWrapper> GetAllStoragesWithHttpInfo()
@@ -1084,7 +1084,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get storages Returns a list of all the portal storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -1097,7 +1097,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get storages Returns a list of all the portal storages.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/">REST API Reference for GetAllStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>
@@ -1166,7 +1166,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get Amazon regions Returns a list of all Amazon regions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetAmazonS3Regions()
@@ -1178,7 +1178,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get Amazon regions Returns a list of all Amazon regions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetAmazonS3RegionsWithHttpInfo()
@@ -1243,7 +1243,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get Amazon regions Returns a list of all Amazon regions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -1256,7 +1256,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get Amazon regions Returns a list of all Amazon regions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -1325,7 +1325,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage progress Returns the storage progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         public DoubleWrapper GetStorageProgress()
@@ -1337,7 +1337,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage progress Returns the storage progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         public ApiResponse<DoubleWrapper> GetStorageProgressWithHttpInfo()
@@ -1402,7 +1402,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage progress Returns the storage progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -1415,7 +1415,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage progress Returns the storage progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/">REST API Reference for GetStorageProgress Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -1484,7 +1484,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the CDN storage settings Resets the CDN storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns></returns>
         public void ResetCdnToDefault()
@@ -1495,7 +1495,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the CDN storage settings Resets the CDN storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ResetCdnToDefaultWithHttpInfo()
@@ -1560,7 +1560,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the CDN storage settings Resets the CDN storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1572,7 +1572,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the CDN storage settings Resets the CDN storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/">REST API Reference for ResetCdnToDefault Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1641,7 +1641,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the storage settings Resets the storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns></returns>
         public void ResetStorageToDefault()
@@ -1652,7 +1652,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the storage settings Resets the storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ResetStorageToDefaultWithHttpInfo()
@@ -1717,7 +1717,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the storage settings Resets the storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1729,7 +1729,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the storage settings Resets the storage settings to the default parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/">REST API Reference for ResetStorageToDefault Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1798,8 +1798,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the CDN storage Updates the CDN storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>CdnStorageSettingsWrapper</returns>
         public CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default)
@@ -1811,8 +1811,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the CDN storage Updates the CDN storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
         public ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default)
@@ -1878,8 +1878,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the CDN storage Updates the CDN storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>Task of CdnStorageSettingsWrapper</returns>
@@ -1892,8 +1892,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the CDN storage Updates the CDN storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
         /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
@@ -1963,8 +1963,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a storage Updates a storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>StorageSettingsWrapper</returns>
         public StorageSettingsWrapper UpdateStorage(StorageRequestsDto? storageRequestsDto = default)
@@ -1976,8 +1976,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a storage Updates a storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>ApiResponse of StorageSettingsWrapper</returns>
         public ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default)
@@ -2043,8 +2043,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a storage Updates a storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of StorageSettingsWrapper</returns>
@@ -2057,8 +2057,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a storage Updates a storage with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageRequestsDto">The request parameters for configuring the storage module settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>

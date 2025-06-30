@@ -1,11 +1,11 @@
-# Docspace.Model.MentionWrapper
+# DocSpace.Model.MentionWrapper
 The mention message parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**UserInfo**](UserInfo.md) |  | [optional] 
+**User** | [**UserInfo**](.md) |  | [optional] 
 **Email** | **string** | The email address of the user. | [optional] [readonly] 
 **Id** | **string** | The identification of the user. | [optional] [readonly] 
 **Image** | **string** | The path to the user&#39;s avatar. | [optional] [readonly] 

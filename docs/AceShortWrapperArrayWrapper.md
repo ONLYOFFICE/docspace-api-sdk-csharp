@@ -1,12 +1,12 @@
-# Docspace.Model.AceShortWrapperArrayWrapper
+# DocSpace.Model.AceShortWrapperArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;AceShortWrapper&gt;**](AceShortWrapper.md) |  | [optional] 
+**Response** | [**List&lt;AceShortWrapper&gt;**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# Docspace.Model.TenantDomainValidator
+# DocSpace.Model.TenantDomainValidator
 The domain validator.
 
 ## Properties

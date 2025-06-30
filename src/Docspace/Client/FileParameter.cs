@@ -27,7 +27,7 @@
 
 using System.IO;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
 
     /// <summary>

@@ -1,12 +1,12 @@
-# Docspace.Model.CdnStorageSettingsWrapper
+# DocSpace.Model.CdnStorageSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CdnStorageSettings**](CdnStorageSettings.md) |  | [optional] 
+**Response** | [**CdnStorageSettings**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Closes the administrator helper notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns></returns>
         void CloseAdminHelper();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Closes the administrator helper notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CloseAdminHelperWithHttpInfo();
@@ -71,8 +71,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Completes the Wizard settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>WizardSettingsWrapper</returns>
         WizardSettingsWrapper CompleteWizard(WizardRequestsDto? wizardRequestsDto = default);
@@ -83,8 +83,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Completes the Wizard settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>ApiResponse of WizardSettingsWrapper</returns>
         ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestsDto? wizardRequestsDto = default);
@@ -94,8 +94,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the deep link configuration settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
         TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default);
@@ -106,8 +106,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the deep link configuration settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
         ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default);
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
@@ -129,7 +129,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
@@ -140,7 +140,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the deep link settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
         TenantDeepLinkSettingsWrapper GetDeepLinkSettings();
@@ -151,7 +151,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the deep link settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
         ApiResponse<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsWithHttpInfo();
@@ -161,7 +161,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal payment settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>PaymentSettingsWrapper</returns>
         PaymentSettingsWrapper GetPaymentSettings();
@@ -172,7 +172,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal payment settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>ApiResponse of PaymentSettingsWrapper</returns>
         ApiResponse<PaymentSettingsWrapper> GetPaymentSettingsWithHttpInfo();
@@ -182,7 +182,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal color theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
         CustomColorThemesSettingsWrapper GetPortalColorTheme();
@@ -193,7 +193,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal color theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
         ApiResponse<CustomColorThemesSettingsWrapper> GetPortalColorThemeWithHttpInfo();
@@ -203,7 +203,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal hostname.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetPortalHostname();
@@ -214,7 +214,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal hostname.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetPortalHostnameWithHttpInfo();
@@ -224,7 +224,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal logo image URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper GetPortalLogo();
@@ -235,7 +235,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal logo image URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPortalLogoWithHttpInfo();
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal settings with the current values for each parameter.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>SettingsWrapper</returns>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal settings with the current values for each parameter.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>ApiResponse of SettingsWrapper</returns>
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the socket settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetSocketSettings();
@@ -279,7 +279,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the socket settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetSocketSettingsWithHttpInfo();
@@ -289,7 +289,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         STRINGArrayWrapper GetSupportedCultures();
@@ -300,7 +300,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         ApiResponse<STRINGArrayWrapper> GetSupportedCulturesWithHttpInfo();
@@ -310,7 +310,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         TenantUserInvitationSettingsWrapper GetTenantUserInvitationSettings();
@@ -321,7 +321,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         ApiResponse<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsWithHttpInfo();
@@ -331,7 +331,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal time zones.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>TimezonesRequestsArrayWrapper</returns>
         TimezonesRequestsArrayWrapper GetTimeZones();
@@ -342,7 +342,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal time zones.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
         ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo();
@@ -352,8 +352,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the DNS settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SaveDnsSettings(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default);
@@ -364,8 +364,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the DNS settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default);
@@ -375,8 +375,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the mail domain settings specified in the request to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default);
@@ -387,8 +387,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the mail domain settings specified in the request to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default);
@@ -398,8 +398,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the portal color theme specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
         CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default);
@@ -410,8 +410,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the portal color theme specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
         ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default);
@@ -421,8 +421,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the email activation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>EmailActivationSettingsWrapper</returns>
         EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettings? emailActivationSettings = default);
@@ -433,8 +433,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the email activation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>ApiResponse of EmailActivationSettingsWrapper</returns>
         ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettings? emailActivationSettings = default);
@@ -444,8 +444,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         TenantUserInvitationSettingsWrapper UpdateInvitationSettings(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default);
@@ -456,8 +456,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         ApiResponse<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsWithHttpInfo(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default);
@@ -476,7 +476,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Closes the administrator helper notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of void</returns>
@@ -488,7 +488,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Closes the administrator helper notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -499,8 +499,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Completes the Wizard settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
@@ -512,8 +512,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Completes the Wizard settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
@@ -524,8 +524,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the deep link configuration settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
@@ -537,8 +537,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the deep link configuration settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
@@ -549,7 +549,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -562,7 +562,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -574,7 +574,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the deep link settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
@@ -586,7 +586,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the deep link settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
@@ -597,7 +597,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal payment settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of PaymentSettingsWrapper</returns>
@@ -609,7 +609,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal payment settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentSettingsWrapper)</returns>
@@ -620,7 +620,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal color theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
@@ -632,7 +632,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal color theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
@@ -643,7 +643,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal hostname.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -655,7 +655,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal hostname.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -666,7 +666,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal logo image URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -678,7 +678,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal logo image URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -689,7 +689,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal settings with the current values for each parameter.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -702,7 +702,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal settings with the current values for each parameter.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -714,7 +714,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the socket settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -726,7 +726,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the socket settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -737,7 +737,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -749,7 +749,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -760,7 +760,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -772,7 +772,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
@@ -783,7 +783,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal time zones.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
@@ -795,7 +795,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the available portal time zones.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
@@ -806,8 +806,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the DNS settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -819,8 +819,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the DNS settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -831,8 +831,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the mail domain settings specified in the request to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -844,8 +844,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the mail domain settings specified in the request to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -856,8 +856,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the portal color theme specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
@@ -869,8 +869,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the portal color theme specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
@@ -881,8 +881,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the email activation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
@@ -894,8 +894,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the email activation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
@@ -906,8 +906,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -919,8 +919,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the portal user invitation settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
@@ -963,14 +963,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsCommonSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -985,14 +985,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1027,14 +1027,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1054,14 +1054,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1081,7 +1081,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1141,7 +1141,7 @@ namespace Docspace.Api
         /// <summary>
         /// Close the admin helper Closes the administrator helper notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns></returns>
         public void CloseAdminHelper()
@@ -1152,7 +1152,7 @@ namespace Docspace.Api
         /// <summary>
         /// Close the admin helper Closes the administrator helper notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CloseAdminHelperWithHttpInfo()
@@ -1217,7 +1217,7 @@ namespace Docspace.Api
         /// <summary>
         /// Close the admin helper Closes the administrator helper notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1229,7 +1229,7 @@ namespace Docspace.Api
         /// <summary>
         /// Close the admin helper Closes the administrator helper notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1298,8 +1298,8 @@ namespace Docspace.Api
         /// <summary>
         /// Complete the Wizard settings Completes the Wizard settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>WizardSettingsWrapper</returns>
         public WizardSettingsWrapper CompleteWizard(WizardRequestsDto? wizardRequestsDto = default)
@@ -1311,8 +1311,8 @@ namespace Docspace.Api
         /// <summary>
         /// Complete the Wizard settings Completes the Wizard settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>ApiResponse of WizardSettingsWrapper</returns>
         public ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestsDto? wizardRequestsDto = default)
@@ -1378,8 +1378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Complete the Wizard settings Completes the Wizard settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
@@ -1392,8 +1392,8 @@ namespace Docspace.Api
         /// <summary>
         /// Complete the Wizard settings Completes the Wizard settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
@@ -1463,8 +1463,8 @@ namespace Docspace.Api
         /// <summary>
         /// Configure the deep link settings Saves the deep link configuration settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
         public TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default)
@@ -1476,8 +1476,8 @@ namespace Docspace.Api
         /// <summary>
         /// Configure the deep link settings Saves the deep link configuration settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
         public ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default)
@@ -1543,8 +1543,8 @@ namespace Docspace.Api
         /// <summary>
         /// Configure the deep link settings Saves the deep link configuration settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
@@ -1557,8 +1557,8 @@ namespace Docspace.Api
         /// <summary>
         /// Configure the deep link settings Saves the deep link configuration settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
@@ -1628,7 +1628,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
@@ -1641,7 +1641,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
@@ -1711,7 +1711,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -1725,7 +1725,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -1749,7 +1749,7 @@ namespace Docspace.Api
 
             if (id != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
             }
 
             // authentication (Basic) required
@@ -1799,7 +1799,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deep link settings Returns the deep link settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
         public TenantDeepLinkSettingsWrapper GetDeepLinkSettings()
@@ -1811,7 +1811,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deep link settings Returns the deep link settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
         public ApiResponse<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsWithHttpInfo()
@@ -1876,7 +1876,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deep link settings Returns the deep link settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
@@ -1889,7 +1889,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deep link settings Returns the deep link settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
@@ -1958,7 +1958,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment settings Returns the portal payment settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>PaymentSettingsWrapper</returns>
         public PaymentSettingsWrapper GetPaymentSettings()
@@ -1970,7 +1970,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment settings Returns the portal payment settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>ApiResponse of PaymentSettingsWrapper</returns>
         public ApiResponse<PaymentSettingsWrapper> GetPaymentSettingsWithHttpInfo()
@@ -2035,7 +2035,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment settings Returns the portal payment settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of PaymentSettingsWrapper</returns>
@@ -2048,7 +2048,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment settings Returns the portal payment settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentSettingsWrapper)</returns>
@@ -2117,7 +2117,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a color theme Returns the portal color theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
         public CustomColorThemesSettingsWrapper GetPortalColorTheme()
@@ -2129,7 +2129,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a color theme Returns the portal color theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
         public ApiResponse<CustomColorThemesSettingsWrapper> GetPortalColorThemeWithHttpInfo()
@@ -2164,7 +2164,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a color theme Returns the portal color theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
@@ -2177,7 +2177,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a color theme Returns the portal color theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
@@ -2216,7 +2216,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get hostname Returns the portal hostname.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetPortalHostname()
@@ -2228,7 +2228,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get hostname Returns the portal hostname.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetPortalHostnameWithHttpInfo()
@@ -2293,7 +2293,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get hostname Returns the portal hostname.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -2306,7 +2306,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get hostname Returns the portal hostname.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -2375,7 +2375,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal logo Returns the portal logo image URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper GetPortalLogo()
@@ -2387,7 +2387,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal logo Returns the portal logo image URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> GetPortalLogoWithHttpInfo()
@@ -2452,7 +2452,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal logo Returns the portal logo image URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -2465,7 +2465,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal logo Returns the portal logo image URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -2534,7 +2534,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>SettingsWrapper</returns>
@@ -2547,7 +2547,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>ApiResponse of SettingsWrapper</returns>
@@ -2587,7 +2587,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -2601,7 +2601,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -2625,7 +2625,7 @@ namespace Docspace.Api
 
             if (withpassword != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withpassword", withpassword));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withpassword", withpassword));
             }
 
 
@@ -2645,7 +2645,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the socket settings Returns the socket settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetSocketSettings()
@@ -2657,7 +2657,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the socket settings Returns the socket settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetSocketSettingsWithHttpInfo()
@@ -2722,7 +2722,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the socket settings Returns the socket settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -2735,7 +2735,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the socket settings Returns the socket settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -2804,7 +2804,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         public STRINGArrayWrapper GetSupportedCultures()
@@ -2816,7 +2816,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         public ApiResponse<STRINGArrayWrapper> GetSupportedCulturesWithHttpInfo()
@@ -2851,7 +2851,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -2864,7 +2864,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -2903,7 +2903,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user invitation settings Returns the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         public TenantUserInvitationSettingsWrapper GetTenantUserInvitationSettings()
@@ -2915,7 +2915,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user invitation settings Returns the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         public ApiResponse<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsWithHttpInfo()
@@ -2950,7 +2950,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user invitation settings Returns the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -2963,7 +2963,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user invitation settings Returns the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
@@ -3002,7 +3002,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get time zones Returns a list of all the available portal time zones.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>TimezonesRequestsArrayWrapper</returns>
         public TimezonesRequestsArrayWrapper GetTimeZones()
@@ -3014,7 +3014,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get time zones Returns a list of all the available portal time zones.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
         public ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo()
@@ -3079,7 +3079,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get time zones Returns a list of all the available portal time zones.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
@@ -3092,7 +3092,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get time zones Returns a list of all the available portal time zones.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
@@ -3161,8 +3161,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SaveDnsSettings(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default)
@@ -3174,8 +3174,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default)
@@ -3241,8 +3241,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -3255,8 +3255,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -3326,8 +3326,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default)
@@ -3339,8 +3339,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default)
@@ -3406,8 +3406,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -3420,8 +3420,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -3491,8 +3491,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a color theme Saves the portal color theme specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
         public CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default)
@@ -3504,8 +3504,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a color theme Saves the portal color theme specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
         public ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default)
@@ -3571,8 +3571,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a color theme Saves the portal color theme specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
@@ -3585,8 +3585,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a color theme Saves the portal color theme specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
@@ -3656,8 +3656,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the email activation settings Updates the email activation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>EmailActivationSettingsWrapper</returns>
         public EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettings? emailActivationSettings = default)
@@ -3669,8 +3669,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the email activation settings Updates the email activation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>ApiResponse of EmailActivationSettingsWrapper</returns>
         public ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettings? emailActivationSettings = default)
@@ -3736,8 +3736,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the email activation settings Updates the email activation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
@@ -3750,8 +3750,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the email activation settings Updates the email activation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
@@ -3821,8 +3821,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user invitation settings Updates the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         public TenantUserInvitationSettingsWrapper UpdateInvitationSettings(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default)
@@ -3834,8 +3834,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user invitation settings Updates the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         public ApiResponse<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsWithHttpInfo(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default)
@@ -3901,8 +3901,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user invitation settings Updates the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -3915,8 +3915,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user invitation settings Updates the portal user invitation settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>

@@ -1,4 +1,4 @@
-# Docspace.Api.FilesSettingsApi
+# DocSpace.Api.FilesSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -32,18 +32,30 @@ All URIs are relative to *http://localhost:8092*
 # **ChangeAccessToThirdparty**
 > BooleanWrapper ChangeAccessToThirdparty (SettingsRequestDto? settingsRequestDto = null)
 
-Change the third-party settings access
-
 Changes the access to the third-party settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -73,7 +85,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -112,20 +124,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -144,18 +142,30 @@ catch (ApiException e)
 # **ChangeAutomaticallyCleanUp**
 > AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp (AutoCleanupRequestDto? autoCleanupRequestDto = null)
 
-Update the trash bin auto-clearing setting
-
 Updates the trash bin auto-clearing setting.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **autoCleanupRequestDto** | [**AutoCleanupRequestDto?**](AutoCleanupRequestDto.md) | The auto-clearing request parameters. | [optional]  |
+
+### Return type
+
+[**AutoCleanUpDataWrapper**](AutoCleanUpDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -185,7 +195,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var autoCleanupRequestDto = new AutoCleanupRequestDto?(); // AutoCleanupRequestDto? |  (optional) 
+            var autoCleanupRequestDto = new AutoCleanupRequestDto?(); // AutoCleanupRequestDto? | The auto-clearing request parameters. (optional) 
 
             try
             {
@@ -224,20 +234,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **autoCleanupRequestDto** | [**AutoCleanupRequestDto?**](AutoCleanupRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AutoCleanUpDataWrapper**](AutoCleanUpDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -256,18 +252,30 @@ catch (ApiException e)
 # **ChangeDefaultAccessRights**
 > FileShareArrayWrapper ChangeDefaultAccessRights (List<int>? requestBody = null)
 
-Change the default access rights
-
 Changes the default access rights in the sharing settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;int&gt;?**](int.md) | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). | [optional]  |
+
+### Return type
+
+[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -336,20 +344,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **requestBody** | [**List&lt;int&gt;?**](int.md) | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). | [optional]  |
-
-### Return type
-
-[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -368,18 +362,30 @@ catch (ApiException e)
 # **ChangeDeleteConfirm**
 > BooleanWrapper ChangeDeleteConfirm (SettingsRequestDto? settingsRequestDto = null)
 
-Confirm the file deletion
-
 Specifies whether to confirm the file deletion or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -409,7 +415,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -448,20 +454,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -480,18 +472,30 @@ catch (ApiException e)
 # **ChangeDownloadZipFromBody**
 > ICompressWrapper ChangeDownloadZipFromBody (DisplayRequestDto? displayRequestDto = null)
 
-Change the archive format (using body parameters)
-
 Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**ICompressWrapper**](ICompressWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -521,7 +525,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? |  (optional) 
+            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -560,20 +564,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**ICompressWrapper**](ICompressWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -592,18 +582,30 @@ catch (ApiException e)
 # **CheckDocServiceUrl**
 > DocServiceUrlWrapper CheckDocServiceUrl (CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = null)
 
-Check the document service URL
-
 Checks the document service location URL.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **checkDocServiceUrlRequestDto** | [**CheckDocServiceUrlRequestDto?**](CheckDocServiceUrlRequestDto.md) | The request parameters for checking the document service location. | [optional]  |
+
+### Return type
+
+[**DocServiceUrlWrapper**](DocServiceUrlWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -633,7 +635,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var checkDocServiceUrlRequestDto = new CheckDocServiceUrlRequestDto?(); // CheckDocServiceUrlRequestDto? |  (optional) 
+            var checkDocServiceUrlRequestDto = new CheckDocServiceUrlRequestDto?(); // CheckDocServiceUrlRequestDto? | The request parameters for checking the document service location. (optional) 
 
             try
             {
@@ -672,20 +674,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **checkDocServiceUrlRequestDto** | [**CheckDocServiceUrlRequestDto?**](CheckDocServiceUrlRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**DocServiceUrlWrapper**](DocServiceUrlWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -705,18 +693,30 @@ catch (ApiException e)
 # **DisplayFileExtension**
 > BooleanWrapper DisplayFileExtension (SettingsRequestDto? settingsRequestDto = null)
 
-Display a file extension
-
 Specifies whether to display a file extension or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -746,7 +746,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -785,20 +785,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -817,18 +803,30 @@ catch (ApiException e)
 # **ExternalShare**
 > BooleanWrapper ExternalShare (DisplayRequestDto? displayRequestDto = null)
 
-Change the external sharing ability
-
 Changes the ability to share a file externally.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -858,7 +856,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? |  (optional) 
+            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -897,20 +895,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -929,18 +913,30 @@ catch (ApiException e)
 # **ExternalShareSocialMedia**
 > BooleanWrapper ExternalShareSocialMedia (DisplayRequestDto? displayRequestDto = null)
 
-Change the external sharing ability on social networks
-
 Changes the ability to share a file externally on social networks.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -970,7 +966,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? |  (optional) 
+            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -1009,20 +1005,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1041,18 +1023,26 @@ catch (ApiException e)
 # **Forcesave**
 > BooleanWrapper Forcesave ()
 
-Change the forcesaving ability
-
 Specifies if the file forcesaving is enabled or not.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1120,16 +1110,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1148,18 +1128,26 @@ This endpoint does not need any parameter.
 # **GetAutomaticallyCleanUp**
 > AutoCleanUpDataWrapper GetAutomaticallyCleanUp ()
 
-Get the trash bin auto-clearing setting
-
 Returns the trash bin auto-clearing setting.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AutoCleanUpDataWrapper**](AutoCleanUpDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1227,16 +1215,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AutoCleanUpDataWrapper**](AutoCleanUpDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1255,18 +1233,30 @@ This endpoint does not need any parameter.
 # **GetDocServiceUrl**
 > DocServiceUrlWrapper GetDocServiceUrl (bool? version = null)
 
-Get the document service URL
-
 Returns the URL address of the connected editors.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **version** | **bool?** | Specifies whether to return the editor version or not. | [optional]  |
+
+### Return type
+
+[**DocServiceUrlWrapper**](DocServiceUrlWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1319,20 +1309,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **version** | **bool?** | Specifies whether to return the editor version or not. | [optional]  |
-
-### Return type
-
-[**DocServiceUrlWrapper**](DocServiceUrlWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1350,18 +1326,26 @@ No authorization required
 # **GetFilesModule**
 > ModuleWrapper GetFilesModule ()
 
-Get the \"Documents\" information
-
 Returns the information about the \"Documents\" module.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ModuleWrapper**](ModuleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1429,16 +1413,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ModuleWrapper**](ModuleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1457,18 +1431,26 @@ This endpoint does not need any parameter.
 # **GetFilesSettings**
 > FilesSettingsWrapper GetFilesSettings ()
 
-Get file settings
-
 Returns all the file settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**FilesSettingsWrapper**](FilesSettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1520,16 +1502,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**FilesSettingsWrapper**](FilesSettingsWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1547,18 +1519,30 @@ No authorization required
 # **HideConfirmCancelOperation**
 > BooleanWrapper HideConfirmCancelOperation (SettingsRequestDto? settingsRequestDto = null)
 
-Hide confirmation dialog when canceling operations
-
 Hides the confirmation dialog when canceling operations.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1588,7 +1572,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -1627,20 +1611,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1659,18 +1629,30 @@ catch (ApiException e)
 # **HideConfirmConvert**
 > ModuleWrapper HideConfirmConvert (HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = null)
 
-Hide the confirmation dialog when converting
-
 Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **hideConfirmConvertRequestDto** | [**HideConfirmConvertRequestDto?**](HideConfirmConvertRequestDto.md) | The request parameters for hiding the confirmation dialog when converting. | [optional]  |
+
+### Return type
+
+[**ModuleWrapper**](ModuleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1700,7 +1682,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var hideConfirmConvertRequestDto = new HideConfirmConvertRequestDto?(); // HideConfirmConvertRequestDto? |  (optional) 
+            var hideConfirmConvertRequestDto = new HideConfirmConvertRequestDto?(); // HideConfirmConvertRequestDto? | The request parameters for hiding the confirmation dialog when converting. (optional) 
 
             try
             {
@@ -1739,20 +1721,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **hideConfirmConvertRequestDto** | [**HideConfirmConvertRequestDto?**](HideConfirmConvertRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**ModuleWrapper**](ModuleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1771,18 +1739,30 @@ catch (ApiException e)
 # **HideConfirmRoomLifetime**
 > BooleanWrapper HideConfirmRoomLifetime (SettingsRequestDto? settingsRequestDto = null)
 
-Hide confirmation dialog when changing room lifetime settings
-
 Hides the confirmation dialog when changing the room lifetime settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1812,7 +1792,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -1851,20 +1831,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1883,18 +1849,26 @@ catch (ApiException e)
 # **IsAvailablePrivacyRoomSettings**
 > BooleanWrapper IsAvailablePrivacyRoomSettings ()
 
-Check the \"Private Room\" availability
-
 Checks if the \"Private Room\" settings are available or not.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1962,16 +1936,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1990,18 +1954,30 @@ This endpoint does not need any parameter.
 # **KeepNewFileName**
 > BooleanWrapper KeepNewFileName (SettingsRequestDto? settingsRequestDto = null)
 
-Ask a new file name
-
 Specifies whether to ask a user for a file name on creation or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2031,7 +2007,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -2070,20 +2046,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2102,18 +2064,30 @@ catch (ApiException e)
 # **SetOpenEditorInSameTab**
 > BooleanWrapper SetOpenEditorInSameTab (SettingsRequestDto? settingsRequestDto = null)
 
-Open document in the same browser tab
-
 Changes the ability to open the document in the same browser tab.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2143,7 +2117,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -2182,20 +2156,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2214,18 +2174,26 @@ catch (ApiException e)
 # **StoreForcesave**
 > BooleanWrapper StoreForcesave ()
 
-Change the ability to store the forcesaved files
-
 Changes the ability to store the forcesaved file versions.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2293,16 +2261,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2321,18 +2279,30 @@ This endpoint does not need any parameter.
 # **StoreOriginal**
 > BooleanWrapper StoreOriginal (SettingsRequestDto? settingsRequestDto = null)
 
-Change the ability to upload original formats
-
 Changes the ability to upload documents in the original formats as well.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2362,7 +2332,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -2401,20 +2371,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2433,18 +2389,30 @@ catch (ApiException e)
 # **UpdateFileIfExist**
 > BooleanWrapper UpdateFileIfExist (SettingsRequestDto? settingsRequestDto = null)
 
-Update a file version if it exists
-
 Updates a file version if a file with such a name already exists.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2474,7 +2442,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSettingsApi(httpClient, config, httpClientHandler);
-            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? |  (optional) 
+            var settingsRequestDto = new SettingsRequestDto?(); // SettingsRequestDto? | The settings request parameters. (optional) 
 
             try
             {
@@ -2512,20 +2480,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **settingsRequestDto** | [**SettingsRequestDto?**](SettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

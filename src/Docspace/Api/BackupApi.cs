@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper CreateBackupSchedule(BackupScheduleDto? backupScheduleDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> CreateBackupScheduleWithHttpInfo(BackupScheduleDto? backupScheduleDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup history from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup history from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -131,7 +131,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -142,7 +142,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the history of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
         /// <returns>BackupHistoryRecordArrayWrapper</returns>
@@ -154,7 +154,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the history of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
         /// <returns>ApiResponse of BackupHistoryRecordArrayWrapper</returns>
@@ -165,7 +165,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
@@ -177,7 +177,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
@@ -188,7 +188,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
         /// <returns>ScheduleWrapper</returns>
@@ -200,7 +200,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of ScheduleWrapper</returns>
@@ -211,7 +211,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started restoring process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
@@ -223,7 +223,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started restoring process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
@@ -234,8 +234,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the backup of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
         BackupProgressWrapper StartBackup(BackupDto? backupDto = default);
@@ -246,8 +246,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the backup of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
         ApiResponse<BackupProgressWrapper> StartBackupWithHttpInfo(BackupDto? backupDto = default);
@@ -257,8 +257,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
         BackupProgressWrapper StartBackupRestore(BackupRestoreDto? backupRestoreDto = default);
@@ -269,8 +269,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
         ApiResponse<BackupProgressWrapper> StartBackupRestoreWithHttpInfo(BackupRestoreDto? backupRestoreDto = default);
@@ -289,8 +289,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -302,8 +302,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
@@ -327,7 +327,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
@@ -339,7 +339,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup history from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
@@ -352,7 +352,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup history from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
@@ -364,7 +364,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
@@ -377,7 +377,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
@@ -389,7 +389,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the history of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
@@ -402,7 +402,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the history of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
@@ -414,7 +414,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
@@ -427,7 +427,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started backup.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
@@ -439,7 +439,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
@@ -452,7 +452,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the backup schedule of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
@@ -464,7 +464,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started restoring process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
@@ -477,7 +477,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started restoring process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
@@ -489,8 +489,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the backup of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>Task of BackupProgressWrapper</returns>
@@ -502,8 +502,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the backup of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>Task of ApiResponse (BackupProgressWrapper)</returns>
@@ -514,8 +514,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>Task of BackupProgressWrapper</returns>
@@ -527,8 +527,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>Task of ApiResponse (BackupProgressWrapper)</returns>
@@ -571,14 +571,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public BackupApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -593,14 +593,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -635,14 +635,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -662,14 +662,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -689,7 +689,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -749,8 +749,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create the backup schedule Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper CreateBackupSchedule(BackupScheduleDto? backupScheduleDto = default)
@@ -762,8 +762,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create the backup schedule Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> CreateBackupScheduleWithHttpInfo(BackupScheduleDto? backupScheduleDto = default)
@@ -829,8 +829,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create the backup schedule Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -843,8 +843,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create the backup schedule Creates the backup schedule of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupScheduleDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupScheduleDto">The backup schedule parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/">REST API Reference for CreateBackupSchedule Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -914,7 +914,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup Deletes the backup with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -927,7 +927,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup Deletes the backup with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -994,7 +994,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup Deletes the backup with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
@@ -1008,7 +1008,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup Deletes the backup with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The backup ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/">REST API Reference for DeleteBackup Operation</seealso>
@@ -1079,7 +1079,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup history Deletes the backup history from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -1092,7 +1092,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup history Deletes the backup history from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -1162,7 +1162,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup history Deletes the backup history from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
@@ -1176,7 +1176,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup history Deletes the backup history from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/">REST API Reference for DeleteBackupHistory Operation</seealso>
@@ -1200,7 +1200,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -1250,7 +1250,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup schedule Deletes the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -1263,7 +1263,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup schedule Deletes the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -1333,7 +1333,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup schedule Deletes the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
@@ -1347,7 +1347,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the backup schedule Deletes the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/">REST API Reference for DeleteBackupSchedule Operation</seealso>
@@ -1371,7 +1371,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -1421,7 +1421,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup history Returns the history of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
         /// <returns>BackupHistoryRecordArrayWrapper</returns>
@@ -1434,7 +1434,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup history Returns the history of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
         /// <returns>ApiResponse of BackupHistoryRecordArrayWrapper</returns>
@@ -1504,7 +1504,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup history Returns the history of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
@@ -1518,7 +1518,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup history Returns the history of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/">REST API Reference for GetBackupHistory Operation</seealso>
@@ -1542,7 +1542,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -1592,7 +1592,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup progress Returns the progress of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
@@ -1605,7 +1605,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup progress Returns the progress of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
@@ -1675,7 +1675,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup progress Returns the progress of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
@@ -1689,7 +1689,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup progress Returns the progress of the started backup.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/">REST API Reference for GetBackupProgress Operation</seealso>
@@ -1713,7 +1713,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -1763,7 +1763,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup schedule Returns the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
         /// <returns>ScheduleWrapper</returns>
@@ -1776,7 +1776,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup schedule Returns the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
         /// <returns>ApiResponse of ScheduleWrapper</returns>
@@ -1846,7 +1846,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup schedule Returns the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
@@ -1860,7 +1860,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the backup schedule Returns the backup schedule of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/">REST API Reference for GetBackupSchedule Operation</seealso>
@@ -1884,7 +1884,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
             // authentication (Basic) required
@@ -1934,7 +1934,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the restoring progress Returns the progress of the started restoring process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
@@ -1947,7 +1947,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the restoring progress Returns the progress of the started restoring process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
@@ -1987,7 +1987,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the restoring progress Returns the progress of the started restoring process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
@@ -2001,7 +2001,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the restoring progress Returns the progress of the started restoring process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dump">Specifies if a dump will be created or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/">REST API Reference for GetRestoreProgress Operation</seealso>
@@ -2025,7 +2025,7 @@ namespace Docspace.Api
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
             }
 
 
@@ -2045,8 +2045,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the backup Starts the backup of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
         public BackupProgressWrapper StartBackup(BackupDto? backupDto = default)
@@ -2058,8 +2058,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the backup Starts the backup of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
         public ApiResponse<BackupProgressWrapper> StartBackupWithHttpInfo(BackupDto? backupDto = default)
@@ -2125,8 +2125,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the backup Starts the backup of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>Task of BackupProgressWrapper</returns>
@@ -2139,8 +2139,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the backup Starts the backup of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupDto">The backup parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/">REST API Reference for StartBackup Operation</seealso>
         /// <returns>Task of ApiResponse (BackupProgressWrapper)</returns>
@@ -2210,8 +2210,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the restoring process Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>BackupProgressWrapper</returns>
         public BackupProgressWrapper StartBackupRestore(BackupRestoreDto? backupRestoreDto = default)
@@ -2223,8 +2223,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the restoring process Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>ApiResponse of BackupProgressWrapper</returns>
         public ApiResponse<BackupProgressWrapper> StartBackupRestoreWithHttpInfo(BackupRestoreDto? backupRestoreDto = default)
@@ -2290,8 +2290,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the restoring process Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>Task of BackupProgressWrapper</returns>
@@ -2304,8 +2304,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the restoring process Starts the data restoring process of the current portal with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="backupRestoreDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="backupRestoreDto">The backup restoring parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/">REST API Reference for StartBackupRestore Operation</seealso>
         /// <returns>Task of ApiResponse (BackupProgressWrapper)</returns>

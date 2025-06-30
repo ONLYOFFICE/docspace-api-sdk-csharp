@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal web plugins.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>WebPluginArrayWrapper</returns>
@@ -131,7 +131,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal web plugins.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>ApiResponse of WebPluginArrayWrapper</returns>
@@ -142,7 +142,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a web plugin with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
@@ -155,7 +155,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a web plugin with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
@@ -176,7 +176,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
@@ -189,7 +189,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
@@ -201,7 +201,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -214,7 +214,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -226,7 +226,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -239,7 +239,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a web plugin by the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -251,7 +251,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal web plugins.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -264,7 +264,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal web plugins.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -276,7 +276,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a web plugin with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -290,7 +290,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a web plugin with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsWebpluginsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -357,14 +357,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -399,14 +399,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -426,14 +426,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -453,7 +453,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -513,7 +513,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add a web plugin Adds a web plugin from a file to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add a web plugin Adds a web plugin from a file to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
@@ -596,7 +596,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add a web plugin Adds a web plugin from a file to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
@@ -610,7 +610,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add a web plugin Adds a web plugin from a file to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
@@ -634,7 +634,7 @@ namespace Docspace.Api
 
             if (varSystem != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "system", varSystem));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "system", varSystem));
             }
 
             // authentication (Basic) required
@@ -684,7 +684,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a web plugin Deletes a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns></returns>
@@ -696,7 +696,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a web plugin Deletes a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -767,7 +767,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a web plugin Deletes a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -780,7 +780,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a web plugin Deletes a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -855,7 +855,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a web plugin by name Returns a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
@@ -868,7 +868,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a web plugin by name Returns a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
@@ -939,7 +939,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a web plugin by name Returns a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -953,7 +953,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a web plugin by name Returns a web plugin by the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -1028,7 +1028,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get web plugins Returns the portal web plugins.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>WebPluginArrayWrapper</returns>
@@ -1041,7 +1041,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get web plugins Returns the portal web plugins.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>ApiResponse of WebPluginArrayWrapper</returns>
@@ -1111,7 +1111,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get web plugins Returns the portal web plugins.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -1125,7 +1125,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get web plugins Returns the portal web plugins.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -1149,7 +1149,7 @@ namespace Docspace.Api
 
             if (enabled != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "enabled", enabled));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "enabled", enabled));
             }
 
             // authentication (Basic) required
@@ -1199,7 +1199,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a web plugin Updates a web plugin with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
@@ -1212,7 +1212,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a web plugin Updates a web plugin with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
@@ -1285,7 +1285,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a web plugin Updates a web plugin with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1299,7 +1299,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a web plugin Updates a web plugin with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

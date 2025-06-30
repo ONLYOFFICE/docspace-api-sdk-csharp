@@ -26,7 +26,7 @@
 
 using Newtonsoft.Json.Converters;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Formatter for 'date' openapi formats ss defined by full-date - RFC3339

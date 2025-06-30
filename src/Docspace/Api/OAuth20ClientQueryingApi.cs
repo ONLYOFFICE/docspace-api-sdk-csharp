@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ClientResponse</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -110,7 +110,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -123,7 +123,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -137,7 +137,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -150,7 +150,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -163,7 +163,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -175,7 +175,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the public information for a client with the ID secified din the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
@@ -187,7 +187,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the public information for a client with the ID secified din the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
@@ -207,7 +207,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
@@ -232,7 +232,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -272,7 +272,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -286,7 +286,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -301,7 +301,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -315,7 +315,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -329,7 +329,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -342,7 +342,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the public information for a client with the ID secified din the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -355,7 +355,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the public information for a client with the ID secified din the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -399,14 +399,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public OAuth20ClientQueryingApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -421,14 +421,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -463,14 +463,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -490,14 +490,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -517,7 +517,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -577,7 +577,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get client details Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ClientResponse</returns>
@@ -590,7 +590,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get client details Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
@@ -637,7 +637,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get client details Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
@@ -651,7 +651,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get client details Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
@@ -702,7 +702,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed client information Retrieves the detailed information for a client with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
@@ -715,7 +715,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed client information Retrieves the detailed information for a client with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
@@ -762,7 +762,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed client information Retrieves the detailed information for a client with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
@@ -776,7 +776,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed client information Retrieves the detailed information for a client with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
@@ -827,7 +827,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get clients Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -842,7 +842,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get clients Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -863,7 +863,7 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastClientId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
@@ -895,7 +895,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get clients Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -911,7 +911,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get clients Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -935,14 +935,14 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastClientId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
             }
             if (lastCreatedOn != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
             // authentication (asc_auth_key) required
@@ -968,7 +968,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed information of clients Retrieves a paginated list of information for all clients.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -983,7 +983,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed information of clients Retrieves a paginated list of information for all clients.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -1004,7 +1004,7 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastClientId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
@@ -1036,7 +1036,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed information of clients Retrieves a paginated list of information for all clients.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -1052,7 +1052,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get detailed information of clients Retrieves a paginated list of information for all clients.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
         /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
@@ -1076,14 +1076,14 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastClientId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
             }
             if (lastCreatedOn != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
             // authentication (asc_auth_key) required
@@ -1109,7 +1109,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user consents Retrieves a paginated list of user consents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -1123,7 +1123,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user consents Retrieves a paginated list of user consents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -1143,7 +1143,7 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastModifiedOn != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_modified_on", lastModifiedOn));
@@ -1171,7 +1171,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user consents Retrieves a paginated list of user consents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1186,7 +1186,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user consents Retrieves a paginated list of user consents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
         /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1209,10 +1209,10 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             if (lastModifiedOn != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "last_modified_on", lastModifiedOn));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_modified_on", lastModifiedOn));
             }
 
             // authentication (asc_auth_key) required
@@ -1238,7 +1238,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get public client information Returns the public information for a client with the ID secified din the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
@@ -1251,7 +1251,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get public client information Returns the public information for a client with the ID secified din the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
@@ -1292,7 +1292,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get public client information Returns the public information for a client with the ID secified din the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -1306,7 +1306,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get public client information Returns the public information for a client with the ID secified din the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>

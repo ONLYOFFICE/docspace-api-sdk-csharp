@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleUserDataApi
+# DocSpace.Api.PeopleUserDataApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -19,18 +19,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetDeletePersonalFolderProgress**
 > TaskProgressResponseWrapper GetDeletePersonalFolderProgress ()
 
-Get the progress of deleting the personal folder
-
 Returns the progress of deleting the personal folder.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -98,16 +106,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -126,18 +124,30 @@ This endpoint does not need any parameter.
 # **GetReassignProgress**
 > TaskProgressResponseWrapper GetReassignProgress (Guid userid)
 
-Get the reassignment progress
-
 Returns the progress of the started data reassignment for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -206,20 +216,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -238,18 +234,30 @@ catch (ApiException e)
 # **GetRemoveProgress**
 > TaskProgressResponseWrapper GetRemoveProgress (Guid userid)
 
-Get the deletion progress
-
 Returns the progress of the started data deletion for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -318,20 +326,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -350,18 +344,31 @@ catch (ApiException e)
 # **NecessaryReassign**
 > BooleanWrapper NecessaryReassign (Guid? userId = null, EmployeeType? type = null)
 
-Check the data reassignment need
-
 Checks if the reassignment of rooms and shared files is necessary or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The user ID. | [optional]  |
+| **type** | [**EmployeeType?**](EmployeeType.md) | The expected user type. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -431,21 +438,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The user ID. | [optional]  |
-| **type** | [**EmployeeType?**](EmployeeType?.md) | The expected user type. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -464,18 +456,26 @@ catch (ApiException e)
 # **SendInstructionsToDelete**
 > StringWrapper SendInstructionsToDelete ()
 
-Send the deletion instructions
-
 Sends the instructions for deleting a user profile.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -543,16 +543,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -572,18 +562,26 @@ This endpoint does not need any parameter.
 # **StartDeletePersonalFolder**
 > TaskProgressResponseWrapper StartDeletePersonalFolder ()
 
-Delete the personal folder
-
 Starts deleting the personal folder.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -651,16 +649,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -680,18 +668,30 @@ This endpoint does not need any parameter.
 # **StartReassign**
 > TaskProgressResponseWrapper StartReassign (StartReassignRequestDto? startReassignRequestDto = null)
 
-Start the data reassignment
-
 Starts the data reassignment for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **startReassignRequestDto** | [**StartReassignRequestDto?**](StartReassignRequestDto.md) | The request parameters for starting the reassignment process. | [optional]  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -721,7 +721,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
-            var startReassignRequestDto = new StartReassignRequestDto?(); // StartReassignRequestDto? |  (optional) 
+            var startReassignRequestDto = new StartReassignRequestDto?(); // StartReassignRequestDto? | The request parameters for starting the reassignment process. (optional) 
 
             try
             {
@@ -760,20 +760,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **startReassignRequestDto** | [**StartReassignRequestDto?**](StartReassignRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -793,18 +779,30 @@ catch (ApiException e)
 # **StartRemove**
 > TaskProgressResponseWrapper StartRemove (TerminateRequestDto? terminateRequestDto = null)
 
-Start the data deletion
-
 Starts the data deletion for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto.md) | The request parameters for terminating the reassignment/deletion process. | [optional]  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -834,7 +832,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
-            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? |  (optional) 
+            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
             {
@@ -873,20 +871,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -908,18 +892,30 @@ catch (ApiException e)
 # **TerminateReassign**
 > TaskProgressResponseWrapper TerminateReassign (TerminateRequestDto? terminateRequestDto = null)
 
-Terminate the data reassignment
-
 Terminates the data reassignment for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto.md) | The request parameters for terminating the reassignment/deletion process. | [optional]  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -949,7 +945,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
-            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? |  (optional) 
+            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
             {
@@ -988,20 +984,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1020,18 +1002,30 @@ catch (ApiException e)
 # **TerminateRemove**
 > void TerminateRemove (TerminateRequestDto? terminateRequestDto = null)
 
-Terminate the data deletion
-
 Terminates the data deletion for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto.md) | The request parameters for terminating the reassignment/deletion process. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1061,7 +1055,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
-            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? |  (optional) 
+            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
             {
@@ -1095,20 +1089,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

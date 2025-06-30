@@ -1,4 +1,4 @@
-# Docspace.Api.RoomsApi
+# DocSpace.Api.RoomsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -47,18 +47,31 @@ All URIs are relative to *http://localhost:8092*
 # **AddRoomTags**
 > FolderIntegerWrapper AddRoomTags (int id, BatchTagsRequestDto? batchTagsRequestDto = null)
 
-Add the room tags
-
 Adds the tags to a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room Id. |  |
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -128,21 +141,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room Id. |  |
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto?.md) | The parameters for adding tags. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -162,18 +160,31 @@ catch (ApiException e)
 # **ArchiveRoom**
 > FileOperationWrapper ArchiveRoom (int id, ArchiveRoomRequest? archiveRoomRequest = null)
 
-Archive a room
-
 Moves a room with the ID specified in the request to the \"Archive\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **archiveRoomRequest** | [**ArchiveRoomRequest?**](ArchiveRoomRequest.md) | The parameters for archiving a room. | [optional]  |
+
+### Return type
+
+[**FileOperationWrapper**](FileOperationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -243,21 +254,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **archiveRoomRequest** | [**ArchiveRoomRequest?**](ArchiveRoomRequest?.md) | The parameters for archiving a room. | [optional]  |
-
-### Return type
-
-[**FileOperationWrapper**](FileOperationWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -276,18 +272,31 @@ catch (ApiException e)
 # **ChangeRoomCover**
 > FolderIntegerWrapper ChangeRoomCover (int id, CoverRequestDto? coverRequestDto = null)
 
-Change the room cover
-
 Changes a cover of a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **coverRequestDto** | [**CoverRequestDto?**](CoverRequestDto.md) | The request parameters to change the room cover. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -357,21 +366,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **coverRequestDto** | [**CoverRequestDto?**](CoverRequestDto?.md) | The request parameters to change the room cover. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -392,18 +386,30 @@ catch (ApiException e)
 # **CreateRoom**
 > FolderIntegerWrapper CreateRoom (CreateRoomRequestDto? createRoomRequestDto = null)
 
-Create a room
-
 Creates a room in the \"Rooms\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createRoomRequestDto** | [**CreateRoomRequestDto?**](CreateRoomRequestDto.md) | The request parameters for creating a room. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -433,7 +439,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var createRoomRequestDto = new CreateRoomRequestDto?(); // CreateRoomRequestDto? |  (optional) 
+            var createRoomRequestDto = new CreateRoomRequestDto?(); // CreateRoomRequestDto? | The request parameters for creating a room. (optional) 
 
             try
             {
@@ -472,20 +478,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createRoomRequestDto** | [**CreateRoomRequestDto?**](CreateRoomRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -504,18 +496,30 @@ catch (ApiException e)
 # **CreateRoomFromTemplate**
 > RoomFromTemplateStatusWrapper CreateRoomFromTemplate (CreateRoomFromTemplateDto? createRoomFromTemplateDto = null)
 
-Create a room from the template
-
 Creates a room in the \"Rooms\" section based on the template.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createRoomFromTemplateDto** | [**CreateRoomFromTemplateDto?**](CreateRoomFromTemplateDto.md) | The parameters for creating a room from a template. | [optional]  |
+
+### Return type
+
+[**RoomFromTemplateStatusWrapper**](RoomFromTemplateStatusWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -545,7 +549,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var createRoomFromTemplateDto = new CreateRoomFromTemplateDto?(); // CreateRoomFromTemplateDto? |  (optional) 
+            var createRoomFromTemplateDto = new CreateRoomFromTemplateDto?(); // CreateRoomFromTemplateDto? | The parameters for creating a room from a template. (optional) 
 
             try
             {
@@ -584,20 +588,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createRoomFromTemplateDto** | [**CreateRoomFromTemplateDto?**](CreateRoomFromTemplateDto?.md) |  | [optional]  |
-
-### Return type
-
-[**RoomFromTemplateStatusWrapper**](RoomFromTemplateStatusWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -616,18 +606,31 @@ catch (ApiException e)
 # **CreateRoomLogo**
 > FolderIntegerWrapper CreateRoomLogo (int id, LogoRequest? logoRequest = null)
 
-Create a room logo
-
 Creates a logo for a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **logoRequest** | [**LogoRequest?**](LogoRequest.md) | The logo request parameters. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -697,21 +700,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **logoRequest** | [**LogoRequest?**](LogoRequest?.md) | The logo request parameters. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -731,18 +719,30 @@ catch (ApiException e)
 # **CreateRoomTag**
 > ObjectWrapper CreateRoomTag (CreateTagRequestDto? createTagRequestDto = null)
 
-Create a tag
-
 Creates a custom tag with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createTagRequestDto** | [**CreateTagRequestDto?**](CreateTagRequestDto.md) | The request parameters for creating a tag. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -772,7 +772,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var createTagRequestDto = new CreateTagRequestDto?(); // CreateTagRequestDto? |  (optional) 
+            var createTagRequestDto = new CreateTagRequestDto?(); // CreateTagRequestDto? | The request parameters for creating a tag. (optional) 
 
             try
             {
@@ -811,20 +811,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createTagRequestDto** | [**CreateTagRequestDto?**](CreateTagRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -844,18 +830,30 @@ catch (ApiException e)
 # **CreateRoomTemplate**
 > RoomTemplateStatusWrapper CreateRoomTemplate (RoomTemplateDto? roomTemplateDto = null)
 
-Start creating room template
-
 Starts creating the room template.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **roomTemplateDto** | [**RoomTemplateDto?**](RoomTemplateDto.md) | The room template parameters. | [optional]  |
+
+### Return type
+
+[**RoomTemplateStatusWrapper**](RoomTemplateStatusWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -885,7 +883,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var roomTemplateDto = new RoomTemplateDto?(); // RoomTemplateDto? |  (optional) 
+            var roomTemplateDto = new RoomTemplateDto?(); // RoomTemplateDto? | The room template parameters. (optional) 
 
             try
             {
@@ -924,20 +922,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **roomTemplateDto** | [**RoomTemplateDto?**](RoomTemplateDto?.md) |  | [optional]  |
-
-### Return type
-
-[**RoomTemplateStatusWrapper**](RoomTemplateStatusWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -956,18 +940,31 @@ catch (ApiException e)
 # **CreateRoomThirdParty**
 > FolderStringWrapper CreateRoomThirdParty (string id, CreateThirdPartyRoom? createThirdPartyRoom = null)
 
-Create a third-party room
-
 Creates a room in the \"Rooms\" section stored in a third-party storage.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | The ID of the folder in the third-party storage in which the contents of the room will be stored. |  |
+| **createThirdPartyRoom** | [**CreateThirdPartyRoom?**](CreateThirdPartyRoom.md) | The third-party room information. | [optional]  |
+
+### Return type
+
+[**FolderStringWrapper**](FolderStringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1037,21 +1034,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **string** | The ID of the folder in the third-party storage in which the contents of the room will be stored. |  |
-| **createThirdPartyRoom** | [**CreateThirdPartyRoom?**](CreateThirdPartyRoom?.md) | The third-party room information. | [optional]  |
-
-### Return type
-
-[**FolderStringWrapper**](FolderStringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1070,18 +1052,30 @@ catch (ApiException e)
 # **DeleteCustomTags**
 > void DeleteCustomTags (BatchTagsRequestDto? batchTagsRequestDto = null)
 
-Delete tags
-
 Deletes a bunch of custom tags specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1111,7 +1105,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? |  (optional) 
+            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for adding tags. (optional) 
 
             try
             {
@@ -1146,20 +1140,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1179,18 +1159,31 @@ void (empty response body)
 # **DeleteRoom**
 > FileOperationWrapper DeleteRoom (int id, DeleteRoomRequest? deleteRoomRequest = null)
 
-Remove a room
-
 Removes a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **deleteRoomRequest** | [**DeleteRoomRequest?**](DeleteRoomRequest.md) | The parameters for deleting a room. | [optional]  |
+
+### Return type
+
+[**FileOperationWrapper**](FileOperationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1260,21 +1253,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **deleteRoomRequest** | [**DeleteRoomRequest?**](DeleteRoomRequest?.md) | The parameters for deleting a room. | [optional]  |
-
-### Return type
-
-[**FileOperationWrapper**](FileOperationWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1293,18 +1271,30 @@ catch (ApiException e)
 # **DeleteRoomLogo**
 > FolderIntegerWrapper DeleteRoomLogo (int id)
 
-Remove a room logo
-
 Removes a logo from a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1373,20 +1363,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1405,18 +1381,31 @@ catch (ApiException e)
 # **DeleteRoomTags**
 > FolderIntegerWrapper DeleteRoomTags (int id, BatchTagsRequestDto? batchTagsRequestDto = null)
 
-Remove the room tags
-
 Removes the tags from a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room Id. |  |
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1486,21 +1475,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room Id. |  |
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto?.md) | The parameters for adding tags. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1520,18 +1494,30 @@ catch (ApiException e)
 # **GetNewRoomItems**
 > NewItemsFileEntryArrayWrapper GetNewRoomItems (int id)
 
-Get the new room items
-
 Returns a list of all the new items from a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**NewItemsFileEntryArrayWrapper**](NewItemsFileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1600,20 +1586,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**NewItemsFileEntryArrayWrapper**](NewItemsFileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1632,18 +1604,30 @@ catch (ApiException e)
 # **GetPublicSettings**
 > BooleanWrapper GetPublicSettings (int id)
 
-Get public settings
-
 Returns the public settings of the room template with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room template ID. |  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1712,20 +1696,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room template ID. |  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1744,18 +1714,26 @@ catch (ApiException e)
 # **GetRoomCovers**
 > CoversResultArrayWrapper GetRoomCovers ()
 
-Get covers
-
 Returns a list of all covers.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CoversResultArrayWrapper**](CoversResultArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1823,16 +1801,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CoversResultArrayWrapper**](CoversResultArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1851,18 +1819,26 @@ This endpoint does not need any parameter.
 # **GetRoomCreatingStatus**
 > RoomFromTemplateStatusWrapper GetRoomCreatingStatus ()
 
-Get the room creation progress
-
 Returns the progress of creating a room from the template.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**RoomFromTemplateStatusWrapper**](RoomFromTemplateStatusWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1930,16 +1906,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**RoomFromTemplateStatusWrapper**](RoomFromTemplateStatusWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1958,18 +1924,26 @@ This endpoint does not need any parameter.
 # **GetRoomIndexExport**
 > DocumentBuilderTaskWrapper GetRoomIndexExport ()
 
-Get the room index export
-
 Returns the room index export.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2037,16 +2011,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2065,18 +2029,30 @@ This endpoint does not need any parameter.
 # **GetRoomInfo**
 > FolderIntegerWrapper GetRoomInfo (int id)
 
-Get room information
-
 Returns the room information.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2129,20 +2105,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2160,18 +2122,31 @@ No authorization required
 # **GetRoomLinks**
 > FileShareArrayWrapper GetRoomLinks (int id, LinkType? type = null)
 
-Get the room links
-
 Returns the links of the room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **type** | [**LinkType?**](LinkType.md) | The link type. | [optional]  |
+
+### Return type
+
+[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2241,21 +2216,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **type** | [**LinkType?**](LinkType?.md) | The link type. | [optional]  |
-
-### Return type
-
-[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2274,18 +2234,34 @@ catch (ApiException e)
 # **GetRoomSecurityInfo**
 > FileShareArrayWrapper GetRoomSecurityInfo (int id, ShareFilterType? filterType = null, int? count = null, int? startIndex = null, string? filterValue = null)
 
-Get the room access rights
-
 Returns the access rights of a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **filterType** | [**ShareFilterType?**](ShareFilterType.md) | The filter type of the access rights. | [optional]  |
+| **count** | **int?** | The number of items to be retrieved or processed. | [optional]  |
+| **startIndex** | **int?** | The starting index of the items to retrieve in a paginated request. | [optional]  |
+| **filterValue** | **string?** | The text filter value used for filtering room security information. | [optional]  |
+
+### Return type
+
+[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2358,24 +2334,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **filterType** | [**ShareFilterType?**](ShareFilterType?.md) | The filter type of the access rights. | [optional]  |
-| **count** | **int?** | The number of items to be retrieved or processed. | [optional]  |
-| **startIndex** | **int?** | The starting index of the items to retrieve in a paginated request. | [optional]  |
-| **filterValue** | **string?** | The text filter value used for filtering room security information. | [optional]  |
-
-### Return type
-
-[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2394,18 +2352,32 @@ catch (ApiException e)
 # **GetRoomTagsInfo**
 > ObjectArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null)
 
-Get tags
-
 Returns a list of custom tags.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **count** | **int?** | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. | [optional]  |
+| **startIndex** | **int?** | Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional]  |
+| **filterValue** | **string?** | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. | [optional]  |
+
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2476,22 +2448,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **count** | **int?** | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. | [optional]  |
-| **startIndex** | **int?** | Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional]  |
-| **filterValue** | **string?** | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. | [optional]  |
-
-### Return type
-
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2510,18 +2466,26 @@ catch (ApiException e)
 # **GetRoomTemplateCreatingStatus**
 > RoomTemplateStatusWrapper GetRoomTemplateCreatingStatus ()
 
-Get status of room template creation
-
 Returns the progress status of the room template creation process.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**RoomTemplateStatusWrapper**](RoomTemplateStatusWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2589,16 +2553,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**RoomTemplateStatusWrapper**](RoomTemplateStatusWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2617,18 +2571,44 @@ This endpoint does not need any parameter.
 # **GetRoomsFolder**
 > FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get rooms
-
 Returns the contents of the \"Rooms\" section by the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **type** | [**List&lt;RoomType&gt;?**](RoomType.md) | The filter by room type. | [optional]  |
+| **subjectId** | **string?** | The filter by user ID. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea.md) | The room search area (Active, Archive, Any, Recent by links). | [optional]  |
+| **withoutTags** | **bool?** | Specifies whether to search by tags or not. | [optional]  |
+| **tags** | **string?** | The tags in the serialized format. | [optional]  |
+| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
+| **provider** | [**ProviderFilter?**](ProviderFilter.md) | The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). | [optional]  |
+| **subjectFilter** | [**SubjectFilter?**](SubjectFilter.md) | The filter by user (Owner - 0, Member - 1). | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter.md) | The filter by quota (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **storageFilter** | [**StorageFilter?**](StorageFilter.md) | The filter by storage (None - 0, Internal - 1, ThirdParty - 2). | [optional]  |
+| **count** | **int?** | Specifies the maximum number of items to retrieve. | [optional]  |
+| **startIndex** | **int?** | The index from which to start retrieving the room content. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the room content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text filter value used to refine search or query operations. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2711,34 +2691,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **type** | [**List&lt;RoomType&gt;?**](RoomType.md) | The filter by room type. | [optional]  |
-| **subjectId** | **string?** | The filter by user ID. | [optional]  |
-| **searchArea** | [**SearchArea?**](SearchArea?.md) | The room search area (Active, Archive, Any, Recent by links). | [optional]  |
-| **withoutTags** | **bool?** | Specifies whether to search by tags or not. | [optional]  |
-| **tags** | **string?** | The tags in the serialized format. | [optional]  |
-| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
-| **provider** | [**ProviderFilter?**](ProviderFilter?.md) | The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). | [optional]  |
-| **subjectFilter** | [**SubjectFilter?**](SubjectFilter?.md) | The filter by user (Owner - 0, Member - 1). | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The filter by quota (All - 0, Default - 1, Custom - 2). | [optional]  |
-| **storageFilter** | [**StorageFilter?**](StorageFilter?.md) | The filter by storage (None - 0, Internal - 1, ThirdParty - 2). | [optional]  |
-| **count** | **int?** | Specifies the maximum number of items to retrieve. | [optional]  |
-| **startIndex** | **int?** | The index from which to start retrieving the room content. | [optional]  |
-| **sortBy** | **string?** | Specifies the field by which the room content should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text filter value used to refine search or query operations. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2758,18 +2710,26 @@ catch (ApiException e)
 # **GetRoomsNewItems**
 > NewItemsRoomNewItemsArrayWrapper GetRoomsNewItems ()
 
-Get the room new items
-
 Returns the room new items.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**NewItemsRoomNewItemsArrayWrapper**](NewItemsRoomNewItemsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2837,16 +2797,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**NewItemsRoomNewItemsArrayWrapper**](NewItemsRoomNewItemsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2865,18 +2815,30 @@ This endpoint does not need any parameter.
 # **GetRoomsPrimaryExternalLink**
 > FileShareWrapper GetRoomsPrimaryExternalLink (int id)
 
-Get the room primary external link
-
 Returns the primary external link of the room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2945,20 +2907,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2978,18 +2926,30 @@ catch (ApiException e)
 # **PinRoom**
 > FolderIntegerWrapper PinRoom (int id)
 
-Pin a room
-
 Pins a room with the ID specified in the request to the top of the list.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3058,20 +3018,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3090,18 +3036,30 @@ catch (ApiException e)
 # **ReorderRoom**
 > FolderIntegerWrapper ReorderRoom (int id)
 
-Reorder the room
-
 Reorders the room with ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3170,20 +3128,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3202,18 +3146,31 @@ catch (ApiException e)
 # **ResendEmailInvitations**
 > void ResendEmailInvitations (int id, UserInvitation? userInvitation = null)
 
-Resend the room invitations
-
 Resends the email invitations to a room with the ID specified in the request to the selected users.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **userInvitation** | [**UserInvitation?**](UserInvitation.md) | The user invitation parameters. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3279,21 +3236,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **userInvitation** | [**UserInvitation?**](UserInvitation?.md) | The user invitation parameters. | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3312,18 +3254,30 @@ void (empty response body)
 # **SetPublicSettings**
 > void SetPublicSettings (SetPublicDto? setPublicDto = null)
 
-Set public settings
-
 Sets the public settings for the room template with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **setPublicDto** | [**SetPublicDto?**](SetPublicDto.md) | The public settings of the room template to set. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3353,7 +3307,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var setPublicDto = new SetPublicDto?(); // SetPublicDto? |  (optional) 
+            var setPublicDto = new SetPublicDto?(); // SetPublicDto? | The public settings of the room template to set. (optional) 
 
             try
             {
@@ -3388,20 +3342,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **setPublicDto** | [**SetPublicDto?**](SetPublicDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3420,18 +3360,31 @@ void (empty response body)
 # **SetRoomLink**
 > FileShareWrapper SetRoomLink (int id, RoomLinkRequest? roomLinkRequest = null)
 
-Set the room external or invitation link
-
 Sets the room external or invitation link with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **roomLinkRequest** | [**RoomLinkRequest?**](RoomLinkRequest.md) | The room link parameters. | [optional]  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3501,21 +3454,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **roomLinkRequest** | [**RoomLinkRequest?**](RoomLinkRequest?.md) | The room link parameters. | [optional]  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3534,18 +3472,31 @@ catch (ApiException e)
 # **SetRoomSecurity**
 > RoomSecurityWrapper SetRoomSecurity (int id, RoomInvitationRequest? roomInvitationRequest = null)
 
-Set the room access rights
-
 Sets the access rights to the room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **roomInvitationRequest** | [**RoomInvitationRequest?**](RoomInvitationRequest.md) | The room invitation request. | [optional]  |
+
+### Return type
+
+[**RoomSecurityWrapper**](RoomSecurityWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3615,21 +3566,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **roomInvitationRequest** | [**RoomInvitationRequest?**](RoomInvitationRequest?.md) | The room invitation request. | [optional]  |
-
-### Return type
-
-[**RoomSecurityWrapper**](RoomSecurityWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3648,18 +3584,30 @@ catch (ApiException e)
 # **StartRoomIndexExport**
 > DocumentBuilderTaskWrapper StartRoomIndexExport (int id)
 
-Start the room index export
-
 Starts the index export of a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3728,20 +3676,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3761,18 +3695,26 @@ catch (ApiException e)
 # **TerminateRoomIndexExport**
 > void TerminateRoomIndexExport ()
 
-Terminate the room index export
-
 Terminates the room index export.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3836,16 +3778,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3864,18 +3796,31 @@ void (empty response body)
 # **UnarchiveRoom**
 > FileOperationWrapper UnarchiveRoom (int id, ArchiveRoomRequest? archiveRoomRequest = null)
 
-Unarchive a room
-
 Moves a room with the ID specified in the request from the \"Archive\" section to the \"Rooms\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **archiveRoomRequest** | [**ArchiveRoomRequest?**](ArchiveRoomRequest.md) | The parameters for archiving a room. | [optional]  |
+
+### Return type
+
+[**FileOperationWrapper**](FileOperationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3945,21 +3890,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **archiveRoomRequest** | [**ArchiveRoomRequest?**](ArchiveRoomRequest?.md) | The parameters for archiving a room. | [optional]  |
-
-### Return type
-
-[**FileOperationWrapper**](FileOperationWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3978,18 +3908,30 @@ catch (ApiException e)
 # **UnpinRoom**
 > FolderIntegerWrapper UnpinRoom (int id)
 
-Unpin a room
-
 Unpins a room with the ID specified in the request from the top of the list.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID of the request. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4058,20 +4000,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -4090,18 +4018,31 @@ catch (ApiException e)
 # **UpdateRoom**
 > FolderIntegerWrapper UpdateRoom (int id, UpdateRoomRequest? updateRoomRequest = null)
 
-Update a room
-
 Updates a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The room ID. |  |
+| **updateRoomRequest** | [**UpdateRoomRequest?**](UpdateRoomRequest.md) | The request parameters for updating a room. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4171,21 +4112,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **updateRoomRequest** | [**UpdateRoomRequest?**](UpdateRoomRequest?.md) | The request parameters for updating a room. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4204,18 +4130,30 @@ catch (ApiException e)
 # **UploadRoomLogo**
 > UploadResultWrapper UploadRoomLogo (List<KeyValuePairStringStringValues>? formCollection = null)
 
-Upload a room logo image
-
 Uploads a temporary image to create a room logo.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;?**](KeyValuePairStringStringValues.md) | The image data. | [optional]  |
+
+### Return type
+
+[**UploadResultWrapper**](UploadResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4283,20 +4221,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;?**](KeyValuePairStringStringValues.md) | The image data. | [optional]  |
-
-### Return type
-
-[**UploadResultWrapper**](UploadResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

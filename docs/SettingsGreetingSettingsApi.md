@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsGreetingSettingsApi
+# DocSpace.Api.SettingsGreetingSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -13,18 +13,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetGreetingSettings**
 > ObjectWrapper GetGreetingSettings ()
 
-Get greeting settings
-
 Returns the greeting settings for the current portal.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -92,16 +100,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -120,18 +118,26 @@ This endpoint does not need any parameter.
 # **GetIsDefaultGreetingSettings**
 > BooleanWrapper GetIsDefaultGreetingSettings ()
 
-Check the default greeting settings
-
 Checks if the greeting settings of the current portal are set to default or not.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -199,16 +205,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -227,18 +223,26 @@ This endpoint does not need any parameter.
 # **RestoreGreetingSettings**
 > StringWrapper RestoreGreetingSettings ()
 
-Restore the greeting settings
-
 Restores the current portal greeting settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -306,16 +310,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -334,18 +328,30 @@ This endpoint does not need any parameter.
 # **SaveGreetingSettings**
 > StringWrapper SaveGreetingSettings (GreetingSettingsRequestsDto? greetingSettingsRequestsDto = null)
 
-Save the greeting settings
-
 Saves the greeting settings specified in the request to the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **greetingSettingsRequestsDto** | [**GreetingSettingsRequestsDto?**](GreetingSettingsRequestsDto.md) | The request parameters for managing the greeting settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -375,7 +381,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsGreetingSettingsApi(httpClient, config, httpClientHandler);
-            var greetingSettingsRequestsDto = new GreetingSettingsRequestsDto?(); // GreetingSettingsRequestsDto? |  (optional) 
+            var greetingSettingsRequestsDto = new GreetingSettingsRequestsDto?(); // GreetingSettingsRequestsDto? | The request parameters for managing the greeting settings. (optional) 
 
             try
             {
@@ -413,20 +419,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **greetingSettingsRequestsDto** | [**GreetingSettingsRequestsDto?**](GreetingSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

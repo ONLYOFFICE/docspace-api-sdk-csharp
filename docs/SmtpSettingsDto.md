@@ -1,4 +1,4 @@
-# Docspace.Model.SmtpSettingsDto
+# DocSpace.Model.SmtpSettingsDto
 The SMTP settings parameters.
 
 ## Properties

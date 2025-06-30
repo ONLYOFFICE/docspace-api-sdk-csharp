@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets a quota limit of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         EmployeeFullArrayWrapper ResetUsersQuota(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets a quota limit of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> ResetUsersQuotaWithHttpInfo(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a quota limit for the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         EmployeeFullArrayWrapper UpdateUserQuota(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a quota limit for the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> UpdateUserQuotaWithHttpInfo(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default);
@@ -105,8 +105,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets a quota limit of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -118,8 +118,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets a quota limit of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -130,8 +130,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a quota limit for the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -143,8 +143,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a quota limit for the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -187,14 +187,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleQuotaApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -251,14 +251,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,8 +365,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset a user quota limit Resets a quota limit of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper ResetUsersQuota(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default)
@@ -378,8 +378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset a user quota limit Resets a quota limit of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         public ApiResponse<EmployeeFullArrayWrapper> ResetUsersQuotaWithHttpInfo(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default)
@@ -445,8 +445,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset a user quota limit Resets a quota limit of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset a user quota limit Resets a quota limit of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/">REST API Reference for ResetUsersQuota Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -530,8 +530,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user quota limit Changes a quota limit for the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper UpdateUserQuota(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default)
@@ -543,8 +543,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user quota limit Changes a quota limit for the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         public ApiResponse<EmployeeFullArrayWrapper> UpdateUserQuotaWithHttpInfo(UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = default)
@@ -610,8 +610,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user quota limit Changes a quota limit for the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -624,8 +624,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user quota limit Changes a quota limit for the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersQuotaRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersQuotaRequestDto">The request parameters for updating a user quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/">REST API Reference for UpdateUserQuota Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>

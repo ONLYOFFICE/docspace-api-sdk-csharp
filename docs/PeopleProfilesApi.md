@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleProfilesApi
+# DocSpace.Api.PeopleProfilesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -23,18 +23,30 @@ All URIs are relative to *http://localhost:8092*
 # **AddMember**
 > EmployeeFullWrapper AddMember (MemberRequestDto? memberRequestDto = null)
 
-Add a user
-
 Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **memberRequestDto** | [**MemberRequestDto?**](MemberRequestDto.md) | The user request parameters. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -64,7 +76,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
-            var memberRequestDto = new MemberRequestDto?(); // MemberRequestDto? |  (optional) 
+            var memberRequestDto = new MemberRequestDto?(); // MemberRequestDto? | The user request parameters. (optional) 
 
             try
             {
@@ -103,20 +115,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **memberRequestDto** | [**MemberRequestDto?**](MemberRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -136,18 +134,30 @@ catch (ApiException e)
 # **DeleteMember**
 > EmployeeFullWrapper DeleteMember (string userid)
 
-Delete a user
-
 Deletes a user with the ID specified in the request from the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -216,20 +226,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -251,18 +247,26 @@ catch (ApiException e)
 # **DeleteProfile**
 > EmployeeFullWrapper DeleteProfile ()
 
-Delete my profile
-
 Deletes the current user profile.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -330,16 +334,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -360,18 +354,36 @@ This endpoint does not need any parameter.
 # **GetAllProfiles**
 > EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
-Get profiles
-
 Returns a list of profiles for all the portal users.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **filterBy** | **string?** | Specifies the filter criteria for user-related queries. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The text value used as an additional filter criterion for profiles retrieval. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -446,26 +458,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
-| **filterBy** | **string?** | Specifies the filter criteria for user-related queries. | [optional]  |
-| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
-| **filterValue** | **string?** | The text value used as an additional filter criterion for profiles retrieval. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -486,16 +478,24 @@ catch (ApiException e)
 
 Returns the user claims.
 
-Returns the user claims.
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -563,16 +563,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -591,18 +581,31 @@ This endpoint does not need any parameter.
 # **GetProfileByEmail**
 > EmployeeFullWrapper GetProfileByEmail (string? email = null, string? culture = null)
 
-Get a profile by user email
-
 Returns the detailed information about a profile of the user with the email specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string?** | The user email address. | [optional]  |
+| **culture** | **string?** | Culture | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -672,21 +675,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **email** | **string?** | The user email address. | [optional]  |
-| **culture** | **string?** | Culture | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -706,18 +694,30 @@ catch (ApiException e)
 # **GetProfileByUserId**
 > EmployeeFullWrapper GetProfileByUserId (string userid)
 
-Get a profile by user name
-
 Returns the detailed information about a profile of the user with the name specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -786,20 +786,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -820,18 +806,26 @@ catch (ApiException e)
 # **GetSelfProfile**
 > EmployeeFullWrapper GetSelfProfile ()
 
-Get my profile
-
 Returns the detailed information about the current user profile.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -899,16 +893,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -927,18 +911,30 @@ This endpoint does not need any parameter.
 # **InviteUsers**
 > EmployeeArrayWrapper InviteUsers (InviteUsersRequestDto? inviteUsersRequestDto = null)
 
-Invite users
-
 Invites users specified in the request to the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inviteUsersRequestDto** | [**InviteUsersRequestDto?**](InviteUsersRequestDto.md) | The request parameters for inviting users. | [optional]  |
+
+### Return type
+
+[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -968,7 +964,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
-            var inviteUsersRequestDto = new InviteUsersRequestDto?(); // InviteUsersRequestDto? |  (optional) 
+            var inviteUsersRequestDto = new InviteUsersRequestDto?(); // InviteUsersRequestDto? | The request parameters for inviting users. (optional) 
 
             try
             {
@@ -1007,20 +1003,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inviteUsersRequestDto** | [**InviteUsersRequestDto?**](InviteUsersRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1040,18 +1022,30 @@ catch (ApiException e)
 # **RemoveUsers**
 > EmployeeFullArrayWrapper RemoveUsers (UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Delete users
-
 Deletes a list of the users with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1081,7 +1075,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? |  (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
             {
@@ -1120,20 +1114,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1153,18 +1133,30 @@ catch (ApiException e)
 # **ResendUserInvites**
 > EmployeeFullArrayWrapper ResendUserInvites (UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Resend activation emails
-
 Resends emails to the users who have not activated their emails.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1194,7 +1186,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? |  (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
             {
@@ -1233,20 +1225,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1266,18 +1244,30 @@ catch (ApiException e)
 # **SendEmailChangeInstructions**
 > StringWrapper SendEmailChangeInstructions (UpdateMemberRequestDto? updateMemberRequestDto = null)
 
-Send instructions to change email
-
 Sends a message to the user email with the instructions to change the email address connected to the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMemberRequestDto** | [**UpdateMemberRequestDto?**](UpdateMemberRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1307,7 +1297,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
-            var updateMemberRequestDto = new UpdateMemberRequestDto?(); // UpdateMemberRequestDto? |  (optional) 
+            var updateMemberRequestDto = new UpdateMemberRequestDto?(); // UpdateMemberRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
             {
@@ -1346,20 +1336,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMemberRequestDto** | [**UpdateMemberRequestDto?**](UpdateMemberRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1381,18 +1357,31 @@ catch (ApiException e)
 # **UpdateMember**
 > EmployeeFullWrapper UpdateMember (string userid, UpdateMemberRequestDto? updateMemberRequestDto = null)
 
-Update a user
-
 Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **updateMemberRequestDto** | [**UpdateMemberRequestDto?**](UpdateMemberRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1462,21 +1451,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **updateMemberRequestDto** | [**UpdateMemberRequestDto?**](UpdateMemberRequestDto?.md) | The request parameters for updating the user information. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1498,18 +1472,31 @@ catch (ApiException e)
 # **UpdateMemberCulture**
 > EmployeeFullWrapper UpdateMemberCulture (string userid, Culture? culture = null)
 
-Update a user culture code
-
 Updates the user culture code with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **culture** | [**Culture?**](Culture.md) | The culture code parameters. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1578,21 +1565,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **culture** | [**Culture?**](Culture?.md) | The culture code parameters. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

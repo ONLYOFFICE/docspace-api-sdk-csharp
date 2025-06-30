@@ -1,4 +1,4 @@
-# Docspace.Model.NotificationSettingsRequestsDto
+# DocSpace.Model.NotificationSettingsRequestsDto
 The request parameters for configuring notification settings.
 
 ## Properties

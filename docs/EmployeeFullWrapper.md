@@ -1,12 +1,12 @@
-# Docspace.Model.EmployeeFullWrapper
+# DocSpace.Model.EmployeeFullWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**EmployeeFullDto**](EmployeeFullDto.md) |  | [optional] 
+**Response** | [**EmployeeFullDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,12 +1,12 @@
-# Docspace.Model.TfaSettingsArrayWrapper
+# DocSpace.Model.TfaSettingsArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;TfaSettingsDto&gt;**](TfaSettingsDto.md) |  | [optional] 
+**Response** | [**List&lt;TfaSettingsDto&gt;**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

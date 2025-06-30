@@ -1,4 +1,4 @@
-# Docspace.Model.MembersRequest
+# DocSpace.Model.MembersRequest
 The member request.
 
 ## Properties

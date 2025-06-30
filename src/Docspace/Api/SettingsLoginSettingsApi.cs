@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal login settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         LoginSettingsWrapper GetLoginSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal login settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         ApiResponse<LoginSettingsWrapper> GetLoginSettingsWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the portal login settings to default.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         LoginSettingsWrapper SetDefaultLoginSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the portal login settings to default.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         ApiResponse<LoginSettingsWrapper> SetDefaultLoginSettingsWithHttpInfo();
@@ -92,8 +92,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the login settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         LoginSettingsWrapper UpdateLoginSettings(LoginSettingsRequestDto? loginSettingsRequestDto = default);
@@ -104,8 +104,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the login settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         ApiResponse<LoginSettingsWrapper> UpdateLoginSettingsWithHttpInfo(LoginSettingsRequestDto? loginSettingsRequestDto = default);
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal login settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the portal login settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the portal login settings to default.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the portal login settings to default.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>
@@ -170,8 +170,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the login settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -183,8 +183,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the login settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>
@@ -227,14 +227,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsLoginSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -249,14 +249,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -291,14 +291,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -318,14 +318,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the login settings Returns the portal login settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         public LoginSettingsWrapper GetLoginSettings()
@@ -417,7 +417,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the login settings Returns the portal login settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         public ApiResponse<LoginSettingsWrapper> GetLoginSettingsWithHttpInfo()
@@ -482,7 +482,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the login settings Returns the portal login settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -495,7 +495,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the login settings Returns the portal login settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/">REST API Reference for GetLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>
@@ -564,7 +564,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the login settings Resets the portal login settings to default.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         public LoginSettingsWrapper SetDefaultLoginSettings()
@@ -576,7 +576,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the login settings Resets the portal login settings to default.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         public ApiResponse<LoginSettingsWrapper> SetDefaultLoginSettingsWithHttpInfo()
@@ -641,7 +641,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the login settings Resets the portal login settings to default.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -654,7 +654,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the login settings Resets the portal login settings to default.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/">REST API Reference for SetDefaultLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>
@@ -723,8 +723,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the login settings Updates the login settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>LoginSettingsWrapper</returns>
         public LoginSettingsWrapper UpdateLoginSettings(LoginSettingsRequestDto? loginSettingsRequestDto = default)
@@ -736,8 +736,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the login settings Updates the login settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>ApiResponse of LoginSettingsWrapper</returns>
         public ApiResponse<LoginSettingsWrapper> UpdateLoginSettingsWithHttpInfo(LoginSettingsRequestDto? loginSettingsRequestDto = default)
@@ -803,8 +803,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the login settings Updates the login settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>Task of LoginSettingsWrapper</returns>
@@ -817,8 +817,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the login settings Updates the login settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginSettingsRequestDto">The request parameters for configuring login security and performance settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/">REST API Reference for UpdateLoginSettings Operation</seealso>
         /// <returns>Task of ApiResponse (LoginSettingsWrapper)</returns>

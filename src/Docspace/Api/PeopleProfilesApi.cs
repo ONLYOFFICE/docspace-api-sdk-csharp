@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         EmployeeFullWrapper AddMember(MemberRequestDto? memberRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> AddMemberWithHttpInfo(MemberRequestDto? memberRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         EmployeeFullWrapper DeleteProfile();
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> DeleteProfileWithHttpInfo();
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -135,7 +135,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -152,7 +152,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user claims.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetClaims();
@@ -163,7 +163,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user claims.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo();
@@ -173,7 +173,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the email specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
@@ -186,7 +186,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the email specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
@@ -198,7 +198,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
@@ -210,7 +210,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
@@ -221,7 +221,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         EmployeeFullWrapper GetSelfProfile();
@@ -232,7 +232,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> GetSelfProfileWithHttpInfo();
@@ -242,8 +242,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Invites users specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
         EmployeeArrayWrapper InviteUsers(InviteUsersRequestDto? inviteUsersRequestDto = default);
@@ -254,8 +254,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Invites users specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
         ApiResponse<EmployeeArrayWrapper> InviteUsersWithHttpInfo(InviteUsersRequestDto? inviteUsersRequestDto = default);
@@ -265,8 +265,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a list of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         EmployeeFullArrayWrapper RemoveUsers(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -277,8 +277,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a list of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> RemoveUsersWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -288,8 +288,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resends emails to the users who have not activated their emails.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         EmployeeFullArrayWrapper ResendUserInvites(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -300,8 +300,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resends emails to the users who have not activated their emails.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> ResendUserInvitesWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -311,8 +311,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SendEmailChangeInstructions(UpdateMemberRequestDto? updateMemberRequestDto = default);
@@ -323,8 +323,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default);
@@ -334,7 +334,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
@@ -347,7 +347,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
@@ -359,7 +359,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the user culture code with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
@@ -372,7 +372,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the user culture code with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
@@ -393,8 +393,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -406,8 +406,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -418,7 +418,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
@@ -431,7 +431,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
@@ -443,7 +443,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -455,7 +455,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -466,7 +466,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -485,7 +485,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles for all the portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -503,7 +503,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user claims.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -515,7 +515,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user claims.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the email specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -540,7 +540,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the email specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -553,7 +553,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
@@ -566,7 +566,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a profile of the user with the name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
@@ -578,7 +578,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -590,7 +590,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the current user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -601,8 +601,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Invites users specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Invites users specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
@@ -626,8 +626,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a list of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -639,8 +639,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a list of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -651,8 +651,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resends emails to the users who have not activated their emails.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -664,8 +664,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resends emails to the users who have not activated their emails.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -676,8 +676,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -689,8 +689,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -701,7 +701,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -715,7 +715,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -728,7 +728,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the user culture code with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -742,7 +742,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the user culture code with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -787,14 +787,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleProfilesApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -809,14 +809,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -851,14 +851,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -878,14 +878,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -905,7 +905,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -965,8 +965,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a user Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper AddMember(MemberRequestDto? memberRequestDto = default)
@@ -978,8 +978,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a user Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         public ApiResponse<EmployeeFullWrapper> AddMemberWithHttpInfo(MemberRequestDto? memberRequestDto = default)
@@ -1045,8 +1045,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a user Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -1059,8 +1059,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a user Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="memberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="memberRequestDto">The user request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -1130,7 +1130,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user Deletes a user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
@@ -1143,7 +1143,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user Deletes a user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
@@ -1214,7 +1214,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user Deletes a user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
@@ -1228,7 +1228,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user Deletes a user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/">REST API Reference for DeleteMember Operation</seealso>
@@ -1303,7 +1303,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete my profile Deletes the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper DeleteProfile()
@@ -1315,7 +1315,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete my profile Deletes the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         public ApiResponse<EmployeeFullWrapper> DeleteProfileWithHttpInfo()
@@ -1380,7 +1380,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete my profile Deletes the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -1393,7 +1393,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete my profile Deletes the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/">REST API Reference for DeleteProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -1462,7 +1462,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -1481,7 +1481,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -1581,7 +1581,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -1601,7 +1601,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles Returns a list of profiles for all the portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">The maximum number of items to be retrieved in the response. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to be retrieved in a filtered result set. (optional)</param>
         /// <param name="filterBy">Specifies the filter criteria for user-related queries. (optional)</param>
@@ -1631,31 +1631,31 @@ namespace Docspace.Api
 
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1705,7 +1705,7 @@ namespace Docspace.Api
         /// <summary>
         /// Returns the user claims. Returns the user claims.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetClaims()
@@ -1717,7 +1717,7 @@ namespace Docspace.Api
         /// <summary>
         /// Returns the user claims. Returns the user claims.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo()
@@ -1782,7 +1782,7 @@ namespace Docspace.Api
         /// <summary>
         /// Returns the user claims. Returns the user claims.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -1795,7 +1795,7 @@ namespace Docspace.Api
         /// <summary>
         /// Returns the user claims. Returns the user claims.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -1864,7 +1864,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user email Returns the detailed information about a profile of the user with the email specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
@@ -1878,7 +1878,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user email Returns the detailed information about a profile of the user with the email specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
@@ -1953,7 +1953,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user email Returns the detailed information about a profile of the user with the email specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1968,7 +1968,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user email Returns the detailed information about a profile of the user with the email specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1993,11 +1993,11 @@ namespace Docspace.Api
 
             if (email != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "email", email));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
             }
             if (culture != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "culture", culture));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "culture", culture));
             }
 
             // authentication (Basic) required
@@ -2047,7 +2047,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user name Returns the detailed information about a profile of the user with the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
@@ -2060,7 +2060,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user name Returns the detailed information about a profile of the user with the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
@@ -2131,7 +2131,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user name Returns the detailed information about a profile of the user with the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
@@ -2145,7 +2145,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a profile by user name Returns the detailed information about a profile of the user with the name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/">REST API Reference for GetProfileByUserId Operation</seealso>
@@ -2220,7 +2220,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get my profile Returns the detailed information about the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper GetSelfProfile()
@@ -2232,7 +2232,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get my profile Returns the detailed information about the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         public ApiResponse<EmployeeFullWrapper> GetSelfProfileWithHttpInfo()
@@ -2297,7 +2297,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get my profile Returns the detailed information about the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -2310,7 +2310,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get my profile Returns the detailed information about the current user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/">REST API Reference for GetSelfProfile Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -2379,8 +2379,8 @@ namespace Docspace.Api
         /// <summary>
         /// Invite users Invites users specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
         public EmployeeArrayWrapper InviteUsers(InviteUsersRequestDto? inviteUsersRequestDto = default)
@@ -2392,8 +2392,8 @@ namespace Docspace.Api
         /// <summary>
         /// Invite users Invites users specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
         public ApiResponse<EmployeeArrayWrapper> InviteUsersWithHttpInfo(InviteUsersRequestDto? inviteUsersRequestDto = default)
@@ -2459,8 +2459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Invite users Invites users specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
@@ -2473,8 +2473,8 @@ namespace Docspace.Api
         /// <summary>
         /// Invite users Invites users specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inviteUsersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inviteUsersRequestDto">The request parameters for inviting users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/">REST API Reference for InviteUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
@@ -2544,8 +2544,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete users Deletes a list of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper RemoveUsers(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -2557,8 +2557,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete users Deletes a list of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         public ApiResponse<EmployeeFullArrayWrapper> RemoveUsersWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -2624,8 +2624,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete users Deletes a list of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -2638,8 +2638,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete users Deletes a list of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/">REST API Reference for RemoveUsers Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -2709,8 +2709,8 @@ namespace Docspace.Api
         /// <summary>
         /// Resend activation emails Resends emails to the users who have not activated their emails.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
         public EmployeeFullArrayWrapper ResendUserInvites(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -2722,8 +2722,8 @@ namespace Docspace.Api
         /// <summary>
         /// Resend activation emails Resends emails to the users who have not activated their emails.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         public ApiResponse<EmployeeFullArrayWrapper> ResendUserInvitesWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -2789,8 +2789,8 @@ namespace Docspace.Api
         /// <summary>
         /// Resend activation emails Resends emails to the users who have not activated their emails.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
@@ -2803,8 +2803,8 @@ namespace Docspace.Api
         /// <summary>
         /// Resend activation emails Resends emails to the users who have not activated their emails.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/">REST API Reference for ResendUserInvites Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
@@ -2874,8 +2874,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send instructions to change email Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SendEmailChangeInstructions(UpdateMemberRequestDto? updateMemberRequestDto = default)
@@ -2887,8 +2887,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send instructions to change email Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default)
@@ -2954,8 +2954,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send instructions to change email Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -2968,8 +2968,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send instructions to change email Sends a message to the user email with the instructions to change the email address connected to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -3039,7 +3039,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
@@ -3053,7 +3053,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
@@ -3126,7 +3126,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3141,7 +3141,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3218,7 +3218,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user culture code Updates the user culture code with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
@@ -3232,7 +3232,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user culture code Updates the user culture code with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
@@ -3305,7 +3305,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user culture code Updates the user culture code with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3320,7 +3320,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user culture code Updates the user culture code with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="culture">The culture code parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -1,4 +1,4 @@
-# Docspace.Api.PortalGuestsApi
+# DocSpace.Api.PortalGuestsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetGuestSharingLink**
 > StringWrapper GetGuestSharingLink (Guid userid)
 
-Get a guest sharing link
-
 Returns a link to share a guest with another user.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -89,20 +101,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

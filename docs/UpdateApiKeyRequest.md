@@ -1,4 +1,4 @@
-# Docspace.Model.UpdateApiKeyRequest
+# DocSpace.Model.UpdateApiKeyRequest
 The request parameters for updating an existing API key.
 
 ## Properties

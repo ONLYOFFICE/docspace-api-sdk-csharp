@@ -27,7 +27,7 @@
 
 using System;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

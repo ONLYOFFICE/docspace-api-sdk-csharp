@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleUserStatusApi
+# DocSpace.Api.PeopleUserStatusApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,37 @@ All URIs are relative to *http://localhost:8092*
 # **GetByStatus**
 > EmployeeFullArrayWrapper GetByStatus (EmployeeStatus status, string? filterBy = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
-Get profiles by status
-
 Returns a list of profiles filtered by the user status.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **status** | **EmployeeStatus** | The user status. |  |
+| **filterBy** | **string?** | Specifies the criteria used to filter the profiles in the request. | [optional]  |
+| **count** | **int?** | The maximum number of user profiles to retrieve. | [optional]  |
+| **startIndex** | **int?** | The starting index for retrieving data in a paginated request. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split multiple filter criteria in a query string. | [optional]  |
+| **filterValue** | **string?** | A string value representing additional filter criteria used in query parameters. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -99,27 +118,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **status** | **EmployeeStatus** | The user status. |  |
-| **filterBy** | **string?** | Specifies the criteria used to filter the profiles in the request. | [optional]  |
-| **count** | **int?** | The maximum number of user profiles to retrieve. | [optional]  |
-| **startIndex** | **int?** | The starting index for retrieving data in a paginated request. | [optional]  |
-| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterSeparator** | **string?** | Represents the separator used to split multiple filter criteria in a query string. | [optional]  |
-| **filterValue** | **string?** | A string value representing additional filter criteria used in query parameters. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -138,18 +136,31 @@ catch (ApiException e)
 # **UpdateUserActivationStatus**
 > EmployeeFullArrayWrapper UpdateUserActivationStatus (EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Set an activation status to the users
-
 Sets the required activation status to the list of users with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **activationstatus** | **EmployeeActivationStatus** | The new user activation status. |  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -219,21 +230,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **activationstatus** | **EmployeeActivationStatus** | The new user activation status. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) | The request parameters for updating the user information. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -252,18 +248,31 @@ catch (ApiException e)
 # **UpdateUserStatus**
 > EmployeeFullArrayWrapper UpdateUserStatus (EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Change a user status
-
 Changes a status of the users with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **status** | **EmployeeStatus** | The new user status. |  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -332,21 +341,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **status** | **EmployeeStatus** | The new user status. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) | The request parameters for updating the user information. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

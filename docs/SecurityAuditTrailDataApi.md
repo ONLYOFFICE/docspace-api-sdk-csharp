@@ -1,4 +1,4 @@
-# Docspace.Api.SecurityAuditTrailDataApi
+# DocSpace.Api.SecurityAuditTrailDataApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -16,18 +16,26 @@ All URIs are relative to *http://localhost:8092*
 # **CreateAuditTrailReport**
 > StringWrapper CreateAuditTrailReport ()
 
-Generate the audit trail report
-
 Generates the audit trail report.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -95,16 +103,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -125,18 +123,40 @@ This endpoint does not need any parameter.
 # **GetAuditEventsByFilter**
 > AuditEventArrayWrapper GetAuditEventsByFilter (Guid? userId = null, ProductType? productType = null, ModuleType? moduleType = null, ActionType? actionType = null, MessageAction? action = null, EntryType? entryType = null, string? target = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
-Get filtered audit trail data
-
 Returns a list of the audit events by the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The ID of the user who triggered the audit event. | [optional]  |
+| **productType** | [**ProductType?**](ProductType.md) | The type of product related to the audit event. | [optional]  |
+| **moduleType** | [**ModuleType?**](ModuleType.md) | The module within the product where the audit event occurred. | [optional]  |
+| **actionType** | [**ActionType?**](ActionType.md) | The type of action performed in the audit event (e.g., Create, Update, Delete). | [optional]  |
+| **action** | [**MessageAction?**](MessageAction.md) | The specific action that occurred within the audit event. | [optional]  |
+| **entryType** | [**EntryType?**](EntryType.md) | The type of audit entry (e.g., Folder, User, File). | [optional]  |
+| **target** | **string?** | The target object affected by the audit event (e.g., document ID, user account). | [optional]  |
+| **from** | [**ApiDateTime?**](ApiDateTime.md) | The starting date and time for filtering audit events. | [optional]  |
+| **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering audit events. | [optional]  |
+| **count** | **int?** | The maximum number of audit event records to retrieve. | [optional]  |
+| **startIndex** | **int?** | The index of the first audit event record to retrieve in a paged query. | [optional]  |
+
+### Return type
+
+[**AuditEventArrayWrapper**](AuditEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -215,30 +235,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The ID of the user who triggered the audit event. | [optional]  |
-| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit event. | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product where the audit event occurred. | [optional]  |
-| **actionType** | [**ActionType?**](ActionType?.md) | The type of action performed in the audit event (e.g., Create, Update, Delete). | [optional]  |
-| **action** | [**MessageAction?**](MessageAction?.md) | The specific action that occurred within the audit event. | [optional]  |
-| **entryType** | [**EntryType?**](EntryType?.md) | The type of audit entry (e.g., Folder, User, File). | [optional]  |
-| **target** | **string?** | The target object affected by the audit event (e.g., document ID, user account). | [optional]  |
-| **from** | [**ApiDateTime?**](ApiDateTime?.md) | The starting date and time for filtering audit events. | [optional]  |
-| **to** | [**ApiDateTime?**](ApiDateTime?.md) | The ending date and time for filtering audit events. | [optional]  |
-| **count** | **int?** | The maximum number of audit event records to retrieve. | [optional]  |
-| **startIndex** | **int?** | The index of the first audit event record to retrieve in a paged query. | [optional]  |
-
-### Return type
-
-[**AuditEventArrayWrapper**](AuditEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -258,18 +254,26 @@ catch (ApiException e)
 # **GetAuditSettings**
 > TenantAuditSettingsWrapper GetAuditSettings ()
 
-Get the audit trail settings
-
 Returns the audit trail settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantAuditSettingsWrapper**](TenantAuditSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -337,16 +341,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TenantAuditSettingsWrapper**](TenantAuditSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -366,18 +360,31 @@ This endpoint does not need any parameter.
 # **GetAuditTrailMappers**
 > ObjectWrapper GetAuditTrailMappers (ProductType? productType = null, ModuleType? moduleType = null)
 
-Get audit trail mappers
-
 Returns the mappers for the audit trail types.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **productType** | [**ProductType?**](ProductType.md) | The type of product related to the audit trail. | [optional]  |
+| **moduleType** | [**ModuleType?**](ModuleType.md) | The module within the product associated with the audit trail. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -431,21 +438,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **productType** | [**ProductType?**](ProductType?.md) | The type of product related to the audit trail. | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType?.md) | The module within the product associated with the audit trail. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -463,18 +455,26 @@ No authorization required
 # **GetAuditTrailTypes**
 > ObjectWrapper GetAuditTrailTypes ()
 
-Get audit trail types
-
 Returns all the available audit trail types.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -526,16 +526,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -553,18 +543,26 @@ No authorization required
 # **GetLastAuditEvents**
 > AuditEventArrayWrapper GetLastAuditEvents ()
 
-Get audit trail data
-
 Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AuditEventArrayWrapper**](AuditEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -632,16 +630,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AuditEventArrayWrapper**](AuditEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -661,18 +649,30 @@ This endpoint does not need any parameter.
 # **SetAuditSettings**
 > TenantAuditSettingsWrapper SetAuditSettings (TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = null)
 
-Set the audit trail settings
-
 Sets the audit trail settings for the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantAuditSettingsWrapper** | [**TenantAuditSettingsWrapper?**](TenantAuditSettingsWrapper.md) | The tenant audit settings wrapper. | [optional]  |
+
+### Return type
+
+[**TenantAuditSettingsWrapper**](TenantAuditSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -702,7 +702,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
-            var tenantAuditSettingsWrapper = new TenantAuditSettingsWrapper?(); // TenantAuditSettingsWrapper? |  (optional) 
+            var tenantAuditSettingsWrapper = new TenantAuditSettingsWrapper?(); // TenantAuditSettingsWrapper? | The tenant audit settings wrapper. (optional) 
 
             try
             {
@@ -740,20 +740,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tenantAuditSettingsWrapper** | [**TenantAuditSettingsWrapper?**](TenantAuditSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantAuditSettingsWrapper**](TenantAuditSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

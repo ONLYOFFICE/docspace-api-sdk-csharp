@@ -1,4 +1,4 @@
-# Docspace.Model.NotificationSettingsDto
+# DocSpace.Model.NotificationSettingsDto
 The notification settings parameters.
 
 ## Properties

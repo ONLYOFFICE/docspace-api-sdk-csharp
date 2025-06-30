@@ -1,4 +1,4 @@
-# Docspace.Model.CreateThirdPartyRoom
+# DocSpace.Model.CreateThirdPartyRoom
 The parameters for creating a third-party room.
 
 ## Properties
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Color** | **string** | The color of the third-party room. | [optional] 
 **Cover** | **string** | The cover of the third-party room. | [optional] 
 **Tags** | **List&lt;string&gt;** | The list of tags of the third-party room. | [optional] 
-**Logo** | [**LogoRequest**](LogoRequest.md) |  | [optional] 
+**Logo** | [**LogoRequest**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

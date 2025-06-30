@@ -1,4 +1,4 @@
-# Docspace.Model.PaymentCalculation
+# DocSpace.Model.PaymentCalculation
 The payment calculation.
 
 ## Properties

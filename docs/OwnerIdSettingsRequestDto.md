@@ -1,4 +1,4 @@
-# Docspace.Model.OwnerIdSettingsRequestDto
+# DocSpace.Model.OwnerIdSettingsRequestDto
 The request parameters for managing the owner-specific settings.
 
 ## Properties

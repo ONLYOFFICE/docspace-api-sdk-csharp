@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Calculate amount of the wallet payment with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>PaymentCalculationWrapper</returns>
         PaymentCalculationWrapper CalculateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Calculate amount of the wallet payment with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>ApiResponse of PaymentCalculationWrapper</returns>
         ApiResponse<PaymentCalculationWrapper> CalculateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the customer operations report as csv file and save in Documents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper CreateCustomerOperationsReport(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the customer operations report as csv file and save in Documents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> CreateCustomerOperationsReportWithHttpInfo(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default);
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of currencies from accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>CurrencyArrayWrapper</returns>
         CurrencyArrayWrapper GetAccountingCurrencies();
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of currencies from accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>ApiResponse of CurrencyArrayWrapper</returns>
         ApiResponse<CurrencyArrayWrapper> GetAccountingCurrenciesWithHttpInfo();
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the checkout setup page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -129,7 +129,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the checkout setup page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -140,7 +140,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer balance from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
         /// <returns>BalanceWrapper</returns>
@@ -152,7 +152,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer balance from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
         /// <returns>ApiResponse of BalanceWrapper</returns>
@@ -163,7 +163,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
         /// <returns>CustomerInfoWrapper</returns>
@@ -175,7 +175,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
         /// <returns>ApiResponse of CustomerInfoWrapper</returns>
@@ -186,7 +186,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the report of customer operations from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -203,7 +203,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the report of customer operations from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -219,7 +219,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -231,7 +231,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -242,7 +242,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal currencies.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>CurrenciesArrayWrapper</returns>
         CurrenciesArrayWrapper GetPaymentCurrencies();
@@ -253,7 +253,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal currencies.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
         ApiResponse<CurrenciesArrayWrapper> GetPaymentCurrenciesWithHttpInfo();
@@ -263,7 +263,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal quotas.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>QuotaArrayWrapper</returns>
@@ -275,7 +275,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal quotas.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>ApiResponse of QuotaArrayWrapper</returns>
@@ -286,8 +286,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper GetPaymentUrl(PaymentUrlRequestsDto? paymentUrlRequestsDto = default);
@@ -298,8 +298,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPaymentUrlWithHttpInfo(PaymentUrlRequestsDto? paymentUrlRequestsDto = default);
@@ -309,7 +309,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal prices.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetPortalPrices();
@@ -320,7 +320,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal prices.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetPortalPricesWithHttpInfo();
@@ -330,7 +330,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the payment information about the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
         /// <returns>QuotaWrapper</returns>
@@ -342,7 +342,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the payment information about the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
         /// <returns>ApiResponse of QuotaWrapper</returns>
@@ -353,7 +353,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>TenantWalletSettingsWrapper</returns>
         TenantWalletSettingsWrapper GetTenantWalletSettings();
@@ -364,7 +364,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
         ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo();
@@ -374,8 +374,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Trying to open a customer session and block amount money on the balance.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>SessionWrapper</returns>
         SessionWrapper OpenCustomerSession(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default);
@@ -386,8 +386,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Trying to open a customer session and block amount money on the balance.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>ApiResponse of SessionWrapper</returns>
         ApiResponse<SessionWrapper> OpenCustomerSessionWithHttpInfo(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default);
@@ -397,8 +397,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Perform customer operation and return true if the operation is succesfully provided.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper PerformCustomerOperation(PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = default);
@@ -409,8 +409,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Perform customer operation and return true if the operation is succesfully provided.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> PerformCustomerOperationWithHttpInfo(PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = default);
@@ -420,8 +420,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a request for the portal payment.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns></returns>
         void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default);
@@ -432,8 +432,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a request for the portal payment.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default);
@@ -443,8 +443,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Set the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>TenantWalletSettingsWrapper</returns>
         TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
@@ -455,8 +455,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Set the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
         ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
@@ -466,8 +466,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns result of putting money on deposit.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper TopUpDeposit(TopUpDepositRequestDto? topUpDepositRequestDto = default);
@@ -478,8 +478,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns result of putting money on deposit.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> TopUpDepositWithHttpInfo(TopUpDepositRequestDto? topUpDepositRequestDto = default);
@@ -489,8 +489,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper UpdatePayment(QuantityRequestDto? quantityRequestDto = default);
@@ -501,8 +501,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdatePaymentWithHttpInfo(QuantityRequestDto? quantityRequestDto = default);
@@ -512,8 +512,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the wallet payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper UpdateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default);
@@ -524,8 +524,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the wallet payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default);
@@ -544,8 +544,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Calculate amount of the wallet payment with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>Task of PaymentCalculationWrapper</returns>
@@ -557,8 +557,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Calculate amount of the wallet payment with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentCalculationWrapper)</returns>
@@ -569,8 +569,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the customer operations report as csv file and save in Documents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -582,8 +582,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the customer operations report as csv file and save in Documents.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -594,7 +594,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of currencies from accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>Task of CurrencyArrayWrapper</returns>
@@ -606,7 +606,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of currencies from accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>Task of ApiResponse (CurrencyArrayWrapper)</returns>
@@ -617,7 +617,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the checkout setup page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
@@ -630,7 +630,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the checkout setup page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
@@ -642,7 +642,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer balance from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
@@ -655,7 +655,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer balance from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
@@ -667,7 +667,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
@@ -680,7 +680,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the customer info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
@@ -692,7 +692,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the report of customer operations from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -710,7 +710,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the report of customer operations from the accounting service.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -727,7 +727,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
@@ -740,7 +740,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
@@ -752,7 +752,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal currencies.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>Task of CurrenciesArrayWrapper</returns>
@@ -764,7 +764,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal currencies.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
@@ -775,7 +775,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal quotas.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
@@ -788,7 +788,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal quotas.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
@@ -800,8 +800,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -813,8 +813,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL to the payment page.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -825,7 +825,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal prices.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -837,7 +837,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the available portal prices.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -848,7 +848,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the payment information about the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
@@ -861,7 +861,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the payment information about the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
@@ -873,7 +873,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>Task of TenantWalletSettingsWrapper</returns>
@@ -885,7 +885,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
@@ -896,8 +896,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Trying to open a customer session and block amount money on the balance.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>Task of SessionWrapper</returns>
@@ -909,8 +909,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Trying to open a customer session and block amount money on the balance.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>Task of ApiResponse (SessionWrapper)</returns>
@@ -921,8 +921,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Perform customer operation and return true if the operation is succesfully provided.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -934,8 +934,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Perform customer operation and return true if the operation is succesfully provided.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -946,8 +946,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a request for the portal payment.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of void</returns>
@@ -959,8 +959,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a request for the portal payment.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -971,8 +971,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Set the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>Task of TenantWalletSettingsWrapper</returns>
@@ -984,8 +984,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Set the wallet auto top up settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
@@ -996,8 +996,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns result of putting money on deposit.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1009,8 +1009,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns result of putting money on deposit.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1021,8 +1021,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1034,8 +1034,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1046,8 +1046,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the wallet payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1059,8 +1059,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the wallet payment quantity with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1103,14 +1103,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PortalPaymentApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1125,14 +1125,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1167,14 +1167,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1194,14 +1194,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1221,7 +1221,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1281,8 +1281,8 @@ namespace Docspace.Api
         /// <summary>
         /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>PaymentCalculationWrapper</returns>
         public PaymentCalculationWrapper CalculateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default)
@@ -1294,8 +1294,8 @@ namespace Docspace.Api
         /// <summary>
         /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>ApiResponse of PaymentCalculationWrapper</returns>
         public ApiResponse<PaymentCalculationWrapper> CalculateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default)
@@ -1361,8 +1361,8 @@ namespace Docspace.Api
         /// <summary>
         /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>Task of PaymentCalculationWrapper</returns>
@@ -1375,8 +1375,8 @@ namespace Docspace.Api
         /// <summary>
         /// Calculate amount of the wallet payment Calculate amount of the wallet payment with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/">REST API Reference for CalculateWalletPayment Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentCalculationWrapper)</returns>
@@ -1446,8 +1446,8 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the customer operations report Generates the customer operations report as csv file and save in Documents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper CreateCustomerOperationsReport(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default)
@@ -1459,8 +1459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the customer operations report Generates the customer operations report as csv file and save in Documents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> CreateCustomerOperationsReportWithHttpInfo(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default)
@@ -1526,8 +1526,8 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the customer operations report Generates the customer operations report as csv file and save in Documents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1540,8 +1540,8 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the customer operations report Generates the customer operations report as csv file and save in Documents.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerOperationsReportRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerOperationsReportRequestDto">Parameters of the request for generating the report on client operations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -1611,7 +1611,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get list of currencies Returns the list of currencies from accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>CurrencyArrayWrapper</returns>
         public CurrencyArrayWrapper GetAccountingCurrencies()
@@ -1623,7 +1623,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get list of currencies Returns the list of currencies from accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>ApiResponse of CurrencyArrayWrapper</returns>
         public ApiResponse<CurrencyArrayWrapper> GetAccountingCurrenciesWithHttpInfo()
@@ -1688,7 +1688,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get list of currencies Returns the list of currencies from accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>Task of CurrencyArrayWrapper</returns>
@@ -1701,7 +1701,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get list of currencies Returns the list of currencies from accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/">REST API Reference for GetAccountingCurrencies Operation</seealso>
         /// <returns>Task of ApiResponse (CurrencyArrayWrapper)</returns>
@@ -1770,7 +1770,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -1783,7 +1783,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -1853,7 +1853,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
@@ -1867,7 +1867,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the checkout setup page URL Returns the URL to the checkout setup page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">Back URL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/">REST API Reference for GetCheckoutSetupUrl Operation</seealso>
@@ -1891,7 +1891,7 @@ namespace Docspace.Api
 
             if (backUrl != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "BackUrl", backUrl));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "BackUrl", backUrl));
             }
 
             // authentication (Basic) required
@@ -1941,7 +1941,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer balance Returns the customer balance from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
         /// <returns>BalanceWrapper</returns>
@@ -1954,7 +1954,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer balance Returns the customer balance from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
         /// <returns>ApiResponse of BalanceWrapper</returns>
@@ -2024,7 +2024,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer balance Returns the customer balance from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
@@ -2038,7 +2038,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer balance Returns the customer balance from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/">REST API Reference for GetCustomerBalance Operation</seealso>
@@ -2062,7 +2062,7 @@ namespace Docspace.Api
 
             if (refresh != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "refresh", refresh));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "refresh", refresh));
             }
 
             // authentication (Basic) required
@@ -2112,7 +2112,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer info Returns the customer info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
         /// <returns>CustomerInfoWrapper</returns>
@@ -2125,7 +2125,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer info Returns the customer info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
         /// <returns>ApiResponse of CustomerInfoWrapper</returns>
@@ -2195,7 +2195,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer info Returns the customer info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
@@ -2209,7 +2209,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer info Returns the customer info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/">REST API Reference for GetCustomerInfo Operation</seealso>
@@ -2233,7 +2233,7 @@ namespace Docspace.Api
 
             if (refresh != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "refresh", refresh));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "refresh", refresh));
             }
 
             // authentication (Basic) required
@@ -2283,7 +2283,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer operations Returns the report of customer operations from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -2301,7 +2301,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer operations Returns the report of customer operations from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -2396,7 +2396,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer operations Returns the report of customer operations from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -2415,7 +2415,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the customer operations Returns the report of customer operations from the accounting service.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Start date (optional)</param>
         /// <param name="endDate">End date (optional)</param>
         /// <param name="credit">Include credit operations (true by default) (optional)</param>
@@ -2444,27 +2444,27 @@ namespace Docspace.Api
 
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (credit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "credit", credit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "credit", credit));
             }
             if (withdrawal != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withdrawal", withdrawal));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withdrawal", withdrawal));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (limit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
             // authentication (Basic) required
@@ -2514,7 +2514,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment account Returns the URL to the payment account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -2527,7 +2527,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment account Returns the URL to the payment account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -2597,7 +2597,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment account Returns the URL to the payment account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
@@ -2611,7 +2611,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment account Returns the URL to the payment account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/">REST API Reference for GetPaymentAccount Operation</seealso>
@@ -2635,7 +2635,7 @@ namespace Docspace.Api
 
             if (backUrl != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "backUrl", backUrl));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "backUrl", backUrl));
             }
 
             // authentication (Basic) required
@@ -2685,7 +2685,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get currencies Returns the available portal currencies.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>CurrenciesArrayWrapper</returns>
         public CurrenciesArrayWrapper GetPaymentCurrencies()
@@ -2697,7 +2697,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get currencies Returns the available portal currencies.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>ApiResponse of CurrenciesArrayWrapper</returns>
         public ApiResponse<CurrenciesArrayWrapper> GetPaymentCurrenciesWithHttpInfo()
@@ -2762,7 +2762,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get currencies Returns the available portal currencies.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>Task of CurrenciesArrayWrapper</returns>
@@ -2775,7 +2775,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get currencies Returns the available portal currencies.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/">REST API Reference for GetPaymentCurrencies Operation</seealso>
         /// <returns>Task of ApiResponse (CurrenciesArrayWrapper)</returns>
@@ -2844,7 +2844,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quotas Returns the available portal quotas.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>QuotaArrayWrapper</returns>
@@ -2857,7 +2857,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quotas Returns the available portal quotas.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>ApiResponse of QuotaArrayWrapper</returns>
@@ -2927,7 +2927,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quotas Returns the available portal quotas.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
@@ -2941,7 +2941,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quotas Returns the available portal quotas.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Get wallet quotas only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
@@ -2965,7 +2965,7 @@ namespace Docspace.Api
 
             if (wallet != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "wallet", wallet));
             }
 
             // authentication (Basic) required
@@ -3015,8 +3015,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment page URL Returns the URL to the payment page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper GetPaymentUrl(PaymentUrlRequestsDto? paymentUrlRequestsDto = default)
@@ -3028,8 +3028,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment page URL Returns the URL to the payment page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> GetPaymentUrlWithHttpInfo(PaymentUrlRequestsDto? paymentUrlRequestsDto = default)
@@ -3095,8 +3095,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment page URL Returns the URL to the payment page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -3109,8 +3109,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get the payment page URL Returns the URL to the payment page.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="paymentUrlRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paymentUrlRequestsDto">The request parameters for the payment URL configuration with quantity information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/">REST API Reference for GetPaymentUrl Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -3180,7 +3180,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get prices Returns the available portal prices.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetPortalPrices()
@@ -3192,7 +3192,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get prices Returns the available portal prices.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetPortalPricesWithHttpInfo()
@@ -3257,7 +3257,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get prices Returns the available portal prices.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -3270,7 +3270,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get prices Returns the available portal prices.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/">REST API Reference for GetPortalPrices Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -3339,7 +3339,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quota payment information Returns the payment information about the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
         /// <returns>QuotaWrapper</returns>
@@ -3352,7 +3352,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quota payment information Returns the payment information about the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
         /// <returns>ApiResponse of QuotaWrapper</returns>
@@ -3422,7 +3422,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quota payment information Returns the payment information about the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
@@ -3436,7 +3436,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get quota payment information Returns the payment information about the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">Specifies whether to refresh the payment information cache or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/">REST API Reference for GetQuotaPaymentInformation Operation</seealso>
@@ -3460,7 +3460,7 @@ namespace Docspace.Api
 
             if (refresh != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "refresh", refresh));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "refresh", refresh));
             }
 
             // authentication (Basic) required
@@ -3510,7 +3510,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get wallet auto top up settings Returns the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>TenantWalletSettingsWrapper</returns>
         public TenantWalletSettingsWrapper GetTenantWalletSettings()
@@ -3522,7 +3522,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get wallet auto top up settings Returns the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
         public ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo()
@@ -3587,7 +3587,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get wallet auto top up settings Returns the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>Task of TenantWalletSettingsWrapper</returns>
@@ -3600,7 +3600,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get wallet auto top up settings Returns the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
@@ -3669,8 +3669,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open customer session Trying to open a customer session and block amount money on the balance.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>SessionWrapper</returns>
         public SessionWrapper OpenCustomerSession(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default)
@@ -3682,8 +3682,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open customer session Trying to open a customer session and block amount money on the balance.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>ApiResponse of SessionWrapper</returns>
         public ApiResponse<SessionWrapper> OpenCustomerSessionWithHttpInfo(OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = default)
@@ -3749,8 +3749,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open customer session Trying to open a customer session and block amount money on the balance.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>Task of SessionWrapper</returns>
@@ -3763,8 +3763,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open customer session Trying to open a customer session and block amount money on the balance.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openCustomerSessionRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openCustomerSessionRequestDto">Client session opening parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/">REST API Reference for OpenCustomerSession Operation</seealso>
         /// <returns>Task of ApiResponse (SessionWrapper)</returns>
@@ -3834,8 +3834,8 @@ namespace Docspace.Api
         /// <summary>
         /// Perform customer operation Perform customer operation and return true if the operation is succesfully provided.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper PerformCustomerOperation(PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = default)
@@ -3847,8 +3847,8 @@ namespace Docspace.Api
         /// <summary>
         /// Perform customer operation Perform customer operation and return true if the operation is succesfully provided.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> PerformCustomerOperationWithHttpInfo(PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = default)
@@ -3914,8 +3914,8 @@ namespace Docspace.Api
         /// <summary>
         /// Perform customer operation Perform customer operation and return true if the operation is succesfully provided.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3928,8 +3928,8 @@ namespace Docspace.Api
         /// <summary>
         /// Perform customer operation Perform customer operation and return true if the operation is succesfully provided.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performCustomerOperationRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="performCustomerOperationRequestDto">Parameters for performing a customer operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/">REST API Reference for PerformCustomerOperation Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3999,8 +3999,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a payment request Sends a request for the portal payment.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns></returns>
         public void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default)
@@ -4011,8 +4011,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a payment request Sends a request for the portal payment.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default)
@@ -4078,8 +4078,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a payment request Sends a request for the portal payment.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of void</returns>
@@ -4091,8 +4091,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a payment request Sends a request for the portal payment.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="salesRequestsDto">The request parameters for handling sales and payment inquiries in the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -4162,8 +4162,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set wallet auto top up settings Set the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>TenantWalletSettingsWrapper</returns>
         public TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
@@ -4175,8 +4175,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set wallet auto top up settings Set the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
         public ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
@@ -4242,8 +4242,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set wallet auto top up settings Set the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>Task of TenantWalletSettingsWrapper</returns>
@@ -4256,8 +4256,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set wallet auto top up settings Set the wallet auto top up settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantWalletSettingsWrapper">Tenant wallet settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
@@ -4327,8 +4327,8 @@ namespace Docspace.Api
         /// <summary>
         /// Put money on deposit Returns result of putting money on deposit.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper TopUpDeposit(TopUpDepositRequestDto? topUpDepositRequestDto = default)
@@ -4340,8 +4340,8 @@ namespace Docspace.Api
         /// <summary>
         /// Put money on deposit Returns result of putting money on deposit.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> TopUpDepositWithHttpInfo(TopUpDepositRequestDto? topUpDepositRequestDto = default)
@@ -4407,8 +4407,8 @@ namespace Docspace.Api
         /// <summary>
         /// Put money on deposit Returns result of putting money on deposit.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4421,8 +4421,8 @@ namespace Docspace.Api
         /// <summary>
         /// Put money on deposit Returns result of putting money on deposit.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="topUpDepositRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="topUpDepositRequestDto">Put money on deposit request parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/">REST API Reference for TopUpDeposit Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4492,8 +4492,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper UpdatePayment(QuantityRequestDto? quantityRequestDto = default)
@@ -4505,8 +4505,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> UpdatePaymentWithHttpInfo(QuantityRequestDto? quantityRequestDto = default)
@@ -4572,8 +4572,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4586,8 +4586,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the payment quantity Updates the payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for the payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/">REST API Reference for UpdatePayment Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4657,8 +4657,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper UpdateWalletPayment(WalletQuantityRequestDto? walletQuantityRequestDto = default)
@@ -4670,8 +4670,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> UpdateWalletPaymentWithHttpInfo(WalletQuantityRequestDto? walletQuantityRequestDto = default)
@@ -4737,8 +4737,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4751,8 +4751,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the wallet payment quantity Updates the wallet payment quantity with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="walletQuantityRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="walletQuantityRequestDto">The request parameters for the wallet payment quantity specifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/">REST API Reference for UpdateWalletPayment Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>

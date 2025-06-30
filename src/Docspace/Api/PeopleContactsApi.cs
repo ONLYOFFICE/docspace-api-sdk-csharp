@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-contacts/">REST API Reference for DeleteMemberContacts Operation</seealso>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-contacts/">REST API Reference for DeleteMemberContacts Operation</seealso>
@@ -75,7 +75,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-member-contacts/">REST API Reference for SetMemberContacts Operation</seealso>
@@ -88,7 +88,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-member-contacts/">REST API Reference for SetMemberContacts Operation</seealso>
@@ -100,7 +100,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-contacts/">REST API Reference for UpdateMemberContacts Operation</seealso>
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-contacts/">REST API Reference for UpdateMemberContacts Operation</seealso>
@@ -134,7 +134,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -148,7 +148,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -161,7 +161,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -175,7 +175,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -188,7 +188,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -202,7 +202,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -247,14 +247,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleContactsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -269,14 +269,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -311,14 +311,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -338,14 +338,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -425,7 +425,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete user contacts Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-contacts/">REST API Reference for DeleteMemberContacts Operation</seealso>
@@ -439,7 +439,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete user contacts Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-contacts/">REST API Reference for DeleteMemberContacts Operation</seealso>
@@ -512,7 +512,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete user contacts Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -527,7 +527,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete user contacts Deletes the contacts of the user with the ID specified in the request from the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -604,7 +604,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set user contacts Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-member-contacts/">REST API Reference for SetMemberContacts Operation</seealso>
@@ -618,7 +618,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set user contacts Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-member-contacts/">REST API Reference for SetMemberContacts Operation</seealso>
@@ -691,7 +691,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set user contacts Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -706,7 +706,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set user contacts Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -783,7 +783,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update user contacts Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-contacts/">REST API Reference for UpdateMemberContacts Operation</seealso>
@@ -797,7 +797,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update user contacts Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-contacts/">REST API Reference for UpdateMemberContacts Operation</seealso>
@@ -870,7 +870,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update user contacts Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -885,7 +885,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update user contacts Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="contactsRequest">The contacts request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

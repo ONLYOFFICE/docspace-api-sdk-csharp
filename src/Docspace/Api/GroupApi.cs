@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new group with the group manager, name, and members specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>GroupWrapper</returns>
         GroupWrapper AddGroup(GroupRequestDto? groupRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new group with the group manager, name, and members specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
         ApiResponse<GroupWrapper> AddGroupWithHttpInfo(GroupRequestDto? groupRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds new group members to the group with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
@@ -86,7 +86,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds new group members to the group with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>NoContentResultWrapper</returns>
@@ -110,7 +110,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
@@ -121,7 +121,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
@@ -134,7 +134,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of groups for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>GroupSummaryArrayWrapper</returns>
@@ -158,7 +158,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of groups for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
@@ -169,7 +169,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -187,7 +187,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -204,7 +204,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves all the members from the selected group to another one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
@@ -217,7 +217,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves all the members from the selected group to another one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
@@ -229,7 +229,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the group members specified in the request from the selected group.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
@@ -242,7 +242,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the group members specified in the request from the selected group.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
@@ -254,7 +254,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a user with the ID specified in the request as a group manager.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
@@ -267,7 +267,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a user with the ID specified in the request as a group manager.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
@@ -279,7 +279,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Replaces the group members with those specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
@@ -292,7 +292,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Replaces the group members with those specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
@@ -304,7 +304,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the existing group changing the group manager, name, and/or members.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
@@ -317,7 +317,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the existing group changing the group manager, name, and/or members.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
@@ -338,8 +338,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new group with the group manager, name, and members specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
@@ -351,8 +351,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a new group with the group manager, name, and members specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
@@ -363,7 +363,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds new group members to the group with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -377,7 +377,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds new group members to the group with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -390,7 +390,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
@@ -403,7 +403,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
@@ -415,7 +415,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -429,7 +429,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -442,7 +442,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of groups for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
@@ -455,7 +455,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of groups for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
@@ -467,7 +467,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -486,7 +486,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -504,7 +504,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves all the members from the selected group to another one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -518,7 +518,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves all the members from the selected group to another one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -531,7 +531,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the group members specified in the request from the selected group.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -545,7 +545,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the group members specified in the request from the selected group.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -558,7 +558,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a user with the ID specified in the request as a group manager.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -572,7 +572,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a user with the ID specified in the request as a group manager.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -585,7 +585,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Replaces the group members with those specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -599,7 +599,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Replaces the group members with those specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -612,7 +612,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the existing group changing the group manager, name, and/or members.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -626,7 +626,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the existing group changing the group manager, name, and/or members.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -671,14 +671,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public GroupApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -693,14 +693,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -735,14 +735,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -762,14 +762,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -789,7 +789,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -849,8 +849,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a new group Adds a new group with the group manager, name, and members specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>GroupWrapper</returns>
         public GroupWrapper AddGroup(GroupRequestDto? groupRequestDto = default)
@@ -862,8 +862,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a new group Adds a new group with the group manager, name, and members specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
         public ApiResponse<GroupWrapper> AddGroupWithHttpInfo(GroupRequestDto? groupRequestDto = default)
@@ -929,8 +929,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a new group Adds a new group with the group manager, name, and members specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
@@ -943,8 +943,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a new group Adds a new group with the group manager, name, and members specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupRequestDto">The group request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/">REST API Reference for AddGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
@@ -1014,7 +1014,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add group members Adds new group members to the group with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
@@ -1028,7 +1028,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add group members Adds new group members to the group with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
@@ -1097,7 +1097,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add group members Adds new group members to the group with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1112,7 +1112,7 @@ namespace Docspace.Api
         /// <summary>
         /// Add group members Adds new group members to the group with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1185,7 +1185,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a group Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>NoContentResultWrapper</returns>
@@ -1198,7 +1198,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a group Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
@@ -1265,7 +1265,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a group Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
@@ -1279,7 +1279,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a group Deletes a group with the ID specified in the request from the list of groups on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
@@ -1350,7 +1350,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a group Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
@@ -1364,7 +1364,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a group Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/">REST API Reference for GetGroup Operation</seealso>
@@ -1436,7 +1436,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a group Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1451,7 +1451,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a group Returns the detailed information about the selected group.   **Note**: This method returns full group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="includeMembers">Specifies whether to include the group members or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1477,7 +1477,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (includeMembers != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
             }
 
             // authentication (Basic) required
@@ -1527,7 +1527,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user groups Returns a list of groups for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>GroupSummaryArrayWrapper</returns>
@@ -1540,7 +1540,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user groups Returns a list of groups for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
@@ -1607,7 +1607,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user groups Returns a list of groups for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
@@ -1621,7 +1621,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user groups Returns a list of groups for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
@@ -1692,7 +1692,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get groups Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -1711,7 +1711,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get groups Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -1811,7 +1811,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get groups Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -1831,7 +1831,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get groups Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="manager">Specifies if the user is a manager or not. (optional)</param>
         /// <param name="count">The number of records to retrieve. (optional)</param>
@@ -1861,31 +1861,31 @@ namespace Docspace.Api
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (manager != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "manager", manager));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "manager", manager));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1935,7 +1935,7 @@ namespace Docspace.Api
         /// <summary>
         /// Move group members Moves all the members from the selected group to another one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
@@ -1949,7 +1949,7 @@ namespace Docspace.Api
         /// <summary>
         /// Move group members Moves all the members from the selected group to another one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/">REST API Reference for MoveMembersTo Operation</seealso>
@@ -2018,7 +2018,7 @@ namespace Docspace.Api
         /// <summary>
         /// Move group members Moves all the members from the selected group to another one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2033,7 +2033,7 @@ namespace Docspace.Api
         /// <summary>
         /// Move group members Moves all the members from the selected group to another one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fromId">The group ID to move from.</param>
         /// <param name="toId">The group ID to move to.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2106,7 +2106,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove group members Removes the group members specified in the request from the selected group.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
@@ -2120,7 +2120,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove group members Removes the group members specified in the request from the selected group.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
@@ -2189,7 +2189,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove group members Removes the group members specified in the request from the selected group.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2204,7 +2204,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove group members Removes the group members specified in the request from the selected group.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2277,7 +2277,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set a group manager Sets a user with the ID specified in the request as a group manager.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
@@ -2291,7 +2291,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set a group manager Sets a user with the ID specified in the request as a group manager.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
@@ -2360,7 +2360,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set a group manager Sets a user with the ID specified in the request as a group manager.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2375,7 +2375,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set a group manager Sets a user with the ID specified in the request as a group manager.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2448,7 +2448,7 @@ namespace Docspace.Api
         /// <summary>
         /// Replace group members Replaces the group members with those specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
@@ -2462,7 +2462,7 @@ namespace Docspace.Api
         /// <summary>
         /// Replace group members Replaces the group members with those specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
@@ -2531,7 +2531,7 @@ namespace Docspace.Api
         /// <summary>
         /// Replace group members Replaces the group members with those specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2546,7 +2546,7 @@ namespace Docspace.Api
         /// <summary>
         /// Replace group members Replaces the group members with those specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="membersRequest">The member request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2619,7 +2619,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a group Updates the existing group changing the group manager, name, and/or members.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
@@ -2633,7 +2633,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a group Updates the existing group changing the group manager, name, and/or members.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
@@ -2702,7 +2702,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a group Updates the existing group changing the group manager, name, and/or members.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2717,7 +2717,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a group Updates the existing group changing the group manager, name, and/or members.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

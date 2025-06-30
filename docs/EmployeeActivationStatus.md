@@ -1,4 +1,4 @@
-# Docspace.Model.EmployeeActivationStatus
+# DocSpace.Model.EmployeeActivationStatus
 [0 - Not activated, 1 - Activated, 2 - Pending, 4 - Auto generated]
 
 ## Properties

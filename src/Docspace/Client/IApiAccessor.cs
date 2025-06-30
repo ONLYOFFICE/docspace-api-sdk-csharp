@@ -27,7 +27,7 @@
 
 using System;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

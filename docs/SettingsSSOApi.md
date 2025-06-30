@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsSSOApi
+# DocSpace.Api.SettingsSSOApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -14,18 +14,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetDefaultSsoSettingsV2**
 > SsoSettingsV2Wrapper GetDefaultSsoSettingsV2 ()
 
-Get the default SSO settings
-
 Returns the default portal SSO settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,16 +101,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -121,18 +119,26 @@ This endpoint does not need any parameter.
 # **GetSsoSettingsV2**
 > SsoSettingsV2Wrapper GetSsoSettingsV2 ()
 
-Get the SSO settings
-
 Returns the current portal SSO settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -184,16 +190,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -211,18 +207,26 @@ No authorization required
 # **GetSsoSettingsV2Constants**
 > ObjectWrapper GetSsoSettingsV2Constants ()
 
-Get the SSO settings constants
-
 Returns the SSO settings constants.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -290,16 +294,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -318,18 +312,26 @@ This endpoint does not need any parameter.
 # **ResetSsoSettingsV2**
 > SsoSettingsV2Wrapper ResetSsoSettingsV2 ()
 
-Reset the SSO settings
-
 Resets the SSO settings of the current portal.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -397,16 +399,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -425,18 +417,30 @@ This endpoint does not need any parameter.
 # **SaveSsoSettingsV2**
 > SsoSettingsV2Wrapper SaveSsoSettingsV2 (SsoSettingsRequestsDto? ssoSettingsRequestsDto = null)
 
-Save the SSO settings
-
 Saves the SSO settings for the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ssoSettingsRequestsDto** | [**SsoSettingsRequestsDto?**](SsoSettingsRequestsDto.md) | The request parameters for the Single Sign-On (SSO) configuration settings. | [optional]  |
+
+### Return type
+
+[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -466,7 +470,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
-            var ssoSettingsRequestsDto = new SsoSettingsRequestsDto?(); // SsoSettingsRequestsDto? |  (optional) 
+            var ssoSettingsRequestsDto = new SsoSettingsRequestsDto?(); // SsoSettingsRequestsDto? | The request parameters for the Single Sign-On (SSO) configuration settings. (optional) 
 
             try
             {
@@ -504,20 +508,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ssoSettingsRequestsDto** | [**SsoSettingsRequestsDto?**](SsoSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**SsoSettingsV2Wrapper**](SsoSettingsV2Wrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

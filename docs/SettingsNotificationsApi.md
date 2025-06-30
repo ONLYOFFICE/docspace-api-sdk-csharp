@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsNotificationsApi
+# DocSpace.Api.SettingsNotificationsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -13,18 +13,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetNotificationSettings**
 > NotificationSettingsWrapper GetNotificationSettings (NotificationType type)
 
-Check notification availability
-
 Checks if the notification type specified in the request is enabled or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **type** | **NotificationType** | The type of notification to query, specified in the route. |  |
+
+### Return type
+
+[**NotificationSettingsWrapper**](NotificationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,20 +105,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **type** | **NotificationType** | The type of notification to query, specified in the route. |  |
-
-### Return type
-
-[**NotificationSettingsWrapper**](NotificationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -125,18 +123,26 @@ catch (ApiException e)
 # **GetRoomsNotificationSettings**
 > RoomsNotificationSettingsWrapper GetRoomsNotificationSettings ()
 
-Get room notification settings
-
 Returns a list of rooms with the disabled notifications.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**RoomsNotificationSettingsWrapper**](RoomsNotificationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -204,16 +210,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**RoomsNotificationSettingsWrapper**](RoomsNotificationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -232,18 +228,30 @@ This endpoint does not need any parameter.
 # **SetNotificationSettings**
 > NotificationSettingsWrapper SetNotificationSettings (NotificationSettingsRequestsDto? notificationSettingsRequestsDto = null)
 
-Enable notifications
-
 Enables the notification type specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **notificationSettingsRequestsDto** | [**NotificationSettingsRequestsDto?**](NotificationSettingsRequestsDto.md) | The request parameters for configuring notification settings. | [optional]  |
+
+### Return type
+
+[**NotificationSettingsWrapper**](NotificationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -273,7 +281,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
-            var notificationSettingsRequestsDto = new NotificationSettingsRequestsDto?(); // NotificationSettingsRequestsDto? |  (optional) 
+            var notificationSettingsRequestsDto = new NotificationSettingsRequestsDto?(); // NotificationSettingsRequestsDto? | The request parameters for configuring notification settings. (optional) 
 
             try
             {
@@ -312,20 +320,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **notificationSettingsRequestsDto** | [**NotificationSettingsRequestsDto?**](NotificationSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**NotificationSettingsWrapper**](NotificationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -344,18 +338,30 @@ catch (ApiException e)
 # **SetRoomsNotificationStatus**
 > RoomsNotificationSettingsWrapper SetRoomsNotificationStatus (RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = null)
 
-Set room notification status
-
 Sets a notification status for a room with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **roomsNotificationsSettingsRequestDto** | [**RoomsNotificationsSettingsRequestDto?**](RoomsNotificationsSettingsRequestDto.md) | The request parameters for configuring notification settings for the chat or collaboration rooms. | [optional]  |
+
+### Return type
+
+[**RoomsNotificationSettingsWrapper**](RoomsNotificationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -385,7 +391,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
-            var roomsNotificationsSettingsRequestDto = new RoomsNotificationsSettingsRequestDto?(); // RoomsNotificationsSettingsRequestDto? |  (optional) 
+            var roomsNotificationsSettingsRequestDto = new RoomsNotificationsSettingsRequestDto?(); // RoomsNotificationsSettingsRequestDto? | The request parameters for configuring notification settings for the chat or collaboration rooms. (optional) 
 
             try
             {
@@ -423,20 +429,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **roomsNotificationsSettingsRequestDto** | [**RoomsNotificationsSettingsRequestDto?**](RoomsNotificationsSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**RoomsNotificationSettingsWrapper**](RoomsNotificationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

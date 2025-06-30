@@ -1,4 +1,4 @@
-# Docspace.Api.GroupRoomsApi
+# DocSpace.Api.GroupRoomsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,34 @@ All URIs are relative to *http://localhost:8092*
 # **GetGroupsWithShared**
 > GroupArrayWrapper GetGroupsWithShared (int id, bool? excludeShared = null, int? count = null, int? startIndex = null, string? filterValue = null)
 
-Get groups with sharing settings
-
 Returns groups with their sharing settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The group ID. |  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the group sharing settings from the response. | [optional]  |
+| **count** | **int?** | The number of groups to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index from which to begin retrieving groups with their sharing settings. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter for retrieving groups with their sharing settings. | [optional]  |
+
+### Return type
+
+[**GroupArrayWrapper**](GroupArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,24 +109,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The group ID. |  |
-| **excludeShared** | **bool?** | Specifies whether to exclude the group sharing settings from the response. | [optional]  |
-| **count** | **int?** | The number of groups to retrieve in the request. | [optional]  |
-| **startIndex** | **int?** | The starting index from which to begin retrieving groups with their sharing settings. | [optional]  |
-| **filterValue** | **string?** | The text used as a filter for retrieving groups with their sharing settings. | [optional]  |
-
-### Return type
-
-[**GroupArrayWrapper**](GroupArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

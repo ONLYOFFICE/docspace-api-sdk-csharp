@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the authorization services.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>AuthServiceRequestsArrayWrapper</returns>
         AuthServiceRequestsArrayWrapper GetAuthServices();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the authorization services.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>ApiResponse of AuthServiceRequestsArrayWrapper</returns>
         ApiResponse<AuthServiceRequestsArrayWrapper> GetAuthServicesWithHttpInfo();
@@ -71,8 +71,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the authorization keys.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default);
@@ -83,8 +83,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the authorization keys.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default);
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the authorization services.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>Task of AuthServiceRequestsArrayWrapper</returns>
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the authorization services.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>Task of ApiResponse (AuthServiceRequestsArrayWrapper)</returns>
@@ -126,8 +126,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the authorization keys.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -139,8 +139,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the authorization keys.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -183,14 +183,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsAuthorizationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -205,14 +205,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -247,14 +247,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -274,14 +274,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the authorization services Returns the authorization services.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>AuthServiceRequestsArrayWrapper</returns>
         public AuthServiceRequestsArrayWrapper GetAuthServices()
@@ -373,7 +373,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the authorization services Returns the authorization services.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>ApiResponse of AuthServiceRequestsArrayWrapper</returns>
         public ApiResponse<AuthServiceRequestsArrayWrapper> GetAuthServicesWithHttpInfo()
@@ -438,7 +438,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the authorization services Returns the authorization services.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>Task of AuthServiceRequestsArrayWrapper</returns>
@@ -451,7 +451,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the authorization services Returns the authorization services.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
         /// <returns>Task of ApiResponse (AuthServiceRequestsArrayWrapper)</returns>
@@ -520,8 +520,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the authorization keys Saves the authorization keys.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default)
@@ -533,8 +533,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the authorization keys Saves the authorization keys.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default)
@@ -600,8 +600,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the authorization keys Saves the authorization keys.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the authorization keys Saves the authorization keys.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>

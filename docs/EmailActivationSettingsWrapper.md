@@ -1,12 +1,12 @@
-# Docspace.Model.EmailActivationSettingsWrapper
+# DocSpace.Model.EmailActivationSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**EmailActivationSettings**](EmailActivationSettings.md) |  | [optional] 
+**Response** | [**EmailActivationSettings**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

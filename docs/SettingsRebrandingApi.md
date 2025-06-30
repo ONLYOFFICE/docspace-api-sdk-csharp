@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsRebrandingApi
+# DocSpace.Api.SettingsRebrandingApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -26,18 +26,26 @@ All URIs are relative to *http://localhost:8092*
 # **DeleteAdditionalWhiteLabelSettings**
 > AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings ()
 
-Delete the additional white label settings
-
 Deletes the additional white label settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -105,16 +113,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -134,18 +132,26 @@ This endpoint does not need any parameter.
 # **DeleteCompanyWhiteLabelSettings**
 > CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings ()
 
-Delete the company white label settings
-
 Deletes the company white label settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -213,16 +219,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -242,18 +238,26 @@ This endpoint does not need any parameter.
 # **GetAdditionalWhiteLabelSettings**
 > AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings ()
 
-Get the additional white label settings
-
 Returns the additional white label settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -321,16 +325,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -349,18 +343,26 @@ This endpoint does not need any parameter.
 # **GetCompanyWhiteLabelSettings**
 > CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings ()
 
-Get the company white label settings
-
 Returns the company white label settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -428,16 +430,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -456,18 +448,26 @@ This endpoint does not need any parameter.
 # **GetEnableWhitelabel**
 > BooleanWrapper GetEnableWhitelabel ()
 
-Check the white label availability
-
 Checks if the white label is enabled or not.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -535,16 +535,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -563,18 +553,31 @@ This endpoint does not need any parameter.
 # **GetIsDefaultWhiteLabelLogoText**
 > IsDefaultWhiteLabelLogosWrapper GetIsDefaultWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Check the default white label logo text
-
 Specifies if the white label logo text are default or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**IsDefaultWhiteLabelLogosWrapper**](IsDefaultWhiteLabelLogosWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -644,21 +647,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**IsDefaultWhiteLabelLogosWrapper**](IsDefaultWhiteLabelLogosWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -677,18 +665,31 @@ catch (ApiException e)
 # **GetIsDefaultWhiteLabelLogos**
 > IsDefaultWhiteLabelLogosArrayWrapper GetIsDefaultWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Check the default white label logos
-
 Specifies if the white label logos are default or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**IsDefaultWhiteLabelLogosArrayWrapper**](IsDefaultWhiteLabelLogosArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -758,21 +759,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**IsDefaultWhiteLabelLogosArrayWrapper**](IsDefaultWhiteLabelLogosArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -791,18 +777,26 @@ catch (ApiException e)
 # **GetLicensorData**
 > CompanyWhiteLabelSettingsArrayWrapper GetLicensorData ()
 
-Get the licensor data
-
 Returns the licensor data.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsArrayWrapper**](CompanyWhiteLabelSettingsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -870,16 +864,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsArrayWrapper**](CompanyWhiteLabelSettingsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -898,18 +882,31 @@ This endpoint does not need any parameter.
 # **GetWhiteLabelLogoText**
 > StringWrapper GetWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Get the white label logo text
-
 Returns the white label logo text.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -979,21 +976,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1012,18 +994,31 @@ catch (ApiException e)
 # **GetWhiteLabelLogos**
 > WhiteLabelItemArrayWrapper GetWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Get the white label logos
-
 Returns the white label logos.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**WhiteLabelItemArrayWrapper**](WhiteLabelItemArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1077,21 +1072,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**WhiteLabelItemArrayWrapper**](WhiteLabelItemArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1109,18 +1089,31 @@ No authorization required
 # **RestoreWhiteLabelLogoText**
 > BooleanWrapper RestoreWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Restore the white label logo text
-
 Restores the white label logo text.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1190,21 +1183,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1224,18 +1202,31 @@ catch (ApiException e)
 # **RestoreWhiteLabelLogos**
 > BooleanWrapper RestoreWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Restore the white label logos
-
 Restores the white label logos.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1305,21 +1296,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1339,18 +1315,30 @@ catch (ApiException e)
 # **SaveAdditionalWhiteLabelSettings**
 > BooleanWrapper SaveAdditionalWhiteLabelSettings (AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = null)
 
-Save the additional white label settings
-
 Saves the additional white label settings specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **additionalWhiteLabelSettingsWrapper** | [**AdditionalWhiteLabelSettingsWrapper?**](AdditionalWhiteLabelSettingsWrapper.md) | The additional white label settings wrapper. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1380,7 +1368,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
-            var additionalWhiteLabelSettingsWrapper = new AdditionalWhiteLabelSettingsWrapper?(); // AdditionalWhiteLabelSettingsWrapper? |  (optional) 
+            var additionalWhiteLabelSettingsWrapper = new AdditionalWhiteLabelSettingsWrapper?(); // AdditionalWhiteLabelSettingsWrapper? | The additional white label settings wrapper. (optional) 
 
             try
             {
@@ -1419,20 +1407,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **additionalWhiteLabelSettingsWrapper** | [**AdditionalWhiteLabelSettingsWrapper?**](AdditionalWhiteLabelSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1453,18 +1427,30 @@ catch (ApiException e)
 # **SaveCompanyWhiteLabelSettings**
 > BooleanWrapper SaveCompanyWhiteLabelSettings (CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = null)
 
-Save the company white label settings
-
 Saves the company white label settings specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **companyWhiteLabelSettingsWrapper** | [**CompanyWhiteLabelSettingsWrapper?**](CompanyWhiteLabelSettingsWrapper.md) | The company white label settings wrapper. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1494,7 +1480,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
-            var companyWhiteLabelSettingsWrapper = new CompanyWhiteLabelSettingsWrapper?(); // CompanyWhiteLabelSettingsWrapper? |  (optional) 
+            var companyWhiteLabelSettingsWrapper = new CompanyWhiteLabelSettingsWrapper?(); // CompanyWhiteLabelSettingsWrapper? | The company white label settings wrapper. (optional) 
 
             try
             {
@@ -1533,20 +1519,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **companyWhiteLabelSettingsWrapper** | [**CompanyWhiteLabelSettingsWrapper?**](CompanyWhiteLabelSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1567,18 +1539,32 @@ catch (ApiException e)
 # **SaveWhiteLabelLogoText**
 > BooleanWrapper SaveWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null, WhiteLabelRequestsDto? whiteLabelRequestsDto = null)
 
-Save the white label logo text settings
-
 Saves the white label logo text specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto.md) | The request parameters for configuring the white label branding settings. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1610,7 +1596,7 @@ namespace Example
             var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
-            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? |  (optional) 
+            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
 
             try
             {
@@ -1649,22 +1635,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1684,18 +1654,32 @@ catch (ApiException e)
 # **SaveWhiteLabelSettings**
 > BooleanWrapper SaveWhiteLabelSettings (bool? isDark = null, bool? isDefault = null, WhiteLabelRequestsDto? whiteLabelRequestsDto = null)
 
-Save the white label logos
-
 Saves the white label logos specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto.md) | The request parameters for configuring the white label branding settings. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1727,7 +1711,7 @@ namespace Example
             var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
-            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? |  (optional) 
+            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
 
             try
             {
@@ -1766,22 +1750,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1801,18 +1769,31 @@ catch (ApiException e)
 # **SaveWhiteLabelSettingsFromFiles**
 > BooleanWrapper SaveWhiteLabelSettingsFromFiles (bool? isDark = null, bool? isDefault = null)
 
-Save the white label logos from files
-
 Saves the white label logos from files.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1881,21 +1862,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

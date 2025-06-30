@@ -1,4 +1,4 @@
-# Docspace.Model.TurnOnAdminMessageSettingsRequestDto
+# DocSpace.Model.TurnOnAdminMessageSettingsRequestDto
 The request parameters for enabling or disabling administrator messaging system.
 
 ## Properties

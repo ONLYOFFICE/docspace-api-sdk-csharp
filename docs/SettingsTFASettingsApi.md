@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsTFASettingsApi
+# DocSpace.Api.SettingsTFASettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -18,18 +18,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetTfaAppCodes**
 > ObjectArrayWrapper GetTfaAppCodes ()
 
-Get the TFA codes
-
 Returns the two-factor authentication application codes.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -97,16 +105,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -126,18 +124,26 @@ This endpoint does not need any parameter.
 # **GetTfaConfirmUrl**
 > StringWrapper GetTfaConfirmUrl ()
 
-Get confirmation email
-
 Returns the confirmation email URL for authorization via SMS or TFA application.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -205,16 +211,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -233,18 +229,26 @@ This endpoint does not need any parameter.
 # **GetTfaSettings**
 > TfaSettingsArrayWrapper GetTfaSettings ()
 
-Get the TFA settings
-
 Returns the current two-factor authentication settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TfaSettingsArrayWrapper**](TfaSettingsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -312,16 +316,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TfaSettingsArrayWrapper**](TfaSettingsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -340,18 +334,26 @@ This endpoint does not need any parameter.
 # **TfaAppGenerateSetupCode**
 > SetupCodeWrapper TfaAppGenerateSetupCode ()
 
-Generate setup code
-
 Generates the setup TFA code for the current user.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SetupCodeWrapper**](SetupCodeWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -419,16 +421,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SetupCodeWrapper**](SetupCodeWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -448,18 +440,30 @@ This endpoint does not need any parameter.
 # **TfaValidateAuthCode**
 > BooleanWrapper TfaValidateAuthCode (TfaValidateRequestsDto? tfaValidateRequestsDto = null)
 
-Validate the TFA code
-
 Validates the two-factor authentication code specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tfaValidateRequestsDto** | [**TfaValidateRequestsDto?**](TfaValidateRequestsDto.md) | The request parameters for validating the two-factor authentication codes. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -489,7 +493,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
-            var tfaValidateRequestsDto = new TfaValidateRequestsDto?(); // TfaValidateRequestsDto? |  (optional) 
+            var tfaValidateRequestsDto = new TfaValidateRequestsDto?(); // TfaValidateRequestsDto? | The request parameters for validating the two-factor authentication codes. (optional) 
 
             try
             {
@@ -528,20 +532,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tfaValidateRequestsDto** | [**TfaValidateRequestsDto?**](TfaValidateRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -560,18 +550,30 @@ catch (ApiException e)
 # **UnlinkTfaApp**
 > StringWrapper UnlinkTfaApp (TfaRequestsDto? tfaRequestsDto = null)
 
-Unlink the TFA application
-
 Unlinks the current two-factor authentication application from the user account specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto.md) | The request parameters for configuring the Two-Factor Authentication (TFA) settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -601,7 +603,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
-            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? |  (optional) 
+            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
             {
@@ -640,20 +642,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -674,18 +662,26 @@ catch (ApiException e)
 # **UpdateTfaAppCodes**
 > ObjectArrayWrapper UpdateTfaAppCodes ()
 
-Update the TFA codes
-
 Requests the new backup codes for the two-factor authentication application.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -753,16 +749,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -782,18 +768,30 @@ This endpoint does not need any parameter.
 # **UpdateTfaSettings**
 > BooleanWrapper UpdateTfaSettings (TfaRequestsDto? tfaRequestsDto = null)
 
-Update the TFA settings
-
 Updates the two-factor authentication settings with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto.md) | The request parameters for configuring the Two-Factor Authentication (TFA) settings. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -823,7 +821,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
-            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? |  (optional) 
+            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
             {
@@ -862,20 +860,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -895,18 +879,30 @@ catch (ApiException e)
 # **UpdateTfaSettingsLink**
 > StringWrapper UpdateTfaSettingsLink (TfaRequestsDto? tfaRequestsDto = null)
 
-Get a confirmation email for updating TFA settings
-
 Returns the confirmation email URL for updating TFA settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto.md) | The request parameters for configuring the Two-Factor Authentication (TFA) settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -936,7 +932,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
-            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? |  (optional) 
+            var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
             {
@@ -974,20 +970,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tfaRequestsDto** | [**TfaRequestsDto?**](TfaRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.UserInfo
+# DocSpace.Model.UserInfo
 The user information.
 
 ## Properties

@@ -38,10 +38,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
-using FileParameter = Docspace.Client.FileParameter;
-using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
+using FileParameter = DocSpace.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.Client.OpenAPIDateConverter;
 
-namespace Docspace.Model
+namespace DocSpace.Model
 {
     /// <summary>
     /// [0 - User or group, 1 - Invitation link, 2 - External link, 4 - Additional external link, 8 - Primary external link, 16 - User, 32 - Group]

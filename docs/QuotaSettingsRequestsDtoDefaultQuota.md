@@ -1,4 +1,4 @@
-# Docspace.Model.QuotaSettingsRequestsDtoDefaultQuota
+# DocSpace.Model.QuotaSettingsRequestsDtoDefaultQuota
 The default storage quota value applied to new users.
 
 ## Properties

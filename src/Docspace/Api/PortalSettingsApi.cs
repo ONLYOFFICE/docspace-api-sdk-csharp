@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns></returns>
         void ContinuePortal();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ContinuePortalWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper DeletePortal();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> DeletePortalWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>TenantWrapper</returns>
         TenantWrapper GetPortalInformation();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>ApiResponse of TenantWrapper</returns>
         ApiResponse<TenantWrapper> GetPortalInformationWithHttpInfo();
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the full absolute path to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the full absolute path to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to remove the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns></returns>
         void SendDeleteInstructions();
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to remove the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendDeleteInstructionsWithHttpInfo();
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to suspend the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns></returns>
         void SendSuspendInstructions();
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to suspend the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendSuspendInstructionsWithHttpInfo();
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deactivates the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns></returns>
         void SuspendPortal();
@@ -189,7 +189,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deactivates the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SuspendPortalWithHttpInfo();
@@ -208,7 +208,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>Task of void</returns>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -231,7 +231,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -243,7 +243,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -254,7 +254,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>Task of TenantWrapper</returns>
@@ -266,7 +266,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWrapper)</returns>
@@ -277,7 +277,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the full absolute path to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
@@ -290,7 +290,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the full absolute path to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
@@ -302,7 +302,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to remove the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>Task of void</returns>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to remove the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -325,7 +325,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to suspend the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>Task of void</returns>
@@ -337,7 +337,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to suspend the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -348,7 +348,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deactivates the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>Task of void</returns>
@@ -360,7 +360,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deactivates the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -403,14 +403,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PortalSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -425,14 +425,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -467,14 +467,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -494,14 +494,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -521,7 +521,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -581,7 +581,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a portal Restores the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns></returns>
         public void ContinuePortal()
@@ -592,7 +592,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a portal Restores the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ContinuePortalWithHttpInfo()
@@ -657,7 +657,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a portal Restores the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>Task of void</returns>
@@ -669,7 +669,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a portal Restores the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/">REST API Reference for ContinuePortal Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -738,7 +738,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a portal Deletes the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper DeletePortal()
@@ -750,7 +750,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a portal Deletes the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> DeletePortalWithHttpInfo()
@@ -815,7 +815,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a portal Deletes the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -828,7 +828,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a portal Deletes the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/">REST API Reference for DeletePortal Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -897,7 +897,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal Returns the current portal information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>TenantWrapper</returns>
         public TenantWrapper GetPortalInformation()
@@ -909,7 +909,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal Returns the current portal information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>ApiResponse of TenantWrapper</returns>
         public ApiResponse<TenantWrapper> GetPortalInformationWithHttpInfo()
@@ -974,7 +974,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal Returns the current portal information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>Task of TenantWrapper</returns>
@@ -987,7 +987,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal Returns the current portal information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/">REST API Reference for GetPortalInformation Operation</seealso>
         /// <returns>Task of ApiResponse (TenantWrapper)</returns>
@@ -1056,7 +1056,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a path to the portal Returns the full absolute path to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -1069,7 +1069,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a path to the portal Returns the full absolute path to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -1139,7 +1139,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a path to the portal Returns the full absolute path to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
@@ -1153,7 +1153,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a path to the portal Returns the full absolute path to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
@@ -1177,7 +1177,7 @@ namespace Docspace.Api
 
             if (virtualPath != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "virtualPath", virtualPath));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "virtualPath", virtualPath));
             }
 
             // authentication (Basic) required
@@ -1227,7 +1227,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send removal instructions Sends the instructions to remove the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns></returns>
         public void SendDeleteInstructions()
@@ -1238,7 +1238,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send removal instructions Sends the instructions to remove the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SendDeleteInstructionsWithHttpInfo()
@@ -1303,7 +1303,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send removal instructions Sends the instructions to remove the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1315,7 +1315,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send removal instructions Sends the instructions to remove the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/">REST API Reference for SendDeleteInstructions Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1384,7 +1384,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send suspension instructions Sends the instructions to suspend the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns></returns>
         public void SendSuspendInstructions()
@@ -1395,7 +1395,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send suspension instructions Sends the instructions to suspend the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SendSuspendInstructionsWithHttpInfo()
@@ -1460,7 +1460,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send suspension instructions Sends the instructions to suspend the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1472,7 +1472,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send suspension instructions Sends the instructions to suspend the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/">REST API Reference for SendSuspendInstructions Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1541,7 +1541,7 @@ namespace Docspace.Api
         /// <summary>
         /// Deactivate a portal Deactivates the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns></returns>
         public void SuspendPortal()
@@ -1552,7 +1552,7 @@ namespace Docspace.Api
         /// <summary>
         /// Deactivate a portal Deactivates the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SuspendPortalWithHttpInfo()
@@ -1617,7 +1617,7 @@ namespace Docspace.Api
         /// <summary>
         /// Deactivate a portal Deactivates the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1629,7 +1629,7 @@ namespace Docspace.Api
         /// <summary>
         /// Deactivate a portal Deactivates the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

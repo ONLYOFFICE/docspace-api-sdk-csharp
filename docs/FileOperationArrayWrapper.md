@@ -1,12 +1,12 @@
-# Docspace.Model.FileOperationArrayWrapper
+# DocSpace.Model.FileOperationArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;FileOperationDto&gt;**](FileOperationDto.md) |  | [optional] 
+**Response** | [**List&lt;FileOperationDto&gt;**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

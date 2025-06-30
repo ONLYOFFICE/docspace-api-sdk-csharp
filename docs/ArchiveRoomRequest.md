@@ -1,4 +1,4 @@
-# Docspace.Model.ArchiveRoomRequest
+# DocSpace.Model.ArchiveRoomRequest
 The parameters for archiving a room.
 
 ## Properties

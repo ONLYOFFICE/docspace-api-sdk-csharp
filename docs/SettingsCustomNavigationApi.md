@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsCustomNavigationApi
+# DocSpace.Api.SettingsCustomNavigationApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -14,18 +14,30 @@ All URIs are relative to *http://localhost:8092*
 # **CreateCustomNavigationItem**
 > CustomNavigationItemWrapper CreateCustomNavigationItem (CustomNavigationItem? customNavigationItem = null)
 
-Add a custom navigation item
-
 Adds a custom navigation item with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customNavigationItem** | [**CustomNavigationItem?**](CustomNavigationItem.md) | The custom navigation item parameters. | [optional]  |
+
+### Return type
+
+[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -55,7 +67,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
-            var customNavigationItem = new CustomNavigationItem?(); // CustomNavigationItem? |  (optional) 
+            var customNavigationItem = new CustomNavigationItem?(); // CustomNavigationItem? | The custom navigation item parameters. (optional) 
 
             try
             {
@@ -94,20 +106,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **customNavigationItem** | [**CustomNavigationItem?**](CustomNavigationItem?.md) |  | [optional]  |
-
-### Return type
-
-[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -126,18 +124,30 @@ catch (ApiException e)
 # **DeleteCustomNavigationItem**
 > void DeleteCustomNavigationItem (Guid id)
 
-Delete a custom navigation item
-
 Deletes a custom navigation item with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -202,20 +212,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -234,18 +230,30 @@ void (empty response body)
 # **GetCustomNavigationItem**
 > CustomNavigationItemWrapper GetCustomNavigationItem (Guid id)
 
-Get a custom navigation item by ID
-
 Returns a custom navigation item by the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -314,20 +322,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -346,18 +340,26 @@ catch (ApiException e)
 # **GetCustomNavigationItemSample**
 > CustomNavigationItemWrapper GetCustomNavigationItemSample ()
 
-Get a custom navigation item sample
-
 Returns a sample of the custom navigation item.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -425,16 +427,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CustomNavigationItemWrapper**](CustomNavigationItemWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -453,18 +445,26 @@ This endpoint does not need any parameter.
 # **GetCustomNavigationItems**
 > CustomNavigationItemArrayWrapper GetCustomNavigationItems ()
 
-Get the custom navigation items
-
 Returns a list of the custom navigation items.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CustomNavigationItemArrayWrapper**](CustomNavigationItemArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -531,16 +531,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CustomNavigationItemArrayWrapper**](CustomNavigationItemArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

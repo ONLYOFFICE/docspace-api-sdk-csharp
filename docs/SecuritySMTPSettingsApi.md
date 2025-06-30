@@ -1,4 +1,4 @@
-# Docspace.Api.SecuritySMTPSettingsApi
+# DocSpace.Api.SecuritySMTPSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -14,18 +14,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetSmtpOperationStatus**
 > SmtpOperationStatusRequestsWrapper GetSmtpOperationStatus ()
 
-Get the SMTP testing process status
-
 Returns the status of the SMTP testing process.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,16 +101,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -122,18 +120,26 @@ This endpoint does not need any parameter.
 # **GetSmtpSettings**
 > SmtpSettingsWrapper GetSmtpSettings ()
 
-Get the SMTP settings
-
 Returns the current portal SMTP settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -201,16 +207,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -230,18 +226,26 @@ This endpoint does not need any parameter.
 # **ResetSmtpSettings**
 > SmtpSettingsWrapper ResetSmtpSettings ()
 
-Reset the SMTP settings
-
 Resets the SMTP settings of the current portal.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -309,16 +313,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -338,18 +332,30 @@ This endpoint does not need any parameter.
 # **SaveSmtpSettings**
 > SmtpSettingsWrapper SaveSmtpSettings (SmtpSettingsDto? smtpSettingsDto = null)
 
-Save the SMTP settings
-
 Saves the SMTP settings for the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **smtpSettingsDto** | [**SmtpSettingsDto?**](SmtpSettingsDto.md) | The SMTP settings parameters. | [optional]  |
+
+### Return type
+
+[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -379,7 +385,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
-            var smtpSettingsDto = new SmtpSettingsDto?(); // SmtpSettingsDto? |  (optional) 
+            var smtpSettingsDto = new SmtpSettingsDto?(); // SmtpSettingsDto? | The SMTP settings parameters. (optional) 
 
             try
             {
@@ -418,20 +424,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **smtpSettingsDto** | [**SmtpSettingsDto?**](SmtpSettingsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**SmtpSettingsWrapper**](SmtpSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -451,18 +443,26 @@ catch (ApiException e)
 # **TestSmtpSettings**
 > SmtpOperationStatusRequestsWrapper TestSmtpSettings ()
 
-Test the SMTP settings
-
 Tests the SMTP settings for the current portal (sends test message to the user email).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -529,16 +529,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

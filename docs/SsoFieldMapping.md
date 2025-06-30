@@ -1,4 +1,4 @@
-# Docspace.Model.SsoFieldMapping
+# DocSpace.Model.SsoFieldMapping
 The SSO field mapping.
 
 ## Properties

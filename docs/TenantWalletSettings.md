@@ -1,4 +1,4 @@
-# Docspace.Model.TenantWalletSettings
+# DocSpace.Model.TenantWalletSettings
 
 ## Properties
 

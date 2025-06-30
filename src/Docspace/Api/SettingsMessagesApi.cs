@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper EnableAdminMessageSettings(TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> EnableAdminMessageSettingsWithHttpInfo(TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default);
@@ -96,8 +96,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends an invitation email with a link to the DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default);
@@ -108,8 +108,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends an invitation email with a link to the DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default);
@@ -128,8 +128,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -141,8 +141,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -153,8 +153,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -166,8 +166,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -178,8 +178,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends an invitation email with a link to the DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -191,8 +191,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends an invitation email with a link to the DocSpace.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -235,14 +235,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsMessagesApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -257,14 +257,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -299,14 +299,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -326,14 +326,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -353,7 +353,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -413,8 +413,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable the administrator message settings Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper EnableAdminMessageSettings(TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = default)
@@ -426,8 +426,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable the administrator message settings Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> EnableAdminMessageSettingsWithHttpInfo(TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = default)
@@ -493,8 +493,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable the administrator message settings Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -507,8 +507,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable the administrator message settings Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="turnOnAdminMessageSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/">REST API Reference for EnableAdminMessageSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -578,8 +578,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a message to the administrator Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default)
@@ -591,8 +591,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a message to the administrator Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default)
@@ -628,8 +628,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a message to the administrator Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -642,8 +642,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send a message to the administrator Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageSettingsRequestsDto">The request parameters for configuring the administrator message content. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -683,8 +683,8 @@ namespace Docspace.Api
         /// <summary>
         /// Sends an invitation email Sends an invitation email with a link to the DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default)
@@ -696,8 +696,8 @@ namespace Docspace.Api
         /// <summary>
         /// Sends an invitation email Sends an invitation email with a link to the DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default)
@@ -733,8 +733,8 @@ namespace Docspace.Api
         /// <summary>
         /// Sends an invitation email Sends an invitation email with a link to the DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -747,8 +747,8 @@ namespace Docspace.Api
         /// <summary>
         /// Sends an invitation email Sends an invitation email with a link to the DocSpace.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adminMessageBaseSettingsRequestsDto">The request parameters for the administrator message configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

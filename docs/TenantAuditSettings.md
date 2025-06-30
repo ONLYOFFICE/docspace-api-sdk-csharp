@@ -1,4 +1,4 @@
-# Docspace.Model.TenantAuditSettings
+# DocSpace.Model.TenantAuditSettings
 The tenant audit settings parameters.
 
 ## Properties

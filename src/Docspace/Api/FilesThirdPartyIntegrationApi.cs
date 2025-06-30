@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ProviderArrayWrapper</returns>
         ProviderArrayWrapper GetAllProviders();
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderArrayWrapper</returns>
         ApiResponse<ProviderArrayWrapper> GetAllProvidersWithHttpInfo();
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a backup of the connected third-party account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         FolderStringWrapper GetBackupThirdPartyAccount();
@@ -105,7 +105,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a backup of the connected third-party account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> GetBackupThirdPartyAccountWithHttpInfo();
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ArrayArrayWrapper</returns>
         ArrayArrayWrapper GetCapabilities();
@@ -126,7 +126,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ApiResponse of ArrayArrayWrapper</returns>
         ApiResponse<ArrayArrayWrapper> GetCapabilitiesWithHttpInfo();
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>FolderStringArrayWrapper</returns>
         FolderStringArrayWrapper GetCommonThirdPartyFolders();
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
         ApiResponse<FolderStringArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo();
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the connected third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ThirdPartyParamsArrayWrapper</returns>
         ThirdPartyParamsArrayWrapper GetThirdPartyAccounts();
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the connected third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
         ApiResponse<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsWithHttpInfo();
@@ -178,8 +178,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         FolderStringWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default);
@@ -190,8 +190,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default);
@@ -201,8 +201,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         FolderStringWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
@@ -213,8 +213,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
@@ -233,7 +233,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -246,7 +246,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -258,7 +258,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>Task of ProviderArrayWrapper</returns>
@@ -270,7 +270,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>Task of ApiResponse (ProviderArrayWrapper)</returns>
@@ -281,7 +281,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a backup of the connected third-party account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -293,7 +293,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a backup of the connected third-party account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
@@ -304,7 +304,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>Task of ArrayArrayWrapper</returns>
@@ -316,7 +316,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>Task of ApiResponse (ArrayArrayWrapper)</returns>
@@ -327,7 +327,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>Task of FolderStringArrayWrapper</returns>
@@ -339,7 +339,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringArrayWrapper)</returns>
@@ -350,7 +350,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the connected third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>Task of ThirdPartyParamsArrayWrapper</returns>
@@ -362,7 +362,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the connected third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyParamsArrayWrapper)</returns>
@@ -373,8 +373,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -386,8 +386,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
@@ -398,8 +398,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -411,8 +411,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
@@ -455,14 +455,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesThirdPartyIntegrationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -477,14 +477,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -519,14 +519,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -546,14 +546,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -573,7 +573,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -633,7 +633,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a third-party account Removes the third-party storage service account with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -646,7 +646,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a third-party account Removes the third-party storage service account with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -713,7 +713,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a third-party account Removes the third-party storage service account with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -727,7 +727,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a third-party account Removes the third-party storage service account with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -798,7 +798,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get all providers Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ProviderArrayWrapper</returns>
         public ProviderArrayWrapper GetAllProviders()
@@ -810,7 +810,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get all providers Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderArrayWrapper</returns>
         public ApiResponse<ProviderArrayWrapper> GetAllProvidersWithHttpInfo()
@@ -875,7 +875,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get all providers Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>Task of ProviderArrayWrapper</returns>
@@ -888,7 +888,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get all providers Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>Task of ApiResponse (ProviderArrayWrapper)</returns>
@@ -957,7 +957,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a third-party account backup Returns a backup of the connected third-party account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         public FolderStringWrapper GetBackupThirdPartyAccount()
@@ -969,7 +969,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a third-party account backup Returns a backup of the connected third-party account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         public ApiResponse<FolderStringWrapper> GetBackupThirdPartyAccountWithHttpInfo()
@@ -1034,7 +1034,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a third-party account backup Returns a backup of the connected third-party account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -1047,7 +1047,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a third-party account backup Returns a backup of the connected third-party account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
@@ -1116,7 +1116,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get providers Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ArrayArrayWrapper</returns>
         public ArrayArrayWrapper GetCapabilities()
@@ -1128,7 +1128,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get providers Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ApiResponse of ArrayArrayWrapper</returns>
         public ApiResponse<ArrayArrayWrapper> GetCapabilitiesWithHttpInfo()
@@ -1193,7 +1193,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get providers Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>Task of ArrayArrayWrapper</returns>
@@ -1206,7 +1206,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get providers Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>Task of ApiResponse (ArrayArrayWrapper)</returns>
@@ -1275,7 +1275,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the common third-party services Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>FolderStringArrayWrapper</returns>
         public FolderStringArrayWrapper GetCommonThirdPartyFolders()
@@ -1287,7 +1287,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the common third-party services Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
         public ApiResponse<FolderStringArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo()
@@ -1352,7 +1352,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the common third-party services Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>Task of FolderStringArrayWrapper</returns>
@@ -1365,7 +1365,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the common third-party services Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringArrayWrapper)</returns>
@@ -1434,7 +1434,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the third-party accounts Returns a list of all the connected third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ThirdPartyParamsArrayWrapper</returns>
         public ThirdPartyParamsArrayWrapper GetThirdPartyAccounts()
@@ -1446,7 +1446,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the third-party accounts Returns a list of all the connected third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
         public ApiResponse<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsWithHttpInfo()
@@ -1511,7 +1511,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the third-party accounts Returns a list of all the connected third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>Task of ThirdPartyParamsArrayWrapper</returns>
@@ -1524,7 +1524,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the third-party accounts Returns a list of all the connected third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyParamsArrayWrapper)</returns>
@@ -1593,8 +1593,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         public FolderStringWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default)
@@ -1606,8 +1606,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         public ApiResponse<FolderStringWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default)
@@ -1673,8 +1673,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -1687,8 +1687,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
@@ -1758,8 +1758,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account backup Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         public FolderStringWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
@@ -1771,8 +1771,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account backup Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         public ApiResponse<FolderStringWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
@@ -1838,8 +1838,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account backup Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
@@ -1852,8 +1852,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save a third-party account backup Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="thirdPartyBackupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>

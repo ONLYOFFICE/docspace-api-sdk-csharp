@@ -1,4 +1,4 @@
-# Docspace.Model.KeyValuePairBooleanString
+# DocSpace.Model.KeyValuePairBooleanString
 
 ## Properties
 

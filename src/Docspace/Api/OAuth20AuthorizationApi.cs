@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -65,7 +65,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -79,7 +79,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -95,7 +95,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -110,7 +110,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a consent request with the specified parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a consent request with the specified parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -162,7 +162,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -177,7 +177,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -194,7 +194,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -210,7 +210,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a consent request with the specified parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -225,7 +225,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a consent request with the specified parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -271,14 +271,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public OAuth20AuthorizationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -293,14 +293,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -362,14 +362,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 authorization endpoint Initiates the OAuth2 authorization flow.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -464,7 +464,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 authorization endpoint Initiates the OAuth2 authorization flow.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -502,10 +502,10 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "response_type", responseType));
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "client_id", clientId));
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "redirect_uri", redirectUri));
-            localVarRequestOptions.QueryParameters.Add(ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "response_type", responseType));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "client_id", clientId));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "redirect_uri", redirectUri));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "scope", scope));
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -529,7 +529,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 authorization endpoint Initiates the OAuth2 authorization flow.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -545,7 +545,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 authorization endpoint Initiates the OAuth2 authorization flow.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
@@ -586,10 +586,10 @@ namespace Docspace.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "response_type", responseType));
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "client_id", clientId));
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "redirect_uri", redirectUri));
-            localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "response_type", responseType));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "client_id", clientId));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "redirect_uri", redirectUri));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "scope", scope));
 
             // authentication (asc_auth_key) required
             // cookie parameter support
@@ -614,7 +614,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 token endpoint Exchanges an authorization code specified in the request for the access token.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -631,7 +631,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 token endpoint Exchanges an authorization code specified in the request for the access token.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -691,7 +691,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 token endpoint Exchanges an authorization code specified in the request for the access token.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -709,7 +709,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 token endpoint Exchanges an authorization code specified in the request for the access token.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
@@ -737,23 +737,23 @@ namespace Docspace.Api
 
             if (grantType != null)
             {
-                localVarRequestOptions.FormParameters.Add("grant_type", Docspace.Client.ClientUtils.ParameterToString(grantType)); // form parameter
+                localVarRequestOptions.FormParameters.Add("grant_type", DocSpace.Client.ClientUtils.ParameterToString(grantType)); // form parameter
             }
             if (code != null)
             {
-                localVarRequestOptions.FormParameters.Add("code", Docspace.Client.ClientUtils.ParameterToString(code)); // form parameter
+                localVarRequestOptions.FormParameters.Add("code", DocSpace.Client.ClientUtils.ParameterToString(code)); // form parameter
             }
             if (redirectUri != null)
             {
-                localVarRequestOptions.FormParameters.Add("redirect_uri", Docspace.Client.ClientUtils.ParameterToString(redirectUri)); // form parameter
+                localVarRequestOptions.FormParameters.Add("redirect_uri", DocSpace.Client.ClientUtils.ParameterToString(redirectUri)); // form parameter
             }
             if (clientId != null)
             {
-                localVarRequestOptions.FormParameters.Add("client_id", Docspace.Client.ClientUtils.ParameterToString(clientId)); // form parameter
+                localVarRequestOptions.FormParameters.Add("client_id", DocSpace.Client.ClientUtils.ParameterToString(clientId)); // form parameter
             }
             if (clientSecret != null)
             {
-                localVarRequestOptions.FormParameters.Add("client_secret", Docspace.Client.ClientUtils.ParameterToString(clientSecret)); // form parameter
+                localVarRequestOptions.FormParameters.Add("client_secret", DocSpace.Client.ClientUtils.ParameterToString(clientSecret)); // form parameter
             }
 
 
@@ -773,7 +773,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 consent endpoint Sends a consent request with the specified parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -787,7 +787,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 consent endpoint Sends a consent request with the specified parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -843,7 +843,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 consent endpoint Sends a consent request with the specified parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -858,7 +858,7 @@ namespace Docspace.Api
         /// <summary>
         /// OAuth2 consent endpoint Sends a consent request with the specified parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
         /// <param name="state">The random string used to solve the CSRF vulnerability problem. (optional)</param>
         /// <param name="scope">The space-separated list of requested scope permissions. (optional)</param>
@@ -884,15 +884,15 @@ namespace Docspace.Api
 
             if (clientId != null)
             {
-                localVarRequestOptions.FormParameters.Add("client_id", Docspace.Client.ClientUtils.ParameterToString(clientId)); // form parameter
+                localVarRequestOptions.FormParameters.Add("client_id", DocSpace.Client.ClientUtils.ParameterToString(clientId)); // form parameter
             }
             if (state != null)
             {
-                localVarRequestOptions.FormParameters.Add("state", Docspace.Client.ClientUtils.ParameterToString(state)); // form parameter
+                localVarRequestOptions.FormParameters.Add("state", DocSpace.Client.ClientUtils.ParameterToString(state)); // form parameter
             }
             if (scope != null)
             {
-                localVarRequestOptions.FormParameters.Add("scope", Docspace.Client.ClientUtils.ParameterToString(scope)); // form parameter
+                localVarRequestOptions.FormParameters.Add("scope", DocSpace.Client.ClientUtils.ParameterToString(scope)); // form parameter
             }
 
             // authentication (asc_auth_key) required

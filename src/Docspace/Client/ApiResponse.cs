@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Provides a non-generic contract for the ApiResponse wrapper.

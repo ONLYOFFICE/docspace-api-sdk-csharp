@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleUserTypeApi
+# DocSpace.Api.PeopleUserTypeApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -13,18 +13,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetUserTypeUpdateProgress**
 > TaskProgressResponseWrapper GetUserTypeUpdateProgress (Guid userid)
 
-Get the progress of updating user type
-
 Returns the progress of updating the user type.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,20 +105,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -125,18 +123,30 @@ catch (ApiException e)
 # **StarUserTypetUpdate**
 > TaskProgressResponseWrapper StarUserTypetUpdate (StartUpdateUserTypeDto? startUpdateUserTypeDto = null)
 
-Update user type
-
 Starts updating the type of the user or guest when reassigning rooms and shared files.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **startUpdateUserTypeDto** | [**StartUpdateUserTypeDto?**](StartUpdateUserTypeDto.md) | The parameters for updating the type of the user or guest when reassigning rooms and shared files. | [optional]  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -166,7 +176,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
-            var startUpdateUserTypeDto = new StartUpdateUserTypeDto?(); // StartUpdateUserTypeDto? |  (optional) 
+            var startUpdateUserTypeDto = new StartUpdateUserTypeDto?(); // StartUpdateUserTypeDto? | The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional) 
 
             try
             {
@@ -205,20 +215,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **startUpdateUserTypeDto** | [**StartUpdateUserTypeDto?**](StartUpdateUserTypeDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -238,18 +234,30 @@ catch (ApiException e)
 # **TerminateUserTypeUpdate**
 > TaskProgressResponseWrapper TerminateUserTypeUpdate (TerminateRequestDto? terminateRequestDto = null)
 
-Terminate update user type
-
 Terminates the process of updating the type of the user or guest.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto.md) | The request parameters for terminating the reassignment/deletion process. | [optional]  |
+
+### Return type
+
+[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -279,7 +287,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
-            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? |  (optional) 
+            var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
             {
@@ -318,20 +326,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **terminateRequestDto** | [**TerminateRequestDto?**](TerminateRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TaskProgressResponseWrapper**](TaskProgressResponseWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -350,18 +344,31 @@ catch (ApiException e)
 # **UpdateUserType**
 > EmployeeFullArrayWrapper UpdateUserType (EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Change a user type
-
 Changes a type of the users with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **type** | **EmployeeType** | The new user type. |  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -430,21 +437,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **type** | **EmployeeType** | The new user type. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) | The request parameters for updating the user information. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

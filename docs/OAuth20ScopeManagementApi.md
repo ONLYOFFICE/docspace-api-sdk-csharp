@@ -1,4 +1,4 @@
-# Docspace.Api.OAuth20ScopeManagementApi
+# DocSpace.Api.OAuth20ScopeManagementApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetScopes**
 > ScopeResponse GetScopes ()
 
-Get available OAuth2 scopes
-
 Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ScopeResponse**](ScopeResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -77,16 +85,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ScopeResponse**](ScopeResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
 
 ### HTTP request headers
 

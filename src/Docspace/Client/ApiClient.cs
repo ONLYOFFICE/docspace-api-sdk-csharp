@@ -47,7 +47,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Polly;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// To Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
@@ -87,10 +87,10 @@ namespace Docspace.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
-            if (obj != null && obj is Docspace.Model.AbstractOpenAPISchema)
+            if (obj != null && obj is DocSpace.Model.AbstractOpenAPISchema)
             {
                 // the object to be serialized is an oneOf/anyOf schema
-                return ((Docspace.Model.AbstractOpenAPISchema)obj).ToJson();
+                return ((DocSpace.Model.AbstractOpenAPISchema)obj).ToJson();
             }
             else
             {
@@ -241,7 +241,7 @@ namespace Docspace.Client
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         public ApiClient() :
-                 this(Docspace.Client.GlobalConfiguration.Instance.BasePath)
+                 this(DocSpace.Client.GlobalConfiguration.Instance.BasePath)
         {
         }
 
@@ -273,7 +273,7 @@ namespace Docspace.Client
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
         public ApiClient(HttpClient client, HttpClientHandler handler = null) :
-                 this(client, Docspace.Client.GlobalConfiguration.Instance.BasePath, handler)
+                 this(client, DocSpace.Client.GlobalConfiguration.Instance.BasePath, handler)
         {
         }
 
@@ -559,7 +559,7 @@ namespace Docspace.Client
                 object responseData = await deserializer.Deserialize<T>(response).ConfigureAwait(false);
 
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-                if (typeof(Docspace.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                if (typeof(DocSpace.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
                     responseData = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
                 }

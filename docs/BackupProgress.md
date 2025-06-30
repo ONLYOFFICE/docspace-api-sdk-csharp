@@ -1,4 +1,4 @@
-# Docspace.Model.BackupProgress
+# DocSpace.Model.BackupProgress
 
 ## Properties
 

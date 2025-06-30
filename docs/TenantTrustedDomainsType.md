@@ -1,4 +1,4 @@
-# Docspace.Model.TenantTrustedDomainsType
+# DocSpace.Model.TenantTrustedDomainsType
 [0 - None, 1 - Custom, 2 - All]
 
 ## Properties

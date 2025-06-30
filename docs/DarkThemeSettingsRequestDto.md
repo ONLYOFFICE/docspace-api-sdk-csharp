@@ -1,4 +1,4 @@
-# Docspace.Model.DarkThemeSettingsRequestDto
+# DocSpace.Model.DarkThemeSettingsRequestDto
 The theme settings request parameters.
 
 ## Properties

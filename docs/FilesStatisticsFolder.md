@@ -1,4 +1,4 @@
-# Docspace.Model.FilesStatisticsFolder
+# DocSpace.Model.FilesStatisticsFolder
 The file statictics folder parameters.
 
 ## Properties

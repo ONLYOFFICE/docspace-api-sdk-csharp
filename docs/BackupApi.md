@@ -1,4 +1,4 @@
-# Docspace.Api.BackupApi
+# DocSpace.Api.BackupApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -19,18 +19,30 @@ All URIs are relative to *http://localhost:8092*
 # **CreateBackupSchedule**
 > BooleanWrapper CreateBackupSchedule (BackupScheduleDto? backupScheduleDto = null)
 
-Create the backup schedule
-
 Creates the backup schedule of the current portal with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **backupScheduleDto** | [**BackupScheduleDto?**](BackupScheduleDto.md) | The backup schedule parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -60,7 +72,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var backupScheduleDto = new BackupScheduleDto?(); // BackupScheduleDto? |  (optional) 
+            var backupScheduleDto = new BackupScheduleDto?(); // BackupScheduleDto? | The backup schedule parameters. (optional) 
 
             try
             {
@@ -99,20 +111,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **backupScheduleDto** | [**BackupScheduleDto?**](BackupScheduleDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -135,18 +133,30 @@ catch (ApiException e)
 # **DeleteBackup**
 > BooleanWrapper DeleteBackup (Guid id)
 
-Delete the backup
-
 Deletes the backup with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The backup ID. |  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -215,20 +225,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The backup ID. |  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -248,18 +244,30 @@ catch (ApiException e)
 # **DeleteBackupHistory**
 > BooleanWrapper DeleteBackupHistory (bool? dump = null)
 
-Delete the backup history
-
 Deletes the backup history from the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -328,20 +336,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -361,18 +355,30 @@ catch (ApiException e)
 # **DeleteBackupSchedule**
 > BooleanWrapper DeleteBackupSchedule (bool? dump = null)
 
-Delete the backup schedule
-
 Deletes the backup schedule of the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -441,20 +447,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -474,18 +466,30 @@ catch (ApiException e)
 # **GetBackupHistory**
 > BackupHistoryRecordArrayWrapper GetBackupHistory (bool? dump = null)
 
-Get the backup history
-
 Returns the history of the started backup.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**BackupHistoryRecordArrayWrapper**](BackupHistoryRecordArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -554,20 +558,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**BackupHistoryRecordArrayWrapper**](BackupHistoryRecordArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -587,18 +577,30 @@ catch (ApiException e)
 # **GetBackupProgress**
 > BackupProgressWrapper GetBackupProgress (bool? dump = null)
 
-Get the backup progress
-
 Returns the progress of the started backup.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**BackupProgressWrapper**](BackupProgressWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -667,20 +669,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**BackupProgressWrapper**](BackupProgressWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -700,18 +688,30 @@ catch (ApiException e)
 # **GetBackupSchedule**
 > ScheduleWrapper GetBackupSchedule (bool? dump = null)
 
-Get the backup schedule
-
 Returns the backup schedule of the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**ScheduleWrapper**](ScheduleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -780,20 +780,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**ScheduleWrapper**](ScheduleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -813,18 +799,30 @@ catch (ApiException e)
 # **GetRestoreProgress**
 > BackupProgressWrapper GetRestoreProgress (bool? dump = null)
 
-Get the restoring progress
-
 Returns the progress of the started restoring process.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
+
+### Return type
+
+[**BackupProgressWrapper**](BackupProgressWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -877,20 +875,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dump** | **bool?** | Specifies if a dump will be created or not. | [optional]  |
-
-### Return type
-
-[**BackupProgressWrapper**](BackupProgressWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -908,18 +892,30 @@ No authorization required
 # **StartBackup**
 > BackupProgressWrapper StartBackup (BackupDto? backupDto = null)
 
-Start the backup
-
 Starts the backup of the current portal with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **backupDto** | [**BackupDto?**](BackupDto.md) | The backup parameters. | [optional]  |
+
+### Return type
+
+[**BackupProgressWrapper**](BackupProgressWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -949,7 +945,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var backupDto = new BackupDto?(); // BackupDto? |  (optional) 
+            var backupDto = new BackupDto?(); // BackupDto? | The backup parameters. (optional) 
 
             try
             {
@@ -988,20 +984,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **backupDto** | [**BackupDto?**](BackupDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BackupProgressWrapper**](BackupProgressWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1024,18 +1006,30 @@ catch (ApiException e)
 # **StartBackupRestore**
 > BackupProgressWrapper StartBackupRestore (BackupRestoreDto? backupRestoreDto = null)
 
-Start the restoring process
-
 Starts the data restoring process of the current portal with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **backupRestoreDto** | [**BackupRestoreDto?**](BackupRestoreDto.md) | The backup restoring parameters. | [optional]  |
+
+### Return type
+
+[**BackupProgressWrapper**](BackupProgressWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1065,7 +1059,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var backupRestoreDto = new BackupRestoreDto?(); // BackupRestoreDto? |  (optional) 
+            var backupRestoreDto = new BackupRestoreDto?(); // BackupRestoreDto? | The backup restoring parameters. (optional) 
 
             try
             {
@@ -1103,20 +1097,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **backupRestoreDto** | [**BackupRestoreDto?**](BackupRestoreDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BackupProgressWrapper**](BackupProgressWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

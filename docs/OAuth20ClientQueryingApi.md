@@ -1,4 +1,4 @@
-# Docspace.Api.OAuth20ClientQueryingApi
+# DocSpace.Api.OAuth20ClientQueryingApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -15,18 +15,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetClient**
 > ClientResponse GetClient (string clientId)
 
-Get client details
-
 Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+[**ClientResponse**](ClientResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -84,20 +96,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-[**ClientResponse**](ClientResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -120,18 +118,30 @@ catch (ApiException e)
 # **GetClientInfo**
 > ClientInfoResponse GetClientInfo (string clientId)
 
-Get detailed client information
-
 Retrieves the detailed information for a client with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+[**ClientInfoResponse**](ClientInfoResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -189,20 +199,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-[**ClientInfoResponse**](ClientInfoResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -223,18 +219,32 @@ catch (ApiException e)
 # **GetClients**
 > PageableResponse GetClients (int limit, string? lastClientId = null, DateTime? lastCreatedOn = null)
 
-Get clients
-
 Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int** | The maximum number of results returned per page. |  |
+| **lastClientId** | **string?** | The ID of the last retrieved client. | [optional]  |
+| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
+
+### Return type
+
+[**PageableResponse**](PageableResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -294,22 +304,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastClientId** | **string?** | The ID of the last retrieved client. | [optional]  |
-| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
-
-### Return type
-
-[**PageableResponse**](PageableResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -331,18 +325,32 @@ catch (ApiException e)
 # **GetClientsInfo**
 > PageableResponseClientInfoResponse GetClientsInfo (int limit, string? lastClientId = null, DateTime? lastCreatedOn = null)
 
-Get detailed information of clients
-
 Retrieves a paginated list of information for all clients.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int** | The maximum number of results returned per page. |  |
+| **lastClientId** | **string?** | The identifier of the last retrieved client. | [optional]  |
+| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
+
+### Return type
+
+[**PageableResponseClientInfoResponse**](PageableResponseClientInfoResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -402,22 +410,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastClientId** | **string?** | The identifier of the last retrieved client. | [optional]  |
-| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
-
-### Return type
-
-[**PageableResponseClientInfoResponse**](PageableResponseClientInfoResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -438,18 +430,31 @@ catch (ApiException e)
 # **GetConsents**
 > PageableModificationResponse GetConsents (int limit, DateTime? lastModifiedOn = null)
 
-Get user consents
-
 Retrieves a paginated list of user consents.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int** | The maximum number of results returned per page. |  |
+| **lastModifiedOn** | **DateTime?** | The date when the user consent was last modified. | [optional]  |
+
+### Return type
+
+[**PageableModificationResponse**](PageableModificationResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -508,21 +513,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastModifiedOn** | **DateTime?** | The date when the user consent was last modified. | [optional]  |
-
-### Return type
-
-[**PageableModificationResponse**](PageableModificationResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -540,18 +530,30 @@ catch (ApiException e)
 # **GetPublicClientInfo**
 > ClientInfoResponse GetPublicClientInfo (string clientId)
 
-Get public client information
-
 Returns the public information for a client with the ID secified din the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+[**ClientInfoResponse**](ClientInfoResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -603,20 +605,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-[**ClientInfoResponse**](ClientInfoResponse.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

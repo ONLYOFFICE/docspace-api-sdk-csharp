@@ -38,10 +38,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
-using FileParameter = Docspace.Client.FileParameter;
-using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
+using FileParameter = DocSpace.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.Client.OpenAPIDateConverter;
 
-namespace Docspace.Model
+namespace DocSpace.Model
 {
     /// <summary>
     /// [0 - None, 1 - Box, 2 - DropBox, 3 - GoogleDrive, 4 - kDrive, 5 - OneDrive, 6 - SharePoint, 7 - WebDav, 8 - Yandex, 9 - Storage]

@@ -1,4 +1,4 @@
-# Docspace.Model.AutoCleanupRequestDto
+# DocSpace.Model.AutoCleanupRequestDto
 The auto-clearing request parameters.
 
 ## Properties

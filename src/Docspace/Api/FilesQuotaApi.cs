@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>FolderIntegerArrayWrapper</returns>
         FolderIntegerArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
         ApiResponse<FolderIntegerArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>FolderIntegerArrayWrapper</returns>
         FolderIntegerArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
         ApiResponse<FolderIntegerArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default);
@@ -105,8 +105,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>Task of FolderIntegerArrayWrapper</returns>
@@ -118,8 +118,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
@@ -130,8 +130,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>Task of FolderIntegerArrayWrapper</returns>
@@ -143,8 +143,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
@@ -187,14 +187,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesQuotaApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -251,14 +251,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,8 +365,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the room quota limit Resets the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>FolderIntegerArrayWrapper</returns>
         public FolderIntegerArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default)
@@ -378,8 +378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the room quota limit Resets the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
         public ApiResponse<FolderIntegerArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default)
@@ -445,8 +445,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the room quota limit Resets the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>Task of FolderIntegerArrayWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the room quota limit Resets the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
@@ -530,8 +530,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the room quota limit Changes the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>FolderIntegerArrayWrapper</returns>
         public FolderIntegerArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default)
@@ -543,8 +543,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the room quota limit Changes the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
         public ApiResponse<FolderIntegerArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default)
@@ -610,8 +610,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the room quota limit Changes the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>Task of FolderIntegerArrayWrapper</returns>
@@ -624,8 +624,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the room quota limit Changes the quota limit for the rooms with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>

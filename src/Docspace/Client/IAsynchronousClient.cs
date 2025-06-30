@@ -28,7 +28,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Contract for Asynchronous RESTful API interactions.

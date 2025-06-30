@@ -1,4 +1,4 @@
-# Docspace.Model.OwnerChangeInstructionsDto
+# DocSpace.Model.OwnerChangeInstructionsDto
 The owner change instructions parameters.
 
 ## Properties

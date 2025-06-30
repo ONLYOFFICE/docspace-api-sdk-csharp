@@ -1,4 +1,4 @@
-# Docspace.Model.FileUploadResultDto
+# DocSpace.Model.FileUploadResultDto
 The file upload result.
 
 ## Properties

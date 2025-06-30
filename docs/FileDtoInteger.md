@@ -1,4 +1,4 @@
-# Docspace.Model.FileDtoInteger
+# DocSpace.Model.FileDtoInteger
 The file parameters.
 
 ## Properties
@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Title** | **string** | The file entry title. | [optional] 
 **Access** | **FileShare** |  | [optional] 
 **Shared** | **bool** | Specifies if the file entry is shared or not. | [optional] 
-**Created** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
-**Updated** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**AutoDelete** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Created** | [**ApiDateTime**](.md) |  | [optional] 
+**CreatedBy** | [**EmployeeDto**](.md) |  | [optional] 
+**Updated** | [**ApiDateTime**](.md) |  | [optional] 
+**AutoDelete** | [**ApiDateTime**](.md) |  | [optional] 
 **RootFolderType** | **FolderType** |  | [optional] 
 **ParentRoomType** | **FolderType** |  | [optional] 
-**UpdatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
+**UpdatedBy** | [**EmployeeDto**](.md) |  | [optional] 
 **ProviderItem** | **bool?** | Specifies if the file entry provider is specified or not. | [optional] 
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
 **ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **OriginTitle** | **string** | The origin title of the file entry. | [optional] 
 **OriginRoomTitle** | **string** | The origin room title of the file entry. | [optional] 
 **CanShare** | **bool** | Specifies if the file entry can be shared or not. | [optional] 
-**Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
+**Security** | [**FileDtoIntegerSecurity**](.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
 **FolderId** | **int** | The folder ID where the file is located. | [optional] 
 **VarVersion** | **int** | The file version. | [optional] 
@@ -54,11 +54,11 @@ Name | Type | Description | Notes
 **StartFilling** | **bool?** | Specifies if the filling has started or not. | [optional] 
 **InProcessFolderId** | **int?** | The InProcess folder ID of the file. | [optional] 
 **InProcessFolderTitle** | **string** | The InProcess folder title of the file. | [optional] 
-**DraftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  | [optional] 
-**ViewAccessibility** | [**FileDtoIntegerViewAccessibility**](FileDtoIntegerViewAccessibility.md) |  | [optional] 
+**DraftLocation** | [**DraftLocationInteger**](.md) |  | [optional] 
+**ViewAccessibility** | [**FileDtoIntegerViewAccessibility**](.md) |  | [optional] 
 **AvailableExternalRights** | **Dictionary&lt;string, bool&gt;** | The available external rights of the file. | [optional] 
-**LastOpened** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Expired** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**LastOpened** | [**ApiDateTime**](.md) |  | [optional] 
+**Expired** | [**ApiDateTime**](.md) |  | [optional] 
 **FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

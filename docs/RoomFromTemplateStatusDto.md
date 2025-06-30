@@ -1,4 +1,4 @@
-# Docspace.Model.RoomFromTemplateStatusDto
+# DocSpace.Model.RoomFromTemplateStatusDto
 The progress parameters of creating a room from the template.
 
 ## Properties

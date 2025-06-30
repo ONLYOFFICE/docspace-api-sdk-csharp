@@ -1,4 +1,4 @@
-# Docspace.Model.MigrationApiInfo
+# DocSpace.Model.MigrationApiInfo
 
 ## Properties
 
@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **MigratorName** | **string** |  | [optional] 
 **Operation** | **string** |  | [optional] 
 **FailedArchives** | **List&lt;string&gt;** |  | [optional] 
-**Users** | [**List&lt;MigratingApiUser&gt;**](MigratingApiUser.md) |  | [optional] 
-**WithoutEmailUsers** | [**List&lt;MigratingApiUser&gt;**](MigratingApiUser.md) |  | [optional] 
-**ExistUsers** | [**List&lt;MigratingApiUser&gt;**](MigratingApiUser.md) |  | [optional] 
-**Groups** | [**List&lt;MigratingApiGroup&gt;**](MigratingApiGroup.md) |  | [optional] 
+**Users** | [**List&lt;MigratingApiUser&gt;**](.md) |  | [optional] 
+**WithoutEmailUsers** | [**List&lt;MigratingApiUser&gt;**](.md) |  | [optional] 
+**ExistUsers** | [**List&lt;MigratingApiUser&gt;**](.md) |  | [optional] 
+**Groups** | [**List&lt;MigratingApiGroup&gt;**](.md) |  | [optional] 
 **ImportPersonalFiles** | **bool** |  | [optional] 
 **ImportSharedFiles** | **bool** |  | [optional] 
 **ImportSharedFolders** | **bool** |  | [optional] 

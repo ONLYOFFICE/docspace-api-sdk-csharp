@@ -1,4 +1,4 @@
-# Docspace.Model.FileLink
+# DocSpace.Model.FileLink
 The file link properties.
 
 ## Properties

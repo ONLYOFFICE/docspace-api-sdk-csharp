@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsCommonSettingsApi
+# DocSpace.Api.SettingsCommonSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -28,18 +28,26 @@ All URIs are relative to *http://localhost:8092*
 # **CloseAdminHelper**
 > void CloseAdminHelper ()
 
-Close the admin helper
-
 Closes the administrator helper notification.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -103,16 +111,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -132,18 +130,30 @@ void (empty response body)
 # **CompleteWizard**
 > WizardSettingsWrapper CompleteWizard (WizardRequestsDto? wizardRequestsDto = null)
 
-Complete the Wizard settings
-
 Completes the Wizard settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **wizardRequestsDto** | [**WizardRequestsDto?**](WizardRequestsDto.md) | The request parameters for initial configuration of the setup wizard. | [optional]  |
+
+### Return type
+
+[**WizardSettingsWrapper**](WizardSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -173,7 +183,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var wizardRequestsDto = new WizardRequestsDto?(); // WizardRequestsDto? |  (optional) 
+            var wizardRequestsDto = new WizardRequestsDto?(); // WizardRequestsDto? | The request parameters for initial configuration of the setup wizard. (optional) 
 
             try
             {
@@ -212,20 +222,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **wizardRequestsDto** | [**WizardRequestsDto?**](WizardRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WizardSettingsWrapper**](WizardSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -246,18 +242,30 @@ catch (ApiException e)
 # **ConfigureDeepLink**
 > TenantDeepLinkSettingsWrapper ConfigureDeepLink (DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = null)
 
-Configure the deep link settings
-
 Saves the deep link configuration settings for the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deepLinkConfigurationRequestsDto** | [**DeepLinkConfigurationRequestsDto?**](DeepLinkConfigurationRequestsDto.md) | The request parameters for managing the deep link configuration. | [optional]  |
+
+### Return type
+
+[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -287,7 +295,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var deepLinkConfigurationRequestsDto = new DeepLinkConfigurationRequestsDto?(); // DeepLinkConfigurationRequestsDto? |  (optional) 
+            var deepLinkConfigurationRequestsDto = new DeepLinkConfigurationRequestsDto?(); // DeepLinkConfigurationRequestsDto? | The request parameters for managing the deep link configuration. (optional) 
 
             try
             {
@@ -326,20 +334,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deepLinkConfigurationRequestsDto** | [**DeepLinkConfigurationRequestsDto?**](DeepLinkConfigurationRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -359,18 +353,30 @@ catch (ApiException e)
 # **DeletePortalColorTheme**
 > CustomColorThemesSettingsWrapper DeletePortalColorTheme (int? id = null)
 
-Delete a color theme
-
 Deletes the portal color theme with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int?** | The ID of the portal theme to delete. | [optional]  |
+
+### Return type
+
+[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -439,20 +445,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int?** | The ID of the portal theme to delete. | [optional]  |
-
-### Return type
-
-[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -471,18 +463,26 @@ catch (ApiException e)
 # **GetDeepLinkSettings**
 > TenantDeepLinkSettingsWrapper GetDeepLinkSettings ()
 
-Get the deep link settings
-
 Returns the deep link settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -550,16 +550,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -578,18 +568,26 @@ This endpoint does not need any parameter.
 # **GetPaymentSettings**
 > PaymentSettingsWrapper GetPaymentSettings ()
 
-Get the payment settings
-
 Returns the portal payment settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**PaymentSettingsWrapper**](PaymentSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -657,16 +655,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**PaymentSettingsWrapper**](PaymentSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -685,18 +673,26 @@ This endpoint does not need any parameter.
 # **GetPortalColorTheme**
 > CustomColorThemesSettingsWrapper GetPortalColorTheme ()
 
-Get a color theme
-
 Returns the portal color theme.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -748,16 +744,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -775,18 +761,26 @@ No authorization required
 # **GetPortalHostname**
 > ObjectWrapper GetPortalHostname ()
 
-Get hostname
-
 Returns the portal hostname.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -854,16 +848,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -882,18 +866,26 @@ This endpoint does not need any parameter.
 # **GetPortalLogo**
 > StringWrapper GetPortalLogo ()
 
-Get a portal logo
-
 Returns the portal logo image URL.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -961,16 +953,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -989,18 +971,30 @@ This endpoint does not need any parameter.
 # **GetPortalSettings**
 > SettingsWrapper GetPortalSettings (bool? withpassword = null)
 
-Get the portal settings
-
 Returns a list of all the available portal settings with the current values for each parameter.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **withpassword** | **bool?** | Specifies whether to include the password hashing configuration in the response. | [optional]  |
+
+### Return type
+
+[**SettingsWrapper**](SettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1053,20 +1047,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **withpassword** | **bool?** | Specifies whether to include the password hashing configuration in the response. | [optional]  |
-
-### Return type
-
-[**SettingsWrapper**](SettingsWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1084,18 +1064,26 @@ No authorization required
 # **GetSocketSettings**
 > ObjectWrapper GetSocketSettings ()
 
-Get the socket settings
-
 Returns the socket settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1163,16 +1151,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1191,18 +1169,26 @@ This endpoint does not need any parameter.
 # **GetSupportedCultures**
 > STRINGArrayWrapper GetSupportedCultures ()
 
-Get supported languages
-
 Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \"de\", \"en-US\", etc.).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1254,16 +1240,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1281,18 +1257,26 @@ No authorization required
 # **GetTenantUserInvitationSettings**
 > TenantUserInvitationSettingsWrapper GetTenantUserInvitationSettings ()
 
-Get the user invitation settings
-
 Returns the portal user invitation settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1344,16 +1328,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1371,18 +1345,26 @@ No authorization required
 # **GetTimeZones**
 > TimezonesRequestsArrayWrapper GetTimeZones ()
 
-Get time zones
-
 Returns a list of all the available portal time zones.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TimezonesRequestsArrayWrapper**](TimezonesRequestsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1450,16 +1432,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TimezonesRequestsArrayWrapper**](TimezonesRequestsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1478,18 +1450,30 @@ This endpoint does not need any parameter.
 # **SaveDnsSettings**
 > StringWrapper SaveDnsSettings (DnsSettingsRequestsDto? dnsSettingsRequestsDto = null)
 
-Save the DNS settings
-
 Saves the DNS settings specified in the request to the current portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dnsSettingsRequestsDto** | [**DnsSettingsRequestsDto?**](DnsSettingsRequestsDto.md) | The request parameters for managing the DNS (Domain Name System) settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1519,7 +1503,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var dnsSettingsRequestsDto = new DnsSettingsRequestsDto?(); // DnsSettingsRequestsDto? |  (optional) 
+            var dnsSettingsRequestsDto = new DnsSettingsRequestsDto?(); // DnsSettingsRequestsDto? | The request parameters for managing the DNS (Domain Name System) settings. (optional) 
 
             try
             {
@@ -1558,20 +1542,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dnsSettingsRequestsDto** | [**DnsSettingsRequestsDto?**](DnsSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1593,18 +1563,30 @@ catch (ApiException e)
 # **SaveMailDomainSettings**
 > StringWrapper SaveMailDomainSettings (MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = null)
 
-Save the mail domain settings
-
 Saves the mail domain settings specified in the request to the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mailDomainSettingsRequestsDto** | [**MailDomainSettingsRequestsDto?**](MailDomainSettingsRequestsDto.md) | The request parameters for configuring trusted mail domains and visitor invitation settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1634,7 +1616,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var mailDomainSettingsRequestsDto = new MailDomainSettingsRequestsDto?(); // MailDomainSettingsRequestsDto? |  (optional) 
+            var mailDomainSettingsRequestsDto = new MailDomainSettingsRequestsDto?(); // MailDomainSettingsRequestsDto? | The request parameters for configuring trusted mail domains and visitor invitation settings. (optional) 
 
             try
             {
@@ -1673,20 +1655,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **mailDomainSettingsRequestsDto** | [**MailDomainSettingsRequestsDto?**](MailDomainSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1705,18 +1673,30 @@ catch (ApiException e)
 # **SavePortalColorTheme**
 > CustomColorThemesSettingsWrapper SavePortalColorTheme (CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = null)
 
-Save a color theme
-
 Saves the portal color theme specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customColorThemesSettingsRequestsDto** | [**CustomColorThemesSettingsRequestsDto?**](CustomColorThemesSettingsRequestsDto.md) | The request parameters for managing the portal theme settings. | [optional]  |
+
+### Return type
+
+[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1746,7 +1726,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var customColorThemesSettingsRequestsDto = new CustomColorThemesSettingsRequestsDto?(); // CustomColorThemesSettingsRequestsDto? |  (optional) 
+            var customColorThemesSettingsRequestsDto = new CustomColorThemesSettingsRequestsDto?(); // CustomColorThemesSettingsRequestsDto? | The request parameters for managing the portal theme settings. (optional) 
 
             try
             {
@@ -1785,20 +1765,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **customColorThemesSettingsRequestsDto** | [**CustomColorThemesSettingsRequestsDto?**](CustomColorThemesSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1817,18 +1783,30 @@ catch (ApiException e)
 # **UpdateEmailActivationSettings**
 > EmailActivationSettingsWrapper UpdateEmailActivationSettings (EmailActivationSettings? emailActivationSettings = null)
 
-Update the email activation settings
-
 Updates the email activation settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailActivationSettings** | [**EmailActivationSettings?**](EmailActivationSettings.md) | The email activation settings. | [optional]  |
+
+### Return type
+
+[**EmailActivationSettingsWrapper**](EmailActivationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1858,7 +1836,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var emailActivationSettings = new EmailActivationSettings?(); // EmailActivationSettings? |  (optional) 
+            var emailActivationSettings = new EmailActivationSettings?(); // EmailActivationSettings? | The email activation settings. (optional) 
 
             try
             {
@@ -1897,20 +1875,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailActivationSettings** | [**EmailActivationSettings?**](EmailActivationSettings?.md) |  | [optional]  |
-
-### Return type
-
-[**EmailActivationSettingsWrapper**](EmailActivationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1929,18 +1893,30 @@ catch (ApiException e)
 # **UpdateInvitationSettings**
 > TenantUserInvitationSettingsWrapper UpdateInvitationSettings (TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = null)
 
-Update user invitation settings
-
 Updates the portal user invitation settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantUserInvitationSettingsRequestDto** | [**TenantUserInvitationSettingsRequestDto?**](TenantUserInvitationSettingsRequestDto.md) | User invitation settings | [optional]  |
+
+### Return type
+
+[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1970,7 +1946,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? |  (optional) 
+            var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? | User invitation settings (optional) 
 
             try
             {
@@ -2008,20 +1984,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tenantUserInvitationSettingsRequestDto** | [**TenantUserInvitationSettingsRequestDto?**](TenantUserInvitationSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

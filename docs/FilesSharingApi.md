@@ -1,4 +1,4 @@
-# Docspace.Api.FilesSharingApi
+# DocSpace.Api.FilesSharingApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -14,18 +14,31 @@ All URIs are relative to *http://localhost:8092*
 # **ApplyExternalSharePassword**
 > ExternalShareWrapper ApplyExternalSharePassword (string key, ExternalShareRequestParam? externalShareRequestParam = null)
 
-Apply external data password
-
 Applies a password specified in the request to get the external data.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **key** | **string** | The unique document identifier. |  |
+| **externalShareRequestParam** | [**ExternalShareRequestParam?**](ExternalShareRequestParam.md) | The external data share request parameters. | [optional]  |
+
+### Return type
+
+[**ExternalShareWrapper**](ExternalShareWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -79,21 +92,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **key** | **string** | The unique document identifier. |  |
-| **externalShareRequestParam** | [**ExternalShareRequestParam?**](ExternalShareRequestParam?.md) | The external data share request parameters. | [optional]  |
-
-### Return type
-
-[**ExternalShareWrapper**](ExternalShareWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -112,18 +110,30 @@ No authorization required
 # **ChangeFileOwner**
 > FileEntryArrayWrapper ChangeFileOwner (ChangeOwnerRequestDto? changeOwnerRequestDto = null)
 
-Change the file owner
-
 Changes the owner of the file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **changeOwnerRequestDto** | [**ChangeOwnerRequestDto?**](ChangeOwnerRequestDto.md) | The request parameters for changing the file owner. | [optional]  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -153,7 +163,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesSharingApi(httpClient, config, httpClientHandler);
-            var changeOwnerRequestDto = new ChangeOwnerRequestDto?(); // ChangeOwnerRequestDto? |  (optional) 
+            var changeOwnerRequestDto = new ChangeOwnerRequestDto?(); // ChangeOwnerRequestDto? | The request parameters for changing the file owner. (optional) 
 
             try
             {
@@ -192,20 +202,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **changeOwnerRequestDto** | [**ChangeOwnerRequestDto?**](ChangeOwnerRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -224,18 +220,31 @@ catch (ApiException e)
 # **GetExternalShareData**
 > ExternalShareWrapper GetExternalShareData (string key, string? fileId = null)
 
-Get the external data
-
 Returns the external data by the key specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **key** | **string** | The unique key of the external shared data. |  |
+| **fileId** | **string?** | The unique document identifier. | [optional]  |
+
+### Return type
+
+[**ExternalShareWrapper**](ExternalShareWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -289,21 +298,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **key** | **string** | The unique key of the external shared data. |  |
-| **fileId** | **string?** | The unique document identifier. | [optional]  |
-
-### Return type
-
-[**ExternalShareWrapper**](ExternalShareWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -321,18 +315,30 @@ No authorization required
 # **GetSharedUsers**
 > MentionWrapperArrayWrapper GetSharedUsers (int fileId)
 
-Get user access rights by file ID
-
 Returns a list of users with their access rights to the file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -401,20 +407,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -433,18 +425,31 @@ catch (ApiException e)
 # **SendEditorNotify**
 > AceShortWrapperArrayWrapper SendEditorNotify (int fileId, MentionMessageWrapper? mentionMessageWrapper = null)
 
-Send the mention message
-
 Sends a message to the users who are mentioned in the file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the mention message. |  |
+| **mentionMessageWrapper** | [**MentionMessageWrapper?**](MentionMessageWrapper.md) | The mention message. | [optional]  |
+
+### Return type
+
+[**AceShortWrapperArrayWrapper**](AceShortWrapperArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -513,21 +518,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the mention message. |  |
-| **mentionMessageWrapper** | [**MentionMessageWrapper?**](MentionMessageWrapper?.md) | The mention message. | [optional]  |
-
-### Return type
-
-[**AceShortWrapperArrayWrapper**](AceShortWrapperArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

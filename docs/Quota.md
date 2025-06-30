@@ -1,4 +1,4 @@
-# Docspace.Model.Quota
+# DocSpace.Model.Quota
 The quota parameters.
 
 ## Properties

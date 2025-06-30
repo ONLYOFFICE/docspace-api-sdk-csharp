@@ -1,4 +1,4 @@
-# Docspace.Model.CheckUploadRequest
+# DocSpace.Model.CheckUploadRequest
 The request parameters for checking file uploads.
 
 ## Properties

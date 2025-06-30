@@ -1,4 +1,4 @@
-# Docspace.Model.OpenCustomerSessionRequestDto
+# DocSpace.Model.OpenCustomerSessionRequestDto
 Client session opening parameters
 
 ## Properties

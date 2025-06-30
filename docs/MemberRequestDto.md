@@ -1,4 +1,4 @@
-# Docspace.Model.MemberRequestDto
+# DocSpace.Model.MemberRequestDto
 The user request parameters.
 
 ## Properties
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **Title** | **string** | The user title. | [optional] 
 **Location** | **string** | The user location. | [optional] 
 **Sex** | **SexEnum** |  | [optional] 
-**Birthday** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Worksfrom** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Birthday** | [**ApiDateTime**](.md) |  | [optional] 
+**Worksfrom** | [**ApiDateTime**](.md) |  | [optional] 
 **Comment** | **string** | The user comment. | [optional] 
-**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of the user contacts. | [optional] 
+**Contacts** | [**List&lt;Contact&gt;**](.md) | The list of the user contacts. | [optional] 
 **Files** | **string** | The avatar photo URL. | [optional] 
 **FromInviteLink** | **bool** | Specifies if the user is added via the invitation link or not. | [optional] 
 **Key** | **string** | The user key. | [optional] 

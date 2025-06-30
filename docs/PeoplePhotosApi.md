@@ -1,4 +1,4 @@
-# Docspace.Api.PeoplePhotosApi
+# DocSpace.Api.PeoplePhotosApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -14,18 +14,31 @@ All URIs are relative to *http://localhost:8092*
 # **CreateMemberPhotoThumbnails**
 > ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest? thumbnailsRequest = null)
 
-Create photo thumbnails
-
 Creates the user photo thumbnails by coordinates of the original image specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest.md) | The thumbnail request. | [optional]  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -95,21 +108,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest?.md) | The thumbnail request. | [optional]  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -130,18 +128,30 @@ catch (ApiException e)
 # **DeleteMemberPhoto**
 > ThumbnailsDataWrapper DeleteMemberPhoto (string userid)
 
-Delete a user photo
-
 Deletes a photo of the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -210,20 +220,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -244,18 +240,30 @@ catch (ApiException e)
 # **GetMemberPhoto**
 > ThumbnailsDataWrapper GetMemberPhoto (string userid)
 
-Get a user photo
-
 Returns a photo of the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -324,20 +332,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -358,18 +352,31 @@ catch (ApiException e)
 # **UpdateMemberPhoto**
 > ThumbnailsDataWrapper UpdateMemberPhoto (string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = null)
 
-Update a user photo
-
 Updates a photo of the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest.md) | The request parameters for updating a photo. | [optional]  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -439,21 +446,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest?.md) | The request parameters for updating a photo. | [optional]  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -474,18 +466,31 @@ catch (ApiException e)
 # **UploadMemberPhoto**
 > FileUploadResultWrapper UploadMemberPhoto (string userid, List<KeyValuePairStringStringValues> formCollection)
 
-Upload a user photo
-
 Uploads a photo of the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
+
+### Return type
+
+[**FileUploadResultWrapper**](FileUploadResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -554,21 +559,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
-
-### Return type
-
-[**FileUploadResultWrapper**](FileUploadResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.FinishDto
+# DocSpace.Model.FinishDto
 The parameters for terminating a process or operation.
 
 ## Properties

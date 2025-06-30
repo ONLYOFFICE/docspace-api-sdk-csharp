@@ -1,4 +1,4 @@
-# Docspace.Model.CronParams
+# DocSpace.Model.CronParams
 
 ## Properties
 

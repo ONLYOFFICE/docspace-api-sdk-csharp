@@ -1,4 +1,4 @@
-# Docspace.Api.FilesThirdPartyIntegrationApi
+# DocSpace.Api.FilesThirdPartyIntegrationApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -17,18 +17,30 @@ All URIs are relative to *http://localhost:8092*
 # **DeleteThirdParty**
 > StringWrapper DeleteThirdParty (int providerId)
 
-Remove a third-party account
-
 Removes the third-party storage service account with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **providerId** | **int** | The provider ID. |  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -97,20 +109,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **providerId** | **int** | The provider ID. |  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -129,18 +127,26 @@ catch (ApiException e)
 # **GetAllProviders**
 > ProviderArrayWrapper GetAllProviders ()
 
-Get all providers
-
 Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ProviderArrayWrapper**](ProviderArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -208,16 +214,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ProviderArrayWrapper**](ProviderArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -236,18 +232,26 @@ This endpoint does not need any parameter.
 # **GetBackupThirdPartyAccount**
 > FolderStringWrapper GetBackupThirdPartyAccount ()
 
-Get a third-party account backup
-
 Returns a backup of the connected third-party account.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**FolderStringWrapper**](FolderStringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -315,16 +319,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**FolderStringWrapper**](FolderStringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -343,18 +337,26 @@ This endpoint does not need any parameter.
 # **GetCapabilities**
 > ArrayArrayWrapper GetCapabilities ()
 
-Get providers
-
 Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ArrayArrayWrapper**](ArrayArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -422,16 +424,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ArrayArrayWrapper**](ArrayArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -450,18 +442,26 @@ This endpoint does not need any parameter.
 # **GetCommonThirdPartyFolders**
 > FolderStringArrayWrapper GetCommonThirdPartyFolders ()
 
-Get the common third-party services
-
 Returns a list of the third-party services connected to the \"Common\" section.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**FolderStringArrayWrapper**](FolderStringArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -529,16 +529,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**FolderStringArrayWrapper**](FolderStringArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -557,18 +547,26 @@ This endpoint does not need any parameter.
 # **GetThirdPartyAccounts**
 > ThirdPartyParamsArrayWrapper GetThirdPartyAccounts ()
 
-Get the third-party accounts
-
 Returns a list of all the connected third-party accounts.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ThirdPartyParamsArrayWrapper**](ThirdPartyParamsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -636,16 +634,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ThirdPartyParamsArrayWrapper**](ThirdPartyParamsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -664,18 +652,30 @@ This endpoint does not need any parameter.
 # **SaveThirdParty**
 > FolderStringWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
 
-Save a third-party account
-
 Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **thirdPartyRequestDto** | [**ThirdPartyRequestDto?**](ThirdPartyRequestDto.md) | The third-party request parameters. | [optional]  |
+
+### Return type
+
+[**FolderStringWrapper**](FolderStringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -705,7 +705,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var thirdPartyRequestDto = new ThirdPartyRequestDto?(); // ThirdPartyRequestDto? |  (optional) 
+            var thirdPartyRequestDto = new ThirdPartyRequestDto?(); // ThirdPartyRequestDto? | The third-party request parameters. (optional) 
 
             try
             {
@@ -744,20 +744,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **thirdPartyRequestDto** | [**ThirdPartyRequestDto?**](ThirdPartyRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FolderStringWrapper**](FolderStringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -776,18 +762,30 @@ catch (ApiException e)
 # **SaveThirdPartyBackup**
 > FolderStringWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
 
-Save a third-party account backup
-
 Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **thirdPartyBackupRequestDto** | [**ThirdPartyBackupRequestDto?**](ThirdPartyBackupRequestDto.md) | The third-party backup request parameters. | [optional]  |
+
+### Return type
+
+[**FolderStringWrapper**](FolderStringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -817,7 +815,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var thirdPartyBackupRequestDto = new ThirdPartyBackupRequestDto?(); // ThirdPartyBackupRequestDto? |  (optional) 
+            var thirdPartyBackupRequestDto = new ThirdPartyBackupRequestDto?(); // ThirdPartyBackupRequestDto? | The third-party backup request parameters. (optional) 
 
             try
             {
@@ -855,20 +853,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **thirdPartyBackupRequestDto** | [**ThirdPartyBackupRequestDto?**](ThirdPartyBackupRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FolderStringWrapper**](FolderStringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

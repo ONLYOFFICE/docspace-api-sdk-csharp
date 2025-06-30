@@ -1,4 +1,4 @@
-# Docspace.Model.UpdatePhotoMemberRequest
+# DocSpace.Model.UpdatePhotoMemberRequest
 The request parameters for updating a photo.
 
 ## Properties

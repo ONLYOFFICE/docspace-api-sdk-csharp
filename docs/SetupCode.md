@@ -1,4 +1,4 @@
-# Docspace.Model.SetupCode
+# DocSpace.Model.SetupCode
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.ThirdPartyBackupRequestDto
+# DocSpace.Model.ThirdPartyBackupRequestDto
 The third-party backup request parameters.
 
 ## Properties

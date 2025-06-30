@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Applies a password specified in the request to get the external data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Applies a password specified in the request to get the external data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
@@ -75,8 +75,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
         FileEntryArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default);
@@ -87,8 +87,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
         ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default);
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external data by the key specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
@@ -111,7 +111,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external data by the key specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
@@ -123,7 +123,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
@@ -135,7 +135,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Applies a password specified in the request to get the external data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -194,7 +194,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Applies a password specified in the request to get the external data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -207,8 +207,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
@@ -220,8 +220,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
@@ -232,7 +232,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external data by the key specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -246,7 +246,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external data by the key specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -259,7 +259,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -272,7 +272,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -284,7 +284,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -298,7 +298,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -343,14 +343,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesSharingApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,14 +365,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -407,14 +407,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -434,14 +434,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -461,7 +461,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -521,7 +521,7 @@ namespace Docspace.Api
         /// <summary>
         /// Apply external data password Applies a password specified in the request to get the external data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
@@ -535,7 +535,7 @@ namespace Docspace.Api
         /// <summary>
         /// Apply external data password Applies a password specified in the request to get the external data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
@@ -578,7 +578,7 @@ namespace Docspace.Api
         /// <summary>
         /// Apply external data password Applies a password specified in the request to get the external data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -593,7 +593,7 @@ namespace Docspace.Api
         /// <summary>
         /// Apply external data password Applies a password specified in the request to get the external data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -640,8 +640,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the file owner Changes the owner of the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
         public FileEntryArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default)
@@ -653,8 +653,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the file owner Changes the owner of the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
         public ApiResponse<FileEntryArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default)
@@ -720,8 +720,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the file owner Changes the owner of the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
@@ -734,8 +734,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the file owner Changes the owner of the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="changeOwnerRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
@@ -805,7 +805,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the external data Returns the external data by the key specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
@@ -819,7 +819,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the external data Returns the external data by the key specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/">REST API Reference for GetExternalShareData Operation</seealso>
@@ -865,7 +865,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the external data Returns the external data by the key specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -880,7 +880,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the external data Returns the external data by the key specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -910,7 +910,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("key", ClientUtils.ParameterToString(key)); // path parameter
             if (fileId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fileId", fileId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileId", fileId));
             }
 
 
@@ -930,7 +930,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
@@ -943,7 +943,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
@@ -1010,7 +1010,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -1024,7 +1024,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user access rights by file ID Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -1095,7 +1095,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the mention message Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -1109,7 +1109,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the mention message Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -1178,7 +1178,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the mention message Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1193,7 +1193,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the mention message Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

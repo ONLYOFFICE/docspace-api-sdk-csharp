@@ -1,4 +1,4 @@
-# Docspace.Model.ApiDateTime
+# DocSpace.Model.ApiDateTime
 The API date and time parameters.
 
 ## Properties

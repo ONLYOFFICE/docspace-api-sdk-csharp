@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds files with the IDs specified in the request to the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper AddTemplates(TemplatesRequestDto? templatesRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds files with the IDs specified in the request to the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> AddTemplatesWithHttpInfo(TemplatesRequestDto? templatesRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
@@ -86,7 +86,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current file is a form draft which can be filled out.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
@@ -111,7 +111,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current file is a form draft which can be filled out.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
@@ -123,7 +123,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies (and converts if possible) an existing file to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies (and converts if possible) an existing file to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
@@ -148,7 +148,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
@@ -161,7 +161,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
@@ -173,7 +173,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
@@ -186,7 +186,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
@@ -198,8 +198,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         FileIntegerWrapper CreateFileInMyDocuments(CreateFileJsonElement? createFileJsonElement = default);
@@ -210,8 +210,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateFileInMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default);
@@ -221,7 +221,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
@@ -234,7 +234,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
@@ -246,8 +246,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         FileIntegerWrapper CreateHtmlFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
@@ -258,8 +258,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
@@ -269,7 +269,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
@@ -282,7 +282,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
@@ -294,7 +294,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
@@ -307,7 +307,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
@@ -319,8 +319,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         FileIntegerWrapper CreateTextFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
@@ -331,8 +331,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateTextFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
@@ -342,8 +342,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates thumbnails for the files with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         ObjectArrayWrapper CreateThumbnails(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -354,8 +354,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates thumbnails for the files with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> CreateThumbnailsWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -365,7 +365,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
@@ -378,7 +378,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
@@ -390,8 +390,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>NoContentResultWrapper</returns>
         NoContentResultWrapper DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -402,8 +402,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
         ApiResponse<NoContentResultWrapper> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -413,7 +413,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -425,7 +425,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -436,7 +436,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all roles for the specified form.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>FormRoleArrayWrapper</returns>
@@ -448,7 +448,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all roles for the specified form.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>ApiResponse of FormRoleArrayWrapper</returns>
@@ -459,7 +459,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a URL to the changes of a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/">REST API Reference for GetEditDiffUrl Operation</seealso>
@@ -472,7 +472,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a URL to the changes of a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/">REST API Reference for GetEditDiffUrl Operation</seealso>
@@ -484,7 +484,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>EditHistoryArrayWrapper</returns>
@@ -496,7 +496,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
@@ -507,7 +507,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of actions performed on the file with the specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -523,7 +523,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of actions performed on the file with the specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -538,7 +538,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/">REST API Reference for GetFileInfo Operation</seealso>
@@ -551,7 +551,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/">REST API Reference for GetFileInfo Operation</seealso>
@@ -563,7 +563,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external links of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -577,7 +577,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external links of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -590,7 +590,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -604,7 +604,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -617,7 +617,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
@@ -629,7 +629,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
@@ -640,7 +640,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the result of a form-filling session.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>FillingFormResultIntegerWrapper</returns>
@@ -652,7 +652,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the result of a form-filling session.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
@@ -663,7 +663,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a link to download a file with the ID specified in the request asynchronously.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>FileLinkWrapper</returns>
@@ -675,7 +675,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a link to download a file with the ID specified in the request asynchronously.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>ApiResponse of FileLinkWrapper</returns>
@@ -686,7 +686,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -698,7 +698,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -709,7 +709,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
@@ -721,7 +721,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
@@ -732,8 +732,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>FileReferenceWrapper</returns>
         FileReferenceWrapper GetReferenceData(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
@@ -744,8 +744,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>ApiResponse of FileReferenceWrapper</returns>
         ApiResponse<FileReferenceWrapper> GetReferenceDataWithHttpInfo(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
@@ -755,7 +755,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the PDF file is a form or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -767,7 +767,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the PDF file is a form or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -778,7 +778,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Locks a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
@@ -791,7 +791,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Locks a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
@@ -803,9 +803,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Performs the specified form filling action.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns></returns>
         void ManageFormFilling(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default);
@@ -816,9 +816,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Performs the specified form filling action.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ManageFormFillingWithHttpInfo(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default);
@@ -828,7 +828,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the initialization configuration of a file to open it in the editor.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -845,7 +845,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the initialization configuration of a file to open it in the editor.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -861,7 +861,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -875,7 +875,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -888,7 +888,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves edits to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -904,7 +904,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves edits to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -919,7 +919,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a file with the identifier specified in the request as a PDF document.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
@@ -932,7 +932,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a file with the identifier specified in the request as a PDF document.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
@@ -944,9 +944,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the form role mapping.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>FormRoleWrapper</returns>
         FormRoleWrapper SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
@@ -957,9 +957,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the form role mapping.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>ApiResponse of FormRoleWrapper</returns>
         ApiResponse<FormRoleWrapper> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
@@ -969,7 +969,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
@@ -982,7 +982,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
@@ -994,7 +994,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets an external link to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
@@ -1007,7 +1007,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets an external link to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
@@ -1019,7 +1019,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the file with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/">REST API Reference for SetFileOrder Operation</seealso>
@@ -1032,7 +1032,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the file with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/">REST API Reference for SetFileOrder Operation</seealso>
@@ -1044,8 +1044,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
         FileIntegerArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
@@ -1056,8 +1056,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
         ApiResponse<FileIntegerArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
@@ -1067,7 +1067,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
@@ -1080,7 +1080,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
@@ -1092,7 +1092,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts filling a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
@@ -1104,7 +1104,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts filling a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
@@ -1115,7 +1115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tracks file changes when editing.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -1130,7 +1130,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tracks file changes when editing.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -1144,7 +1144,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the information of the selected file with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
@@ -1157,7 +1157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the information of the selected file with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
@@ -1178,8 +1178,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds files with the IDs specified in the request to the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1191,8 +1191,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds files with the IDs specified in the request to the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1203,7 +1203,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1217,7 +1217,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1230,7 +1230,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current file is a form draft which can be filled out.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1244,7 +1244,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current file is a form draft which can be filled out.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1257,7 +1257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies (and converts if possible) an existing file to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1271,7 +1271,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies (and converts if possible) an existing file to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1284,7 +1284,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1298,7 +1298,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1311,7 +1311,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1325,7 +1325,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1338,8 +1338,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -1351,8 +1351,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -1363,7 +1363,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1377,7 +1377,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1390,8 +1390,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -1403,8 +1403,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -1415,7 +1415,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1429,7 +1429,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1442,7 +1442,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1456,7 +1456,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1469,8 +1469,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -1482,8 +1482,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -1494,8 +1494,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates thumbnails for the files with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -1507,8 +1507,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates thumbnails for the files with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -1519,7 +1519,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1533,7 +1533,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1546,8 +1546,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>Task of NoContentResultWrapper</returns>
@@ -1559,8 +1559,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
@@ -1571,7 +1571,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -1584,7 +1584,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes files with the IDs specified in the request from the template list.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -1596,7 +1596,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all roles for the specified form.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -1609,7 +1609,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all roles for the specified form.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -1621,7 +1621,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a URL to the changes of a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1635,7 +1635,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a URL to the changes of a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1648,7 +1648,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -1661,7 +1661,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the version history of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -1673,7 +1673,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of actions performed on the file with the specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -1690,7 +1690,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the list of actions performed on the file with the specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -1706,7 +1706,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1720,7 +1720,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1733,7 +1733,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external links of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -1748,7 +1748,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the external links of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -1762,7 +1762,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -1777,7 +1777,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -1791,7 +1791,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
@@ -1804,7 +1804,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
@@ -1816,7 +1816,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the result of a form-filling session.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -1829,7 +1829,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the result of a form-filling session.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -1841,7 +1841,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a link to download a file with the ID specified in the request asynchronously.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -1854,7 +1854,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a link to download a file with the ID specified in the request asynchronously.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -1866,7 +1866,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -1879,7 +1879,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -1891,7 +1891,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -1904,7 +1904,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -1916,8 +1916,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of FileReferenceWrapper</returns>
@@ -1929,8 +1929,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of ApiResponse (FileReferenceWrapper)</returns>
@@ -1941,7 +1941,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the PDF file is a form or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -1954,7 +1954,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the PDF file is a form or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -1966,7 +1966,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Locks a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1980,7 +1980,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Locks a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1993,9 +1993,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Performs the specified form filling action.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>Task of void</returns>
@@ -2007,9 +2007,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Performs the specified form filling action.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -2020,7 +2020,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the initialization configuration of a file to open it in the editor.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -2038,7 +2038,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the initialization configuration of a file to open it in the editor.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -2055,7 +2055,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -2070,7 +2070,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores a file version specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -2084,7 +2084,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves edits to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -2101,7 +2101,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves edits to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -2117,7 +2117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a file with the identifier specified in the request as a PDF document.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2131,7 +2131,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves a file with the identifier specified in the request as a PDF document.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2144,9 +2144,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the form role mapping.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>Task of FormRoleWrapper</returns>
@@ -2158,9 +2158,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the form role mapping.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>Task of ApiResponse (FormRoleWrapper)</returns>
@@ -2171,7 +2171,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2185,7 +2185,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2198,7 +2198,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets an external link to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2212,7 +2212,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets an external link to a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2225,7 +2225,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the file with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2239,7 +2239,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the file with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2252,8 +2252,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
@@ -2265,8 +2265,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets order of the files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
@@ -2277,7 +2277,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2291,7 +2291,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2304,7 +2304,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts filling a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -2317,7 +2317,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts filling a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -2329,7 +2329,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tracks file changes when editing.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -2345,7 +2345,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tracks file changes when editing.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -2360,7 +2360,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the information of the selected file with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2374,7 +2374,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the information of the selected file with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2419,14 +2419,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesFilesApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -2441,14 +2441,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -2483,14 +2483,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -2510,14 +2510,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -2537,7 +2537,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -2597,8 +2597,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add template files Adds files with the IDs specified in the request to the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper AddTemplates(TemplatesRequestDto? templatesRequestDto = default)
@@ -2610,8 +2610,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add template files Adds files with the IDs specified in the request to the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> AddTemplatesWithHttpInfo(TemplatesRequestDto? templatesRequestDto = default)
@@ -2677,8 +2677,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add template files Adds files with the IDs specified in the request to the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -2691,8 +2691,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add template files Adds files with the IDs specified in the request to the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2762,7 +2762,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change version history Changes the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
@@ -2776,7 +2776,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change version history Changes the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
@@ -2845,7 +2845,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change version history Changes the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2860,7 +2860,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change version history Changes the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2933,7 +2933,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the form draft filling Checks if the current file is a form draft which can be filled out.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
@@ -2947,7 +2947,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the form draft filling Checks if the current file is a form draft which can be filled out.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
@@ -2986,7 +2986,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the form draft filling Checks if the current file is a form draft which can be filled out.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3001,7 +3001,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the form draft filling Checks if the current file is a form draft which can be filled out.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3044,7 +3044,7 @@ namespace Docspace.Api
         /// <summary>
         /// Copy a file Copies (and converts if possible) an existing file to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
@@ -3058,7 +3058,7 @@ namespace Docspace.Api
         /// <summary>
         /// Copy a file Copies (and converts if possible) an existing file to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
@@ -3127,7 +3127,7 @@ namespace Docspace.Api
         /// <summary>
         /// Copy a file Copies (and converts if possible) an existing file to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3142,7 +3142,7 @@ namespace Docspace.Api
         /// <summary>
         /// Copy a file Copies (and converts if possible) an existing file to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3215,7 +3215,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create the editing session Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
@@ -3229,7 +3229,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create the editing session Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
@@ -3301,7 +3301,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create the editing session Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3316,7 +3316,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create the editing session Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3342,7 +3342,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fileSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fileSize", fileSize));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileSize", fileSize));
             }
 
             // authentication (Basic) required
@@ -3392,7 +3392,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
@@ -3406,7 +3406,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
@@ -3475,7 +3475,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3490,7 +3490,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3563,8 +3563,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         public FileIntegerWrapper CreateFileInMyDocuments(CreateFileJsonElement? createFileJsonElement = default)
@@ -3576,8 +3576,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         public ApiResponse<FileIntegerWrapper> CreateFileInMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default)
@@ -3643,8 +3643,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -3657,8 +3657,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a file in the \&quot;My documents\&quot; section Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFileJsonElement"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -3728,7 +3728,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
@@ -3742,7 +3742,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
@@ -3811,7 +3811,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3826,7 +3826,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3899,8 +3899,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         public FileIntegerWrapper CreateHtmlFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default)
@@ -3912,8 +3912,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         public ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default)
@@ -3979,8 +3979,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -3993,8 +3993,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create an HTML file in the \&quot;My documents\&quot; section Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -4064,7 +4064,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create primary external link Creates a primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
@@ -4078,7 +4078,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create primary external link Creates a primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
@@ -4147,7 +4147,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create primary external link Creates a primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4162,7 +4162,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create primary external link Creates a primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4235,7 +4235,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
@@ -4249,7 +4249,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
@@ -4318,7 +4318,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4333,7 +4333,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4406,8 +4406,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         public FileIntegerWrapper CreateTextFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default)
@@ -4419,8 +4419,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         public ApiResponse<FileIntegerWrapper> CreateTextFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default)
@@ -4486,8 +4486,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -4500,8 +4500,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a text file in the \&quot;My documents\&quot; section Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTextOrHtmlFile"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -4571,8 +4571,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create file thumbnails Creates thumbnails for the files with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper CreateThumbnails(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -4584,8 +4584,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create file thumbnails Creates thumbnails for the files with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         public ApiResponse<ObjectArrayWrapper> CreateThumbnailsWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -4621,8 +4621,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create file thumbnails Creates thumbnails for the files with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -4635,8 +4635,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create file thumbnails Creates thumbnails for the files with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -4676,7 +4676,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a file Deletes a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
@@ -4690,7 +4690,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a file Deletes a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
@@ -4763,7 +4763,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a file Deletes a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4778,7 +4778,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a file Deletes a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4855,8 +4855,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete recent files Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>NoContentResultWrapper</returns>
         public NoContentResultWrapper DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -4868,8 +4868,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete recent files Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
         public ApiResponse<NoContentResultWrapper> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -4935,8 +4935,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete recent files Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>Task of NoContentResultWrapper</returns>
@@ -4949,8 +4949,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete recent files Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
         /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
@@ -5020,7 +5020,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete template files Removes files with the IDs specified in the request from the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -5033,7 +5033,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete template files Removes files with the IDs specified in the request from the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -5100,7 +5100,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete template files Removes files with the IDs specified in the request from the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -5114,7 +5114,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete template files Removes files with the IDs specified in the request from the template list.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -5185,7 +5185,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form roles Returns all roles for the specified form.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>FormRoleArrayWrapper</returns>
@@ -5198,7 +5198,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form roles Returns all roles for the specified form.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>ApiResponse of FormRoleArrayWrapper</returns>
@@ -5265,7 +5265,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form roles Returns all roles for the specified form.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -5279,7 +5279,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form roles Returns all roles for the specified form.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -5350,7 +5350,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get changes URL Returns a URL to the changes of a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/">REST API Reference for GetEditDiffUrl Operation</seealso>
@@ -5364,7 +5364,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get changes URL Returns a URL to the changes of a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/">REST API Reference for GetEditDiffUrl Operation</seealso>
@@ -5406,7 +5406,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get changes URL Returns a URL to the changes of a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5421,7 +5421,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get changes URL Returns a URL to the changes of a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5447,7 +5447,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (version != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "version", version));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
 
 
@@ -5467,7 +5467,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get version history Returns the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>EditHistoryArrayWrapper</returns>
@@ -5480,7 +5480,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get version history Returns the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
@@ -5517,7 +5517,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get version history Returns the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -5531,7 +5531,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get version history Returns the version history of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -5572,7 +5572,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file history Returns the list of actions performed on the file with the specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -5589,7 +5589,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file history Returns the list of actions performed on the file with the specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -5676,7 +5676,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file history Returns the list of actions performed on the file with the specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -5694,7 +5694,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file history Returns the list of actions performed on the file with the specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
         /// <param name="toDate">The end date of the history. (optional)</param>
@@ -5723,19 +5723,19 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -5785,7 +5785,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file information Returns the detailed information about a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/">REST API Reference for GetFileInfo Operation</seealso>
@@ -5799,7 +5799,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file information Returns the detailed information about a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/">REST API Reference for GetFileInfo Operation</seealso>
@@ -5841,7 +5841,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file information Returns the detailed information about a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5856,7 +5856,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file information Returns the detailed information about a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5882,7 +5882,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (version != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "version", version));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
 
 
@@ -5902,7 +5902,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file external links Returns the external links of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -5917,7 +5917,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file external links Returns the external links of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -5994,7 +5994,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file external links Returns the external links of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6010,7 +6010,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file external links Returns the external links of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6037,11 +6037,11 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -6091,7 +6091,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6106,7 +6106,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6153,7 +6153,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6169,7 +6169,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
@@ -6196,11 +6196,11 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
 
@@ -6220,7 +6220,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file versions Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
@@ -6233,7 +6233,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file versions Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
@@ -6270,7 +6270,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file versions Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
@@ -6284,7 +6284,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file versions Returns the detailed information about all the available file versions with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
@@ -6325,7 +6325,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form-filling result Retrieves the result of a form-filling session.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>FillingFormResultIntegerWrapper</returns>
@@ -6338,7 +6338,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form-filling result Retrieves the result of a form-filling session.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
@@ -6378,7 +6378,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form-filling result Retrieves the result of a form-filling session.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -6392,7 +6392,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get form-filling result Retrieves the result of a form-filling session.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -6416,7 +6416,7 @@ namespace Docspace.Api
 
             if (fillingSessionId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fillingSessionId", fillingSessionId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fillingSessionId", fillingSessionId));
             }
 
 
@@ -6436,7 +6436,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link asynchronously Returns a link to download a file with the ID specified in the request asynchronously.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>FileLinkWrapper</returns>
@@ -6449,7 +6449,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link asynchronously Returns a link to download a file with the ID specified in the request asynchronously.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>ApiResponse of FileLinkWrapper</returns>
@@ -6516,7 +6516,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link asynchronously Returns a link to download a file with the ID specified in the request asynchronously.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -6530,7 +6530,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link asynchronously Returns a link to download a file with the ID specified in the request asynchronously.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -6601,7 +6601,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -6614,7 +6614,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -6681,7 +6681,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -6695,7 +6695,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file download link Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -6766,7 +6766,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
@@ -6779,7 +6779,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
@@ -6846,7 +6846,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -6860,7 +6860,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users access rights to the protected file Returns a list of users with their access rights to the protected file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -6931,8 +6931,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get reference data Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>FileReferenceWrapper</returns>
         public FileReferenceWrapper GetReferenceData(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default)
@@ -6944,8 +6944,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get reference data Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>ApiResponse of FileReferenceWrapper</returns>
         public ApiResponse<FileReferenceWrapper> GetReferenceDataWithHttpInfo(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default)
@@ -7011,8 +7011,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get reference data Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of FileReferenceWrapper</returns>
@@ -7025,8 +7025,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get reference data Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getReferenceDataDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of ApiResponse (FileReferenceWrapper)</returns>
@@ -7096,7 +7096,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the PDF file Checks if the PDF file is a form or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -7109,7 +7109,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the PDF file Checks if the PDF file is a form or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -7176,7 +7176,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the PDF file Checks if the PDF file is a form or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -7190,7 +7190,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the PDF file Checks if the PDF file is a form or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -7261,7 +7261,7 @@ namespace Docspace.Api
         /// <summary>
         /// Lock a file Locks a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
@@ -7275,7 +7275,7 @@ namespace Docspace.Api
         /// <summary>
         /// Lock a file Locks a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
@@ -7344,7 +7344,7 @@ namespace Docspace.Api
         /// <summary>
         /// Lock a file Locks a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7359,7 +7359,7 @@ namespace Docspace.Api
         /// <summary>
         /// Lock a file Locks a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7432,9 +7432,9 @@ namespace Docspace.Api
         /// <summary>
         /// Perform form filling action Performs the specified form filling action.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns></returns>
         public void ManageFormFilling(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default)
@@ -7445,9 +7445,9 @@ namespace Docspace.Api
         /// <summary>
         /// Perform form filling action Performs the specified form filling action.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ManageFormFillingWithHttpInfo(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default)
@@ -7518,9 +7518,9 @@ namespace Docspace.Api
         /// <summary>
         /// Perform form filling action Performs the specified form filling action.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>Task of void</returns>
@@ -7532,9 +7532,9 @@ namespace Docspace.Api
         /// <summary>
         /// Perform form filling action Performs the specified form filling action.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="manageFormFillingDtoInteger"> (optional)</param>
+        /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -7609,7 +7609,7 @@ namespace Docspace.Api
         /// <summary>
         /// Open a file configuration Returns the initialization configuration of a file to open it in the editor.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -7627,7 +7627,7 @@ namespace Docspace.Api
         /// <summary>
         /// Open a file configuration Returns the initialization configuration of a file to open it in the editor.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -7689,7 +7689,7 @@ namespace Docspace.Api
         /// <summary>
         /// Open a file configuration Returns the initialization configuration of a file to open it in the editor.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -7708,7 +7708,7 @@ namespace Docspace.Api
         /// <summary>
         /// Open a file configuration Returns the initialization configuration of a file to open it in the editor.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
         /// <param name="view">Specifies if the document will be opened for viewing only or not. (optional)</param>
@@ -7738,23 +7738,23 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (version != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "version", version));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
             if (view != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "view", view));
             }
             if (editorType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "editorType", editorType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "editorType", editorType));
             }
             if (edit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "edit", edit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "edit", edit));
             }
             if (fill != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fill", fill));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fill", fill));
             }
 
 
@@ -7774,7 +7774,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a file version Restores a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -7789,7 +7789,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a file version Restores a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -7836,7 +7836,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a file version Restores a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -7852,7 +7852,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore a file version Restores a file version specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
         /// <param name="url">The file version URL of the restore. (optional)</param>
@@ -7879,11 +7879,11 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (version != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "version", version));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
             if (url != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "url", url));
             }
 
 
@@ -7903,7 +7903,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save file edits Saves edits to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -7920,7 +7920,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save file edits Saves edits to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -8007,7 +8007,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save file edits Saves edits to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -8025,7 +8025,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save file edits Saves edits to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
@@ -8054,11 +8054,11 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fileExtension != null)
             {
-                localVarRequestOptions.FormParameters.Add("FileExtension", Docspace.Client.ClientUtils.ParameterToString(fileExtension)); // form parameter
+                localVarRequestOptions.FormParameters.Add("FileExtension", DocSpace.Client.ClientUtils.ParameterToString(fileExtension)); // form parameter
             }
             if (downloadUri != null)
             {
-                localVarRequestOptions.FormParameters.Add("DownloadUri", Docspace.Client.ClientUtils.ParameterToString(downloadUri)); // form parameter
+                localVarRequestOptions.FormParameters.Add("DownloadUri", DocSpace.Client.ClientUtils.ParameterToString(downloadUri)); // form parameter
             }
             if (file != null)
             {
@@ -8066,7 +8066,7 @@ namespace Docspace.Api
             }
             if (forcesave != null)
             {
-                localVarRequestOptions.FormParameters.Add("Forcesave", Docspace.Client.ClientUtils.ParameterToString(forcesave)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Forcesave", DocSpace.Client.ClientUtils.ParameterToString(forcesave)); // form parameter
             }
 
             // authentication (Basic) required
@@ -8116,7 +8116,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
@@ -8130,7 +8130,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
@@ -8199,7 +8199,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8214,7 +8214,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save a file as PDF Saves a file with the identifier specified in the request as a PDF document.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8287,9 +8287,9 @@ namespace Docspace.Api
         /// <summary>
         /// Save form role mapping Saves the form role mapping.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>FormRoleWrapper</returns>
         public FormRoleWrapper SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
@@ -8301,9 +8301,9 @@ namespace Docspace.Api
         /// <summary>
         /// Save form role mapping Saves the form role mapping.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>ApiResponse of FormRoleWrapper</returns>
         public ApiResponse<FormRoleWrapper> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
@@ -8374,9 +8374,9 @@ namespace Docspace.Api
         /// <summary>
         /// Save form role mapping Saves the form role mapping.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>Task of FormRoleWrapper</returns>
@@ -8389,9 +8389,9 @@ namespace Docspace.Api
         /// <summary>
         /// Save form role mapping Saves the form role mapping.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
-        /// <param name="saveFormRoleMappingDtoInteger"> (optional)</param>
+        /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>Task of ApiResponse (FormRoleWrapper)</returns>
@@ -8466,7 +8466,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set the Custom Filter editing mode Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
@@ -8480,7 +8480,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set the Custom Filter editing mode Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
@@ -8549,7 +8549,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set the Custom Filter editing mode Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8564,7 +8564,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set the Custom Filter editing mode Sets the Custom Filter editing mode to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8637,7 +8637,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an external link Sets an external link to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
@@ -8651,7 +8651,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an external link Sets an external link to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
@@ -8720,7 +8720,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an external link Sets an external link to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8735,7 +8735,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an external link Sets an external link to a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8808,7 +8808,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set file order Sets order of the file with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/">REST API Reference for SetFileOrder Operation</seealso>
@@ -8822,7 +8822,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set file order Sets order of the file with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/">REST API Reference for SetFileOrder Operation</seealso>
@@ -8891,7 +8891,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set file order Sets order of the file with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8906,7 +8906,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set file order Sets order of the file with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8979,8 +8979,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set order of files Sets order of the files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
         public FileIntegerArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
@@ -8992,8 +8992,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set order of files Sets order of the files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
         public ApiResponse<FileIntegerArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
@@ -9059,8 +9059,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set order of files Sets order of the files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
@@ -9073,8 +9073,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set order of files Sets order of the files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersRequestDtoInteger"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
@@ -9144,7 +9144,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file editing Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
@@ -9158,7 +9158,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file editing Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
@@ -9197,7 +9197,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file editing Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9212,7 +9212,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file editing Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9255,7 +9255,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file filling Starts filling a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
@@ -9268,7 +9268,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file filling Starts filling a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
@@ -9335,7 +9335,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file filling Starts filling a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -9349,7 +9349,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file filling Starts filling a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -9420,7 +9420,7 @@ namespace Docspace.Api
         /// <summary>
         /// Track file editing Tracks file changes when editing.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -9436,7 +9436,7 @@ namespace Docspace.Api
         /// <summary>
         /// Track file editing Tracks file changes when editing.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -9488,7 +9488,7 @@ namespace Docspace.Api
         /// <summary>
         /// Track file editing Tracks file changes when editing.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -9505,7 +9505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Track file editing Tracks file changes when editing.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
@@ -9533,15 +9533,15 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (tabId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "tabId", tabId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tabId", tabId));
             }
             if (docKeyForTrack != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "docKeyForTrack", docKeyForTrack));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "docKeyForTrack", docKeyForTrack));
             }
             if (isFinish != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isFinish", isFinish));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "isFinish", isFinish));
             }
 
 
@@ -9561,7 +9561,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file Updates the information of the selected file with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
@@ -9575,7 +9575,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file Updates the information of the selected file with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
@@ -9614,7 +9614,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file Updates the information of the selected file with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9629,7 +9629,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file Updates the information of the selected file with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -1,4 +1,4 @@
-# Docspace.Model.QuotaState
+# DocSpace.Model.QuotaState
 [0 - Active, 1 - Overdue]
 
 ## Properties

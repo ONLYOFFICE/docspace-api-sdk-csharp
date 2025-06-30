@@ -1,4 +1,4 @@
-# Docspace.Model.IMagickGeometry
+# DocSpace.Model.IMagickGeometry
 
 ## Properties
 

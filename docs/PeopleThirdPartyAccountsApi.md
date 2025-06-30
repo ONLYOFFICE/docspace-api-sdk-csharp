@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleThirdPartyAccountsApi
+# DocSpace.Api.PeopleThirdPartyAccountsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -13,18 +13,33 @@ All URIs are relative to *http://localhost:8092*
 # **GetThirdPartyAuthProviders**
 > AccountInfoArrayWrapper GetThirdPartyAuthProviders (bool? inviteView = null, bool? settingsView = null, string? clientCallback = null, string? fromOnly = null)
 
-Get third-party accounts
-
 Returns a list of the available third-party accounts.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inviteView** | **bool?** | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. | [optional]  |
+| **settingsView** | **bool?** | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). | [optional]  |
+| **clientCallback** | **string?** | The method that is called after authentication. | [optional]  |
+| **fromOnly** | **string?** | The provider name if a response is required only from this provider. | [optional]  |
+
+### Return type
+
+[**AccountInfoArrayWrapper**](AccountInfoArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -80,23 +95,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inviteView** | **bool?** | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. | [optional]  |
-| **settingsView** | **bool?** | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). | [optional]  |
-| **clientCallback** | **string?** | The method that is called after authentication. | [optional]  |
-| **fromOnly** | **string?** | The provider name if a response is required only from this provider. | [optional]  |
-
-### Return type
-
-[**AccountInfoArrayWrapper**](AccountInfoArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -114,18 +112,30 @@ No authorization required
 # **LinkThirdPartyAccount**
 > void LinkThirdPartyAccount (LinkAccountRequestDto? linkAccountRequestDto = null)
 
-Link a third-pary account
-
 Links a third-party account specified in the request to the user profile.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **linkAccountRequestDto** | [**LinkAccountRequestDto?**](LinkAccountRequestDto.md) | The request parameters for linking accounts. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -155,7 +165,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var linkAccountRequestDto = new LinkAccountRequestDto?(); // LinkAccountRequestDto? |  (optional) 
+            var linkAccountRequestDto = new LinkAccountRequestDto?(); // LinkAccountRequestDto? | The request parameters for linking accounts. (optional) 
 
             try
             {
@@ -190,20 +200,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **linkAccountRequestDto** | [**LinkAccountRequestDto?**](LinkAccountRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -223,18 +219,30 @@ void (empty response body)
 # **SignupThirdPartyAccount**
 > void SignupThirdPartyAccount (SignupAccountRequestDto? signupAccountRequestDto = null)
 
-Create a third-pary account
-
 Creates a third-party account with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **signupAccountRequestDto** | [**SignupAccountRequestDto?**](SignupAccountRequestDto.md) | The request parameters for creating a third-party account. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -248,7 +256,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var signupAccountRequestDto = new SignupAccountRequestDto?(); // SignupAccountRequestDto? |  (optional) 
+            var signupAccountRequestDto = new SignupAccountRequestDto?(); // SignupAccountRequestDto? | The request parameters for creating a third-party account. (optional) 
 
             try
             {
@@ -283,20 +291,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **signupAccountRequestDto** | [**SignupAccountRequestDto?**](SignupAccountRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -316,18 +310,30 @@ No authorization required
 # **UnlinkThirdPartyAccount**
 > void UnlinkThirdPartyAccount (string? provider = null)
 
-Unlink a third-pary account
-
 Unlinks a third-party account specified in the request from the user profile.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **provider** | **string?** | The provider name. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -391,20 +397,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **provider** | **string?** | The provider name. | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

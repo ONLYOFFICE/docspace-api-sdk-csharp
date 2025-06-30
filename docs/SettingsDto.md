@@ -1,4 +1,4 @@
-# Docspace.Model.SettingsDto
+# DocSpace.Model.SettingsDto
 The settings information.
 
 ## Properties
@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **IsAmi** | **bool** | Specifies if this portal is the AMI instance or not. | [optional] 
 **BaseDomain** | **string** | The base domain. | [optional] 
 **WizardToken** | **string** | The wizard token. | [optional] 
-**PasswordHash** | [**PasswordHasher**](PasswordHasher.md) |  | [optional] 
-**Firebase** | [**FirebaseDto**](FirebaseDto.md) |  | [optional] 
+**PasswordHash** | [**PasswordHasher**](.md) |  | [optional] 
+**Firebase** | [**FirebaseDto**](.md) |  | [optional] 
 **VarVersion** | **string** | The portal version. | [optional] 
 **RecaptchaType** | **RecaptchaType** |  | [optional] 
 **RecaptchaPublicKey** | **string** | The ReCAPTCHA public key. | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **TenantStatus** | **TenantStatus** |  | [optional] 
 **TenantAlias** | **string** | The tenant alias. | [optional] 
 **DisplayAbout** | **bool** | Specifies whether to display the \&quot;About\&quot; portal section. | [optional] 
-**DomainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) |  | [optional] 
+**DomainValidator** | [**TenantDomainValidator**](.md) |  | [optional] 
 **ZendeskKey** | **string** | The Zendesk key. | [optional] 
 **TagManagerId** | **string** | The tag manager ID. | [optional] 
 **CookieSettingsEnabled** | **bool** | Specifies whether the cookie settings are enabled. | [optional] 
@@ -40,12 +40,12 @@ Name | Type | Description | Notes
 **LimitedAccessDevToolsForUsers** | **bool** | Specifies whether the access to the Developer Tools is limited for users or not. | [optional] 
 **UserNameRegex** | **string** | The user name validation regex. | [optional] 
 **InvitationLimit** | **int?** | The maximum number of invitations to the portal. | [optional] 
-**Plugins** | [**PluginsDto**](PluginsDto.md) |  | [optional] 
-**DeepLink** | [**DeepLinkDto**](DeepLinkDto.md) |  | [optional] 
-**FormGallery** | [**FormGalleryDto**](FormGalleryDto.md) |  | [optional] 
+**Plugins** | [**PluginsDto**](.md) |  | [optional] 
+**DeepLink** | [**DeepLinkDto**](.md) |  | [optional] 
+**FormGallery** | [**FormGalleryDto**](.md) |  | [optional] 
 **MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
 **LogoText** | **string** | The white label logo text. | [optional] 
-**ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  | [optional] 
+**ExternalResources** | [**CultureSpecificExternalResources**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

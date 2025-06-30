@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         DoubleWrapper GetStorageEncryptionProgress();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         ApiResponse<DoubleWrapper> GetStorageEncryptionProgressWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>EncryptionSettingsWrapper</returns>
         EncryptionSettingsWrapper GetStorageEncryptionSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>ApiResponse of EncryptionSettingsWrapper</returns>
         ApiResponse<EncryptionSettingsWrapper> GetStorageEncryptionSettingsWithHttpInfo();
@@ -92,8 +92,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the storage encryption process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper StartStorageEncryption(StorageEncryptionRequestsDto? storageEncryptionRequestsDto = default);
@@ -104,8 +104,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the storage encryption process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> StartStorageEncryptionWithHttpInfo(StorageEncryptionRequestsDto? storageEncryptionRequestsDto = default);
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption progress.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>Task of EncryptionSettingsWrapper</returns>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the storage encryption settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionSettingsWrapper)</returns>
@@ -170,8 +170,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the storage encryption process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -183,8 +183,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the storage encryption process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -227,14 +227,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsEncryptionApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -249,14 +249,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -291,14 +291,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -318,14 +318,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption progress Returns the storage encryption progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         public DoubleWrapper GetStorageEncryptionProgress()
@@ -417,7 +417,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption progress Returns the storage encryption progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         public ApiResponse<DoubleWrapper> GetStorageEncryptionProgressWithHttpInfo()
@@ -482,7 +482,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption progress Returns the storage encryption progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -495,7 +495,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption progress Returns the storage encryption progress.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -564,7 +564,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption settings Returns the storage encryption settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>EncryptionSettingsWrapper</returns>
         public EncryptionSettingsWrapper GetStorageEncryptionSettings()
@@ -576,7 +576,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption settings Returns the storage encryption settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>ApiResponse of EncryptionSettingsWrapper</returns>
         public ApiResponse<EncryptionSettingsWrapper> GetStorageEncryptionSettingsWithHttpInfo()
@@ -641,7 +641,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption settings Returns the storage encryption settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>Task of EncryptionSettingsWrapper</returns>
@@ -654,7 +654,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the storage encryption settings Returns the storage encryption settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/">REST API Reference for GetStorageEncryptionSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionSettingsWrapper)</returns>
@@ -723,8 +723,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the storage encryption process Starts the storage encryption process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper StartStorageEncryption(StorageEncryptionRequestsDto? storageEncryptionRequestsDto = default)
@@ -736,8 +736,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the storage encryption process Starts the storage encryption process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> StartStorageEncryptionWithHttpInfo(StorageEncryptionRequestsDto? storageEncryptionRequestsDto = default)
@@ -803,8 +803,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the storage encryption process Starts the storage encryption process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -817,8 +817,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the storage encryption process Starts the storage encryption process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageEncryptionRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageEncryptionRequestsDto">The request parameters for managing storage encryption operations and notifications. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/">REST API Reference for StartStorageEncryption Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>

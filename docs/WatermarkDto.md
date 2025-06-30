@@ -1,4 +1,4 @@
-# Docspace.Model.WatermarkDto
+# DocSpace.Model.WatermarkDto
 The watermark settings.
 
 ## Properties

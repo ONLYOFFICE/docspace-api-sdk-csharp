@@ -1,4 +1,4 @@
-# Docspace.Model.Payments
+# DocSpace.Model.Payments
 [0 - Paid, 1 - Free]
 
 ## Properties

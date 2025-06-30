@@ -1,4 +1,4 @@
-# Docspace.Model.ExternalShareDto
+# DocSpace.Model.ExternalShareDto
 The external sharing information and validation data.
 
 ## Properties

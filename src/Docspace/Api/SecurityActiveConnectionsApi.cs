@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the active connections to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>ActiveConnectionsWrapper</returns>
         ActiveConnectionsWrapper GetAllActiveConnections();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the active connections to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>ApiResponse of ActiveConnectionsWrapper</returns>
         ApiResponse<ActiveConnectionsWrapper> GetAllActiveConnectionsWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from the connection with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -83,7 +83,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from the connection with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the current user and changes their password.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper LogOutAllActiveConnectionsChangePassword();
@@ -105,7 +105,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the current user and changes their password.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> LogOutAllActiveConnectionsChangePasswordWithHttpInfo();
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
         /// <returns></returns>
@@ -127,7 +127,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -138,7 +138,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections except the current connection.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper LogOutAllExceptThisConnection();
@@ -149,7 +149,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections except the current connection.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> LogOutAllExceptThisConnectionWithHttpInfo();
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the active connections to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>Task of ActiveConnectionsWrapper</returns>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the active connections to the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>Task of ApiResponse (ActiveConnectionsWrapper)</returns>
@@ -191,7 +191,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from the connection with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
@@ -204,7 +204,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from the connection with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
@@ -216,7 +216,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the current user and changes their password.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -228,7 +228,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the current user and changes their password.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -239,7 +239,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
@@ -252,7 +252,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
@@ -264,7 +264,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections except the current connection.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -276,7 +276,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out from all the active connections except the current connection.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -319,14 +319,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SecurityActiveConnectionsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -341,14 +341,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -383,14 +383,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -410,14 +410,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -437,7 +437,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -497,7 +497,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active connections Returns all the active connections to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>ActiveConnectionsWrapper</returns>
         public ActiveConnectionsWrapper GetAllActiveConnections()
@@ -509,7 +509,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active connections Returns all the active connections to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>ApiResponse of ActiveConnectionsWrapper</returns>
         public ApiResponse<ActiveConnectionsWrapper> GetAllActiveConnectionsWithHttpInfo()
@@ -574,7 +574,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active connections Returns all the active connections to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>Task of ActiveConnectionsWrapper</returns>
@@ -587,7 +587,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active connections Returns all the active connections to the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-active-connections/">REST API Reference for GetAllActiveConnections Operation</seealso>
         /// <returns>Task of ApiResponse (ActiveConnectionsWrapper)</returns>
@@ -656,7 +656,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from the connection Logs out from the connection with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -669,7 +669,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from the connection Logs out from the connection with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -736,7 +736,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from the connection Logs out from the connection with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
@@ -750,7 +750,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from the connection Logs out from the connection with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loginEventId">The ID of the specific login event.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-active-connection/">REST API Reference for LogOutActiveConnection Operation</seealso>
@@ -821,7 +821,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out and change password Logs out from all the active connections for the current user and changes their password.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper LogOutAllActiveConnectionsChangePassword()
@@ -833,7 +833,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out and change password Logs out from all the active connections for the current user and changes their password.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> LogOutAllActiveConnectionsChangePasswordWithHttpInfo()
@@ -898,7 +898,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out and change password Logs out from all the active connections for the current user and changes their password.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -911,7 +911,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out and change password Logs out from all the active connections for the current user and changes their password.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-change-password/">REST API Reference for LogOutAllActiveConnectionsChangePassword Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -980,7 +980,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out for the user by ID Logs out from all the active connections for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
         /// <returns></returns>
@@ -992,7 +992,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out for the user by ID Logs out from all the active connections for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1059,7 +1059,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out for the user by ID Logs out from all the active connections for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
@@ -1072,7 +1072,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out for the user by ID Logs out from all the active connections for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-active-connections-for-user/">REST API Reference for LogOutAllActiveConnectionsForUser Operation</seealso>
@@ -1143,7 +1143,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from all connections except the current one Logs out from all the active connections except the current connection.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper LogOutAllExceptThisConnection()
@@ -1155,7 +1155,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from all connections except the current one Logs out from all the active connections except the current connection.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> LogOutAllExceptThisConnectionWithHttpInfo()
@@ -1220,7 +1220,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from all connections except the current one Logs out from all the active connections except the current connection.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1233,7 +1233,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out from all connections except the current one Logs out from all the active connections except the current connection.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/log-out-all-except-this-connection/">REST API Reference for LogOutAllExceptThisConnection Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

@@ -1,4 +1,4 @@
-# Docspace.Model.PaymentUrlRequestsDto
+# DocSpace.Model.PaymentUrlRequestsDto
 The request parameters for the payment URL configuration with quantity information.
 
 ## Properties

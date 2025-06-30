@@ -1,4 +1,4 @@
-# Docspace.Model.AceShortWrapper
+# DocSpace.Model.AceShortWrapper
 The information about the settings which allow to share the document with other users.
 
 ## Properties

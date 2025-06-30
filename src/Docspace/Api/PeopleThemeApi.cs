@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the current portal theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>DarkThemeSettingsWrapper</returns>
         DarkThemeSettingsWrapper ChangePortalTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the current portal theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
         ApiResponse<DarkThemeSettingsWrapper> ChangePortalThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a theme which is set to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>DarkThemeSettingsWrapper</returns>
         DarkThemeSettingsWrapper GetPortalTheme();
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a theme which is set to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
         ApiResponse<DarkThemeSettingsWrapper> GetPortalThemeWithHttpInfo();
@@ -103,8 +103,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the current portal theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
@@ -116,8 +116,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the current portal theme.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
@@ -128,7 +128,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a theme which is set to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
@@ -140,7 +140,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a theme which is set to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
@@ -183,14 +183,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleThemeApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -205,14 +205,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -247,14 +247,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -274,14 +274,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -361,8 +361,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the portal theme Changes the current portal theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>DarkThemeSettingsWrapper</returns>
         public DarkThemeSettingsWrapper ChangePortalTheme(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default)
@@ -374,8 +374,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the portal theme Changes the current portal theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
         public ApiResponse<DarkThemeSettingsWrapper> ChangePortalThemeWithHttpInfo(DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = default)
@@ -441,8 +441,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the portal theme Changes the current portal theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
@@ -455,8 +455,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the portal theme Changes the current portal theme.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="darkThemeSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="darkThemeSettingsRequestDto">The theme settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/">REST API Reference for ChangePortalTheme Operation</seealso>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal theme Returns a theme which is set to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>DarkThemeSettingsWrapper</returns>
         public DarkThemeSettingsWrapper GetPortalTheme()
@@ -538,7 +538,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal theme Returns a theme which is set to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>ApiResponse of DarkThemeSettingsWrapper</returns>
         public ApiResponse<DarkThemeSettingsWrapper> GetPortalThemeWithHttpInfo()
@@ -603,7 +603,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal theme Returns a theme which is set to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>Task of DarkThemeSettingsWrapper</returns>
@@ -616,7 +616,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal theme Returns a theme which is set to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/">REST API Reference for GetPortalTheme Operation</seealso>
         /// <returns>Task of ApiResponse (DarkThemeSettingsWrapper)</returns>

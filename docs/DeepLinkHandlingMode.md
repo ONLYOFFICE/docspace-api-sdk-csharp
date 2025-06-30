@@ -1,4 +1,4 @@
-# Docspace.Model.DeepLinkHandlingMode
+# DocSpace.Model.DeepLinkHandlingMode
 The deep link handling mode.
 
 ## Properties

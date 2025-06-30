@@ -32,12 +32,12 @@ using System.Linq;
 using System.Reflection;
 using Xunit;
 
-using Docspace.Client;
-using Docspace.Api;
+using DocSpace.Client;
+using DocSpace.Api;
 // uncomment below to import models
-//using Docspace.Model;
+//using DocSpace.Model;
 
-namespace Docspace.Test.Api
+namespace DocSpace.Test.Api
 {
     /// <summary>
     ///  Class for testing PeoplePasswordApi

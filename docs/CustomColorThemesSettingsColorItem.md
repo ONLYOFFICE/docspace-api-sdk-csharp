@@ -1,4 +1,4 @@
-# Docspace.Model.CustomColorThemesSettingsColorItem
+# DocSpace.Model.CustomColorThemesSettingsColorItem
 The custom color theme color parameters.
 
 ## Properties

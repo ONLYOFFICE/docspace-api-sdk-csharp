@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsEncryptionApi
+# DocSpace.Api.SettingsEncryptionApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetStorageEncryptionProgress**
 > DoubleWrapper GetStorageEncryptionProgress ()
 
-Get the storage encryption progress
-
 Returns the storage encryption progress.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**DoubleWrapper**](DoubleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -91,16 +99,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**DoubleWrapper**](DoubleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -120,18 +118,26 @@ This endpoint does not need any parameter.
 # **GetStorageEncryptionSettings**
 > EncryptionSettingsWrapper GetStorageEncryptionSettings ()
 
-Get the storage encryption settings
-
 Returns the storage encryption settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**EncryptionSettingsWrapper**](EncryptionSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -199,16 +205,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**EncryptionSettingsWrapper**](EncryptionSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -229,18 +225,30 @@ This endpoint does not need any parameter.
 # **StartStorageEncryption**
 > BooleanWrapper StartStorageEncryption (StorageEncryptionRequestsDto? storageEncryptionRequestsDto = null)
 
-Start the storage encryption process
-
 Starts the storage encryption process.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **storageEncryptionRequestsDto** | [**StorageEncryptionRequestsDto?**](StorageEncryptionRequestsDto.md) | The request parameters for managing storage encryption operations and notifications. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -270,7 +278,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsEncryptionApi(httpClient, config, httpClientHandler);
-            var storageEncryptionRequestsDto = new StorageEncryptionRequestsDto?(); // StorageEncryptionRequestsDto? |  (optional) 
+            var storageEncryptionRequestsDto = new StorageEncryptionRequestsDto?(); // StorageEncryptionRequestsDto? | The request parameters for managing storage encryption operations and notifications. (optional) 
 
             try
             {
@@ -308,20 +316,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **storageEncryptionRequestsDto** | [**StorageEncryptionRequestsDto?**](StorageEncryptionRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

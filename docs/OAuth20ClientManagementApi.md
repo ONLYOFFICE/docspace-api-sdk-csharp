@@ -1,4 +1,4 @@
-# Docspace.Api.OAuth20ClientManagementApi
+# DocSpace.Api.OAuth20ClientManagementApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -15,18 +15,31 @@ All URIs are relative to *http://localhost:8092*
 # **ChangeActivation**
 > Object ChangeActivation (string clientId, ChangeClientActivationRequest changeClientActivationRequest)
 
-Change the client activation status
-
 Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+| **changeClientActivationRequest** | [**ChangeClientActivationRequest**](ChangeClientActivationRequest.md) | The request parameters for changing the client activation status. |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -46,7 +59,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
-            var changeClientActivationRequest = new ChangeClientActivationRequest(); // ChangeClientActivationRequest | 
+            var changeClientActivationRequest = new ChangeClientActivationRequest(); // ChangeClientActivationRequest | The request parameters for changing the client activation status.
 
             try
             {
@@ -85,21 +98,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-| **changeClientActivationRequest** | [**ChangeClientActivationRequest**](ChangeClientActivationRequest.md) |  |  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -122,18 +120,30 @@ catch (ApiException e)
 # **CreateClient**
 > ClientResponse CreateClient (CreateClientRequest createClientRequest)
 
-Create a new OAuth2 client
-
 Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createClientRequest** | [**CreateClientRequest**](CreateClientRequest.md) | The request parameters for creating a client. |  |
+
+### Return type
+
+[**ClientResponse**](ClientResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -152,7 +162,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
-            var createClientRequest = new CreateClientRequest(); // CreateClientRequest | 
+            var createClientRequest = new CreateClientRequest(); // CreateClientRequest | The request parameters for creating a client.
 
             try
             {
@@ -191,20 +201,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createClientRequest** | [**CreateClientRequest**](CreateClientRequest.md) |  |  |
-
-### Return type
-
-[**ClientResponse**](ClientResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -226,18 +222,30 @@ catch (ApiException e)
 # **DeleteClient**
 > Object DeleteClient (string clientId)
 
-Delete an OAuth2 client
-
 Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -295,20 +303,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -331,18 +325,30 @@ catch (ApiException e)
 # **RegenerateSecret**
 > ClientSecretResponse RegenerateSecret (string clientId)
 
-Regenerate the client secret
-
 Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+[**ClientSecretResponse**](ClientSecretResponse.md)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -400,20 +406,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-[**ClientSecretResponse**](ClientSecretResponse.md)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -436,18 +428,30 @@ catch (ApiException e)
 # **RevokeUserClient**
 > Object RevokeUserClient (string clientId)
 
-Revoke client consent
-
 Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -505,20 +509,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -542,18 +532,31 @@ catch (ApiException e)
 # **UpdateClient**
 > Object UpdateClient (string clientId, UpdateClientRequest updateClientRequest)
 
-Update an existing OAuth2 client
-
 Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string** | The client identifier. |  |
+| **updateClientRequest** | [**UpdateClientRequest**](UpdateClientRequest.md) | The request for updating client details. |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -573,7 +576,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
-            var updateClientRequest = new UpdateClientRequest(); // UpdateClientRequest | 
+            var updateClientRequest = new UpdateClientRequest(); // UpdateClientRequest | The request for updating client details.
 
             try
             {
@@ -611,21 +614,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
-| **updateClientRequest** | [**UpdateClientRequest**](UpdateClientRequest.md) |  |  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
 
 ### HTTP request headers
 

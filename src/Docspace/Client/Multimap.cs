@@ -29,7 +29,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// A dictionary in which one key has many associated values.

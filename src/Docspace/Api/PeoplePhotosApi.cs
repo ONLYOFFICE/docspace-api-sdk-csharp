@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
@@ -75,7 +75,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
@@ -87,7 +87,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
@@ -110,7 +110,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
@@ -121,7 +121,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
@@ -134,7 +134,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -194,7 +194,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -207,7 +207,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
@@ -232,7 +232,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -271,7 +271,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -284,7 +284,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -298,7 +298,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a photo of the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -343,14 +343,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeoplePhotosApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,14 +365,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -407,14 +407,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -434,14 +434,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -461,7 +461,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -521,7 +521,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create photo thumbnails Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
@@ -535,7 +535,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create photo thumbnails Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
@@ -608,7 +608,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create photo thumbnails Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -623,7 +623,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create photo thumbnails Creates the user photo thumbnails by coordinates of the original image specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -700,7 +700,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user photo Deletes a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
@@ -713,7 +713,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user photo Deletes a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
@@ -784,7 +784,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user photo Deletes a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
@@ -798,7 +798,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user photo Deletes a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/">REST API Reference for DeleteMemberPhoto Operation</seealso>
@@ -873,7 +873,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user photo Returns a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
@@ -886,7 +886,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user photo Returns a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
@@ -957,7 +957,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user photo Returns a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
@@ -971,7 +971,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user photo Returns a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/">REST API Reference for GetMemberPhoto Operation</seealso>
@@ -1046,7 +1046,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user photo Updates a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
@@ -1060,7 +1060,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user photo Updates a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
@@ -1133,7 +1133,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user photo Updates a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1148,7 +1148,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a user photo Updates a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1225,7 +1225,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a user photo Uploads a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
@@ -1239,7 +1239,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a user photo Uploads a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
@@ -1316,7 +1316,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a user photo Uploads a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1331,7 +1331,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a user photo Uploads a photo of the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="formCollection">The image data.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1363,7 +1363,7 @@ namespace Docspace.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.FormParameters.Add("formCollection", Docspace.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
+            localVarRequestOptions.FormParameters.Add("formCollection", DocSpace.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
 
             // authentication (Basic) required
             // http basic authentication required

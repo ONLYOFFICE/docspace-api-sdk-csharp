@@ -1,4 +1,4 @@
-# Docspace.Api.PortalPaymentApi
+# DocSpace.Api.PortalPaymentApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -30,18 +30,30 @@ All URIs are relative to *http://localhost:8092*
 # **CalculateWalletPayment**
 > PaymentCalculationWrapper CalculateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
 
-Calculate amount of the wallet payment
-
 Calculate amount of the wallet payment with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for the wallet payment quantity specifications. | [optional]  |
+
+### Return type
+
+[**PaymentCalculationWrapper**](PaymentCalculationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -71,7 +83,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? |  (optional) 
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
 
             try
             {
@@ -110,20 +122,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**PaymentCalculationWrapper**](PaymentCalculationWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -143,18 +141,30 @@ catch (ApiException e)
 # **CreateCustomerOperationsReport**
 > StringWrapper CreateCustomerOperationsReport (CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = null)
 
-Generate the customer operations report
-
 Generates the customer operations report as csv file and save in Documents.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customerOperationsReportRequestDto** | [**CustomerOperationsReportRequestDto?**](CustomerOperationsReportRequestDto.md) | Parameters of the request for generating the report on client operations | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -184,7 +194,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? |  (optional) 
+            var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? | Parameters of the request for generating the report on client operations (optional) 
 
             try
             {
@@ -223,20 +233,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **customerOperationsReportRequestDto** | [**CustomerOperationsReportRequestDto?**](CustomerOperationsReportRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -255,18 +251,26 @@ catch (ApiException e)
 # **GetAccountingCurrencies**
 > CurrencyArrayWrapper GetAccountingCurrencies ()
 
-Get list of currencies
-
 Returns the list of currencies from accounting service.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CurrencyArrayWrapper**](CurrencyArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -334,16 +338,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CurrencyArrayWrapper**](CurrencyArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -363,18 +357,30 @@ This endpoint does not need any parameter.
 # **GetCheckoutSetupUrl**
 > StringWrapper GetCheckoutSetupUrl (string? backUrl = null)
 
-Get the checkout setup page URL
-
 Returns the URL to the checkout setup page.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **backUrl** | **string?** | Back URL | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -443,20 +449,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **backUrl** | **string?** | Back URL | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -476,18 +468,30 @@ catch (ApiException e)
 # **GetCustomerBalance**
 > BalanceWrapper GetCustomerBalance (bool? refresh = null)
 
-Get the customer balance
-
 Returns the customer balance from the accounting service.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
+
+### Return type
+
+[**BalanceWrapper**](BalanceWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -556,20 +560,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
-
-### Return type
-
-[**BalanceWrapper**](BalanceWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -589,18 +579,30 @@ catch (ApiException e)
 # **GetCustomerInfo**
 > CustomerInfoWrapper GetCustomerInfo (bool? refresh = null)
 
-Get the customer info
-
 Returns the customer info.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
+
+### Return type
+
+[**CustomerInfoWrapper**](CustomerInfoWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -669,20 +671,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
-
-### Return type
-
-[**CustomerInfoWrapper**](CustomerInfoWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -702,18 +690,35 @@ catch (ApiException e)
 # **GetCustomerOperations**
 > ReportWrapper GetCustomerOperations (DateTime? startDate = null, DateTime? endDate = null, bool? credit = null, bool? withdrawal = null, int? offset = null, int? limit = null)
 
-Get the customer operations
-
 Returns the report of customer operations from the accounting service.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **startDate** | **DateTime?** | Start date | [optional]  |
+| **endDate** | **DateTime?** | End date | [optional]  |
+| **credit** | **bool?** | Include credit operations (true by default) | [optional]  |
+| **withdrawal** | **bool?** | Include withdrawal operations (true by default) | [optional]  |
+| **offset** | **int?** | Offset (0 by default) | [optional]  |
+| **limit** | **int?** | Limit (25 by default) | [optional]  |
+
+### Return type
+
+[**ReportWrapper**](ReportWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -787,25 +792,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **startDate** | **DateTime?** | Start date | [optional]  |
-| **endDate** | **DateTime?** | End date | [optional]  |
-| **credit** | **bool?** | Include credit operations (true by default) | [optional]  |
-| **withdrawal** | **bool?** | Include withdrawal operations (true by default) | [optional]  |
-| **offset** | **int?** | Offset (0 by default) | [optional]  |
-| **limit** | **int?** | Limit (25 by default) | [optional]  |
-
-### Return type
-
-[**ReportWrapper**](ReportWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -825,18 +811,30 @@ catch (ApiException e)
 # **GetPaymentAccount**
 > StringWrapper GetPaymentAccount (string? backUrl = null)
 
-Get the payment account
-
 Returns the URL to the payment account.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **backUrl** | **string?** | The URL where the user will be redirected after payment processing. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -905,20 +903,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **backUrl** | **string?** | The URL where the user will be redirected after payment processing. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -938,18 +922,26 @@ catch (ApiException e)
 # **GetPaymentCurrencies**
 > CurrenciesArrayWrapper GetPaymentCurrencies ()
 
-Get currencies
-
 Returns the available portal currencies.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CurrenciesArrayWrapper**](CurrenciesArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1017,16 +1009,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CurrenciesArrayWrapper**](CurrenciesArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1045,18 +1027,30 @@ This endpoint does not need any parameter.
 # **GetPaymentQuotas**
 > QuotaArrayWrapper GetPaymentQuotas (bool? wallet = null)
 
-Get quotas
-
 Returns the available portal quotas.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **wallet** | **bool?** | Get wallet quotas only | [optional]  |
+
+### Return type
+
+[**QuotaArrayWrapper**](QuotaArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1125,20 +1119,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **wallet** | **bool?** | Get wallet quotas only | [optional]  |
-
-### Return type
-
-[**QuotaArrayWrapper**](QuotaArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1157,18 +1137,30 @@ catch (ApiException e)
 # **GetPaymentUrl**
 > StringWrapper GetPaymentUrl (PaymentUrlRequestsDto? paymentUrlRequestsDto = null)
 
-Get the payment page URL
-
 Returns the URL to the payment page.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **paymentUrlRequestsDto** | [**PaymentUrlRequestsDto?**](PaymentUrlRequestsDto.md) | The request parameters for the payment URL configuration with quantity information. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1198,7 +1190,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var paymentUrlRequestsDto = new PaymentUrlRequestsDto?(); // PaymentUrlRequestsDto? |  (optional) 
+            var paymentUrlRequestsDto = new PaymentUrlRequestsDto?(); // PaymentUrlRequestsDto? | The request parameters for the payment URL configuration with quantity information. (optional) 
 
             try
             {
@@ -1237,20 +1229,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **paymentUrlRequestsDto** | [**PaymentUrlRequestsDto?**](PaymentUrlRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1270,18 +1248,26 @@ catch (ApiException e)
 # **GetPortalPrices**
 > ObjectWrapper GetPortalPrices ()
 
-Get prices
-
 Returns the available portal prices.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1349,16 +1335,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1377,18 +1353,30 @@ This endpoint does not need any parameter.
 # **GetQuotaPaymentInformation**
 > QuotaWrapper GetQuotaPaymentInformation (bool? refresh = null)
 
-Get quota payment information
-
 Returns the payment information about the current portal quota.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
+
+### Return type
+
+[**QuotaWrapper**](QuotaWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1457,20 +1445,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **refresh** | **bool?** | Specifies whether to refresh the payment information cache or not. | [optional]  |
-
-### Return type
-
-[**QuotaWrapper**](QuotaWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1490,18 +1464,26 @@ catch (ApiException e)
 # **GetTenantWalletSettings**
 > TenantWalletSettingsWrapper GetTenantWalletSettings ()
 
-Get wallet auto top up settings
-
 Returns the wallet auto top up settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantWalletSettingsWrapper**](TenantWalletSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1569,16 +1551,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TenantWalletSettingsWrapper**](TenantWalletSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1598,18 +1570,30 @@ This endpoint does not need any parameter.
 # **OpenCustomerSession**
 > SessionWrapper OpenCustomerSession (OpenCustomerSessionRequestDto? openCustomerSessionRequestDto = null)
 
-Open customer session
-
 Trying to open a customer session and block amount money on the balance.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **openCustomerSessionRequestDto** | [**OpenCustomerSessionRequestDto?**](OpenCustomerSessionRequestDto.md) | Client session opening parameters | [optional]  |
+
+### Return type
+
+[**SessionWrapper**](SessionWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1639,7 +1623,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var openCustomerSessionRequestDto = new OpenCustomerSessionRequestDto?(); // OpenCustomerSessionRequestDto? |  (optional) 
+            var openCustomerSessionRequestDto = new OpenCustomerSessionRequestDto?(); // OpenCustomerSessionRequestDto? | Client session opening parameters (optional) 
 
             try
             {
@@ -1678,20 +1662,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **openCustomerSessionRequestDto** | [**OpenCustomerSessionRequestDto?**](OpenCustomerSessionRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**SessionWrapper**](SessionWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1711,18 +1681,30 @@ catch (ApiException e)
 # **PerformCustomerOperation**
 > BooleanWrapper PerformCustomerOperation (PerformCustomerOperationRequestDto? performCustomerOperationRequestDto = null)
 
-Perform customer operation
-
 Perform customer operation and return true if the operation is succesfully provided.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **performCustomerOperationRequestDto** | [**PerformCustomerOperationRequestDto?**](PerformCustomerOperationRequestDto.md) | Parameters for performing a customer operation | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1752,7 +1734,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var performCustomerOperationRequestDto = new PerformCustomerOperationRequestDto?(); // PerformCustomerOperationRequestDto? |  (optional) 
+            var performCustomerOperationRequestDto = new PerformCustomerOperationRequestDto?(); // PerformCustomerOperationRequestDto? | Parameters for performing a customer operation (optional) 
 
             try
             {
@@ -1791,20 +1773,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **performCustomerOperationRequestDto** | [**PerformCustomerOperationRequestDto?**](PerformCustomerOperationRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1824,18 +1792,30 @@ catch (ApiException e)
 # **SendPaymentRequest**
 > void SendPaymentRequest (SalesRequestsDto? salesRequestsDto = null)
 
-Send a payment request
-
 Sends a request for the portal payment.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **salesRequestsDto** | [**SalesRequestsDto?**](SalesRequestsDto.md) | The request parameters for handling sales and payment inquiries in the portal. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1865,7 +1845,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var salesRequestsDto = new SalesRequestsDto?(); // SalesRequestsDto? |  (optional) 
+            var salesRequestsDto = new SalesRequestsDto?(); // SalesRequestsDto? | The request parameters for handling sales and payment inquiries in the portal. (optional) 
 
             try
             {
@@ -1900,20 +1880,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **salesRequestsDto** | [**SalesRequestsDto?**](SalesRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1934,18 +1900,30 @@ void (empty response body)
 # **SetTenantWalletSettings**
 > TenantWalletSettingsWrapper SetTenantWalletSettings (TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = null)
 
-Set wallet auto top up settings
-
 Set the wallet auto top up settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantWalletSettingsWrapper** | [**TenantWalletSettingsWrapper?**](TenantWalletSettingsWrapper.md) | Tenant wallet settings | [optional]  |
+
+### Return type
+
+[**TenantWalletSettingsWrapper**](TenantWalletSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1975,7 +1953,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var tenantWalletSettingsWrapper = new TenantWalletSettingsWrapper?(); // TenantWalletSettingsWrapper? |  (optional) 
+            var tenantWalletSettingsWrapper = new TenantWalletSettingsWrapper?(); // TenantWalletSettingsWrapper? | Tenant wallet settings (optional) 
 
             try
             {
@@ -2014,20 +1992,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tenantWalletSettingsWrapper** | [**TenantWalletSettingsWrapper?**](TenantWalletSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantWalletSettingsWrapper**](TenantWalletSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2047,18 +2011,30 @@ catch (ApiException e)
 # **TopUpDeposit**
 > BooleanWrapper TopUpDeposit (TopUpDepositRequestDto? topUpDepositRequestDto = null)
 
-Put money on deposit
-
 Returns result of putting money on deposit.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **topUpDepositRequestDto** | [**TopUpDepositRequestDto?**](TopUpDepositRequestDto.md) | Put money on deposit request parameters | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2088,7 +2064,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var topUpDepositRequestDto = new TopUpDepositRequestDto?(); // TopUpDepositRequestDto? |  (optional) 
+            var topUpDepositRequestDto = new TopUpDepositRequestDto?(); // TopUpDepositRequestDto? | Put money on deposit request parameters (optional) 
 
             try
             {
@@ -2127,20 +2103,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **topUpDepositRequestDto** | [**TopUpDepositRequestDto?**](TopUpDepositRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2160,18 +2122,30 @@ catch (ApiException e)
 # **UpdatePayment**
 > BooleanWrapper UpdatePayment (QuantityRequestDto? quantityRequestDto = null)
 
-Update the payment quantity
-
 Updates the payment quantity with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto.md) | The request parameters for the payment quantity specifications. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2201,7 +2175,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? |  (optional) 
+            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? | The request parameters for the payment quantity specifications. (optional) 
 
             try
             {
@@ -2240,20 +2214,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2273,18 +2233,30 @@ catch (ApiException e)
 # **UpdateWalletPayment**
 > BooleanWrapper UpdateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
 
-Update the wallet payment quantity
-
 Updates the wallet payment quantity with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for the wallet payment quantity specifications. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2314,7 +2286,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
-            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? |  (optional) 
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
 
             try
             {
@@ -2352,20 +2324,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

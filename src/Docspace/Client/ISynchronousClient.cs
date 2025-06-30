@@ -28,7 +28,7 @@
 using System;
 using System.IO;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Contract for Synchronous RESTful API interactions.

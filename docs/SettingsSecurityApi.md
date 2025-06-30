@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsSecurityApi
+# DocSpace.Api.SettingsSecurityApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -19,18 +19,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetEnabledModules**
 > ObjectWrapper GetEnabledModules ()
 
-Get the enabled modules
-
 Returns a list of all the enabled modules.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -98,16 +106,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -126,18 +124,31 @@ This endpoint does not need any parameter.
 # **GetIsProductAdministrator**
 > ProductAdministratorWrapper GetIsProductAdministrator (Guid? productid = null, Guid? userid = null)
 
-Check a product administrator
-
 Checks if the selected user is an administrator of a product with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **productid** | **Guid?** | The ID of the product extracted from the query parameters. | [optional]  |
+| **userid** | **Guid?** | The user ID extracted from the query parameters. | [optional]  |
+
+### Return type
+
+[**ProductAdministratorWrapper**](ProductAdministratorWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -207,21 +218,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **productid** | **Guid?** | The ID of the product extracted from the query parameters. | [optional]  |
-| **userid** | **Guid?** | The user ID extracted from the query parameters. | [optional]  |
-
-### Return type
-
-[**ProductAdministratorWrapper**](ProductAdministratorWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -240,18 +236,26 @@ catch (ApiException e)
 # **GetPasswordSettings**
 > PasswordSettingsWrapper GetPasswordSettings ()
 
-Get the password settings
-
 Returns the portal password settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**PasswordSettingsWrapper**](PasswordSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -319,16 +323,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**PasswordSettingsWrapper**](PasswordSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -347,18 +341,30 @@ This endpoint does not need any parameter.
 # **GetProductAdministrators**
 > EmployeeArrayWrapper GetProductAdministrators (Guid productid)
 
-Get the product administrators
-
 Returns a list of all the administrators of a product with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **productid** | **Guid** | The ID of the product extracted from the route parameters. |  |
+
+### Return type
+
+[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -427,20 +433,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **productid** | **Guid** | The ID of the product extracted from the route parameters. |  |
-
-### Return type
-
-[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -459,18 +451,30 @@ catch (ApiException e)
 # **GetWebItemSecurityInfo**
 > BooleanWrapper GetWebItemSecurityInfo (Guid id)
 
-Get the module availability
-
 Returns the availability of the module with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -539,20 +543,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -571,18 +561,30 @@ catch (ApiException e)
 # **GetWebItemSettingsSecurityInfo**
 > SecurityArrayWrapper GetWebItemSettingsSecurityInfo (List<string>? ids = null)
 
-Get the security settings
-
 Returns the security settings for the modules specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ids** | [**List&lt;string&gt;?**](string.md) | The list of module identifiers for which to retrieve the security settings. | [optional]  |
+
+### Return type
+
+[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -651,20 +653,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ids** | [**List&lt;string&gt;?**](string.md) | The list of module identifiers for which to retrieve the security settings. | [optional]  |
-
-### Return type
-
-[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -683,18 +671,30 @@ catch (ApiException e)
 # **SetAccessToWebItems**
 > SecurityArrayWrapper SetAccessToWebItems (WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = null)
 
-Set the security settings to modules
-
 Sets the security settings to the modules with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **webItemsSecurityRequestsDto** | [**WebItemsSecurityRequestsDto?**](WebItemsSecurityRequestsDto.md) | The request parameters for configuring security settings across multiple web modules. | [optional]  |
+
+### Return type
+
+[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -724,7 +724,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
-            var webItemsSecurityRequestsDto = new WebItemsSecurityRequestsDto?(); // WebItemsSecurityRequestsDto? |  (optional) 
+            var webItemsSecurityRequestsDto = new WebItemsSecurityRequestsDto?(); // WebItemsSecurityRequestsDto? | The request parameters for configuring security settings across multiple web modules. (optional) 
 
             try
             {
@@ -763,20 +763,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **webItemsSecurityRequestsDto** | [**WebItemsSecurityRequestsDto?**](WebItemsSecurityRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -796,18 +782,30 @@ catch (ApiException e)
 # **SetProductAdministrator**
 > ProductAdministratorWrapper SetProductAdministrator (SecurityRequestsDto? securityRequestsDto = null)
 
-Set a product administrator
-
 Sets the selected user as an administrator of a product with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **securityRequestsDto** | [**SecurityRequestsDto?**](SecurityRequestsDto.md) | The request parameters for managing user security and access permissions. | [optional]  |
+
+### Return type
+
+[**ProductAdministratorWrapper**](ProductAdministratorWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -837,7 +835,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
-            var securityRequestsDto = new SecurityRequestsDto?(); // SecurityRequestsDto? |  (optional) 
+            var securityRequestsDto = new SecurityRequestsDto?(); // SecurityRequestsDto? | The request parameters for managing user security and access permissions. (optional) 
 
             try
             {
@@ -876,20 +874,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **securityRequestsDto** | [**SecurityRequestsDto?**](SecurityRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**ProductAdministratorWrapper**](ProductAdministratorWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -910,18 +894,30 @@ catch (ApiException e)
 # **SetWebItemSecurity**
 > SecurityArrayWrapper SetWebItemSecurity (WebItemSecurityRequestsDto? webItemSecurityRequestsDto = null)
 
-Set the module security settings
-
 Sets the security settings to the module with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **webItemSecurityRequestsDto** | [**WebItemSecurityRequestsDto?**](WebItemSecurityRequestsDto.md) | The request parameters for configuring security settings of a single web module. | [optional]  |
+
+### Return type
+
+[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -951,7 +947,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
-            var webItemSecurityRequestsDto = new WebItemSecurityRequestsDto?(); // WebItemSecurityRequestsDto? |  (optional) 
+            var webItemSecurityRequestsDto = new WebItemSecurityRequestsDto?(); // WebItemSecurityRequestsDto? | The request parameters for configuring security settings of a single web module. (optional) 
 
             try
             {
@@ -990,20 +986,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **webItemSecurityRequestsDto** | [**WebItemSecurityRequestsDto?**](WebItemSecurityRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**SecurityArrayWrapper**](SecurityArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1023,18 +1005,30 @@ catch (ApiException e)
 # **UpdatePasswordSettings**
 > PasswordSettingsWrapper UpdatePasswordSettings (PasswordSettingsRequestsDto? passwordSettingsRequestsDto = null)
 
-Set the password settings
-
 Sets the portal password settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **passwordSettingsRequestsDto** | [**PasswordSettingsRequestsDto?**](PasswordSettingsRequestsDto.md) | The request parameters for configuring the password complexity requirements. | [optional]  |
+
+### Return type
+
+[**PasswordSettingsWrapper**](PasswordSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1064,7 +1058,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
-            var passwordSettingsRequestsDto = new PasswordSettingsRequestsDto?(); // PasswordSettingsRequestsDto? |  (optional) 
+            var passwordSettingsRequestsDto = new PasswordSettingsRequestsDto?(); // PasswordSettingsRequestsDto? | The request parameters for configuring the password complexity requirements. (optional) 
 
             try
             {
@@ -1102,20 +1096,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **passwordSettingsRequestsDto** | [**PasswordSettingsRequestsDto?**](PasswordSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**PasswordSettingsWrapper**](PasswordSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

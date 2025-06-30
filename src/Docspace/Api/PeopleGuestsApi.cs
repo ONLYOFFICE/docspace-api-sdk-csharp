@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Approves a guest sharing link and returns the detailed information about a guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         EmployeeFullWrapper ApproveGuestShareLink(EmailMemberRequestDto? emailMemberRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Approves a guest sharing link and returns the detailed information about a guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> ApproveGuestShareLinkWithHttpInfo(EmailMemberRequestDto? emailMemberRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns></returns>
         void DeleteGuests(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteGuestsWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default);
@@ -105,8 +105,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Approves a guest sharing link and returns the detailed information about a guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -118,8 +118,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Approves a guest sharing link and returns the detailed information about a guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -130,8 +130,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>Task of void</returns>
@@ -143,8 +143,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -187,14 +187,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleGuestsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -251,14 +251,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,8 +365,8 @@ namespace Docspace.Api
         /// <summary>
         /// Approve a guest sharing link Approves a guest sharing link and returns the detailed information about a guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper ApproveGuestShareLink(EmailMemberRequestDto? emailMemberRequestDto = default)
@@ -378,8 +378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Approve a guest sharing link Approves a guest sharing link and returns the detailed information about a guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         public ApiResponse<EmployeeFullWrapper> ApproveGuestShareLinkWithHttpInfo(EmailMemberRequestDto? emailMemberRequestDto = default)
@@ -445,8 +445,8 @@ namespace Docspace.Api
         /// <summary>
         /// Approve a guest sharing link Approves a guest sharing link and returns the detailed information about a guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Approve a guest sharing link Approves a guest sharing link and returns the detailed information about a guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/">REST API Reference for ApproveGuestShareLink Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -530,8 +530,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete guests Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns></returns>
         public void DeleteGuests(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -542,8 +542,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete guests Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteGuestsWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default)
@@ -609,8 +609,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete guests Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>Task of void</returns>
@@ -622,8 +622,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete guests Deletes guests from the list and excludes them from rooms to which they were invited.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMembersRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/">REST API Reference for DeleteGuests Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

@@ -1,4 +1,4 @@
-# Docspace.Model.CustomFilterParameters
+# DocSpace.Model.CustomFilterParameters
 The parameters for setting the Custom Filter editing mode.
 
 ## Properties

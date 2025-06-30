@@ -1,4 +1,4 @@
-# Docspace.Model.CheckConversionRequestDtoInteger
+# DocSpace.Model.CheckConversionRequestDtoInteger
 The parameters for checking file conversion.
 
 ## Properties

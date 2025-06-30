@@ -1,4 +1,4 @@
-# Docspace.Api.FilesOperationsApi
+# DocSpace.Api.FilesOperationsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -26,18 +26,30 @@ All URIs are relative to *http://localhost:8092*
 # **BulkDownload**
 > FileOperationArrayWrapper BulkDownload (DownloadRequestDto? downloadRequestDto = null)
 
-Bulk download
-
 Starts the download process of files and folders with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **downloadRequestDto** | [**DownloadRequestDto?**](DownloadRequestDto.md) | The request parameters for downloading files. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -51,7 +63,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var downloadRequestDto = new DownloadRequestDto?(); // DownloadRequestDto? |  (optional) 
+            var downloadRequestDto = new DownloadRequestDto?(); // DownloadRequestDto? | The request parameters for downloading files. (optional) 
 
             try
             {
@@ -90,20 +102,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **downloadRequestDto** | [**DownloadRequestDto?**](DownloadRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -122,18 +120,31 @@ No authorization required
 # **CheckConversionStatus**
 > ConversationResultArrayWrapper CheckConversionStatus (int fileId, bool? start = null)
 
-Get conversion status
-
 Checks the conversion status of a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to check conversion status. |  |
+| **start** | **bool?** | Specifies whether a conversion operation is started or not. | [optional]  |
+
+### Return type
+
+[**ConversationResultArrayWrapper**](ConversationResultArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -203,21 +214,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to check conversion status. |  |
-| **start** | **bool?** | Specifies whether a conversion operation is started or not. | [optional]  |
-
-### Return type
-
-[**ConversationResultArrayWrapper**](ConversationResultArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -236,18 +232,30 @@ catch (ApiException e)
 # **CheckMoveOrCopyBatchItems**
 > FileEntryArrayWrapper CheckMoveOrCopyBatchItems (BatchRequestDto? inDto = null)
 
-Check and move or copy to a folder
-
 Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -316,20 +324,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -349,18 +343,30 @@ catch (ApiException e)
 # **CheckMoveOrCopyDestFolder**
 > CheckDestFolderWrapper CheckMoveOrCopyDestFolder (BatchRequestDto? inDto = null)
 
-Check for moving or copying to a folder
-
 Checks if files can be moved or copied to the specified folder.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inDto** | [**BatchRequestDto?**](BatchRequestDto.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**CheckDestFolderWrapper**](CheckDestFolderWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -429,20 +435,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inDto** | [**BatchRequestDto?**](BatchRequestDto?.md) | The request parameters for copying/moving files. | [optional]  |
-
-### Return type
-
-[**CheckDestFolderWrapper**](CheckDestFolderWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -462,18 +454,30 @@ catch (ApiException e)
 # **CopyBatchItems**
 > FileOperationArrayWrapper CopyBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Copy to the folder
-
 Copies all the selected files and folders to the folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **batchRequestDto** | [**BatchRequestDto?**](BatchRequestDto.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -503,7 +507,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var batchRequestDto = new BatchRequestDto?(); // BatchRequestDto? |  (optional) 
+            var batchRequestDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
 
             try
             {
@@ -542,20 +546,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **batchRequestDto** | [**BatchRequestDto?**](BatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -575,18 +565,31 @@ catch (ApiException e)
 # **CreateUploadSession**
 > ObjectWrapper CreateUploadSession (int folderId, SessionRequest? sessionRequest = null)
 
-Chunked upload
-
 Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.  After the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.  Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID of the session. |  |
+| **sessionRequest** | [**SessionRequest?**](SessionRequest.md) | The session parameters. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -656,21 +659,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID of the session. |  |
-| **sessionRequest** | [**SessionRequest?**](SessionRequest?.md) | The session parameters. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -690,18 +678,30 @@ catch (ApiException e)
 # **DeleteBatchItems**
 > FileOperationArrayWrapper DeleteBatchItems (DeleteBatchRequestDto? deleteBatchRequestDto = null)
 
-Delete files and folders
-
 Deletes the files and folders with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deleteBatchRequestDto** | [**DeleteBatchRequestDto?**](DeleteBatchRequestDto.md) | The request parameters for deleting files. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -731,7 +731,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var deleteBatchRequestDto = new DeleteBatchRequestDto?(); // DeleteBatchRequestDto? |  (optional) 
+            var deleteBatchRequestDto = new DeleteBatchRequestDto?(); // DeleteBatchRequestDto? | The request parameters for deleting files. (optional) 
 
             try
             {
@@ -770,20 +770,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deleteBatchRequestDto** | [**DeleteBatchRequestDto?**](DeleteBatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -803,18 +789,30 @@ catch (ApiException e)
 # **DeleteFileVersions**
 > FileOperationWrapper DeleteFileVersions (DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = null)
 
-Delete file versions
-
 Deletes the file versions with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deleteVersionBatchRequestDto** | [**DeleteVersionBatchRequestDto?**](DeleteVersionBatchRequestDto.md) | The request parameters for deleting file versions. | [optional]  |
+
+### Return type
+
+[**FileOperationWrapper**](FileOperationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -844,7 +842,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var deleteVersionBatchRequestDto = new DeleteVersionBatchRequestDto?(); // DeleteVersionBatchRequestDto? |  (optional) 
+            var deleteVersionBatchRequestDto = new DeleteVersionBatchRequestDto?(); // DeleteVersionBatchRequestDto? | The request parameters for deleting file versions. (optional) 
 
             try
             {
@@ -883,20 +881,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deleteVersionBatchRequestDto** | [**DeleteVersionBatchRequestDto?**](DeleteVersionBatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationWrapper**](FileOperationWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -915,18 +899,30 @@ catch (ApiException e)
 # **DuplicateBatchItems**
 > FileOperationArrayWrapper DuplicateBatchItems (DuplicateRequestDto? duplicateRequestDto = null)
 
-Duplicate files and folders
-
 Duplicates all the selected files and folders.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **duplicateRequestDto** | [**DuplicateRequestDto?**](DuplicateRequestDto.md) | The duplicate request parameters. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -956,7 +952,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var duplicateRequestDto = new DuplicateRequestDto?(); // DuplicateRequestDto? |  (optional) 
+            var duplicateRequestDto = new DuplicateRequestDto?(); // DuplicateRequestDto? | The duplicate request parameters. (optional) 
 
             try
             {
@@ -995,20 +991,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **duplicateRequestDto** | [**DuplicateRequestDto?**](DuplicateRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1028,18 +1010,30 @@ catch (ApiException e)
 # **EmptyTrash**
 > FileOperationArrayWrapper EmptyTrash (bool? single = null)
 
-Empty the \"Trash\" folder
-
 Deletes all the files and folders from the \"Trash\" folder.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **single** | **bool?** | Specifies whether to return only the current operation | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1108,20 +1102,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **single** | **bool?** | Specifies whether to return only the current operation | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1140,18 +1120,30 @@ catch (ApiException e)
 # **GetOperationStatuses**
 > FileOperationArrayWrapper GetOperationStatuses (string? id = null)
 
-Get active file operations
-
 Returns a list of all the active file operations.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string?** | The ID of the file operation. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1204,20 +1196,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **string?** | The ID of the file operation. | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1235,18 +1213,31 @@ No authorization required
 # **GetOperationStatusesByType**
 > FileOperationArrayWrapper GetOperationStatusesByType (FileOperationType operationType, string? id = null)
 
-Get file operation statuses
-
 Retrieves the statuses of operations filtered by the specified operation type.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **operationType** | **FileOperationType** | Specifies the type of file operation to be retrieved. |  |
+| **id** | **string?** | The ID of the file operation. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1300,21 +1291,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **operationType** | **FileOperationType** | Specifies the type of file operation to be retrieved. |  |
-| **id** | **string?** | The ID of the file operation. | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1332,18 +1308,30 @@ No authorization required
 # **MarkAsRead**
 > FileOperationArrayWrapper MarkAsRead (BaseBatchRequestDto? baseBatchRequestDto = null)
 
-Mark as read
-
 Marks the files and folders with the IDs specified in the request as read.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto.md) | The base batch request parameters. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1373,7 +1361,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? |  (optional) 
+            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? | The base batch request parameters. (optional) 
 
             try
             {
@@ -1412,20 +1400,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1444,18 +1418,30 @@ catch (ApiException e)
 # **MoveBatchItems**
 > FileOperationArrayWrapper MoveBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Move or copy to a folder
-
 Moves or copies all the selected files and folders to the folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **batchRequestDto** | [**BatchRequestDto?**](BatchRequestDto.md) | The request parameters for copying/moving files. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1485,7 +1471,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesOperationsApi(httpClient, config, httpClientHandler);
-            var batchRequestDto = new BatchRequestDto?(); // BatchRequestDto? |  (optional) 
+            var batchRequestDto = new BatchRequestDto?(); // BatchRequestDto? | The request parameters for copying/moving files. (optional) 
 
             try
             {
@@ -1524,20 +1510,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **batchRequestDto** | [**BatchRequestDto?**](BatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1557,18 +1529,31 @@ catch (ApiException e)
 # **StartFileConversion**
 > ConversationResultArrayWrapper StartFileConversion (int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = null)
 
-Start file conversion
-
 Starts a conversion operation of a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to start conversion proccess. |  |
+| **checkConversionRequestDtoInteger** | [**CheckConversionRequestDtoInteger?**](CheckConversionRequestDtoInteger.md) | The parameters for checking file conversion. | [optional]  |
+
+### Return type
+
+[**ConversationResultArrayWrapper**](ConversationResultArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1638,21 +1623,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to start conversion proccess. |  |
-| **checkConversionRequestDtoInteger** | [**CheckConversionRequestDtoInteger?**](CheckConversionRequestDtoInteger?.md) | The parameters for checking file conversion. | [optional]  |
-
-### Return type
-
-[**ConversationResultArrayWrapper**](ConversationResultArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1671,18 +1641,30 @@ catch (ApiException e)
 # **TerminateTasks**
 > FileOperationArrayWrapper TerminateTasks (string id)
 
-Finish active operations
-
 Finishes an operation with the ID specified in the request or all the active operations.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | The operation ID of the request. |  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1735,20 +1717,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **string** | The operation ID of the request. |  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1766,18 +1734,31 @@ No authorization required
 # **UpdateFileComment**
 > StringWrapper UpdateFileComment (int fileId, UpdateComment? updateComment = null)
 
-Update a comment
-
 Updates a comment in a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID where the comment is located. |  |
+| **updateComment** | [**UpdateComment?**](UpdateComment.md) | The parameters for updating a comment. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1846,21 +1827,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID where the comment is located. |  |
-| **updateComment** | [**UpdateComment?**](UpdateComment?.md) | The parameters for updating a comment. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Api.CapabilitiesApi
+# DocSpace.Api.CapabilitiesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetPortalCapabilities**
 > CapabilitiesWrapper GetPortalCapabilities ()
 
-Get portal capabilities
-
 Returns the information about portal capabilities.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CapabilitiesWrapper**](CapabilitiesWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -72,16 +80,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CapabilitiesWrapper**](CapabilitiesWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the download process of files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper BulkDownload(DownloadRequestDto? downloadRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the download process of files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> BulkDownloadWithHttpInfo(DownloadRequestDto? downloadRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the conversion status of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/">REST API Reference for CheckConversionStatus Operation</seealso>
@@ -86,7 +86,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the conversion status of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/">REST API Reference for CheckConversionStatus Operation</seealso>
@@ -98,7 +98,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -110,7 +110,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -121,7 +121,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files can be moved or copied to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
@@ -133,7 +133,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files can be moved or copied to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
@@ -144,8 +144,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper CopyBatchItems(BatchRequestDto? batchRequestDto = default);
@@ -156,8 +156,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> CopyBatchItemsWithHttpInfo(BatchRequestDto? batchRequestDto = default);
@@ -167,7 +167,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
@@ -192,8 +192,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper DeleteBatchItems(DeleteBatchRequestDto? deleteBatchRequestDto = default);
@@ -204,8 +204,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> DeleteBatchItemsWithHttpInfo(DeleteBatchRequestDto? deleteBatchRequestDto = default);
@@ -215,8 +215,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the file versions with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>FileOperationWrapper</returns>
         FileOperationWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
@@ -227,8 +227,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the file versions with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
         ApiResponse<FileOperationWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
@@ -238,8 +238,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Duplicates all the selected files and folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper DuplicateBatchItems(DuplicateRequestDto? duplicateRequestDto = default);
@@ -250,8 +250,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Duplicates all the selected files and folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> DuplicateBatchItemsWithHttpInfo(DuplicateRequestDto? duplicateRequestDto = default);
@@ -261,7 +261,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -273,7 +273,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -284,7 +284,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the active file operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -296,7 +296,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the active file operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -307,7 +307,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the statuses of operations filtered by the specified operation type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/">REST API Reference for GetOperationStatusesByType Operation</seealso>
@@ -320,7 +320,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the statuses of operations filtered by the specified operation type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/">REST API Reference for GetOperationStatusesByType Operation</seealso>
@@ -332,8 +332,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks the files and folders with the IDs specified in the request as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper MarkAsRead(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -344,8 +344,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks the files and folders with the IDs specified in the request as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> MarkAsReadWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
@@ -355,8 +355,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper MoveBatchItems(BatchRequestDto? batchRequestDto = default);
@@ -367,8 +367,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> MoveBatchItemsWithHttpInfo(BatchRequestDto? batchRequestDto = default);
@@ -378,7 +378,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts a conversion operation of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/">REST API Reference for StartFileConversion Operation</seealso>
@@ -391,7 +391,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts a conversion operation of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/">REST API Reference for StartFileConversion Operation</seealso>
@@ -403,7 +403,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes an operation with the ID specified in the request or all the active operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -415,7 +415,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes an operation with the ID specified in the request or all the active operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -426,7 +426,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a comment in a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
@@ -439,7 +439,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a comment in a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
@@ -460,8 +460,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the download process of files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -473,8 +473,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the download process of files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -485,7 +485,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the conversion status of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -499,7 +499,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the conversion status of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -512,7 +512,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
@@ -525,7 +525,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
@@ -537,7 +537,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files can be moved or copied to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
@@ -550,7 +550,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if files can be moved or copied to the specified folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
@@ -562,8 +562,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -575,8 +575,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -587,7 +587,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -601,7 +601,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -627,8 +627,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the files and folders with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -639,8 +639,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the file versions with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>Task of FileOperationWrapper</returns>
@@ -652,8 +652,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the file versions with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
@@ -664,8 +664,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Duplicates all the selected files and folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -677,8 +677,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Duplicates all the selected files and folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -689,7 +689,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
@@ -702,7 +702,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
@@ -714,7 +714,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the active file operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
@@ -727,7 +727,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the active file operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
@@ -739,7 +739,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the statuses of operations filtered by the specified operation type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -753,7 +753,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retrieves the statuses of operations filtered by the specified operation type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -766,8 +766,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks the files and folders with the IDs specified in the request as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -779,8 +779,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks the files and folders with the IDs specified in the request as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -791,8 +791,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -804,8 +804,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -816,7 +816,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts a conversion operation of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -830,7 +830,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts a conversion operation of a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -843,7 +843,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes an operation with the ID specified in the request or all the active operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
@@ -856,7 +856,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes an operation with the ID specified in the request or all the active operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
@@ -868,7 +868,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a comment in a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -882,7 +882,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a comment in a file with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -927,14 +927,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesOperationsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -949,14 +949,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -991,14 +991,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1018,14 +1018,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1045,7 +1045,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1105,8 +1105,8 @@ namespace Docspace.Api
         /// <summary>
         /// Bulk download Starts the download process of files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper BulkDownload(DownloadRequestDto? downloadRequestDto = default)
@@ -1118,8 +1118,8 @@ namespace Docspace.Api
         /// <summary>
         /// Bulk download Starts the download process of files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> BulkDownloadWithHttpInfo(DownloadRequestDto? downloadRequestDto = default)
@@ -1155,8 +1155,8 @@ namespace Docspace.Api
         /// <summary>
         /// Bulk download Starts the download process of files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -1169,8 +1169,8 @@ namespace Docspace.Api
         /// <summary>
         /// Bulk download Starts the download process of files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="downloadRequestDto">The request parameters for downloading files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/">REST API Reference for BulkDownload Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -1210,7 +1210,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get conversion status Checks the conversion status of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/">REST API Reference for CheckConversionStatus Operation</seealso>
@@ -1224,7 +1224,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get conversion status Checks the conversion status of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/">REST API Reference for CheckConversionStatus Operation</seealso>
@@ -1296,7 +1296,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get conversion status Checks the conversion status of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1311,7 +1311,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get conversion status Checks the conversion status of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to check conversion status.</param>
         /// <param name="start">Specifies whether a conversion operation is started or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1337,7 +1337,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (start != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "start", start));
             }
 
             // authentication (Basic) required
@@ -1387,7 +1387,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -1400,7 +1400,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -1470,7 +1470,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
@@ -1484,7 +1484,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check and move or copy to a folder Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
@@ -1508,7 +1508,7 @@ namespace Docspace.Api
 
             if (inDto != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
             }
 
             // authentication (Basic) required
@@ -1558,7 +1558,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
@@ -1571,7 +1571,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
@@ -1641,7 +1641,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
@@ -1655,7 +1655,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check for moving or copying to a folder Checks if files can be moved or copied to the specified folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
@@ -1679,7 +1679,7 @@ namespace Docspace.Api
 
             if (inDto != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
             }
 
             // authentication (Basic) required
@@ -1729,8 +1729,8 @@ namespace Docspace.Api
         /// <summary>
         /// Copy to the folder Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper CopyBatchItems(BatchRequestDto? batchRequestDto = default)
@@ -1742,8 +1742,8 @@ namespace Docspace.Api
         /// <summary>
         /// Copy to the folder Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> CopyBatchItemsWithHttpInfo(BatchRequestDto? batchRequestDto = default)
@@ -1809,8 +1809,8 @@ namespace Docspace.Api
         /// <summary>
         /// Copy to the folder Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -1823,8 +1823,8 @@ namespace Docspace.Api
         /// <summary>
         /// Copy to the folder Copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/">REST API Reference for CopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -1894,7 +1894,7 @@ namespace Docspace.Api
         /// <summary>
         /// Chunked upload Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
@@ -1908,7 +1908,7 @@ namespace Docspace.Api
         /// <summary>
         /// Chunked upload Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
@@ -1977,7 +1977,7 @@ namespace Docspace.Api
         /// <summary>
         /// Chunked upload Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1992,7 +1992,7 @@ namespace Docspace.Api
         /// <summary>
         /// Chunked upload Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the session.</param>
         /// <param name="sessionRequest">The session parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2065,8 +2065,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete files and folders Deletes the files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper DeleteBatchItems(DeleteBatchRequestDto? deleteBatchRequestDto = default)
@@ -2078,8 +2078,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete files and folders Deletes the files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> DeleteBatchItemsWithHttpInfo(DeleteBatchRequestDto? deleteBatchRequestDto = default)
@@ -2145,8 +2145,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete files and folders Deletes the files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -2159,8 +2159,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete files and folders Deletes the files and folders with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteBatchRequestDto">The request parameters for deleting files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/">REST API Reference for DeleteBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -2230,8 +2230,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete file versions Deletes the file versions with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>FileOperationWrapper</returns>
         public FileOperationWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
@@ -2243,8 +2243,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete file versions Deletes the file versions with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
         public ApiResponse<FileOperationWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
@@ -2310,8 +2310,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete file versions Deletes the file versions with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>Task of FileOperationWrapper</returns>
@@ -2324,8 +2324,8 @@ namespace Docspace.Api
         /// <summary>
         /// Delete file versions Deletes the file versions with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteVersionBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
@@ -2395,8 +2395,8 @@ namespace Docspace.Api
         /// <summary>
         /// Duplicate files and folders Duplicates all the selected files and folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper DuplicateBatchItems(DuplicateRequestDto? duplicateRequestDto = default)
@@ -2408,8 +2408,8 @@ namespace Docspace.Api
         /// <summary>
         /// Duplicate files and folders Duplicates all the selected files and folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> DuplicateBatchItemsWithHttpInfo(DuplicateRequestDto? duplicateRequestDto = default)
@@ -2475,8 +2475,8 @@ namespace Docspace.Api
         /// <summary>
         /// Duplicate files and folders Duplicates all the selected files and folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -2489,8 +2489,8 @@ namespace Docspace.Api
         /// <summary>
         /// Duplicate files and folders Duplicates all the selected files and folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -2560,7 +2560,7 @@ namespace Docspace.Api
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -2573,7 +2573,7 @@ namespace Docspace.Api
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -2643,7 +2643,7 @@ namespace Docspace.Api
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
@@ -2657,7 +2657,7 @@ namespace Docspace.Api
         /// <summary>
         /// Empty the \&quot;Trash\&quot; folder Deletes all the files and folders from the \&quot;Trash\&quot; folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
@@ -2681,7 +2681,7 @@ namespace Docspace.Api
 
             if (single != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Single", single));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Single", single));
             }
 
             // authentication (Basic) required
@@ -2731,7 +2731,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -2744,7 +2744,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -2784,7 +2784,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
@@ -2798,7 +2798,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get active file operations Returns a list of all the active file operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/">REST API Reference for GetOperationStatuses Operation</seealso>
@@ -2822,7 +2822,7 @@ namespace Docspace.Api
 
             if (id != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
             }
 
 
@@ -2842,7 +2842,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file operation statuses Retrieves the statuses of operations filtered by the specified operation type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/">REST API Reference for GetOperationStatusesByType Operation</seealso>
@@ -2856,7 +2856,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file operation statuses Retrieves the statuses of operations filtered by the specified operation type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/">REST API Reference for GetOperationStatusesByType Operation</seealso>
@@ -2898,7 +2898,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file operation statuses Retrieves the statuses of operations filtered by the specified operation type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2913,7 +2913,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file operation statuses Retrieves the statuses of operations filtered by the specified operation type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationType">Specifies the type of file operation to be retrieved.</param>
         /// <param name="id">The ID of the file operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2939,7 +2939,7 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("operationType", ClientUtils.ParameterToString(operationType)); // path parameter
             if (id != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
             }
 
 
@@ -2959,8 +2959,8 @@ namespace Docspace.Api
         /// <summary>
         /// Mark as read Marks the files and folders with the IDs specified in the request as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper MarkAsRead(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -2972,8 +2972,8 @@ namespace Docspace.Api
         /// <summary>
         /// Mark as read Marks the files and folders with the IDs specified in the request as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> MarkAsReadWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
@@ -3039,8 +3039,8 @@ namespace Docspace.Api
         /// <summary>
         /// Mark as read Marks the files and folders with the IDs specified in the request as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -3053,8 +3053,8 @@ namespace Docspace.Api
         /// <summary>
         /// Mark as read Marks the files and folders with the IDs specified in the request as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="baseBatchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/">REST API Reference for MarkAsRead Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -3124,8 +3124,8 @@ namespace Docspace.Api
         /// <summary>
         /// Move or copy to a folder Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper MoveBatchItems(BatchRequestDto? batchRequestDto = default)
@@ -3137,8 +3137,8 @@ namespace Docspace.Api
         /// <summary>
         /// Move or copy to a folder Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> MoveBatchItemsWithHttpInfo(BatchRequestDto? batchRequestDto = default)
@@ -3204,8 +3204,8 @@ namespace Docspace.Api
         /// <summary>
         /// Move or copy to a folder Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -3218,8 +3218,8 @@ namespace Docspace.Api
         /// <summary>
         /// Move or copy to a folder Moves or copies all the selected files and folders to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchRequestDto">The request parameters for copying/moving files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/">REST API Reference for MoveBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -3289,7 +3289,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file conversion Starts a conversion operation of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/">REST API Reference for StartFileConversion Operation</seealso>
@@ -3303,7 +3303,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file conversion Starts a conversion operation of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/">REST API Reference for StartFileConversion Operation</seealso>
@@ -3372,7 +3372,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file conversion Starts a conversion operation of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3387,7 +3387,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start file conversion Starts a conversion operation of a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start conversion proccess.</param>
         /// <param name="checkConversionRequestDtoInteger">The parameters for checking file conversion. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3460,7 +3460,7 @@ namespace Docspace.Api
         /// <summary>
         /// Finish active operations Finishes an operation with the ID specified in the request or all the active operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
@@ -3473,7 +3473,7 @@ namespace Docspace.Api
         /// <summary>
         /// Finish active operations Finishes an operation with the ID specified in the request or all the active operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
@@ -3514,7 +3514,7 @@ namespace Docspace.Api
         /// <summary>
         /// Finish active operations Finishes an operation with the ID specified in the request or all the active operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
@@ -3528,7 +3528,7 @@ namespace Docspace.Api
         /// <summary>
         /// Finish active operations Finishes an operation with the ID specified in the request or all the active operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The operation ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
@@ -3573,7 +3573,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a comment Updates a comment in a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
@@ -3587,7 +3587,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a comment Updates a comment in a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
@@ -3656,7 +3656,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a comment Updates a comment in a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3671,7 +3671,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update a comment Updates a comment in a file with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
         /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -1,4 +1,4 @@
-# Docspace.Model.TemplatesConfig
+# DocSpace.Model.TemplatesConfig
 The presence or absence of the templates in the \"Create New...\" menu option.
 
 ## Properties

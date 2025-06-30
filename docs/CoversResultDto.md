@@ -1,4 +1,4 @@
-# Docspace.Model.CoversResultDto
+# DocSpace.Model.CoversResultDto
 The result of the cover request containing the cover image data.
 
 ## Properties

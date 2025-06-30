@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the notification type specified in the request is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the notification type specified in the request is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of rooms with the disabled notifications.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         RoomsNotificationSettingsWrapper GetRoomsNotificationSettings();
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of rooms with the disabled notifications.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         ApiResponse<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsWithHttpInfo();
@@ -94,8 +94,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables the notification type specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
         NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default);
@@ -106,8 +106,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables the notification type specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
         ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default);
@@ -117,8 +117,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a notification status for a room with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         RoomsNotificationSettingsWrapper SetRoomsNotificationStatus(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default);
@@ -129,8 +129,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a notification status for a room with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         ApiResponse<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusWithHttpInfo(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default);
@@ -149,7 +149,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the notification type specified in the request is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
@@ -162,7 +162,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the notification type specified in the request is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
@@ -174,7 +174,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of rooms with the disabled notifications.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
@@ -186,7 +186,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of rooms with the disabled notifications.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
@@ -197,8 +197,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables the notification type specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of NotificationSettingsWrapper</returns>
@@ -210,8 +210,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables the notification type specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
@@ -222,8 +222,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a notification status for a room with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
@@ -235,8 +235,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a notification status for a room with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
@@ -279,14 +279,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsNotificationsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -301,14 +301,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -343,14 +343,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -370,14 +370,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -457,7 +457,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check notification availability Checks if the notification type specified in the request is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
@@ -470,7 +470,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check notification availability Checks if the notification type specified in the request is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
@@ -537,7 +537,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check notification availability Checks if the notification type specified in the request is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
@@ -551,7 +551,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check notification availability Checks if the notification type specified in the request is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The type of notification to query, specified in the route.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/">REST API Reference for GetNotificationSettings Operation</seealso>
@@ -622,7 +622,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get room notification settings Returns a list of rooms with the disabled notifications.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         public RoomsNotificationSettingsWrapper GetRoomsNotificationSettings()
@@ -634,7 +634,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get room notification settings Returns a list of rooms with the disabled notifications.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         public ApiResponse<RoomsNotificationSettingsWrapper> GetRoomsNotificationSettingsWithHttpInfo()
@@ -699,7 +699,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get room notification settings Returns a list of rooms with the disabled notifications.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
@@ -712,7 +712,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get room notification settings Returns a list of rooms with the disabled notifications.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/">REST API Reference for GetRoomsNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>
@@ -781,8 +781,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable notifications Enables the notification type specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
         public NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
@@ -794,8 +794,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable notifications Enables the notification type specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
         public ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
@@ -861,8 +861,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable notifications Enables the notification type specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of NotificationSettingsWrapper</returns>
@@ -875,8 +875,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable notifications Enables the notification type specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notificationSettingsRequestsDto">The request parameters for configuring notification settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
@@ -946,8 +946,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set room notification status Sets a notification status for a room with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>RoomsNotificationSettingsWrapper</returns>
         public RoomsNotificationSettingsWrapper SetRoomsNotificationStatus(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default)
@@ -959,8 +959,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set room notification status Sets a notification status for a room with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>ApiResponse of RoomsNotificationSettingsWrapper</returns>
         public ApiResponse<RoomsNotificationSettingsWrapper> SetRoomsNotificationStatusWithHttpInfo(RoomsNotificationsSettingsRequestDto? roomsNotificationsSettingsRequestDto = default)
@@ -1026,8 +1026,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set room notification status Sets a notification status for a room with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>Task of RoomsNotificationSettingsWrapper</returns>
@@ -1040,8 +1040,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set room notification status Sets a notification status for a room with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomsNotificationsSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsNotificationsSettingsRequestDto">The request parameters for configuring notification settings for the chat or collaboration rooms. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/">REST API Reference for SetRoomsNotificationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (RoomsNotificationSettingsWrapper)</returns>

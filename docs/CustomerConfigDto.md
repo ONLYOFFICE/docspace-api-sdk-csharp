@@ -1,4 +1,4 @@
-# Docspace.Model.CustomerConfigDto
+# DocSpace.Model.CustomerConfigDto
 The customer config parameters.
 
 ## Properties

@@ -38,10 +38,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
-using FileParameter = Docspace.Client.FileParameter;
-using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
+using FileParameter = DocSpace.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.Client.OpenAPIDateConverter;
 
-namespace Docspace.Model
+namespace DocSpace.Model
 {
     /// <summary>
     /// [0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]

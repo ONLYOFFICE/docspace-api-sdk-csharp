@@ -31,12 +31,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-using Docspace.Model;
-using Docspace.Client;
+using DocSpace.Model;
+using DocSpace.Client;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Docspace.Test.Model
+namespace DocSpace.Test.Model
 {
     /// <summary>
     ///  Class for testing FileEntryType

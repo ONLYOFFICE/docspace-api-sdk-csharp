@@ -1,4 +1,4 @@
-# Docspace.Model.PermissionsConfig
+# DocSpace.Model.PermissionsConfig
 The permissions configuration parameters.
 
 ## Properties

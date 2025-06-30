@@ -1,4 +1,4 @@
-# Docspace.Model.ThumbnailsRequest
+# DocSpace.Model.ThumbnailsRequest
 The thumbnail request.
 
 ## Properties

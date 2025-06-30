@@ -1,12 +1,12 @@
-# Docspace.Model.DocumentBuilderTaskWrapper
+# DocSpace.Model.DocumentBuilderTaskWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DocumentBuilderTaskDto**](DocumentBuilderTaskDto.md) |  | [optional] 
+**Response** | [**DocumentBuilderTaskDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

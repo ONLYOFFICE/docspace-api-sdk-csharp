@@ -1,4 +1,4 @@
-# Docspace.Api.AuthenticationApi
+# DocSpace.Api.AuthenticationApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -16,18 +16,30 @@ All URIs are relative to *http://localhost:8092*
 # **AuthenticateMe**
 > AuthenticationTokenWrapper AuthenticateMe (AuthRequestsDto? authRequestsDto = null)
 
-Authenticate a user
-
 Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -41,7 +53,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -80,20 +92,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -115,18 +113,31 @@ No authorization required
 # **AuthenticateMeFromBodyWithCode**
 > AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode (string code, AuthRequestsDto? authRequestsDto = null)
 
-Authenticate a user by code
-
 Authenticates the current user by SMS or two-factor authentication code.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **code** | **string** |  |  |
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -141,7 +152,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var code = "code_example";  // string | 
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -180,21 +191,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **code** | **string** |  |  |
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -216,18 +212,30 @@ No authorization required
 # **CheckConfirm**
 > ConfirmWrapper CheckConfirm (EmailValidationKeyModel? emailValidationKeyModel = null)
 
-Open confirmation email URL
-
 Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailValidationKeyModel** | [**EmailValidationKeyModel?**](EmailValidationKeyModel.md) | The confirmation email parameters. | [optional]  |
+
+### Return type
+
+[**ConfirmWrapper**](ConfirmWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -241,7 +249,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var emailValidationKeyModel = new EmailValidationKeyModel?(); // EmailValidationKeyModel? |  (optional) 
+            var emailValidationKeyModel = new EmailValidationKeyModel?(); // EmailValidationKeyModel? | The confirmation email parameters. (optional) 
 
             try
             {
@@ -280,20 +288,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailValidationKeyModel** | [**EmailValidationKeyModel?**](EmailValidationKeyModel?.md) |  | [optional]  |
-
-### Return type
-
-[**ConfirmWrapper**](ConfirmWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -311,18 +305,26 @@ No authorization required
 # **GetIsAuthentificated**
 > BooleanWrapper GetIsAuthentificated ()
 
-Check authentication
-
 Checks if the current user is authenticated or not.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -374,16 +376,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -401,18 +393,26 @@ No authorization required
 # **Logout**
 > StringWrapper Logout ()
 
-Log out
-
 Logs out of the current user account.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -464,16 +464,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -491,18 +481,30 @@ No authorization required
 # **SaveMobilePhone**
 > AuthenticationTokenWrapper SaveMobilePhone (MobileRequestsDto? mobileRequestsDto = null)
 
-Set a mobile phone
-
 Sets a mobile phone for the current user.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mobileRequestsDto** | [**MobileRequestsDto?**](MobileRequestsDto.md) | The parameters required for the mobile phone verification. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -532,7 +534,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var mobileRequestsDto = new MobileRequestsDto?(); // MobileRequestsDto? |  (optional) 
+            var mobileRequestsDto = new MobileRequestsDto?(); // MobileRequestsDto? | The parameters required for the mobile phone verification. (optional) 
 
             try
             {
@@ -571,20 +573,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **mobileRequestsDto** | [**MobileRequestsDto?**](MobileRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -603,18 +591,30 @@ catch (ApiException e)
 # **SendSmsCode**
 > AuthenticationTokenWrapper SendSmsCode (AuthRequestsDto? authRequestsDto = null)
 
-Send SMS code
-
 Sends SMS with an authentication code.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -628,7 +628,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -666,20 +666,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

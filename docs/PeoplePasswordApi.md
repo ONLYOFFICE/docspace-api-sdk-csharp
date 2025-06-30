@@ -1,4 +1,4 @@
-# Docspace.Api.PeoplePasswordApi
+# DocSpace.Api.PeoplePasswordApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -11,18 +11,31 @@ All URIs are relative to *http://localhost:8092*
 # **ChangeUserPassword**
 > EmployeeFullWrapper ChangeUserPassword (Guid userid, MemberBaseRequestDto? memberBaseRequestDto = null)
 
-Change a user password
-
 Sets a new password to the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+| **memberBaseRequestDto** | [**MemberBaseRequestDto?**](MemberBaseRequestDto.md) | The request parameters for the user generic information. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -92,21 +105,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-| **memberBaseRequestDto** | [**MemberBaseRequestDto?**](MemberBaseRequestDto?.md) | The request parameters for the user generic information. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -128,18 +126,30 @@ catch (ApiException e)
 # **SendUserPassword**
 > StringWrapper SendUserPassword (EmailMemberRequestDto? emailMemberRequestDto = null)
 
-Remind a user password
-
 Reminds a password to the user using the email address specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailMemberRequestDto** | [**EmailMemberRequestDto?**](EmailMemberRequestDto.md) | The request parameters for the user email. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -153,7 +163,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeoplePasswordApi(httpClient, config, httpClientHandler);
-            var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? |  (optional) 
+            var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? | The request parameters for the user email. (optional) 
 
             try
             {
@@ -191,20 +201,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailMemberRequestDto** | [**EmailMemberRequestDto?**](EmailMemberRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

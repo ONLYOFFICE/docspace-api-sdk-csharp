@@ -38,11 +38,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
-using FileParameter = Docspace.Client.FileParameter;
-using OpenAPIDateConverter = Docspace.Client.OpenAPIDateConverter;
+using FileParameter = DocSpace.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.Client.OpenAPIDateConverter;
 using System.Reflection;
 
-namespace Docspace.Model
+namespace DocSpace.Model
 {
     /// <summary>
     /// BaseBatchRequestDtoFolderIdsInner

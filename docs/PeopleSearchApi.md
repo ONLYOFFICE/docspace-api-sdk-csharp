@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleSearchApi
+# DocSpace.Api.PeopleSearchApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -16,18 +16,42 @@ All URIs are relative to *http://localhost:8092*
 # **GetAccountsEntriesWithShared**
 > ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
-Get account entries
-
 Returns the account entries with their sharing settings.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the account sharing settings from the response. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the account sharing settings in the response. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The area of the account entries. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
+| **count** | **int?** | The number of items to retrieve in a request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+| **filterSeparator** | **string?** | Specifies the separator used in filter expressions. | [optional]  |
+| **filterValue** | **string?** | The text filter applied to the accounts search query. | [optional]  |
+
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -108,32 +132,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The user ID. |  |
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
-| **excludeShared** | **bool?** | Specifies whether to exclude the account sharing settings from the response. | [optional]  |
-| **includeShared** | **bool?** | Specifies whether to include the account sharing settings in the response. | [optional]  |
-| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
-| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
-| **area** | [**Area?**](Area?.md) | The area of the account entries. | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
-| **count** | **int?** | The number of items to retrieve in a request. | [optional]  |
-| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
-| **filterSeparator** | **string?** | Specifies the separator used in filter expressions. | [optional]  |
-| **filterValue** | **string?** | The text filter applied to the accounts search query. | [optional]  |
-
-### Return type
-
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -153,18 +151,32 @@ catch (ApiException e)
 # **GetSearch**
 > EmployeeFullArrayWrapper GetSearch (string query, string? filterBy = null, string? filterValue = null)
 
-Search users
-
 Returns a list of users matching the search query.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string** | The search query. |  |
+| **filterBy** | **string?** | Specifies a filter criteria for the user search query. | [optional]  |
+| **filterValue** | **string?** | The value used for filtering users, allowing additional constraints for the query. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -235,22 +247,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **query** | **string** | The search query. |  |
-| **filterBy** | **string?** | Specifies a filter criteria for the user search query. | [optional]  |
-| **filterValue** | **string?** | The value used for filtering users, allowing additional constraints for the query. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -270,18 +266,49 @@ catch (ApiException e)
 # **GetSimpleByFilter**
 > EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
-Search users by extended filter
-
 Returns a list of users matching the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **groupId** | **Guid?** | The group ID. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **employeeType** | [**EmployeeType?**](EmployeeType.md) | The user type. | [optional]  |
+| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
+| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
+| **payments** | [**Payments?**](Payments.md) | The user payment status. | [optional]  |
+| **accountLoginType** | [**AccountLoginType?**](AccountLoginType.md) | The account login type. | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
+| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The filter area. | [optional]  |
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
+| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
+
+### Return type
+
+[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -369,39 +396,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
-| **groupId** | **Guid?** | The group ID. | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
-| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
-| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
-| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
-| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
-| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
-| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
-| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
-| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
-| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
-| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
-| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
-| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
-| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
-
-### Return type
-
-[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -421,18 +415,42 @@ catch (ApiException e)
 # **GetUsersWithRoomShared**
 > EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
-Get users with room sharing settings
-
 Returns the users with the sharing settings in a room with the ID specified in request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the user sharing settings or not. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the user sharing settings or not. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user was invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The user area. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
+| **count** | **int?** | The maximum number of users to be retrieved in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first record to retrieve in a paged query. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The filter text value used for searching or filtering user results. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -513,32 +531,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The user ID. |  |
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
-| **excludeShared** | **bool?** | Specifies whether to exclude the user sharing settings or not. | [optional]  |
-| **includeShared** | **bool?** | Specifies whether to include the user sharing settings or not. | [optional]  |
-| **invitedByMe** | **bool?** | Specifies whether the user was invited by the current user or not. | [optional]  |
-| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
-| **area** | [**Area?**](Area?.md) | The user area. | [optional]  |
-| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
-| **count** | **int?** | The maximum number of users to be retrieved in the request. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first record to retrieve in a paged query. | [optional]  |
-| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
-| **filterValue** | **string?** | The filter text value used for searching or filtering user results. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -558,18 +550,49 @@ catch (ApiException e)
 # **SearchUsersByExtendedFilter**
 > EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
-Search users with detaailed information by extended filter
-
 Returns a list of users with full information about them matching the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **groupId** | **Guid?** | The group ID. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **employeeType** | [**EmployeeType?**](EmployeeType.md) | The user type. | [optional]  |
+| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
+| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
+| **payments** | [**Payments?**](Payments.md) | The user payment status. | [optional]  |
+| **accountLoginType** | [**AccountLoginType?**](AccountLoginType.md) | The account login type. | [optional]  |
+| **quotaFilter** | [**QuotaFilter?**](QuotaFilter.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
+| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
+| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The filter area. | [optional]  |
+| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
+| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
+| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -657,39 +680,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus?.md) | The user status. | [optional]  |
-| **groupId** | **Guid?** | The group ID. | [optional]  |
-| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus?.md) | The user activation status. | [optional]  |
-| **employeeType** | [**EmployeeType?**](EmployeeType?.md) | The user type. | [optional]  |
-| **employeeTypes** | [**List&lt;int&gt;?**](int.md) | The list of user types. | [optional]  |
-| **isAdministrator** | **bool?** | Specifies if the user is an administrator or not. | [optional]  |
-| **payments** | [**Payments?**](Payments?.md) | The user payment status. | [optional]  |
-| **accountLoginType** | [**AccountLoginType?**](AccountLoginType?.md) | The account login type. | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter?.md) | The quota filter (All - 0, Default - 1, Custom - 2). | [optional]  |
-| **withoutGroup** | **bool?** | Specifies whether the user should be a member of a group or not. | [optional]  |
-| **excludeGroup** | **bool?** | Specifies whether the user should be a member of the group with the specified ID. | [optional]  |
-| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
-| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
-| **area** | [**Area?**](Area?.md) | The filter area. | [optional]  |
-| **count** | **int?** | The maximum number of items to be retrieved in the response. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first item to be retrieved in a filtered result set. | [optional]  |
-| **sortBy** | **string?** | Specifies the property or field name by which the results should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
-| **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -709,18 +699,30 @@ catch (ApiException e)
 # **SearchUsersByQuery**
 > EmployeeArrayWrapper SearchUsersByQuery (string? query = null)
 
-Search users (using query parameters)
-
 Returns a list of users matching the search query. This method uses the query parameters.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string?** | The search query. | [optional]  |
+
+### Return type
+
+[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -789,20 +791,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **query** | **string?** | The search query. | [optional]  |
-
-### Return type
-
-[**EmployeeArrayWrapper**](EmployeeArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -821,18 +809,33 @@ catch (ApiException e)
 # **SearchUsersByStatus**
 > EmployeeFullArrayWrapper SearchUsersByStatus (EmployeeStatus status, string? query = null, string? filterBy = null, string? filterValue = null)
 
-Search users by status filter
-
 Returns a list of users matching the status filter and search query.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **status** | **EmployeeStatus** | The user status. |  |
+| **query** | **string?** | The advanced search query. | [optional]  |
+| **filterBy** | **string?** | Specifies the criteria used to filter search results in advanced queries. | [optional]  |
+| **filterValue** | **string?** | The value used to filter the search query. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -903,23 +906,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **status** | **EmployeeStatus** | The user status. |  |
-| **query** | **string?** | The advanced search query. | [optional]  |
-| **filterBy** | **string?** | Specifies the criteria used to filter search results in advanced queries. | [optional]  |
-| **filterValue** | **string?** | The value used to filter the search query. | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the status of the SMTP testing process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>SmtpOperationStatusRequestsWrapper</returns>
         SmtpOperationStatusRequestsWrapper GetSmtpOperationStatus();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the status of the SMTP testing process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
         ApiResponse<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SMTP settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         SmtpSettingsWrapper GetSmtpSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SMTP settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         ApiResponse<SmtpSettingsWrapper> GetSmtpSettingsWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SMTP settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         SmtpSettingsWrapper ResetSmtpSettings();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SMTP settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         ApiResponse<SmtpSettingsWrapper> ResetSmtpSettingsWithHttpInfo();
@@ -113,8 +113,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SMTP settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         SmtpSettingsWrapper SaveSmtpSettings(SmtpSettingsDto? smtpSettingsDto = default);
@@ -125,8 +125,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SMTP settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         ApiResponse<SmtpSettingsWrapper> SaveSmtpSettingsWithHttpInfo(SmtpSettingsDto? smtpSettingsDto = default);
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>SmtpOperationStatusRequestsWrapper</returns>
         SmtpOperationStatusRequestsWrapper TestSmtpSettings();
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
         ApiResponse<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsWithHttpInfo();
@@ -166,7 +166,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the status of the SMTP testing process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the status of the SMTP testing process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
@@ -189,7 +189,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SMTP settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -201,7 +201,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SMTP settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -212,7 +212,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SMTP settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -224,7 +224,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SMTP settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -235,8 +235,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SMTP settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -248,8 +248,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SMTP settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -260,7 +260,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
@@ -272,7 +272,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
@@ -315,14 +315,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SecuritySMTPSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -337,14 +337,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -379,14 +379,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -406,14 +406,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -433,7 +433,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -493,7 +493,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP testing process status Returns the status of the SMTP testing process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>SmtpOperationStatusRequestsWrapper</returns>
         public SmtpOperationStatusRequestsWrapper GetSmtpOperationStatus()
@@ -505,7 +505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP testing process status Returns the status of the SMTP testing process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
         public ApiResponse<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusWithHttpInfo()
@@ -570,7 +570,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP testing process status Returns the status of the SMTP testing process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
@@ -583,7 +583,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP testing process status Returns the status of the SMTP testing process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
@@ -652,7 +652,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP settings Returns the current portal SMTP settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         public SmtpSettingsWrapper GetSmtpSettings()
@@ -664,7 +664,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP settings Returns the current portal SMTP settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         public ApiResponse<SmtpSettingsWrapper> GetSmtpSettingsWithHttpInfo()
@@ -729,7 +729,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP settings Returns the current portal SMTP settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -742,7 +742,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SMTP settings Returns the current portal SMTP settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-settings/">REST API Reference for GetSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -811,7 +811,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SMTP settings Resets the SMTP settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         public SmtpSettingsWrapper ResetSmtpSettings()
@@ -823,7 +823,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SMTP settings Resets the SMTP settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         public ApiResponse<SmtpSettingsWrapper> ResetSmtpSettingsWithHttpInfo()
@@ -888,7 +888,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SMTP settings Resets the SMTP settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -901,7 +901,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SMTP settings Resets the SMTP settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-smtp-settings/">REST API Reference for ResetSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -970,8 +970,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SMTP settings Saves the SMTP settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>SmtpSettingsWrapper</returns>
         public SmtpSettingsWrapper SaveSmtpSettings(SmtpSettingsDto? smtpSettingsDto = default)
@@ -983,8 +983,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SMTP settings Saves the SMTP settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpSettingsWrapper</returns>
         public ApiResponse<SmtpSettingsWrapper> SaveSmtpSettingsWithHttpInfo(SmtpSettingsDto? smtpSettingsDto = default)
@@ -1050,8 +1050,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SMTP settings Saves the SMTP settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpSettingsWrapper</returns>
@@ -1064,8 +1064,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SMTP settings Saves the SMTP settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpSettingsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="smtpSettingsDto">The SMTP settings parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-smtp-settings/">REST API Reference for SaveSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpSettingsWrapper)</returns>
@@ -1135,7 +1135,7 @@ namespace Docspace.Api
         /// <summary>
         /// Test the SMTP settings Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>SmtpOperationStatusRequestsWrapper</returns>
         public SmtpOperationStatusRequestsWrapper TestSmtpSettings()
@@ -1147,7 +1147,7 @@ namespace Docspace.Api
         /// <summary>
         /// Test the SMTP settings Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
         public ApiResponse<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsWithHttpInfo()
@@ -1212,7 +1212,7 @@ namespace Docspace.Api
         /// <summary>
         /// Test the SMTP settings Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
@@ -1225,7 +1225,7 @@ namespace Docspace.Api
         /// <summary>
         /// Test the SMTP settings Tests the SMTP settings for the current portal (sends test message to the user email).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>

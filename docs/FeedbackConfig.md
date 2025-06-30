@@ -1,4 +1,4 @@
-# Docspace.Model.FeedbackConfig
+# DocSpace.Model.FeedbackConfig
 The settings for the \"Feedback & Support\" menu button.
 
 ## Properties

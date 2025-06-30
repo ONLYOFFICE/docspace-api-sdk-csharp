@@ -1,4 +1,4 @@
-# Docspace.Model.ProductQuantityType
+# DocSpace.Model.ProductQuantityType
 The product quantity type.
 
 ## Properties

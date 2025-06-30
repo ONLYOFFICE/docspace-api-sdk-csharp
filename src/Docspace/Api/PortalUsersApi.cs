@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a number of portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Int64Wrapper</returns>
         Int64Wrapper GetPortalUsersCount();
@@ -84,7 +84,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a number of portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>ApiResponse of Int64Wrapper</returns>
         ApiResponse<Int64Wrapper> GetPortalUsersCountWithHttpInfo();
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a user with the ID specified in the request from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>UserInfoWrapper</returns>
@@ -106,7 +106,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a user with the ID specified in the request from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>ApiResponse of UserInfoWrapper</returns>
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks a gift message as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns></returns>
         void MarkGiftMessageAsRead();
@@ -128,7 +128,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks a gift message as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> MarkGiftMessageAsReadWithHttpInfo();
@@ -138,7 +138,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
@@ -151,7 +151,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
@@ -172,7 +172,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -185,7 +185,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -197,7 +197,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a number of portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of Int64Wrapper</returns>
@@ -209,7 +209,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a number of portal users.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a user with the ID specified in the request from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -233,7 +233,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a user with the ID specified in the request from the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks a gift message as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of void</returns>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Marks a gift message as read.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -282,7 +282,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -327,14 +327,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PortalUsersApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -349,14 +349,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -391,14 +391,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -418,14 +418,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -505,7 +505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get an invitation link Returns an invitation link for joining the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -518,7 +518,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get an invitation link Returns an invitation link for joining the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -585,7 +585,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get an invitation link Returns an invitation link for joining the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -599,7 +599,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get an invitation link Returns an invitation link for joining the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -670,7 +670,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a number of portal users Returns a number of portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Int64Wrapper</returns>
         public Int64Wrapper GetPortalUsersCount()
@@ -682,7 +682,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a number of portal users Returns a number of portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>ApiResponse of Int64Wrapper</returns>
         public ApiResponse<Int64Wrapper> GetPortalUsersCountWithHttpInfo()
@@ -747,7 +747,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a number of portal users Returns a number of portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of Int64Wrapper</returns>
@@ -760,7 +760,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a number of portal users Returns a number of portal users.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
@@ -829,7 +829,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>UserInfoWrapper</returns>
@@ -842,7 +842,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>ApiResponse of UserInfoWrapper</returns>
@@ -909,7 +909,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -923,7 +923,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -994,7 +994,7 @@ namespace Docspace.Api
         /// <summary>
         /// Mark a gift message as read Marks a gift message as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns></returns>
         public void MarkGiftMessageAsRead()
@@ -1005,7 +1005,7 @@ namespace Docspace.Api
         /// <summary>
         /// Mark a gift message as read Marks a gift message as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> MarkGiftMessageAsReadWithHttpInfo()
@@ -1070,7 +1070,7 @@ namespace Docspace.Api
         /// <summary>
         /// Mark a gift message as read Marks a gift message as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1082,7 +1082,7 @@ namespace Docspace.Api
         /// <summary>
         /// Mark a gift message as read Marks a gift message as read.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1151,7 +1151,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send congratulations Sends congratulations to the user after registering a portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
@@ -1164,7 +1164,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send congratulations Sends congratulations to the user after registering a portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
@@ -1209,7 +1209,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send congratulations Sends congratulations to the user after registering a portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1223,7 +1223,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send congratulations Sends congratulations to the user after registering a portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1248,11 +1248,11 @@ namespace Docspace.Api
 
             if (userid != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Userid", userid));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Userid", userid));
             }
             if (key != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Key", key));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Key", key));
             }
 
 

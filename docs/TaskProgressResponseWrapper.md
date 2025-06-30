@@ -1,12 +1,12 @@
-# Docspace.Model.TaskProgressResponseWrapper
+# DocSpace.Model.TaskProgressResponseWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TaskProgressResponseDto**](TaskProgressResponseDto.md) |  | [optional] 
+**Response** | [**TaskProgressResponseDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

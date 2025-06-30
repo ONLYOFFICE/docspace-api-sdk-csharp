@@ -1,4 +1,4 @@
-# Docspace.Model.TenantDto
+# DocSpace.Model.TenantDto
 The tenant parameters.
 
 ## Properties

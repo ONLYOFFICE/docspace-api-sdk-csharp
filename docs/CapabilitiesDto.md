@@ -1,4 +1,4 @@
-# Docspace.Model.CapabilitiesDto
+# DocSpace.Model.CapabilitiesDto
 The capabilities parameters.
 
 ## Properties

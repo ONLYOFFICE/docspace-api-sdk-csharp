@@ -31,7 +31,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Represents a readable-only configuration contract.

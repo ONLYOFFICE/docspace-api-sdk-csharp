@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a new password to the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a new password to the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
@@ -75,8 +75,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Reminds a password to the user using the email address specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SendUserPassword(EmailMemberRequestDto? emailMemberRequestDto = default);
@@ -87,8 +87,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Reminds a password to the user using the email address specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SendUserPasswordWithHttpInfo(EmailMemberRequestDto? emailMemberRequestDto = default);
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a new password to the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -121,7 +121,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a new password to the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -134,8 +134,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Reminds a password to the user using the email address specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -147,8 +147,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Reminds a password to the user using the email address specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -191,14 +191,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeoplePasswordApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -213,14 +213,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -255,14 +255,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -282,14 +282,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user password Sets a new password to the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
@@ -383,7 +383,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user password Sets a new password to the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
@@ -452,7 +452,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user password Sets a new password to the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -467,7 +467,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user password Sets a new password to the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -540,8 +540,8 @@ namespace Docspace.Api
         /// <summary>
         /// Remind a user password Reminds a password to the user using the email address specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SendUserPassword(EmailMemberRequestDto? emailMemberRequestDto = default)
@@ -553,8 +553,8 @@ namespace Docspace.Api
         /// <summary>
         /// Remind a user password Reminds a password to the user using the email address specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SendUserPasswordWithHttpInfo(EmailMemberRequestDto? emailMemberRequestDto = default)
@@ -590,8 +590,8 @@ namespace Docspace.Api
         /// <summary>
         /// Remind a user password Reminds a password to the user using the email address specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -604,8 +604,8 @@ namespace Docspace.Api
         /// <summary>
         /// Remind a user password Reminds a password to the user using the email address specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailMemberRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/">REST API Reference for SendUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a custom navigation item with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
         CustomNavigationItemWrapper CreateCustomNavigationItem(CustomNavigationItem? customNavigationItem = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a custom navigation item with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
         ApiResponse<CustomNavigationItemWrapper> CreateCustomNavigationItemWithHttpInfo(CustomNavigationItem? customNavigationItem = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a custom navigation item with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a custom navigation item with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a custom navigation item by the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a custom navigation item by the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a sample of the custom navigation item.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
         CustomNavigationItemWrapper GetCustomNavigationItemSample();
@@ -130,7 +130,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a sample of the custom navigation item.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
         ApiResponse<CustomNavigationItemWrapper> GetCustomNavigationItemSampleWithHttpInfo();
@@ -140,7 +140,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the custom navigation items.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>CustomNavigationItemArrayWrapper</returns>
         CustomNavigationItemArrayWrapper GetCustomNavigationItems();
@@ -151,7 +151,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the custom navigation items.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemArrayWrapper</returns>
         ApiResponse<CustomNavigationItemArrayWrapper> GetCustomNavigationItemsWithHttpInfo();
@@ -170,8 +170,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a custom navigation item with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>Task of CustomNavigationItemWrapper</returns>
@@ -183,8 +183,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Adds a custom navigation item with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemWrapper)</returns>
@@ -195,7 +195,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a custom navigation item with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
@@ -208,7 +208,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a custom navigation item with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a custom navigation item by the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
@@ -233,7 +233,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a custom navigation item by the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a sample of the custom navigation item.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>Task of CustomNavigationItemWrapper</returns>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a sample of the custom navigation item.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemWrapper)</returns>
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the custom navigation items.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>Task of CustomNavigationItemArrayWrapper</returns>
@@ -280,7 +280,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the custom navigation items.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemArrayWrapper)</returns>
@@ -323,14 +323,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsCustomNavigationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -345,14 +345,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -387,14 +387,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -414,14 +414,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -441,7 +441,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -501,8 +501,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a custom navigation item Adds a custom navigation item with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
         public CustomNavigationItemWrapper CreateCustomNavigationItem(CustomNavigationItem? customNavigationItem = default)
@@ -514,8 +514,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a custom navigation item Adds a custom navigation item with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
         public ApiResponse<CustomNavigationItemWrapper> CreateCustomNavigationItemWithHttpInfo(CustomNavigationItem? customNavigationItem = default)
@@ -581,8 +581,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a custom navigation item Adds a custom navigation item with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>Task of CustomNavigationItemWrapper</returns>
@@ -595,8 +595,8 @@ namespace Docspace.Api
         /// <summary>
         /// Add a custom navigation item Adds a custom navigation item with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customNavigationItem"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customNavigationItem">The custom navigation item parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/">REST API Reference for CreateCustomNavigationItem Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemWrapper)</returns>
@@ -666,7 +666,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a custom navigation item Deletes a custom navigation item with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
         /// <returns></returns>
@@ -678,7 +678,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a custom navigation item Deletes a custom navigation item with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -745,7 +745,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a custom navigation item Deletes a custom navigation item with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
@@ -758,7 +758,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a custom navigation item Deletes a custom navigation item with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/">REST API Reference for DeleteCustomNavigationItem Operation</seealso>
@@ -829,7 +829,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item by ID Returns a custom navigation item by the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
@@ -842,7 +842,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item by ID Returns a custom navigation item by the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
@@ -909,7 +909,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item by ID Returns a custom navigation item by the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
@@ -923,7 +923,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item by ID Returns a custom navigation item by the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/">REST API Reference for GetCustomNavigationItem Operation</seealso>
@@ -994,7 +994,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item sample Returns a sample of the custom navigation item.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>CustomNavigationItemWrapper</returns>
         public CustomNavigationItemWrapper GetCustomNavigationItemSample()
@@ -1006,7 +1006,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item sample Returns a sample of the custom navigation item.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemWrapper</returns>
         public ApiResponse<CustomNavigationItemWrapper> GetCustomNavigationItemSampleWithHttpInfo()
@@ -1071,7 +1071,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item sample Returns a sample of the custom navigation item.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>Task of CustomNavigationItemWrapper</returns>
@@ -1084,7 +1084,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a custom navigation item sample Returns a sample of the custom navigation item.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/">REST API Reference for GetCustomNavigationItemSample Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemWrapper)</returns>
@@ -1153,7 +1153,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the custom navigation items Returns a list of the custom navigation items.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>CustomNavigationItemArrayWrapper</returns>
         public CustomNavigationItemArrayWrapper GetCustomNavigationItems()
@@ -1165,7 +1165,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the custom navigation items Returns a list of the custom navigation items.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>ApiResponse of CustomNavigationItemArrayWrapper</returns>
         public ApiResponse<CustomNavigationItemArrayWrapper> GetCustomNavigationItemsWithHttpInfo()
@@ -1230,7 +1230,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the custom navigation items Returns a list of the custom navigation items.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>Task of CustomNavigationItemArrayWrapper</returns>
@@ -1243,7 +1243,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the custom navigation items Returns a list of the custom navigation items.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/">REST API Reference for GetCustomNavigationItems Operation</seealso>
         /// <returns>Task of ApiResponse (CustomNavigationItemArrayWrapper)</returns>

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the default portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         SsoSettingsV2Wrapper GetDefaultSsoSettingsV2();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the default portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         SsoSettingsV2Wrapper GetSsoSettingsV2();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the SSO settings constants.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetSsoSettingsV2Constants();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the SSO settings constants.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo();
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SSO settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         SsoSettingsV2Wrapper ResetSsoSettingsV2();
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SSO settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo();
@@ -134,8 +134,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SSO settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         SsoSettingsV2Wrapper SaveSsoSettingsV2(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default);
@@ -146,8 +146,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SSO settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default);
@@ -166,7 +166,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the default portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the default portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -189,7 +189,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -201,7 +201,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal SSO settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -212,7 +212,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the SSO settings constants.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -224,7 +224,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the SSO settings constants.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -235,7 +235,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SSO settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -247,7 +247,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Resets the SSO settings of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -258,8 +258,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SSO settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -271,8 +271,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the SSO settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -315,14 +315,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsSSOApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -337,14 +337,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -379,14 +379,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -406,14 +406,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -433,7 +433,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -493,7 +493,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the default SSO settings Returns the default portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper GetDefaultSsoSettingsV2()
@@ -505,7 +505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the default SSO settings Returns the default portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         public ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo()
@@ -570,7 +570,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the default SSO settings Returns the default portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -583,7 +583,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the default SSO settings Returns the default portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -652,7 +652,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings Returns the current portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper GetSsoSettingsV2()
@@ -664,7 +664,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings Returns the current portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         public ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo()
@@ -699,7 +699,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings Returns the current portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -712,7 +712,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings Returns the current portal SSO settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -751,7 +751,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings constants Returns the SSO settings constants.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetSsoSettingsV2Constants()
@@ -763,7 +763,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings constants Returns the SSO settings constants.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
@@ -828,7 +828,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings constants Returns the SSO settings constants.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -841,7 +841,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the SSO settings constants Returns the SSO settings constants.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -910,7 +910,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SSO settings Resets the SSO settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper ResetSsoSettingsV2()
@@ -922,7 +922,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SSO settings Resets the SSO settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         public ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo()
@@ -987,7 +987,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SSO settings Resets the SSO settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -1000,7 +1000,7 @@ namespace Docspace.Api
         /// <summary>
         /// Reset the SSO settings Resets the SSO settings of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
@@ -1069,8 +1069,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SSO settings Saves the SSO settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>SsoSettingsV2Wrapper</returns>
         public SsoSettingsV2Wrapper SaveSsoSettingsV2(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
@@ -1082,8 +1082,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SSO settings Saves the SSO settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
         public ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
@@ -1149,8 +1149,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SSO settings Saves the SSO settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>Task of SsoSettingsV2Wrapper</returns>
@@ -1163,8 +1163,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the SSO settings Saves the SSO settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
         /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>

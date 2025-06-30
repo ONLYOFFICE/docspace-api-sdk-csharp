@@ -1,4 +1,4 @@
-# Docspace.Model.PaymentMethodStatus
+# DocSpace.Model.PaymentMethodStatus
 [0 - None, 1 - Set, 2 - Expired]
 
 ## Properties

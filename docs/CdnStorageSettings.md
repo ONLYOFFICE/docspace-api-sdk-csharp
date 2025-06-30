@@ -1,4 +1,4 @@
-# Docspace.Model.CdnStorageSettings
+# DocSpace.Model.CdnStorageSettings
 
 ## Properties
 

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the greeting settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetGreetingSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the greeting settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetGreetingSettingsWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the greeting settings of the current portal are set to default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper GetIsDefaultGreetingSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the greeting settings of the current portal are set to default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetIsDefaultGreetingSettingsWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal greeting settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper RestoreGreetingSettings();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal greeting settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> RestoreGreetingSettingsWithHttpInfo();
@@ -113,8 +113,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the greeting settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SaveGreetingSettings(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default);
@@ -125,8 +125,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the greeting settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default);
@@ -145,7 +145,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the greeting settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the greeting settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the greeting settings of the current portal are set to default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the greeting settings of the current portal are set to default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -191,7 +191,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal greeting settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -203,7 +203,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the current portal greeting settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -214,8 +214,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the greeting settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -227,8 +227,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the greeting settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -271,14 +271,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsGreetingSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -293,14 +293,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -362,14 +362,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get greeting settings Returns the greeting settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetGreetingSettings()
@@ -461,7 +461,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get greeting settings Returns the greeting settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetGreetingSettingsWithHttpInfo()
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get greeting settings Returns the greeting settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -539,7 +539,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get greeting settings Returns the greeting settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/">REST API Reference for GetGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -608,7 +608,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default greeting settings Checks if the greeting settings of the current portal are set to default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetIsDefaultGreetingSettings()
@@ -620,7 +620,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default greeting settings Checks if the greeting settings of the current portal are set to default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> GetIsDefaultGreetingSettingsWithHttpInfo()
@@ -685,7 +685,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default greeting settings Checks if the greeting settings of the current portal are set to default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -698,7 +698,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default greeting settings Checks if the greeting settings of the current portal are set to default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/">REST API Reference for GetIsDefaultGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -767,7 +767,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the greeting settings Restores the current portal greeting settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper RestoreGreetingSettings()
@@ -779,7 +779,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the greeting settings Restores the current portal greeting settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> RestoreGreetingSettingsWithHttpInfo()
@@ -844,7 +844,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the greeting settings Restores the current portal greeting settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -857,7 +857,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the greeting settings Restores the current portal greeting settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/">REST API Reference for RestoreGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -926,8 +926,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the greeting settings Saves the greeting settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SaveGreetingSettings(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default)
@@ -939,8 +939,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the greeting settings Saves the greeting settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default)
@@ -1006,8 +1006,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the greeting settings Saves the greeting settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1020,8 +1020,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the greeting settings Saves the greeting settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="greetingSettingsRequestsDto">The request parameters for managing the greeting settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

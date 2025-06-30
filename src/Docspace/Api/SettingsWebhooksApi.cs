@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables or disables a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables or disables a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the tenant webhooks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>WebhooksConfigWithStatusArrayWrapper</returns>
         WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks();
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the tenant webhooks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWithStatusArrayWrapper</returns>
         ApiResponse<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksWithHttpInfo();
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of triggers for a webhook.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>UnknownWrapper</returns>
         UnknownWrapper GetWebhookTriggers();
@@ -128,7 +128,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of triggers for a webhook.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>ApiResponse of UnknownWrapper</returns>
         ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo();
@@ -138,7 +138,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the logs of the webhook activities.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the logs of the webhook activities.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -179,7 +179,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes a tenant webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
@@ -191,7 +191,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes a tenant webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
@@ -202,7 +202,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries a webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>WebhooksLogWrapper</returns>
@@ -214,7 +214,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries a webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogWrapper</returns>
@@ -225,8 +225,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -237,8 +237,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -248,8 +248,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
@@ -260,8 +260,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
@@ -280,8 +280,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -293,8 +293,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
@@ -305,8 +305,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables or disables a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -318,8 +318,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Enables or disables a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
@@ -330,7 +330,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the tenant webhooks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>Task of WebhooksConfigWithStatusArrayWrapper</returns>
@@ -342,7 +342,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the tenant webhooks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWithStatusArrayWrapper)</returns>
@@ -353,7 +353,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of triggers for a webhook.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>Task of UnknownWrapper</returns>
@@ -365,7 +365,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of triggers for a webhook.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
@@ -376,7 +376,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the logs of the webhook activities.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -398,7 +398,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the logs of the webhook activities.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -419,7 +419,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes a tenant webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
@@ -432,7 +432,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Removes a tenant webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
@@ -444,7 +444,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries a webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
@@ -457,7 +457,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries a webhook with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
@@ -469,8 +469,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -482,8 +482,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
@@ -494,8 +494,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -507,8 +507,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a tenant webhook with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
@@ -551,14 +551,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsWebhooksApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -573,14 +573,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -615,14 +615,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -642,14 +642,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -669,7 +669,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -729,8 +729,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a webhook Creates a new tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
@@ -742,8 +742,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a webhook Creates a new tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         public ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
@@ -809,8 +809,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a webhook Creates a new tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -823,8 +823,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a webhook Creates a new tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhooksConfigRequestsDto">The request parameters for creating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
@@ -894,8 +894,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable a webhook Enables or disables a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
@@ -907,8 +907,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable a webhook Enables or disables a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         public ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
@@ -974,8 +974,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable a webhook Enables or disables a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -988,8 +988,8 @@ namespace Docspace.Api
         /// <summary>
         /// Enable a webhook Enables or disables a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
@@ -1059,7 +1059,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhooks Returns a list of the tenant webhooks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>WebhooksConfigWithStatusArrayWrapper</returns>
         public WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks()
@@ -1071,7 +1071,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhooks Returns a list of the tenant webhooks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWithStatusArrayWrapper</returns>
         public ApiResponse<WebhooksConfigWithStatusArrayWrapper> GetTenantWebhooksWithHttpInfo()
@@ -1136,7 +1136,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhooks Returns a list of the tenant webhooks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>Task of WebhooksConfigWithStatusArrayWrapper</returns>
@@ -1149,7 +1149,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhooks Returns a list of the tenant webhooks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/">REST API Reference for GetTenantWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWithStatusArrayWrapper)</returns>
@@ -1218,7 +1218,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook triggers Returns a list of triggers for a webhook.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>UnknownWrapper</returns>
         public UnknownWrapper GetWebhookTriggers()
@@ -1230,7 +1230,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook triggers Returns a list of triggers for a webhook.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>ApiResponse of UnknownWrapper</returns>
         public ApiResponse<UnknownWrapper> GetWebhookTriggersWithHttpInfo()
@@ -1295,7 +1295,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook triggers Returns a list of triggers for a webhook.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>Task of UnknownWrapper</returns>
@@ -1308,7 +1308,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook triggers Returns a list of triggers for a webhook.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
         /// <returns>Task of ApiResponse (UnknownWrapper)</returns>
@@ -1377,7 +1377,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook logs Returns the logs of the webhook activities.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -1399,7 +1399,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook logs Returns the logs of the webhook activities.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -1514,7 +1514,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook logs Returns the logs of the webhook activities.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -1537,7 +1537,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get webhook logs Returns the logs of the webhook activities.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deliveryFrom">The delivery start time for filtering webhook logs. (optional)</param>
         /// <param name="deliveryTo">The delivery end time for filtering webhook logs. (optional)</param>
         /// <param name="hookUri">The destination URL where webhooks are delivered. (optional)</param>
@@ -1570,43 +1570,43 @@ namespace Docspace.Api
 
             if (deliveryFrom != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deliveryFrom", deliveryFrom));
             }
             if (deliveryTo != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deliveryTo", deliveryTo));
             }
             if (hookUri != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "hookUri", hookUri));
             }
             if (configId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "configId", configId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "configId", configId));
             }
             if (eventId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "eventId", eventId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "eventId", eventId));
             }
             if (groupStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupStatus", groupStatus));
             }
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (trigger != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "trigger", trigger));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -1656,7 +1656,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a webhook Removes a tenant webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
@@ -1669,7 +1669,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a webhook Removes a tenant webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
@@ -1736,7 +1736,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a webhook Removes a tenant webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
@@ -1750,7 +1750,7 @@ namespace Docspace.Api
         /// <summary>
         /// Remove a webhook Removes a tenant webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/">REST API Reference for RemoveWebhook Operation</seealso>
@@ -1821,7 +1821,7 @@ namespace Docspace.Api
         /// <summary>
         /// Retry a webhook Retries a webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>WebhooksLogWrapper</returns>
@@ -1834,7 +1834,7 @@ namespace Docspace.Api
         /// <summary>
         /// Retry a webhook Retries a webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogWrapper</returns>
@@ -1901,7 +1901,7 @@ namespace Docspace.Api
         /// <summary>
         /// Retry a webhook Retries a webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
@@ -1915,7 +1915,7 @@ namespace Docspace.Api
         /// <summary>
         /// Retry a webhook Retries a webhook with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/">REST API Reference for RetryWebhook Operation</seealso>
@@ -1986,8 +1986,8 @@ namespace Docspace.Api
         /// <summary>
         /// Retry webhooks Retries all the webhooks with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -1999,8 +1999,8 @@ namespace Docspace.Api
         /// <summary>
         /// Retry webhooks Retries all the webhooks with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -2066,8 +2066,8 @@ namespace Docspace.Api
         /// <summary>
         /// Retry webhooks Retries all the webhooks with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -2080,8 +2080,8 @@ namespace Docspace.Api
         /// <summary>
         /// Retry webhooks Retries all the webhooks with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
@@ -2151,8 +2151,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a webhook Updates a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
         public WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
@@ -2164,8 +2164,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a webhook Updates a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
         public ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
@@ -2231,8 +2231,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a webhook Updates a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
@@ -2245,8 +2245,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a webhook Updates a tenant webhook with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateWebhooksConfigRequestsDto">The request parameters for updating the webhook configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>

@@ -1,4 +1,4 @@
-# Docspace.Model.HistoryAction
+# DocSpace.Model.HistoryAction
 The action performed on the file.
 
 ## Properties

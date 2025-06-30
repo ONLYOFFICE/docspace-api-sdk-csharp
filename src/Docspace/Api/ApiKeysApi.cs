@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a user API key with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>ApiKeyResponseWrapper</returns>
         ApiKeyResponseWrapper CreateApiKey(CreateApiKeyRequestDto? createApiKeyRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a user API key with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseWrapper</returns>
         ApiResponse<ApiKeyResponseWrapper> CreateApiKeyWithHttpInfo(CreateApiKeyRequestDto? createApiKeyRequestDto = default);
@@ -73,7 +73,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Delete a user API key by its ID.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -85,7 +85,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Delete a user API key by its ID.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all available permissions for the API key.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         STRINGArrayWrapper GetAllPermissions();
@@ -107,7 +107,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all available permissions for the API key.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         ApiResponse<STRINGArrayWrapper> GetAllPermissionsWithHttpInfo();
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns current user API key info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>ApiKeyResponseWrapper</returns>
         ApiKeyResponseWrapper GetApiKey();
@@ -128,7 +128,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns current user API key info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseWrapper</returns>
         ApiResponse<ApiKeyResponseWrapper> GetApiKeyWithHttpInfo();
@@ -138,7 +138,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all API keys for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>ApiKeyResponseArrayWrapper</returns>
         ApiKeyResponseArrayWrapper GetApiKeys();
@@ -149,7 +149,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all API keys for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseArrayWrapper</returns>
         ApiResponse<ApiKeyResponseArrayWrapper> GetApiKeysWithHttpInfo();
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates an existing API key changing its name, permissions and status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
@@ -172,7 +172,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates an existing API key changing its name, permissions and status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
@@ -193,8 +193,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a user API key with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>Task of ApiKeyResponseWrapper</returns>
@@ -206,8 +206,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a user API key with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseWrapper)</returns>
@@ -218,7 +218,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Delete a user API key by its ID.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
@@ -231,7 +231,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Delete a user API key by its ID.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
@@ -243,7 +243,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all available permissions for the API key.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -255,7 +255,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all available permissions for the API key.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -266,7 +266,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns current user API key info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>Task of ApiKeyResponseWrapper</returns>
@@ -278,7 +278,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns current user API key info.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseWrapper)</returns>
@@ -289,7 +289,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all API keys for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>Task of ApiKeyResponseArrayWrapper</returns>
@@ -301,7 +301,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all API keys for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseArrayWrapper)</returns>
@@ -312,7 +312,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates an existing API key changing its name, permissions and status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -326,7 +326,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates an existing API key changing its name, permissions and status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -371,14 +371,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public ApiKeysApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -393,14 +393,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -435,14 +435,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -462,14 +462,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -489,7 +489,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -549,8 +549,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a user API key Creates a user API key with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>ApiKeyResponseWrapper</returns>
         public ApiKeyResponseWrapper CreateApiKey(CreateApiKeyRequestDto? createApiKeyRequestDto = default)
@@ -562,8 +562,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a user API key Creates a user API key with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseWrapper</returns>
         public ApiResponse<ApiKeyResponseWrapper> CreateApiKeyWithHttpInfo(CreateApiKeyRequestDto? createApiKeyRequestDto = default)
@@ -629,8 +629,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a user API key Creates a user API key with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>Task of ApiKeyResponseWrapper</returns>
@@ -643,8 +643,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a user API key Creates a user API key with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createApiKeyRequestDto">The request parameters for creating a new API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/">REST API Reference for CreateApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseWrapper)</returns>
@@ -714,7 +714,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user API key Delete a user API key by its ID.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -727,7 +727,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user API key Delete a user API key by its ID.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -794,7 +794,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user API key Delete a user API key by its ID.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
@@ -808,7 +808,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a user API key Delete a user API key by its ID.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/">REST API Reference for DeleteApiKey Operation</seealso>
@@ -879,7 +879,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get API key permissions Returns a list of all available permissions for the API key.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         public STRINGArrayWrapper GetAllPermissions()
@@ -891,7 +891,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get API key permissions Returns a list of all available permissions for the API key.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         public ApiResponse<STRINGArrayWrapper> GetAllPermissionsWithHttpInfo()
@@ -956,7 +956,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get API key permissions Returns a list of all available permissions for the API key.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -969,7 +969,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get API key permissions Returns a list of all available permissions for the API key.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -1038,7 +1038,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API key info Returns current user API key info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>ApiKeyResponseWrapper</returns>
         public ApiKeyResponseWrapper GetApiKey()
@@ -1050,7 +1050,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API key info Returns current user API key info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseWrapper</returns>
         public ApiResponse<ApiKeyResponseWrapper> GetApiKeyWithHttpInfo()
@@ -1115,7 +1115,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API key info Returns current user API key info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>Task of ApiKeyResponseWrapper</returns>
@@ -1128,7 +1128,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API key info Returns current user API key info.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseWrapper)</returns>
@@ -1197,7 +1197,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API keys Returns a list of all API keys for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>ApiKeyResponseArrayWrapper</returns>
         public ApiKeyResponseArrayWrapper GetApiKeys()
@@ -1209,7 +1209,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API keys Returns a list of all API keys for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseArrayWrapper</returns>
         public ApiResponse<ApiKeyResponseArrayWrapper> GetApiKeysWithHttpInfo()
@@ -1274,7 +1274,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API keys Returns a list of all API keys for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>Task of ApiKeyResponseArrayWrapper</returns>
@@ -1287,7 +1287,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get user API keys Returns a list of all API keys for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/">REST API Reference for GetApiKeys Operation</seealso>
         /// <returns>Task of ApiResponse (ApiKeyResponseArrayWrapper)</returns>
@@ -1356,7 +1356,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update an API key Updates an existing API key changing its name, permissions and status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
@@ -1370,7 +1370,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update an API key Updates an existing API key changing its name, permissions and status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
@@ -1439,7 +1439,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update an API key Updates an existing API key changing its name, permissions and status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1454,7 +1454,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update an API key Updates an existing API key changing its name, permissions and status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
         /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

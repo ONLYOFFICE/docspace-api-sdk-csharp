@@ -1,4 +1,4 @@
-# Docspace.Model.UpdateMemberRequestDto
+# DocSpace.Model.UpdateMemberRequestDto
 The request parameters for updating the user information.
 
 ## Properties
@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **Title** | **string** | The user title. | [optional] 
 **Location** | **string** | The user location. | [optional] 
 **Sex** | **SexEnum** |  | [optional] 
-**Birthday** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Worksfrom** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Birthday** | [**ApiDateTime**](.md) |  | [optional] 
+**Worksfrom** | [**ApiDateTime**](.md) |  | [optional] 
 **Comment** | **string** | The user comment. | [optional] 
-**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of the user contacts. | [optional] 
+**Contacts** | [**List&lt;Contact&gt;**](.md) | The list of the user contacts. | [optional] 
 **Files** | **string** | The user avatar photo URL. | [optional] 
 **Spam** | **bool?** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
 

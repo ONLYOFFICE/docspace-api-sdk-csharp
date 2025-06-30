@@ -1,4 +1,4 @@
-# Docspace.Api.FilesFoldersApi
+# DocSpace.Api.FilesFoldersApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -31,18 +31,31 @@ All URIs are relative to *http://localhost:8092*
 # **CheckUpload**
 > STRINGArrayWrapper CheckUpload (int folderId, CheckUploadRequest? checkUploadRequest = null)
 
-Check file uploads
-
 Checks the file uploads to the folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID. |  |
+| **checkUploadRequest** | [**CheckUploadRequest?**](CheckUploadRequest.md) | The request parameters for checking file uploads. | [optional]  |
+
+### Return type
+
+[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -112,21 +125,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID. |  |
-| **checkUploadRequest** | [**CheckUploadRequest?**](CheckUploadRequest?.md) | The request parameters for checking file uploads. | [optional]  |
-
-### Return type
-
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -145,18 +143,31 @@ catch (ApiException e)
 # **CreateFolder**
 > FolderIntegerWrapper CreateFolder (int folderId, CreateFolder? createFolder = null)
 
-Create a folder
-
 Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID for the folder creation. |  |
+| **createFolder** | [**CreateFolder?**](CreateFolder.md) | The parameters for creating a folder. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -226,21 +237,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID for the folder creation. |  |
-| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | The parameters for creating a folder. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -259,18 +255,31 @@ catch (ApiException e)
 # **DeleteFolder**
 > FileOperationArrayWrapper DeleteFolder (int folderId, DeleteFolder? deleteFolder = null)
 
-Delete a folder
-
 Deletes a folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID to delete. |  |
+| **deleteFolder** | [**DeleteFolder?**](DeleteFolder.md) | The parameters for deleting a folder. | [optional]  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -340,21 +349,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID to delete. |  |
-| **deleteFolder** | [**DeleteFolder?**](DeleteFolder?.md) | The parameters for deleting a folder. | [optional]  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -373,18 +367,26 @@ catch (ApiException e)
 # **GetFilesUsedSpace**
 > FilesStatisticsResultWrapper GetFilesUsedSpace ()
 
-Get used space of files
-
 Returns the used space of files in the root folders.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**FilesStatisticsResultWrapper**](FilesStatisticsResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -452,16 +454,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**FilesStatisticsResultWrapper**](FilesStatisticsResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -480,18 +472,30 @@ This endpoint does not need any parameter.
 # **GetFolder**
 > FormsItemArrayWrapper GetFolder (int folderId)
 
-Get folder form filter
-
 Returns the form filter of a folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FormsItemArrayWrapper**](FormsItemArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -544,20 +548,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FormsItemArrayWrapper**](FormsItemArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -575,18 +565,44 @@ No authorization required
 # **GetFolderByFolderId**
 > FolderContentIntegerWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, FilterType? filterType = null, int? roomId = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get a folder by ID
-
 Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID of the request. |  |
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **roomId** | **int?** | The room ID. | [optional]  |
+| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements from the specified folder. | [optional]  |
+| **extension** | **string?** | Specifies whether to search for the specific file extension. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea.md) | The search area. | [optional]  |
+| **formsItemKey** | **string?** | The forms item key. | [optional]  |
+| **formsItemType** | **string?** | The forms item type. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated request. | [optional]  |
+| **sortBy** | **string?** | Specifies the property used for sorting the folder request results. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text value used as a filter parameter for folder content queries. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -653,34 +669,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID of the request. |  |
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
-| **roomId** | **int?** | The room ID. | [optional]  |
-| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements from the specified folder. | [optional]  |
-| **extension** | **string?** | Specifies whether to search for the specific file extension. | [optional]  |
-| **searchArea** | [**SearchArea?**](SearchArea?.md) | The search area. | [optional]  |
-| **formsItemKey** | **string?** | The forms item key. | [optional]  |
-| **formsItemType** | **string?** | The forms item type. | [optional]  |
-| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated request. | [optional]  |
-| **sortBy** | **string?** | Specifies the property used for sorting the folder request results. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text value used as a filter parameter for folder content queries. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -700,18 +688,34 @@ No authorization required
 # **GetFolderHistory**
 > HistoryArrayWrapper GetFolderHistory (int folderId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null, int? count = null, int? startIndex = null)
 
-Get folder history
-
 Returns the activity history of a folder with a specified identifier.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID of the history request. |  |
+| **fromDate** | [**ApiDateTime?**](ApiDateTime.md) | The start date of the history request. | [optional]  |
+| **toDate** | [**ApiDateTime?**](ApiDateTime.md) | The end date of the history request. | [optional]  |
+| **count** | **int?** | The number of records to retrieve for the folder history. | [optional]  |
+| **startIndex** | **int?** | The starting index from which the history records are retrieved in the request. | [optional]  |
+
+### Return type
+
+[**HistoryArrayWrapper**](HistoryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -784,24 +788,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID of the history request. |  |
-| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history request. | [optional]  |
-| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history request. | [optional]  |
-| **count** | **int?** | The number of records to retrieve for the folder history. | [optional]  |
-| **startIndex** | **int?** | The starting index from which the history records are retrieved in the request. | [optional]  |
-
-### Return type
-
-[**HistoryArrayWrapper**](HistoryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -822,18 +808,30 @@ catch (ApiException e)
 # **GetFolderInfo**
 > FolderIntegerWrapper GetFolderInfo (int folderId)
 
-Get folder information
-
 Returns the detailed information about a folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -886,20 +884,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -917,18 +901,30 @@ No authorization required
 # **GetFolderPath**
 > FileEntryArrayWrapper GetFolderPath (int folderId)
 
-Get the folder path
-
 Returns a path to the folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -997,20 +993,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1030,18 +1012,30 @@ catch (ApiException e)
 # **GetFolderPrimaryExternalLink**
 > FileShareWrapper GetFolderPrimaryExternalLink (int id)
 
-Get primary external link
-
 Returns the primary external link by the identifier specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1094,20 +1088,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1126,18 +1106,30 @@ No authorization required
 # **GetFolders**
 > FileEntryArrayWrapper GetFolders (int folderId)
 
-Get subfolders
-
 Returns a list of all the subfolders from a folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1206,20 +1198,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1239,18 +1217,37 @@ catch (ApiException e)
 # **GetMyFolder**
 > FolderContentIntegerWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get the \"My documents\" section
-
 Returns the detailed list of files and folders located in the \"My documents\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1326,27 +1323,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
-| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
-| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
-| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1367,18 +1343,30 @@ catch (ApiException e)
 # **GetNewFolderItems**
 > FileEntryArrayWrapper GetNewFolderItems (int folderId)
 
-Get new folder items
-
 Returns a list of all the new items from a folder with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The request folder ID. |  |
+
+### Return type
+
+[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1447,20 +1435,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
-
-### Return type
-
-[**FileEntryArrayWrapper**](FileEntryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1480,18 +1454,36 @@ catch (ApiException e)
 # **GetPrivacyFolder**
 > FolderContentIntegerWrapper GetPrivacyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get the \"Private Room\" section
-
 Returns the detailed list of files and folders located in the \"Private Room\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated list. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter or search criterion for folder content queries. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1566,26 +1558,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
-| **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
-| **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated list. | [optional]  |
-| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used as a filter or search criterion for folder content queries. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1606,18 +1578,37 @@ catch (ApiException e)
 # **GetRootFolders**
 > FolderContentIntegerArrayWrapper GetRootFolders (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? withoutTrash = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get filtered sections
-
 Returns all the sections matching the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **withoutTrash** | **bool?** | Specifies whether to return the \&quot;Trash\&quot; section or not. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used as a filter for searching or retrieving folder contents. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerArrayWrapper**](FolderContentIntegerArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1693,27 +1684,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
-| **withoutTrash** | **bool?** | Specifies whether to return the \&quot;Trash\&quot; section or not. | [optional]  |
-| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
-| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
-| **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used as a filter for searching or retrieving folder contents. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerArrayWrapper**](FolderContentIntegerArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1734,18 +1704,37 @@ catch (ApiException e)
 # **GetTrashFolder**
 > FolderContentIntegerWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get the \"Trash\" section
-
 Returns the detailed list of files and folders located in the \"Trash\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
+| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
+| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
+| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1821,27 +1810,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType?.md) | The filter type. | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption?.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
-| **count** | **int?** | The maximum number of items to retrieve in the response. | [optional]  |
-| **startIndex** | **int?** | The starting position of the items to be retrieved. | [optional]  |
-| **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1862,18 +1830,42 @@ catch (ApiException e)
 # **InsertFile**
 > FileIntegerWrapper InsertFile (int folderId, FileParameter? insertFileFile = null, string? insertFileTitle = null, bool? insertFileCreateNewIfExist = null, bool? insertFileKeepConvertStatus = null, bool? insertFileStreamCanRead = null, bool? insertFileStreamCanWrite = null, bool? insertFileStreamCanSeek = null, bool? insertFileStreamCanTimeout = null, long? insertFileStreamLength = null, long? insertFileStreamPosition = null, int? insertFileStreamReadTimeout = null, int? insertFileStreamWriteTimeout = null)
 
-Insert a file
-
 Inserts a file specified in the request to the selected folder by single file uploading.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID for inserting a file. |  |
+| **insertFileFile** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
+| **insertFileTitle** | **string?** | The file title to be inserted. | [optional]  |
+| **insertFileCreateNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
+| **insertFileKeepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
+| **insertFileStreamCanRead** | **bool?** |  | [optional]  |
+| **insertFileStreamCanWrite** | **bool?** |  | [optional]  |
+| **insertFileStreamCanSeek** | **bool?** |  | [optional]  |
+| **insertFileStreamCanTimeout** | **bool?** |  | [optional]  |
+| **insertFileStreamLength** | **long?** |  | [optional]  |
+| **insertFileStreamPosition** | **long?** |  | [optional]  |
+| **insertFileStreamReadTimeout** | **int?** |  | [optional]  |
+| **insertFileStreamWriteTimeout** | **int?** |  | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1954,32 +1946,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID for inserting a file. |  |
-| **insertFileFile** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
-| **insertFileTitle** | **string?** | The file title to be inserted. | [optional]  |
-| **insertFileCreateNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
-| **insertFileKeepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
-| **insertFileStreamCanRead** | **bool?** |  | [optional]  |
-| **insertFileStreamCanWrite** | **bool?** |  | [optional]  |
-| **insertFileStreamCanSeek** | **bool?** |  | [optional]  |
-| **insertFileStreamCanTimeout** | **bool?** |  | [optional]  |
-| **insertFileStreamLength** | **long?** |  | [optional]  |
-| **insertFileStreamPosition** | **long?** |  | [optional]  |
-| **insertFileStreamReadTimeout** | **int?** |  | [optional]  |
-| **insertFileStreamWriteTimeout** | **int?** |  | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
@@ -2000,18 +1966,41 @@ catch (ApiException e)
 # **InsertFileToMyFromBody**
 > FileIntegerWrapper InsertFileToMyFromBody (FileParameter? file = null, string? title = null, bool? createNewIfExist = null, bool? keepConvertStatus = null, bool? streamCanRead = null, bool? streamCanWrite = null, bool? streamCanSeek = null, bool? streamCanTimeout = null, long? streamLength = null, long? streamPosition = null, int? streamReadTimeout = null, int? streamWriteTimeout = null)
 
-Insert a file to the \"My documents\" section
-
 Inserts a file specified in the request to the \"My documents\" section by single file uploading.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
+| **title** | **string?** | The file title to be inserted. | [optional]  |
+| **createNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
+| **keepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
+| **streamCanRead** | **bool?** |  | [optional]  |
+| **streamCanWrite** | **bool?** |  | [optional]  |
+| **streamCanSeek** | **bool?** |  | [optional]  |
+| **streamCanTimeout** | **bool?** |  | [optional]  |
+| **streamLength** | **long?** |  | [optional]  |
+| **streamPosition** | **long?** |  | [optional]  |
+| **streamReadTimeout** | **int?** |  | [optional]  |
+| **streamWriteTimeout** | **int?** |  | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2091,31 +2080,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **file** | **FileParameter?****FileParameter?** | The file to be inserted. | [optional]  |
-| **title** | **string?** | The file title to be inserted. | [optional]  |
-| **createNewIfExist** | **bool?** | Specifies whether to create a new file if it already exists or not. | [optional]  |
-| **keepConvertStatus** | **bool?** | Specifies whether to keep the file converting status or not. | [optional]  |
-| **streamCanRead** | **bool?** |  | [optional]  |
-| **streamCanWrite** | **bool?** |  | [optional]  |
-| **streamCanSeek** | **bool?** |  | [optional]  |
-| **streamCanTimeout** | **bool?** |  | [optional]  |
-| **streamLength** | **long?** |  | [optional]  |
-| **streamPosition** | **long?** |  | [optional]  |
-| **streamReadTimeout** | **int?** |  | [optional]  |
-| **streamWriteTimeout** | **int?** |  | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
@@ -2136,18 +2100,31 @@ catch (ApiException e)
 # **RenameFolder**
 > FolderIntegerWrapper RenameFolder (int folderId, CreateFolder? createFolder = null)
 
-Rename a folder
-
 Renames the selected folder with a new title specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID for the folder creation. |  |
+| **createFolder** | [**CreateFolder?**](CreateFolder.md) | The parameters for creating a folder. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2217,21 +2194,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID for the folder creation. |  |
-| **createFolder** | [**CreateFolder?**](CreateFolder?.md) | The parameters for creating a folder. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2251,18 +2213,31 @@ catch (ApiException e)
 # **SetFolderOrder**
 > FolderIntegerWrapper SetFolderOrder (int folderId, OrderRequestDto? orderRequestDto = null)
 
-Set folder order
-
 Sets the file order in the folder with ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder unique identifier. |  |
+| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto.md) | The folder order information. | [optional]  |
+
+### Return type
+
+[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2332,21 +2307,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder unique identifier. |  |
-| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The folder order information. | [optional]  |
-
-### Return type
-
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2365,18 +2325,31 @@ catch (ApiException e)
 # **UploadFile**
 > ObjectWrapper UploadFile (int folderId, UploadRequestDto? uploadRequestDto = null)
 
-Upload a file
-
 Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID to upload a file. |  |
+| **uploadRequestDto** | [**UploadRequestDto?**](UploadRequestDto.md) | The request parameters for uploading a file. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2446,21 +2419,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID to upload a file. |  |
-| **uploadRequestDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | The request parameters for uploading a file. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -2481,18 +2439,30 @@ catch (ApiException e)
 # **UploadFileToMy**
 > ObjectWrapper UploadFileToMy (UploadRequestDto? inDto = null)
 
-Upload a file to the \"My documents\" section
-
 Uploads a file specified in the request to the \"My documents\" section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inDto** | [**UploadRequestDto?**](UploadRequestDto.md) | The request parameters for uploading a file. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2560,20 +2530,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **inDto** | [**UploadRequestDto?**](UploadRequestDto?.md) | The request parameters for uploading a file. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

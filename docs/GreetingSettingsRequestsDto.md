@@ -1,4 +1,4 @@
-# Docspace.Model.GreetingSettingsRequestsDto
+# DocSpace.Model.GreetingSettingsRequestsDto
 The request parameters for managing the greeting settings.
 
 ## Properties

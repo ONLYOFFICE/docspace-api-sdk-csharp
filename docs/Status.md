@@ -1,4 +1,4 @@
-# Docspace.Model.Status
+# DocSpace.Model.Status
 [0 - Ok, 1 - Invalid, 2 - Expired, 3 - Required password, 4 - Invalid password, 5 - External access denied]
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.AuthRequestsDto
+# DocSpace.Model.AuthRequestsDto
 The parameters required for the user authentication requests.
 
 ## Properties
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Code** | **string** | The code for two-factor authentication. | [optional] 
 **CodeOAuth** | **string** | The authorization code used for obtaining OAuth tokens. | [optional] 
 **Session** | **bool** | Specifies whether the authentication is session-based. | [optional] 
-**ConfirmData** | [**ConfirmData**](ConfirmData.md) |  | [optional] 
+**ConfirmData** | [**ConfirmData**](.md) |  | [optional] 
 **RecaptchaType** | **RecaptchaType** |  | [optional] 
 **RecaptchaResponse** | **string** | The user&#39;s response to the CAPTCHA challenge. | [optional] 
 **Culture** | **string** | The culture code for localization during authentication. | [optional] 

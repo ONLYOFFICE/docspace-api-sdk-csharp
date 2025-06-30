@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the available third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -65,7 +65,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the available third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -79,8 +79,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Links a third-party account specified in the request to the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns></returns>
         void LinkThirdPartyAccount(LinkAccountRequestDto? linkAccountRequestDto = default);
@@ -91,8 +91,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Links a third-party account specified in the request to the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default);
@@ -102,8 +102,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a third-party account with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns></returns>
         void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default);
@@ -114,8 +114,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a third-party account with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default);
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks a third-party account specified in the request from the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns></returns>
@@ -137,7 +137,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks a third-party account specified in the request from the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the available third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -173,7 +173,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the available third-party accounts.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -188,8 +188,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Links a third-party account specified in the request to the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of void</returns>
@@ -201,8 +201,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Links a third-party account specified in the request to the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -213,8 +213,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a third-party account with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>Task of void</returns>
@@ -226,8 +226,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a third-party account with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -238,7 +238,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks a third-party account specified in the request from the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
@@ -251,7 +251,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks a third-party account specified in the request from the user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
@@ -295,14 +295,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleThirdPartyAccountsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -317,14 +317,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -359,14 +359,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -386,14 +386,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -413,7 +413,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -473,7 +473,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get third-party accounts Returns a list of the available third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -489,7 +489,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get third-party accounts Returns a list of the available third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -544,7 +544,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get third-party accounts Returns a list of the available third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -561,7 +561,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get third-party accounts Returns a list of the available third-party accounts.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inviteView">Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional)</param>
         /// <param name="settingsView">Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional)</param>
         /// <param name="clientCallback">The method that is called after authentication. (optional)</param>
@@ -588,19 +588,19 @@ namespace Docspace.Api
 
             if (inviteView != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviteView", inviteView));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviteView", inviteView));
             }
             if (settingsView != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "settingsView", settingsView));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settingsView", settingsView));
             }
             if (clientCallback != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "clientCallback", clientCallback));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "clientCallback", clientCallback));
             }
             if (fromOnly != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fromOnly", fromOnly));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromOnly", fromOnly));
             }
 
 
@@ -620,8 +620,8 @@ namespace Docspace.Api
         /// <summary>
         /// Link a third-pary account Links a third-party account specified in the request to the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns></returns>
         public void LinkThirdPartyAccount(LinkAccountRequestDto? linkAccountRequestDto = default)
@@ -632,8 +632,8 @@ namespace Docspace.Api
         /// <summary>
         /// Link a third-pary account Links a third-party account specified in the request to the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> LinkThirdPartyAccountWithHttpInfo(LinkAccountRequestDto? linkAccountRequestDto = default)
@@ -699,8 +699,8 @@ namespace Docspace.Api
         /// <summary>
         /// Link a third-pary account Links a third-party account specified in the request to the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of void</returns>
@@ -712,8 +712,8 @@ namespace Docspace.Api
         /// <summary>
         /// Link a third-pary account Links a third-party account specified in the request to the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="linkAccountRequestDto">The request parameters for linking accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/">REST API Reference for LinkThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -783,8 +783,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a third-pary account Creates a third-party account with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns></returns>
         public void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default)
@@ -795,8 +795,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a third-pary account Creates a third-party account with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default)
@@ -832,8 +832,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a third-pary account Creates a third-party account with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>Task of void</returns>
@@ -845,8 +845,8 @@ namespace Docspace.Api
         /// <summary>
         /// Create a third-pary account Creates a third-party account with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signupAccountRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -886,7 +886,7 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink a third-pary account Unlinks a third-party account specified in the request from the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns></returns>
@@ -898,7 +898,7 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink a third-pary account Unlinks a third-party account specified in the request from the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -968,7 +968,7 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink a third-pary account Unlinks a third-party account specified in the request from the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
@@ -981,7 +981,7 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink a third-pary account Unlinks a third-party account specified in the request from the user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The provider name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/">REST API Reference for UnlinkThirdPartyAccount Operation</seealso>
@@ -1005,7 +1005,7 @@ namespace Docspace.Api
 
             if (provider != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "provider", provider));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "provider", provider));
             }
 
             // authentication (Basic) required

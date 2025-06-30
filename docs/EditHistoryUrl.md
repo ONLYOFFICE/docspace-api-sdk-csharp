@@ -1,4 +1,4 @@
-# Docspace.Model.EditHistoryUrl
+# DocSpace.Model.EditHistoryUrl
 The file editing history URL parameters.
 
 ## Properties

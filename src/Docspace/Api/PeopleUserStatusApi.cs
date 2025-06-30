@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles filtered by the user status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -69,7 +69,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles filtered by the user status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -87,7 +87,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the required activation status to the list of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
@@ -100,7 +100,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the required activation status to the list of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
@@ -112,7 +112,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a status of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a status of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles filtered by the user status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -166,7 +166,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of profiles filtered by the user status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -185,7 +185,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the required activation status to the list of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -199,7 +199,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the required activation status to the list of users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -212,7 +212,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a status of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -226,7 +226,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a status of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -271,14 +271,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleUserStatusApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -293,14 +293,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -362,14 +362,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles by status Returns a list of profiles filtered by the user status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -469,7 +469,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles by status Returns a list of profiles filtered by the user status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -571,7 +571,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles by status Returns a list of profiles filtered by the user status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -592,7 +592,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get profiles by status Returns a list of profiles filtered by the user status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="filterBy">Specifies the criteria used to filter the profiles in the request. (optional)</param>
         /// <param name="count">The maximum number of user profiles to retrieve. (optional)</param>
@@ -624,31 +624,31 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("status", ClientUtils.ParameterToString(status)); // path parameter
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -698,7 +698,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an activation status to the users Sets the required activation status to the list of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
@@ -712,7 +712,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an activation status to the users Sets the required activation status to the list of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
@@ -781,7 +781,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an activation status to the users Sets the required activation status to the list of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -796,7 +796,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set an activation status to the users Sets the required activation status to the list of users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -869,7 +869,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user status Changes a status of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
@@ -883,7 +883,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user status Changes a status of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
@@ -952,7 +952,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user status Changes a status of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -967,7 +967,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user status Changes a status of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

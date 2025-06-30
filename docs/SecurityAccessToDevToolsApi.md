@@ -1,4 +1,4 @@
-# Docspace.Api.SecurityAccessToDevToolsApi
+# DocSpace.Api.SecurityAccessToDevToolsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,30 @@ All URIs are relative to *http://localhost:8092*
 # **SetTenantDevToolsAccessSettings**
 > TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings (TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = null)
 
-Set the Developer Tools access settings
-
 Sets the Developer Tools access settings for the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto?**](TenantDevToolsAccessSettingsDto.md) | The request parameters for managing the Developer Tools access settings for the current tenant. | [optional]  |
+
+### Return type
+
+[**TenantDevToolsAccessSettingsWrapper**](TenantDevToolsAccessSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -51,7 +63,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityAccessToDevToolsApi(httpClient, config, httpClientHandler);
-            var tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto?(); // TenantDevToolsAccessSettingsDto? |  (optional) 
+            var tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto?(); // TenantDevToolsAccessSettingsDto? | The request parameters for managing the Developer Tools access settings for the current tenant. (optional) 
 
             try
             {
@@ -89,20 +101,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto?**](TenantDevToolsAccessSettingsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantDevToolsAccessSettingsWrapper**](TenantDevToolsAccessSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

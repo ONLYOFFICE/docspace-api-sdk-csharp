@@ -1,12 +1,12 @@
-# Docspace.Model.WebhooksLogArrayWrapper
+# DocSpace.Model.WebhooksLogArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;WebhooksLogDto&gt;**](WebhooksLogDto.md) |  | [optional] 
+**Response** | [**List&lt;WebhooksLogDto&gt;**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

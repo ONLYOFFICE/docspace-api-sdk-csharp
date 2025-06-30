@@ -1,12 +1,12 @@
-# Docspace.Model.SsoSettingsV2Wrapper
+# DocSpace.Model.SsoSettingsV2Wrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**SsoSettingsV2**](SsoSettingsV2.md) |  | [optional] 
+**Response** | [**SsoSettingsV2**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

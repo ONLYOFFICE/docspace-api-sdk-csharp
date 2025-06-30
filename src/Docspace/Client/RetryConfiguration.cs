@@ -28,7 +28,7 @@
 using Polly;
 using System.Net.Http;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Configuration class to set the polly retry policies to be applied to the requests.

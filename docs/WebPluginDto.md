@@ -1,4 +1,4 @@
-# Docspace.Model.WebPluginDto
+# DocSpace.Model.WebPluginDto
 The web plugin information.
 
 ## Properties
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PluginName** | **string** | The name by which the web plugin is registered in the window object. | [optional] 
 **Scopes** | **string** | The web plugin scopes. | [optional] 
 **Image** | **string** | The web plugin image. | [optional] 
-**CreateBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
+**CreateBy** | [**EmployeeDto**](.md) |  | [optional] 
 **CreateOn** | **DateTime** | The date and time when the web plugin was created. | [optional] 
 **Enabled** | **bool** | Specifies if the web plugin is enabled or not. | [optional] 
 **System** | **bool** | Specifies if the web plugin is system or not. | [optional] 

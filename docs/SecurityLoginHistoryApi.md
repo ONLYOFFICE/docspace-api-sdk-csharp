@@ -1,4 +1,4 @@
-# Docspace.Api.SecurityLoginHistoryApi
+# DocSpace.Api.SecurityLoginHistoryApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,26 @@ All URIs are relative to *http://localhost:8092*
 # **CreateLoginHistoryReport**
 > StringWrapper CreateLoginHistoryReport ()
 
-Generate the login history report
-
 Generates the login history report.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -91,16 +99,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -120,18 +118,26 @@ This endpoint does not need any parameter.
 # **GetLastLoginEvents**
 > LoginEventArrayWrapper GetLastLoginEvents ()
 
-Get login history
-
 Returns all the latest user login activity, including successful logins and error logs.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -199,16 +205,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -228,18 +224,35 @@ This endpoint does not need any parameter.
 # **GetLoginEventsByFilter**
 > LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
-Get filtered login events
-
 Returns a list of the login events by the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The ID of the user whose login events are being queried. | [optional]  |
+| **action** | [**MessageAction?**](MessageAction.md) | The login-related action to filter events by. | [optional]  |
+| **from** | [**ApiDateTime?**](ApiDateTime.md) | The starting date and time for filtering login events. | [optional]  |
+| **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering login events. | [optional]  |
+| **count** | **int?** | The number of login events to retrieve in the query. | [optional]  |
+| **startIndex** | **int?** | The starting index for fetching a subset of login events from the query results. | [optional]  |
+
+### Return type
+
+[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -312,25 +325,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The ID of the user whose login events are being queried. | [optional]  |
-| **action** | [**MessageAction?**](MessageAction?.md) | The login-related action to filter events by. | [optional]  |
-| **from** | [**ApiDateTime?**](ApiDateTime?.md) | The starting date and time for filtering login events. | [optional]  |
-| **to** | [**ApiDateTime?**](ApiDateTime?.md) | The ending date and time for filtering login events. | [optional]  |
-| **count** | **int?** | The number of login events to retrieve in the query. | [optional]  |
-| **startIndex** | **int?** | The starting index for fetching a subset of login events from the query results. | [optional]  |
-
-### Return type
-
-[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

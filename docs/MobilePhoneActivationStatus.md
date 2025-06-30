@@ -1,4 +1,4 @@
-# Docspace.Model.MobilePhoneActivationStatus
+# DocSpace.Model.MobilePhoneActivationStatus
 [0 - Not activated, 1 - Activated]
 
 ## Properties

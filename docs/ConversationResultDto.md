@@ -1,4 +1,4 @@
-# Docspace.Model.ConversationResultDto
+# DocSpace.Model.ConversationResultDto
 The result of file convertion operation.
 
 ## Properties

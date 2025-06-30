@@ -1,4 +1,4 @@
-# Docspace.Model.LoginEventDto
+# DocSpace.Model.LoginEventDto
 The login event parameters.
 
 ## Properties
@@ -6,7 +6,7 @@ The login event parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The login event ID. | [optional] 
-**Date** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Date** | [**ApiDateTime**](.md) |  | [optional] 
 **User** | **string** | The user name of the login event. | [optional] 
 **UserId** | **Guid** | The user ID of the login event. | [optional] 
 **Login** | **string** | The user login of the login event. | [optional] 

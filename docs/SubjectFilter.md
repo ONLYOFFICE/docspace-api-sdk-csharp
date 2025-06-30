@@ -1,4 +1,4 @@
-# Docspace.Model.SubjectFilter
+# DocSpace.Model.SubjectFilter
 [0 - Owner, 1 - Member]
 
 ## Properties

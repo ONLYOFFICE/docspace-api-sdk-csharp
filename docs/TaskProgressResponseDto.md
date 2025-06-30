@@ -1,4 +1,4 @@
-# Docspace.Model.TaskProgressResponseDto
+# DocSpace.Model.TaskProgressResponseDto
 The task progress response parameters.
 
 ## Properties

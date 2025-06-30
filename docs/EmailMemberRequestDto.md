@@ -1,4 +1,4 @@
-# Docspace.Model.EmailMemberRequestDto
+# DocSpace.Model.EmailMemberRequestDto
 The request parameters for the user email.
 
 ## Properties

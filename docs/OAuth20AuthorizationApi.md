@@ -1,4 +1,4 @@
-# Docspace.Api.OAuth20AuthorizationApi
+# DocSpace.Api.OAuth20AuthorizationApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,33 @@ All URIs are relative to *http://localhost:8092*
 # **AuthorizeOAuth**
 > void AuthorizeOAuth (string responseType, string clientId, string redirectUri, string scope)
 
-OAuth2 authorization endpoint
-
 Initiates the OAuth2 authorization flow.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **responseType** | **string** | The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. |  |
+| **clientId** | **string** | The client identifier issued to the client during registration. |  |
+| **redirectUri** | **string** | The URL to redirect to after authorization is complete. |  |
+| **scope** | **string** | The space-separated list of requested scope permissions. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -80,23 +95,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **responseType** | **string** | The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. |  |
-| **clientId** | **string** | The client identifier issued to the client during registration. |  |
-| **redirectUri** | **string** | The URL to redirect to after authorization is complete. |  |
-| **scope** | **string** | The space-separated list of requested scope permissions. |  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -115,18 +113,34 @@ void (empty response body)
 # **ExchangeToken**
 > ExchangeToken200Response ExchangeToken (string? grantType = null, string? code = null, string? redirectUri = null, string? clientId = null, string? clientSecret = null)
 
-OAuth2 token endpoint
-
 Exchanges an authorization code specified in the request for the access token.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **grantType** | **string?** | The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. | [optional]  |
+| **code** | **string?** | A temporary authorization code that is sent to the client to be exchanged for a token. | [optional]  |
+| **redirectUri** | **string?** | The URL where the user will be redirected after successful or unsuccessful authentication. | [optional]  |
+| **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
+| **clientSecret** | **string?** | The client secret issued to the client during registration. | [optional]  |
+
+### Return type
+
+[**ExchangeToken200Response**](ExchangeToken200Response.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -183,24 +197,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **grantType** | **string?** | The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. | [optional]  |
-| **code** | **string?** | A temporary authorization code that is sent to the client to be exchanged for a token. | [optional]  |
-| **redirectUri** | **string?** | The URL where the user will be redirected after successful or unsuccessful authentication. | [optional]  |
-| **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
-| **clientSecret** | **string?** | The client secret issued to the client during registration. | [optional]  |
-
-### Return type
-
-[**ExchangeToken200Response**](ExchangeToken200Response.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
@@ -219,18 +215,32 @@ No authorization required
 # **SubmitConsent**
 > void SubmitConsent (string? clientId = null, string? state = null, string? scope = null)
 
-OAuth2 consent endpoint
-
 Sends a consent request with the specified parameters.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
+| **state** | **string?** | The random string used to solve the CSRF vulnerability problem. | [optional]  |
+| **scope** | **string?** | The space-separated list of requested scope permissions. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[asc_auth_key](../README.md#asc_auth_key)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -285,22 +295,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
-| **state** | **string?** | The random string used to solve the CSRF vulnerability problem. | [optional]  |
-| **scope** | **string?** | The space-separated list of requested scope permissions. | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[asc_auth_key](../README.md#asc_auth_key)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.ClientResponse
+# DocSpace.Model.ClientResponse
 
 ## Properties
 

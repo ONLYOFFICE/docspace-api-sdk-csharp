@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsCookiesApi
+# DocSpace.Api.SettingsCookiesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -11,18 +11,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetCookieSettings**
 > CookieSettingsWrapper GetCookieSettings ()
 
-Get cookies lifetime
-
 Returns the cookies lifetime value in minutes.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CookieSettingsWrapper**](CookieSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -90,16 +98,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CookieSettingsWrapper**](CookieSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -118,18 +116,30 @@ This endpoint does not need any parameter.
 # **UpdateCookieSettings**
 > StringWrapper UpdateCookieSettings (CookieSettingsRequestsDto? cookieSettingsRequestsDto = null)
 
-Update cookies lifetime
-
 Updates the cookies lifetime value in minutes.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **cookieSettingsRequestsDto** | [**CookieSettingsRequestsDto?**](CookieSettingsRequestsDto.md) | The request parameters for managing cookie settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -159,7 +169,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsCookiesApi(httpClient, config, httpClientHandler);
-            var cookieSettingsRequestsDto = new CookieSettingsRequestsDto?(); // CookieSettingsRequestsDto? |  (optional) 
+            var cookieSettingsRequestsDto = new CookieSettingsRequestsDto?(); // CookieSettingsRequestsDto? | The request parameters for managing cookie settings. (optional) 
 
             try
             {
@@ -197,20 +207,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **cookieSettingsRequestsDto** | [**CookieSettingsRequestsDto?**](CookieSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

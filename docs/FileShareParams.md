@@ -1,4 +1,4 @@
-# Docspace.Model.FileShareParams
+# DocSpace.Model.FileShareParams
 The collection of file sharing parameters.
 
 ## Properties

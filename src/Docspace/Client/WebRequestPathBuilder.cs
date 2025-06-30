@@ -27,7 +27,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// A URI builder

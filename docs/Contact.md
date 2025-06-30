@@ -1,4 +1,4 @@
-# Docspace.Model.Contact
+# DocSpace.Model.Contact
 The contact information.
 
 ## Properties

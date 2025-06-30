@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Cancels the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns></returns>
         void CancelMigration();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Cancels the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CancelMigrationWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Clears the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns></returns>
         void ClearMigration();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Clears the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ClearMigrationWithHttpInfo();
@@ -92,8 +92,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns></returns>
         void FinishMigration(FinishDto? finishDto = default);
@@ -104,8 +104,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FinishMigrationWithHttpInfo(FinishDto? finishDto = default);
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns></returns>
         void GetMigrationLogs();
@@ -126,7 +126,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetMigrationLogsWithHttpInfo();
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>MigrationStatusWrapper</returns>
         MigrationStatusWrapper GetMigrationStatus();
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>ApiResponse of MigrationStatusWrapper</returns>
         ApiResponse<MigrationStatusWrapper> GetMigrationStatusWithHttpInfo();
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of available migrations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         STRINGArrayWrapper ListMigrations();
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of available migrations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         ApiResponse<STRINGArrayWrapper> ListMigrationsWithHttpInfo();
@@ -178,7 +178,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns></returns>
@@ -190,7 +190,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -201,7 +201,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads and initializes a migration with a migrator name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
         /// <returns></returns>
@@ -213,7 +213,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads and initializes a migration with a migrator name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -233,7 +233,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Cancels the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -245,7 +245,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Cancels the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -256,7 +256,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Clears the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Clears the migration.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -279,8 +279,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -292,8 +292,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Finishes the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -304,7 +304,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>Task of void</returns>
@@ -316,7 +316,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -327,7 +327,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>Task of MigrationStatusWrapper</returns>
@@ -339,7 +339,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the migration status.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (MigrationStatusWrapper)</returns>
@@ -350,7 +350,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of available migrations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -362,7 +362,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of available migrations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -373,7 +373,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
@@ -386,7 +386,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the migration process.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
@@ -398,7 +398,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads and initializes a migration with a migrator name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
@@ -411,7 +411,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads and initializes a migration with a migrator name specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
@@ -455,14 +455,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public MigrationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -477,14 +477,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -519,14 +519,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -546,14 +546,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -573,7 +573,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -633,7 +633,7 @@ namespace Docspace.Api
         /// <summary>
         /// Cancel migration Cancels the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns></returns>
         public void CancelMigration()
@@ -644,7 +644,7 @@ namespace Docspace.Api
         /// <summary>
         /// Cancel migration Cancels the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CancelMigrationWithHttpInfo()
@@ -709,7 +709,7 @@ namespace Docspace.Api
         /// <summary>
         /// Cancel migration Cancels the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -721,7 +721,7 @@ namespace Docspace.Api
         /// <summary>
         /// Cancel migration Cancels the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/">REST API Reference for CancelMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -790,7 +790,7 @@ namespace Docspace.Api
         /// <summary>
         /// Clear migration Clears the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns></returns>
         public void ClearMigration()
@@ -801,7 +801,7 @@ namespace Docspace.Api
         /// <summary>
         /// Clear migration Clears the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ClearMigrationWithHttpInfo()
@@ -866,7 +866,7 @@ namespace Docspace.Api
         /// <summary>
         /// Clear migration Clears the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -878,7 +878,7 @@ namespace Docspace.Api
         /// <summary>
         /// Clear migration Clears the migration.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/">REST API Reference for ClearMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -947,8 +947,8 @@ namespace Docspace.Api
         /// <summary>
         /// Finish migration Finishes the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns></returns>
         public void FinishMigration(FinishDto? finishDto = default)
@@ -959,8 +959,8 @@ namespace Docspace.Api
         /// <summary>
         /// Finish migration Finishes the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> FinishMigrationWithHttpInfo(FinishDto? finishDto = default)
@@ -1026,8 +1026,8 @@ namespace Docspace.Api
         /// <summary>
         /// Finish migration Finishes the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1039,8 +1039,8 @@ namespace Docspace.Api
         /// <summary>
         /// Finish migration Finishes the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="finishDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="finishDto">The parameters for terminating a process or operation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/">REST API Reference for FinishMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1110,7 +1110,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration logs Returns the migration logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns></returns>
         public void GetMigrationLogs()
@@ -1121,7 +1121,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration logs Returns the migration logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetMigrationLogsWithHttpInfo()
@@ -1186,7 +1186,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration logs Returns the migration logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1198,7 +1198,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration logs Returns the migration logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/">REST API Reference for GetMigrationLogs Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1267,7 +1267,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration status Returns the migration status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>MigrationStatusWrapper</returns>
         public MigrationStatusWrapper GetMigrationStatus()
@@ -1279,7 +1279,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration status Returns the migration status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>ApiResponse of MigrationStatusWrapper</returns>
         public ApiResponse<MigrationStatusWrapper> GetMigrationStatusWithHttpInfo()
@@ -1344,7 +1344,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration status Returns the migration status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>Task of MigrationStatusWrapper</returns>
@@ -1357,7 +1357,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migration status Returns the migration status.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/">REST API Reference for GetMigrationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (MigrationStatusWrapper)</returns>
@@ -1426,7 +1426,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migrations Returns a list of available migrations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
         public STRINGArrayWrapper ListMigrations()
@@ -1438,7 +1438,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migrations Returns a list of available migrations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         public ApiResponse<STRINGArrayWrapper> ListMigrationsWithHttpInfo()
@@ -1503,7 +1503,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migrations Returns a list of available migrations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
@@ -1516,7 +1516,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get migrations Returns a list of available migrations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
@@ -1585,7 +1585,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start migration Starts the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns></returns>
@@ -1597,7 +1597,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start migration Starts the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1664,7 +1664,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start migration Starts the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
@@ -1677,7 +1677,7 @@ namespace Docspace.Api
         /// <summary>
         /// Start migration Starts the migration process.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migrationApiInfo"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
@@ -1748,7 +1748,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload and initialize migration Uploads and initializes a migration with a migrator name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
         /// <returns></returns>
@@ -1760,7 +1760,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload and initialize migration Uploads and initializes a migration with a migrator name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1831,7 +1831,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload and initialize migration Uploads and initializes a migration with a migrator name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>
@@ -1844,7 +1844,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload and initialize migration Uploads and initializes a migration with a migrator name specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="migratorName">The migrator name extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/">REST API Reference for UploadAndInitializeMigration Operation</seealso>

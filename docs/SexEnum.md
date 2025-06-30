@@ -1,4 +1,4 @@
-# Docspace.Model.SexEnum
+# DocSpace.Model.SexEnum
 [0 - Female, 1 - Male]
 
 ## Properties

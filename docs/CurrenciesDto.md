@@ -1,4 +1,4 @@
-# Docspace.Model.CurrenciesDto
+# DocSpace.Model.CurrenciesDto
 The currencies parameters.
 
 ## Properties

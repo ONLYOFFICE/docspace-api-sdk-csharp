@@ -1,4 +1,4 @@
-# Docspace.Model.MailDomainSettingsRequestsDto
+# DocSpace.Model.MailDomainSettingsRequestsDto
 The request parameters for configuring trusted mail domains and visitor invitation settings.
 
 ## Properties

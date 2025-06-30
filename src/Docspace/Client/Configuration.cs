@@ -37,7 +37,7 @@ using System.Text;
 using System.Net.Http;
 using System.Net.Security;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// Represents a set of configuration settings
@@ -563,7 +563,7 @@ namespace Docspace.Client
         /// </summary>
         public static string ToDebugReport()
         {
-            string report = "C# SDK (Docspace) Debug Report:\n";
+            string report = "C# SDK (DocSpace) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.2.0\n";

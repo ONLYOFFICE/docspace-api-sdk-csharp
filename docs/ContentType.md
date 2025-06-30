@@ -1,4 +1,4 @@
-# Docspace.Model.ContentType
+# DocSpace.Model.ContentType
 
 ## Properties
 

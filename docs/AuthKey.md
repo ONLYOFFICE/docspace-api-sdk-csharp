@@ -1,4 +1,4 @@
-# Docspace.Model.AuthKey
+# DocSpace.Model.AuthKey
 The authentication key parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.ConfirmData
+# DocSpace.Model.ConfirmData
 The additional confirmation data required for authentication.
 
 ## Properties

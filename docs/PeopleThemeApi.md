@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleThemeApi
+# DocSpace.Api.PeopleThemeApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -11,18 +11,30 @@ All URIs are relative to *http://localhost:8092*
 # **ChangePortalTheme**
 > DarkThemeSettingsWrapper ChangePortalTheme (DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null)
 
-Change the portal theme
-
 Changes the current portal theme.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **darkThemeSettingsRequestDto** | [**DarkThemeSettingsRequestDto?**](DarkThemeSettingsRequestDto.md) | The theme settings request parameters. | [optional]  |
+
+### Return type
+
+[**DarkThemeSettingsWrapper**](DarkThemeSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -52,7 +64,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PeopleThemeApi(httpClient, config, httpClientHandler);
-            var darkThemeSettingsRequestDto = new DarkThemeSettingsRequestDto?(); // DarkThemeSettingsRequestDto? |  (optional) 
+            var darkThemeSettingsRequestDto = new DarkThemeSettingsRequestDto?(); // DarkThemeSettingsRequestDto? | The theme settings request parameters. (optional) 
 
             try
             {
@@ -91,20 +103,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **darkThemeSettingsRequestDto** | [**DarkThemeSettingsRequestDto?**](DarkThemeSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**DarkThemeSettingsWrapper**](DarkThemeSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -123,18 +121,26 @@ catch (ApiException e)
 # **GetPortalTheme**
 > DarkThemeSettingsWrapper GetPortalTheme ()
 
-Get the portal theme
-
 Returns a theme which is set to the current portal.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**DarkThemeSettingsWrapper**](DarkThemeSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -201,16 +207,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**DarkThemeSettingsWrapper**](DarkThemeSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP portal restrictions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>IPRestrictionArrayWrapper</returns>
         IPRestrictionArrayWrapper GetIpRestrictions();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP portal restrictions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>ApiResponse of IPRestrictionArrayWrapper</returns>
         ApiResponse<IPRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP restriction settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>IPRestrictionsSettingsWrapper</returns>
         IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP restriction settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>ApiResponse of IPRestrictionsSettingsWrapper</returns>
         ApiResponse<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo();
@@ -92,8 +92,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restrictions with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>IpRestrictionsWrapper</returns>
         IpRestrictionsWrapper SaveIpRestrictions(IpRestrictionsDto? ipRestrictionsDto = default);
@@ -104,8 +104,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restrictions with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>ApiResponse of IpRestrictionsWrapper</returns>
         ApiResponse<IpRestrictionsWrapper> SaveIpRestrictionsWithHttpInfo(IpRestrictionsDto? ipRestrictionsDto = default);
@@ -115,8 +115,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restriction settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>IpRestrictionsWrapper</returns>
         IpRestrictionsWrapper UpdateIpRestrictionsSettings(IpRestrictionsDto? ipRestrictionsDto = default);
@@ -127,8 +127,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restriction settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>ApiResponse of IpRestrictionsWrapper</returns>
         ApiResponse<IpRestrictionsWrapper> UpdateIpRestrictionsSettingsWithHttpInfo(IpRestrictionsDto? ipRestrictionsDto = default);
@@ -147,7 +147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP portal restrictions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>Task of IPRestrictionArrayWrapper</returns>
@@ -159,7 +159,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP portal restrictions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>Task of ApiResponse (IPRestrictionArrayWrapper)</returns>
@@ -170,7 +170,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP restriction settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of IPRestrictionsSettingsWrapper</returns>
@@ -182,7 +182,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the IP restriction settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (IPRestrictionsSettingsWrapper)</returns>
@@ -193,8 +193,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restrictions with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>Task of IpRestrictionsWrapper</returns>
@@ -206,8 +206,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restrictions with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>Task of ApiResponse (IpRestrictionsWrapper)</returns>
@@ -218,8 +218,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restriction settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of IpRestrictionsWrapper</returns>
@@ -231,8 +231,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the IP restriction settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (IpRestrictionsWrapper)</returns>
@@ -275,14 +275,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsIPRestrictionsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -297,14 +297,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -339,14 +339,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -366,14 +366,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -393,7 +393,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -453,7 +453,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP portal restrictions Returns the IP portal restrictions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>IPRestrictionArrayWrapper</returns>
         public IPRestrictionArrayWrapper GetIpRestrictions()
@@ -465,7 +465,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP portal restrictions Returns the IP portal restrictions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>ApiResponse of IPRestrictionArrayWrapper</returns>
         public ApiResponse<IPRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo()
@@ -530,7 +530,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP portal restrictions Returns the IP portal restrictions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>Task of IPRestrictionArrayWrapper</returns>
@@ -543,7 +543,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP portal restrictions Returns the IP portal restrictions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
         /// <returns>Task of ApiResponse (IPRestrictionArrayWrapper)</returns>
@@ -612,7 +612,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP restriction settings Returns the IP restriction settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>IPRestrictionsSettingsWrapper</returns>
         public IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings()
@@ -624,7 +624,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP restriction settings Returns the IP restriction settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>ApiResponse of IPRestrictionsSettingsWrapper</returns>
         public ApiResponse<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo()
@@ -689,7 +689,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP restriction settings Returns the IP restriction settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of IPRestrictionsSettingsWrapper</returns>
@@ -702,7 +702,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the IP restriction settings Returns the IP restriction settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (IPRestrictionsSettingsWrapper)</returns>
@@ -771,8 +771,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restrictions Updates the IP restrictions with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>IpRestrictionsWrapper</returns>
         public IpRestrictionsWrapper SaveIpRestrictions(IpRestrictionsDto? ipRestrictionsDto = default)
@@ -784,8 +784,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restrictions Updates the IP restrictions with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>ApiResponse of IpRestrictionsWrapper</returns>
         public ApiResponse<IpRestrictionsWrapper> SaveIpRestrictionsWithHttpInfo(IpRestrictionsDto? ipRestrictionsDto = default)
@@ -851,8 +851,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restrictions Updates the IP restrictions with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>Task of IpRestrictionsWrapper</returns>
@@ -865,8 +865,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restrictions Updates the IP restrictions with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/">REST API Reference for SaveIpRestrictions Operation</seealso>
         /// <returns>Task of ApiResponse (IpRestrictionsWrapper)</returns>
@@ -936,8 +936,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restriction settings Updates the IP restriction settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>IpRestrictionsWrapper</returns>
         public IpRestrictionsWrapper UpdateIpRestrictionsSettings(IpRestrictionsDto? ipRestrictionsDto = default)
@@ -949,8 +949,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restriction settings Updates the IP restriction settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>ApiResponse of IpRestrictionsWrapper</returns>
         public ApiResponse<IpRestrictionsWrapper> UpdateIpRestrictionsSettingsWithHttpInfo(IpRestrictionsDto? ipRestrictionsDto = default)
@@ -1016,8 +1016,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restriction settings Updates the IP restriction settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of IpRestrictionsWrapper</returns>
@@ -1030,8 +1030,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the IP restriction settings Updates the IP restriction settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ipRestrictionsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ipRestrictionsDto">The parameters for configuring new IP restriction settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/">REST API Reference for UpdateIpRestrictionsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (IpRestrictionsWrapper)</returns>

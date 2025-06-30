@@ -1,12 +1,12 @@
-# Docspace.Model.SmtpOperationStatusRequestsWrapper
+# DocSpace.Model.SmtpOperationStatusRequestsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**SmtpOperationStatusRequestsDto**](SmtpOperationStatusRequestsDto.md) |  | [optional] 
+**Response** | [**SmtpOperationStatusRequestsDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

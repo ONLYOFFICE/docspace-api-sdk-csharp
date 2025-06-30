@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
         ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
         ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
         ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo();
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings();
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
         ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo();
@@ -134,7 +134,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the white label is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper GetEnableWhitelabel();
@@ -145,7 +145,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the white label is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetEnableWhitelabelWithHttpInfo();
@@ -155,7 +155,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logo text are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logo text are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logos are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
@@ -193,7 +193,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logos are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
@@ -205,7 +205,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the licensor data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsArrayWrapper</returns>
         CompanyWhiteLabelSettingsArrayWrapper GetLicensorData();
@@ -216,7 +216,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the licensor data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsArrayWrapper</returns>
         ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> GetLicensorDataWithHttpInfo();
@@ -226,7 +226,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
@@ -239,7 +239,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
@@ -251,7 +251,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
@@ -264,7 +264,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
@@ -276,7 +276,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
@@ -289,7 +289,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
@@ -301,7 +301,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
@@ -326,8 +326,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the additional white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveAdditionalWhiteLabelSettings(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default);
@@ -338,8 +338,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the additional white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveAdditionalWhiteLabelSettingsWithHttpInfo(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default);
@@ -349,8 +349,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the company white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveCompanyWhiteLabelSettings(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default);
@@ -361,8 +361,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the company white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveCompanyWhiteLabelSettingsWithHttpInfo(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default);
@@ -372,10 +372,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logo text specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default);
@@ -386,10 +386,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logo text specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default);
@@ -399,10 +399,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveWhiteLabelSettings(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default);
@@ -413,10 +413,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default);
@@ -426,7 +426,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos from files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
@@ -439,7 +439,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos from files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
@@ -460,7 +460,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
@@ -472,7 +472,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
@@ -483,7 +483,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
@@ -495,7 +495,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
@@ -506,7 +506,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
@@ -518,7 +518,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the additional white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
@@ -529,7 +529,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
@@ -541,7 +541,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the company white label settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
@@ -552,7 +552,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the white label is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -564,7 +564,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the white label is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -575,7 +575,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logo text are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -589,7 +589,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logo text are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -602,7 +602,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logos are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -616,7 +616,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the white label logos are default or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -629,7 +629,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the licensor data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsArrayWrapper</returns>
@@ -641,7 +641,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the licensor data.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsArrayWrapper)</returns>
@@ -652,7 +652,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -666,7 +666,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -679,7 +679,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -693,7 +693,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -706,7 +706,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -720,7 +720,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logo text.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -733,7 +733,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -747,7 +747,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Restores the white label logos.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -760,8 +760,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the additional white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -773,8 +773,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the additional white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -785,8 +785,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the company white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -798,8 +798,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the company white label settings specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -810,10 +810,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logo text specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -825,10 +825,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logo text specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -839,10 +839,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -854,10 +854,10 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -868,7 +868,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos from files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -882,7 +882,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the white label logos from files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -927,14 +927,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsRebrandingApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -949,14 +949,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -991,14 +991,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1018,14 +1018,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1045,7 +1045,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1105,7 +1105,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the additional white label settings Deletes the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         public AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings()
@@ -1117,7 +1117,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the additional white label settings Deletes the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
         public ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo()
@@ -1182,7 +1182,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the additional white label settings Deletes the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
@@ -1195,7 +1195,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the additional white label settings Deletes the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
@@ -1264,7 +1264,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the company white label settings Deletes the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         public CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings()
@@ -1276,7 +1276,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the company white label settings Deletes the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
         public ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo()
@@ -1341,7 +1341,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the company white label settings Deletes the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
@@ -1354,7 +1354,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the company white label settings Deletes the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
@@ -1423,7 +1423,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the additional white label settings Returns the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
         public AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings()
@@ -1435,7 +1435,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the additional white label settings Returns the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
         public ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo()
@@ -1500,7 +1500,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the additional white label settings Returns the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
@@ -1513,7 +1513,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the additional white label settings Returns the additional white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
@@ -1582,7 +1582,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the company white label settings Returns the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
         public CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings()
@@ -1594,7 +1594,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the company white label settings Returns the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
         public ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo()
@@ -1659,7 +1659,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the company white label settings Returns the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
@@ -1672,7 +1672,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the company white label settings Returns the company white label settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
@@ -1741,7 +1741,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the white label availability Checks if the white label is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetEnableWhitelabel()
@@ -1753,7 +1753,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the white label availability Checks if the white label is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> GetEnableWhitelabelWithHttpInfo()
@@ -1818,7 +1818,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the white label availability Checks if the white label is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1831,7 +1831,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the white label availability Checks if the white label is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/">REST API Reference for GetEnableWhitelabel Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1900,7 +1900,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logo text Specifies if the white label logo text are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
@@ -1914,7 +1914,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logo text Specifies if the white label logo text are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/">REST API Reference for GetIsDefaultWhiteLabelLogoText Operation</seealso>
@@ -1989,7 +1989,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logo text Specifies if the white label logo text are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2004,7 +2004,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logo text Specifies if the white label logo text are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2029,11 +2029,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
@@ -2083,7 +2083,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logos Specifies if the white label logos are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
@@ -2097,7 +2097,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logos Specifies if the white label logos are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/">REST API Reference for GetIsDefaultWhiteLabelLogos Operation</seealso>
@@ -2172,7 +2172,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logos Specifies if the white label logos are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2187,7 +2187,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the default white label logos Specifies if the white label logos are default or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2212,11 +2212,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
@@ -2266,7 +2266,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the licensor data Returns the licensor data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>CompanyWhiteLabelSettingsArrayWrapper</returns>
         public CompanyWhiteLabelSettingsArrayWrapper GetLicensorData()
@@ -2278,7 +2278,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the licensor data Returns the licensor data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>ApiResponse of CompanyWhiteLabelSettingsArrayWrapper</returns>
         public ApiResponse<CompanyWhiteLabelSettingsArrayWrapper> GetLicensorDataWithHttpInfo()
@@ -2343,7 +2343,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the licensor data Returns the licensor data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>Task of CompanyWhiteLabelSettingsArrayWrapper</returns>
@@ -2356,7 +2356,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the licensor data Returns the licensor data.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/">REST API Reference for GetLicensorData Operation</seealso>
         /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsArrayWrapper)</returns>
@@ -2425,7 +2425,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logo text Returns the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
@@ -2439,7 +2439,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logo text Returns the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/">REST API Reference for GetWhiteLabelLogoText Operation</seealso>
@@ -2514,7 +2514,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logo text Returns the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2529,7 +2529,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logo text Returns the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2554,11 +2554,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
@@ -2608,7 +2608,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logos Returns the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
@@ -2622,7 +2622,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logos Returns the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/">REST API Reference for GetWhiteLabelLogos Operation</seealso>
@@ -2667,7 +2667,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logos Returns the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2682,7 +2682,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the white label logos Returns the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2707,11 +2707,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
 
@@ -2731,7 +2731,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logo text Restores the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
@@ -2745,7 +2745,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logo text Restores the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/">REST API Reference for RestoreWhiteLabelLogoText Operation</seealso>
@@ -2820,7 +2820,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logo text Restores the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2835,7 +2835,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logo text Restores the white label logo text.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2860,11 +2860,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
@@ -2914,7 +2914,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logos Restores the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
@@ -2928,7 +2928,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logos Restores the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/">REST API Reference for RestoreWhiteLabelLogos Operation</seealso>
@@ -3003,7 +3003,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logos Restores the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3018,7 +3018,7 @@ namespace Docspace.Api
         /// <summary>
         /// Restore the white label logos Restores the white label logos.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3043,11 +3043,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required
@@ -3097,8 +3097,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the additional white label settings Saves the additional white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveAdditionalWhiteLabelSettings(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default)
@@ -3110,8 +3110,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the additional white label settings Saves the additional white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveAdditionalWhiteLabelSettingsWithHttpInfo(AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = default)
@@ -3177,8 +3177,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the additional white label settings Saves the additional white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3191,8 +3191,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the additional white label settings Saves the additional white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="additionalWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="additionalWhiteLabelSettingsWrapper">The additional white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/">REST API Reference for SaveAdditionalWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3262,8 +3262,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the company white label settings Saves the company white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveCompanyWhiteLabelSettings(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default)
@@ -3275,8 +3275,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the company white label settings Saves the company white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveCompanyWhiteLabelSettingsWithHttpInfo(CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = default)
@@ -3342,8 +3342,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the company white label settings Saves the company white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3356,8 +3356,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the company white label settings Saves the company white label settings specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="companyWhiteLabelSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="companyWhiteLabelSettingsWrapper">The company white label settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/">REST API Reference for SaveCompanyWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3427,10 +3427,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logo text settings Saves the white label logo text specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveWhiteLabelLogoText(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
@@ -3442,10 +3442,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logo text settings Saves the white label logo text specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveWhiteLabelLogoTextWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
@@ -3519,10 +3519,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logo text settings Saves the white label logo text specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3535,10 +3535,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logo text settings Saves the white label logo text specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/">REST API Reference for SaveWhiteLabelLogoText Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3561,11 +3561,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
             if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
@@ -3616,10 +3616,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos Saves the white label logos specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveWhiteLabelSettings(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
@@ -3631,10 +3631,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos Saves the white label logos specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveWhiteLabelSettingsWithHttpInfo(bool? isDark = default, bool? isDefault = default, WhiteLabelRequestsDto? whiteLabelRequestsDto = default)
@@ -3708,10 +3708,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos Saves the white label logos specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3724,10 +3724,10 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos Saves the white label logos specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
-        /// <param name="whiteLabelRequestsDto"> (optional)</param>
+        /// <param name="whiteLabelRequestsDto">The request parameters for configuring the white label branding settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/">REST API Reference for SaveWhiteLabelSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3750,11 +3750,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
             if (whiteLabelRequestsDto != null) localVarRequestOptions.Data = whiteLabelRequestsDto;
 
@@ -3805,7 +3805,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos from files Saves the white label logos from files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
@@ -3819,7 +3819,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos from files Saves the white label logos from files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/">REST API Reference for SaveWhiteLabelSettingsFromFiles Operation</seealso>
@@ -3894,7 +3894,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos from files Saves the white label logos from files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3909,7 +3909,7 @@ namespace Docspace.Api
         /// <summary>
         /// Save the white label logos from files Saves the white label logos from files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
         /// <param name="isDefault">Specifies if the logo is for a default tenant or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3934,11 +3934,11 @@ namespace Docspace.Api
 
             if (isDark != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDark", isDark));
             }
             if (isDefault != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "IsDefault", isDefault));
             }
 
             // authentication (Basic) required

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the login history report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper CreateLoginHistoryReport();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the login history report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> CreateLoginHistoryReportWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the latest user login activity, including successful logins and error logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>LoginEventArrayWrapper</returns>
         LoginEventArrayWrapper GetLastLoginEvents();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the latest user login activity, including successful logins and error logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
         ApiResponse<LoginEventArrayWrapper> GetLastLoginEventsWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the login events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -109,7 +109,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the login events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -134,7 +134,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the login history report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the login history report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the latest user login activity, including successful logins and error logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>Task of LoginEventArrayWrapper</returns>
@@ -169,7 +169,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the latest user login activity, including successful logins and error logs.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the login events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -198,7 +198,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the login events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -247,14 +247,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SecurityLoginHistoryApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -269,14 +269,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -311,14 +311,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -338,14 +338,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -425,7 +425,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the login history report Generates the login history report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper CreateLoginHistoryReport()
@@ -437,7 +437,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the login history report Generates the login history report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> CreateLoginHistoryReportWithHttpInfo()
@@ -502,7 +502,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the login history report Generates the login history report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -515,7 +515,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the login history report Generates the login history report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -584,7 +584,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get login history Returns all the latest user login activity, including successful logins and error logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>LoginEventArrayWrapper</returns>
         public LoginEventArrayWrapper GetLastLoginEvents()
@@ -596,7 +596,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get login history Returns all the latest user login activity, including successful logins and error logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
         public ApiResponse<LoginEventArrayWrapper> GetLastLoginEventsWithHttpInfo()
@@ -661,7 +661,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get login history Returns all the latest user login activity, including successful logins and error logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>Task of LoginEventArrayWrapper</returns>
@@ -674,7 +674,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get login history Returns all the latest user login activity, including successful logins and error logs.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/">REST API Reference for GetLastLoginEvents Operation</seealso>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
@@ -743,7 +743,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered login events Returns a list of the login events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -761,7 +761,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered login events Returns a list of the login events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -856,7 +856,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered login events Returns a list of the login events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -875,7 +875,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered login events Returns a list of the login events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user whose login events are being queried. (optional)</param>
         /// <param name="action">The login-related action to filter events by. (optional)</param>
         /// <param name="from">The starting date and time for filtering login events. (optional)</param>
@@ -904,27 +904,27 @@ namespace Docspace.Api
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (action != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "action", action));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action", action));
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "from", from));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required

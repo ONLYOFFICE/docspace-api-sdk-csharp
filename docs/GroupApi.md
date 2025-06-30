@@ -1,4 +1,4 @@
-# Docspace.Api.GroupApi
+# DocSpace.Api.GroupApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -20,18 +20,30 @@ All URIs are relative to *http://localhost:8092*
 # **AddGroup**
 > GroupWrapper AddGroup (GroupRequestDto? groupRequestDto = null)
 
-Add a new group
-
 Adds a new group with the group manager, name, and members specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupRequestDto** | [**GroupRequestDto?**](GroupRequestDto.md) | The group request parameters. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -61,7 +73,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var groupRequestDto = new GroupRequestDto?(); // GroupRequestDto? |  (optional) 
+            var groupRequestDto = new GroupRequestDto?(); // GroupRequestDto? | The group request parameters. (optional) 
 
             try
             {
@@ -100,20 +112,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **groupRequestDto** | [**GroupRequestDto?**](GroupRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -132,18 +130,31 @@ catch (ApiException e)
 # **AddMembersTo**
 > GroupWrapper AddMembersTo (Guid id, MembersRequest? membersRequest = null)
 
-Add group members
-
 Adds new group members to the group with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -213,21 +224,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -247,18 +243,30 @@ catch (ApiException e)
 # **DeleteGroup**
 > NoContentResultWrapper DeleteGroup (Guid id)
 
-Delete a group
-
 Deletes a group with the ID specified in the request from the list of groups on the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+
+### Return type
+
+[**NoContentResultWrapper**](NoContentResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -327,20 +335,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-
-### Return type
-
-[**NoContentResultWrapper**](NoContentResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -360,18 +354,31 @@ catch (ApiException e)
 # **GetGroup**
 > GroupWrapper GetGroup (Guid id, bool? includeMembers = null)
 
-Get a group
-
 Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **includeMembers** | **bool?** | Specifies whether to include the group members or not. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -441,21 +448,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **includeMembers** | **bool?** | Specifies whether to include the group members or not. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -475,18 +467,30 @@ catch (ApiException e)
 # **GetGroupByUserId**
 > GroupSummaryArrayWrapper GetGroupByUserId (Guid userid)
 
-Get user groups
-
 Returns a list of groups for the user with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -555,20 +559,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
-
-### Return type
-
-[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -587,18 +577,36 @@ catch (ApiException e)
 # **GetGroups**
 > GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Get groups
-
 Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The user ID. | [optional]  |
+| **manager** | **bool?** | Specifies if the user is a manager or not. | [optional]  |
+| **count** | **int?** | The number of records to retrieve. | [optional]  |
+| **startIndex** | **int?** | The starting index for paginated results. | [optional]  |
+| **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
+
+### Return type
+
+[**GroupArrayWrapper**](GroupArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -673,26 +681,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The user ID. | [optional]  |
-| **manager** | **bool?** | Specifies if the user is a manager or not. | [optional]  |
-| **count** | **int?** | The number of records to retrieve. | [optional]  |
-| **startIndex** | **int?** | The starting index for paginated results. | [optional]  |
-| **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder?.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
-
-### Return type
-
-[**GroupArrayWrapper**](GroupArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -711,18 +699,31 @@ catch (ApiException e)
 # **MoveMembersTo**
 > GroupWrapper MoveMembersTo (Guid fromId, Guid toId)
 
-Move group members
-
 Moves all the members from the selected group to another one specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fromId** | **Guid** | The group ID to move from. |  |
+| **toId** | **Guid** | The group ID to move to. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -792,21 +793,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fromId** | **Guid** | The group ID to move from. |  |
-| **toId** | **Guid** | The group ID to move to. |  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -826,18 +812,31 @@ catch (ApiException e)
 # **RemoveMembersFrom**
 > GroupWrapper RemoveMembersFrom (Guid id, MembersRequest? membersRequest = null)
 
-Remove group members
-
 Removes the group members specified in the request from the selected group.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -907,21 +906,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -941,18 +925,31 @@ catch (ApiException e)
 # **SetGroupManager**
 > GroupWrapper SetGroupManager (Guid id, SetManagerRequest? setManagerRequest = null)
 
-Set a group manager
-
 Sets a user with the ID specified in the request as a group manager.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **setManagerRequest** | [**SetManagerRequest?**](SetManagerRequest.md) | The request for setting a group manager. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1022,21 +1019,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **setManagerRequest** | [**SetManagerRequest?**](SetManagerRequest?.md) | The request for setting a group manager. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1056,18 +1038,31 @@ catch (ApiException e)
 # **SetMembersTo**
 > GroupWrapper SetMembersTo (Guid id, MembersRequest? membersRequest = null)
 
-Replace group members
-
 Replaces the group members with those specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1137,21 +1132,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1170,18 +1150,31 @@ catch (ApiException e)
 # **UpdateGroup**
 > GroupWrapper UpdateGroup (Guid id, UpdateGroupRequest? updateGroupRequest = null)
 
-Update a group
-
 Updates the existing group changing the group manager, name, and/or members.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **updateGroupRequest** | [**UpdateGroupRequest?**](UpdateGroupRequest.md) | The request for updating a group. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1250,21 +1243,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **updateGroupRequest** | [**UpdateGroupRequest?**](UpdateGroupRequest?.md) | The request for updating a group. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

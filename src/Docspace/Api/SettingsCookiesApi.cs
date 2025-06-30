@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>CookieSettingsWrapper</returns>
         CookieSettingsWrapper GetCookieSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>ApiResponse of CookieSettingsWrapper</returns>
         ApiResponse<CookieSettingsWrapper> GetCookieSettingsWithHttpInfo();
@@ -71,8 +71,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper UpdateCookieSettings(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default);
@@ -83,8 +83,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default);
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>Task of CookieSettingsWrapper</returns>
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CookieSettingsWrapper)</returns>
@@ -126,8 +126,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -139,8 +139,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the cookies lifetime value in minutes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -183,14 +183,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsCookiesApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -205,14 +205,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -247,14 +247,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -274,14 +274,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get cookies lifetime Returns the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>CookieSettingsWrapper</returns>
         public CookieSettingsWrapper GetCookieSettings()
@@ -373,7 +373,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get cookies lifetime Returns the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>ApiResponse of CookieSettingsWrapper</returns>
         public ApiResponse<CookieSettingsWrapper> GetCookieSettingsWithHttpInfo()
@@ -438,7 +438,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get cookies lifetime Returns the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>Task of CookieSettingsWrapper</returns>
@@ -451,7 +451,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get cookies lifetime Returns the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/">REST API Reference for GetCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (CookieSettingsWrapper)</returns>
@@ -520,8 +520,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update cookies lifetime Updates the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper UpdateCookieSettings(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default)
@@ -533,8 +533,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update cookies lifetime Updates the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default)
@@ -600,8 +600,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update cookies lifetime Updates the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update cookies lifetime Updates the cookies lifetime value in minutes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cookieSettingsRequestsDto">The request parameters for managing cookie settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

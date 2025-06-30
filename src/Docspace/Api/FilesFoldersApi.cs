@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the file uploads to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
@@ -63,7 +63,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the file uploads to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
@@ -75,7 +75,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
@@ -88,7 +88,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
@@ -100,7 +100,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of files in the root folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>FilesStatisticsResultWrapper</returns>
         FilesStatisticsResultWrapper GetFilesUsedSpace();
@@ -136,7 +136,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of files in the root folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>ApiResponse of FilesStatisticsResultWrapper</returns>
         ApiResponse<FilesStatisticsResultWrapper> GetFilesUsedSpaceWithHttpInfo();
@@ -146,7 +146,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the form filter of a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>FormsItemArrayWrapper</returns>
@@ -158,7 +158,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the form filter of a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>ApiResponse of FormsItemArrayWrapper</returns>
@@ -169,7 +169,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -195,7 +195,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -220,7 +220,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the activity history of a folder with a specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -236,7 +236,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the activity history of a folder with a specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -251,7 +251,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
@@ -263,7 +263,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
@@ -274,7 +274,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a path to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -286,7 +286,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a path to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -297,7 +297,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
@@ -309,7 +309,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
@@ -320,7 +320,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -332,7 +332,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -343,7 +343,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -362,7 +362,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -380,7 +380,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the new items from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -392,7 +392,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the new items from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -403,7 +403,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -421,7 +421,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -438,7 +438,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the sections matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -457,7 +457,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the sections matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -475,7 +475,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -494,7 +494,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -512,7 +512,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the selected folder by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -536,7 +536,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the selected folder by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -559,7 +559,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -582,7 +582,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -604,7 +604,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Renames the selected folder with a new title specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
@@ -617,7 +617,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Renames the selected folder with a new title specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
@@ -629,7 +629,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
@@ -642,7 +642,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
@@ -654,7 +654,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
@@ -667,7 +667,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
@@ -679,7 +679,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -691,7 +691,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -711,7 +711,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the file uploads to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -725,7 +725,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the file uploads to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -738,7 +738,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -752,7 +752,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -765,7 +765,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -779,7 +779,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Deletes a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -792,7 +792,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of files in the root folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of FilesStatisticsResultWrapper</returns>
@@ -804,7 +804,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of files in the root folders.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (FilesStatisticsResultWrapper)</returns>
@@ -815,7 +815,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the form filter of a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -828,7 +828,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the form filter of a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -840,7 +840,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -867,7 +867,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -893,7 +893,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the activity history of a folder with a specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -910,7 +910,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the activity history of a folder with a specified identifier.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -926,7 +926,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -939,7 +939,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed information about a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -951,7 +951,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a path to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -964,7 +964,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a path to the folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -976,7 +976,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -989,7 +989,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the primary external link by the identifier specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -1001,7 +1001,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -1014,7 +1014,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -1026,7 +1026,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -1046,7 +1046,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -1065,7 +1065,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the new items from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -1078,7 +1078,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of all the new items from a folder with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -1090,7 +1090,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -1109,7 +1109,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -1127,7 +1127,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the sections matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -1147,7 +1147,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the sections matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -1166,7 +1166,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -1186,7 +1186,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -1205,7 +1205,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the selected folder by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -1230,7 +1230,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the selected folder by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -1254,7 +1254,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -1278,7 +1278,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -1301,7 +1301,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Renames the selected folder with a new title specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1315,7 +1315,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Renames the selected folder with a new title specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1328,7 +1328,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1342,7 +1342,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the file order in the folder with ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1355,7 +1355,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1369,7 +1369,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1382,7 +1382,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -1395,7 +1395,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -1439,14 +1439,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesFoldersApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1461,14 +1461,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1503,14 +1503,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1530,14 +1530,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1557,7 +1557,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1617,7 +1617,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
@@ -1631,7 +1631,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
@@ -1700,7 +1700,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1715,7 +1715,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1788,7 +1788,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
@@ -1802,7 +1802,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
@@ -1871,7 +1871,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1886,7 +1886,7 @@ namespace Docspace.Api
         /// <summary>
         /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1959,7 +1959,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a folder Deletes a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
@@ -1973,7 +1973,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a folder Deletes a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
@@ -2042,7 +2042,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a folder Deletes a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2057,7 +2057,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete a folder Deletes a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2130,7 +2130,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get used space of files Returns the used space of files in the root folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>FilesStatisticsResultWrapper</returns>
         public FilesStatisticsResultWrapper GetFilesUsedSpace()
@@ -2142,7 +2142,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get used space of files Returns the used space of files in the root folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>ApiResponse of FilesStatisticsResultWrapper</returns>
         public ApiResponse<FilesStatisticsResultWrapper> GetFilesUsedSpaceWithHttpInfo()
@@ -2207,7 +2207,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get used space of files Returns the used space of files in the root folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of FilesStatisticsResultWrapper</returns>
@@ -2220,7 +2220,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get used space of files Returns the used space of files in the root folders.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (FilesStatisticsResultWrapper)</returns>
@@ -2289,7 +2289,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>FormsItemArrayWrapper</returns>
@@ -2302,7 +2302,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>ApiResponse of FormsItemArrayWrapper</returns>
@@ -2339,7 +2339,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -2353,7 +2353,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -2394,7 +2394,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -2421,7 +2421,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -2528,7 +2528,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -2556,7 +2556,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -2595,59 +2595,59 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (userIdOrGroupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
             }
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (roomId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "roomId", roomId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "roomId", roomId));
             }
             if (excludeSubject != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
             }
             if (applyFilterOption != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
             }
             if (extension != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "extension", extension));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "extension", extension));
             }
             if (searchArea != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
             }
             if (formsItemKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "formsItemKey", formsItemKey));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "formsItemKey", formsItemKey));
             }
             if (formsItemType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "formsItemType", formsItemType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "formsItemType", formsItemType));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
 
@@ -2667,7 +2667,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder history Returns the activity history of a folder with a specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -2684,7 +2684,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder history Returns the activity history of a folder with a specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -2771,7 +2771,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder history Returns the activity history of a folder with a specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -2789,7 +2789,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder history Returns the activity history of a folder with a specified identifier.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
         /// <param name="toDate">The end date of the history request. (optional)</param>
@@ -2818,19 +2818,19 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -2880,7 +2880,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
@@ -2893,7 +2893,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
@@ -2930,7 +2930,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -2944,7 +2944,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -2985,7 +2985,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the folder path Returns a path to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -2998,7 +2998,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the folder path Returns a path to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -3065,7 +3065,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the folder path Returns a path to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -3079,7 +3079,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the folder path Returns a path to the folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -3150,7 +3150,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
@@ -3163,7 +3163,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
@@ -3200,7 +3200,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -3214,7 +3214,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get primary external link Returns the primary external link by the identifier specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -3255,7 +3255,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -3268,7 +3268,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -3335,7 +3335,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -3349,7 +3349,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -3420,7 +3420,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -3440,7 +3440,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -3545,7 +3545,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -3566,7 +3566,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -3597,35 +3597,35 @@ namespace Docspace.Api
 
             if (userIdOrGroupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
             }
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (applyFilterOption != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -3675,7 +3675,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>FileEntryArrayWrapper</returns>
@@ -3688,7 +3688,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryArrayWrapper</returns>
@@ -3755,7 +3755,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -3769,7 +3769,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -3840,7 +3840,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -3859,7 +3859,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -3959,7 +3959,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -3979,7 +3979,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
@@ -4009,31 +4009,31 @@ namespace Docspace.Api
 
             if (userIdOrGroupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
             }
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -4083,7 +4083,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered sections Returns all the sections matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -4103,7 +4103,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered sections Returns all the sections matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -4208,7 +4208,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered sections Returns all the sections matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -4229,7 +4229,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered sections Returns all the sections matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
@@ -4260,35 +4260,35 @@ namespace Docspace.Api
 
             if (userIdOrGroupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
             }
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (withoutTrash != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutTrash", withoutTrash));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutTrash", withoutTrash));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -4338,7 +4338,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -4358,7 +4358,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -4463,7 +4463,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -4484,7 +4484,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
@@ -4515,35 +4515,35 @@ namespace Docspace.Api
 
             if (userIdOrGroupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
             }
             if (filterType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
             }
             if (applyFilterOption != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -4593,7 +4593,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -4618,7 +4618,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -4745,7 +4745,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -4771,7 +4771,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
         /// <param name="insertFileTitle">The file title to be inserted. (optional)</param>
@@ -4812,47 +4812,47 @@ namespace Docspace.Api
             }
             if (insertFileTitle != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Title", Docspace.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Title", DocSpace.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
             }
             if (insertFileCreateNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist", Docspace.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist", DocSpace.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
             }
             if (insertFileKeepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus", Docspace.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus", DocSpace.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
             }
             if (insertFileStreamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
             }
             if (insertFileStreamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
             }
             if (insertFileStreamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
             }
             if (insertFileStreamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
             }
             if (insertFileStreamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
             }
             if (insertFileStreamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
             }
             if (insertFileStreamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
             }
             if (insertFileStreamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout", Docspace.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout", DocSpace.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -4902,7 +4902,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -4926,7 +4926,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -5051,7 +5051,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -5076,7 +5076,7 @@ namespace Docspace.Api
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists or not. (optional)</param>
@@ -5115,47 +5115,47 @@ namespace Docspace.Api
             }
             if (title != null)
             {
-                localVarRequestOptions.FormParameters.Add("Title", Docspace.Client.ClientUtils.ParameterToString(title)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Title", DocSpace.Client.ClientUtils.ParameterToString(title)); // form parameter
             }
             if (createNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("CreateNewIfExist", Docspace.Client.ClientUtils.ParameterToString(createNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("CreateNewIfExist", DocSpace.Client.ClientUtils.ParameterToString(createNewIfExist)); // form parameter
             }
             if (keepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("KeepConvertStatus", Docspace.Client.ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("KeepConvertStatus", DocSpace.Client.ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
             }
             if (streamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanRead", Docspace.Client.ClientUtils.ParameterToString(streamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.CanRead", DocSpace.Client.ClientUtils.ParameterToString(streamCanRead)); // form parameter
             }
             if (streamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanWrite", Docspace.Client.ClientUtils.ParameterToString(streamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.CanWrite", DocSpace.Client.ClientUtils.ParameterToString(streamCanWrite)); // form parameter
             }
             if (streamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanSeek", Docspace.Client.ClientUtils.ParameterToString(streamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.CanSeek", DocSpace.Client.ClientUtils.ParameterToString(streamCanSeek)); // form parameter
             }
             if (streamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanTimeout", Docspace.Client.ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.CanTimeout", DocSpace.Client.ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
             }
             if (streamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Length", Docspace.Client.ClientUtils.ParameterToString(streamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.Length", DocSpace.Client.ClientUtils.ParameterToString(streamLength)); // form parameter
             }
             if (streamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Position", Docspace.Client.ClientUtils.ParameterToString(streamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.Position", DocSpace.Client.ClientUtils.ParameterToString(streamPosition)); // form parameter
             }
             if (streamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.ReadTimeout", Docspace.Client.ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.ReadTimeout", DocSpace.Client.ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
             }
             if (streamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.WriteTimeout", Docspace.Client.ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Stream.WriteTimeout", DocSpace.Client.ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -5205,7 +5205,7 @@ namespace Docspace.Api
         /// <summary>
         /// Rename a folder Renames the selected folder with a new title specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
@@ -5219,7 +5219,7 @@ namespace Docspace.Api
         /// <summary>
         /// Rename a folder Renames the selected folder with a new title specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
@@ -5288,7 +5288,7 @@ namespace Docspace.Api
         /// <summary>
         /// Rename a folder Renames the selected folder with a new title specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5303,7 +5303,7 @@ namespace Docspace.Api
         /// <summary>
         /// Rename a folder Renames the selected folder with a new title specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5376,7 +5376,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
@@ -5390,7 +5390,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
@@ -5459,7 +5459,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5474,7 +5474,7 @@ namespace Docspace.Api
         /// <summary>
         /// Set folder order Sets the file order in the folder with ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5547,7 +5547,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
@@ -5561,7 +5561,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
@@ -5630,7 +5630,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5645,7 +5645,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5718,7 +5718,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -5731,7 +5731,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -5801,7 +5801,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -5815,7 +5815,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -5839,7 +5839,7 @@ namespace Docspace.Api
 
             if (inDto != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
             }
 
             // authentication (Basic) required

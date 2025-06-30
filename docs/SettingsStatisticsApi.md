@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsStatisticsApi
+# DocSpace.Api.SettingsStatisticsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -10,18 +10,30 @@ All URIs are relative to *http://localhost:8092*
 # **GetSpaceUsageStatistics**
 > UsageSpaceStatItemArrayWrapper GetSpaceUsageStatistics (Guid id)
 
-Get the space usage statistics
-
 Returns the space usage statistics for the module with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+[**UsageSpaceStatItemArrayWrapper**](UsageSpaceStatItemArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -89,20 +101,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-[**UsageSpaceStatItemArrayWrapper**](UsageSpaceStatItemArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

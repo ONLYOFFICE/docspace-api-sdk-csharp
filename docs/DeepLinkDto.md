@@ -1,4 +1,4 @@
-# Docspace.Model.DeepLinkDto
+# DocSpace.Model.DeepLinkDto
 The deep link parameters.
 
 ## Properties

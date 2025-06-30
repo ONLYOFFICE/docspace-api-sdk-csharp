@@ -1,4 +1,4 @@
-# Docspace.Model.CspDto
+# DocSpace.Model.CspDto
 The CSP (Content Security Policy) parameters.
 
 ## Properties

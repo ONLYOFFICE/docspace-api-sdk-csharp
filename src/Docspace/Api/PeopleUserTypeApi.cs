@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of updating the user type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -62,7 +62,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of updating the user type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
@@ -96,8 +96,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper TerminateUserTypeUpdate(TerminateRequestDto? terminateRequestDto = default);
@@ -108,8 +108,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> TerminateUserTypeUpdateWithHttpInfo(TerminateRequestDto? terminateRequestDto = default);
@@ -119,7 +119,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a type of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
@@ -132,7 +132,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a type of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
@@ -153,7 +153,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of updating the user type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
@@ -166,7 +166,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of updating the user type.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
@@ -178,8 +178,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -191,8 +191,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -203,8 +203,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -216,8 +216,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -228,7 +228,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a type of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -242,7 +242,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes a type of the users with the IDs specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -287,14 +287,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleUserTypeApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -309,14 +309,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -351,14 +351,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -378,14 +378,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -465,7 +465,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of updating user type Returns the progress of updating the user type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -478,7 +478,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of updating user type Returns the progress of updating the user type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -545,7 +545,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of updating user type Returns the progress of updating the user type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
@@ -559,7 +559,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of updating user type Returns the progress of updating the user type.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
@@ -630,8 +630,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user type Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
@@ -643,8 +643,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user type Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
@@ -710,8 +710,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user type Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -724,8 +724,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update user type Starts updating the type of the user or guest when reassigning rooms and shared files.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startUpdateUserTypeDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -795,8 +795,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate update user type Terminates the process of updating the type of the user or guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper TerminateUserTypeUpdate(TerminateRequestDto? terminateRequestDto = default)
@@ -808,8 +808,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate update user type Terminates the process of updating the type of the user or guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> TerminateUserTypeUpdateWithHttpInfo(TerminateRequestDto? terminateRequestDto = default)
@@ -875,8 +875,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate update user type Terminates the process of updating the type of the user or guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -889,8 +889,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate update user type Terminates the process of updating the type of the user or guest.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/">REST API Reference for TerminateUserTypeUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -960,7 +960,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user type Changes a type of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
@@ -974,7 +974,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user type Changes a type of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
@@ -1043,7 +1043,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user type Changes a type of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1058,7 +1058,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change a user type Changes a type of the users with the IDs specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
         /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

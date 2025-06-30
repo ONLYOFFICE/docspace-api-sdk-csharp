@@ -1,4 +1,4 @@
-# Docspace.Model.DisplayRequestDto
+# DocSpace.Model.DisplayRequestDto
 The settings request parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsWebhooksApi
+# DocSpace.Api.SettingsWebhooksApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -18,18 +18,30 @@ All URIs are relative to *http://localhost:8092*
 # **CreateWebhook**
 > WebhooksConfigWrapper CreateWebhook (CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = null)
 
-Create a webhook
-
 Creates a new tenant webhook with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createWebhooksConfigRequestsDto** | [**CreateWebhooksConfigRequestsDto?**](CreateWebhooksConfigRequestsDto.md) | The request parameters for creating the webhook configuration. | [optional]  |
+
+### Return type
+
+[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -59,7 +71,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var createWebhooksConfigRequestsDto = new CreateWebhooksConfigRequestsDto?(); // CreateWebhooksConfigRequestsDto? |  (optional) 
+            var createWebhooksConfigRequestsDto = new CreateWebhooksConfigRequestsDto?(); // CreateWebhooksConfigRequestsDto? | The request parameters for creating the webhook configuration. (optional) 
 
             try
             {
@@ -98,20 +110,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createWebhooksConfigRequestsDto** | [**CreateWebhooksConfigRequestsDto?**](CreateWebhooksConfigRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -130,18 +128,30 @@ catch (ApiException e)
 # **EnableWebhook**
 > WebhooksConfigWrapper EnableWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
 
-Enable a webhook
-
 Enables or disables a tenant webhook with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto.md) | The request parameters for updating the webhook configuration. | [optional]  |
+
+### Return type
+
+[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -171,7 +181,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? |  (optional) 
+            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
 
             try
             {
@@ -210,20 +220,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -242,18 +238,26 @@ catch (ApiException e)
 # **GetTenantWebhooks**
 > WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks ()
 
-Get webhooks
-
 Returns a list of the tenant webhooks.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**WebhooksConfigWithStatusArrayWrapper**](WebhooksConfigWithStatusArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -321,16 +325,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**WebhooksConfigWithStatusArrayWrapper**](WebhooksConfigWithStatusArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -349,18 +343,26 @@ This endpoint does not need any parameter.
 # **GetWebhookTriggers**
 > UnknownWrapper GetWebhookTriggers ()
 
-Get webhook triggers
-
 Returns a list of triggers for a webhook.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**UnknownWrapper**](UnknownWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -428,16 +430,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**UnknownWrapper**](UnknownWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -456,18 +448,39 @@ This endpoint does not need any parameter.
 # **GetWebhooksLogs**
 > WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null, int? count = null, int? startIndex = null)
 
-Get webhook logs
-
 Returns the logs of the webhook activities.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
+| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
+| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
+| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
+| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
+| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus.md) | The status of the webhook delivery group. | [optional]  |
+| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
+| **trigger** | [**WebhookTrigger?**](WebhookTrigger.md) | The type of event that triggered the webhook. | [optional]  |
+| **count** | **int?** | The maximum number of webhook log records to return in the query response. | [optional]  |
+| **startIndex** | **int?** | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional]  |
+
+### Return type
+
+[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -545,29 +558,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
-| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
-| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
-| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
-| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
-| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus?.md) | The status of the webhook delivery group. | [optional]  |
-| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
-| **trigger** | [**WebhookTrigger?**](WebhookTrigger?.md) | The type of event that triggered the webhook. | [optional]  |
-| **count** | **int?** | The maximum number of webhook log records to return in the query response. | [optional]  |
-| **startIndex** | **int?** | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional]  |
-
-### Return type
-
-[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -586,18 +576,30 @@ catch (ApiException e)
 # **RemoveWebhook**
 > WebhooksConfigWrapper RemoveWebhook (int id)
 
-Remove a webhook
-
 Removes a tenant webhook with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -666,20 +668,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -698,18 +686,30 @@ catch (ApiException e)
 # **RetryWebhook**
 > WebhooksLogWrapper RetryWebhook (int id)
 
-Retry a webhook
-
 Retries a webhook with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The ID extracted from the route parameters. |  |
+
+### Return type
+
+[**WebhooksLogWrapper**](WebhooksLogWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -778,20 +778,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The ID extracted from the route parameters. |  |
-
-### Return type
-
-[**WebhooksLogWrapper**](WebhooksLogWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -812,18 +798,30 @@ catch (ApiException e)
 # **RetryWebhooks**
 > WebhooksLogArrayWrapper RetryWebhooks (WebhookRetryRequestsDto? webhookRetryRequestsDto = null)
 
-Retry webhooks
-
 Retries all the webhooks with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **webhookRetryRequestsDto** | [**WebhookRetryRequestsDto?**](WebhookRetryRequestsDto.md) | The request parameters for requesting the webhook delivery retries. | [optional]  |
+
+### Return type
+
+[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -853,7 +851,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? |  (optional) 
+            var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? | The request parameters for requesting the webhook delivery retries. (optional) 
 
             try
             {
@@ -892,20 +890,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **webhookRetryRequestsDto** | [**WebhookRetryRequestsDto?**](WebhookRetryRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WebhooksLogArrayWrapper**](WebhooksLogArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -924,18 +908,30 @@ catch (ApiException e)
 # **UpdateWebhook**
 > WebhooksConfigWrapper UpdateWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
 
-Update a webhook
-
 Updates a tenant webhook with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto.md) | The request parameters for updating the webhook configuration. | [optional]  |
+
+### Return type
+
+[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -965,7 +961,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
-            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? |  (optional) 
+            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
 
             try
             {
@@ -1003,20 +999,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WebhooksConfigWrapper**](WebhooksConfigWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

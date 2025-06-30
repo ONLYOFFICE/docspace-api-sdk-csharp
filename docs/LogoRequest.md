@@ -1,4 +1,4 @@
-# Docspace.Model.LogoRequest
+# DocSpace.Model.LogoRequest
 The logo request parameters.
 
 ## Properties

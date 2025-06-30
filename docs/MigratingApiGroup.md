@@ -1,4 +1,4 @@
-# Docspace.Model.MigratingApiGroup
+# DocSpace.Model.MigratingApiGroup
 
 ## Properties
 

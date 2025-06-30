@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         AuthenticationTokenWrapper AuthenticateMe(AuthRequestsDto? authRequestsDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestsDto? authRequestsDto = default);
@@ -73,9 +73,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthRequestsDto? authRequestsDto = default);
@@ -86,9 +86,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthRequestsDto? authRequestsDto = default);
@@ -98,8 +98,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ConfirmWrapper</returns>
         ConfirmWrapper CheckConfirm(EmailValidationKeyModel? emailValidationKeyModel = default);
@@ -110,8 +110,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ApiResponse of ConfirmWrapper</returns>
         ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(EmailValidationKeyModel? emailValidationKeyModel = default);
@@ -121,7 +121,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current user is authenticated or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper GetIsAuthentificated();
@@ -132,7 +132,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current user is authenticated or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetIsAuthentificatedWithHttpInfo();
@@ -142,7 +142,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out of the current user account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper Logout();
@@ -153,7 +153,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out of the current user account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> LogoutWithHttpInfo();
@@ -163,8 +163,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a mobile phone for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         AuthenticationTokenWrapper SaveMobilePhone(MobileRequestsDto? mobileRequestsDto = default);
@@ -175,8 +175,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a mobile phone for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestsDto? mobileRequestsDto = default);
@@ -186,8 +186,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends SMS with an authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         AuthenticationTokenWrapper SendSmsCode(AuthRequestsDto? authRequestsDto = default);
@@ -198,8 +198,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends SMS with an authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestsDto? authRequestsDto = default);
@@ -218,8 +218,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -231,8 +231,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -243,9 +243,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -257,9 +257,9 @@ namespace Docspace.Api
         /// <remarks>
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -270,8 +270,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ConfirmWrapper</returns>
@@ -283,8 +283,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (ConfirmWrapper)</returns>
@@ -295,7 +295,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current user is authenticated or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -307,7 +307,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the current user is authenticated or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -318,7 +318,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out of the current user account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -330,7 +330,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Logs out of the current user account.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -341,8 +341,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a mobile phone for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -354,8 +354,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets a mobile phone for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -366,8 +366,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends SMS with an authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -379,8 +379,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends SMS with an authentication code.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -423,14 +423,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public AuthenticationApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -445,14 +445,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -487,14 +487,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -514,14 +514,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -541,7 +541,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -601,8 +601,8 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         public AuthenticationTokenWrapper AuthenticateMe(AuthRequestsDto? authRequestsDto = default)
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestsDto? authRequestsDto = default)
@@ -651,8 +651,8 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -665,8 +665,8 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -706,9 +706,9 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user by code Authenticates the current user by SMS or two-factor authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         public AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthRequestsDto? authRequestsDto = default)
@@ -720,9 +720,9 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user by code Authenticates the current user by SMS or two-factor authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthRequestsDto? authRequestsDto = default)
@@ -763,9 +763,9 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user by code Authenticates the current user by SMS or two-factor authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -778,9 +778,9 @@ namespace Docspace.Api
         /// <summary>
         /// Authenticate a user by code Authenticates the current user by SMS or two-factor authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -825,8 +825,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open confirmation email URL Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ConfirmWrapper</returns>
         public ConfirmWrapper CheckConfirm(EmailValidationKeyModel? emailValidationKeyModel = default)
@@ -838,8 +838,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open confirmation email URL Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ApiResponse of ConfirmWrapper</returns>
         public ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(EmailValidationKeyModel? emailValidationKeyModel = default)
@@ -875,8 +875,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open confirmation email URL Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ConfirmWrapper</returns>
@@ -889,8 +889,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open confirmation email URL Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (ConfirmWrapper)</returns>
@@ -930,7 +930,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check authentication Checks if the current user is authenticated or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetIsAuthentificated()
@@ -942,7 +942,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check authentication Checks if the current user is authenticated or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> GetIsAuthentificatedWithHttpInfo()
@@ -977,7 +977,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check authentication Checks if the current user is authenticated or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -990,7 +990,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check authentication Checks if the current user is authenticated or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1029,7 +1029,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out Logs out of the current user account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper Logout()
@@ -1041,7 +1041,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out Logs out of the current user account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> LogoutWithHttpInfo()
@@ -1076,7 +1076,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out Logs out of the current user account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1089,7 +1089,7 @@ namespace Docspace.Api
         /// <summary>
         /// Log out Logs out of the current user account.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -1128,8 +1128,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a mobile phone Sets a mobile phone for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         public AuthenticationTokenWrapper SaveMobilePhone(MobileRequestsDto? mobileRequestsDto = default)
@@ -1141,8 +1141,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a mobile phone Sets a mobile phone for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         public ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestsDto? mobileRequestsDto = default)
@@ -1208,8 +1208,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a mobile phone Sets a mobile phone for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -1222,8 +1222,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set a mobile phone Sets a mobile phone for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
@@ -1293,8 +1293,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send SMS code Sends SMS with an authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
         public AuthenticationTokenWrapper SendSmsCode(AuthRequestsDto? authRequestsDto = default)
@@ -1306,8 +1306,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send SMS code Sends SMS with an authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
         public ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestsDto? authRequestsDto = default)
@@ -1343,8 +1343,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send SMS code Sends SMS with an authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
@@ -1357,8 +1357,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send SMS code Sends SMS with an authentication code.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the account entries with their sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -74,7 +74,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the account entries with their sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -97,7 +97,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -111,7 +111,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -155,7 +155,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -185,7 +185,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the users with the sharing settings in a room with the ID specified in request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -209,7 +209,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the users with the sharing settings in a room with the ID specified in request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -232,7 +232,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -263,7 +263,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -293,7 +293,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query. This method uses the query parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
@@ -305,7 +305,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query. This method uses the query parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
@@ -316,7 +316,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the status filter and search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -331,7 +331,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the status filter and search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -354,7 +354,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the account entries with their sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -379,7 +379,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the account entries with their sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -403,7 +403,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -418,7 +418,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -432,7 +432,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -464,7 +464,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -495,7 +495,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the users with the sharing settings in a room with the ID specified in request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -520,7 +520,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the users with the sharing settings in a room with the ID specified in request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -544,7 +544,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -576,7 +576,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -607,7 +607,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query. This method uses the query parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
@@ -620,7 +620,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the search query. This method uses the query parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
@@ -632,7 +632,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the status filter and search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -648,7 +648,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of users matching the status filter and search query.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -695,14 +695,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleSearchApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -717,14 +717,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -759,14 +759,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -786,14 +786,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -813,7 +813,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -873,7 +873,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get account entries Returns the account entries with their sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -898,7 +898,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get account entries Returns the account entries with their sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1024,7 +1024,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get account entries Returns the account entries with their sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1050,7 +1050,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get account entries Returns the account entries with their sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1087,51 +1087,51 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (excludeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
             }
             if (includeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1181,7 +1181,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users Returns a list of users matching the search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -1196,7 +1196,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users Returns a list of users matching the search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -1277,7 +1277,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users Returns a list of users matching the search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -1293,7 +1293,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users Returns a list of users matching the search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query.</param>
         /// <param name="filterBy">Specifies a filter criteria for the user search query. (optional)</param>
         /// <param name="filterValue">The value used for filtering users, allowing additional constraints for the query. (optional)</param>
@@ -1324,11 +1324,11 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("query", ClientUtils.ParameterToString(query)); // path parameter
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1378,7 +1378,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by extended filter Returns a list of users matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1410,7 +1410,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by extended filter Returns a list of users matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1574,7 +1574,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by extended filter Returns a list of users matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1607,7 +1607,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by extended filter Returns a list of users matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1650,83 +1650,83 @@ namespace Docspace.Api
 
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (groupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (employeeType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
             }
             if (payments != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "payments", payments));
             }
             if (accountLoginType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
             }
             if (quotaFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
             }
             if (withoutGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
             }
             if (excludeGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -1776,7 +1776,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users with room sharing settings Returns the users with the sharing settings in a room with the ID specified in request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1801,7 +1801,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users with room sharing settings Returns the users with the sharing settings in a room with the ID specified in request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1927,7 +1927,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users with room sharing settings Returns the users with the sharing settings in a room with the ID specified in request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1953,7 +1953,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get users with room sharing settings Returns the users with the sharing settings in a room with the ID specified in request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -1990,51 +1990,51 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (excludeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
             }
             if (includeShared != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -2084,7 +2084,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -2116,7 +2116,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -2280,7 +2280,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -2313,7 +2313,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users with detaailed information by extended filter Returns a list of users with full information about them matching the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeStatus">The user status. (optional)</param>
         /// <param name="groupId">The group ID. (optional)</param>
         /// <param name="activationStatus">The user activation status. (optional)</param>
@@ -2356,83 +2356,83 @@ namespace Docspace.Api
 
             if (employeeStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
             }
             if (groupId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
             if (activationStatus != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
             }
             if (employeeType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeType", employeeType));
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "isAdministrator", isAdministrator));
             }
             if (payments != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "payments", payments));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "payments", payments));
             }
             if (accountLoginType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "accountLoginType", accountLoginType));
             }
             if (quotaFilter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
             }
             if (withoutGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutGroup", withoutGroup));
             }
             if (excludeGroup != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeGroup", excludeGroup));
             }
             if (invitedByMe != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
             }
             if (inviterId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
             }
             if (area != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "area", area));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
             if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
             }
             if (sortOrder != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
             }
             if (filterSeparator != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required
@@ -2482,7 +2482,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
@@ -2495,7 +2495,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
@@ -2565,7 +2565,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
@@ -2579,7 +2579,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users (using query parameters) Returns a list of users matching the search query. This method uses the query parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/">REST API Reference for SearchUsersByQuery Operation</seealso>
@@ -2603,7 +2603,7 @@ namespace Docspace.Api
 
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
             // authentication (Basic) required
@@ -2653,7 +2653,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by status filter Returns a list of users matching the status filter and search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -2669,7 +2669,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by status filter Returns a list of users matching the status filter and search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -2751,7 +2751,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by status filter Returns a list of users matching the status filter and search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -2768,7 +2768,7 @@ namespace Docspace.Api
         /// <summary>
         /// Search users by status filter Returns a list of users matching the status filter and search query.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The user status.</param>
         /// <param name="query">The advanced search query. (optional)</param>
         /// <param name="filterBy">Specifies the criteria used to filter search results in advanced queries. (optional)</param>
@@ -2796,15 +2796,15 @@ namespace Docspace.Api
             localVarRequestOptions.PathParameters.Add("status", ClientUtils.ParameterToString(status)); // path parameter
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
             }
             if (filterBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterBy", filterBy));
             }
             if (filterValue != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
             // authentication (Basic) required

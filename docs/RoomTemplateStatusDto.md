@@ -1,4 +1,4 @@
-# Docspace.Model.RoomTemplateStatusDto
+# DocSpace.Model.RoomTemplateStatusDto
 The room template status.
 
 ## Properties

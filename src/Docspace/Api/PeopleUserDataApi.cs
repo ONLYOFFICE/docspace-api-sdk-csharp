@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper GetDeletePersonalFolderProgress();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -83,7 +83,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -106,7 +106,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -117,7 +117,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the reassignment of rooms and shared files is necessary or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
@@ -130,7 +130,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the reassignment of rooms and shared files is necessary or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
@@ -142,7 +142,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions for deleting a user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper SendInstructionsToDelete();
@@ -153,7 +153,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions for deleting a user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> SendInstructionsToDeleteWithHttpInfo();
@@ -163,7 +163,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper StartDeletePersonalFolder();
@@ -174,7 +174,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> StartDeletePersonalFolderWithHttpInfo();
@@ -184,8 +184,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper StartReassign(StartReassignRequestDto? startReassignRequestDto = default);
@@ -196,8 +196,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> StartReassignWithHttpInfo(StartReassignRequestDto? startReassignRequestDto = default);
@@ -207,8 +207,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper StartRemove(TerminateRequestDto? terminateRequestDto = default);
@@ -219,8 +219,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> StartRemoveWithHttpInfo(TerminateRequestDto? terminateRequestDto = default);
@@ -230,8 +230,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         TaskProgressResponseWrapper TerminateReassign(TerminateRequestDto? terminateRequestDto = default);
@@ -242,8 +242,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> TerminateReassignWithHttpInfo(TerminateRequestDto? terminateRequestDto = default);
@@ -253,8 +253,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns></returns>
         void TerminateRemove(TerminateRequestDto? terminateRequestDto = default);
@@ -265,8 +265,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TerminateRemoveWithHttpInfo(TerminateRequestDto? terminateRequestDto = default);
@@ -285,7 +285,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -297,7 +297,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -308,7 +308,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -321,7 +321,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -333,7 +333,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -346,7 +346,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -358,7 +358,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the reassignment of rooms and shared files is necessary or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -372,7 +372,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the reassignment of rooms and shared files is necessary or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -385,7 +385,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions for deleting a user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -397,7 +397,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions for deleting a user profile.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -408,7 +408,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -420,7 +420,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts deleting the personal folder.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -431,8 +431,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -444,8 +444,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -456,8 +456,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -469,8 +469,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Starts the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -481,8 +481,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -494,8 +494,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data reassignment for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -506,8 +506,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of void</returns>
@@ -519,8 +519,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Terminates the data deletion for the user with the ID specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -563,14 +563,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PeopleUserDataApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -585,14 +585,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -627,14 +627,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -654,14 +654,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -681,7 +681,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -741,7 +741,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper GetDeletePersonalFolderProgress()
@@ -753,7 +753,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressWithHttpInfo()
@@ -818,7 +818,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -831,7 +831,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -900,7 +900,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -913,7 +913,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -980,7 +980,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -994,7 +994,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -1065,7 +1065,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -1078,7 +1078,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -1145,7 +1145,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -1159,7 +1159,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -1230,7 +1230,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
@@ -1244,7 +1244,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
@@ -1319,7 +1319,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1334,7 +1334,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1359,11 +1359,11 @@ namespace Docspace.Api
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "UserId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "UserId", userId));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "Type", type));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Type", type));
             }
 
             // authentication (Basic) required
@@ -1413,7 +1413,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the deletion instructions Sends the instructions for deleting a user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper SendInstructionsToDelete()
@@ -1425,7 +1425,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the deletion instructions Sends the instructions for deleting a user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> SendInstructionsToDeleteWithHttpInfo()
@@ -1490,7 +1490,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the deletion instructions Sends the instructions for deleting a user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1503,7 +1503,7 @@ namespace Docspace.Api
         /// <summary>
         /// Send the deletion instructions Sends the instructions for deleting a user profile.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -1572,7 +1572,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the personal folder Starts deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper StartDeletePersonalFolder()
@@ -1584,7 +1584,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the personal folder Starts deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> StartDeletePersonalFolderWithHttpInfo()
@@ -1649,7 +1649,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the personal folder Starts deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -1662,7 +1662,7 @@ namespace Docspace.Api
         /// <summary>
         /// Delete the personal folder Starts deleting the personal folder.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -1731,8 +1731,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper StartReassign(StartReassignRequestDto? startReassignRequestDto = default)
@@ -1744,8 +1744,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> StartReassignWithHttpInfo(StartReassignRequestDto? startReassignRequestDto = default)
@@ -1811,8 +1811,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -1825,8 +1825,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startReassignRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -1896,8 +1896,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper StartRemove(TerminateRequestDto? terminateRequestDto = default)
@@ -1909,8 +1909,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> StartRemoveWithHttpInfo(TerminateRequestDto? terminateRequestDto = default)
@@ -1976,8 +1976,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -1990,8 +1990,8 @@ namespace Docspace.Api
         /// <summary>
         /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -2061,8 +2061,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
         public TaskProgressResponseWrapper TerminateReassign(TerminateRequestDto? terminateRequestDto = default)
@@ -2074,8 +2074,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         public ApiResponse<TaskProgressResponseWrapper> TerminateReassignWithHttpInfo(TerminateRequestDto? terminateRequestDto = default)
@@ -2141,8 +2141,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
@@ -2155,8 +2155,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
@@ -2226,8 +2226,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns></returns>
         public void TerminateRemove(TerminateRequestDto? terminateRequestDto = default)
@@ -2238,8 +2238,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> TerminateRemoveWithHttpInfo(TerminateRequestDto? terminateRequestDto = default)
@@ -2305,8 +2305,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of void</returns>
@@ -2318,8 +2318,8 @@ namespace Docspace.Api
         /// <summary>
         /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="terminateRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

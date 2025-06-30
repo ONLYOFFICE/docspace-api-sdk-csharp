@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsIPRestrictionsApi
+# DocSpace.Api.SettingsIPRestrictionsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -13,18 +13,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetIpRestrictions**
 > IPRestrictionArrayWrapper GetIpRestrictions ()
 
-Get the IP portal restrictions
-
 Returns the IP portal restrictions.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -92,16 +100,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -120,18 +118,26 @@ This endpoint does not need any parameter.
 # **ReadIpRestrictionsSettings**
 > IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
 
-Get the IP restriction settings
-
 Returns the IP restriction settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -199,16 +205,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -227,18 +223,30 @@ This endpoint does not need any parameter.
 # **SaveIpRestrictions**
 > IpRestrictionsWrapper SaveIpRestrictions (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Update the IP restrictions
-
 Updates the IP restrictions with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+
+### Return type
+
+[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -268,7 +276,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? |  (optional) 
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
             {
@@ -307,20 +315,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -339,18 +333,30 @@ catch (ApiException e)
 # **UpdateIpRestrictionsSettings**
 > IpRestrictionsWrapper UpdateIpRestrictionsSettings (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Update the IP restriction settings
-
 Updates the IP restriction settings with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+
+### Return type
+
+[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -380,7 +386,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? |  (optional) 
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
             {
@@ -418,20 +424,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

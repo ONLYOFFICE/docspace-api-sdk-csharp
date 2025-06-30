@@ -1,4 +1,4 @@
-# Docspace.Model.FormGalleryDto
+# DocSpace.Model.FormGalleryDto
 The form gallery parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.WatermarkOnDraw
+# DocSpace.Model.WatermarkOnDraw
 The document watermark parameters.
 
 ## Properties
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Fill** | **string** | Defines the watermark fill color. | [optional] 
 **Rotate** | **int** | Defines the watermark rotation angle. | [optional] 
 **Transparent** | **double** | Defines the watermark transparency percentage. | [optional] 
-**Paragraphs** | [**List&lt;Paragraph&gt;**](Paragraph.md) | The list of paragraphs of the watermark. | [optional] 
+**Paragraphs** | [**List&lt;Paragraph&gt;**](.md) | The list of paragraphs of the watermark. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

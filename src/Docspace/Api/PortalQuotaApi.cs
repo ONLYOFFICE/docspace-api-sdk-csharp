@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>TenantQuotaWrapper</returns>
         TenantQuotaWrapper GetPortalQuota();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
         ApiResponse<TenantQuotaWrapper> GetPortalQuotaWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal tariff.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>TariffWrapper</returns>
@@ -83,7 +83,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal tariff.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>ApiResponse of TariffWrapper</returns>
@@ -94,7 +94,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         DoubleWrapper GetPortalUsedSpace();
@@ -105,7 +105,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         ApiResponse<DoubleWrapper> GetPortalUsedSpaceWithHttpInfo();
@@ -115,7 +115,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the recommended quota for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>TenantQuotaWrapper</returns>
         TenantQuotaWrapper GetRightQuota();
@@ -126,7 +126,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the recommended quota for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
         ApiResponse<TenantQuotaWrapper> GetRightQuotaWithHttpInfo();
@@ -145,7 +145,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>Task of TenantQuotaWrapper</returns>
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal quota.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal tariff.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
@@ -181,7 +181,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current portal tariff.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
@@ -193,7 +193,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -205,7 +205,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the used space of the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -216,7 +216,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the recommended quota for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>Task of TenantQuotaWrapper</returns>
@@ -228,7 +228,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the recommended quota for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>
@@ -271,14 +271,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public PortalQuotaApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -293,14 +293,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -362,14 +362,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal quota Returns the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>TenantQuotaWrapper</returns>
         public TenantQuotaWrapper GetPortalQuota()
@@ -461,7 +461,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal quota Returns the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
         public ApiResponse<TenantQuotaWrapper> GetPortalQuotaWithHttpInfo()
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal quota Returns the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>Task of TenantQuotaWrapper</returns>
@@ -539,7 +539,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal quota Returns the current portal quota.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/">REST API Reference for GetPortalQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>
@@ -608,7 +608,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal tariff Returns the current portal tariff.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>TariffWrapper</returns>
@@ -621,7 +621,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal tariff Returns the current portal tariff.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
         /// <returns>ApiResponse of TariffWrapper</returns>
@@ -691,7 +691,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal tariff Returns the current portal tariff.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
@@ -705,7 +705,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get a portal tariff Returns the current portal tariff.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refresh">The value indicating whether the current portal tariff information should be refreshed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/">REST API Reference for GetPortalTariff Operation</seealso>
@@ -729,7 +729,7 @@ namespace Docspace.Api
 
             if (refresh != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "refresh", refresh));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "refresh", refresh));
             }
 
             // authentication (Basic) required
@@ -779,7 +779,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal used space Returns the used space of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>DoubleWrapper</returns>
         public DoubleWrapper GetPortalUsedSpace()
@@ -791,7 +791,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal used space Returns the used space of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>ApiResponse of DoubleWrapper</returns>
         public ApiResponse<DoubleWrapper> GetPortalUsedSpaceWithHttpInfo()
@@ -856,7 +856,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal used space Returns the used space of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>Task of DoubleWrapper</returns>
@@ -869,7 +869,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the portal used space Returns the used space of the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/">REST API Reference for GetPortalUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
@@ -938,7 +938,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the recommended quota Returns the recommended quota for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>TenantQuotaWrapper</returns>
         public TenantQuotaWrapper GetRightQuota()
@@ -950,7 +950,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the recommended quota Returns the recommended quota for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaWrapper</returns>
         public ApiResponse<TenantQuotaWrapper> GetRightQuotaWithHttpInfo()
@@ -1015,7 +1015,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the recommended quota Returns the recommended quota for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>Task of TenantQuotaWrapper</returns>
@@ -1028,7 +1028,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the recommended quota Returns the recommended quota for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/">REST API Reference for GetRightQuota Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaWrapper)</returns>

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the access to the third-party settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper ChangeAccessToThirdparty(SettingsRequestDto? settingsRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the access to the third-party settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ChangeAccessToThirdpartyWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp(AutoCleanupRequestDto? autoCleanupRequestDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpWithHttpInfo(AutoCleanupRequestDto? autoCleanupRequestDto = default);
@@ -96,7 +96,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the default access rights in the sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
@@ -108,7 +108,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the default access rights in the sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
@@ -119,8 +119,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper ChangeDeleteConfirm(SettingsRequestDto? settingsRequestDto = default);
@@ -131,8 +131,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ChangeDeleteConfirmWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -142,8 +142,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>ICompressWrapper</returns>
         ICompressWrapper ChangeDownloadZipFromBody(DisplayRequestDto? displayRequestDto = default);
@@ -154,8 +154,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>ApiResponse of ICompressWrapper</returns>
         ApiResponse<ICompressWrapper> ChangeDownloadZipFromBodyWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
@@ -165,8 +165,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the document service location URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>DocServiceUrlWrapper</returns>
         DocServiceUrlWrapper CheckDocServiceUrl(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default);
@@ -177,8 +177,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the document service location URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
         ApiResponse<DocServiceUrlWrapper> CheckDocServiceUrlWithHttpInfo(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default);
@@ -188,8 +188,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to display a file extension or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper DisplayFileExtension(SettingsRequestDto? settingsRequestDto = default);
@@ -200,8 +200,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to display a file extension or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> DisplayFileExtensionWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -211,8 +211,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper ExternalShare(DisplayRequestDto? displayRequestDto = default);
@@ -223,8 +223,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ExternalShareWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
@@ -234,8 +234,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally on social networks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper ExternalShareSocialMedia(DisplayRequestDto? displayRequestDto = default);
@@ -246,8 +246,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally on social networks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ExternalShareSocialMediaWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper Forcesave();
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ForcesaveWithHttpInfo();
@@ -278,7 +278,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         AutoCleanUpDataWrapper GetAutomaticallyCleanUp();
@@ -289,7 +289,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> GetAutomaticallyCleanUpWithHttpInfo();
@@ -299,7 +299,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL address of the connected editors.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
         /// <returns>DocServiceUrlWrapper</returns>
@@ -311,7 +311,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL address of the connected editors.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
@@ -322,7 +322,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ModuleWrapper</returns>
         ModuleWrapper GetFilesModule();
@@ -333,7 +333,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
         ApiResponse<ModuleWrapper> GetFilesModuleWithHttpInfo();
@@ -343,7 +343,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the file settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>FilesSettingsWrapper</returns>
         FilesSettingsWrapper GetFilesSettings();
@@ -354,7 +354,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the file settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>ApiResponse of FilesSettingsWrapper</returns>
         ApiResponse<FilesSettingsWrapper> GetFilesSettingsWithHttpInfo();
@@ -364,8 +364,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper HideConfirmCancelOperation(SettingsRequestDto? settingsRequestDto = default);
@@ -376,8 +376,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> HideConfirmCancelOperationWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -387,8 +387,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>ModuleWrapper</returns>
         ModuleWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
@@ -399,8 +399,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
         ApiResponse<ModuleWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
@@ -410,8 +410,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper HideConfirmRoomLifetime(SettingsRequestDto? settingsRequestDto = default);
@@ -422,8 +422,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> HideConfirmRoomLifetimeWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -433,7 +433,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper IsAvailablePrivacyRoomSettings();
@@ -444,7 +444,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> IsAvailablePrivacyRoomSettingsWithHttpInfo();
@@ -454,8 +454,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper KeepNewFileName(SettingsRequestDto? settingsRequestDto = default);
@@ -466,8 +466,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> KeepNewFileNameWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -477,8 +477,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SetOpenEditorInSameTab(SettingsRequestDto? settingsRequestDto = default);
@@ -489,8 +489,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SetOpenEditorInSameTabWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -500,7 +500,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper StoreForcesave();
@@ -511,7 +511,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> StoreForcesaveWithHttpInfo();
@@ -521,8 +521,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper StoreOriginal(SettingsRequestDto? settingsRequestDto = default);
@@ -533,8 +533,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> StoreOriginalWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -544,8 +544,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a file version if a file with such a name already exists.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper UpdateFileIfExist(SettingsRequestDto? settingsRequestDto = default);
@@ -556,8 +556,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a file version if a file with such a name already exists.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateFileIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
@@ -576,8 +576,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the access to the third-party settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -589,8 +589,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the access to the third-party settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -601,8 +601,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -614,8 +614,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
@@ -626,7 +626,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the default access rights in the sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -639,7 +639,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the default access rights in the sharing settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -651,8 +651,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -664,8 +664,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -676,8 +676,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>Task of ICompressWrapper</returns>
@@ -689,8 +689,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>Task of ApiResponse (ICompressWrapper)</returns>
@@ -701,8 +701,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the document service location URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>Task of DocServiceUrlWrapper</returns>
@@ -714,8 +714,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks the document service location URL.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>Task of ApiResponse (DocServiceUrlWrapper)</returns>
@@ -726,8 +726,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to display a file extension or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -739,8 +739,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to display a file extension or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -751,8 +751,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -764,8 +764,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -776,8 +776,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally on social networks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -789,8 +789,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to share a file externally on social networks.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -801,7 +801,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -813,7 +813,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -824,7 +824,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -836,7 +836,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the trash bin auto-clearing setting.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
@@ -847,7 +847,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL address of the connected editors.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -860,7 +860,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the URL address of the connected editors.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -872,7 +872,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>Task of ModuleWrapper</returns>
@@ -884,7 +884,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
@@ -895,7 +895,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the file settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>Task of FilesSettingsWrapper</returns>
@@ -907,7 +907,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the file settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>Task of ApiResponse (FilesSettingsWrapper)</returns>
@@ -918,8 +918,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -931,8 +931,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -943,8 +943,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>Task of ModuleWrapper</returns>
@@ -956,8 +956,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
@@ -968,8 +968,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -981,8 +981,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -993,7 +993,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1005,7 +1005,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1016,8 +1016,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1029,8 +1029,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1041,8 +1041,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1054,8 +1054,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1066,7 +1066,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1078,7 +1078,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1089,8 +1089,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1102,8 +1102,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1114,8 +1114,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a file version if a file with such a name already exists.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1127,8 +1127,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates a file version if a file with such a name already exists.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1171,14 +1171,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public FilesSettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1193,14 +1193,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1235,14 +1235,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1262,14 +1262,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1289,7 +1289,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1349,8 +1349,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the third-party settings access Changes the access to the third-party settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper ChangeAccessToThirdparty(SettingsRequestDto? settingsRequestDto = default)
@@ -1362,8 +1362,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the third-party settings access Changes the access to the third-party settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> ChangeAccessToThirdpartyWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -1429,8 +1429,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the third-party settings access Changes the access to the third-party settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1443,8 +1443,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the third-party settings access Changes the access to the third-party settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1514,8 +1514,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the trash bin auto-clearing setting Updates the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         public AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp(AutoCleanupRequestDto? autoCleanupRequestDto = default)
@@ -1527,8 +1527,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the trash bin auto-clearing setting Updates the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         public ApiResponse<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpWithHttpInfo(AutoCleanupRequestDto? autoCleanupRequestDto = default)
@@ -1594,8 +1594,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the trash bin auto-clearing setting Updates the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -1608,8 +1608,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the trash bin auto-clearing setting Updates the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
@@ -1679,7 +1679,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the default access rights Changes the default access rights in the sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
@@ -1692,7 +1692,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the default access rights Changes the default access rights in the sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
@@ -1759,7 +1759,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the default access rights Changes the default access rights in the sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -1773,7 +1773,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the default access rights Changes the default access rights in the sharing settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -1844,8 +1844,8 @@ namespace Docspace.Api
         /// <summary>
         /// Confirm the file deletion Specifies whether to confirm the file deletion or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper ChangeDeleteConfirm(SettingsRequestDto? settingsRequestDto = default)
@@ -1857,8 +1857,8 @@ namespace Docspace.Api
         /// <summary>
         /// Confirm the file deletion Specifies whether to confirm the file deletion or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> ChangeDeleteConfirmWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -1924,8 +1924,8 @@ namespace Docspace.Api
         /// <summary>
         /// Confirm the file deletion Specifies whether to confirm the file deletion or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1938,8 +1938,8 @@ namespace Docspace.Api
         /// <summary>
         /// Confirm the file deletion Specifies whether to confirm the file deletion or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2009,8 +2009,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the archive format (using body parameters) Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>ICompressWrapper</returns>
         public ICompressWrapper ChangeDownloadZipFromBody(DisplayRequestDto? displayRequestDto = default)
@@ -2022,8 +2022,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the archive format (using body parameters) Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>ApiResponse of ICompressWrapper</returns>
         public ApiResponse<ICompressWrapper> ChangeDownloadZipFromBodyWithHttpInfo(DisplayRequestDto? displayRequestDto = default)
@@ -2089,8 +2089,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the archive format (using body parameters) Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>Task of ICompressWrapper</returns>
@@ -2103,8 +2103,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the archive format (using body parameters) Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>Task of ApiResponse (ICompressWrapper)</returns>
@@ -2174,8 +2174,8 @@ namespace Docspace.Api
         /// <summary>
         /// Check the document service URL Checks the document service location URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>DocServiceUrlWrapper</returns>
         public DocServiceUrlWrapper CheckDocServiceUrl(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default)
@@ -2187,8 +2187,8 @@ namespace Docspace.Api
         /// <summary>
         /// Check the document service URL Checks the document service location URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
         public ApiResponse<DocServiceUrlWrapper> CheckDocServiceUrlWithHttpInfo(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default)
@@ -2254,8 +2254,8 @@ namespace Docspace.Api
         /// <summary>
         /// Check the document service URL Checks the document service location URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>Task of DocServiceUrlWrapper</returns>
@@ -2268,8 +2268,8 @@ namespace Docspace.Api
         /// <summary>
         /// Check the document service URL Checks the document service location URL.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="checkDocServiceUrlRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
         /// <returns>Task of ApiResponse (DocServiceUrlWrapper)</returns>
@@ -2339,8 +2339,8 @@ namespace Docspace.Api
         /// <summary>
         /// Display a file extension Specifies whether to display a file extension or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper DisplayFileExtension(SettingsRequestDto? settingsRequestDto = default)
@@ -2352,8 +2352,8 @@ namespace Docspace.Api
         /// <summary>
         /// Display a file extension Specifies whether to display a file extension or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> DisplayFileExtensionWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -2419,8 +2419,8 @@ namespace Docspace.Api
         /// <summary>
         /// Display a file extension Specifies whether to display a file extension or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -2433,8 +2433,8 @@ namespace Docspace.Api
         /// <summary>
         /// Display a file extension Specifies whether to display a file extension or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2504,8 +2504,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability Changes the ability to share a file externally.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper ExternalShare(DisplayRequestDto? displayRequestDto = default)
@@ -2517,8 +2517,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability Changes the ability to share a file externally.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> ExternalShareWithHttpInfo(DisplayRequestDto? displayRequestDto = default)
@@ -2584,8 +2584,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability Changes the ability to share a file externally.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -2598,8 +2598,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability Changes the ability to share a file externally.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2669,8 +2669,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability on social networks Changes the ability to share a file externally on social networks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper ExternalShareSocialMedia(DisplayRequestDto? displayRequestDto = default)
@@ -2682,8 +2682,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability on social networks Changes the ability to share a file externally on social networks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> ExternalShareSocialMediaWithHttpInfo(DisplayRequestDto? displayRequestDto = default)
@@ -2749,8 +2749,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability on social networks Changes the ability to share a file externally on social networks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -2763,8 +2763,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the external sharing ability on social networks Changes the ability to share a file externally on social networks.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="displayRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2834,7 +2834,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the forcesaving ability Specifies if the file forcesaving is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper Forcesave()
@@ -2846,7 +2846,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the forcesaving ability Specifies if the file forcesaving is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> ForcesaveWithHttpInfo()
@@ -2911,7 +2911,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the forcesaving ability Specifies if the file forcesaving is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -2924,7 +2924,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the forcesaving ability Specifies if the file forcesaving is enabled or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2993,7 +2993,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the trash bin auto-clearing setting Returns the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         public AutoCleanUpDataWrapper GetAutomaticallyCleanUp()
@@ -3005,7 +3005,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the trash bin auto-clearing setting Returns the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         public ApiResponse<AutoCleanUpDataWrapper> GetAutomaticallyCleanUpWithHttpInfo()
@@ -3070,7 +3070,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the trash bin auto-clearing setting Returns the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -3083,7 +3083,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the trash bin auto-clearing setting Returns the trash bin auto-clearing setting.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
@@ -3152,7 +3152,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the document service URL Returns the URL address of the connected editors.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
         /// <returns>DocServiceUrlWrapper</returns>
@@ -3165,7 +3165,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the document service URL Returns the URL address of the connected editors.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
@@ -3205,7 +3205,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the document service URL Returns the URL address of the connected editors.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -3219,7 +3219,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the document service URL Returns the URL address of the connected editors.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -3243,7 +3243,7 @@ namespace Docspace.Api
 
             if (version != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "version", version));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
 
 
@@ -3263,7 +3263,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Documents\&quot; information Returns the information about the \&quot;Documents\&quot; module.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ModuleWrapper</returns>
         public ModuleWrapper GetFilesModule()
@@ -3275,7 +3275,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Documents\&quot; information Returns the information about the \&quot;Documents\&quot; module.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
         public ApiResponse<ModuleWrapper> GetFilesModuleWithHttpInfo()
@@ -3340,7 +3340,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Documents\&quot; information Returns the information about the \&quot;Documents\&quot; module.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>Task of ModuleWrapper</returns>
@@ -3353,7 +3353,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the \&quot;Documents\&quot; information Returns the information about the \&quot;Documents\&quot; module.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
@@ -3422,7 +3422,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file settings Returns all the file settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>FilesSettingsWrapper</returns>
         public FilesSettingsWrapper GetFilesSettings()
@@ -3434,7 +3434,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file settings Returns all the file settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>ApiResponse of FilesSettingsWrapper</returns>
         public ApiResponse<FilesSettingsWrapper> GetFilesSettingsWithHttpInfo()
@@ -3469,7 +3469,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file settings Returns all the file settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>Task of FilesSettingsWrapper</returns>
@@ -3482,7 +3482,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get file settings Returns all the file settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>Task of ApiResponse (FilesSettingsWrapper)</returns>
@@ -3521,8 +3521,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when canceling operations Hides the confirmation dialog when canceling operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper HideConfirmCancelOperation(SettingsRequestDto? settingsRequestDto = default)
@@ -3534,8 +3534,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when canceling operations Hides the confirmation dialog when canceling operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> HideConfirmCancelOperationWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -3601,8 +3601,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when canceling operations Hides the confirmation dialog when canceling operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3615,8 +3615,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when canceling operations Hides the confirmation dialog when canceling operations.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -3686,8 +3686,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide the confirmation dialog when converting Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>ModuleWrapper</returns>
         public ModuleWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
@@ -3699,8 +3699,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide the confirmation dialog when converting Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
         public ApiResponse<ModuleWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
@@ -3766,8 +3766,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide the confirmation dialog when converting Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>Task of ModuleWrapper</returns>
@@ -3780,8 +3780,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide the confirmation dialog when converting Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="hideConfirmConvertRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
@@ -3851,8 +3851,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings Hides the confirmation dialog when changing the room lifetime settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper HideConfirmRoomLifetime(SettingsRequestDto? settingsRequestDto = default)
@@ -3864,8 +3864,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings Hides the confirmation dialog when changing the room lifetime settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> HideConfirmRoomLifetimeWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -3931,8 +3931,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings Hides the confirmation dialog when changing the room lifetime settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -3945,8 +3945,8 @@ namespace Docspace.Api
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings Hides the confirmation dialog when changing the room lifetime settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4016,7 +4016,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the \&quot;Private Room\&quot; availability Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper IsAvailablePrivacyRoomSettings()
@@ -4028,7 +4028,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the \&quot;Private Room\&quot; availability Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> IsAvailablePrivacyRoomSettingsWithHttpInfo()
@@ -4093,7 +4093,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the \&quot;Private Room\&quot; availability Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4106,7 +4106,7 @@ namespace Docspace.Api
         /// <summary>
         /// Check the \&quot;Private Room\&quot; availability Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4175,8 +4175,8 @@ namespace Docspace.Api
         /// <summary>
         /// Ask a new file name Specifies whether to ask a user for a file name on creation or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper KeepNewFileName(SettingsRequestDto? settingsRequestDto = default)
@@ -4188,8 +4188,8 @@ namespace Docspace.Api
         /// <summary>
         /// Ask a new file name Specifies whether to ask a user for a file name on creation or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> KeepNewFileNameWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -4255,8 +4255,8 @@ namespace Docspace.Api
         /// <summary>
         /// Ask a new file name Specifies whether to ask a user for a file name on creation or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4269,8 +4269,8 @@ namespace Docspace.Api
         /// <summary>
         /// Ask a new file name Specifies whether to ask a user for a file name on creation or not.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4340,8 +4340,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open document in the same browser tab Changes the ability to open the document in the same browser tab.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SetOpenEditorInSameTab(SettingsRequestDto? settingsRequestDto = default)
@@ -4353,8 +4353,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open document in the same browser tab Changes the ability to open the document in the same browser tab.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SetOpenEditorInSameTabWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -4420,8 +4420,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open document in the same browser tab Changes the ability to open the document in the same browser tab.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4434,8 +4434,8 @@ namespace Docspace.Api
         /// <summary>
         /// Open document in the same browser tab Changes the ability to open the document in the same browser tab.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4505,7 +4505,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to store the forcesaved files Changes the ability to store the forcesaved file versions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper StoreForcesave()
@@ -4517,7 +4517,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to store the forcesaved files Changes the ability to store the forcesaved file versions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> StoreForcesaveWithHttpInfo()
@@ -4582,7 +4582,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to store the forcesaved files Changes the ability to store the forcesaved file versions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4595,7 +4595,7 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to store the forcesaved files Changes the ability to store the forcesaved file versions.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4664,8 +4664,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to upload original formats Changes the ability to upload documents in the original formats as well.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper StoreOriginal(SettingsRequestDto? settingsRequestDto = default)
@@ -4677,8 +4677,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to upload original formats Changes the ability to upload documents in the original formats as well.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> StoreOriginalWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -4744,8 +4744,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to upload original formats Changes the ability to upload documents in the original formats as well.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4758,8 +4758,8 @@ namespace Docspace.Api
         /// <summary>
         /// Change the ability to upload original formats Changes the ability to upload documents in the original formats as well.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -4829,8 +4829,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file version if it exists Updates a file version if a file with such a name already exists.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper UpdateFileIfExist(SettingsRequestDto? settingsRequestDto = default)
@@ -4842,8 +4842,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file version if it exists Updates a file version if a file with such a name already exists.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> UpdateFileIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default)
@@ -4909,8 +4909,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file version if it exists Updates a file version if a file with such a name already exists.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -4923,8 +4923,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update a file version if it exists Updates a file version if a file with such a name already exists.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="settingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>

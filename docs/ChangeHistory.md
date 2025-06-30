@@ -1,4 +1,4 @@
-# Docspace.Model.ChangeHistory
+# DocSpace.Model.ChangeHistory
 The parameters for changing version history.
 
 ## Properties

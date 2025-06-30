@@ -1,4 +1,4 @@
-# Docspace.Api.PeopleContactsApi
+# DocSpace.Api.PeopleContactsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,31 @@ All URIs are relative to *http://localhost:8092*
 # **DeleteMemberContacts**
 > EmployeeFullWrapper DeleteMemberContacts (string userid, ContactsRequest? contactsRequest = null)
 
-Delete user contacts
-
 Deletes the contacts of the user with the ID specified in the request from the portal.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **contactsRequest** | [**ContactsRequest?**](ContactsRequest.md) | The contacts request. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -93,21 +106,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **contactsRequest** | [**ContactsRequest?**](ContactsRequest?.md) | The contacts request. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -128,18 +126,31 @@ catch (ApiException e)
 # **SetMemberContacts**
 > EmployeeFullWrapper SetMemberContacts (string userid, ContactsRequest? contactsRequest = null)
 
-Set user contacts
-
 Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **contactsRequest** | [**ContactsRequest?**](ContactsRequest.md) | The contacts request. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -209,21 +220,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **contactsRequest** | [**ContactsRequest?**](ContactsRequest?.md) | The contacts request. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -244,18 +240,31 @@ catch (ApiException e)
 # **UpdateMemberContacts**
 > EmployeeFullWrapper UpdateMemberContacts (string userid, ContactsRequest? contactsRequest = null)
 
-Update user contacts
-
 Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **contactsRequest** | [**ContactsRequest?**](ContactsRequest.md) | The contacts request. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -324,21 +333,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **contactsRequest** | [**ContactsRequest?**](ContactsRequest?.md) | The contacts request. | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.Culture
+# DocSpace.Model.Culture
 The culture code parameters.
 
 ## Properties

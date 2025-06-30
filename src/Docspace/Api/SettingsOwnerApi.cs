@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to change the DocSpace owner.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>OwnerChangeInstructionsWrapper</returns>
         OwnerChangeInstructionsWrapper SendOwnerChangeInstructions(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to change the DocSpace owner.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>ApiResponse of OwnerChangeInstructionsWrapper</returns>
         ApiResponse<OwnerChangeInstructionsWrapper> SendOwnerChangeInstructionsWithHttpInfo(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the current portal owner with a new one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns></returns>
         void UpdatePortalOwner(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the current portal owner with a new one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdatePortalOwnerWithHttpInfo(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default);
@@ -105,8 +105,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to change the DocSpace owner.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>Task of OwnerChangeInstructionsWrapper</returns>
@@ -118,8 +118,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sends the instructions to change the DocSpace owner.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>Task of ApiResponse (OwnerChangeInstructionsWrapper)</returns>
@@ -130,8 +130,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the current portal owner with a new one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>Task of void</returns>
@@ -143,8 +143,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the current portal owner with a new one specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -187,14 +187,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsOwnerApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -251,14 +251,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,8 +365,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send the owner change instructions Sends the instructions to change the DocSpace owner.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>OwnerChangeInstructionsWrapper</returns>
         public OwnerChangeInstructionsWrapper SendOwnerChangeInstructions(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default)
@@ -378,8 +378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send the owner change instructions Sends the instructions to change the DocSpace owner.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>ApiResponse of OwnerChangeInstructionsWrapper</returns>
         public ApiResponse<OwnerChangeInstructionsWrapper> SendOwnerChangeInstructionsWithHttpInfo(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default)
@@ -445,8 +445,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send the owner change instructions Sends the instructions to change the DocSpace owner.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>Task of OwnerChangeInstructionsWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Send the owner change instructions Sends the instructions to change the DocSpace owner.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/">REST API Reference for SendOwnerChangeInstructions Operation</seealso>
         /// <returns>Task of ApiResponse (OwnerChangeInstructionsWrapper)</returns>
@@ -530,8 +530,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the portal owner Updates the current portal owner with a new one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns></returns>
         public void UpdatePortalOwner(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default)
@@ -542,8 +542,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the portal owner Updates the current portal owner with a new one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdatePortalOwnerWithHttpInfo(OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = default)
@@ -609,8 +609,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the portal owner Updates the current portal owner with a new one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>Task of void</returns>
@@ -622,8 +622,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the portal owner Updates the current portal owner with a new one specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ownerIdSettingsRequestDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ownerIdSettingsRequestDto">The request parameters for managing the owner-specific settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/">REST API Reference for UpdatePortalOwner Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

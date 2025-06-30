@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsLoginSettingsApi
+# DocSpace.Api.SettingsLoginSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -12,18 +12,26 @@ All URIs are relative to *http://localhost:8092*
 # **GetLoginSettings**
 > LoginSettingsWrapper GetLoginSettings ()
 
-Get the login settings
-
 Returns the portal login settings.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -91,16 +99,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -119,18 +117,26 @@ This endpoint does not need any parameter.
 # **SetDefaultLoginSettings**
 > LoginSettingsWrapper SetDefaultLoginSettings ()
 
-Reset the login settings
-
 Resets the portal login settings to default.
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -198,16 +204,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -226,18 +222,30 @@ This endpoint does not need any parameter.
 # **UpdateLoginSettings**
 > LoginSettingsWrapper UpdateLoginSettings (LoginSettingsRequestDto? loginSettingsRequestDto = null)
 
-Update the login settings
-
 Updates the login settings with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **loginSettingsRequestDto** | [**LoginSettingsRequestDto?**](LoginSettingsRequestDto.md) | The request parameters for configuring login security and performance settings. | [optional]  |
+
+### Return type
+
+[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -267,7 +275,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsLoginSettingsApi(httpClient, config, httpClientHandler);
-            var loginSettingsRequestDto = new LoginSettingsRequestDto?(); // LoginSettingsRequestDto? |  (optional) 
+            var loginSettingsRequestDto = new LoginSettingsRequestDto?(); // LoginSettingsRequestDto? | The request parameters for configuring login security and performance settings. (optional) 
 
             try
             {
@@ -305,20 +313,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **loginSettingsRequestDto** | [**LoginSettingsRequestDto?**](LoginSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**LoginSettingsWrapper**](LoginSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

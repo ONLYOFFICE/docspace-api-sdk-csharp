@@ -1,4 +1,4 @@
-# Docspace.Model.NoContentResult
+# DocSpace.Model.NoContentResult
 
 ## Properties
 

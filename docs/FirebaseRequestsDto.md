@@ -1,4 +1,4 @@
-# Docspace.Model.FirebaseRequestsDto
+# DocSpace.Model.FirebaseRequestsDto
 The Firebase-related request parameters.
 
 ## Properties

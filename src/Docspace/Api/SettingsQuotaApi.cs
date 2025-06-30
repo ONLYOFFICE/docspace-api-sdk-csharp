@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user quota settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>TenantUserQuotaSettingsWrapper</returns>
         TenantUserQuotaSettingsWrapper GetUserQuotaSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user quota settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserQuotaSettingsWrapper</returns>
         ApiResponse<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo();
@@ -71,8 +71,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the room quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>TenantRoomQuotaSettingsWrapper</returns>
         TenantRoomQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
@@ -83,8 +83,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the room quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantRoomQuotaSettingsWrapper</returns>
         ApiResponse<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
@@ -94,8 +94,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the tenant quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>TenantQuotaSettingsWrapper</returns>
         TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default);
@@ -106,8 +106,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the tenant quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaSettingsWrapper</returns>
         ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default);
@@ -126,7 +126,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user quota settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>Task of TenantUserQuotaSettingsWrapper</returns>
@@ -138,7 +138,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the user quota settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserQuotaSettingsWrapper)</returns>
@@ -149,8 +149,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the room quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>Task of TenantRoomQuotaSettingsWrapper</returns>
@@ -162,8 +162,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the room quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantRoomQuotaSettingsWrapper)</returns>
@@ -174,8 +174,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the tenant quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of TenantQuotaSettingsWrapper</returns>
@@ -187,8 +187,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the tenant quota settings specified in the request to the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaSettingsWrapper)</returns>
@@ -231,14 +231,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsQuotaApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -253,14 +253,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -295,14 +295,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -322,14 +322,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -349,7 +349,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -409,7 +409,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user quota settings Returns the user quota settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>TenantUserQuotaSettingsWrapper</returns>
         public TenantUserQuotaSettingsWrapper GetUserQuotaSettings()
@@ -421,7 +421,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user quota settings Returns the user quota settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserQuotaSettingsWrapper</returns>
         public ApiResponse<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo()
@@ -486,7 +486,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user quota settings Returns the user quota settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>Task of TenantUserQuotaSettingsWrapper</returns>
@@ -499,7 +499,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the user quota settings Returns the user quota settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserQuotaSettingsWrapper)</returns>
@@ -568,8 +568,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the room quota settings Saves the room quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>TenantRoomQuotaSettingsWrapper</returns>
         public TenantRoomQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
@@ -581,8 +581,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the room quota settings Saves the room quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantRoomQuotaSettingsWrapper</returns>
         public ApiResponse<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
@@ -648,8 +648,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the room quota settings Saves the room quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>Task of TenantRoomQuotaSettingsWrapper</returns>
@@ -662,8 +662,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the room quota settings Saves the room quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quotaSettingsRequestsDto">The request parameters for managing the user storage quota configurations. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantRoomQuotaSettingsWrapper)</returns>
@@ -733,8 +733,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the tenant quota settings Saves the tenant quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>TenantQuotaSettingsWrapper</returns>
         public TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default)
@@ -746,8 +746,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the tenant quota settings Saves the tenant quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaSettingsWrapper</returns>
         public ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default)
@@ -813,8 +813,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the tenant quota settings Saves the tenant quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of TenantQuotaSettingsWrapper</returns>
@@ -827,8 +827,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the tenant quota settings Saves the tenant quota settings specified in the request to the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantQuotaSettingsRequestsDto">The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaSettingsWrapper)</returns>

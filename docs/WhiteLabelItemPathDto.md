@@ -1,4 +1,4 @@
-# Docspace.Model.WhiteLabelItemPathDto
+# DocSpace.Model.WhiteLabelItemPathDto
 The white label item path parameters.
 
 ## Properties

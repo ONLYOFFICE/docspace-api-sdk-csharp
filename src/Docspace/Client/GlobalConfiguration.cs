@@ -27,7 +27,7 @@
 
 using System.Collections.Generic;
 
-namespace Docspace.Client
+namespace DocSpace.Client
 {
     /// <summary>
     /// <see cref="GlobalConfiguration"/> provides a compile-time extension point for globally configuring

@@ -1,4 +1,4 @@
-# Docspace.Model.DeleteVersionBatchRequestDto
+# DocSpace.Model.DeleteVersionBatchRequestDto
 The request parameters for deleting file versions.
 
 ## Properties

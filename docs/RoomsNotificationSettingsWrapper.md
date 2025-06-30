@@ -1,12 +1,12 @@
-# Docspace.Model.RoomsNotificationSettingsWrapper
+# DocSpace.Model.RoomsNotificationSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**RoomsNotificationSettingsDto**](RoomsNotificationSettingsDto.md) |  | [optional] 
+**Response** | [**RoomsNotificationSettingsDto**](.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# Docspace.Model.GroupDto
+# DocSpace.Model.GroupDto
 The group parameters.
 
 ## Properties
@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Category** | **Guid** | The group category ID. | [optional] 
 **Id** | **Guid** | The group ID. | [optional] 
 **IsLDAP** | **bool** | Specifies if the LDAP settings are enabled for the group or not. | [optional] 
-**Manager** | [**EmployeeFullDto**](EmployeeFullDto.md) |  | [optional] 
-**Members** | [**List&lt;EmployeeFullDto&gt;**](EmployeeFullDto.md) | The list of group members. | [optional] 
+**Manager** | [**EmployeeFullDto**](.md) |  | [optional] 
+**Members** | [**List&lt;EmployeeFullDto&gt;**](.md) | The list of group members. | [optional] 
 **Shared** | **bool?** | Specifies whether the group can be shared or not. | [optional] 
 **MembersCount** | **int** | The number of group members. | [optional] 
 

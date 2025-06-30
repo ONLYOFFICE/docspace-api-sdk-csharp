@@ -1,4 +1,4 @@
-# Docspace.Model.CustomerInfo
+# DocSpace.Model.CustomerInfo
 The customer information.
 
 ## Properties

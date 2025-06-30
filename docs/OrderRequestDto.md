@@ -1,4 +1,4 @@
-# Docspace.Model.OrderRequestDto
+# DocSpace.Model.OrderRequestDto
 The parameters for ordering requests.
 
 ## Properties

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,8 +50,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the Firebase device token specified in the request for the Documents application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>FireBaseUserWrapper</returns>
         FireBaseUserWrapper DocRegisterPusnNotificationDevice(FirebaseRequestsDto? firebaseRequestsDto = default);
@@ -62,8 +62,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the Firebase device token specified in the request for the Documents application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>ApiResponse of FireBaseUserWrapper</returns>
         ApiResponse<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default);
@@ -73,8 +73,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Subscribes to the Documents push notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>FireBaseUserWrapper</returns>
         FireBaseUserWrapper SubscribeDocumentsPushNotification(FirebaseRequestsDto? firebaseRequestsDto = default);
@@ -85,8 +85,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Subscribes to the Documents push notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>ApiResponse of FireBaseUserWrapper</returns>
         ApiResponse<FireBaseUserWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default);
@@ -105,8 +105,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the Firebase device token specified in the request for the Documents application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>Task of FireBaseUserWrapper</returns>
@@ -118,8 +118,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Saves the Firebase device token specified in the request for the Documents application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
@@ -130,8 +130,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Subscribes to the Documents push notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>Task of FireBaseUserWrapper</returns>
@@ -143,8 +143,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Subscribes to the Documents push notification.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
@@ -187,14 +187,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SecurityFirebaseApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -251,14 +251,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -365,8 +365,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the Documents Firebase device token Saves the Firebase device token specified in the request for the Documents application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>FireBaseUserWrapper</returns>
         public FireBaseUserWrapper DocRegisterPusnNotificationDevice(FirebaseRequestsDto? firebaseRequestsDto = default)
@@ -378,8 +378,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the Documents Firebase device token Saves the Firebase device token specified in the request for the Documents application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>ApiResponse of FireBaseUserWrapper</returns>
         public ApiResponse<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default)
@@ -445,8 +445,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the Documents Firebase device token Saves the Firebase device token specified in the request for the Documents application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>Task of FireBaseUserWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <summary>
         /// Save the Documents Firebase device token Saves the Firebase device token specified in the request for the Documents application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
         /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
@@ -530,8 +530,8 @@ namespace Docspace.Api
         /// <summary>
         /// Subscribe to Documents push notification Subscribes to the Documents push notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>FireBaseUserWrapper</returns>
         public FireBaseUserWrapper SubscribeDocumentsPushNotification(FirebaseRequestsDto? firebaseRequestsDto = default)
@@ -543,8 +543,8 @@ namespace Docspace.Api
         /// <summary>
         /// Subscribe to Documents push notification Subscribes to the Documents push notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>ApiResponse of FireBaseUserWrapper</returns>
         public ApiResponse<FireBaseUserWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default)
@@ -610,8 +610,8 @@ namespace Docspace.Api
         /// <summary>
         /// Subscribe to Documents push notification Subscribes to the Documents push notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>Task of FireBaseUserWrapper</returns>
@@ -624,8 +624,8 @@ namespace Docspace.Api
         /// <summary>
         /// Subscribe to Documents push notification Subscribes to the Documents push notification.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="firebaseRequestsDto">The Firebase-related request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
         /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>

@@ -1,4 +1,4 @@
-# Docspace.Model.CookieSettingsRequestsDto
+# DocSpace.Model.CookieSettingsRequestsDto
 The request parameters for managing cookie settings.
 
 ## Properties

@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the Developer Tools access settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>TenantDevToolsAccessSettingsWrapper</returns>
         TenantDevToolsAccessSettingsWrapper GetTenantAccessDevToolsSettings();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the Developer Tools access settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDevToolsAccessSettingsWrapper</returns>
         ApiResponse<TenantDevToolsAccessSettingsWrapper> GetTenantAccessDevToolsSettingsWithHttpInfo();
@@ -80,7 +80,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the Developer Tools access settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>Task of TenantDevToolsAccessSettingsWrapper</returns>
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the Developer Tools access settings for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDevToolsAccessSettingsWrapper)</returns>
@@ -135,14 +135,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsAccessToDevToolsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -157,14 +157,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -199,14 +199,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -226,14 +226,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the Developer Tools access settings Returns the Developer Tools access settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>TenantDevToolsAccessSettingsWrapper</returns>
         public TenantDevToolsAccessSettingsWrapper GetTenantAccessDevToolsSettings()
@@ -325,7 +325,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the Developer Tools access settings Returns the Developer Tools access settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDevToolsAccessSettingsWrapper</returns>
         public ApiResponse<TenantDevToolsAccessSettingsWrapper> GetTenantAccessDevToolsSettingsWithHttpInfo()
@@ -390,7 +390,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the Developer Tools access settings Returns the Developer Tools access settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>Task of TenantDevToolsAccessSettingsWrapper</returns>
@@ -403,7 +403,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the Developer Tools access settings Returns the Developer Tools access settings for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/">REST API Reference for GetTenantAccessDevToolsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDevToolsAccessSettingsWrapper)</returns>

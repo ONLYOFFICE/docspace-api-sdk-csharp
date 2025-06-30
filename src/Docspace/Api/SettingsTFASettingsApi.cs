@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the two-factor authentication application codes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         ObjectArrayWrapper GetTfaAppCodes();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the two-factor authentication application codes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper GetTfaConfirmUrl();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current two-factor authentication settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>TfaSettingsArrayWrapper</returns>
         TfaSettingsArrayWrapper GetTfaSettings();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current two-factor authentication settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>ApiResponse of TfaSettingsArrayWrapper</returns>
         ApiResponse<TfaSettingsArrayWrapper> GetTfaSettingsWithHttpInfo();
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the setup TFA code for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>SetupCodeWrapper</returns>
         SetupCodeWrapper TfaAppGenerateSetupCode();
@@ -124,7 +124,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the setup TFA code for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>ApiResponse of SetupCodeWrapper</returns>
         ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo();
@@ -134,8 +134,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Validates the two-factor authentication code specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper TfaValidateAuthCode(TfaValidateRequestsDto? tfaValidateRequestsDto = default);
@@ -146,8 +146,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Validates the two-factor authentication code specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default);
@@ -157,8 +157,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper UnlinkTfaApp(TfaRequestsDto? tfaRequestsDto = default);
@@ -169,8 +169,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests the new backup codes for the two-factor authentication application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         ObjectArrayWrapper UpdateTfaAppCodes();
@@ -191,7 +191,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests the new backup codes for the two-factor authentication application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo();
@@ -201,8 +201,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the two-factor authentication settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper UpdateTfaSettings(TfaRequestsDto? tfaRequestsDto = default);
@@ -213,8 +213,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the two-factor authentication settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
@@ -224,8 +224,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default);
@@ -236,8 +236,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
@@ -256,7 +256,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the two-factor authentication application codes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -268,7 +268,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the two-factor authentication application codes.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -279,7 +279,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -291,7 +291,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -302,7 +302,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current two-factor authentication settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>Task of TfaSettingsArrayWrapper</returns>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the current two-factor authentication settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TfaSettingsArrayWrapper)</returns>
@@ -325,7 +325,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the setup TFA code for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>Task of SetupCodeWrapper</returns>
@@ -337,7 +337,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the setup TFA code for the current user.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>Task of ApiResponse (SetupCodeWrapper)</returns>
@@ -348,8 +348,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Validates the two-factor authentication code specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -361,8 +361,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Validates the two-factor authentication code specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -373,8 +373,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -386,8 +386,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -398,7 +398,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests the new backup codes for the two-factor authentication application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -410,7 +410,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests the new backup codes for the two-factor authentication application.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -421,8 +421,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the two-factor authentication settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -434,8 +434,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Updates the two-factor authentication settings with the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -446,8 +446,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -459,8 +459,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the confirmation email URL for updating TFA settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -503,14 +503,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsTFASettingsApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -525,14 +525,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -567,14 +567,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -594,14 +594,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -621,7 +621,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -681,7 +681,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA codes Returns the two-factor authentication application codes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper GetTfaAppCodes()
@@ -693,7 +693,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA codes Returns the two-factor authentication application codes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         public ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo()
@@ -758,7 +758,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA codes Returns the two-factor authentication application codes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -771,7 +771,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA codes Returns the two-factor authentication application codes.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -840,7 +840,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get confirmation email Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper GetTfaConfirmUrl()
@@ -852,7 +852,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get confirmation email Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo()
@@ -917,7 +917,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get confirmation email Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -930,7 +930,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get confirmation email Returns the confirmation email URL for authorization via SMS or TFA application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -999,7 +999,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA settings Returns the current two-factor authentication settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>TfaSettingsArrayWrapper</returns>
         public TfaSettingsArrayWrapper GetTfaSettings()
@@ -1011,7 +1011,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA settings Returns the current two-factor authentication settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>ApiResponse of TfaSettingsArrayWrapper</returns>
         public ApiResponse<TfaSettingsArrayWrapper> GetTfaSettingsWithHttpInfo()
@@ -1076,7 +1076,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA settings Returns the current two-factor authentication settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>Task of TfaSettingsArrayWrapper</returns>
@@ -1089,7 +1089,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the TFA settings Returns the current two-factor authentication settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/">REST API Reference for GetTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TfaSettingsArrayWrapper)</returns>
@@ -1158,7 +1158,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate setup code Generates the setup TFA code for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>SetupCodeWrapper</returns>
         public SetupCodeWrapper TfaAppGenerateSetupCode()
@@ -1170,7 +1170,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate setup code Generates the setup TFA code for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>ApiResponse of SetupCodeWrapper</returns>
         public ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo()
@@ -1235,7 +1235,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate setup code Generates the setup TFA code for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>Task of SetupCodeWrapper</returns>
@@ -1248,7 +1248,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate setup code Generates the setup TFA code for the current user.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
         /// <returns>Task of ApiResponse (SetupCodeWrapper)</returns>
@@ -1317,8 +1317,8 @@ namespace Docspace.Api
         /// <summary>
         /// Validate the TFA code Validates the two-factor authentication code specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper TfaValidateAuthCode(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
@@ -1330,8 +1330,8 @@ namespace Docspace.Api
         /// <summary>
         /// Validate the TFA code Validates the two-factor authentication code specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
@@ -1397,8 +1397,8 @@ namespace Docspace.Api
         /// <summary>
         /// Validate the TFA code Validates the two-factor authentication code specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1411,8 +1411,8 @@ namespace Docspace.Api
         /// <summary>
         /// Validate the TFA code Validates the two-factor authentication code specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaValidateRequestsDto">The request parameters for validating the two-factor authentication codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1482,8 +1482,8 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink the TFA application Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper UnlinkTfaApp(TfaRequestsDto? tfaRequestsDto = default)
@@ -1495,8 +1495,8 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink the TFA application Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
@@ -1562,8 +1562,8 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink the TFA application Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1576,8 +1576,8 @@ namespace Docspace.Api
         /// <summary>
         /// Unlink the TFA application Unlinks the current two-factor authentication application from the user account specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -1647,7 +1647,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA codes Requests the new backup codes for the two-factor authentication application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
         public ObjectArrayWrapper UpdateTfaAppCodes()
@@ -1659,7 +1659,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA codes Requests the new backup codes for the two-factor authentication application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         public ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo()
@@ -1724,7 +1724,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA codes Requests the new backup codes for the two-factor authentication application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
@@ -1737,7 +1737,7 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA codes Requests the new backup codes for the two-factor authentication application.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
@@ -1806,8 +1806,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA settings Updates the two-factor authentication settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper UpdateTfaSettings(TfaRequestsDto? tfaRequestsDto = default)
@@ -1819,8 +1819,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA settings Updates the two-factor authentication settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
@@ -1886,8 +1886,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA settings Updates the two-factor authentication settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1900,8 +1900,8 @@ namespace Docspace.Api
         /// <summary>
         /// Update the TFA settings Updates the two-factor authentication settings with the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -1971,8 +1971,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default)
@@ -1984,8 +1984,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
@@ -2051,8 +2051,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -2065,8 +2065,8 @@ namespace Docspace.Api
         /// <summary>
         /// Get a confirmation email for updating TFA settings Returns the confirmation email URL for updating TFA settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

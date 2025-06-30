@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the audit trail report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper CreateAuditTrailReport();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the audit trail report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the audit events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -93,7 +93,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the audit events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -114,7 +114,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the audit trail settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>TenantAuditSettingsWrapper</returns>
         TenantAuditSettingsWrapper GetAuditSettings();
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the audit trail settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo();
@@ -135,7 +135,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the mappers for the audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
@@ -148,7 +148,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the mappers for the audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
@@ -160,7 +160,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the available audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         ObjectWrapper GetAuditTrailTypes();
@@ -171,7 +171,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the available audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo();
@@ -181,7 +181,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
         AuditEventArrayWrapper GetLastAuditEvents();
@@ -192,7 +192,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
         ApiResponse<AuditEventArrayWrapper> GetLastAuditEventsWithHttpInfo();
@@ -202,8 +202,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the audit trail settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>TenantAuditSettingsWrapper</returns>
         TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
@@ -214,8 +214,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the audit trail settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
@@ -234,7 +234,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the audit trail report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -246,7 +246,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Generates the audit trail report.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -257,7 +257,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the audit events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -280,7 +280,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the audit events by the parameters specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -302,7 +302,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the audit trail settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
@@ -314,7 +314,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the audit trail settings.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
@@ -325,7 +325,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the mappers for the audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -339,7 +339,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns the mappers for the audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -352,7 +352,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the available audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -364,7 +364,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns all the available audit trail types.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -375,7 +375,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
@@ -387,7 +387,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
@@ -398,8 +398,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the audit trail settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
@@ -411,8 +411,8 @@ namespace Docspace.Api
         /// <remarks>
         /// Sets the audit trail settings for the current portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
@@ -455,14 +455,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SecurityAuditTrailDataApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -477,14 +477,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -519,14 +519,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -546,14 +546,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -573,7 +573,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -633,7 +633,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the audit trail report Generates the audit trail report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper CreateAuditTrailReport()
@@ -645,7 +645,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the audit trail report Generates the audit trail report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo()
@@ -710,7 +710,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the audit trail report Generates the audit trail report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -723,7 +723,7 @@ namespace Docspace.Api
         /// <summary>
         /// Generate the audit trail report Generates the audit trail report.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -792,7 +792,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered audit trail data Returns a list of the audit events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -815,7 +815,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered audit trail data Returns a list of the audit events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -935,7 +935,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered audit trail data Returns a list of the audit events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -959,7 +959,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get filtered audit trail data Returns a list of the audit events by the parameters specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
         /// <param name="productType">The type of product related to the audit event. (optional)</param>
         /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
@@ -993,47 +993,47 @@ namespace Docspace.Api
 
             if (userId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             if (productType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
             }
             if (actionType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "actionType", actionType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
             }
             if (action != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "action", action));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action", action));
             }
             if (entryType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "entryType", entryType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entryType", entryType));
             }
             if (target != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "target", target));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "target", target));
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "from", from));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "to", to));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (count != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
             if (startIndex != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
             // authentication (Basic) required
@@ -1083,7 +1083,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the audit trail settings Returns the audit trail settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>TenantAuditSettingsWrapper</returns>
         public TenantAuditSettingsWrapper GetAuditSettings()
@@ -1095,7 +1095,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the audit trail settings Returns the audit trail settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         public ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo()
@@ -1160,7 +1160,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the audit trail settings Returns the audit trail settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
@@ -1173,7 +1173,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get the audit trail settings Returns the audit trail settings.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
@@ -1242,7 +1242,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail mappers Returns the mappers for the audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
@@ -1256,7 +1256,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail mappers Returns the mappers for the audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
@@ -1301,7 +1301,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail mappers Returns the mappers for the audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1316,7 +1316,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail mappers Returns the mappers for the audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1341,11 +1341,11 @@ namespace Docspace.Api
 
             if (productType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "productType", productType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Docspace.Client.ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "moduleType", moduleType));
             }
 
 
@@ -1365,7 +1365,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail types Returns all the available audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>ObjectWrapper</returns>
         public ObjectWrapper GetAuditTrailTypes()
@@ -1377,7 +1377,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail types Returns all the available audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
         public ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo()
@@ -1412,7 +1412,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail types Returns all the available audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
@@ -1425,7 +1425,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail types Returns all the available audit trail types.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
@@ -1464,7 +1464,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail data Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
         public AuditEventArrayWrapper GetLastAuditEvents()
@@ -1476,7 +1476,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail data Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
         public ApiResponse<AuditEventArrayWrapper> GetLastAuditEventsWithHttpInfo()
@@ -1541,7 +1541,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail data Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
@@ -1554,7 +1554,7 @@ namespace Docspace.Api
         /// <summary>
         /// Get audit trail data Returns a list of the latest changes (creation, modification, deletion, etc.) made by users to the entities on the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-audit-events/">REST API Reference for GetLastAuditEvents Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
@@ -1623,8 +1623,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the audit trail settings Sets the audit trail settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>TenantAuditSettingsWrapper</returns>
         public TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
@@ -1636,8 +1636,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the audit trail settings Sets the audit trail settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         public ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
@@ -1703,8 +1703,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the audit trail settings Sets the audit trail settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of TenantAuditSettingsWrapper</returns>
@@ -1717,8 +1717,8 @@ namespace Docspace.Api
         /// <summary>
         /// Set the audit trail settings Sets the audit trail settings for the current portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper"> (optional)</param>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>

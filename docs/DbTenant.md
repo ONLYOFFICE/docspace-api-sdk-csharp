@@ -1,4 +1,4 @@
-# Docspace.Model.DbTenant
+# DocSpace.Model.DbTenant
 The database tenant parameters.
 
 ## Properties
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **Industry** | **TenantIndustry** |  | [optional] 
 **LastModified** | **DateTime** | The date and time when the tenant was last modified. | [optional] 
 **Calls** | **bool** | Specifies if the calls are available for the current tenant or not. | [optional] 
-**Partner** | [**DbTenantPartner**](DbTenantPartner.md) |  | [optional] 
+**Partner** | [**DbTenantPartner**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

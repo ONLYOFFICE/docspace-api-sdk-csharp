@@ -1,4 +1,4 @@
-# Docspace.Model.TfaRequestsDtoType
+# DocSpace.Model.TfaRequestsDtoType
 [0 - None, 1 - Sms, 2 - App]
 
 ## Properties

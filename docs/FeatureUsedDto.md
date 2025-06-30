@@ -1,4 +1,4 @@
-# Docspace.Model.FeatureUsedDto
+# DocSpace.Model.FeatureUsedDto
 The used space parameters of the tenant quota feature.
 
 ## Properties

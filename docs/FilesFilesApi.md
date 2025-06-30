@@ -1,4 +1,4 @@
-# Docspace.Api.FilesFilesApi
+# DocSpace.Api.FilesFilesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -54,18 +54,30 @@ All URIs are relative to *http://localhost:8092*
 # **AddTemplates**
 > BooleanWrapper AddTemplates (TemplatesRequestDto? templatesRequestDto = null)
 
-Add template files
-
 Adds files with the IDs specified in the request to the template list.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templatesRequestDto** | [**TemplatesRequestDto?**](TemplatesRequestDto.md) | The request parameters for adding files to the template list. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -95,7 +107,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var templatesRequestDto = new TemplatesRequestDto?(); // TemplatesRequestDto? |  (optional) 
+            var templatesRequestDto = new TemplatesRequestDto?(); // TemplatesRequestDto? | The request parameters for adding files to the template list. (optional) 
 
             try
             {
@@ -134,20 +146,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **templatesRequestDto** | [**TemplatesRequestDto?**](TemplatesRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -166,18 +164,31 @@ catch (ApiException e)
 # **ChangeVersionHistory**
 > FileIntegerArrayWrapper ChangeVersionHistory (int fileId, ChangeHistory? changeHistory = null)
 
-Change version history
-
 Changes the version history of a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file Id to change its version history. |  |
+| **changeHistory** | [**ChangeHistory?**](ChangeHistory.md) | The parameters for changing version history. | [optional]  |
+
+### Return type
+
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -247,21 +258,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file Id to change its version history. |  |
-| **changeHistory** | [**ChangeHistory?**](ChangeHistory?.md) | The parameters for changing version history. | [optional]  |
-
-### Return type
-
-[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -281,18 +277,31 @@ catch (ApiException e)
 # **CheckFillFormDraft**
 > StringWrapper CheckFillFormDraft (int fileId, CheckFillFormDraft? checkFillFormDraft = null)
 
-Check the form draft filling
-
 Checks if the current file is a form draft which can be filled out.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the form draft. |  |
+| **checkFillFormDraft** | [**CheckFillFormDraft?**](CheckFillFormDraft.md) | The parameters for checking the form draft filling. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -346,21 +355,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the form draft. |  |
-| **checkFillFormDraft** | [**CheckFillFormDraft?**](CheckFillFormDraft?.md) | The parameters for checking the form draft filling. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -379,18 +373,31 @@ No authorization required
 # **CopyFileAs**
 > FileEntryWrapper CopyFileAs (int fileId, CopyAsJsonElement? copyAsJsonElement = null)
 
-Copy a file
-
 Copies (and converts if possible) an existing file to the specified folder.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to copy. |  |
+| **copyAsJsonElement** | [**CopyAsJsonElement?**](CopyAsJsonElement.md) | The parameters for copying a file. | [optional]  |
+
+### Return type
+
+[**FileEntryWrapper**](FileEntryWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -460,21 +467,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to copy. |  |
-| **copyAsJsonElement** | [**CopyAsJsonElement?**](CopyAsJsonElement?.md) | The parameters for copying a file. | [optional]  |
-
-### Return type
-
-[**FileEntryWrapper**](FileEntryWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -496,18 +488,31 @@ catch (ApiException e)
 # **CreateEditSession**
 > ObjectWrapper CreateEditSession (int fileId, long? fileSize = null)
 
-Create the editing session
-
 Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID. |  |
+| **fileSize** | **long?** | The file size in bytes. | [optional]  |
+
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -577,21 +582,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID. |  |
-| **fileSize** | **long?** | The file size in bytes. | [optional]  |
-
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -611,18 +601,31 @@ catch (ApiException e)
 # **CreateFile**
 > FileIntegerWrapper CreateFile (int folderId, CreateFileJsonElement? createFileJsonElement = null)
 
-Create a file
-
 Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID for the file creation. |  |
+| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement.md) | The parameters for creating a file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -692,21 +695,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID for the file creation. |  |
-| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement?.md) | The parameters for creating a file. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -725,18 +713,30 @@ catch (ApiException e)
 # **CreateFileInMyDocuments**
 > FileIntegerWrapper CreateFileInMyDocuments (CreateFileJsonElement? createFileJsonElement = null)
 
-Create a file in the \"My documents\" section
-
 Creates a new file in the \"My documents\" section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement.md) | The parameters for creating a file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -766,7 +766,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var createFileJsonElement = new CreateFileJsonElement?(); // CreateFileJsonElement? |  (optional) 
+            var createFileJsonElement = new CreateFileJsonElement?(); // CreateFileJsonElement? | The parameters for creating a file. (optional) 
 
             try
             {
@@ -805,20 +805,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement?.md) |  | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -837,18 +823,31 @@ catch (ApiException e)
 # **CreateHtmlFile**
 > FileIntegerWrapper CreateHtmlFile (int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
-Create an HTML file
-
 Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters for creating an HTML or text file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -918,21 +917,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | The parameters for creating an HTML or text file. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -952,18 +936,30 @@ catch (ApiException e)
 # **CreateHtmlFileInMyDocuments**
 > FileIntegerWrapper CreateHtmlFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
-Create an HTML file in the \"My documents\" section
-
 Creates an HTML (.html) file in the \"My documents\" section with the title and contents specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters for creating an HTML or text file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -993,7 +989,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? |  (optional) 
+            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters for creating an HTML or text file. (optional) 
 
             try
             {
@@ -1032,20 +1028,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) |  | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1065,18 +1047,31 @@ catch (ApiException e)
 # **CreatePrimaryExternalLink**
 > FileShareWrapper CreatePrimaryExternalLink (int id, FileLinkRequest? fileLinkRequest = null)
 
-Create primary external link
-
 Creates a primary external link by the identifier specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID. |  |
+| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest.md) | The file external link parameters. | [optional]  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1146,21 +1141,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID. |  |
-| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | The file external link parameters. | [optional]  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1180,18 +1160,31 @@ catch (ApiException e)
 # **CreateTextFile**
 > FileIntegerWrapper CreateTextFile (int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
-Create a text file
-
 Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters for creating an HTML or text file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1261,21 +1254,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **folderId** | **int** | The folder ID to create the text or HTML file. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) | The parameters for creating an HTML or text file. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1294,18 +1272,30 @@ catch (ApiException e)
 # **CreateTextFileInMyDocuments**
 > FileIntegerWrapper CreateTextFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
 
-Create a text file in the \"My documents\" section
-
 Creates a text (.txt) file in the \"My documents\" section with the title and contents specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters for creating an HTML or text file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1335,7 +1325,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? |  (optional) 
+            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters for creating an HTML or text file. (optional) 
 
             try
             {
@@ -1374,20 +1364,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile?.md) |  | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1406,18 +1382,30 @@ catch (ApiException e)
 # **CreateThumbnails**
 > ObjectArrayWrapper CreateThumbnails (BaseBatchRequestDto? baseBatchRequestDto = null)
 
-Create file thumbnails
-
 Creates thumbnails for the files with the IDs specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto.md) | The base batch request parameters. | [optional]  |
+
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1431,7 +1419,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? |  (optional) 
+            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? | The base batch request parameters. (optional) 
 
             try
             {
@@ -1470,20 +1458,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1501,18 +1475,31 @@ No authorization required
 # **DeleteFile**
 > FileOperationArrayWrapper DeleteFile (int fileId, Delete delete)
 
-Delete a file
-
 Deletes a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to delete. |  |
+| **delete** | [**Delete**](Delete.md) | The parameters for deleting a file. |  |
+
+### Return type
+
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1582,21 +1569,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to delete. |  |
-| **delete** | [**Delete**](Delete.md) | The parameters for deleting a file. |  |
-
-### Return type
-
-[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1615,18 +1587,30 @@ catch (ApiException e)
 # **DeleteRecent**
 > NoContentResultWrapper DeleteRecent (BaseBatchRequestDto? baseBatchRequestDto = null)
 
-Delete recent files
-
 Removes files with the IDs specified in the request from the \"Recent\" section.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto.md) | The base batch request parameters. | [optional]  |
+
+### Return type
+
+[**NoContentResultWrapper**](NoContentResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1656,7 +1640,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? |  (optional) 
+            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? | The base batch request parameters. (optional) 
 
             try
             {
@@ -1695,20 +1679,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**NoContentResultWrapper**](NoContentResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1727,18 +1697,30 @@ catch (ApiException e)
 # **DeleteTemplates**
 > BooleanWrapper DeleteTemplates (List<int>? requestBody = null)
 
-Delete template files
-
 Removes files with the IDs specified in the request from the template list.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;int&gt;?**](int.md) | The file IDs. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1807,20 +1789,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **requestBody** | [**List&lt;int&gt;?**](int.md) | The file IDs. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1839,18 +1807,30 @@ catch (ApiException e)
 # **GetAllFormRoles**
 > FormRoleArrayWrapper GetAllFormRoles (int fileId)
 
-Get form roles
-
 Returns all roles for the specified form.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**FormRoleArrayWrapper**](FormRoleArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -1919,20 +1899,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**FormRoleArrayWrapper**](FormRoleArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1952,18 +1918,31 @@ catch (ApiException e)
 # **GetEditDiffUrl**
 > EditHistoryDataWrapper GetEditDiffUrl (int fileId, int? version = null)
 
-Get changes URL
-
 Returns a URL to the changes of a file version specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID. |  |
+| **version** | **int?** | The file version. | [optional]  |
+
+### Return type
+
+[**EditHistoryDataWrapper**](EditHistoryDataWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2017,21 +1996,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID. |  |
-| **version** | **int?** | The file version. | [optional]  |
-
-### Return type
-
-[**EditHistoryDataWrapper**](EditHistoryDataWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2049,18 +2013,30 @@ No authorization required
 # **GetEditHistory**
 > EditHistoryArrayWrapper GetEditHistory (int fileId)
 
-Get version history
-
 Returns the version history of a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**EditHistoryArrayWrapper**](EditHistoryArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2113,20 +2089,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**EditHistoryArrayWrapper**](EditHistoryArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2144,18 +2106,34 @@ No authorization required
 # **GetFileHistory**
 > HistoryArrayWrapper GetFileHistory (int fileId, ApiDateTime? fromDate = null, ApiDateTime? toDate = null, int? count = null, int? startIndex = null)
 
-Get file history
-
 Returns the list of actions performed on the file with the specified identifier.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the history request. |  |
+| **fromDate** | [**ApiDateTime?**](ApiDateTime.md) | The start date of the history. | [optional]  |
+| **toDate** | [**ApiDateTime?**](ApiDateTime.md) | The end date of the history. | [optional]  |
+| **count** | **int?** | The number of history entries to retrieve for the file log. | [optional]  |
+| **startIndex** | **int?** | The starting index for retrieving a subset of file history entries. | [optional]  |
+
+### Return type
+
+[**HistoryArrayWrapper**](HistoryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2228,24 +2206,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the history request. |  |
-| **fromDate** | [**ApiDateTime?**](ApiDateTime?.md) | The start date of the history. | [optional]  |
-| **toDate** | [**ApiDateTime?**](ApiDateTime?.md) | The end date of the history. | [optional]  |
-| **count** | **int?** | The number of history entries to retrieve for the file log. | [optional]  |
-| **startIndex** | **int?** | The starting index for retrieving a subset of file history entries. | [optional]  |
-
-### Return type
-
-[**HistoryArrayWrapper**](HistoryArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2266,18 +2226,31 @@ catch (ApiException e)
 # **GetFileInfo**
 > FileIntegerWrapper GetFileInfo (int fileId, int? version = null)
 
-Get file information
-
 Returns the detailed information about a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID. |  |
+| **version** | **int?** | The file version. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2331,21 +2304,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID. |  |
-| **version** | **int?** | The file version. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2363,18 +2321,32 @@ No authorization required
 # **GetFileLinks**
 > FileShareArrayWrapper GetFileLinks (int id, int? count = null, int? startIndex = null)
 
-Get file external links
-
 Returns the external links of a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID of the request. |  |
+| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+
+### Return type
+
+[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2445,22 +2417,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID of the request. |  |
-| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
-| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
-
-### Return type
-
-[**FileShareArrayWrapper**](FileShareArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2479,18 +2435,32 @@ catch (ApiException e)
 # **GetFilePrimaryExternalLink**
 > FileShareWrapper GetFilePrimaryExternalLink (int id, int? count = null, int? startIndex = null)
 
-Get primary external link
-
 Returns the primary external link by the identifier specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID of the request. |  |
+| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2545,22 +2515,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID of the request. |  |
-| **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
-| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2579,18 +2533,30 @@ No authorization required
 # **GetFileVersionInfo**
 > FileIntegerArrayWrapper GetFileVersionInfo (int fileId)
 
-Get file versions
-
 Returns the detailed information about all the available file versions with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2643,20 +2609,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2674,18 +2626,30 @@ No authorization required
 # **GetFillResult**
 > FillingFormResultIntegerWrapper GetFillResult (string? fillingSessionId = null)
 
-Get form-filling result
-
 Retrieves the result of a form-filling session.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fillingSessionId** | **string?** | The form-filling session ID. | [optional]  |
+
+### Return type
+
+[**FillingFormResultIntegerWrapper**](FillingFormResultIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2738,20 +2702,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fillingSessionId** | **string?** | The form-filling session ID. | [optional]  |
-
-### Return type
-
-[**FillingFormResultIntegerWrapper**](FillingFormResultIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2769,18 +2719,30 @@ No authorization required
 # **GetPresignedFileUri**
 > FileLinkWrapper GetPresignedFileUri (int fileId)
 
-Get file download link asynchronously
-
 Returns a link to download a file with the ID specified in the request asynchronously.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**FileLinkWrapper**](FileLinkWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2849,20 +2811,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**FileLinkWrapper**](FileLinkWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2881,18 +2829,30 @@ catch (ApiException e)
 # **GetPresignedUri**
 > StringWrapper GetPresignedUri (int fileId)
 
-Get file download link
-
 Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -2961,20 +2921,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -2993,18 +2939,30 @@ catch (ApiException e)
 # **GetProtectedFileUsers**
 > MentionWrapperArrayWrapper GetProtectedFileUsers (int fileId)
 
-Get users access rights to the protected file
-
 Returns a list of users with their access rights to the protected file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3073,20 +3031,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3105,18 +3049,30 @@ catch (ApiException e)
 # **GetReferenceData**
 > FileReferenceWrapper GetReferenceData (GetReferenceDataDtoInteger? getReferenceDataDtoInteger = null)
 
-Get reference data
-
 Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **getReferenceDataDtoInteger** | [**GetReferenceDataDtoInteger?**](GetReferenceDataDtoInteger.md) | The request parameters for getting reference data. | [optional]  |
+
+### Return type
+
+[**FileReferenceWrapper**](FileReferenceWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3146,7 +3102,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var getReferenceDataDtoInteger = new GetReferenceDataDtoInteger?(); // GetReferenceDataDtoInteger? |  (optional) 
+            var getReferenceDataDtoInteger = new GetReferenceDataDtoInteger?(); // GetReferenceDataDtoInteger? | The request parameters for getting reference data. (optional) 
 
             try
             {
@@ -3185,20 +3141,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **getReferenceDataDtoInteger** | [**GetReferenceDataDtoInteger?**](GetReferenceDataDtoInteger?.md) |  | [optional]  |
-
-### Return type
-
-[**FileReferenceWrapper**](FileReferenceWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3217,18 +3159,30 @@ catch (ApiException e)
 # **IsFormPDF**
 > BooleanWrapper IsFormPDF (int fileId)
 
-Check the PDF file
-
 Checks if the PDF file is a form or not.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the request. |  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3297,20 +3251,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3329,18 +3269,31 @@ catch (ApiException e)
 # **LockFile**
 > FileIntegerWrapper LockFile (int fileId, LockFileParameters? lockFileParameters = null)
 
-Lock a file
-
 Locks a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID for locking. |  |
+| **lockFileParameters** | [**LockFileParameters?**](LockFileParameters.md) | The parameters for locking a file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3410,21 +3363,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID for locking. |  |
-| **lockFileParameters** | [**LockFileParameters?**](LockFileParameters?.md) | The parameters for locking a file. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3443,18 +3381,31 @@ catch (ApiException e)
 # **ManageFormFilling**
 > void ManageFormFilling (string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = null)
 
-Perform form filling action
-
 Performs the specified form filling action.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **manageFormFillingDtoInteger** | [**ManageFormFillingDtoInteger?**](ManageFormFillingDtoInteger.md) | The parameters for managing form filling. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3485,7 +3436,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
             var fileId = "fileId_example";  // string | 
-            var manageFormFillingDtoInteger = new ManageFormFillingDtoInteger?(); // ManageFormFillingDtoInteger? |  (optional) 
+            var manageFormFillingDtoInteger = new ManageFormFillingDtoInteger?(); // ManageFormFillingDtoInteger? | The parameters for managing form filling. (optional) 
 
             try
             {
@@ -3520,21 +3471,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **string** |  |  |
-| **manageFormFillingDtoInteger** | [**ManageFormFillingDtoInteger?**](ManageFormFillingDtoInteger?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3554,18 +3490,35 @@ void (empty response body)
 # **OpenEditFile**
 > ConfigurationIntegerWrapper OpenEditFile (int fileId, int? version = null, bool? view = null, EditorType? editorType = null, bool? edit = null, bool? fill = null)
 
-Open a file configuration
-
 Returns the initialization configuration of a file to open it in the editor.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to open. |  |
+| **version** | **int?** | The file version to open. | [optional]  |
+| **view** | **bool?** | Specifies if the document will be opened for viewing only or not. | [optional]  |
+| **editorType** | [**EditorType?**](EditorType.md) | The editor type to open the file. | [optional]  |
+| **edit** | **bool?** | Specifies if the document is opened in the editing mode or not. | [optional]  |
+| **fill** | **bool?** | Specifies if the document is opened in the form-filling mode or not. | [optional]  |
+
+### Return type
+
+[**ConfigurationIntegerWrapper**](ConfigurationIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3623,25 +3576,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to open. |  |
-| **version** | **int?** | The file version to open. | [optional]  |
-| **view** | **bool?** | Specifies if the document will be opened for viewing only or not. | [optional]  |
-| **editorType** | [**EditorType?**](EditorType?.md) | The editor type to open the file. | [optional]  |
-| **edit** | **bool?** | Specifies if the document is opened in the editing mode or not. | [optional]  |
-| **fill** | **bool?** | Specifies if the document is opened in the form-filling mode or not. | [optional]  |
-
-### Return type
-
-[**ConfigurationIntegerWrapper**](ConfigurationIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3660,18 +3594,32 @@ No authorization required
 # **RestoreFileVersion**
 > EditHistoryArrayWrapper RestoreFileVersion (int fileId, int? version = null, string? url = null)
 
-Restore a file version
-
 Restores a file version specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID of the restore version. |  |
+| **version** | **int?** | The file version of the restore. | [optional]  |
+| **url** | **string?** | The file version URL of the restore. | [optional]  |
+
+### Return type
+
+[**EditHistoryArrayWrapper**](EditHistoryArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3726,22 +3674,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the restore version. |  |
-| **version** | **int?** | The file version of the restore. | [optional]  |
-| **url** | **string?** | The file version URL of the restore. | [optional]  |
-
-### Return type
-
-[**EditHistoryArrayWrapper**](EditHistoryArrayWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -3761,18 +3693,34 @@ No authorization required
 # **SaveEditingFileFromForm**
 > FileIntegerWrapper SaveEditingFileFromForm (int fileId, string? fileExtension = null, string? downloadUri = null, FileParameter? file = null, bool? forcesave = null)
 
-Save file edits
-
 Saves edits to a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The editing file ID from the request. |  |
+| **fileExtension** | **string?** | The editing file extension from the request. | [optional]  |
+| **downloadUri** | **string?** | The URI to download the editing file. | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The request file stream. | [optional]  |
+| **forcesave** | **bool?** | Specifies whether to force save the file or not. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3845,24 +3793,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The editing file ID from the request. |  |
-| **fileExtension** | **string?** | The editing file extension from the request. | [optional]  |
-| **downloadUri** | **string?** | The URI to download the editing file. | [optional]  |
-| **file** | **FileParameter?****FileParameter?** | The request file stream. | [optional]  |
-| **forcesave** | **bool?** | Specifies whether to force save the file or not. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
@@ -3883,18 +3813,31 @@ catch (ApiException e)
 # **SaveFileAsPdf**
 > FileIntegerWrapper SaveFileAsPdf (int id, SaveAsPdfInteger? saveAsPdfInteger = null)
 
-Save a file as PDF
-
 Saves a file with the identifier specified in the request as a PDF document.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID to save as PDF. |  |
+| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger.md) | The parameters for saving file as PDF. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -3964,21 +3907,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID to save as PDF. |  |
-| **saveAsPdfInteger** | [**SaveAsPdfInteger?**](SaveAsPdfInteger?.md) | The parameters for saving file as PDF. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -3998,18 +3926,31 @@ catch (ApiException e)
 # **SaveFormRoleMapping**
 > FormRoleWrapper SaveFormRoleMapping (string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = null)
 
-Save form role mapping
-
 Saves the form role mapping.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **saveFormRoleMappingDtoInteger** | [**SaveFormRoleMappingDtoInteger?**](SaveFormRoleMappingDtoInteger.md) | The parameters for saving form role mapping. | [optional]  |
+
+### Return type
+
+[**FormRoleWrapper**](FormRoleWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4040,7 +3981,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
             var fileId = "fileId_example";  // string | 
-            var saveFormRoleMappingDtoInteger = new SaveFormRoleMappingDtoInteger?(); // SaveFormRoleMappingDtoInteger? |  (optional) 
+            var saveFormRoleMappingDtoInteger = new SaveFormRoleMappingDtoInteger?(); // SaveFormRoleMappingDtoInteger? | The parameters for saving form role mapping. (optional) 
 
             try
             {
@@ -4079,21 +4020,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **string** |  |  |
-| **saveFormRoleMappingDtoInteger** | [**SaveFormRoleMappingDtoInteger?**](SaveFormRoleMappingDtoInteger?.md) |  | [optional]  |
-
-### Return type
-
-[**FormRoleWrapper**](FormRoleWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4113,18 +4039,31 @@ catch (ApiException e)
 # **SetCustomFilterTag**
 > FileIntegerWrapper SetCustomFilterTag (int fileId, CustomFilterParameters? customFilterParameters = null)
 
-Set the Custom Filter editing mode
-
 Sets the Custom Filter editing mode to a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID. |  |
+| **customFilterParameters** | [**CustomFilterParameters?**](CustomFilterParameters.md) | The parameters for setting the Custom Filter editing mode. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4194,21 +4133,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID. |  |
-| **customFilterParameters** | [**CustomFilterParameters?**](CustomFilterParameters?.md) | The parameters for setting the Custom Filter editing mode. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4227,18 +4151,31 @@ catch (ApiException e)
 # **SetExternalLink**
 > FileShareWrapper SetExternalLink (int id, FileLinkRequest? fileLinkRequest = null)
 
-Set an external link
-
 Sets an external link to a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The file ID. |  |
+| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest.md) | The file external link parameters. | [optional]  |
+
+### Return type
+
+[**FileShareWrapper**](FileShareWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4308,21 +4245,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** | The file ID. |  |
-| **fileLinkRequest** | [**FileLinkRequest?**](FileLinkRequest?.md) | The file external link parameters. | [optional]  |
-
-### Return type
-
-[**FileShareWrapper**](FileShareWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4341,18 +4263,31 @@ catch (ApiException e)
 # **SetFileOrder**
 > FileIntegerWrapper SetFileOrder (int fileId, OrderRequestDto? orderRequestDto = null)
 
-Set file order
-
 Sets order of the file with ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file unique identifier. |  |
+| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto.md) | The file order information. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4422,21 +4357,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file unique identifier. |  |
-| **orderRequestDto** | [**OrderRequestDto?**](OrderRequestDto?.md) | The file order information. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4457,18 +4377,30 @@ catch (ApiException e)
 # **SetFilesOrder**
 > FileIntegerArrayWrapper SetFilesOrder (OrdersRequestDtoInteger? ordersRequestDtoInteger = null)
 
-Set order of files
-
 Sets order of the files.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ordersRequestDtoInteger** | [**OrdersRequestDtoInteger?**](OrdersRequestDtoInteger.md) | The collection of items to be ordered. | [optional]  |
+
+### Return type
+
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4498,7 +4430,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesFilesApi(httpClient, config, httpClientHandler);
-            var ordersRequestDtoInteger = new OrdersRequestDtoInteger?(); // OrdersRequestDtoInteger? |  (optional) 
+            var ordersRequestDtoInteger = new OrdersRequestDtoInteger?(); // OrdersRequestDtoInteger? | The collection of items to be ordered. (optional) 
 
             try
             {
@@ -4537,20 +4469,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ordersRequestDtoInteger** | [**OrdersRequestDtoInteger?**](OrdersRequestDtoInteger?.md) |  | [optional]  |
-
-### Return type
-
-[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4569,18 +4487,31 @@ catch (ApiException e)
 # **StartEditFile**
 > StringWrapper StartEditFile (int fileId, StartEdit? startEdit = null)
 
-Start file editing
-
 Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to start editing. |  |
+| **startEdit** | [**StartEdit?**](StartEdit.md) | The file parameters to start editing. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4634,21 +4565,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to start editing. |  |
-| **startEdit** | [**StartEdit?**](StartEdit?.md) | The file parameters to start editing. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -4667,18 +4583,30 @@ No authorization required
 # **StartFillingFile**
 > FileIntegerWrapper StartFillingFile (int fileId)
 
-Start file filling
-
 Starts filling a file with the ID specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to start filling. |  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4747,20 +4675,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to start filling. |  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -4780,18 +4694,33 @@ catch (ApiException e)
 # **TrackEditFile**
 > KeyValuePairBooleanStringWrapper TrackEditFile (int fileId, Guid? tabId = null, string? docKeyForTrack = null, bool? isFinish = null)
 
-Track file editing
-
 Tracks file changes when editing.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to track editing changes. |  |
+| **tabId** | **Guid?** | The tab ID to track editing changes. | [optional]  |
+| **docKeyForTrack** | **string?** | The document key for tracking changes. | [optional]  |
+| **isFinish** | **bool?** | Specifies whether to finish file tracking or not. | [optional]  |
+
+### Return type
+
+[**KeyValuePairBooleanStringWrapper**](KeyValuePairBooleanStringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4847,23 +4776,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to track editing changes. |  |
-| **tabId** | **Guid?** | The tab ID to track editing changes. | [optional]  |
-| **docKeyForTrack** | **string?** | The document key for tracking changes. | [optional]  |
-| **isFinish** | **bool?** | Specifies whether to finish file tracking or not. | [optional]  |
-
-### Return type
-
-[**KeyValuePairBooleanStringWrapper**](KeyValuePairBooleanStringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -4882,18 +4794,31 @@ No authorization required
 # **UpdateFile**
 > FileIntegerWrapper UpdateFile (int fileId, UpdateFile? updateFile = null)
 
-Update a file
-
 Updates the information of the selected file with the parameters specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file ID to update. |  |
+| **updateFile** | [**UpdateFile?**](UpdateFile.md) | The parameters for updating a file. | [optional]  |
+
+### Return type
+
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -4946,21 +4871,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **fileId** | **int** | The file ID to update. |  |
-| **updateFile** | [**UpdateFile?**](UpdateFile?.md) | The parameters for updating a file. | [optional]  |
-
-### Return type
-
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

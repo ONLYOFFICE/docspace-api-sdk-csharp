@@ -32,10 +32,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Client;
+using DocSpace.Model;
 
-namespace Docspace.Api
+namespace DocSpace.Api
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Activates a license for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper AcceptLicense();
@@ -61,7 +61,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Activates a license for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> AcceptLicenseWithHttpInfo();
@@ -71,7 +71,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests a portal license if necessary.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper GetIsLicenseRequired();
@@ -82,7 +82,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests a portal license if necessary.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetIsLicenseRequiredWithHttpInfo();
@@ -92,7 +92,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Refreshes the portal license.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper RefreshLicense();
@@ -103,7 +103,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Refreshes the portal license.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> RefreshLicenseWithHttpInfo();
@@ -113,7 +113,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a portal license specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -125,7 +125,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a portal license specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -145,7 +145,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Activates a license for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -157,7 +157,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Activates a license for the portal.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -168,7 +168,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests a portal license if necessary.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -180,7 +180,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Requests a portal license if necessary.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -191,7 +191,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Refreshes the portal license.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -203,7 +203,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Refreshes the portal license.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -214,7 +214,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a portal license specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
@@ -227,7 +227,7 @@ namespace Docspace.Api
         /// <remarks>
         /// Uploads a portal license specified in the request.
         /// </remarks>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
@@ -271,14 +271,14 @@ namespace Docspace.Api
         /// <returns></returns>
         public SettingsLicenseApi(string basePath)
         {
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -293,14 +293,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(this.Configuration.BasePath);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -335,14 +335,14 @@ namespace Docspace.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client =  this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -362,14 +362,14 @@ namespace Docspace.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = Docspace.Client.Configuration.MergeConfigurations(
+            this.Configuration = DocSpace.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
             this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
             this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
-            ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Docspace.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Docspace.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = DocSpace.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Docspace.Api
         /// <summary>
         /// Activate a license Activates a license for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper AcceptLicense()
@@ -461,7 +461,7 @@ namespace Docspace.Api
         /// <summary>
         /// Activate a license Activates a license for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> AcceptLicenseWithHttpInfo()
@@ -526,7 +526,7 @@ namespace Docspace.Api
         /// <summary>
         /// Activate a license Activates a license for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -539,7 +539,7 @@ namespace Docspace.Api
         /// <summary>
         /// Activate a license Activates a license for the portal.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/">REST API Reference for AcceptLicense Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -608,7 +608,7 @@ namespace Docspace.Api
         /// <summary>
         /// Request a license Requests a portal license if necessary.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper GetIsLicenseRequired()
@@ -620,7 +620,7 @@ namespace Docspace.Api
         /// <summary>
         /// Request a license Requests a portal license if necessary.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> GetIsLicenseRequiredWithHttpInfo()
@@ -655,7 +655,7 @@ namespace Docspace.Api
         /// <summary>
         /// Request a license Requests a portal license if necessary.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -668,7 +668,7 @@ namespace Docspace.Api
         /// <summary>
         /// Request a license Requests a portal license if necessary.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/">REST API Reference for GetIsLicenseRequired Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -707,7 +707,7 @@ namespace Docspace.Api
         /// <summary>
         /// Refresh the license Refreshes the portal license.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper RefreshLicense()
@@ -719,7 +719,7 @@ namespace Docspace.Api
         /// <summary>
         /// Refresh the license Refreshes the portal license.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> RefreshLicenseWithHttpInfo()
@@ -784,7 +784,7 @@ namespace Docspace.Api
         /// <summary>
         /// Refresh the license Refreshes the portal license.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -797,7 +797,7 @@ namespace Docspace.Api
         /// <summary>
         /// Refresh the license Refreshes the portal license.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/">REST API Reference for RefreshLicense Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -866,7 +866,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a license Uploads a portal license specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -879,7 +879,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a license Uploads a portal license specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -950,7 +950,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a license Uploads a portal license specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>
@@ -964,7 +964,7 @@ namespace Docspace.Api
         /// <summary>
         /// Upload a license Uploads a portal license specified in the request.
         /// </summary>
-        /// <exception cref="Docspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="DocSpace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="files">The list of license files to be uploaded.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/">REST API Reference for UploadLicense Operation</seealso>

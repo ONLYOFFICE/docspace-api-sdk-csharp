@@ -1,4 +1,4 @@
-# Docspace.Api.SettingsOwnerApi
+# DocSpace.Api.SettingsOwnerApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -11,18 +11,30 @@ All URIs are relative to *http://localhost:8092*
 # **SendOwnerChangeInstructions**
 > OwnerChangeInstructionsWrapper SendOwnerChangeInstructions (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
 
-Send the owner change instructions
-
 Sends the instructions to change the DocSpace owner.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto.md) | The request parameters for managing the owner-specific settings. | [optional]  |
+
+### Return type
+
+[**OwnerChangeInstructionsWrapper**](OwnerChangeInstructionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -52,7 +64,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsOwnerApi(httpClient, config, httpClientHandler);
-            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? |  (optional) 
+            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? | The request parameters for managing the owner-specific settings. (optional) 
 
             try
             {
@@ -91,20 +103,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**OwnerChangeInstructionsWrapper**](OwnerChangeInstructionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -124,18 +122,30 @@ catch (ApiException e)
 # **UpdatePortalOwner**
 > void UpdatePortalOwner (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
 
-Update the portal owner
-
 Updates the current portal owner with a new one specified in the request.
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto.md) | The request parameters for managing the owner-specific settings. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.Api;
+using DocSpace.Client;
+using DocSpace.Model;
 
 namespace Example
 {
@@ -165,7 +175,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsOwnerApi(httpClient, config, httpClientHandler);
-            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? |  (optional) 
+            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? | The request parameters for managing the owner-specific settings. (optional) 
 
             try
             {
@@ -199,20 +209,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

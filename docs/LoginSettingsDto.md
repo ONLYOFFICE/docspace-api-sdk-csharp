@@ -1,4 +1,4 @@
-# Docspace.Model.LoginSettingsDto
+# DocSpace.Model.LoginSettingsDto
 The login settings parameters.
 
 ## Properties

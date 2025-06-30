@@ -1,4 +1,4 @@
-# Docspace.Model.PasswordHasher
+# DocSpace.Model.PasswordHasher
 
 ## Properties
 
