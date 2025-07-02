@@ -1,4 +1,4 @@
-# DocSpace.Model.PerformCustomerOperationRequestDto
+# DocSpace.Sdk.Model.PerformCustomerOperationRequestDto
 Parameters for performing a customer operation
 
 ## Properties

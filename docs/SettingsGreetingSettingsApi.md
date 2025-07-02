@@ -1,19 +1,21 @@
-# DocSpace.Api.SettingsGreetingSettingsApi
+# DocSpace.Sdk.Api.SettingsGreetingSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGreetingSettings**](SettingsGreetingSettingsApi.md#getgreetingsettings) | **GET** /api/2.0/settings/greetingsettings | Get greeting settings |
-| [**GetIsDefaultGreetingSettings**](SettingsGreetingSettingsApi.md#getisdefaultgreetingsettings) | **GET** /api/2.0/settings/greetingsettings/isdefault | Check the default greeting settings |
-| [**RestoreGreetingSettings**](SettingsGreetingSettingsApi.md#restoregreetingsettings) | **POST** /api/2.0/settings/greetingsettings/restore | Restore the greeting settings |
-| [**SaveGreetingSettings**](SettingsGreetingSettingsApi.md#savegreetingsettings) | **POST** /api/2.0/settings/greetingsettings | Save the greeting settings |
+| [**GetGreetingSettings**](#getgreetingsettings) | **GET** /api/2.0/settings/greetingsettings | Get greeting settings |
+| [**GetIsDefaultGreetingSettings**](#getisdefaultgreetingsettings) | **GET** /api/2.0/settings/greetingsettings/isdefault | Check the default greeting settings |
+| [**RestoreGreetingSettings**](#restoregreetingsettings) | **POST** /api/2.0/settings/greetingsettings/restore | Restore the greeting settings |
+| [**SaveGreetingSettings**](#savegreetingsettings) | **POST** /api/2.0/settings/greetingsettings | Save the greeting settings |
 
 <a id="getgreetingsettings"></a>
 # **GetGreetingSettings**
 > ObjectWrapper GetGreetingSettings ()
 
 Returns the greeting settings for the current portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-greeting-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -30,9 +32,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -120,6 +122,8 @@ catch (ApiException e)
 
 Checks if the greeting settings of the current portal are set to default or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-greeting-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -135,9 +139,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -225,6 +229,8 @@ catch (ApiException e)
 
 Restores the current portal greeting settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-greeting-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -240,9 +246,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -330,6 +336,8 @@ catch (ApiException e)
 
 Saves the greeting settings specified in the request to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -349,9 +357,9 @@ Saves the greeting settings specified in the request to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

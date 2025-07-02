@@ -1,23 +1,25 @@
-# DocSpace.Api.MigrationApi
+# DocSpace.Sdk.Api.MigrationApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CancelMigration**](MigrationApi.md#cancelmigration) | **POST** /api/2.0/migration/cancel | Cancel migration |
-| [**ClearMigration**](MigrationApi.md#clearmigration) | **POST** /api/2.0/migration/clear | Clear migration |
-| [**FinishMigration**](MigrationApi.md#finishmigration) | **POST** /api/2.0/migration/finish | Finish migration |
-| [**GetMigrationLogs**](MigrationApi.md#getmigrationlogs) | **GET** /api/2.0/migration/logs | Get migration logs |
-| [**GetMigrationStatus**](MigrationApi.md#getmigrationstatus) | **GET** /api/2.0/migration/status | Get migration status |
-| [**ListMigrations**](MigrationApi.md#listmigrations) | **GET** /api/2.0/migration/list | Get migrations |
-| [**StartMigration**](MigrationApi.md#startmigration) | **POST** /api/2.0/migration/migrate | Start migration |
-| [**UploadAndInitializeMigration**](MigrationApi.md#uploadandinitializemigration) | **POST** /api/2.0/migration/init/{migratorName} | Upload and initialize migration |
+| [**CancelMigration**](#cancelmigration) | **POST** /api/2.0/migration/cancel | Cancel migration |
+| [**ClearMigration**](#clearmigration) | **POST** /api/2.0/migration/clear | Clear migration |
+| [**FinishMigration**](#finishmigration) | **POST** /api/2.0/migration/finish | Finish migration |
+| [**GetMigrationLogs**](#getmigrationlogs) | **GET** /api/2.0/migration/logs | Get migration logs |
+| [**GetMigrationStatus**](#getmigrationstatus) | **GET** /api/2.0/migration/status | Get migration status |
+| [**ListMigrations**](#listmigrations) | **GET** /api/2.0/migration/list | Get migrations |
+| [**StartMigration**](#startmigration) | **POST** /api/2.0/migration/migrate | Start migration |
+| [**UploadAndInitializeMigration**](#uploadandinitializemigration) | **POST** /api/2.0/migration/init/{migratorName} | Upload and initialize migration |
 
 <a id="cancelmigration"></a>
 # **CancelMigration**
 > void CancelMigration ()
 
 Cancels the migration.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-migration/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -34,9 +36,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -121,6 +123,8 @@ catch (ApiException e)
 
 Clears the migration.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/clear-migration/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -136,9 +140,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -223,6 +227,8 @@ catch (ApiException e)
 
 Finishes the migration process.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/finish-migration/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -242,9 +248,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -330,6 +336,8 @@ catch (ApiException e)
 
 Returns the migration logs.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-logs/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -345,9 +353,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -432,6 +440,8 @@ catch (ApiException e)
 
 Returns the migration status.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-migration-status/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -447,9 +457,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -538,6 +548,8 @@ catch (ApiException e)
 
 Returns a list of available migrations.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -553,9 +565,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -644,6 +656,8 @@ catch (ApiException e)
 
 Starts the migration process.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -663,9 +677,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -751,6 +765,8 @@ catch (ApiException e)
 
 Uploads and initializes a migration with a migrator name specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-and-initialize-migration/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -770,9 +786,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

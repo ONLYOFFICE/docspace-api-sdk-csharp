@@ -1,4 +1,4 @@
-# DocSpace.Model.ErrorResponse
+# DocSpace.Sdk.Model.ErrorResponse
 The error response containing the human-readable error explanation.
 
 ## Properties

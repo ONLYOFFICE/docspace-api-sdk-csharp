@@ -1,4 +1,4 @@
-# DocSpace.Model.TimezonesRequestsDto
+# DocSpace.Sdk.Model.TimezonesRequestsDto
 The request parameters for managing the time zone configurations.
 
 ## Properties

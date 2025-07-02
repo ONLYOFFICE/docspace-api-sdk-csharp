@@ -1,4 +1,4 @@
-# DocSpace.Model.RoomDataLifetimeDto
+# DocSpace.Sdk.Model.RoomDataLifetimeDto
 The room data lifetime information.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.UploadResultDto
+# DocSpace.Sdk.Model.UploadResultDto
 The upload result parameters.
 
 ## Properties

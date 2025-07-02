@@ -1,4 +1,4 @@
-# DocSpace.Model.AdditionalWhiteLabelSettings
+# DocSpace.Sdk.Model.AdditionalWhiteLabelSettings
 The additional white label settings.
 
 ## Properties

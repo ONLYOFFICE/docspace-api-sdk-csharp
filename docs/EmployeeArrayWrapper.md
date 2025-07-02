@@ -1,12 +1,12 @@
-# DocSpace.Model.EmployeeArrayWrapper
+# DocSpace.Sdk.Model.EmployeeArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;EmployeeDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;EmployeeDto&gt;**](EmployeeDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

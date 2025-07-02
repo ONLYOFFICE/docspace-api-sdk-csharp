@@ -1,4 +1,4 @@
-# DocSpace.Model.CoEditingConfig
+# DocSpace.Sdk.Model.CoEditingConfig
 The co-editing configuration parameters.
 
 ## Properties

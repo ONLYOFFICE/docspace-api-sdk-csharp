@@ -1,12 +1,12 @@
-# DocSpace.Model.TariffWrapper
+# DocSpace.Sdk.Model.TariffWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**Tariff**](.md) |  | [optional] 
+**Response** | [**Tariff**](Tariff.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

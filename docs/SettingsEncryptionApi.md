@@ -1,18 +1,20 @@
-# DocSpace.Api.SettingsEncryptionApi
+# DocSpace.Sdk.Api.SettingsEncryptionApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetStorageEncryptionProgress**](SettingsEncryptionApi.md#getstorageencryptionprogress) | **GET** /api/2.0/settings/encryption/progress | Get the storage encryption progress |
-| [**GetStorageEncryptionSettings**](SettingsEncryptionApi.md#getstorageencryptionsettings) | **GET** /api/2.0/settings/encryption/settings | Get the storage encryption settings |
-| [**StartStorageEncryption**](SettingsEncryptionApi.md#startstorageencryption) | **POST** /api/2.0/settings/encryption/start | Start the storage encryption process |
+| [**GetStorageEncryptionProgress**](#getstorageencryptionprogress) | **GET** /api/2.0/settings/encryption/progress | Get the storage encryption progress |
+| [**GetStorageEncryptionSettings**](#getstorageencryptionsettings) | **GET** /api/2.0/settings/encryption/settings | Get the storage encryption settings |
+| [**StartStorageEncryption**](#startstorageencryption) | **POST** /api/2.0/settings/encryption/start | Start the storage encryption process |
 
 <a id="getstorageencryptionprogress"></a>
 # **GetStorageEncryptionProgress**
 > DoubleWrapper GetStorageEncryptionProgress ()
 
 Returns the storage encryption progress.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -29,9 +31,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -120,6 +122,8 @@ catch (ApiException e)
 
 Returns the storage encryption settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -135,9 +139,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -227,6 +231,8 @@ catch (ApiException e)
 
 Starts the storage encryption process.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -246,9 +252,9 @@ Starts the storage encryption process.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

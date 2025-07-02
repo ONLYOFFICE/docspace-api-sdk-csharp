@@ -1,12 +1,12 @@
-# DocSpace.Model.OwnerChangeInstructionsWrapper
+# DocSpace.Sdk.Model.OwnerChangeInstructionsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**OwnerChangeInstructionsDto**](.md) |  | [optional] 
+**Response** | [**OwnerChangeInstructionsDto**](OwnerChangeInstructionsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

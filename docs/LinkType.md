@@ -1,4 +1,4 @@
-# DocSpace.Model.LinkType
+# DocSpace.Sdk.Model.LinkType
 [0 - Invitation, 1 - External]
 
 ## Properties

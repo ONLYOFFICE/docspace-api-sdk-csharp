@@ -1,21 +1,23 @@
-# DocSpace.Api.OAuth20ClientManagementApi
+# DocSpace.Sdk.Api.OAuth20ClientManagementApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeActivation**](OAuth20ClientManagementApi.md#changeactivation) | **PATCH** /api/2.0/clients/{clientId}/activation | Change the client activation status |
-| [**CreateClient**](OAuth20ClientManagementApi.md#createclient) | **POST** /api/2.0/clients | Create a new OAuth2 client |
-| [**DeleteClient**](OAuth20ClientManagementApi.md#deleteclient) | **DELETE** /api/2.0/clients/{clientId} | Delete an OAuth2 client |
-| [**RegenerateSecret**](OAuth20ClientManagementApi.md#regeneratesecret) | **PATCH** /api/2.0/clients/{clientId}/regenerate | Regenerate the client secret |
-| [**RevokeUserClient**](OAuth20ClientManagementApi.md#revokeuserclient) | **DELETE** /api/2.0/clients/{clientId}/revoke | Revoke client consent |
-| [**UpdateClient**](OAuth20ClientManagementApi.md#updateclient) | **PUT** /api/2.0/clients/{clientId} | Update an existing OAuth2 client |
+| [**ChangeActivation**](#changeactivation) | **PATCH** /api/2.0/clients/{clientId}/activation | Change the client activation status |
+| [**CreateClient**](#createclient) | **POST** /api/2.0/clients | Create a new OAuth2 client |
+| [**DeleteClient**](#deleteclient) | **DELETE** /api/2.0/clients/{clientId} | Delete an OAuth2 client |
+| [**RegenerateSecret**](#regeneratesecret) | **PATCH** /api/2.0/clients/{clientId}/regenerate | Regenerate the client secret |
+| [**RevokeUserClient**](#revokeuserclient) | **DELETE** /api/2.0/clients/{clientId}/revoke | Revoke client consent |
+| [**UpdateClient**](#updateclient) | **PUT** /api/2.0/clients/{clientId} | Update an existing OAuth2 client |
 
 <a id="changeactivation"></a>
 # **ChangeActivation**
 > Object ChangeActivation (string clientId, ChangeClientActivationRequest changeClientActivationRequest)
 
 Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/).
 
 ### Parameters
 
@@ -37,9 +39,9 @@ Activates or deactivates an OAuth2 client. When deactivated, the client cannot r
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -122,6 +124,8 @@ catch (ApiException e)
 
 Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -141,9 +145,9 @@ Creates a new OAuth2 client with the specified configuration. The client will be
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -224,6 +228,8 @@ catch (ApiException e)
 
 Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -243,9 +249,9 @@ Permanently deletes an OAuth2 client and all associated data. All access and ref
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -327,6 +333,8 @@ catch (ApiException e)
 
 Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -346,9 +354,9 @@ Generates a new client secret for the specified OAuth2 client. The old secret wi
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -430,6 +438,8 @@ catch (ApiException e)
 
 Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -449,9 +459,9 @@ Revokes all user consents for the specified OAuth2 client. This will invalidate 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -534,6 +544,8 @@ catch (ApiException e)
 
 Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -554,9 +566,9 @@ Updates the configuration of an existing OAuth2 client, allowing modifications t
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

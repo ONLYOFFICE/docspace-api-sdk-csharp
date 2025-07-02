@@ -1,24 +1,26 @@
-# DocSpace.Api.SettingsTFASettingsApi
+# DocSpace.Sdk.Api.SettingsTFASettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetTfaAppCodes**](SettingsTFASettingsApi.md#gettfaappcodes) | **GET** /api/2.0/settings/tfaappcodes | Get the TFA codes |
-| [**GetTfaConfirmUrl**](SettingsTFASettingsApi.md#gettfaconfirmurl) | **GET** /api/2.0/settings/tfaapp/confirm | Get confirmation email |
-| [**GetTfaSettings**](SettingsTFASettingsApi.md#gettfasettings) | **GET** /api/2.0/settings/tfaapp | Get the TFA settings |
-| [**TfaAppGenerateSetupCode**](SettingsTFASettingsApi.md#tfaappgeneratesetupcode) | **GET** /api/2.0/settings/tfaapp/setup | Generate setup code |
-| [**TfaValidateAuthCode**](SettingsTFASettingsApi.md#tfavalidateauthcode) | **POST** /api/2.0/settings/tfaapp/validate | Validate the TFA code |
-| [**UnlinkTfaApp**](SettingsTFASettingsApi.md#unlinktfaapp) | **PUT** /api/2.0/settings/tfaappnewapp | Unlink the TFA application |
-| [**UpdateTfaAppCodes**](SettingsTFASettingsApi.md#updatetfaappcodes) | **PUT** /api/2.0/settings/tfaappnewcodes | Update the TFA codes |
-| [**UpdateTfaSettings**](SettingsTFASettingsApi.md#updatetfasettings) | **PUT** /api/2.0/settings/tfaapp | Update the TFA settings |
-| [**UpdateTfaSettingsLink**](SettingsTFASettingsApi.md#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Get a confirmation email for updating TFA settings |
+| [**GetTfaAppCodes**](#gettfaappcodes) | **GET** /api/2.0/settings/tfaappcodes | Get the TFA codes |
+| [**GetTfaConfirmUrl**](#gettfaconfirmurl) | **GET** /api/2.0/settings/tfaapp/confirm | Get confirmation email |
+| [**GetTfaSettings**](#gettfasettings) | **GET** /api/2.0/settings/tfaapp | Get the TFA settings |
+| [**TfaAppGenerateSetupCode**](#tfaappgeneratesetupcode) | **GET** /api/2.0/settings/tfaapp/setup | Generate setup code |
+| [**TfaValidateAuthCode**](#tfavalidateauthcode) | **POST** /api/2.0/settings/tfaapp/validate | Validate the TFA code |
+| [**UnlinkTfaApp**](#unlinktfaapp) | **PUT** /api/2.0/settings/tfaappnewapp | Unlink the TFA application |
+| [**UpdateTfaAppCodes**](#updatetfaappcodes) | **PUT** /api/2.0/settings/tfaappnewcodes | Update the TFA codes |
+| [**UpdateTfaSettings**](#updatetfasettings) | **PUT** /api/2.0/settings/tfaapp | Update the TFA settings |
+| [**UpdateTfaSettingsLink**](#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Get a confirmation email for updating TFA settings |
 
 <a id="gettfaappcodes"></a>
 # **GetTfaAppCodes**
 > ObjectArrayWrapper GetTfaAppCodes ()
 
 Returns the two-factor authentication application codes.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -35,9 +37,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Returns the confirmation email URL for authorization via SMS or TFA application.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -141,9 +145,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -231,6 +235,8 @@ catch (ApiException e)
 
 Returns the current two-factor authentication settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -246,9 +252,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -336,6 +342,8 @@ catch (ApiException e)
 
 Generates the setup TFA code for the current user.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -351,9 +359,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -442,6 +450,8 @@ catch (ApiException e)
 
 Validates the two-factor authentication code specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -461,9 +471,9 @@ Validates the two-factor authentication code specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -552,6 +562,8 @@ catch (ApiException e)
 
 Unlinks the current two-factor authentication application from the user account specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -571,9 +583,9 @@ Unlinks the current two-factor authentication application from the user account 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -664,6 +676,8 @@ catch (ApiException e)
 
 Requests the new backup codes for the two-factor authentication application.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -679,9 +693,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -770,6 +784,8 @@ catch (ApiException e)
 
 Updates the two-factor authentication settings with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -789,9 +805,9 @@ Updates the two-factor authentication settings with the parameters specified in 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -881,6 +897,8 @@ catch (ApiException e)
 
 Returns the confirmation email URL for updating TFA settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -900,9 +918,9 @@ Returns the confirmation email URL for updating TFA settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

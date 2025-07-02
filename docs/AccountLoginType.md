@@ -1,4 +1,4 @@
-# DocSpace.Model.AccountLoginType
+# DocSpace.Sdk.Model.AccountLoginType
 [0 - SSO, 1 - LDAP, 2 - Standart]
 
 ## Properties

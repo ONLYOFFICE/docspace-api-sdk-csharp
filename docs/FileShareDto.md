@@ -1,4 +1,4 @@
-# DocSpace.Model.FileShareDto
+# DocSpace.Sdk.Model.FileShareDto
 The file sharing information and access rights.
 
 ## Properties

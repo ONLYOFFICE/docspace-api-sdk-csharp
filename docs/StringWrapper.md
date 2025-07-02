@@ -1,4 +1,4 @@
-# DocSpace.Model.StringWrapper
+# DocSpace.Sdk.Model.StringWrapper
 
 ## Properties
 
@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Response** | **string** |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

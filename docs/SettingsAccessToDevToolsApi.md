@@ -1,16 +1,18 @@
-# DocSpace.Api.SettingsAccessToDevToolsApi
+# DocSpace.Sdk.Api.SettingsAccessToDevToolsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetTenantAccessDevToolsSettings**](SettingsAccessToDevToolsApi.md#gettenantaccessdevtoolssettings) | **GET** /api/2.0/settings/devtoolsaccess | Get the Developer Tools access settings |
+| [**GetTenantAccessDevToolsSettings**](#gettenantaccessdevtoolssettings) | **GET** /api/2.0/settings/devtoolsaccess | Get the Developer Tools access settings |
 
 <a id="gettenantaccessdevtoolssettings"></a>
 # **GetTenantAccessDevToolsSettings**
 > TenantDevToolsAccessSettingsWrapper GetTenantAccessDevToolsSettings ()
 
 Returns the Developer Tools access settings for the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-access-dev-tools-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -27,9 +29,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

@@ -1,34 +1,36 @@
-# DocSpace.Api.SettingsCommonSettingsApi
+# DocSpace.Sdk.Api.SettingsCommonSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CloseAdminHelper**](SettingsCommonSettingsApi.md#closeadminhelper) | **PUT** /api/2.0/settings/closeadminhelper | Close the admin helper |
-| [**CompleteWizard**](SettingsCommonSettingsApi.md#completewizard) | **PUT** /api/2.0/settings/wizard/complete | Complete the Wizard settings |
-| [**ConfigureDeepLink**](SettingsCommonSettingsApi.md#configuredeeplink) | **POST** /api/2.0/settings/deeplink | Configure the deep link settings |
-| [**DeletePortalColorTheme**](SettingsCommonSettingsApi.md#deleteportalcolortheme) | **DELETE** /api/2.0/settings/colortheme | Delete a color theme |
-| [**GetDeepLinkSettings**](SettingsCommonSettingsApi.md#getdeeplinksettings) | **GET** /api/2.0/settings/deeplink | Get the deep link settings |
-| [**GetPaymentSettings**](SettingsCommonSettingsApi.md#getpaymentsettings) | **GET** /api/2.0/settings/payment | Get the payment settings |
-| [**GetPortalColorTheme**](SettingsCommonSettingsApi.md#getportalcolortheme) | **GET** /api/2.0/settings/colortheme | Get a color theme |
-| [**GetPortalHostname**](SettingsCommonSettingsApi.md#getportalhostname) | **GET** /api/2.0/settings/machine | Get hostname |
-| [**GetPortalLogo**](SettingsCommonSettingsApi.md#getportallogo) | **GET** /api/2.0/settings/logo | Get a portal logo |
-| [**GetPortalSettings**](SettingsCommonSettingsApi.md#getportalsettings) | **GET** /api/2.0/settings | Get the portal settings |
-| [**GetSocketSettings**](SettingsCommonSettingsApi.md#getsocketsettings) | **GET** /api/2.0/settings/socket | Get the socket settings |
-| [**GetSupportedCultures**](SettingsCommonSettingsApi.md#getsupportedcultures) | **GET** /api/2.0/settings/cultures | Get supported languages |
-| [**GetTenantUserInvitationSettings**](SettingsCommonSettingsApi.md#gettenantuserinvitationsettings) | **GET** /api/2.0/settings/invitationsettings | Get the user invitation settings |
-| [**GetTimeZones**](SettingsCommonSettingsApi.md#gettimezones) | **GET** /api/2.0/settings/timezones | Get time zones |
-| [**SaveDnsSettings**](SettingsCommonSettingsApi.md#savednssettings) | **PUT** /api/2.0/settings/dns | Save the DNS settings |
-| [**SaveMailDomainSettings**](SettingsCommonSettingsApi.md#savemaildomainsettings) | **POST** /api/2.0/settings/maildomainsettings | Save the mail domain settings |
-| [**SavePortalColorTheme**](SettingsCommonSettingsApi.md#saveportalcolortheme) | **PUT** /api/2.0/settings/colortheme | Save a color theme |
-| [**UpdateEmailActivationSettings**](SettingsCommonSettingsApi.md#updateemailactivationsettings) | **PUT** /api/2.0/settings/emailactivation | Update the email activation settings |
-| [**UpdateInvitationSettings**](SettingsCommonSettingsApi.md#updateinvitationsettings) | **PUT** /api/2.0/settings/invitationsettings | Update user invitation settings |
+| [**CloseAdminHelper**](#closeadminhelper) | **PUT** /api/2.0/settings/closeadminhelper | Close the admin helper |
+| [**CompleteWizard**](#completewizard) | **PUT** /api/2.0/settings/wizard/complete | Complete the Wizard settings |
+| [**ConfigureDeepLink**](#configuredeeplink) | **POST** /api/2.0/settings/deeplink | Configure the deep link settings |
+| [**DeletePortalColorTheme**](#deleteportalcolortheme) | **DELETE** /api/2.0/settings/colortheme | Delete a color theme |
+| [**GetDeepLinkSettings**](#getdeeplinksettings) | **GET** /api/2.0/settings/deeplink | Get the deep link settings |
+| [**GetPaymentSettings**](#getpaymentsettings) | **GET** /api/2.0/settings/payment | Get the payment settings |
+| [**GetPortalColorTheme**](#getportalcolortheme) | **GET** /api/2.0/settings/colortheme | Get a color theme |
+| [**GetPortalHostname**](#getportalhostname) | **GET** /api/2.0/settings/machine | Get hostname |
+| [**GetPortalLogo**](#getportallogo) | **GET** /api/2.0/settings/logo | Get a portal logo |
+| [**GetPortalSettings**](#getportalsettings) | **GET** /api/2.0/settings | Get the portal settings |
+| [**GetSocketSettings**](#getsocketsettings) | **GET** /api/2.0/settings/socket | Get the socket settings |
+| [**GetSupportedCultures**](#getsupportedcultures) | **GET** /api/2.0/settings/cultures | Get supported languages |
+| [**GetTenantUserInvitationSettings**](#gettenantuserinvitationsettings) | **GET** /api/2.0/settings/invitationsettings | Get the user invitation settings |
+| [**GetTimeZones**](#gettimezones) | **GET** /api/2.0/settings/timezones | Get time zones |
+| [**SaveDnsSettings**](#savednssettings) | **PUT** /api/2.0/settings/dns | Save the DNS settings |
+| [**SaveMailDomainSettings**](#savemaildomainsettings) | **POST** /api/2.0/settings/maildomainsettings | Save the mail domain settings |
+| [**SavePortalColorTheme**](#saveportalcolortheme) | **PUT** /api/2.0/settings/colortheme | Save a color theme |
+| [**UpdateEmailActivationSettings**](#updateemailactivationsettings) | **PUT** /api/2.0/settings/emailactivation | Update the email activation settings |
+| [**UpdateInvitationSettings**](#updateinvitationsettings) | **PUT** /api/2.0/settings/invitationsettings | Update user invitation settings |
 
 <a id="closeadminhelper"></a>
 # **CloseAdminHelper**
 > void CloseAdminHelper ()
 
 Closes the administrator helper notification.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -45,9 +47,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -132,6 +134,8 @@ catch (ApiException e)
 
 Completes the Wizard settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -151,9 +155,9 @@ Completes the Wizard settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -244,6 +248,8 @@ catch (ApiException e)
 
 Saves the deep link configuration settings for the portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -263,9 +269,9 @@ Saves the deep link configuration settings for the portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -355,6 +361,8 @@ catch (ApiException e)
 
 Deletes the portal color theme with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -374,9 +382,9 @@ Deletes the portal color theme with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -465,6 +473,8 @@ catch (ApiException e)
 
 Returns the deep link settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -480,9 +490,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -570,6 +580,8 @@ catch (ApiException e)
 
 Returns the portal payment settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -585,9 +597,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -675,6 +687,8 @@ catch (ApiException e)
 
 Returns the portal color theme.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -690,9 +704,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -763,6 +777,8 @@ catch (ApiException e)
 
 Returns the portal hostname.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -778,9 +794,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -868,6 +884,8 @@ catch (ApiException e)
 
 Returns the portal logo image URL.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -883,9 +901,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -973,6 +991,8 @@ catch (ApiException e)
 
 Returns a list of all the available portal settings with the current values for each parameter.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -992,9 +1012,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1066,6 +1086,8 @@ catch (ApiException e)
 
 Returns the socket settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1081,9 +1103,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1171,6 +1193,8 @@ catch (ApiException e)
 
 Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \"de\", \"en-US\", etc.).
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1186,9 +1210,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1259,6 +1283,8 @@ catch (ApiException e)
 
 Returns the portal user invitation settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1274,9 +1300,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1347,6 +1373,8 @@ catch (ApiException e)
 
 Returns a list of all the available portal time zones.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1362,9 +1390,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1452,6 +1480,8 @@ catch (ApiException e)
 
 Saves the DNS settings specified in the request to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1471,9 +1501,9 @@ Saves the DNS settings specified in the request to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1565,6 +1595,8 @@ catch (ApiException e)
 
 Saves the mail domain settings specified in the request to the portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1584,9 +1616,9 @@ Saves the mail domain settings specified in the request to the portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1675,6 +1707,8 @@ catch (ApiException e)
 
 Saves the portal color theme specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1694,9 +1728,9 @@ Saves the portal color theme specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1785,6 +1819,8 @@ catch (ApiException e)
 
 Updates the email activation settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1804,9 +1840,9 @@ Updates the email activation settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1895,6 +1931,8 @@ catch (ApiException e)
 
 Updates the portal user invitation settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1914,9 +1952,9 @@ Updates the portal user invitation settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

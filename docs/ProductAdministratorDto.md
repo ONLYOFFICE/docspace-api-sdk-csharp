@@ -1,4 +1,4 @@
-# DocSpace.Model.ProductAdministratorDto
+# DocSpace.Sdk.Model.ProductAdministratorDto
 The product administrator parameters.
 
 ## Properties

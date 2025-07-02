@@ -1,0 +1,406 @@
+// (c) Copyright Ascensio System SIA 2009-2025
+// 
+// This program is a free software product.
+// You can redistribute it and/or modify it under the terms
+// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
+// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
+// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
+// any third-party rights.
+// 
+// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
+// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
+// 
+// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
+// 
+// The  interactive user interfaces in modified source and object code versions of the Program must
+// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
+// 
+// Pursuant to Section 7(b) of the License you must retain the original Product logo when
+// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
+// trademark law for use of our trademarks.
+// 
+// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
+// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
+// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Reflection;
+using Xunit;
+
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Api;
+// uncomment below to import models
+//using DocSpace.Sdk.Model;
+
+namespace DocSpace.Sdk.Test.Api
+{
+    /// <summary>
+    ///  Class for testing FilesFoldersApi
+    /// </summary>
+    public class FilesFoldersApiTests : IDisposable
+    {
+        private FilesFoldersApi instance;
+
+        public FilesFoldersApiTests()
+        {
+            instance = new FilesFoldersApi();
+        }
+
+        public void Dispose()
+        {
+            // Cleanup when everything is done.
+        }
+
+        /// <summary>
+        /// Test an instance of FilesFoldersApi
+        /// </summary>
+        [Fact]
+        public void InstanceTest()
+        {
+            // TODO uncomment below to test 'IsType' FilesFoldersApi
+            //Assert.IsType<FilesFoldersApi>(instance);
+        }
+
+        /// <summary>
+        /// Test CheckUpload
+        /// </summary>
+        [Fact]
+        public void CheckUploadTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //CheckUploadRequest? checkUploadRequest = null;
+            //var response = instance.CheckUpload(folderId, checkUploadRequest);
+            //Assert.IsType<STRINGArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test CreateFolder
+        /// </summary>
+        [Fact]
+        public void CreateFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //CreateFolder? createFolder = null;
+            //var response = instance.CreateFolder(folderId, createFolder);
+            //Assert.IsType<FolderIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test DeleteFolder
+        /// </summary>
+        [Fact]
+        public void DeleteFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //DeleteFolder? deleteFolder = null;
+            //var response = instance.DeleteFolder(folderId, deleteFolder);
+            //Assert.IsType<FileOperationArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFilesUsedSpace
+        /// </summary>
+        [Fact]
+        public void GetFilesUsedSpaceTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetFilesUsedSpace();
+            //Assert.IsType<FilesStatisticsResultWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolder
+        /// </summary>
+        [Fact]
+        public void GetFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //var response = instance.GetFolder(folderId);
+            //Assert.IsType<FormsItemArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolderByFolderId
+        /// </summary>
+        [Fact]
+        public void GetFolderByFolderIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //Guid? userIdOrGroupId = null;
+            //FilterType? filterType = null;
+            //int? roomId = null;
+            //bool? excludeSubject = null;
+            //ApplyFilterOption? applyFilterOption = null;
+            //string? extension = null;
+            //SearchArea? searchArea = null;
+            //string? formsItemKey = null;
+            //string? formsItemType = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue);
+            //Assert.IsType<FolderContentIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolderHistory
+        /// </summary>
+        [Fact]
+        public void GetFolderHistoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //ApiDateTime? fromDate = null;
+            //ApiDateTime? toDate = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //var response = instance.GetFolderHistory(folderId, fromDate, toDate, count, startIndex);
+            //Assert.IsType<HistoryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolderInfo
+        /// </summary>
+        [Fact]
+        public void GetFolderInfoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //var response = instance.GetFolderInfo(folderId);
+            //Assert.IsType<FolderIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolderPath
+        /// </summary>
+        [Fact]
+        public void GetFolderPathTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //var response = instance.GetFolderPath(folderId);
+            //Assert.IsType<FileEntryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolderPrimaryExternalLink
+        /// </summary>
+        [Fact]
+        public void GetFolderPrimaryExternalLinkTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int id = null;
+            //var response = instance.GetFolderPrimaryExternalLink(id);
+            //Assert.IsType<FileShareWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetFolders
+        /// </summary>
+        [Fact]
+        public void GetFoldersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //var response = instance.GetFolders(folderId);
+            //Assert.IsType<FileEntryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetMyFolder
+        /// </summary>
+        [Fact]
+        public void GetMyFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? userIdOrGroupId = null;
+            //FilterType? filterType = null;
+            //ApplyFilterOption? applyFilterOption = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+            //Assert.IsType<FolderContentIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetNewFolderItems
+        /// </summary>
+        [Fact]
+        public void GetNewFolderItemsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //var response = instance.GetNewFolderItems(folderId);
+            //Assert.IsType<FileEntryArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetPrivacyFolder
+        /// </summary>
+        [Fact]
+        public void GetPrivacyFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? userIdOrGroupId = null;
+            //FilterType? filterType = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            //Assert.IsType<FolderContentIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetRootFolders
+        /// </summary>
+        [Fact]
+        public void GetRootFoldersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? userIdOrGroupId = null;
+            //FilterType? filterType = null;
+            //bool? withoutTrash = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
+            //Assert.IsType<FolderContentIntegerArrayWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test GetTrashFolder
+        /// </summary>
+        [Fact]
+        public void GetTrashFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? userIdOrGroupId = null;
+            //FilterType? filterType = null;
+            //ApplyFilterOption? applyFilterOption = null;
+            //int? count = null;
+            //int? startIndex = null;
+            //string? sortBy = null;
+            //SortOrder? sortOrder = null;
+            //string? filterValue = null;
+            //var response = instance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+            //Assert.IsType<FolderContentIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test InsertFile
+        /// </summary>
+        [Fact]
+        public void InsertFileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //FileParameter? insertFileFile = null;
+            //string? insertFileTitle = null;
+            //bool? insertFileCreateNewIfExist = null;
+            //bool? insertFileKeepConvertStatus = null;
+            //bool? insertFileStreamCanRead = null;
+            //bool? insertFileStreamCanWrite = null;
+            //bool? insertFileStreamCanSeek = null;
+            //bool? insertFileStreamCanTimeout = null;
+            //long? insertFileStreamLength = null;
+            //long? insertFileStreamPosition = null;
+            //int? insertFileStreamReadTimeout = null;
+            //int? insertFileStreamWriteTimeout = null;
+            //var response = instance.InsertFile(folderId, insertFileFile, insertFileTitle, insertFileCreateNewIfExist, insertFileKeepConvertStatus, insertFileStreamCanRead, insertFileStreamCanWrite, insertFileStreamCanSeek, insertFileStreamCanTimeout, insertFileStreamLength, insertFileStreamPosition, insertFileStreamReadTimeout, insertFileStreamWriteTimeout);
+            //Assert.IsType<FileIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test InsertFileToMyFromBody
+        /// </summary>
+        [Fact]
+        public void InsertFileToMyFromBodyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //FileParameter? file = null;
+            //string? title = null;
+            //bool? createNewIfExist = null;
+            //bool? keepConvertStatus = null;
+            //bool? streamCanRead = null;
+            //bool? streamCanWrite = null;
+            //bool? streamCanSeek = null;
+            //bool? streamCanTimeout = null;
+            //long? streamLength = null;
+            //long? streamPosition = null;
+            //int? streamReadTimeout = null;
+            //int? streamWriteTimeout = null;
+            //var response = instance.InsertFileToMyFromBody(file, title, createNewIfExist, keepConvertStatus, streamCanRead, streamCanWrite, streamCanSeek, streamCanTimeout, streamLength, streamPosition, streamReadTimeout, streamWriteTimeout);
+            //Assert.IsType<FileIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test RenameFolder
+        /// </summary>
+        [Fact]
+        public void RenameFolderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //CreateFolder? createFolder = null;
+            //var response = instance.RenameFolder(folderId, createFolder);
+            //Assert.IsType<FolderIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test SetFolderOrder
+        /// </summary>
+        [Fact]
+        public void SetFolderOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //OrderRequestDto? orderRequestDto = null;
+            //var response = instance.SetFolderOrder(folderId, orderRequestDto);
+            //Assert.IsType<FolderIntegerWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UploadFile
+        /// </summary>
+        [Fact]
+        public void UploadFileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int folderId = null;
+            //UploadRequestDto? uploadRequestDto = null;
+            //var response = instance.UploadFile(folderId, uploadRequestDto);
+            //Assert.IsType<ObjectWrapper>(response);
+        }
+
+        /// <summary>
+        /// Test UploadFileToMy
+        /// </summary>
+        [Fact]
+        public void UploadFileToMyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //UploadRequestDto? inDto = null;
+            //var response = instance.UploadFileToMy(inDto);
+            //Assert.IsType<ObjectWrapper>(response);
+        }
+    }
+}

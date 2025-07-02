@@ -1,4 +1,4 @@
-# DocSpace.Model.StorageSettings
+# DocSpace.Sdk.Model.StorageSettings
 
 ## Properties
 

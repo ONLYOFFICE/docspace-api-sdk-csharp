@@ -1,4 +1,4 @@
-# DocSpace.Model.MobileRequestsDto
+# DocSpace.Sdk.Model.MobileRequestsDto
 The parameters required for the mobile phone verification.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.UpdateComment
+# DocSpace.Sdk.Model.UpdateComment
 The parameters for updating a comment.
 
 ## Properties

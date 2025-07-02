@@ -1,4 +1,4 @@
-# DocSpace.Model.UserInvitationRequestDto
+# DocSpace.Sdk.Model.UserInvitationRequestDto
 The user invitation parameters.
 
 ## Properties

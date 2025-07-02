@@ -1,18 +1,20 @@
-# DocSpace.Api.SecurityLoginHistoryApi
+# DocSpace.Sdk.Api.SecurityLoginHistoryApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateLoginHistoryReport**](SecurityLoginHistoryApi.md#createloginhistoryreport) | **POST** /api/2.0/security/audit/login/report | Generate the login history report |
-| [**GetLastLoginEvents**](SecurityLoginHistoryApi.md#getlastloginevents) | **GET** /api/2.0/security/audit/login/last | Get login history |
-| [**GetLoginEventsByFilter**](SecurityLoginHistoryApi.md#getlogineventsbyfilter) | **GET** /api/2.0/security/audit/login/filter | Get filtered login events |
+| [**CreateLoginHistoryReport**](#createloginhistoryreport) | **POST** /api/2.0/security/audit/login/report | Generate the login history report |
+| [**GetLastLoginEvents**](#getlastloginevents) | **GET** /api/2.0/security/audit/login/last | Get login history |
+| [**GetLoginEventsByFilter**](#getlogineventsbyfilter) | **GET** /api/2.0/security/audit/login/filter | Get filtered login events |
 
 <a id="createloginhistoryreport"></a>
 # **CreateLoginHistoryReport**
 > StringWrapper CreateLoginHistoryReport ()
 
 Generates the login history report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -29,9 +31,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -120,6 +122,8 @@ catch (ApiException e)
 
 Returns all the latest user login activity, including successful logins and error logs.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -135,9 +139,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -226,6 +230,8 @@ catch (ApiException e)
 
 Returns a list of the login events by the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -250,9 +256,9 @@ Returns a list of the login events by the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

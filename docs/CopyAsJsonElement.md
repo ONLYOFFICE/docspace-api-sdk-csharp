@@ -1,4 +1,4 @@
-# DocSpace.Model.CopyAsJsonElement
+# DocSpace.Sdk.Model.CopyAsJsonElement
 The parameters for copying a file.
 
 ## Properties
@@ -6,7 +6,7 @@ The parameters for copying a file.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DestTitle** | **string** | The copied file name. | 
-**DestFolderId** | [**CopyAsJsonElementDestFolderId**](.md) |  | 
+**DestFolderId** | [**CopyAsJsonElementDestFolderId**](CopyAsJsonElementDestFolderId.md) |  | 
 **EnableExternalExt** | **bool** | Specifies whether to allow creating the copied file of an external extension or not. | [optional] 
 **Password** | **string** | The copied file password. | [optional] 
 **ToForm** | **bool** | Specifies whether to convert the file to form or not. | [optional] 

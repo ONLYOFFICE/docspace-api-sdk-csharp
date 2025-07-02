@@ -1,18 +1,20 @@
-# DocSpace.Api.SettingsQuotaApi
+# DocSpace.Sdk.Api.SettingsQuotaApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetUserQuotaSettings**](SettingsQuotaApi.md#getuserquotasettings) | **GET** /api/2.0/settings/userquotasettings | Get the user quota settings |
-| [**SaveRoomQuotaSettings**](SettingsQuotaApi.md#saveroomquotasettings) | **POST** /api/2.0/settings/roomquotasettings | Save the room quota settings |
-| [**SetTenantQuotaSettings**](SettingsQuotaApi.md#settenantquotasettings) | **PUT** /api/2.0/settings/tenantquotasettings | Save the tenant quota settings |
+| [**GetUserQuotaSettings**](#getuserquotasettings) | **GET** /api/2.0/settings/userquotasettings | Get the user quota settings |
+| [**SaveRoomQuotaSettings**](#saveroomquotasettings) | **POST** /api/2.0/settings/roomquotasettings | Save the room quota settings |
+| [**SetTenantQuotaSettings**](#settenantquotasettings) | **PUT** /api/2.0/settings/tenantquotasettings | Save the tenant quota settings |
 
 <a id="getuserquotasettings"></a>
 # **GetUserQuotaSettings**
 > TenantUserQuotaSettingsWrapper GetUserQuotaSettings ()
 
 Returns the user quota settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -29,9 +31,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -119,6 +121,8 @@ catch (ApiException e)
 
 Saves the room quota settings specified in the request to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -138,9 +142,9 @@ Saves the room quota settings specified in the request to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -230,6 +234,8 @@ catch (ApiException e)
 
 Saves the tenant quota settings specified in the request to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -249,9 +255,9 @@ Saves the tenant quota settings specified in the request to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

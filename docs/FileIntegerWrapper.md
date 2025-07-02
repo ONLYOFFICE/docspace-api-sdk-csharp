@@ -1,12 +1,12 @@
-# DocSpace.Model.FileIntegerWrapper
+# DocSpace.Sdk.Model.FileIntegerWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FileDtoInteger**](.md) |  | [optional] 
+**Response** | [**FileDtoInteger**](FileDtoInteger.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

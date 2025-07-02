@@ -1,4 +1,4 @@
-# DocSpace.Model.DbTenantPartner
+# DocSpace.Sdk.Model.DbTenantPartner
 The database tenant partner parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.ExternalShareRequestParam
+# DocSpace.Sdk.Model.ExternalShareRequestParam
 The external data parameters.
 
 ## Properties

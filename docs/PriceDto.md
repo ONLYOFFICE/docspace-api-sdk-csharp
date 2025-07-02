@@ -1,4 +1,4 @@
-# DocSpace.Model.PriceDto
+# DocSpace.Sdk.Model.PriceDto
 The price parameters.
 
 ## Properties

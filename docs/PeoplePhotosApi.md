@@ -1,20 +1,22 @@
-# DocSpace.Api.PeoplePhotosApi
+# DocSpace.Sdk.Api.PeoplePhotosApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateMemberPhotoThumbnails**](PeoplePhotosApi.md#creatememberphotothumbnails) | **POST** /api/2.0/people/{userid}/photo/thumbnails | Create photo thumbnails |
-| [**DeleteMemberPhoto**](PeoplePhotosApi.md#deletememberphoto) | **DELETE** /api/2.0/people/{userid}/photo | Delete a user photo |
-| [**GetMemberPhoto**](PeoplePhotosApi.md#getmemberphoto) | **GET** /api/2.0/people/{userid}/photo | Get a user photo |
-| [**UpdateMemberPhoto**](PeoplePhotosApi.md#updatememberphoto) | **PUT** /api/2.0/people/{userid}/photo | Update a user photo |
-| [**UploadMemberPhoto**](PeoplePhotosApi.md#uploadmemberphoto) | **POST** /api/2.0/people/{userid}/photo | Upload a user photo |
+| [**CreateMemberPhotoThumbnails**](#creatememberphotothumbnails) | **POST** /api/2.0/people/{userid}/photo/thumbnails | Create photo thumbnails |
+| [**DeleteMemberPhoto**](#deletememberphoto) | **DELETE** /api/2.0/people/{userid}/photo | Delete a user photo |
+| [**GetMemberPhoto**](#getmemberphoto) | **GET** /api/2.0/people/{userid}/photo | Get a user photo |
+| [**UpdateMemberPhoto**](#updatememberphoto) | **PUT** /api/2.0/people/{userid}/photo | Update a user photo |
+| [**UploadMemberPhoto**](#uploadmemberphoto) | **POST** /api/2.0/people/{userid}/photo | Upload a user photo |
 
 <a id="creatememberphotothumbnails"></a>
 # **CreateMemberPhotoThumbnails**
 > ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest? thumbnailsRequest = null)
 
 Creates the user photo thumbnails by coordinates of the original image specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/).
 
 ### Parameters
 
@@ -36,9 +38,9 @@ Creates the user photo thumbnails by coordinates of the original image specified
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -130,6 +132,8 @@ catch (ApiException e)
 
 Deletes a photo of the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -149,9 +153,9 @@ Deletes a photo of the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -242,6 +246,8 @@ catch (ApiException e)
 
 Returns a photo of the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -261,9 +267,9 @@ Returns a photo of the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -354,6 +360,8 @@ catch (ApiException e)
 
 Updates a photo of the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -374,9 +382,9 @@ Updates a photo of the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -468,6 +476,8 @@ catch (ApiException e)
 
 Uploads a photo of the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -488,9 +498,9 @@ Uploads a photo of the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

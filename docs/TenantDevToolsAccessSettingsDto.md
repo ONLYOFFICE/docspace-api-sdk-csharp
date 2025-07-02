@@ -1,4 +1,4 @@
-# DocSpace.Model.TenantDevToolsAccessSettingsDto
+# DocSpace.Sdk.Model.TenantDevToolsAccessSettingsDto
 The request parameters for managing the Developer Tools access settings for the current tenant.
 
 ## Properties

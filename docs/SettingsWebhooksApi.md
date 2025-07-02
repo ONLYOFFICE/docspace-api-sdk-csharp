@@ -1,24 +1,26 @@
-# DocSpace.Api.SettingsWebhooksApi
+# DocSpace.Sdk.Api.SettingsWebhooksApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateWebhook**](SettingsWebhooksApi.md#createwebhook) | **POST** /api/2.0/settings/webhook | Create a webhook |
-| [**EnableWebhook**](SettingsWebhooksApi.md#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Enable a webhook |
-| [**GetTenantWebhooks**](SettingsWebhooksApi.md#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get webhooks |
-| [**GetWebhookTriggers**](SettingsWebhooksApi.md#getwebhooktriggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
-| [**GetWebhooksLogs**](SettingsWebhooksApi.md#getwebhookslogs) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
-| [**RemoveWebhook**](SettingsWebhooksApi.md#removewebhook) | **DELETE** /api/2.0/settings/webhook/{id} | Remove a webhook |
-| [**RetryWebhook**](SettingsWebhooksApi.md#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook |
-| [**RetryWebhooks**](SettingsWebhooksApi.md#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhooks |
-| [**UpdateWebhook**](SettingsWebhooksApi.md#updatewebhook) | **PUT** /api/2.0/settings/webhook | Update a webhook |
+| [**CreateWebhook**](#createwebhook) | **POST** /api/2.0/settings/webhook | Create a webhook |
+| [**EnableWebhook**](#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Enable a webhook |
+| [**GetTenantWebhooks**](#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get webhooks |
+| [**GetWebhookTriggers**](#getwebhooktriggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
+| [**GetWebhooksLogs**](#getwebhookslogs) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
+| [**RemoveWebhook**](#removewebhook) | **DELETE** /api/2.0/settings/webhook/{id} | Remove a webhook |
+| [**RetryWebhook**](#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook |
+| [**RetryWebhooks**](#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhooks |
+| [**UpdateWebhook**](#updatewebhook) | **PUT** /api/2.0/settings/webhook | Update a webhook |
 
 <a id="createwebhook"></a>
 # **CreateWebhook**
 > WebhooksConfigWrapper CreateWebhook (CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = null)
 
 Creates a new tenant webhook with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/).
 
 ### Parameters
 
@@ -39,9 +41,9 @@ Creates a new tenant webhook with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -130,6 +132,8 @@ catch (ApiException e)
 
 Enables or disables a tenant webhook with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -149,9 +153,9 @@ Enables or disables a tenant webhook with the parameters specified in the reques
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -240,6 +244,8 @@ catch (ApiException e)
 
 Returns a list of the tenant webhooks.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -255,9 +261,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -345,6 +351,8 @@ catch (ApiException e)
 
 Returns a list of triggers for a webhook.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -360,9 +368,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -450,6 +458,8 @@ catch (ApiException e)
 
 Returns the logs of the webhook activities.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -478,9 +488,9 @@ Returns the logs of the webhook activities.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -578,6 +588,8 @@ catch (ApiException e)
 
 Removes a tenant webhook with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -597,9 +609,9 @@ Removes a tenant webhook with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -688,6 +700,8 @@ catch (ApiException e)
 
 Retries a webhook with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -707,9 +721,9 @@ Retries a webhook with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -800,6 +814,8 @@ catch (ApiException e)
 
 Retries all the webhooks with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -819,9 +835,9 @@ Retries all the webhooks with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -910,6 +926,8 @@ catch (ApiException e)
 
 Updates a tenant webhook with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -929,9 +947,9 @@ Updates a tenant webhook with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

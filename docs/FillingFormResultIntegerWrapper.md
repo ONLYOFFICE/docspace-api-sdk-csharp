@@ -1,12 +1,12 @@
-# DocSpace.Model.FillingFormResultIntegerWrapper
+# DocSpace.Sdk.Model.FillingFormResultIntegerWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FillingFormResultDtoInteger**](.md) |  | [optional] 
+**Response** | [**FillingFormResultDtoInteger**](FillingFormResultDtoInteger.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

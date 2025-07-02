@@ -1,4 +1,4 @@
-# DocSpace.Model.UpdateGroupRequest
+# DocSpace.Sdk.Model.UpdateGroupRequest
 The request for updating a group.
 
 ## Properties

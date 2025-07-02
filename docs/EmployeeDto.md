@@ -1,4 +1,4 @@
-# DocSpace.Model.EmployeeDto
+# DocSpace.Sdk.Model.EmployeeDto
 The user parameters.
 
 ## Properties

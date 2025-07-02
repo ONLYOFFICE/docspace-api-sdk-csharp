@@ -1,37 +1,39 @@
-# DocSpace.Api.FilesFoldersApi
+# DocSpace.Sdk.Api.FilesFoldersApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CheckUpload**](FilesFoldersApi.md#checkupload) | **POST** /api/2.0/files/{folderId}/upload/check | Check file uploads |
-| [**CreateFolder**](FilesFoldersApi.md#createfolder) | **POST** /api/2.0/files/folder/{folderId} | Create a folder |
-| [**DeleteFolder**](FilesFoldersApi.md#deletefolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
-| [**GetFilesUsedSpace**](FilesFoldersApi.md#getfilesusedspace) | **GET** /api/2.0/files/filesusedspace | Get used space of files |
-| [**GetFolder**](FilesFoldersApi.md#getfolder) | **GET** /api/2.0/files/{folderId}/formfilter | Get folder form filter |
-| [**GetFolderByFolderId**](FilesFoldersApi.md#getfolderbyfolderid) | **GET** /api/2.0/files/{folderId} | Get a folder by ID |
-| [**GetFolderHistory**](FilesFoldersApi.md#getfolderhistory) | **GET** /api/2.0/files/folder/{folderId}/log | Get folder history |
-| [**GetFolderInfo**](FilesFoldersApi.md#getfolderinfo) | **GET** /api/2.0/files/folder/{folderId} | Get folder information |
-| [**GetFolderPath**](FilesFoldersApi.md#getfolderpath) | **GET** /api/2.0/files/folder/{folderId}/path | Get the folder path |
-| [**GetFolderPrimaryExternalLink**](FilesFoldersApi.md#getfolderprimaryexternallink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
-| [**GetFolders**](FilesFoldersApi.md#getfolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
-| [**GetMyFolder**](FilesFoldersApi.md#getmyfolder) | **GET** /api/2.0/files/@my | Get the \&quot;My documents\&quot; section |
-| [**GetNewFolderItems**](FilesFoldersApi.md#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
-| [**GetPrivacyFolder**](FilesFoldersApi.md#getprivacyfolder) | **GET** /api/2.0/files/@privacy | Get the \&quot;Private Room\&quot; section |
-| [**GetRootFolders**](FilesFoldersApi.md#getrootfolders) | **GET** /api/2.0/files/@root | Get filtered sections |
-| [**GetTrashFolder**](FilesFoldersApi.md#gettrashfolder) | **GET** /api/2.0/files/@trash | Get the \&quot;Trash\&quot; section |
-| [**InsertFile**](FilesFoldersApi.md#insertfile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
-| [**InsertFileToMyFromBody**](FilesFoldersApi.md#insertfiletomyfrombody) | **POST** /api/2.0/files/@my/insert | Insert a file to the \&quot;My documents\&quot; section |
-| [**RenameFolder**](FilesFoldersApi.md#renamefolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
-| [**SetFolderOrder**](FilesFoldersApi.md#setfolderorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
-| [**UploadFile**](FilesFoldersApi.md#uploadfile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
-| [**UploadFileToMy**](FilesFoldersApi.md#uploadfiletomy) | **POST** /api/2.0/files/@my/upload | Upload a file to the \&quot;My documents\&quot; section |
+| [**CheckUpload**](#checkupload) | **POST** /api/2.0/files/{folderId}/upload/check | Check file uploads |
+| [**CreateFolder**](#createfolder) | **POST** /api/2.0/files/folder/{folderId} | Create a folder |
+| [**DeleteFolder**](#deletefolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
+| [**GetFilesUsedSpace**](#getfilesusedspace) | **GET** /api/2.0/files/filesusedspace | Get used space of files |
+| [**GetFolder**](#getfolder) | **GET** /api/2.0/files/{folderId}/formfilter | Get folder form filter |
+| [**GetFolderByFolderId**](#getfolderbyfolderid) | **GET** /api/2.0/files/{folderId} | Get a folder by ID |
+| [**GetFolderHistory**](#getfolderhistory) | **GET** /api/2.0/files/folder/{folderId}/log | Get folder history |
+| [**GetFolderInfo**](#getfolderinfo) | **GET** /api/2.0/files/folder/{folderId} | Get folder information |
+| [**GetFolderPath**](#getfolderpath) | **GET** /api/2.0/files/folder/{folderId}/path | Get the folder path |
+| [**GetFolderPrimaryExternalLink**](#getfolderprimaryexternallink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
+| [**GetFolders**](#getfolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
+| [**GetMyFolder**](#getmyfolder) | **GET** /api/2.0/files/@my | Get the \&quot;My documents\&quot; section |
+| [**GetNewFolderItems**](#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
+| [**GetPrivacyFolder**](#getprivacyfolder) | **GET** /api/2.0/files/@privacy | Get the \&quot;Private Room\&quot; section |
+| [**GetRootFolders**](#getrootfolders) | **GET** /api/2.0/files/@root | Get filtered sections |
+| [**GetTrashFolder**](#gettrashfolder) | **GET** /api/2.0/files/@trash | Get the \&quot;Trash\&quot; section |
+| [**InsertFile**](#insertfile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
+| [**InsertFileToMyFromBody**](#insertfiletomyfrombody) | **POST** /api/2.0/files/@my/insert | Insert a file to the \&quot;My documents\&quot; section |
+| [**RenameFolder**](#renamefolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
+| [**SetFolderOrder**](#setfolderorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
+| [**UploadFile**](#uploadfile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
+| [**UploadFileToMy**](#uploadfiletomy) | **POST** /api/2.0/files/@my/upload | Upload a file to the \&quot;My documents\&quot; section |
 
 <a id="checkupload"></a>
 # **CheckUpload**
 > STRINGArrayWrapper CheckUpload (int folderId, CheckUploadRequest? checkUploadRequest = null)
 
 Checks the file uploads to the folder with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/).
 
 ### Parameters
 
@@ -53,9 +55,9 @@ Checks the file uploads to the folder with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -145,6 +147,8 @@ catch (ApiException e)
 
 Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -165,9 +169,9 @@ Creates a new folder with the title specified in the request. The parent folder 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -257,6 +261,8 @@ catch (ApiException e)
 
 Deletes a folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -277,9 +283,9 @@ Deletes a folder with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -369,6 +375,8 @@ catch (ApiException e)
 
 Returns the used space of files in the root folders.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -384,9 +392,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -474,6 +482,8 @@ catch (ApiException e)
 
 Returns the form filter of a folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -493,9 +503,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -567,6 +577,8 @@ catch (ApiException e)
 
 Returns the detailed list of files and folders located in the folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -600,9 +612,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -690,6 +702,8 @@ catch (ApiException e)
 
 Returns the activity history of a folder with a specified identifier.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -713,9 +727,9 @@ Returns the activity history of a folder with a specified identifier.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -810,6 +824,8 @@ catch (ApiException e)
 
 Returns the detailed information about a folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -829,9 +845,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -903,6 +919,8 @@ catch (ApiException e)
 
 Returns a path to the folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -922,9 +940,9 @@ Returns a path to the folder with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1014,6 +1032,8 @@ catch (ApiException e)
 
 Returns the primary external link by the identifier specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1033,9 +1053,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1108,6 +1128,8 @@ catch (ApiException e)
 
 Returns a list of all the subfolders from a folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1127,9 +1149,9 @@ Returns a list of all the subfolders from a folder with the ID specified in the 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1219,6 +1241,8 @@ catch (ApiException e)
 
 Returns the detailed list of files and folders located in the \"My documents\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1245,9 +1269,9 @@ Returns the detailed list of files and folders located in the \"My documents\" s
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1345,6 +1369,8 @@ catch (ApiException e)
 
 Returns a list of all the new items from a folder with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1364,9 +1390,9 @@ Returns a list of all the new items from a folder with the ID specified in the r
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1456,6 +1482,8 @@ catch (ApiException e)
 
 Returns the detailed list of files and folders located in the \"Private Room\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1481,9 +1509,9 @@ Returns the detailed list of files and folders located in the \"Private Room\" s
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1580,6 +1608,8 @@ catch (ApiException e)
 
 Returns all the sections matching the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1606,9 +1636,9 @@ Returns all the sections matching the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1706,6 +1736,8 @@ catch (ApiException e)
 
 Returns the detailed list of files and folders located in the \"Trash\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1732,9 +1764,9 @@ Returns the detailed list of files and folders located in the \"Trash\" section.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1832,6 +1864,8 @@ catch (ApiException e)
 
 Inserts a file specified in the request to the selected folder by single file uploading.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1863,9 +1897,9 @@ Inserts a file specified in the request to the selected folder by single file up
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1968,6 +2002,8 @@ catch (ApiException e)
 
 Inserts a file specified in the request to the \"My documents\" section by single file uploading.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1998,9 +2034,9 @@ Inserts a file specified in the request to the \"My documents\" section by singl
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2102,6 +2138,8 @@ catch (ApiException e)
 
 Renames the selected folder with a new title specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2122,9 +2160,9 @@ Renames the selected folder with a new title specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2215,6 +2253,8 @@ catch (ApiException e)
 
 Sets the file order in the folder with ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2235,9 +2275,9 @@ Sets the file order in the folder with ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2327,6 +2367,8 @@ catch (ApiException e)
 
 Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2347,9 +2389,9 @@ Uploads a file specified in the request to the selected folder by single file up
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2441,6 +2483,8 @@ catch (ApiException e)
 
 Uploads a file specified in the request to the \"My documents\" section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2460,9 +2504,9 @@ Uploads a file specified in the request to the \"My documents\" section by singl
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

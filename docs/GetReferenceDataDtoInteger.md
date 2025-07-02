@@ -1,4 +1,4 @@
-# DocSpace.Model.GetReferenceDataDtoInteger
+# DocSpace.Sdk.Model.GetReferenceDataDtoInteger
 The request parameters for getting reference data.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.WebhooksConfigDto
+# DocSpace.Sdk.Model.WebhooksConfigDto
 The webhook configuration parameters.
 
 ## Properties
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **Ssl** | **bool** | The webhook SSL verification (enabled or not). | [optional] 
 **Triggers** | **WebhookTrigger** |  | [optional] 
 **TargetId** | **string** | The webhook target ID. | [optional] 
-**CreatedBy** | [**EmployeeDto**](.md) |  | [optional] 
+**CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **CreatedOn** | **DateTime?** | The date and time when the webhook was created. | [optional] 
-**ModifiedBy** | [**EmployeeDto**](.md) |  | [optional] 
+**ModifiedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **ModifiedOn** | **DateTime?** | The date and time when the webhook was modified. | [optional] 
 **LastFailureOn** | **DateTime?** | The date and time of the webhook last failure. | [optional] 
 **LastFailureContent** | **string** | The webhook last failure content. | [optional] 

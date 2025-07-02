@@ -1,22 +1,24 @@
-# DocSpace.Api.AuthenticationApi
+# DocSpace.Sdk.Api.AuthenticationApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AuthenticateMe**](AuthenticationApi.md#authenticateme) | **POST** /api/2.0/authentication | Authenticate a user |
-| [**AuthenticateMeFromBodyWithCode**](AuthenticationApi.md#authenticatemefrombodywithcode) | **POST** /api/2.0/authentication/{code} | Authenticate a user by code |
-| [**CheckConfirm**](AuthenticationApi.md#checkconfirm) | **POST** /api/2.0/authentication/confirm | Open confirmation email URL |
-| [**GetIsAuthentificated**](AuthenticationApi.md#getisauthentificated) | **GET** /api/2.0/authentication | Check authentication |
-| [**Logout**](AuthenticationApi.md#logout) | **POST** /api/2.0/authentication/logout | Log out |
-| [**SaveMobilePhone**](AuthenticationApi.md#savemobilephone) | **POST** /api/2.0/authentication/setphone | Set a mobile phone |
-| [**SendSmsCode**](AuthenticationApi.md#sendsmscode) | **POST** /api/2.0/authentication/sendsms | Send SMS code |
+| [**AuthenticateMe**](#authenticateme) | **POST** /api/2.0/authentication | Authenticate a user |
+| [**AuthenticateMeFromBodyWithCode**](#authenticatemefrombodywithcode) | **POST** /api/2.0/authentication/{code} | Authenticate a user by code |
+| [**CheckConfirm**](#checkconfirm) | **POST** /api/2.0/authentication/confirm | Open confirmation email URL |
+| [**GetIsAuthentificated**](#getisauthentificated) | **GET** /api/2.0/authentication | Check authentication |
+| [**Logout**](#logout) | **POST** /api/2.0/authentication/logout | Log out |
+| [**SaveMobilePhone**](#savemobilephone) | **POST** /api/2.0/authentication/setphone | Set a mobile phone |
+| [**SendSmsCode**](#sendsmscode) | **POST** /api/2.0/authentication/sendsms | Send SMS code |
 
 <a id="authenticateme"></a>
 # **AuthenticateMe**
 > AuthenticationTokenWrapper AuthenticateMe (AuthRequestsDto? authRequestsDto = null)
 
 Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/).
 
 ### Parameters
 
@@ -37,9 +39,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -115,6 +117,8 @@ catch (ApiException e)
 
 Authenticates the current user by SMS or two-factor authentication code.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -135,9 +139,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -214,6 +218,8 @@ catch (ApiException e)
 
 Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -233,9 +239,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -307,6 +313,8 @@ catch (ApiException e)
 
 Checks if the current user is authenticated or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -322,9 +330,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -395,6 +403,8 @@ catch (ApiException e)
 
 Logs out of the current user account.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -410,9 +420,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -483,6 +493,8 @@ catch (ApiException e)
 
 Sets a mobile phone for the current user.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -502,9 +514,9 @@ Sets a mobile phone for the current user.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -593,6 +605,8 @@ catch (ApiException e)
 
 Sends SMS with an authentication code.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -612,9 +626,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

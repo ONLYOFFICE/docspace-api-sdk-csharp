@@ -1,12 +1,12 @@
-# DocSpace.Model.FireBaseUserWrapper
+# DocSpace.Sdk.Model.FireBaseUserWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FireBaseUser**](.md) |  | [optional] 
+**Response** | [**FireBaseUser**](FireBaseUser.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,17 +1,19 @@
-# DocSpace.Api.PeopleGuestsApi
+# DocSpace.Sdk.Api.PeopleGuestsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ApproveGuestShareLink**](PeopleGuestsApi.md#approveguestsharelink) | **POST** /api/2.0/people/guests/share/approve | Approve a guest sharing link |
-| [**DeleteGuests**](PeopleGuestsApi.md#deleteguests) | **DELETE** /api/2.0/people/guests | Delete guests |
+| [**ApproveGuestShareLink**](#approveguestsharelink) | **POST** /api/2.0/people/guests/share/approve | Approve a guest sharing link |
+| [**DeleteGuests**](#deleteguests) | **DELETE** /api/2.0/people/guests | Delete guests |
 
 <a id="approveguestsharelink"></a>
 # **ApproveGuestShareLink**
 > EmployeeFullWrapper ApproveGuestShareLink (EmailMemberRequestDto? emailMemberRequestDto = null)
 
 Approves a guest sharing link and returns the detailed information about a guest.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Approves a guest sharing link and returns the detailed information about a guest
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -125,6 +127,8 @@ catch (ApiException e)
 
 Deletes guests from the list and excludes them from rooms to which they were invited.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -144,9 +148,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

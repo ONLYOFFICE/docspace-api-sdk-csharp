@@ -1,12 +1,12 @@
-# DocSpace.Model.CapabilitiesWrapper
+# DocSpace.Sdk.Model.CapabilitiesWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CapabilitiesDto**](.md) |  | [optional] 
+**Response** | [**CapabilitiesDto**](CapabilitiesDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

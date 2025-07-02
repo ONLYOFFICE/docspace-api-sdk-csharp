@@ -1,12 +1,12 @@
-# DocSpace.Model.CheckDestFolderWrapper
+# DocSpace.Sdk.Model.CheckDestFolderWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CheckDestFolderDto**](.md) |  | [optional] 
+**Response** | [**CheckDestFolderDto**](CheckDestFolderDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

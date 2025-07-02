@@ -1,4 +1,4 @@
-# DocSpace.Model.EditorType
+# DocSpace.Sdk.Model.EditorType
 [0 - Desktop, 1 - Mobile, 2 - Embedded]
 
 ## Properties

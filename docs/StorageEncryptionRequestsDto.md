@@ -1,4 +1,4 @@
-# DocSpace.Model.StorageEncryptionRequestsDto
+# DocSpace.Sdk.Model.StorageEncryptionRequestsDto
 The request parameters for managing storage encryption operations and notifications.
 
 ## Properties

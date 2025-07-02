@@ -1,4 +1,4 @@
-# DocSpace.Model.WebPluginRequests
+# DocSpace.Sdk.Model.WebPluginRequests
 The configuration settings for the web plugin instance.
 
 ## Properties

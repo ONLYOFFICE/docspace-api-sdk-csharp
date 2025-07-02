@@ -1,16 +1,18 @@
-# DocSpace.Api.SecurityOAuth2Api
+# DocSpace.Sdk.Api.SecurityOAuth2Api
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GenerateJwtToken**](SecurityOAuth2Api.md#generatejwttoken) | **GET** /api/2.0/security/oauth2/token | Generate JWT token |
+| [**GenerateJwtToken**](#generatejwttoken) | **GET** /api/2.0/security/oauth2/token | Generate JWT token |
 
 <a id="generatejwttoken"></a>
 # **GenerateJwtToken**
 > StringWrapper GenerateJwtToken ()
 
 Generates a JWT token for communication between login (client) and identity services.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-jwt-token/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -27,9 +29,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

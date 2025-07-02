@@ -1,4 +1,4 @@
-# DocSpace.Model.BatchRequestDtoDestFolderId
+# DocSpace.Sdk.Model.BatchRequestDtoDestFolderId
 The destination folder ID.
 
 ## Properties

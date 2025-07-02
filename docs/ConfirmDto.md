@@ -1,4 +1,4 @@
-# DocSpace.Model.ConfirmDto
+# DocSpace.Sdk.Model.ConfirmDto
 The confirmation parameters.
 
 ## Properties

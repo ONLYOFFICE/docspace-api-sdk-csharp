@@ -1,4 +1,4 @@
-# DocSpace.Model.CdnStorageSettings
+# DocSpace.Sdk.Model.CdnStorageSettings
 
 ## Properties
 

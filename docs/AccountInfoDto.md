@@ -1,4 +1,4 @@
-# DocSpace.Model.AccountInfoDto
+# DocSpace.Sdk.Model.AccountInfoDto
 The account information parameters.
 
 ## Properties

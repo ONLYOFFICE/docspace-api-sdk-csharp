@@ -1,17 +1,19 @@
-# DocSpace.Api.SettingsOwnerApi
+# DocSpace.Sdk.Api.SettingsOwnerApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SendOwnerChangeInstructions**](SettingsOwnerApi.md#sendownerchangeinstructions) | **POST** /api/2.0/settings/owner | Send the owner change instructions |
-| [**UpdatePortalOwner**](SettingsOwnerApi.md#updateportalowner) | **PUT** /api/2.0/settings/owner | Update the portal owner |
+| [**SendOwnerChangeInstructions**](#sendownerchangeinstructions) | **POST** /api/2.0/settings/owner | Send the owner change instructions |
+| [**UpdatePortalOwner**](#updateportalowner) | **PUT** /api/2.0/settings/owner | Update the portal owner |
 
 <a id="sendownerchangeinstructions"></a>
 # **SendOwnerChangeInstructions**
 > OwnerChangeInstructionsWrapper SendOwnerChangeInstructions (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
 
 Sends the instructions to change the DocSpace owner.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Sends the instructions to change the DocSpace owner.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -124,6 +126,8 @@ catch (ApiException e)
 
 Updates the current portal owner with a new one specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -143,9 +147,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

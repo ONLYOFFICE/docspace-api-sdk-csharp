@@ -1,12 +1,12 @@
-# DocSpace.Model.CustomerInfoWrapper
+# DocSpace.Sdk.Model.CustomerInfoWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CustomerInfo**](.md) |  | [optional] 
+**Response** | [**CustomerInfo**](CustomerInfo.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

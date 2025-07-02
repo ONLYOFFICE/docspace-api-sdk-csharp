@@ -1,12 +1,12 @@
-# DocSpace.Model.GroupSummaryArrayWrapper
+# DocSpace.Sdk.Model.GroupSummaryArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;GroupSummaryDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,17 +1,19 @@
-# DocSpace.Api.PeopleQuotaApi
+# DocSpace.Sdk.Api.PeopleQuotaApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ResetUsersQuota**](PeopleQuotaApi.md#resetusersquota) | **PUT** /api/2.0/people/resetquota | Reset a user quota limit |
-| [**UpdateUserQuota**](PeopleQuotaApi.md#updateuserquota) | **PUT** /api/2.0/people/userquota | Change a user quota limit |
+| [**ResetUsersQuota**](#resetusersquota) | **PUT** /api/2.0/people/resetquota | Reset a user quota limit |
+| [**UpdateUserQuota**](#updateuserquota) | **PUT** /api/2.0/people/userquota | Change a user quota limit |
 
 <a id="resetusersquota"></a>
 # **ResetUsersQuota**
 > EmployeeFullArrayWrapper ResetUsersQuota (UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = null)
 
 Resets a quota limit of users with the IDs specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Resets a quota limit of users with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Changes a quota limit for the users with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -145,9 +149,9 @@ Changes a quota limit for the users with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

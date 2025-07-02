@@ -1,4 +1,4 @@
-# DocSpace.Model.SsoIdpSettings
+# DocSpace.Sdk.Model.SsoIdpSettings
 The SSO IdP settings.
 
 ## Properties

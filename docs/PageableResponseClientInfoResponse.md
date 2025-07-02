@@ -1,4 +1,4 @@
-# DocSpace.Model.PageableResponseClientInfoResponse
+# DocSpace.Sdk.Model.PageableResponseClientInfoResponse
 The response containing paginated client information.
 
 ## Properties

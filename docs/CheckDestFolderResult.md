@@ -1,4 +1,4 @@
-# DocSpace.Model.CheckDestFolderResult
+# DocSpace.Sdk.Model.CheckDestFolderResult
 [0 - All allowed, 1 - Part allowed, 2 - None allowed]
 
 ## Properties

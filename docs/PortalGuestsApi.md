@@ -1,16 +1,18 @@
-# DocSpace.Api.PortalGuestsApi
+# DocSpace.Sdk.Api.PortalGuestsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGuestSharingLink**](PortalGuestsApi.md#getguestsharinglink) | **GET** /api/2.0/people/guests/{userid}/share | Get a guest sharing link |
+| [**GetGuestSharingLink**](#getguestsharinglink) | **GET** /api/2.0/people/guests/{userid}/share | Get a guest sharing link |
 
 <a id="getguestsharinglink"></a>
 # **GetGuestSharingLink**
 > StringWrapper GetGuestSharingLink (Guid userid)
 
 Returns a link to share a guest with another user.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/).
 
 ### Parameters
 
@@ -31,9 +33,9 @@ Returns a link to share a guest with another user.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

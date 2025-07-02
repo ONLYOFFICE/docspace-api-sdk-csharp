@@ -1,4 +1,4 @@
-# DocSpace.Model.TfaSettingsDto
+# DocSpace.Sdk.Model.TfaSettingsDto
 The parameters representing the Two-Factor Authentication (TFA) configuration settings.
 
 ## Properties

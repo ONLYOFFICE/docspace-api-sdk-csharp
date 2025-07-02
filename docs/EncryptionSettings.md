@@ -1,4 +1,4 @@
-# DocSpace.Model.EncryptionSettings
+# DocSpace.Sdk.Model.EncryptionSettings
 The encryption settings.
 
 ## Properties

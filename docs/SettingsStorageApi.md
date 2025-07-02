@@ -1,24 +1,26 @@
-# DocSpace.Api.SettingsStorageApi
+# DocSpace.Sdk.Api.SettingsStorageApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAllBackupStorages**](SettingsStorageApi.md#getallbackupstorages) | **GET** /api/2.0/settings/storage/backup | Get the backup storages |
-| [**GetAllCdnStorages**](SettingsStorageApi.md#getallcdnstorages) | **GET** /api/2.0/settings/storage/cdn | Get the CDN storages |
-| [**GetAllStorages**](SettingsStorageApi.md#getallstorages) | **GET** /api/2.0/settings/storage | Get storages |
-| [**GetAmazonS3Regions**](SettingsStorageApi.md#getamazons3regions) | **GET** /api/2.0/settings/storage/s3/regions | Get Amazon regions |
-| [**GetStorageProgress**](SettingsStorageApi.md#getstorageprogress) | **GET** /api/2.0/settings/storage/progress | Get the storage progress |
-| [**ResetCdnToDefault**](SettingsStorageApi.md#resetcdntodefault) | **DELETE** /api/2.0/settings/storage/cdn | Reset the CDN storage settings |
-| [**ResetStorageToDefault**](SettingsStorageApi.md#resetstoragetodefault) | **DELETE** /api/2.0/settings/storage | Reset the storage settings |
-| [**UpdateCdnStorage**](SettingsStorageApi.md#updatecdnstorage) | **PUT** /api/2.0/settings/storage/cdn | Update the CDN storage |
-| [**UpdateStorage**](SettingsStorageApi.md#updatestorage) | **PUT** /api/2.0/settings/storage | Update a storage |
+| [**GetAllBackupStorages**](#getallbackupstorages) | **GET** /api/2.0/settings/storage/backup | Get the backup storages |
+| [**GetAllCdnStorages**](#getallcdnstorages) | **GET** /api/2.0/settings/storage/cdn | Get the CDN storages |
+| [**GetAllStorages**](#getallstorages) | **GET** /api/2.0/settings/storage | Get storages |
+| [**GetAmazonS3Regions**](#getamazons3regions) | **GET** /api/2.0/settings/storage/s3/regions | Get Amazon regions |
+| [**GetStorageProgress**](#getstorageprogress) | **GET** /api/2.0/settings/storage/progress | Get the storage progress |
+| [**ResetCdnToDefault**](#resetcdntodefault) | **DELETE** /api/2.0/settings/storage/cdn | Reset the CDN storage settings |
+| [**ResetStorageToDefault**](#resetstoragetodefault) | **DELETE** /api/2.0/settings/storage | Reset the storage settings |
+| [**UpdateCdnStorage**](#updatecdnstorage) | **PUT** /api/2.0/settings/storage/cdn | Update the CDN storage |
+| [**UpdateStorage**](#updatestorage) | **PUT** /api/2.0/settings/storage | Update a storage |
 
 <a id="getallbackupstorages"></a>
 # **GetAllBackupStorages**
 > StorageArrayWrapper GetAllBackupStorages (bool? dump = null)
 
 Returns a list of all the backup storages.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/).
 
 ### Parameters
 
@@ -39,9 +41,9 @@ Returns a list of all the backup storages.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -131,6 +133,8 @@ catch (ApiException e)
 
 Returns a list of all the CDN storages.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-cdn-storages/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -146,9 +150,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -237,6 +241,8 @@ catch (ApiException e)
 
 Returns a list of all the portal storages.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-storages/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -252,9 +258,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -343,6 +349,8 @@ catch (ApiException e)
 
 Returns a list of all Amazon regions.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -358,9 +366,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -448,6 +456,8 @@ catch (ApiException e)
 
 Returns the storage progress.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-progress/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -463,9 +473,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -553,6 +563,8 @@ catch (ApiException e)
 
 Resets the CDN storage settings to the default parameters.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-cdn-to-default/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -568,9 +580,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -655,6 +667,8 @@ catch (ApiException e)
 
 Resets the storage settings to the default parameters.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-storage-to-default/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -670,9 +684,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -757,6 +771,8 @@ catch (ApiException e)
 
 Updates the CDN storage with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -776,9 +792,9 @@ Updates the CDN storage with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -869,6 +885,8 @@ catch (ApiException e)
 
 Updates a storage with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -888,9 +906,9 @@ Updates a storage with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# DocSpace.Model.CurrentLicenseInfo
+# DocSpace.Sdk.Model.CurrentLicenseInfo
 The current license information.
 
 ## Properties

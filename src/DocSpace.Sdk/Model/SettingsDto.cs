@@ -1,0 +1,585 @@
+// (c) Copyright Ascensio System SIA 2009-2025
+// 
+// This program is a free software product.
+// You can redistribute it and/or modify it under the terms
+// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
+// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
+// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
+// any third-party rights.
+// 
+// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
+// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
+// 
+// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
+// 
+// The  interactive user interfaces in modified source and object code versions of the Program must
+// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
+// 
+// Pursuant to Section 7(b) of the License you must retain the original Product logo when
+// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
+// trademark law for use of our trademarks.
+// 
+// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
+// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
+// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.Sdk.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+
+namespace DocSpace.Sdk.Model
+{
+    /// <summary>
+    /// The settings information.
+    /// </summary>
+    [DataContract(Name = "SettingsDto")]
+    public partial class SettingsDto : IValidatableObject
+    {
+
+        /// <summary>
+        /// Gets or Sets TrustedDomainsType
+        /// </summary>
+        [DataMember(Name = "trustedDomainsType", EmitDefaultValue = false)]
+        public TenantTrustedDomainsType? TrustedDomainsType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecaptchaType
+        /// </summary>
+        [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
+        public RecaptchaType? RecaptchaType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TenantStatus
+        /// </summary>
+        [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
+        public TenantStatus? TenantStatus { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SettingsDto" /> class.
+        /// </summary>
+        /// <param name="timezone">The time zone..</param>
+        /// <param name="trustedDomains">The list of the trusted domains..</param>
+        /// <param name="trustedDomainsType">trustedDomainsType.</param>
+        /// <param name="culture">The language..</param>
+        /// <param name="utcOffset">The UTC offset in the TimeSpan format..</param>
+        /// <param name="utcHoursOffset">The UTC offset in hours..</param>
+        /// <param name="greetingSettings">The greeting settings..</param>
+        /// <param name="ownerId">The owner ID..</param>
+        /// <param name="nameSchemaId">The team template ID..</param>
+        /// <param name="enabledJoin">Specifies if a user can join the portal or not..</param>
+        /// <param name="enableAdmMess">Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not..</param>
+        /// <param name="thirdpartyEnable">Specifies if a user can connect third-party providers to the portal or not..</param>
+        /// <param name="docSpace">Specifies if this portal is a DocSpace portal or not..</param>
+        /// <param name="standalone">Indicates whether the system is running in standalone mode..</param>
+        /// <param name="isAmi">Specifies if this portal is the AMI instance or not..</param>
+        /// <param name="baseDomain">The base domain..</param>
+        /// <param name="wizardToken">The wizard token..</param>
+        /// <param name="passwordHash">passwordHash.</param>
+        /// <param name="firebase">firebase.</param>
+        /// <param name="varVersion">The portal version..</param>
+        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="recaptchaPublicKey">The ReCAPTCHA public key..</param>
+        /// <param name="debugInfo">Specifies if the debug information will be sent or not..</param>
+        /// <param name="socketUrl">The socket URL..</param>
+        /// <param name="tenantStatus">tenantStatus.</param>
+        /// <param name="tenantAlias">The tenant alias..</param>
+        /// <param name="displayAbout">Specifies whether to display the \&quot;About\&quot; portal section..</param>
+        /// <param name="domainValidator">domainValidator.</param>
+        /// <param name="zendeskKey">The Zendesk key..</param>
+        /// <param name="tagManagerId">The tag manager ID..</param>
+        /// <param name="cookieSettingsEnabled">Specifies whether the cookie settings are enabled..</param>
+        /// <param name="limitedAccessSpace">Specifies whether the access to the space management is limited or not..</param>
+        /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
+        /// <param name="userNameRegex">The user name validation regex..</param>
+        /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
+        /// <param name="plugins">plugins.</param>
+        /// <param name="deepLink">deepLink.</param>
+        /// <param name="formGallery">formGallery.</param>
+        /// <param name="maxImageUploadSize">The maximum image upload size..</param>
+        /// <param name="logoText">The white label logo text..</param>
+        /// <param name="externalResources">externalResources.</param>
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string varVersion = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default)
+        {
+            this.Timezone = timezone;
+            this.TrustedDomains = trustedDomains;
+            this.TrustedDomainsType = trustedDomainsType;
+            this.Culture = culture;
+            this.UtcOffset = utcOffset;
+            this.UtcHoursOffset = utcHoursOffset;
+            this.GreetingSettings = greetingSettings;
+            this.OwnerId = ownerId;
+            this.NameSchemaId = nameSchemaId;
+            this.EnabledJoin = enabledJoin;
+            this.EnableAdmMess = enableAdmMess;
+            this.ThirdpartyEnable = thirdpartyEnable;
+            this.DocSpace = docSpace;
+            this.Standalone = standalone;
+            this.IsAmi = isAmi;
+            this.BaseDomain = baseDomain;
+            this.WizardToken = wizardToken;
+            this.PasswordHash = passwordHash;
+            this.Firebase = firebase;
+            this.VarVersion = varVersion;
+            this.RecaptchaType = recaptchaType;
+            this.RecaptchaPublicKey = recaptchaPublicKey;
+            this.DebugInfo = debugInfo;
+            this.SocketUrl = socketUrl;
+            this.TenantStatus = tenantStatus;
+            this.TenantAlias = tenantAlias;
+            this.DisplayAbout = displayAbout;
+            this.DomainValidator = domainValidator;
+            this.ZendeskKey = zendeskKey;
+            this.TagManagerId = tagManagerId;
+            this.CookieSettingsEnabled = cookieSettingsEnabled;
+            this.LimitedAccessSpace = limitedAccessSpace;
+            this.LimitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
+            this.UserNameRegex = userNameRegex;
+            this.InvitationLimit = invitationLimit;
+            this.Plugins = plugins;
+            this.DeepLink = deepLink;
+            this.FormGallery = formGallery;
+            this.MaxImageUploadSize = maxImageUploadSize;
+            this.LogoText = logoText;
+            this.ExternalResources = externalResources;
+        }
+
+        /// <summary>
+        /// The time zone.
+        /// </summary>
+        /// <value>The time zone.</value>
+        /*
+        <example>UTC</example>
+        */
+        [DataMember(Name = "timezone", EmitDefaultValue = true)]
+        public string Timezone { get; set; }
+
+        /// <summary>
+        /// The list of the trusted domains.
+        /// </summary>
+        /// <value>The list of the trusted domains.</value>
+        /*
+        <example>mydomain.com</example>
+        */
+        [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
+        public List<string> TrustedDomains { get; set; }
+
+        /// <summary>
+        /// The language.
+        /// </summary>
+        /// <value>The language.</value>
+        /*
+        <example>en-US</example>
+        */
+        [DataMember(Name = "culture", EmitDefaultValue = true)]
+        public string Culture { get; set; }
+
+        /// <summary>
+        /// The UTC offset in the TimeSpan format.
+        /// </summary>
+        /// <value>The UTC offset in the TimeSpan format.</value>
+        /*
+        <example>-8.5</example>
+        */
+        [DataMember(Name = "utcOffset", EmitDefaultValue = false)]
+        public string UtcOffset { get; set; }
+
+        /// <summary>
+        /// The UTC offset in hours.
+        /// </summary>
+        /// <value>The UTC offset in hours.</value>
+        /*
+        <example>-8.5</example>
+        */
+        [DataMember(Name = "utcHoursOffset", EmitDefaultValue = false)]
+        public double UtcHoursOffset { get; set; }
+
+        /// <summary>
+        /// The greeting settings.
+        /// </summary>
+        /// <value>The greeting settings.</value>
+        /*
+        <example>Web Office Applications</example>
+        */
+        [DataMember(Name = "greetingSettings", EmitDefaultValue = true)]
+        public string GreetingSettings { get; set; }
+
+        /// <summary>
+        /// The owner ID.
+        /// </summary>
+        /// <value>The owner ID.</value>
+        /*
+        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        */
+        [DataMember(Name = "ownerId", EmitDefaultValue = false)]
+        public Guid OwnerId { get; set; }
+
+        /// <summary>
+        /// The team template ID.
+        /// </summary>
+        /// <value>The team template ID.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "nameSchemaId", EmitDefaultValue = true)]
+        public string NameSchemaId { get; set; }
+
+        /// <summary>
+        /// Specifies if a user can join the portal or not.
+        /// </summary>
+        /// <value>Specifies if a user can join the portal or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "enabledJoin", EmitDefaultValue = true)]
+        public bool? EnabledJoin { get; set; }
+
+        /// <summary>
+        /// Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.
+        /// </summary>
+        /// <value>Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "enableAdmMess", EmitDefaultValue = true)]
+        public bool? EnableAdmMess { get; set; }
+
+        /// <summary>
+        /// Specifies if a user can connect third-party providers to the portal or not.
+        /// </summary>
+        /// <value>Specifies if a user can connect third-party providers to the portal or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "thirdpartyEnable", EmitDefaultValue = true)]
+        public bool? ThirdpartyEnable { get; set; }
+
+        /// <summary>
+        /// Specifies if this portal is a DocSpace portal or not.
+        /// </summary>
+        /// <value>Specifies if this portal is a DocSpace portal or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "docSpace", EmitDefaultValue = true)]
+        public bool DocSpace { get; set; }
+
+        /// <summary>
+        /// Indicates whether the system is running in standalone mode.
+        /// </summary>
+        /// <value>Indicates whether the system is running in standalone mode.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "standalone", EmitDefaultValue = true)]
+        public bool Standalone { get; set; }
+
+        /// <summary>
+        /// Specifies if this portal is the AMI instance or not.
+        /// </summary>
+        /// <value>Specifies if this portal is the AMI instance or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isAmi", EmitDefaultValue = true)]
+        public bool IsAmi { get; set; }
+
+        /// <summary>
+        /// The base domain.
+        /// </summary>
+        /// <value>The base domain.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "baseDomain", EmitDefaultValue = true)]
+        public string BaseDomain { get; set; }
+
+        /// <summary>
+        /// The wizard token.
+        /// </summary>
+        /// <value>The wizard token.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "wizardToken", EmitDefaultValue = true)]
+        public string WizardToken { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PasswordHash
+        /// </summary>
+        [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
+        public PasswordHasher PasswordHash { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Firebase
+        /// </summary>
+        [DataMember(Name = "firebase", EmitDefaultValue = false)]
+        public FirebaseDto Firebase { get; set; }
+
+        /// <summary>
+        /// The portal version.
+        /// </summary>
+        /// <value>The portal version.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "version", EmitDefaultValue = true)]
+        public string VarVersion { get; set; }
+
+        /// <summary>
+        /// The ReCAPTCHA public key.
+        /// </summary>
+        /// <value>The ReCAPTCHA public key.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "recaptchaPublicKey", EmitDefaultValue = true)]
+        public string RecaptchaPublicKey { get; set; }
+
+        /// <summary>
+        /// Specifies if the debug information will be sent or not.
+        /// </summary>
+        /// <value>Specifies if the debug information will be sent or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "debugInfo", EmitDefaultValue = true)]
+        public bool DebugInfo { get; set; }
+
+        /// <summary>
+        /// The socket URL.
+        /// </summary>
+        /// <value>The socket URL.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "socketUrl", EmitDefaultValue = true)]
+        public string SocketUrl { get; set; }
+
+        /// <summary>
+        /// The tenant alias.
+        /// </summary>
+        /// <value>The tenant alias.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
+        public string TenantAlias { get; set; }
+
+        /// <summary>
+        /// Specifies whether to display the \&quot;About\&quot; portal section.
+        /// </summary>
+        /// <value>Specifies whether to display the \&quot;About\&quot; portal section.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "displayAbout", EmitDefaultValue = true)]
+        public bool DisplayAbout { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DomainValidator
+        /// </summary>
+        [DataMember(Name = "domainValidator", EmitDefaultValue = false)]
+        public TenantDomainValidator DomainValidator { get; set; }
+
+        /// <summary>
+        /// The Zendesk key.
+        /// </summary>
+        /// <value>The Zendesk key.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "zendeskKey", EmitDefaultValue = true)]
+        public string ZendeskKey { get; set; }
+
+        /// <summary>
+        /// The tag manager ID.
+        /// </summary>
+        /// <value>The tag manager ID.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "tagManagerId", EmitDefaultValue = true)]
+        public string TagManagerId { get; set; }
+
+        /// <summary>
+        /// Specifies whether the cookie settings are enabled.
+        /// </summary>
+        /// <value>Specifies whether the cookie settings are enabled.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "cookieSettingsEnabled", EmitDefaultValue = true)]
+        public bool CookieSettingsEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether the access to the space management is limited or not.
+        /// </summary>
+        /// <value>Specifies whether the access to the space management is limited or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "limitedAccessSpace", EmitDefaultValue = true)]
+        public bool LimitedAccessSpace { get; set; }
+
+        /// <summary>
+        /// Specifies whether the access to the Developer Tools is limited for users or not.
+        /// </summary>
+        /// <value>Specifies whether the access to the Developer Tools is limited for users or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "limitedAccessDevToolsForUsers", EmitDefaultValue = true)]
+        public bool LimitedAccessDevToolsForUsers { get; set; }
+
+        /// <summary>
+        /// The user name validation regex.
+        /// </summary>
+        /// <value>The user name validation regex.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "userNameRegex", EmitDefaultValue = true)]
+        public string UserNameRegex { get; set; }
+
+        /// <summary>
+        /// The maximum number of invitations to the portal.
+        /// </summary>
+        /// <value>The maximum number of invitations to the portal.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "invitationLimit", EmitDefaultValue = true)]
+        public int? InvitationLimit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Plugins
+        /// </summary>
+        [DataMember(Name = "plugins", EmitDefaultValue = false)]
+        public PluginsDto Plugins { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DeepLink
+        /// </summary>
+        [DataMember(Name = "deepLink", EmitDefaultValue = false)]
+        public DeepLinkDto DeepLink { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FormGallery
+        /// </summary>
+        [DataMember(Name = "formGallery", EmitDefaultValue = false)]
+        public FormGalleryDto FormGallery { get; set; }
+
+        /// <summary>
+        /// The maximum image upload size.
+        /// </summary>
+        /// <value>The maximum image upload size.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "maxImageUploadSize", EmitDefaultValue = false)]
+        public long MaxImageUploadSize { get; set; }
+
+        /// <summary>
+        /// The white label logo text.
+        /// </summary>
+        /// <value>The white label logo text.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "logoText", EmitDefaultValue = true)]
+        public string LogoText { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalResources
+        /// </summary>
+        [DataMember(Name = "externalResources", EmitDefaultValue = false)]
+        public CultureSpecificExternalResources ExternalResources { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class SettingsDto {\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  TrustedDomains: ").Append(TrustedDomains).Append("\n");
+            sb.Append("  TrustedDomainsType: ").Append(TrustedDomainsType).Append("\n");
+            sb.Append("  Culture: ").Append(Culture).Append("\n");
+            sb.Append("  UtcOffset: ").Append(UtcOffset).Append("\n");
+            sb.Append("  UtcHoursOffset: ").Append(UtcHoursOffset).Append("\n");
+            sb.Append("  GreetingSettings: ").Append(GreetingSettings).Append("\n");
+            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
+            sb.Append("  NameSchemaId: ").Append(NameSchemaId).Append("\n");
+            sb.Append("  EnabledJoin: ").Append(EnabledJoin).Append("\n");
+            sb.Append("  EnableAdmMess: ").Append(EnableAdmMess).Append("\n");
+            sb.Append("  ThirdpartyEnable: ").Append(ThirdpartyEnable).Append("\n");
+            sb.Append("  DocSpace: ").Append(DocSpace).Append("\n");
+            sb.Append("  Standalone: ").Append(Standalone).Append("\n");
+            sb.Append("  IsAmi: ").Append(IsAmi).Append("\n");
+            sb.Append("  BaseDomain: ").Append(BaseDomain).Append("\n");
+            sb.Append("  WizardToken: ").Append(WizardToken).Append("\n");
+            sb.Append("  PasswordHash: ").Append(PasswordHash).Append("\n");
+            sb.Append("  Firebase: ").Append(Firebase).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  RecaptchaType: ").Append(RecaptchaType).Append("\n");
+            sb.Append("  RecaptchaPublicKey: ").Append(RecaptchaPublicKey).Append("\n");
+            sb.Append("  DebugInfo: ").Append(DebugInfo).Append("\n");
+            sb.Append("  SocketUrl: ").Append(SocketUrl).Append("\n");
+            sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
+            sb.Append("  TenantAlias: ").Append(TenantAlias).Append("\n");
+            sb.Append("  DisplayAbout: ").Append(DisplayAbout).Append("\n");
+            sb.Append("  DomainValidator: ").Append(DomainValidator).Append("\n");
+            sb.Append("  ZendeskKey: ").Append(ZendeskKey).Append("\n");
+            sb.Append("  TagManagerId: ").Append(TagManagerId).Append("\n");
+            sb.Append("  CookieSettingsEnabled: ").Append(CookieSettingsEnabled).Append("\n");
+            sb.Append("  LimitedAccessSpace: ").Append(LimitedAccessSpace).Append("\n");
+            sb.Append("  LimitedAccessDevToolsForUsers: ").Append(LimitedAccessDevToolsForUsers).Append("\n");
+            sb.Append("  UserNameRegex: ").Append(UserNameRegex).Append("\n");
+            sb.Append("  InvitationLimit: ").Append(InvitationLimit).Append("\n");
+            sb.Append("  Plugins: ").Append(Plugins).Append("\n");
+            sb.Append("  DeepLink: ").Append(DeepLink).Append("\n");
+            sb.Append("  FormGallery: ").Append(FormGallery).Append("\n");
+            sb.Append("  MaxImageUploadSize: ").Append(MaxImageUploadSize).Append("\n");
+            sb.Append("  LogoText: ").Append(LogoText).Append("\n");
+            sb.Append("  ExternalResources: ").Append(ExternalResources).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+    }
+
+
+}

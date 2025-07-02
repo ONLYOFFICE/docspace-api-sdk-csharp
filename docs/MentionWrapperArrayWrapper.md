@@ -1,12 +1,12 @@
-# DocSpace.Model.MentionWrapperArrayWrapper
+# DocSpace.Sdk.Model.MentionWrapperArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;MentionWrapper&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;MentionWrapper&gt;**](MentionWrapper.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

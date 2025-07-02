@@ -1,4 +1,4 @@
-# DocSpace.Model.StartFillingMode
+# DocSpace.Sdk.Model.StartFillingMode
 [0 - None, 1 - Share to fill out, 2 - Start filling]
 
 ## Properties

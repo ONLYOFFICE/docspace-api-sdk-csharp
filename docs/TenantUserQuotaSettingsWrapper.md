@@ -1,12 +1,12 @@
-# DocSpace.Model.TenantUserQuotaSettingsWrapper
+# DocSpace.Sdk.Model.TenantUserQuotaSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantUserQuotaSettings**](.md) |  | [optional] 
+**Response** | [**TenantUserQuotaSettings**](TenantUserQuotaSettings.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

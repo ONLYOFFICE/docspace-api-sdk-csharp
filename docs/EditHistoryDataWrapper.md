@@ -1,12 +1,12 @@
-# DocSpace.Model.EditHistoryDataWrapper
+# DocSpace.Sdk.Model.EditHistoryDataWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**EditHistoryDataDto**](.md) |  | [optional] 
+**Response** | [**EditHistoryDataDto**](EditHistoryDataDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

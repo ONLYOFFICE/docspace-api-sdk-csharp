@@ -1,4 +1,4 @@
-# DocSpace.Model.FileDtoIntegerViewAccessibility
+# DocSpace.Sdk.Model.FileDtoIntegerViewAccessibility
 The file accessibility.
 
 ## Properties

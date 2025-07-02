@@ -1,19 +1,21 @@
-# DocSpace.Api.SettingsLicenseApi
+# DocSpace.Sdk.Api.SettingsLicenseApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AcceptLicense**](SettingsLicenseApi.md#acceptlicense) | **POST** /api/2.0/settings/license/accept | Activate a license |
-| [**GetIsLicenseRequired**](SettingsLicenseApi.md#getislicenserequired) | **GET** /api/2.0/settings/license/required | Request a license |
-| [**RefreshLicense**](SettingsLicenseApi.md#refreshlicense) | **GET** /api/2.0/settings/license/refresh | Refresh the license |
-| [**UploadLicense**](SettingsLicenseApi.md#uploadlicense) | **POST** /api/2.0/settings/license | Upload a license |
+| [**AcceptLicense**](#acceptlicense) | **POST** /api/2.0/settings/license/accept | Activate a license |
+| [**GetIsLicenseRequired**](#getislicenserequired) | **GET** /api/2.0/settings/license/required | Request a license |
+| [**RefreshLicense**](#refreshlicense) | **GET** /api/2.0/settings/license/refresh | Refresh the license |
+| [**UploadLicense**](#uploadlicense) | **POST** /api/2.0/settings/license | Upload a license |
 
 <a id="acceptlicense"></a>
 # **AcceptLicense**
 > StringWrapper AcceptLicense ()
 
 Activates a license for the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/accept-license/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -30,9 +32,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -120,6 +122,8 @@ catch (ApiException e)
 
 Requests a portal license if necessary.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-license-required/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -135,9 +139,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -208,6 +212,8 @@ catch (ApiException e)
 
 Refreshes the portal license.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-license/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -223,9 +229,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -313,6 +319,8 @@ catch (ApiException e)
 
 Uploads a portal license specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-license/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -332,9 +340,9 @@ Uploads a portal license specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

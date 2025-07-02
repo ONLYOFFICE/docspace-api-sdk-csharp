@@ -1,11 +1,11 @@
-# DocSpace.Model.FileReference
+# DocSpace.Sdk.Model.FileReference
 The file reference parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReferenceData** | [**FileReferenceData**](.md) |  | [optional] 
+**ReferenceData** | [**FileReferenceData**](FileReferenceData.md) |  | [optional] 
 **Error** | **string** | The error message text. | [optional] 
 **Path** | **string** | The file name or relative path for the formula editor. | [optional] 
 **Url** | **string** | The URL address to download the current file. | [optional] 

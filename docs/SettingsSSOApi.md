@@ -1,20 +1,22 @@
-# DocSpace.Api.SettingsSSOApi
+# DocSpace.Sdk.Api.SettingsSSOApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetDefaultSsoSettingsV2**](SettingsSSOApi.md#getdefaultssosettingsv2) | **GET** /api/2.0/settings/ssov2/default | Get the default SSO settings |
-| [**GetSsoSettingsV2**](SettingsSSOApi.md#getssosettingsv2) | **GET** /api/2.0/settings/ssov2 | Get the SSO settings |
-| [**GetSsoSettingsV2Constants**](SettingsSSOApi.md#getssosettingsv2constants) | **GET** /api/2.0/settings/ssov2/constants | Get the SSO settings constants |
-| [**ResetSsoSettingsV2**](SettingsSSOApi.md#resetssosettingsv2) | **DELETE** /api/2.0/settings/ssov2 | Reset the SSO settings |
-| [**SaveSsoSettingsV2**](SettingsSSOApi.md#savessosettingsv2) | **POST** /api/2.0/settings/ssov2 | Save the SSO settings |
+| [**GetDefaultSsoSettingsV2**](#getdefaultssosettingsv2) | **GET** /api/2.0/settings/ssov2/default | Get the default SSO settings |
+| [**GetSsoSettingsV2**](#getssosettingsv2) | **GET** /api/2.0/settings/ssov2 | Get the SSO settings |
+| [**GetSsoSettingsV2Constants**](#getssosettingsv2constants) | **GET** /api/2.0/settings/ssov2/constants | Get the SSO settings constants |
+| [**ResetSsoSettingsV2**](#resetssosettingsv2) | **DELETE** /api/2.0/settings/ssov2 | Reset the SSO settings |
+| [**SaveSsoSettingsV2**](#savessosettingsv2) | **POST** /api/2.0/settings/ssov2 | Save the SSO settings |
 
 <a id="getdefaultssosettingsv2"></a>
 # **GetDefaultSsoSettingsV2**
 > SsoSettingsV2Wrapper GetDefaultSsoSettingsV2 ()
 
 Returns the default portal SSO settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -31,9 +33,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -121,6 +123,8 @@ catch (ApiException e)
 
 Returns the current portal SSO settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -136,9 +140,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -209,6 +213,8 @@ catch (ApiException e)
 
 Returns the SSO settings constants.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -224,9 +230,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -314,6 +320,8 @@ catch (ApiException e)
 
 Resets the SSO settings of the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -329,9 +337,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -419,6 +427,8 @@ catch (ApiException e)
 
 Saves the SSO settings for the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -438,9 +448,9 @@ Saves the SSO settings for the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

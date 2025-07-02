@@ -1,4 +1,4 @@
-# DocSpace.Model.FilesSettingsDto
+# DocSpace.Sdk.Model.FilesSettingsDto
 The file settings parameters.
 
 ## Properties
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **ExtsSpreadsheet** | **List&lt;string&gt;** | The list of the spreadsheet extensions. | [optional] 
 **ExtsPresentation** | **List&lt;string&gt;** | The list of the presentation extensions. | [optional] 
 **ExtsDocument** | **List&lt;string&gt;** | The list of the text document extensions. | [optional] 
-**InternalFormats** | [**FilesSettingsDtoInternalFormats**](.md) |  | [optional] 
+**InternalFormats** | [**FilesSettingsDtoInternalFormats**](FilesSettingsDtoInternalFormats.md) |  | [optional] 
 **MasterFormExtension** | **string** | The master form extension. | [optional] 
 **ParamVersion** | **string** | The URL parameter which specifies the file version. | [optional] 
 **ParamOutType** | **string** | The URL parameter which specifies the output type of the converted file. | [optional] 
@@ -49,14 +49,14 @@ Name | Type | Description | Notes
 **HideConfirmConvertSave** | **bool** | Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file. | [optional] 
 **HideConfirmConvertOpen** | **bool** | Specifies whether to hide the confirmation dialog  for opening the conversion result. | [optional] 
 **HideConfirmRoomLifetime** | **bool** | Specifies whether to hide the confirmation dialog about the file lifetime in the room. | [optional] 
-**DefaultOrder** | [**OrderBy**](.md) |  | [optional] 
+**DefaultOrder** | [**OrderBy**](OrderBy.md) |  | [optional] 
 **Forcesave** | **bool** | Specifies whether to forcesave the files or not. | [optional] 
 **StoreForcesave** | **bool** | Specifies whether to store the forcesaved file versions or not. | [optional] 
 **RecentSection** | **bool** | Specifies if the \&quot;Recent\&quot; section is displayed or not. | [optional] 
 **FavoritesSection** | **bool** | Specifies if the \&quot;Favorites\&quot; section is displayed or not. | [optional] 
 **TemplatesSection** | **bool** | Specifies if the \&quot;Templates\&quot; section is displayed or not. | [optional] 
 **DownloadTarGz** | **bool** | Specifies whether to download the .tar.gz files or not. | [optional] 
-**AutomaticallyCleanUp** | [**AutoCleanUpData**](.md) |  | [optional] 
+**AutomaticallyCleanUp** | [**AutoCleanUpData**](AutoCleanUpData.md) |  | [optional] 
 **CanSearchByContent** | **bool** | Specifies whether the file can be searched by its content or not. | [optional] 
 **DefaultSharingAccessRights** | **List&lt;FilesSettingsDto.DefaultSharingAccessRightsEnum&gt;** | The default access rights in sharing settings. | [optional] 
 **MaxUploadThreadCount** | **int** | The maximum number of upload threads. | [optional] 

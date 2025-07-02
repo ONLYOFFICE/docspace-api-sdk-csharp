@@ -1,4 +1,4 @@
-# DocSpace.Model.FileEntryType
+# DocSpace.Sdk.Model.FileEntryType
 [1 - Folder, 2 - File]
 
 ## Properties

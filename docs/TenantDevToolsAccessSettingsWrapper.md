@@ -1,12 +1,12 @@
-# DocSpace.Model.TenantDevToolsAccessSettingsWrapper
+# DocSpace.Sdk.Model.TenantDevToolsAccessSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantDevToolsAccessSettings**](.md) |  | [optional] 
+**Response** | [**TenantDevToolsAccessSettings**](TenantDevToolsAccessSettings.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

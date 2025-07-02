@@ -1,12 +1,12 @@
-# DocSpace.Model.ConversationResultArrayWrapper
+# DocSpace.Sdk.Model.ConversationResultArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;ConversationResultDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;ConversationResultDto&gt;**](ConversationResultDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

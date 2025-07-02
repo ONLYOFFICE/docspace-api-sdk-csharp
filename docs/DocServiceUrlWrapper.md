@@ -1,12 +1,12 @@
-# DocSpace.Model.DocServiceUrlWrapper
+# DocSpace.Sdk.Model.DocServiceUrlWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DocServiceUrlDto**](.md) |  | [optional] 
+**Response** | [**DocServiceUrlDto**](DocServiceUrlDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

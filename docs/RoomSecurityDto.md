@@ -1,11 +1,11 @@
-# DocSpace.Model.RoomSecurityDto
+# DocSpace.Sdk.Model.RoomSecurityDto
 The room security parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Members** | [**List&lt;FileShareDto&gt;**](.md) | The list of room members. | [optional] 
+**Members** | [**List&lt;FileShareDto&gt;**](FileShareDto.md) | The list of room members. | [optional] 
 **Warning** | **string** | The warning message. | [optional] 
 **Error** | **RoomSecurityError** |  | [optional] 
 

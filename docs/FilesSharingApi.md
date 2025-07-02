@@ -1,20 +1,22 @@
-# DocSpace.Api.FilesSharingApi
+# DocSpace.Sdk.Api.FilesSharingApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ApplyExternalSharePassword**](FilesSharingApi.md#applyexternalsharepassword) | **POST** /api/2.0/files/share/{key}/password | Apply external data password |
-| [**ChangeFileOwner**](FilesSharingApi.md#changefileowner) | **POST** /api/2.0/files/owner | Change the file owner |
-| [**GetExternalShareData**](FilesSharingApi.md#getexternalsharedata) | **GET** /api/2.0/files/share/{key} | Get the external data |
-| [**GetSharedUsers**](FilesSharingApi.md#getsharedusers) | **GET** /api/2.0/files/file/{fileId}/sharedusers | Get user access rights by file ID |
-| [**SendEditorNotify**](FilesSharingApi.md#sendeditornotify) | **POST** /api/2.0/files/file/{fileId}/sendeditornotify | Send the mention message |
+| [**ApplyExternalSharePassword**](#applyexternalsharepassword) | **POST** /api/2.0/files/share/{key}/password | Apply external data password |
+| [**ChangeFileOwner**](#changefileowner) | **POST** /api/2.0/files/owner | Change the file owner |
+| [**GetExternalShareData**](#getexternalsharedata) | **GET** /api/2.0/files/share/{key} | Get the external data |
+| [**GetSharedUsers**](#getsharedusers) | **GET** /api/2.0/files/file/{fileId}/sharedusers | Get user access rights by file ID |
+| [**SendEditorNotify**](#sendeditornotify) | **POST** /api/2.0/files/file/{fileId}/sendeditornotify | Send the mention message |
 
 <a id="applyexternalsharepassword"></a>
 # **ApplyExternalSharePassword**
 > ExternalShareWrapper ApplyExternalSharePassword (string key, ExternalShareRequestParam? externalShareRequestParam = null)
 
 Applies a password specified in the request to get the external data.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/).
 
 ### Parameters
 
@@ -36,9 +38,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -112,6 +114,8 @@ catch (ApiException e)
 
 Changes the owner of the file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -131,9 +135,9 @@ Changes the owner of the file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -222,6 +226,8 @@ catch (ApiException e)
 
 Returns the external data by the key specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -242,9 +248,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -317,6 +323,8 @@ catch (ApiException e)
 
 Returns a list of users with their access rights to the file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -336,9 +344,9 @@ Returns a list of users with their access rights to the file with the ID specifi
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -427,6 +435,8 @@ catch (ApiException e)
 
 Sends a message to the users who are mentioned in the file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -447,9 +457,9 @@ Sends a message to the users who are mentioned in the file with the ID specified
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

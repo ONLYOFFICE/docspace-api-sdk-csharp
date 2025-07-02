@@ -1,12 +1,12 @@
-# DocSpace.Model.CustomColorThemesSettingsWrapper
+# DocSpace.Sdk.Model.CustomColorThemesSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CustomColorThemesSettingsDto**](.md) |  | [optional] 
+**Response** | [**CustomColorThemesSettingsDto**](CustomColorThemesSettingsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

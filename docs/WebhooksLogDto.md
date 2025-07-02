@@ -1,4 +1,4 @@
-# DocSpace.Model.WebhooksLogDto
+# DocSpace.Sdk.Model.WebhooksLogDto
 The webhook log parameters.
 
 ## Properties

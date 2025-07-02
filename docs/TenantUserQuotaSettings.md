@@ -1,4 +1,4 @@
-# DocSpace.Model.TenantUserQuotaSettings
+# DocSpace.Sdk.Model.TenantUserQuotaSettings
 The user quota settings.
 
 ## Properties

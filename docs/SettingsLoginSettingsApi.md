@@ -1,18 +1,20 @@
-# DocSpace.Api.SettingsLoginSettingsApi
+# DocSpace.Sdk.Api.SettingsLoginSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetLoginSettings**](SettingsLoginSettingsApi.md#getloginsettings) | **GET** /api/2.0/settings/security/loginsettings | Get the login settings |
-| [**SetDefaultLoginSettings**](SettingsLoginSettingsApi.md#setdefaultloginsettings) | **DELETE** /api/2.0/settings/security/loginsettings | Reset the login settings |
-| [**UpdateLoginSettings**](SettingsLoginSettingsApi.md#updateloginsettings) | **PUT** /api/2.0/settings/security/loginsettings | Update the login settings |
+| [**GetLoginSettings**](#getloginsettings) | **GET** /api/2.0/settings/security/loginsettings | Get the login settings |
+| [**SetDefaultLoginSettings**](#setdefaultloginsettings) | **DELETE** /api/2.0/settings/security/loginsettings | Reset the login settings |
+| [**UpdateLoginSettings**](#updateloginsettings) | **PUT** /api/2.0/settings/security/loginsettings | Update the login settings |
 
 <a id="getloginsettings"></a>
 # **GetLoginSettings**
 > LoginSettingsWrapper GetLoginSettings ()
 
 Returns the portal login settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -29,9 +31,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -119,6 +121,8 @@ catch (ApiException e)
 
 Resets the portal login settings to default.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-login-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -134,9 +138,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -224,6 +228,8 @@ catch (ApiException e)
 
 Updates the login settings with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-login-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -243,9 +249,9 @@ Updates the login settings with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

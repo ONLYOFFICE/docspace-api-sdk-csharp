@@ -1,60 +1,62 @@
-# DocSpace.Api.FilesFilesApi
+# DocSpace.Sdk.Api.FilesFilesApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddTemplates**](FilesFilesApi.md#addtemplates) | **POST** /api/2.0/files/templates | Add template files |
-| [**ChangeVersionHistory**](FilesFilesApi.md#changeversionhistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
-| [**CheckFillFormDraft**](FilesFilesApi.md#checkfillformdraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft filling |
-| [**CopyFileAs**](FilesFilesApi.md#copyfileas) | **POST** /api/2.0/files/file/{fileId}/copyas | Copy a file |
-| [**CreateEditSession**](FilesFilesApi.md#createeditsession) | **POST** /api/2.0/files/file/{fileId}/edit_session | Create the editing session |
-| [**CreateFile**](FilesFilesApi.md#createfile) | **POST** /api/2.0/files/{folderId}/file | Create a file |
-| [**CreateFileInMyDocuments**](FilesFilesApi.md#createfileinmydocuments) | **POST** /api/2.0/files/@my/file | Create a file in the \&quot;My documents\&quot; section |
-| [**CreateHtmlFile**](FilesFilesApi.md#createhtmlfile) | **POST** /api/2.0/files/{folderId}/html | Create an HTML file |
-| [**CreateHtmlFileInMyDocuments**](FilesFilesApi.md#createhtmlfileinmydocuments) | **POST** /api/2.0/files/@my/html | Create an HTML file in the \&quot;My documents\&quot; section |
-| [**CreatePrimaryExternalLink**](FilesFilesApi.md#createprimaryexternallink) | **POST** /api/2.0/files/file/{id}/link | Create primary external link |
-| [**CreateTextFile**](FilesFilesApi.md#createtextfile) | **POST** /api/2.0/files/{folderId}/text | Create a text file |
-| [**CreateTextFileInMyDocuments**](FilesFilesApi.md#createtextfileinmydocuments) | **POST** /api/2.0/files/@my/text | Create a text file in the \&quot;My documents\&quot; section |
-| [**CreateThumbnails**](FilesFilesApi.md#createthumbnails) | **POST** /api/2.0/files/thumbnails | Create file thumbnails |
-| [**DeleteFile**](FilesFilesApi.md#deletefile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
-| [**DeleteRecent**](FilesFilesApi.md#deleterecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
-| [**DeleteTemplates**](FilesFilesApi.md#deletetemplates) | **DELETE** /api/2.0/files/templates | Delete template files |
-| [**GetAllFormRoles**](FilesFilesApi.md#getallformroles) | **GET** /api/2.0/files/file/{fileId}/formroles | Get form roles |
-| [**GetEditDiffUrl**](FilesFilesApi.md#geteditdiffurl) | **GET** /api/2.0/files/file/{fileId}/edit/diff | Get changes URL |
-| [**GetEditHistory**](FilesFilesApi.md#getedithistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
-| [**GetFileHistory**](FilesFilesApi.md#getfilehistory) | **GET** /api/2.0/files/file/{fileId}/log | Get file history |
-| [**GetFileInfo**](FilesFilesApi.md#getfileinfo) | **GET** /api/2.0/files/file/{fileId} | Get file information |
-| [**GetFileLinks**](FilesFilesApi.md#getfilelinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
-| [**GetFilePrimaryExternalLink**](FilesFilesApi.md#getfileprimaryexternallink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
-| [**GetFileVersionInfo**](FilesFilesApi.md#getfileversioninfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
-| [**GetFillResult**](FilesFilesApi.md#getfillresult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
-| [**GetPresignedFileUri**](FilesFilesApi.md#getpresignedfileuri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
-| [**GetPresignedUri**](FilesFilesApi.md#getpresigneduri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
-| [**GetProtectedFileUsers**](FilesFilesApi.md#getprotectedfileusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
-| [**GetReferenceData**](FilesFilesApi.md#getreferencedata) | **POST** /api/2.0/files/file/referencedata | Get reference data |
-| [**IsFormPDF**](FilesFilesApi.md#isformpdf) | **GET** /api/2.0/files/file/{fileId}/isformpdf | Check the PDF file |
-| [**LockFile**](FilesFilesApi.md#lockfile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
-| [**ManageFormFilling**](FilesFilesApi.md#manageformfilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
-| [**OpenEditFile**](FilesFilesApi.md#openeditfile) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
-| [**RestoreFileVersion**](FilesFilesApi.md#restorefileversion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
-| [**SaveEditingFileFromForm**](FilesFilesApi.md#saveeditingfilefromform) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
-| [**SaveFileAsPdf**](FilesFilesApi.md#savefileaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
-| [**SaveFormRoleMapping**](FilesFilesApi.md#saveformrolemapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
-| [**SetCustomFilterTag**](FilesFilesApi.md#setcustomfiltertag) | **PUT** /api/2.0/files/file/{fileId}/customfilter | Set the Custom Filter editing mode |
-| [**SetExternalLink**](FilesFilesApi.md#setexternallink) | **PUT** /api/2.0/files/file/{id}/links | Set an external link |
-| [**SetFileOrder**](FilesFilesApi.md#setfileorder) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
-| [**SetFilesOrder**](FilesFilesApi.md#setfilesorder) | **PUT** /api/2.0/files/order | Set order of files |
-| [**StartEditFile**](FilesFilesApi.md#starteditfile) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
-| [**StartFillingFile**](FilesFilesApi.md#startfillingfile) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
-| [**TrackEditFile**](FilesFilesApi.md#trackeditfile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile | Track file editing |
-| [**UpdateFile**](FilesFilesApi.md#updatefile) | **PUT** /api/2.0/files/file/{fileId} | Update a file |
+| [**AddTemplates**](#addtemplates) | **POST** /api/2.0/files/templates | Add template files |
+| [**ChangeVersionHistory**](#changeversionhistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
+| [**CheckFillFormDraft**](#checkfillformdraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft filling |
+| [**CopyFileAs**](#copyfileas) | **POST** /api/2.0/files/file/{fileId}/copyas | Copy a file |
+| [**CreateEditSession**](#createeditsession) | **POST** /api/2.0/files/file/{fileId}/edit_session | Create the editing session |
+| [**CreateFile**](#createfile) | **POST** /api/2.0/files/{folderId}/file | Create a file |
+| [**CreateFileInMyDocuments**](#createfileinmydocuments) | **POST** /api/2.0/files/@my/file | Create a file in the \&quot;My documents\&quot; section |
+| [**CreateHtmlFile**](#createhtmlfile) | **POST** /api/2.0/files/{folderId}/html | Create an HTML file |
+| [**CreateHtmlFileInMyDocuments**](#createhtmlfileinmydocuments) | **POST** /api/2.0/files/@my/html | Create an HTML file in the \&quot;My documents\&quot; section |
+| [**CreatePrimaryExternalLink**](#createprimaryexternallink) | **POST** /api/2.0/files/file/{id}/link | Create primary external link |
+| [**CreateTextFile**](#createtextfile) | **POST** /api/2.0/files/{folderId}/text | Create a text file |
+| [**CreateTextFileInMyDocuments**](#createtextfileinmydocuments) | **POST** /api/2.0/files/@my/text | Create a text file in the \&quot;My documents\&quot; section |
+| [**CreateThumbnails**](#createthumbnails) | **POST** /api/2.0/files/thumbnails | Create file thumbnails |
+| [**DeleteFile**](#deletefile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
+| [**DeleteRecent**](#deleterecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
+| [**DeleteTemplates**](#deletetemplates) | **DELETE** /api/2.0/files/templates | Delete template files |
+| [**GetAllFormRoles**](#getallformroles) | **GET** /api/2.0/files/file/{fileId}/formroles | Get form roles |
+| [**GetEditDiffUrl**](#geteditdiffurl) | **GET** /api/2.0/files/file/{fileId}/edit/diff | Get changes URL |
+| [**GetEditHistory**](#getedithistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
+| [**GetFileHistory**](#getfilehistory) | **GET** /api/2.0/files/file/{fileId}/log | Get file history |
+| [**GetFileInfo**](#getfileinfo) | **GET** /api/2.0/files/file/{fileId} | Get file information |
+| [**GetFileLinks**](#getfilelinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
+| [**GetFilePrimaryExternalLink**](#getfileprimaryexternallink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
+| [**GetFileVersionInfo**](#getfileversioninfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
+| [**GetFillResult**](#getfillresult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
+| [**GetPresignedFileUri**](#getpresignedfileuri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
+| [**GetPresignedUri**](#getpresigneduri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
+| [**GetProtectedFileUsers**](#getprotectedfileusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
+| [**GetReferenceData**](#getreferencedata) | **POST** /api/2.0/files/file/referencedata | Get reference data |
+| [**IsFormPDF**](#isformpdf) | **GET** /api/2.0/files/file/{fileId}/isformpdf | Check the PDF file |
+| [**LockFile**](#lockfile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
+| [**ManageFormFilling**](#manageformfilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
+| [**OpenEditFile**](#openeditfile) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
+| [**RestoreFileVersion**](#restorefileversion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
+| [**SaveEditingFileFromForm**](#saveeditingfilefromform) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
+| [**SaveFileAsPdf**](#savefileaspdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
+| [**SaveFormRoleMapping**](#saveformrolemapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
+| [**SetCustomFilterTag**](#setcustomfiltertag) | **PUT** /api/2.0/files/file/{fileId}/customfilter | Set the Custom Filter editing mode |
+| [**SetExternalLink**](#setexternallink) | **PUT** /api/2.0/files/file/{id}/links | Set an external link |
+| [**SetFileOrder**](#setfileorder) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
+| [**SetFilesOrder**](#setfilesorder) | **PUT** /api/2.0/files/order | Set order of files |
+| [**StartEditFile**](#starteditfile) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
+| [**StartFillingFile**](#startfillingfile) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
+| [**TrackEditFile**](#trackeditfile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile | Track file editing |
+| [**UpdateFile**](#updatefile) | **PUT** /api/2.0/files/file/{fileId} | Update a file |
 
 <a id="addtemplates"></a>
 # **AddTemplates**
 > BooleanWrapper AddTemplates (TemplatesRequestDto? templatesRequestDto = null)
 
 Adds files with the IDs specified in the request to the template list.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/).
 
 ### Parameters
 
@@ -75,9 +77,9 @@ Adds files with the IDs specified in the request to the template list.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -166,6 +168,8 @@ catch (ApiException e)
 
 Changes the version history of a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -186,9 +190,9 @@ Changes the version history of a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -279,6 +283,8 @@ catch (ApiException e)
 
 Checks if the current file is a form draft which can be filled out.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -299,9 +305,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -375,6 +381,8 @@ catch (ApiException e)
 
 Copies (and converts if possible) an existing file to the specified folder.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -395,9 +403,9 @@ Copies (and converts if possible) an existing file to the specified folder.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -490,6 +498,8 @@ catch (ApiException e)
 
 Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -510,9 +520,9 @@ Creates a session to edit the existing file with multiple chunks (needed for Web
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -603,6 +613,8 @@ catch (ApiException e)
 
 Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -623,9 +635,9 @@ Creates a new file in the specified folder with the title specified in the reque
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -715,6 +727,8 @@ catch (ApiException e)
 
 Creates a new file in the \"My documents\" section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -734,9 +748,9 @@ Creates a new file in the \"My documents\" section with the title specified in t
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -825,6 +839,8 @@ catch (ApiException e)
 
 Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -845,9 +861,9 @@ Creates an HTML (.html) file in the selected folder with the title and contents 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -938,6 +954,8 @@ catch (ApiException e)
 
 Creates an HTML (.html) file in the \"My documents\" section with the title and contents specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -957,9 +975,9 @@ Creates an HTML (.html) file in the \"My documents\" section with the title and 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1049,6 +1067,8 @@ catch (ApiException e)
 
 Creates a primary external link by the identifier specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1069,9 +1089,9 @@ Creates a primary external link by the identifier specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1162,6 +1182,8 @@ catch (ApiException e)
 
 Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1182,9 +1204,9 @@ Creates a text (.txt) file in the selected folder with the title and contents sp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1274,6 +1296,8 @@ catch (ApiException e)
 
 Creates a text (.txt) file in the \"My documents\" section with the title and contents specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1293,9 +1317,9 @@ Creates a text (.txt) file in the \"My documents\" section with the title and co
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1384,6 +1408,8 @@ catch (ApiException e)
 
 Creates thumbnails for the files with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1403,9 +1429,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1477,6 +1503,8 @@ catch (ApiException e)
 
 Deletes a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1497,9 +1525,9 @@ Deletes a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1589,6 +1617,8 @@ catch (ApiException e)
 
 Removes files with the IDs specified in the request from the \"Recent\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1608,9 +1638,9 @@ Removes files with the IDs specified in the request from the \"Recent\" section.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1699,6 +1729,8 @@ catch (ApiException e)
 
 Removes files with the IDs specified in the request from the template list.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1718,9 +1750,9 @@ Removes files with the IDs specified in the request from the template list.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1809,6 +1841,8 @@ catch (ApiException e)
 
 Returns all roles for the specified form.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1828,9 +1862,9 @@ Returns all roles for the specified form.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1920,6 +1954,8 @@ catch (ApiException e)
 
 Returns a URL to the changes of a file version specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1940,9 +1976,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2015,6 +2051,8 @@ catch (ApiException e)
 
 Returns the version history of a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2034,9 +2072,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2108,6 +2146,8 @@ catch (ApiException e)
 
 Returns the list of actions performed on the file with the specified identifier.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2131,9 +2171,9 @@ Returns the list of actions performed on the file with the specified identifier.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2228,6 +2268,8 @@ catch (ApiException e)
 
 Returns the detailed information about a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2248,9 +2290,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2323,6 +2365,8 @@ catch (ApiException e)
 
 Returns the external links of a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2344,9 +2388,9 @@ Returns the external links of a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2437,6 +2481,8 @@ catch (ApiException e)
 
 Returns the primary external link by the identifier specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2458,9 +2504,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2535,6 +2581,8 @@ catch (ApiException e)
 
 Returns the detailed information about all the available file versions with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2554,9 +2602,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2628,6 +2676,8 @@ catch (ApiException e)
 
 Retrieves the result of a form-filling session.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2647,9 +2697,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2721,6 +2771,8 @@ catch (ApiException e)
 
 Returns a link to download a file with the ID specified in the request asynchronously.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2740,9 +2792,9 @@ Returns a link to download a file with the ID specified in the request asynchron
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2831,6 +2883,8 @@ catch (ApiException e)
 
 Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2850,9 +2904,9 @@ Returns a pre-signed URL to download a file with the specified ID.  This tempora
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2941,6 +2995,8 @@ catch (ApiException e)
 
 Returns a list of users with their access rights to the protected file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2960,9 +3016,9 @@ Returns a list of users with their access rights to the protected file with the 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3051,6 +3107,8 @@ catch (ApiException e)
 
 Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3070,9 +3128,9 @@ Returns the reference data to uniquely identify a file in its system and check t
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3161,6 +3219,8 @@ catch (ApiException e)
 
 Checks if the PDF file is a form or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3180,9 +3240,9 @@ Checks if the PDF file is a form or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3271,6 +3331,8 @@ catch (ApiException e)
 
 Locks a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3291,9 +3353,9 @@ Locks a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3383,6 +3445,8 @@ catch (ApiException e)
 
 Performs the specified form filling action.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3403,9 +3467,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3492,6 +3556,8 @@ catch (ApiException e)
 
 Returns the initialization configuration of a file to open it in the editor.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/open-edit-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3516,9 +3582,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3596,6 +3662,8 @@ catch (ApiException e)
 
 Restores a file version specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-file-version/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3617,9 +3685,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3695,6 +3763,8 @@ catch (ApiException e)
 
 Saves edits to a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3718,9 +3788,9 @@ Saves edits to a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3815,6 +3885,8 @@ catch (ApiException e)
 
 Saves a file with the identifier specified in the request as a PDF document.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3835,9 +3907,9 @@ Saves a file with the identifier specified in the request as a PDF document.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3928,6 +4000,8 @@ catch (ApiException e)
 
 Saves the form role mapping.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3948,9 +4022,9 @@ Saves the form role mapping.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4041,6 +4115,8 @@ catch (ApiException e)
 
 Sets the Custom Filter editing mode to a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4061,9 +4137,9 @@ Sets the Custom Filter editing mode to a file with the ID specified in the reque
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4153,6 +4229,8 @@ catch (ApiException e)
 
 Sets an external link to a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4173,9 +4251,9 @@ Sets an external link to a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4265,6 +4343,8 @@ catch (ApiException e)
 
 Sets order of the file with ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4285,9 +4365,9 @@ Sets order of the file with ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4379,6 +4459,8 @@ catch (ApiException e)
 
 Sets order of the files.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4398,9 +4480,9 @@ Sets order of the files.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4489,6 +4571,8 @@ catch (ApiException e)
 
 Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4509,9 +4593,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4585,6 +4669,8 @@ catch (ApiException e)
 
 Starts filling a file with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4604,9 +4690,9 @@ Starts filling a file with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4696,6 +4782,8 @@ catch (ApiException e)
 
 Tracks file changes when editing.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4718,9 +4806,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4796,6 +4884,8 @@ catch (ApiException e)
 
 Updates the information of the selected file with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4816,9 +4906,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

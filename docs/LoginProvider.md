@@ -1,4 +1,4 @@
-# DocSpace.Model.LoginProvider
+# DocSpace.Sdk.Model.LoginProvider
 
 ## Properties
 

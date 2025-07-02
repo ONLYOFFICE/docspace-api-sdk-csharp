@@ -1,4 +1,4 @@
-# DocSpace.Model.SubmitForm
+# DocSpace.Sdk.Model.SubmitForm
 The \"Complete & Submit\" button settings.
 
 ## Properties

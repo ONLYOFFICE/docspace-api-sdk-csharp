@@ -1,4 +1,4 @@
-# DocSpace.Model.CreateTagRequestDto
+# DocSpace.Sdk.Model.CreateTagRequestDto
 The request parameters for creating a tag.
 
 ## Properties

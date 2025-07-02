@@ -1,16 +1,18 @@
-# DocSpace.Api.ThirdPartyApi
+# DocSpace.Sdk.Api.ThirdPartyApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetThirdPartyCode**](ThirdPartyApi.md#getthirdpartycode) | **GET** /api/2.0/thirdparty/{provider} | Get the code request |
+| [**GetThirdPartyCode**](#getthirdpartycode) | **GET** /api/2.0/thirdparty/{provider} | Get the code request |
 
 <a id="getthirdpartycode"></a>
 # **GetThirdPartyCode**
 > ObjectWrapper GetThirdPartyCode (LoginProvider provider)
 
 Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/).
 
 ### Parameters
 
@@ -31,9 +33,9 @@ Returns a request to get the confirmation code from URL.   **Note**: List of pro
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

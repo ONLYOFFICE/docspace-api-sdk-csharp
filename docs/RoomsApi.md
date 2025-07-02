@@ -1,53 +1,55 @@
-# DocSpace.Api.RoomsApi
+# DocSpace.Sdk.Api.RoomsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddRoomTags**](RoomsApi.md#addroomtags) | **PUT** /api/2.0/files/rooms/{id}/tags | Add the room tags |
-| [**ArchiveRoom**](RoomsApi.md#archiveroom) | **PUT** /api/2.0/files/rooms/{id}/archive | Archive a room |
-| [**ChangeRoomCover**](RoomsApi.md#changeroomcover) | **POST** /api/2.0/files/rooms/{id}/cover | Change the room cover |
-| [**CreateRoom**](RoomsApi.md#createroom) | **POST** /api/2.0/files/rooms | Create a room |
-| [**CreateRoomFromTemplate**](RoomsApi.md#createroomfromtemplate) | **POST** /api/2.0/files/rooms/fromtemplate | Create a room from the template |
-| [**CreateRoomLogo**](RoomsApi.md#createroomlogo) | **POST** /api/2.0/files/rooms/{id}/logo | Create a room logo |
-| [**CreateRoomTag**](RoomsApi.md#createroomtag) | **POST** /api/2.0/files/tags | Create a tag |
-| [**CreateRoomTemplate**](RoomsApi.md#createroomtemplate) | **POST** /api/2.0/files/roomtemplate | Start creating room template |
-| [**CreateRoomThirdParty**](RoomsApi.md#createroomthirdparty) | **POST** /api/2.0/files/rooms/thirdparty/{id} | Create a third-party room |
-| [**DeleteCustomTags**](RoomsApi.md#deletecustomtags) | **DELETE** /api/2.0/files/tags | Delete tags |
-| [**DeleteRoom**](RoomsApi.md#deleteroom) | **DELETE** /api/2.0/files/rooms/{id} | Remove a room |
-| [**DeleteRoomLogo**](RoomsApi.md#deleteroomlogo) | **DELETE** /api/2.0/files/rooms/{id}/logo | Remove a room logo |
-| [**DeleteRoomTags**](RoomsApi.md#deleteroomtags) | **DELETE** /api/2.0/files/rooms/{id}/tags | Remove the room tags |
-| [**GetNewRoomItems**](RoomsApi.md#getnewroomitems) | **GET** /api/2.0/files/rooms/{id}/news | Get the new room items |
-| [**GetPublicSettings**](RoomsApi.md#getpublicsettings) | **GET** /api/2.0/files/roomtemplate/{id}/public | Get public settings |
-| [**GetRoomCovers**](RoomsApi.md#getroomcovers) | **GET** /api/2.0/files/rooms/covers | Get covers |
-| [**GetRoomCreatingStatus**](RoomsApi.md#getroomcreatingstatus) | **GET** /api/2.0/files/rooms/fromtemplate/status | Get the room creation progress |
-| [**GetRoomIndexExport**](RoomsApi.md#getroomindexexport) | **GET** /api/2.0/files/rooms/indexexport | Get the room index export |
-| [**GetRoomInfo**](RoomsApi.md#getroominfo) | **GET** /api/2.0/files/rooms/{id} | Get room information |
-| [**GetRoomLinks**](RoomsApi.md#getroomlinks) | **GET** /api/2.0/files/rooms/{id}/links | Get the room links |
-| [**GetRoomSecurityInfo**](RoomsApi.md#getroomsecurityinfo) | **GET** /api/2.0/files/rooms/{id}/share | Get the room access rights |
-| [**GetRoomTagsInfo**](RoomsApi.md#getroomtagsinfo) | **GET** /api/2.0/files/tags | Get tags |
-| [**GetRoomTemplateCreatingStatus**](RoomsApi.md#getroomtemplatecreatingstatus) | **GET** /api/2.0/files/roomtemplate/status | Get status of room template creation |
-| [**GetRoomsFolder**](RoomsApi.md#getroomsfolder) | **GET** /api/2.0/files/rooms | Get rooms |
-| [**GetRoomsNewItems**](RoomsApi.md#getroomsnewitems) | **GET** /api/2.0/files/rooms/news | Get the room new items |
-| [**GetRoomsPrimaryExternalLink**](RoomsApi.md#getroomsprimaryexternallink) | **GET** /api/2.0/files/rooms/{id}/link | Get the room primary external link |
-| [**PinRoom**](RoomsApi.md#pinroom) | **PUT** /api/2.0/files/rooms/{id}/pin | Pin a room |
-| [**ReorderRoom**](RoomsApi.md#reorderroom) | **PUT** /api/2.0/files/rooms/{id}/reorder | Reorder the room |
-| [**ResendEmailInvitations**](RoomsApi.md#resendemailinvitations) | **POST** /api/2.0/files/rooms/{id}/resend | Resend the room invitations |
-| [**SetPublicSettings**](RoomsApi.md#setpublicsettings) | **PUT** /api/2.0/files/roomtemplate/public | Set public settings |
-| [**SetRoomLink**](RoomsApi.md#setroomlink) | **PUT** /api/2.0/files/rooms/{id}/links | Set the room external or invitation link |
-| [**SetRoomSecurity**](RoomsApi.md#setroomsecurity) | **PUT** /api/2.0/files/rooms/{id}/share | Set the room access rights |
-| [**StartRoomIndexExport**](RoomsApi.md#startroomindexexport) | **POST** /api/2.0/files/rooms/{id}/indexexport | Start the room index export |
-| [**TerminateRoomIndexExport**](RoomsApi.md#terminateroomindexexport) | **DELETE** /api/2.0/files/rooms/indexexport | Terminate the room index export |
-| [**UnarchiveRoom**](RoomsApi.md#unarchiveroom) | **PUT** /api/2.0/files/rooms/{id}/unarchive | Unarchive a room |
-| [**UnpinRoom**](RoomsApi.md#unpinroom) | **PUT** /api/2.0/files/rooms/{id}/unpin | Unpin a room |
-| [**UpdateRoom**](RoomsApi.md#updateroom) | **PUT** /api/2.0/files/rooms/{id} | Update a room |
-| [**UploadRoomLogo**](RoomsApi.md#uploadroomlogo) | **POST** /api/2.0/files/logos | Upload a room logo image |
+| [**AddRoomTags**](#addroomtags) | **PUT** /api/2.0/files/rooms/{id}/tags | Add the room tags |
+| [**ArchiveRoom**](#archiveroom) | **PUT** /api/2.0/files/rooms/{id}/archive | Archive a room |
+| [**ChangeRoomCover**](#changeroomcover) | **POST** /api/2.0/files/rooms/{id}/cover | Change the room cover |
+| [**CreateRoom**](#createroom) | **POST** /api/2.0/files/rooms | Create a room |
+| [**CreateRoomFromTemplate**](#createroomfromtemplate) | **POST** /api/2.0/files/rooms/fromtemplate | Create a room from the template |
+| [**CreateRoomLogo**](#createroomlogo) | **POST** /api/2.0/files/rooms/{id}/logo | Create a room logo |
+| [**CreateRoomTag**](#createroomtag) | **POST** /api/2.0/files/tags | Create a tag |
+| [**CreateRoomTemplate**](#createroomtemplate) | **POST** /api/2.0/files/roomtemplate | Start creating room template |
+| [**CreateRoomThirdParty**](#createroomthirdparty) | **POST** /api/2.0/files/rooms/thirdparty/{id} | Create a third-party room |
+| [**DeleteCustomTags**](#deletecustomtags) | **DELETE** /api/2.0/files/tags | Delete tags |
+| [**DeleteRoom**](#deleteroom) | **DELETE** /api/2.0/files/rooms/{id} | Remove a room |
+| [**DeleteRoomLogo**](#deleteroomlogo) | **DELETE** /api/2.0/files/rooms/{id}/logo | Remove a room logo |
+| [**DeleteRoomTags**](#deleteroomtags) | **DELETE** /api/2.0/files/rooms/{id}/tags | Remove the room tags |
+| [**GetNewRoomItems**](#getnewroomitems) | **GET** /api/2.0/files/rooms/{id}/news | Get the new room items |
+| [**GetPublicSettings**](#getpublicsettings) | **GET** /api/2.0/files/roomtemplate/{id}/public | Get public settings |
+| [**GetRoomCovers**](#getroomcovers) | **GET** /api/2.0/files/rooms/covers | Get covers |
+| [**GetRoomCreatingStatus**](#getroomcreatingstatus) | **GET** /api/2.0/files/rooms/fromtemplate/status | Get the room creation progress |
+| [**GetRoomIndexExport**](#getroomindexexport) | **GET** /api/2.0/files/rooms/indexexport | Get the room index export |
+| [**GetRoomInfo**](#getroominfo) | **GET** /api/2.0/files/rooms/{id} | Get room information |
+| [**GetRoomLinks**](#getroomlinks) | **GET** /api/2.0/files/rooms/{id}/links | Get the room links |
+| [**GetRoomSecurityInfo**](#getroomsecurityinfo) | **GET** /api/2.0/files/rooms/{id}/share | Get the room access rights |
+| [**GetRoomTagsInfo**](#getroomtagsinfo) | **GET** /api/2.0/files/tags | Get tags |
+| [**GetRoomTemplateCreatingStatus**](#getroomtemplatecreatingstatus) | **GET** /api/2.0/files/roomtemplate/status | Get status of room template creation |
+| [**GetRoomsFolder**](#getroomsfolder) | **GET** /api/2.0/files/rooms | Get rooms |
+| [**GetRoomsNewItems**](#getroomsnewitems) | **GET** /api/2.0/files/rooms/news | Get the room new items |
+| [**GetRoomsPrimaryExternalLink**](#getroomsprimaryexternallink) | **GET** /api/2.0/files/rooms/{id}/link | Get the room primary external link |
+| [**PinRoom**](#pinroom) | **PUT** /api/2.0/files/rooms/{id}/pin | Pin a room |
+| [**ReorderRoom**](#reorderroom) | **PUT** /api/2.0/files/rooms/{id}/reorder | Reorder the room |
+| [**ResendEmailInvitations**](#resendemailinvitations) | **POST** /api/2.0/files/rooms/{id}/resend | Resend the room invitations |
+| [**SetPublicSettings**](#setpublicsettings) | **PUT** /api/2.0/files/roomtemplate/public | Set public settings |
+| [**SetRoomLink**](#setroomlink) | **PUT** /api/2.0/files/rooms/{id}/links | Set the room external or invitation link |
+| [**SetRoomSecurity**](#setroomsecurity) | **PUT** /api/2.0/files/rooms/{id}/share | Set the room access rights |
+| [**StartRoomIndexExport**](#startroomindexexport) | **POST** /api/2.0/files/rooms/{id}/indexexport | Start the room index export |
+| [**TerminateRoomIndexExport**](#terminateroomindexexport) | **DELETE** /api/2.0/files/rooms/indexexport | Terminate the room index export |
+| [**UnarchiveRoom**](#unarchiveroom) | **PUT** /api/2.0/files/rooms/{id}/unarchive | Unarchive a room |
+| [**UnpinRoom**](#unpinroom) | **PUT** /api/2.0/files/rooms/{id}/unpin | Unpin a room |
+| [**UpdateRoom**](#updateroom) | **PUT** /api/2.0/files/rooms/{id} | Update a room |
+| [**UploadRoomLogo**](#uploadroomlogo) | **POST** /api/2.0/files/logos | Upload a room logo image |
 
 <a id="addroomtags"></a>
 # **AddRoomTags**
 > FolderIntegerWrapper AddRoomTags (int id, BatchTagsRequestDto? batchTagsRequestDto = null)
 
 Adds the tags to a room with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/).
 
 ### Parameters
 
@@ -69,9 +71,9 @@ Adds the tags to a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -162,6 +164,8 @@ catch (ApiException e)
 
 Moves a room with the ID specified in the request to the \"Archive\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/archive-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -182,9 +186,9 @@ Moves a room with the ID specified in the request to the \"Archive\" section.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -274,6 +278,8 @@ catch (ApiException e)
 
 Changes a cover of a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -294,9 +300,9 @@ Changes a cover of a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -388,6 +394,8 @@ catch (ApiException e)
 
 Creates a room in the \"Rooms\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -407,9 +415,9 @@ Creates a room in the \"Rooms\" section.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -498,6 +506,8 @@ catch (ApiException e)
 
 Creates a room in the \"Rooms\" section based on the template.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -517,9 +527,9 @@ Creates a room in the \"Rooms\" section based on the template.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -608,6 +618,8 @@ catch (ApiException e)
 
 Creates a logo for a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -628,9 +640,9 @@ Creates a logo for a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -721,6 +733,8 @@ catch (ApiException e)
 
 Creates a custom tag with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -740,9 +754,9 @@ Creates a custom tag with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -832,6 +846,8 @@ catch (ApiException e)
 
 Starts creating the room template.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -851,9 +867,9 @@ Starts creating the room template.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -942,6 +958,8 @@ catch (ApiException e)
 
 Creates a room in the \"Rooms\" section stored in a third-party storage.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -962,9 +980,9 @@ Creates a room in the \"Rooms\" section stored in a third-party storage.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1054,6 +1072,8 @@ catch (ApiException e)
 
 Deletes a bunch of custom tags specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1073,9 +1093,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1161,6 +1181,8 @@ catch (ApiException e)
 
 Removes a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1181,9 +1203,9 @@ Removes a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1273,6 +1295,8 @@ catch (ApiException e)
 
 Removes a logo from a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1292,9 +1316,9 @@ Removes a logo from a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1383,6 +1407,8 @@ catch (ApiException e)
 
 Removes the tags from a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1403,9 +1429,9 @@ Removes the tags from a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1496,6 +1522,8 @@ catch (ApiException e)
 
 Returns a list of all the new items from a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1515,9 +1543,9 @@ Returns a list of all the new items from a room with the ID specified in the req
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1606,6 +1634,8 @@ catch (ApiException e)
 
 Returns the public settings of the room template with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1625,9 +1655,9 @@ Returns the public settings of the room template with the ID specified in the re
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1716,6 +1746,8 @@ catch (ApiException e)
 
 Returns a list of all covers.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1731,9 +1763,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1821,6 +1853,8 @@ catch (ApiException e)
 
 Returns the progress of creating a room from the template.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1836,9 +1870,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1926,6 +1960,8 @@ catch (ApiException e)
 
 Returns the room index export.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1941,9 +1977,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2031,6 +2067,8 @@ catch (ApiException e)
 
 Returns the room information.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2050,9 +2088,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2124,6 +2162,8 @@ catch (ApiException e)
 
 Returns the links of the room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-links/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2144,9 +2184,9 @@ Returns the links of the room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2236,6 +2276,8 @@ catch (ApiException e)
 
 Returns the access rights of a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-security-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2259,9 +2301,9 @@ Returns the access rights of a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2354,6 +2396,8 @@ catch (ApiException e)
 
 Returns a list of custom tags.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2375,9 +2419,9 @@ Returns a list of custom tags.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2468,6 +2512,8 @@ catch (ApiException e)
 
 Returns the progress status of the room template creation process.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -2483,9 +2529,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2573,6 +2619,8 @@ catch (ApiException e)
 
 Returns the contents of the \"Rooms\" section by the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2606,9 +2654,9 @@ Returns the contents of the \"Rooms\" section by the parameters specified in the
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2712,6 +2760,8 @@ catch (ApiException e)
 
 Returns the room new items.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -2727,9 +2777,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2817,6 +2867,8 @@ catch (ApiException e)
 
 Returns the primary external link of the room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2836,9 +2888,9 @@ Returns the primary external link of the room with the ID specified in the reque
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2928,6 +2980,8 @@ catch (ApiException e)
 
 Pins a room with the ID specified in the request to the top of the list.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2947,9 +3001,9 @@ Pins a room with the ID specified in the request to the top of the list.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3038,6 +3092,8 @@ catch (ApiException e)
 
 Reorders the room with ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3057,9 +3113,9 @@ Reorders the room with ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3148,6 +3204,8 @@ catch (ApiException e)
 
 Resends the email invitations to a room with the ID specified in the request to the selected users.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3168,9 +3226,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3256,6 +3314,8 @@ catch (ApiException e)
 
 Sets the public settings for the room template with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3275,9 +3335,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3362,6 +3422,8 @@ catch (ApiException e)
 
 Sets the room external or invitation link with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3382,9 +3444,9 @@ Sets the room external or invitation link with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3474,6 +3536,8 @@ catch (ApiException e)
 
 Sets the access rights to the room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3494,9 +3558,9 @@ Sets the access rights to the room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3586,6 +3650,8 @@ catch (ApiException e)
 
 Starts the index export of a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3605,9 +3671,9 @@ Starts the index export of a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3697,6 +3763,8 @@ catch (ApiException e)
 
 Terminates the room index export.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -3712,9 +3780,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3798,6 +3866,8 @@ catch (ApiException e)
 
 Moves a room with the ID specified in the request from the \"Archive\" section to the \"Rooms\" section.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unarchive-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3818,9 +3888,9 @@ Moves a room with the ID specified in the request from the \"Archive\" section t
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -3910,6 +3980,8 @@ catch (ApiException e)
 
 Unpins a room with the ID specified in the request from the top of the list.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -3929,9 +4001,9 @@ Unpins a room with the ID specified in the request from the top of the list.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4020,6 +4092,8 @@ catch (ApiException e)
 
 Updates a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4040,9 +4114,9 @@ Updates a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -4132,6 +4206,8 @@ catch (ApiException e)
 
 Uploads a temporary image to create a room logo.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -4151,9 +4227,9 @@ Uploads a temporary image to create a room logo.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

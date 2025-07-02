@@ -1,25 +1,27 @@
-# DocSpace.Api.SettingsSecurityApi
+# DocSpace.Sdk.Api.SettingsSecurityApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetEnabledModules**](SettingsSecurityApi.md#getenabledmodules) | **GET** /api/2.0/settings/security/modules | Get the enabled modules |
-| [**GetIsProductAdministrator**](SettingsSecurityApi.md#getisproductadministrator) | **GET** /api/2.0/settings/security/administrator | Check a product administrator |
-| [**GetPasswordSettings**](SettingsSecurityApi.md#getpasswordsettings) | **GET** /api/2.0/settings/security/password | Get the password settings |
-| [**GetProductAdministrators**](SettingsSecurityApi.md#getproductadministrators) | **GET** /api/2.0/settings/security/administrator/{productid} | Get the product administrators |
-| [**GetWebItemSecurityInfo**](SettingsSecurityApi.md#getwebitemsecurityinfo) | **GET** /api/2.0/settings/security/{id} | Get the module availability |
-| [**GetWebItemSettingsSecurityInfo**](SettingsSecurityApi.md#getwebitemsettingssecurityinfo) | **GET** /api/2.0/settings/security | Get the security settings |
-| [**SetAccessToWebItems**](SettingsSecurityApi.md#setaccesstowebitems) | **PUT** /api/2.0/settings/security/access | Set the security settings to modules |
-| [**SetProductAdministrator**](SettingsSecurityApi.md#setproductadministrator) | **PUT** /api/2.0/settings/security/administrator | Set a product administrator |
-| [**SetWebItemSecurity**](SettingsSecurityApi.md#setwebitemsecurity) | **PUT** /api/2.0/settings/security | Set the module security settings |
-| [**UpdatePasswordSettings**](SettingsSecurityApi.md#updatepasswordsettings) | **PUT** /api/2.0/settings/security/password | Set the password settings |
+| [**GetEnabledModules**](#getenabledmodules) | **GET** /api/2.0/settings/security/modules | Get the enabled modules |
+| [**GetIsProductAdministrator**](#getisproductadministrator) | **GET** /api/2.0/settings/security/administrator | Check a product administrator |
+| [**GetPasswordSettings**](#getpasswordsettings) | **GET** /api/2.0/settings/security/password | Get the password settings |
+| [**GetProductAdministrators**](#getproductadministrators) | **GET** /api/2.0/settings/security/administrator/{productid} | Get the product administrators |
+| [**GetWebItemSecurityInfo**](#getwebitemsecurityinfo) | **GET** /api/2.0/settings/security/{id} | Get the module availability |
+| [**GetWebItemSettingsSecurityInfo**](#getwebitemsettingssecurityinfo) | **GET** /api/2.0/settings/security | Get the security settings |
+| [**SetAccessToWebItems**](#setaccesstowebitems) | **PUT** /api/2.0/settings/security/access | Set the security settings to modules |
+| [**SetProductAdministrator**](#setproductadministrator) | **PUT** /api/2.0/settings/security/administrator | Set a product administrator |
+| [**SetWebItemSecurity**](#setwebitemsecurity) | **PUT** /api/2.0/settings/security | Set the module security settings |
+| [**UpdatePasswordSettings**](#updatepasswordsettings) | **PUT** /api/2.0/settings/security/password | Set the password settings |
 
 <a id="getenabledmodules"></a>
 # **GetEnabledModules**
 > ObjectWrapper GetEnabledModules ()
 
 Returns a list of all the enabled modules.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -36,9 +38,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Checks if the selected user is an administrator of a product with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -146,9 +150,9 @@ Checks if the selected user is an administrator of a product with the ID specifi
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -238,6 +242,8 @@ catch (ApiException e)
 
 Returns the portal password settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-password-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -253,9 +259,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -343,6 +349,8 @@ catch (ApiException e)
 
 Returns a list of all the administrators of a product with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -362,9 +370,9 @@ Returns a list of all the administrators of a product with the ID specified in t
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -453,6 +461,8 @@ catch (ApiException e)
 
 Returns the availability of the module with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-security-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -472,9 +482,9 @@ Returns the availability of the module with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -563,6 +573,8 @@ catch (ApiException e)
 
 Returns the security settings for the modules specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-item-settings-security-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -582,9 +594,9 @@ Returns the security settings for the modules specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -673,6 +685,8 @@ catch (ApiException e)
 
 Sets the security settings to the modules with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -692,9 +706,9 @@ Sets the security settings to the modules with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -784,6 +798,8 @@ catch (ApiException e)
 
 Sets the selected user as an administrator of a product with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -803,9 +819,9 @@ Sets the selected user as an administrator of a product with the ID specified in
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -896,6 +912,8 @@ catch (ApiException e)
 
 Sets the security settings to the module with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -915,9 +933,9 @@ Sets the security settings to the module with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1007,6 +1025,8 @@ catch (ApiException e)
 
 Sets the portal password settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1026,9 +1046,9 @@ Sets the portal password settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

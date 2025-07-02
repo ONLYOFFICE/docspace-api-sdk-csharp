@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>DocSpace.Sdk</AssemblyName>
+    <PackageId>DocSpace.Sdk</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Authors>
+    <Company>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Company>
+    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
+    <Description>OpenAPI client for DocSpace.Sdk</Description>
+    <RootNamespace>DocSpace.Sdk</RootNamespace>
+    <Version>1.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\DocSpace.Sdk.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/ONLYOFFICE/docspace-dotnet-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <Nullable>annotations</Nullable>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-# DocSpace.Model.IsDefaultWhiteLabelLogosDto
+# DocSpace.Sdk.Model.IsDefaultWhiteLabelLogosDto
 The default white label logos parameters.
 
 ## Properties

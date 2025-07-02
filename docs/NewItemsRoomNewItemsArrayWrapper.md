@@ -1,12 +1,12 @@
-# DocSpace.Model.NewItemsRoomNewItemsArrayWrapper
+# DocSpace.Sdk.Model.NewItemsRoomNewItemsArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;NewItemsDtoRoomNewItemsDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;NewItemsDtoRoomNewItemsDto&gt;**](NewItemsDtoRoomNewItemsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# DocSpace.Model.HideConfirmConvertRequestDto
+# DocSpace.Sdk.Model.HideConfirmConvertRequestDto
 The request parameters for hiding the confirmation dialog when converting.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.UpdateFile
+# DocSpace.Sdk.Model.UpdateFile
 The parameters for updating a file.
 
 ## Properties

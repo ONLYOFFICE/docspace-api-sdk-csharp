@@ -1,4 +1,4 @@
-# DocSpace.Model.EmailActivationSettings
+# DocSpace.Sdk.Model.EmailActivationSettings
 The email activation settings.
 
 ## Properties

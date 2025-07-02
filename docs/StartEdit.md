@@ -1,4 +1,4 @@
-# DocSpace.Model.StartEdit
+# DocSpace.Sdk.Model.StartEdit
 The parameters for starting file editing.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.RoomLinkRequest
+# DocSpace.Sdk.Model.RoomLinkRequest
 The room link parameters.
 
 ## Properties
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LinkId** | **Guid** | The room link ID. | [optional] 
 **Access** | **FileShare** |  | [optional] 
-**ExpirationDate** | [**ApiDateTime**](.md) |  | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Title** | **string** | The link name. | [optional] 
 **LinkType** | **LinkType** |  | [optional] 
 **Password** | **string** | The link password. | [optional] 

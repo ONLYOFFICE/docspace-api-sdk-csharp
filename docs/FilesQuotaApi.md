@@ -1,17 +1,19 @@
-# DocSpace.Api.FilesQuotaApi
+# DocSpace.Sdk.Api.FilesQuotaApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ResetRoomQuota**](FilesQuotaApi.md#resetroomquota) | **PUT** /api/2.0/files/rooms/resetquota | Reset the room quota limit |
-| [**UpdateRoomsQuota**](FilesQuotaApi.md#updateroomsquota) | **PUT** /api/2.0/files/rooms/roomquota | Change the room quota limit |
+| [**ResetRoomQuota**](#resetroomquota) | **PUT** /api/2.0/files/rooms/resetquota | Reset the room quota limit |
+| [**UpdateRoomsQuota**](#updateroomsquota) | **PUT** /api/2.0/files/rooms/roomquota | Change the room quota limit |
 
 <a id="resetroomquota"></a>
 # **ResetRoomQuota**
 > FolderIntegerArrayWrapper ResetRoomQuota (UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = null)
 
 Resets the quota limit for the rooms with the IDs specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Resets the quota limit for the rooms with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -123,6 +125,8 @@ catch (ApiException e)
 
 Changes the quota limit for the rooms with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -142,9 +146,9 @@ Changes the quota limit for the rooms with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

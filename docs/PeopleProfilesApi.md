@@ -1,29 +1,31 @@
-# DocSpace.Api.PeopleProfilesApi
+# DocSpace.Sdk.Api.PeopleProfilesApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddMember**](PeopleProfilesApi.md#addmember) | **POST** /api/2.0/people | Add a user |
-| [**DeleteMember**](PeopleProfilesApi.md#deletemember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
-| [**DeleteProfile**](PeopleProfilesApi.md#deleteprofile) | **DELETE** /api/2.0/people/@self | Delete my profile |
-| [**GetAllProfiles**](PeopleProfilesApi.md#getallprofiles) | **GET** /api/2.0/people | Get profiles |
-| [**GetClaims**](PeopleProfilesApi.md#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Returns the user claims. |
-| [**GetProfileByEmail**](PeopleProfilesApi.md#getprofilebyemail) | **GET** /api/2.0/people/email | Get a profile by user email |
-| [**GetProfileByUserId**](PeopleProfilesApi.md#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user name |
-| [**GetSelfProfile**](PeopleProfilesApi.md#getselfprofile) | **GET** /api/2.0/people/@self | Get my profile |
-| [**InviteUsers**](PeopleProfilesApi.md#inviteusers) | **POST** /api/2.0/people/invite | Invite users |
-| [**RemoveUsers**](PeopleProfilesApi.md#removeusers) | **PUT** /api/2.0/people/delete | Delete users |
-| [**ResendUserInvites**](PeopleProfilesApi.md#resenduserinvites) | **PUT** /api/2.0/people/invite | Resend activation emails |
-| [**SendEmailChangeInstructions**](PeopleProfilesApi.md#sendemailchangeinstructions) | **POST** /api/2.0/people/email | Send instructions to change email |
-| [**UpdateMember**](PeopleProfilesApi.md#updatemember) | **PUT** /api/2.0/people/{userid} | Update a user |
-| [**UpdateMemberCulture**](PeopleProfilesApi.md#updatememberculture) | **PUT** /api/2.0/people/{userid}/culture | Update a user culture code |
+| [**AddMember**](#addmember) | **POST** /api/2.0/people | Add a user |
+| [**DeleteMember**](#deletemember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
+| [**DeleteProfile**](#deleteprofile) | **DELETE** /api/2.0/people/@self | Delete my profile |
+| [**GetAllProfiles**](#getallprofiles) | **GET** /api/2.0/people | Get profiles |
+| [**GetClaims**](#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Returns the user claims. |
+| [**GetProfileByEmail**](#getprofilebyemail) | **GET** /api/2.0/people/email | Get a profile by user email |
+| [**GetProfileByUserId**](#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user name |
+| [**GetSelfProfile**](#getselfprofile) | **GET** /api/2.0/people/@self | Get my profile |
+| [**InviteUsers**](#inviteusers) | **POST** /api/2.0/people/invite | Invite users |
+| [**RemoveUsers**](#removeusers) | **PUT** /api/2.0/people/delete | Delete users |
+| [**ResendUserInvites**](#resenduserinvites) | **PUT** /api/2.0/people/invite | Resend activation emails |
+| [**SendEmailChangeInstructions**](#sendemailchangeinstructions) | **POST** /api/2.0/people/email | Send instructions to change email |
+| [**UpdateMember**](#updatemember) | **PUT** /api/2.0/people/{userid} | Update a user |
+| [**UpdateMemberCulture**](#updatememberculture) | **PUT** /api/2.0/people/{userid}/culture | Update a user culture code |
 
 <a id="addmember"></a>
 # **AddMember**
 > EmployeeFullWrapper AddMember (MemberRequestDto? memberRequestDto = null)
 
 Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/).
 
 ### Parameters
 
@@ -44,9 +46,9 @@ Adds a new portal user with the first name, last name, email address, and severa
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -136,6 +138,8 @@ catch (ApiException e)
 
 Deletes a user with the ID specified in the request from the portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -155,9 +159,9 @@ Deletes a user with the ID specified in the request from the portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -249,6 +253,8 @@ catch (ApiException e)
 
 Deletes the current user profile.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -264,9 +270,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -356,6 +362,8 @@ catch (ApiException e)
 
 Returns a list of profiles for all the portal users.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -381,9 +389,9 @@ Returns a list of profiles for all the portal users.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -478,6 +486,8 @@ catch (ApiException e)
 
 Returns the user claims.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -493,9 +503,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -583,6 +593,8 @@ catch (ApiException e)
 
 Returns the detailed information about a profile of the user with the email specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -603,9 +615,9 @@ Returns the detailed information about a profile of the user with the email spec
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -696,6 +708,8 @@ catch (ApiException e)
 
 Returns the detailed information about a profile of the user with the name specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -715,9 +729,9 @@ Returns the detailed information about a profile of the user with the name speci
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -808,6 +822,8 @@ catch (ApiException e)
 
 Returns the detailed information about the current user profile.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -823,9 +839,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -913,6 +929,8 @@ catch (ApiException e)
 
 Invites users specified in the request to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -932,9 +950,9 @@ Invites users specified in the request to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1024,6 +1042,8 @@ catch (ApiException e)
 
 Deletes a list of the users with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1043,9 +1063,9 @@ Deletes a list of the users with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1135,6 +1155,8 @@ catch (ApiException e)
 
 Resends emails to the users who have not activated their emails.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1154,9 +1176,9 @@ Resends emails to the users who have not activated their emails.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1246,6 +1268,8 @@ catch (ApiException e)
 
 Sends a message to the user email with the instructions to change the email address connected to the portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1265,9 +1289,9 @@ Sends a message to the user email with the instructions to change the email addr
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1359,6 +1383,8 @@ catch (ApiException e)
 
 Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1379,9 +1405,9 @@ Updates the data for the selected portal user with the first name, last name, em
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1474,6 +1500,8 @@ catch (ApiException e)
 
 Updates the user culture code with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1494,9 +1522,9 @@ Updates the user culture code with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

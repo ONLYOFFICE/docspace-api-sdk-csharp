@@ -1,4 +1,4 @@
-# DocSpace.Model.EmployeeFullDto
+# DocSpace.Sdk.Model.EmployeeFullDto
 The full list of user parameters.
 
 ## Properties
@@ -20,15 +20,15 @@ Name | Type | Description | Notes
 **LastName** | **string** | The user last name. | [optional] 
 **UserName** | **string** | The user username. | [optional] 
 **Email** | **string** | The user email. | [optional] 
-**Contacts** | [**List&lt;Contact&gt;**](.md) | The list of user contacts. | [optional] 
-**Birthday** | [**ApiDateTime**](.md) |  | [optional] 
+**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. | [optional] 
+**Birthday** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Sex** | **string** | The user sex. | [optional] 
 **Status** | **EmployeeStatus** |  | [optional] 
 **ActivationStatus** | **EmployeeActivationStatus** |  | [optional] 
-**Terminated** | [**ApiDateTime**](.md) |  | [optional] 
+**Terminated** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Department** | **string** | The user department. | [optional] 
-**WorkFrom** | [**ApiDateTime**](.md) |  | [optional] 
-**Groups** | [**List&lt;GroupSummaryDto&gt;**](.md) | The list of user groups. | [optional] 
+**WorkFrom** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. | [optional] 
 **Location** | **string** | The user location. | [optional] 
 **Notes** | **string** | The user notes. | [optional] 
 **IsAdmin** | **bool** | Specifies if the user is an administrator or not. | [optional] 
@@ -48,8 +48,8 @@ Name | Type | Description | Notes
 **Shared** | **bool?** | Specifies if the user has access rights. | [optional] 
 **IsCustomQuota** | **bool?** | Specifies if the user has a custom quota or not. | [optional] 
 **LoginEventId** | **int?** | The current login event ID. | [optional] 
-**CreatedBy** | [**EmployeeDto**](.md) |  | [optional] 
-**RegistrationDate** | [**ApiDateTime**](.md) |  | [optional] 
+**CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
+**RegistrationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **HasPersonalFolder** | **bool** | Specifies if the user has a personal folder or not. | [optional] 
 **TfaAppEnabled** | **bool?** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. | [optional] 
 

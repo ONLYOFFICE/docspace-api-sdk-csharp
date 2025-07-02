@@ -1,4 +1,4 @@
-# DocSpace.Model.CultureSpecificExternalResource
+# DocSpace.Sdk.Model.CultureSpecificExternalResource
 The external resource parameters.
 
 ## Properties

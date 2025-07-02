@@ -1,4 +1,4 @@
-# DocSpace.Model.SetManagerRequest
+# DocSpace.Sdk.Model.SetManagerRequest
 The request for setting a group manager.
 
 ## Properties

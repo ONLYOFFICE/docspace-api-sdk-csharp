@@ -1,4 +1,4 @@
-# DocSpace.Model.TenantUserInvitationSettingsDto
+# DocSpace.Sdk.Model.TenantUserInvitationSettingsDto
 User invitation settings
 
 ## Properties

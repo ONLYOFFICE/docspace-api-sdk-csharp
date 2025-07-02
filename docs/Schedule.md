@@ -1,4 +1,4 @@
-# DocSpace.Model.Schedule
+# DocSpace.Sdk.Model.Schedule
 
 ## Properties
 
@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StorageType** | **BackupStorageType** |  | [optional] 
 **StorageParams** | **Dictionary&lt;string, string&gt;** |  | [optional] 
-**CronParams** | [**CronParams**](.md) |  | [optional] 
+**CronParams** | [**CronParams**](CronParams.md) |  | [optional] 
 **BackupsStored** | **int?** |  | [optional] 
 **LastBackupTime** | **DateTime** |  | [optional] 
 **Dump** | **bool** |  | [optional] 

@@ -1,25 +1,27 @@
-# DocSpace.Api.PeopleUserDataApi
+# DocSpace.Sdk.Api.PeopleUserDataApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetDeletePersonalFolderProgress**](PeopleUserDataApi.md#getdeletepersonalfolderprogress) | **GET** /api/2.0/people/delete/personal/progress | Get the progress of deleting the personal folder |
-| [**GetReassignProgress**](PeopleUserDataApi.md#getreassignprogress) | **GET** /api/2.0/people/reassign/progress/{userid} | Get the reassignment progress |
-| [**GetRemoveProgress**](PeopleUserDataApi.md#getremoveprogress) | **GET** /api/2.0/people/remove/progress/{userid} | Get the deletion progress |
-| [**NecessaryReassign**](PeopleUserDataApi.md#necessaryreassign) | **GET** /api/2.0/people/reassign/necessary | Check the data reassignment need |
-| [**SendInstructionsToDelete**](PeopleUserDataApi.md#sendinstructionstodelete) | **PUT** /api/2.0/people/self/delete | Send the deletion instructions |
-| [**StartDeletePersonalFolder**](PeopleUserDataApi.md#startdeletepersonalfolder) | **POST** /api/2.0/people/delete/personal/start | Delete the personal folder |
-| [**StartReassign**](PeopleUserDataApi.md#startreassign) | **POST** /api/2.0/people/reassign/start | Start the data reassignment |
-| [**StartRemove**](PeopleUserDataApi.md#startremove) | **POST** /api/2.0/people/remove/start | Start the data deletion |
-| [**TerminateReassign**](PeopleUserDataApi.md#terminatereassign) | **PUT** /api/2.0/people/reassign/terminate | Terminate the data reassignment |
-| [**TerminateRemove**](PeopleUserDataApi.md#terminateremove) | **PUT** /api/2.0/people/remove/terminate | Terminate the data deletion |
+| [**GetDeletePersonalFolderProgress**](#getdeletepersonalfolderprogress) | **GET** /api/2.0/people/delete/personal/progress | Get the progress of deleting the personal folder |
+| [**GetReassignProgress**](#getreassignprogress) | **GET** /api/2.0/people/reassign/progress/{userid} | Get the reassignment progress |
+| [**GetRemoveProgress**](#getremoveprogress) | **GET** /api/2.0/people/remove/progress/{userid} | Get the deletion progress |
+| [**NecessaryReassign**](#necessaryreassign) | **GET** /api/2.0/people/reassign/necessary | Check the data reassignment need |
+| [**SendInstructionsToDelete**](#sendinstructionstodelete) | **PUT** /api/2.0/people/self/delete | Send the deletion instructions |
+| [**StartDeletePersonalFolder**](#startdeletepersonalfolder) | **POST** /api/2.0/people/delete/personal/start | Delete the personal folder |
+| [**StartReassign**](#startreassign) | **POST** /api/2.0/people/reassign/start | Start the data reassignment |
+| [**StartRemove**](#startremove) | **POST** /api/2.0/people/remove/start | Start the data deletion |
+| [**TerminateReassign**](#terminatereassign) | **PUT** /api/2.0/people/reassign/terminate | Terminate the data reassignment |
+| [**TerminateRemove**](#terminateremove) | **PUT** /api/2.0/people/remove/terminate | Terminate the data deletion |
 
 <a id="getdeletepersonalfolderprogress"></a>
 # **GetDeletePersonalFolderProgress**
 > TaskProgressResponseWrapper GetDeletePersonalFolderProgress ()
 
 Returns the progress of deleting the personal folder.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -36,9 +38,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Returns the progress of the started data reassignment for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -145,9 +149,9 @@ Returns the progress of the started data reassignment for the user with the ID s
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -236,6 +240,8 @@ catch (ApiException e)
 
 Returns the progress of the started data deletion for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -255,9 +261,9 @@ Returns the progress of the started data deletion for the user with the ID speci
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -346,6 +352,8 @@ catch (ApiException e)
 
 Checks if the reassignment of rooms and shared files is necessary or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -366,9 +374,9 @@ Checks if the reassignment of rooms and shared files is necessary or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -458,6 +466,8 @@ catch (ApiException e)
 
 Sends the instructions for deleting a user profile.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -473,9 +483,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -564,6 +574,8 @@ catch (ApiException e)
 
 Starts deleting the personal folder.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -579,9 +591,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -670,6 +682,8 @@ catch (ApiException e)
 
 Starts the data reassignment for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -689,9 +703,9 @@ Starts the data reassignment for the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -781,6 +795,8 @@ catch (ApiException e)
 
 Starts the data deletion for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -800,9 +816,9 @@ Starts the data deletion for the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -894,6 +910,8 @@ catch (ApiException e)
 
 Terminates the data reassignment for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -913,9 +931,9 @@ Terminates the data reassignment for the user with the ID specified in the reque
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1004,6 +1022,8 @@ catch (ApiException e)
 
 Terminates the data deletion for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1023,9 +1043,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

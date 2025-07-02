@@ -1,38 +1,40 @@
-# DocSpace.Api.FilesSettingsApi
+# DocSpace.Sdk.Api.FilesSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeAccessToThirdparty**](FilesSettingsApi.md#changeaccesstothirdparty) | **PUT** /api/2.0/files/thirdparty | Change the third-party settings access |
-| [**ChangeAutomaticallyCleanUp**](FilesSettingsApi.md#changeautomaticallycleanup) | **PUT** /api/2.0/files/settings/autocleanup | Update the trash bin auto-clearing setting |
-| [**ChangeDefaultAccessRights**](FilesSettingsApi.md#changedefaultaccessrights) | **PUT** /api/2.0/files/settings/dafaultaccessrights | Change the default access rights |
-| [**ChangeDeleteConfirm**](FilesSettingsApi.md#changedeleteconfirm) | **PUT** /api/2.0/files/changedeleteconfrim | Confirm the file deletion |
-| [**ChangeDownloadZipFromBody**](FilesSettingsApi.md#changedownloadzipfrombody) | **PUT** /api/2.0/files/settings/downloadtargz | Change the archive format (using body parameters) |
-| [**CheckDocServiceUrl**](FilesSettingsApi.md#checkdocserviceurl) | **PUT** /api/2.0/files/docservice | Check the document service URL |
-| [**DisplayFileExtension**](FilesSettingsApi.md#displayfileextension) | **PUT** /api/2.0/files/displayfileextension | Display a file extension |
-| [**ExternalShare**](FilesSettingsApi.md#externalshare) | **PUT** /api/2.0/files/settings/external | Change the external sharing ability |
-| [**ExternalShareSocialMedia**](FilesSettingsApi.md#externalsharesocialmedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
-| [**Forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
-| [**GetAutomaticallyCleanUp**](FilesSettingsApi.md#getautomaticallycleanup) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
-| [**GetDocServiceUrl**](FilesSettingsApi.md#getdocserviceurl) | **GET** /api/2.0/files/docservice | Get the document service URL |
-| [**GetFilesModule**](FilesSettingsApi.md#getfilesmodule) | **GET** /api/2.0/files/info | Get the \&quot;Documents\&quot; information |
-| [**GetFilesSettings**](FilesSettingsApi.md#getfilessettings) | **GET** /api/2.0/files/settings | Get file settings |
-| [**HideConfirmCancelOperation**](FilesSettingsApi.md#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operations |
-| [**HideConfirmConvert**](FilesSettingsApi.md#hideconfirmconvert) | **PUT** /api/2.0/files/hideconfirmconvert | Hide the confirmation dialog when converting |
-| [**HideConfirmRoomLifetime**](FilesSettingsApi.md#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
-| [**IsAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the \&quot;Private Room\&quot; availability |
-| [**KeepNewFileName**](FilesSettingsApi.md#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
-| [**SetOpenEditorInSameTab**](FilesSettingsApi.md#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
-| [**StoreForcesave**](FilesSettingsApi.md#storeforcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
-| [**StoreOriginal**](FilesSettingsApi.md#storeoriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
-| [**UpdateFileIfExist**](FilesSettingsApi.md#updatefileifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
+| [**ChangeAccessToThirdparty**](#changeaccesstothirdparty) | **PUT** /api/2.0/files/thirdparty | Change the third-party settings access |
+| [**ChangeAutomaticallyCleanUp**](#changeautomaticallycleanup) | **PUT** /api/2.0/files/settings/autocleanup | Update the trash bin auto-clearing setting |
+| [**ChangeDefaultAccessRights**](#changedefaultaccessrights) | **PUT** /api/2.0/files/settings/dafaultaccessrights | Change the default access rights |
+| [**ChangeDeleteConfirm**](#changedeleteconfirm) | **PUT** /api/2.0/files/changedeleteconfrim | Confirm the file deletion |
+| [**ChangeDownloadZipFromBody**](#changedownloadzipfrombody) | **PUT** /api/2.0/files/settings/downloadtargz | Change the archive format (using body parameters) |
+| [**CheckDocServiceUrl**](#checkdocserviceurl) | **PUT** /api/2.0/files/docservice | Check the document service URL |
+| [**DisplayFileExtension**](#displayfileextension) | **PUT** /api/2.0/files/displayfileextension | Display a file extension |
+| [**ExternalShare**](#externalshare) | **PUT** /api/2.0/files/settings/external | Change the external sharing ability |
+| [**ExternalShareSocialMedia**](#externalsharesocialmedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
+| [**Forcesave**](#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
+| [**GetAutomaticallyCleanUp**](#getautomaticallycleanup) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
+| [**GetDocServiceUrl**](#getdocserviceurl) | **GET** /api/2.0/files/docservice | Get the document service URL |
+| [**GetFilesModule**](#getfilesmodule) | **GET** /api/2.0/files/info | Get the \&quot;Documents\&quot; information |
+| [**GetFilesSettings**](#getfilessettings) | **GET** /api/2.0/files/settings | Get file settings |
+| [**HideConfirmCancelOperation**](#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operations |
+| [**HideConfirmConvert**](#hideconfirmconvert) | **PUT** /api/2.0/files/hideconfirmconvert | Hide the confirmation dialog when converting |
+| [**HideConfirmRoomLifetime**](#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
+| [**IsAvailablePrivacyRoomSettings**](#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the \&quot;Private Room\&quot; availability |
+| [**KeepNewFileName**](#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
+| [**SetOpenEditorInSameTab**](#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
+| [**StoreForcesave**](#storeforcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
+| [**StoreOriginal**](#storeoriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
+| [**UpdateFileIfExist**](#updatefileifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
 
 <a id="changeaccesstothirdparty"></a>
 # **ChangeAccessToThirdparty**
 > BooleanWrapper ChangeAccessToThirdparty (SettingsRequestDto? settingsRequestDto = null)
 
 Changes the access to the third-party settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/).
 
 ### Parameters
 
@@ -53,9 +55,9 @@ Changes the access to the third-party settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -144,6 +146,8 @@ catch (ApiException e)
 
 Updates the trash bin auto-clearing setting.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -163,9 +167,9 @@ Updates the trash bin auto-clearing setting.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -254,6 +258,8 @@ catch (ApiException e)
 
 Changes the default access rights in the sharing settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -273,9 +279,9 @@ Changes the default access rights in the sharing settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -364,6 +370,8 @@ catch (ApiException e)
 
 Specifies whether to confirm the file deletion or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -383,9 +391,9 @@ Specifies whether to confirm the file deletion or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -474,6 +482,8 @@ catch (ApiException e)
 
 Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -493,9 +503,9 @@ Changes the format of the downloaded archive from .zip to .tar.gz. This method u
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -584,6 +594,8 @@ catch (ApiException e)
 
 Checks the document service location URL.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -603,9 +615,9 @@ Checks the document service location URL.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -695,6 +707,8 @@ catch (ApiException e)
 
 Specifies whether to display a file extension or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -714,9 +728,9 @@ Specifies whether to display a file extension or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -805,6 +819,8 @@ catch (ApiException e)
 
 Changes the ability to share a file externally.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -824,9 +840,9 @@ Changes the ability to share a file externally.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -915,6 +931,8 @@ catch (ApiException e)
 
 Changes the ability to share a file externally on social networks.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -934,9 +952,9 @@ Changes the ability to share a file externally on social networks.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1025,6 +1043,8 @@ catch (ApiException e)
 
 Specifies if the file forcesaving is enabled or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1040,9 +1060,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1130,6 +1150,8 @@ catch (ApiException e)
 
 Returns the trash bin auto-clearing setting.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1145,9 +1167,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1235,6 +1257,8 @@ catch (ApiException e)
 
 Returns the URL address of the connected editors.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1254,9 +1278,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1328,6 +1352,8 @@ catch (ApiException e)
 
 Returns the information about the \"Documents\" module.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1343,9 +1369,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1433,6 +1459,8 @@ catch (ApiException e)
 
 Returns all the file settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1448,9 +1476,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1521,6 +1549,8 @@ catch (ApiException e)
 
 Hides the confirmation dialog when canceling operations.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1540,9 +1570,9 @@ Hides the confirmation dialog when canceling operations.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1631,6 +1661,8 @@ catch (ApiException e)
 
 Hides the confirmation dialog for saving the file copy in the original format when converting a file.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1650,9 +1682,9 @@ Hides the confirmation dialog for saving the file copy in the original format wh
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1741,6 +1773,8 @@ catch (ApiException e)
 
 Hides the confirmation dialog when changing the room lifetime settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1760,9 +1794,9 @@ Hides the confirmation dialog when changing the room lifetime settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1851,6 +1885,8 @@ catch (ApiException e)
 
 Checks if the \"Private Room\" settings are available or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1866,9 +1902,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1956,6 +1992,8 @@ catch (ApiException e)
 
 Specifies whether to ask a user for a file name on creation or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1975,9 +2013,9 @@ Specifies whether to ask a user for a file name on creation or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2066,6 +2104,8 @@ catch (ApiException e)
 
 Changes the ability to open the document in the same browser tab.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2085,9 +2125,9 @@ Changes the ability to open the document in the same browser tab.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2176,6 +2216,8 @@ catch (ApiException e)
 
 Changes the ability to store the forcesaved file versions.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -2191,9 +2233,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2281,6 +2323,8 @@ catch (ApiException e)
 
 Changes the ability to upload documents in the original formats as well.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2300,9 +2344,9 @@ Changes the ability to upload documents in the original formats as well.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2391,6 +2435,8 @@ catch (ApiException e)
 
 Updates a file version if a file with such a name already exists.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2410,9 +2456,9 @@ Updates a file version if a file with such a name already exists.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

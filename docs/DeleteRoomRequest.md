@@ -1,4 +1,4 @@
-# DocSpace.Model.DeleteRoomRequest
+# DocSpace.Sdk.Model.DeleteRoomRequest
 The parameters for deleting a room.
 
 ## Properties

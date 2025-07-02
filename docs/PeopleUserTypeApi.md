@@ -1,19 +1,21 @@
-# DocSpace.Api.PeopleUserTypeApi
+# DocSpace.Sdk.Api.PeopleUserTypeApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetUserTypeUpdateProgress**](PeopleUserTypeApi.md#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
-| [**StarUserTypetUpdate**](PeopleUserTypeApi.md#starusertypetupdate) | **POST** /api/2.0/people/type | Update user type |
-| [**TerminateUserTypeUpdate**](PeopleUserTypeApi.md#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
-| [**UpdateUserType**](PeopleUserTypeApi.md#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
+| [**GetUserTypeUpdateProgress**](#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
+| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Update user type |
+| [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
+| [**UpdateUserType**](#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
 
 <a id="getusertypeupdateprogress"></a>
 # **GetUserTypeUpdateProgress**
 > TaskProgressResponseWrapper GetUserTypeUpdateProgress (Guid userid)
 
 Returns the progress of updating the user type.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/).
 
 ### Parameters
 
@@ -34,9 +36,9 @@ Returns the progress of updating the user type.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -125,6 +127,8 @@ catch (ApiException e)
 
 Starts updating the type of the user or guest when reassigning rooms and shared files.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -144,9 +148,9 @@ Starts updating the type of the user or guest when reassigning rooms and shared 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -236,6 +240,8 @@ catch (ApiException e)
 
 Terminates the process of updating the type of the user or guest.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-user-type-update/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -255,9 +261,9 @@ Terminates the process of updating the type of the user or guest.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -346,6 +352,8 @@ catch (ApiException e)
 
 Changes a type of the users with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -366,9 +374,9 @@ Changes a type of the users with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

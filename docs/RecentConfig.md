@@ -1,4 +1,4 @@
-# DocSpace.Model.RecentConfig
+# DocSpace.Sdk.Model.RecentConfig
 The presence or absence of the documents in the \"Open Recent...\" menu option.
 
 ## Properties

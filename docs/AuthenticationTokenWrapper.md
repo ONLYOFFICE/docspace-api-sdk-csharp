@@ -1,12 +1,12 @@
-# DocSpace.Model.AuthenticationTokenWrapper
+# DocSpace.Sdk.Model.AuthenticationTokenWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**AuthenticationTokenDto**](.md) |  | [optional] 
+**Response** | [**AuthenticationTokenDto**](AuthenticationTokenDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

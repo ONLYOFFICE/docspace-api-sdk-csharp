@@ -1,4 +1,4 @@
-# DocSpace.Model.TenantQuotaSettingsRequestsDto
+# DocSpace.Sdk.Model.TenantQuotaSettingsRequestsDto
 The request parameters for managing the tenant storage quota settings in a multi-tenant system.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.GroupSummaryDto
+# DocSpace.Sdk.Model.GroupSummaryDto
 The group summary parameters.
 
 ## Properties

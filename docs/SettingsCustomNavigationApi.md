@@ -1,20 +1,22 @@
-# DocSpace.Api.SettingsCustomNavigationApi
+# DocSpace.Sdk.Api.SettingsCustomNavigationApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateCustomNavigationItem**](SettingsCustomNavigationApi.md#createcustomnavigationitem) | **POST** /api/2.0/settings/customnavigation/create | Add a custom navigation item |
-| [**DeleteCustomNavigationItem**](SettingsCustomNavigationApi.md#deletecustomnavigationitem) | **DELETE** /api/2.0/settings/customnavigation/delete/{id} | Delete a custom navigation item |
-| [**GetCustomNavigationItem**](SettingsCustomNavigationApi.md#getcustomnavigationitem) | **GET** /api/2.0/settings/customnavigation/get/{id} | Get a custom navigation item by ID |
-| [**GetCustomNavigationItemSample**](SettingsCustomNavigationApi.md#getcustomnavigationitemsample) | **GET** /api/2.0/settings/customnavigation/getsample | Get a custom navigation item sample |
-| [**GetCustomNavigationItems**](SettingsCustomNavigationApi.md#getcustomnavigationitems) | **GET** /api/2.0/settings/customnavigation/getall | Get the custom navigation items |
+| [**CreateCustomNavigationItem**](#createcustomnavigationitem) | **POST** /api/2.0/settings/customnavigation/create | Add a custom navigation item |
+| [**DeleteCustomNavigationItem**](#deletecustomnavigationitem) | **DELETE** /api/2.0/settings/customnavigation/delete/{id} | Delete a custom navigation item |
+| [**GetCustomNavigationItem**](#getcustomnavigationitem) | **GET** /api/2.0/settings/customnavigation/get/{id} | Get a custom navigation item by ID |
+| [**GetCustomNavigationItemSample**](#getcustomnavigationitemsample) | **GET** /api/2.0/settings/customnavigation/getsample | Get a custom navigation item sample |
+| [**GetCustomNavigationItems**](#getcustomnavigationitems) | **GET** /api/2.0/settings/customnavigation/getall | Get the custom navigation items |
 
 <a id="createcustomnavigationitem"></a>
 # **CreateCustomNavigationItem**
 > CustomNavigationItemWrapper CreateCustomNavigationItem (CustomNavigationItem? customNavigationItem = null)
 
 Adds a custom navigation item with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-custom-navigation-item/).
 
 ### Parameters
 
@@ -35,9 +37,9 @@ Adds a custom navigation item with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Deletes a custom navigation item with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-navigation-item/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -145,9 +149,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -232,6 +236,8 @@ catch (ApiException e)
 
 Returns a custom navigation item by the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -251,9 +257,9 @@ Returns a custom navigation item by the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -342,6 +348,8 @@ catch (ApiException e)
 
 Returns a sample of the custom navigation item.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-item-sample/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -357,9 +365,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -447,6 +455,8 @@ catch (ApiException e)
 
 Returns a list of the custom navigation items.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-custom-navigation-items/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -462,9 +472,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

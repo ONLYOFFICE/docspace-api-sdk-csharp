@@ -1,12 +1,12 @@
-# DocSpace.Model.UsageSpaceStatItemArrayWrapper
+# DocSpace.Sdk.Model.UsageSpaceStatItemArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;UsageSpaceStatItemDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;UsageSpaceStatItemDto&gt;**](UsageSpaceStatItemDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

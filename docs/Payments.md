@@ -1,4 +1,4 @@
-# DocSpace.Model.Payments
+# DocSpace.Sdk.Model.Payments
 [0 - Paid, 1 - Free]
 
 ## Properties

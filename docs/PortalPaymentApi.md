@@ -1,36 +1,38 @@
-# DocSpace.Api.PortalPaymentApi
+# DocSpace.Sdk.Api.PortalPaymentApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CalculateWalletPayment**](PortalPaymentApi.md#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate amount of the wallet payment |
-| [**CreateCustomerOperationsReport**](PortalPaymentApi.md#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Generate the customer operations report |
-| [**GetAccountingCurrencies**](PortalPaymentApi.md#getaccountingcurrencies) | **GET** /api/2.0/portal/payment/accounting/currencies | Get list of currencies |
-| [**GetCheckoutSetupUrl**](PortalPaymentApi.md#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the checkout setup page URL |
-| [**GetCustomerBalance**](PortalPaymentApi.md#getcustomerbalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
-| [**GetCustomerInfo**](PortalPaymentApi.md#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer info |
-| [**GetCustomerOperations**](PortalPaymentApi.md#getcustomeroperations) | **GET** /api/2.0/portal/payment/customer/operations | Get the customer operations |
-| [**GetPaymentAccount**](PortalPaymentApi.md#getpaymentaccount) | **GET** /api/2.0/portal/payment/account | Get the payment account |
-| [**GetPaymentCurrencies**](PortalPaymentApi.md#getpaymentcurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
-| [**GetPaymentQuotas**](PortalPaymentApi.md#getpaymentquotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
-| [**GetPaymentUrl**](PortalPaymentApi.md#getpaymenturl) | **PUT** /api/2.0/portal/payment/url | Get the payment page URL |
-| [**GetPortalPrices**](PortalPaymentApi.md#getportalprices) | **GET** /api/2.0/portal/payment/prices | Get prices |
-| [**GetQuotaPaymentInformation**](PortalPaymentApi.md#getquotapaymentinformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
-| [**GetTenantWalletSettings**](PortalPaymentApi.md#gettenantwalletsettings) | **GET** /api/2.0/portal/payment/topupsettings | Get wallet auto top up settings |
-| [**OpenCustomerSession**](PortalPaymentApi.md#opencustomersession) | **POST** /api/2.0/portal/payment/customer/opensession | Open customer session |
-| [**PerformCustomerOperation**](PortalPaymentApi.md#performcustomeroperation) | **POST** /api/2.0/portal/payment/customer/performoperation | Perform customer operation |
-| [**SendPaymentRequest**](PortalPaymentApi.md#sendpaymentrequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
-| [**SetTenantWalletSettings**](PortalPaymentApi.md#settenantwalletsettings) | **POST** /api/2.0/portal/payment/topupsettings | Set wallet auto top up settings |
-| [**TopUpDeposit**](PortalPaymentApi.md#topupdeposit) | **POST** /api/2.0/portal/payment/deposit | Put money on deposit |
-| [**UpdatePayment**](PortalPaymentApi.md#updatepayment) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
-| [**UpdateWalletPayment**](PortalPaymentApi.md#updatewalletpayment) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
+| [**CalculateWalletPayment**](#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate amount of the wallet payment |
+| [**CreateCustomerOperationsReport**](#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Generate the customer operations report |
+| [**GetAccountingCurrencies**](#getaccountingcurrencies) | **GET** /api/2.0/portal/payment/accounting/currencies | Get list of currencies |
+| [**GetCheckoutSetupUrl**](#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the checkout setup page URL |
+| [**GetCustomerBalance**](#getcustomerbalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
+| [**GetCustomerInfo**](#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer info |
+| [**GetCustomerOperations**](#getcustomeroperations) | **GET** /api/2.0/portal/payment/customer/operations | Get the customer operations |
+| [**GetPaymentAccount**](#getpaymentaccount) | **GET** /api/2.0/portal/payment/account | Get the payment account |
+| [**GetPaymentCurrencies**](#getpaymentcurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
+| [**GetPaymentQuotas**](#getpaymentquotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
+| [**GetPaymentUrl**](#getpaymenturl) | **PUT** /api/2.0/portal/payment/url | Get the payment page URL |
+| [**GetPortalPrices**](#getportalprices) | **GET** /api/2.0/portal/payment/prices | Get prices |
+| [**GetQuotaPaymentInformation**](#getquotapaymentinformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
+| [**GetTenantWalletSettings**](#gettenantwalletsettings) | **GET** /api/2.0/portal/payment/topupsettings | Get wallet auto top up settings |
+| [**OpenCustomerSession**](#opencustomersession) | **POST** /api/2.0/portal/payment/customer/opensession | Open customer session |
+| [**PerformCustomerOperation**](#performcustomeroperation) | **POST** /api/2.0/portal/payment/customer/performoperation | Perform customer operation |
+| [**SendPaymentRequest**](#sendpaymentrequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
+| [**SetTenantWalletSettings**](#settenantwalletsettings) | **POST** /api/2.0/portal/payment/topupsettings | Set wallet auto top up settings |
+| [**TopUpDeposit**](#topupdeposit) | **POST** /api/2.0/portal/payment/deposit | Put money on deposit |
+| [**UpdatePayment**](#updatepayment) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
+| [**UpdateWalletPayment**](#updatewalletpayment) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
 
 <a id="calculatewalletpayment"></a>
 # **CalculateWalletPayment**
 > PaymentCalculationWrapper CalculateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
 
 Calculate amount of the wallet payment with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/).
 
 ### Parameters
 
@@ -51,9 +53,9 @@ Calculate amount of the wallet payment with the parameters specified in the requ
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -143,6 +145,8 @@ catch (ApiException e)
 
 Generates the customer operations report as csv file and save in Documents.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -162,9 +166,9 @@ Generates the customer operations report as csv file and save in Documents.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -253,6 +257,8 @@ catch (ApiException e)
 
 Returns the list of currencies from accounting service.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-currencies/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -268,9 +274,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -359,6 +365,8 @@ catch (ApiException e)
 
 Returns the URL to the checkout setup page.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -378,9 +386,9 @@ Returns the URL to the checkout setup page.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -470,6 +478,8 @@ catch (ApiException e)
 
 Returns the customer balance from the accounting service.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-balance/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -489,9 +499,9 @@ Returns the customer balance from the accounting service.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -581,6 +591,8 @@ catch (ApiException e)
 
 Returns the customer info.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -600,9 +612,9 @@ Returns the customer info.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -692,6 +704,8 @@ catch (ApiException e)
 
 Returns the report of customer operations from the accounting service.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -716,9 +730,9 @@ Returns the report of customer operations from the accounting service.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -813,6 +827,8 @@ catch (ApiException e)
 
 Returns the URL to the payment account.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-account/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -832,9 +848,9 @@ Returns the URL to the payment account.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -924,6 +940,8 @@ catch (ApiException e)
 
 Returns the available portal currencies.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-currencies/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -939,9 +957,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1029,6 +1047,8 @@ catch (ApiException e)
 
 Returns the available portal quotas.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1048,9 +1068,9 @@ Returns the available portal quotas.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1139,6 +1159,8 @@ catch (ApiException e)
 
 Returns the URL to the payment page.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-url/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1158,9 +1180,9 @@ Returns the URL to the payment page.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1250,6 +1272,8 @@ catch (ApiException e)
 
 Returns the available portal prices.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-prices/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1265,9 +1289,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1355,6 +1379,8 @@ catch (ApiException e)
 
 Returns the payment information about the current portal quota.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-quota-payment-information/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1374,9 +1400,9 @@ Returns the payment information about the current portal quota.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1466,6 +1492,8 @@ catch (ApiException e)
 
 Returns the wallet auto top up settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -1481,9 +1509,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1572,6 +1600,8 @@ catch (ApiException e)
 
 Trying to open a customer session and block amount money on the balance.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/open-customer-session/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1591,9 +1621,9 @@ Trying to open a customer session and block amount money on the balance.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1683,6 +1713,8 @@ catch (ApiException e)
 
 Perform customer operation and return true if the operation is succesfully provided.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/perform-customer-operation/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1702,9 +1734,9 @@ Perform customer operation and return true if the operation is succesfully provi
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1794,6 +1826,8 @@ catch (ApiException e)
 
 Sends a request for the portal payment.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1813,9 +1847,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1902,6 +1936,8 @@ catch (ApiException e)
 
 Set the wallet auto top up settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1921,9 +1957,9 @@ Set the wallet auto top up settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2013,6 +2049,8 @@ catch (ApiException e)
 
 Returns result of putting money on deposit.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2032,9 +2070,9 @@ Returns result of putting money on deposit.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2124,6 +2162,8 @@ catch (ApiException e)
 
 Updates the payment quantity with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-payment/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2143,9 +2183,9 @@ Updates the payment quantity with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -2235,6 +2275,8 @@ catch (ApiException e)
 
 Updates the wallet payment quantity with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-wallet-payment/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -2254,9 +2296,9 @@ Updates the wallet payment quantity with the parameters specified in the request
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

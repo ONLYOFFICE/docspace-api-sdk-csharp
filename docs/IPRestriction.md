@@ -1,4 +1,4 @@
-# DocSpace.Model.IPRestriction
+# DocSpace.Sdk.Model.IPRestriction
 
 ## Properties
 

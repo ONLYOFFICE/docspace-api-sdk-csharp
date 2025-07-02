@@ -1,4 +1,4 @@
-# DocSpace.Model.LoginSettingsRequestDto
+# DocSpace.Sdk.Model.LoginSettingsRequestDto
 The request parameters for configuring login security and performance settings.
 
 ## Properties

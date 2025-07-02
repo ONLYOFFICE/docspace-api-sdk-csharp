@@ -1,4 +1,4 @@
-# DocSpace.Model.BackupProgressEnum
+# DocSpace.Sdk.Model.BackupProgressEnum
 [0 - Backup, 1 - Restore, 2 - Transfer]
 
 ## Properties

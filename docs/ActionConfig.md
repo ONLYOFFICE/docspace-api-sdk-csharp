@@ -1,4 +1,4 @@
-# DocSpace.Model.ActionConfig
+# DocSpace.Sdk.Model.ActionConfig
 The information about the action in the document that will be scrolled to.
 
 ## Properties

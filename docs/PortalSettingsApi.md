@@ -1,22 +1,24 @@
-# DocSpace.Api.PortalSettingsApi
+# DocSpace.Sdk.Api.PortalSettingsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ContinuePortal**](PortalSettingsApi.md#continueportal) | **PUT** /api/2.0/portal/continue | Restore a portal |
-| [**DeletePortal**](PortalSettingsApi.md#deleteportal) | **DELETE** /api/2.0/portal/delete | Delete a portal |
-| [**GetPortalInformation**](PortalSettingsApi.md#getportalinformation) | **GET** /api/2.0/portal | Get a portal |
-| [**GetPortalPath**](PortalSettingsApi.md#getportalpath) | **GET** /api/2.0/portal/path | Get a path to the portal |
-| [**SendDeleteInstructions**](PortalSettingsApi.md#senddeleteinstructions) | **POST** /api/2.0/portal/delete | Send removal instructions |
-| [**SendSuspendInstructions**](PortalSettingsApi.md#sendsuspendinstructions) | **POST** /api/2.0/portal/suspend | Send suspension instructions |
-| [**SuspendPortal**](PortalSettingsApi.md#suspendportal) | **PUT** /api/2.0/portal/suspend | Deactivate a portal |
+| [**ContinuePortal**](#continueportal) | **PUT** /api/2.0/portal/continue | Restore a portal |
+| [**DeletePortal**](#deleteportal) | **DELETE** /api/2.0/portal/delete | Delete a portal |
+| [**GetPortalInformation**](#getportalinformation) | **GET** /api/2.0/portal | Get a portal |
+| [**GetPortalPath**](#getportalpath) | **GET** /api/2.0/portal/path | Get a path to the portal |
+| [**SendDeleteInstructions**](#senddeleteinstructions) | **POST** /api/2.0/portal/delete | Send removal instructions |
+| [**SendSuspendInstructions**](#sendsuspendinstructions) | **POST** /api/2.0/portal/suspend | Send suspension instructions |
+| [**SuspendPortal**](#suspendportal) | **PUT** /api/2.0/portal/suspend | Deactivate a portal |
 
 <a id="continueportal"></a>
 # **ContinuePortal**
 > void ContinuePortal ()
 
 Restores the current portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-portal/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -33,9 +35,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -119,6 +121,8 @@ catch (ApiException e)
 
 Deletes the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -134,9 +138,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -224,6 +228,8 @@ catch (ApiException e)
 
 Returns the current portal information.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-information/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -239,9 +245,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -329,6 +335,8 @@ catch (ApiException e)
 
 Returns the full absolute path to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -348,9 +356,9 @@ Returns the full absolute path to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -439,6 +447,8 @@ catch (ApiException e)
 
 Sends the instructions to remove the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-delete-instructions/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -454,9 +464,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -540,6 +550,8 @@ catch (ApiException e)
 
 Sends the instructions to suspend the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-suspend-instructions/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -555,9 +567,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -641,6 +653,8 @@ catch (ApiException e)
 
 Deactivates the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -656,9 +670,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

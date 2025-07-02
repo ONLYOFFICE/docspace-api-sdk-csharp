@@ -1,4 +1,4 @@
-# DocSpace.Model.CopyAsJsonElementDestFolderId
+# DocSpace.Sdk.Model.CopyAsJsonElementDestFolderId
 The destination folder ID of the copied file.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.PageableResponse
+# DocSpace.Sdk.Model.PageableResponse
 The response containing paginated data.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.ClientSecretResponse
+# DocSpace.Sdk.Model.ClientSecretResponse
 The response containing the regenerated client secret.
 
 ## Properties

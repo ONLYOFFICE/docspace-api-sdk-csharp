@@ -1,16 +1,18 @@
-# DocSpace.Api.SettingsStatisticsApi
+# DocSpace.Sdk.Api.SettingsStatisticsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetSpaceUsageStatistics**](SettingsStatisticsApi.md#getspaceusagestatistics) | **GET** /api/2.0/settings/statistics/spaceusage/{id} | Get the space usage statistics |
+| [**GetSpaceUsageStatistics**](#getspaceusagestatistics) | **GET** /api/2.0/settings/statistics/spaceusage/{id} | Get the space usage statistics |
 
 <a id="getspaceusagestatistics"></a>
 # **GetSpaceUsageStatistics**
 > UsageSpaceStatItemArrayWrapper GetSpaceUsageStatistics (Guid id)
 
 Returns the space usage statistics for the module with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/).
 
 ### Parameters
 
@@ -31,9 +33,9 @@ Returns the space usage statistics for the module with the ID specified in the r
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

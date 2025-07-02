@@ -1,4 +1,4 @@
-# DocSpace.Model.AutoCleanUpData
+# DocSpace.Sdk.Model.AutoCleanUpData
 The auto-clearing setting parameters.
 
 ## Properties

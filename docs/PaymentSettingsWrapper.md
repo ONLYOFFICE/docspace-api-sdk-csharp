@@ -1,12 +1,12 @@
-# DocSpace.Model.PaymentSettingsWrapper
+# DocSpace.Sdk.Model.PaymentSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**PaymentSettingsDto**](.md) |  | [optional] 
+**Response** | [**PaymentSettingsDto**](PaymentSettingsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

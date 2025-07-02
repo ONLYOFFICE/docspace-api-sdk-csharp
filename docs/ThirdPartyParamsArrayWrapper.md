@@ -1,12 +1,12 @@
-# DocSpace.Model.ThirdPartyParamsArrayWrapper
+# DocSpace.Sdk.Model.ThirdPartyParamsArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;ThirdPartyParams&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;ThirdPartyParams&gt;**](ThirdPartyParams.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# DocSpace.Model.ManageFormFillingDtoInteger
+# DocSpace.Sdk.Model.ManageFormFillingDtoInteger
 The parameters for managing form filling.
 
 ## Properties

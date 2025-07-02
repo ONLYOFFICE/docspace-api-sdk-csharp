@@ -1,4 +1,4 @@
-# DocSpace.Model.LogoCover
+# DocSpace.Sdk.Model.LogoCover
 The logo cover information.
 
 ## Properties

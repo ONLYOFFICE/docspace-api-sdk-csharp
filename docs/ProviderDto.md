@@ -1,4 +1,4 @@
-# DocSpace.Model.ProviderDto
+# DocSpace.Sdk.Model.ProviderDto
 The provider information.
 
 ## Properties

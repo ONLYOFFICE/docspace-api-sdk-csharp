@@ -1,18 +1,20 @@
-# DocSpace.Api.PeopleContactsApi
+# DocSpace.Sdk.Api.PeopleContactsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteMemberContacts**](PeopleContactsApi.md#deletemembercontacts) | **DELETE** /api/2.0/people/{userid}/contacts | Delete user contacts |
-| [**SetMemberContacts**](PeopleContactsApi.md#setmembercontacts) | **POST** /api/2.0/people/{userid}/contacts | Set user contacts |
-| [**UpdateMemberContacts**](PeopleContactsApi.md#updatemembercontacts) | **PUT** /api/2.0/people/{userid}/contacts | Update user contacts |
+| [**DeleteMemberContacts**](#deletemembercontacts) | **DELETE** /api/2.0/people/{userid}/contacts | Delete user contacts |
+| [**SetMemberContacts**](#setmembercontacts) | **POST** /api/2.0/people/{userid}/contacts | Set user contacts |
+| [**UpdateMemberContacts**](#updatemembercontacts) | **PUT** /api/2.0/people/{userid}/contacts | Update user contacts |
 
 <a id="deletemembercontacts"></a>
 # **DeleteMemberContacts**
 > EmployeeFullWrapper DeleteMemberContacts (string userid, ContactsRequest? contactsRequest = null)
 
 Deletes the contacts of the user with the ID specified in the request from the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-contacts/).
 
 ### Parameters
 
@@ -34,9 +36,9 @@ Deletes the contacts of the user with the ID specified in the request from the p
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -128,6 +130,8 @@ catch (ApiException e)
 
 Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-member-contacts/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -148,9 +152,9 @@ Sets the contacts of the user with the ID specified in the request replacing the
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -242,6 +246,8 @@ catch (ApiException e)
 
 Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-contacts/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -262,9 +268,9 @@ Updates the contact information of the user with the ID specified in the request
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

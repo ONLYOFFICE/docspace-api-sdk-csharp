@@ -1,12 +1,12 @@
-# DocSpace.Model.DarkThemeSettingsWrapper
+# DocSpace.Sdk.Model.DarkThemeSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DarkThemeSettings**](.md) |  | [optional] 
+**Response** | [**DarkThemeSettings**](DarkThemeSettings.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# DocSpace.Model.SettingsRequestDto
+# DocSpace.Sdk.Model.SettingsRequestDto
 The settings request parameters.
 
 ## Properties

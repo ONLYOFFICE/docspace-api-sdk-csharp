@@ -1,18 +1,20 @@
-# DocSpace.Api.PeopleUserStatusApi
+# DocSpace.Sdk.Api.PeopleUserStatusApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetByStatus**](PeopleUserStatusApi.md#getbystatus) | **GET** /api/2.0/people/status/{status} | Get profiles by status |
-| [**UpdateUserActivationStatus**](PeopleUserStatusApi.md#updateuseractivationstatus) | **PUT** /api/2.0/people/activationstatus/{activationstatus} | Set an activation status to the users |
-| [**UpdateUserStatus**](PeopleUserStatusApi.md#updateuserstatus) | **PUT** /api/2.0/people/status/{status} | Change a user status |
+| [**GetByStatus**](#getbystatus) | **GET** /api/2.0/people/status/{status} | Get profiles by status |
+| [**UpdateUserActivationStatus**](#updateuseractivationstatus) | **PUT** /api/2.0/people/activationstatus/{activationstatus} | Set an activation status to the users |
+| [**UpdateUserStatus**](#updateuserstatus) | **PUT** /api/2.0/people/status/{status} | Change a user status |
 
 <a id="getbystatus"></a>
 # **GetByStatus**
 > EmployeeFullArrayWrapper GetByStatus (EmployeeStatus status, string? filterBy = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a list of profiles filtered by the user status.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-by-status/).
 
 ### Parameters
 
@@ -40,9 +42,9 @@ Returns a list of profiles filtered by the user status.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -138,6 +140,8 @@ catch (ApiException e)
 
 Sets the required activation status to the list of users with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -158,9 +162,9 @@ Sets the required activation status to the list of users with the IDs specified 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -250,6 +254,8 @@ catch (ApiException e)
 
 Changes a status of the users with the IDs specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -270,9 +276,9 @@ Changes a status of the users with the IDs specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

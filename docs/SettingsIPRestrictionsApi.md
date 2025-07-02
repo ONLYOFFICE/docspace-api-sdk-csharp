@@ -1,19 +1,21 @@
-# DocSpace.Api.SettingsIPRestrictionsApi
+# DocSpace.Sdk.Api.SettingsIPRestrictionsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetIpRestrictions**](SettingsIPRestrictionsApi.md#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get the IP portal restrictions |
-| [**ReadIpRestrictionsSettings**](SettingsIPRestrictionsApi.md#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get the IP restriction settings |
-| [**SaveIpRestrictions**](SettingsIPRestrictionsApi.md#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Update the IP restrictions |
-| [**UpdateIpRestrictionsSettings**](SettingsIPRestrictionsApi.md#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update the IP restriction settings |
+| [**GetIpRestrictions**](#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get the IP portal restrictions |
+| [**ReadIpRestrictionsSettings**](#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get the IP restriction settings |
+| [**SaveIpRestrictions**](#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Update the IP restrictions |
+| [**UpdateIpRestrictionsSettings**](#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update the IP restriction settings |
 
 <a id="getiprestrictions"></a>
 # **GetIpRestrictions**
 > IPRestrictionArrayWrapper GetIpRestrictions ()
 
 Returns the IP portal restrictions.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -30,9 +32,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -120,6 +122,8 @@ catch (ApiException e)
 
 Returns the IP restriction settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -135,9 +139,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -225,6 +229,8 @@ catch (ApiException e)
 
 Updates the IP restrictions with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -244,9 +250,9 @@ Updates the IP restrictions with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -335,6 +341,8 @@ catch (ApiException e)
 
 Updates the IP restriction settings with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -354,9 +362,9 @@ Updates the IP restriction settings with the parameters specified in the request
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

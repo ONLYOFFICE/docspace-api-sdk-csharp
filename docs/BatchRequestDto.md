@@ -1,4 +1,4 @@
-# DocSpace.Model.BatchRequestDto
+# DocSpace.Sdk.Model.BatchRequestDto
 The request parameters for copying/moving files.
 
 ## Properties
@@ -6,9 +6,9 @@ The request parameters for copying/moving files.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReturnSingleOperation** | **bool** | Specifies whether to return only the current operation | [optional] 
-**FolderIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](.md) | The list of folder IDs to be copied/moved. | [optional] 
-**FileIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](.md) | The list of file IDs to be copied/moved. | [optional] 
-**DestFolderId** | [**BatchRequestDtoDestFolderId**](.md) |  | [optional] 
+**FolderIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of folder IDs to be copied/moved. | [optional] 
+**FileIds** | [**List&lt;BaseBatchRequestDtoFolderIdsInner&gt;**](BaseBatchRequestDtoFolderIdsInner.md) | The list of file IDs to be copied/moved. | [optional] 
+**DestFolderId** | [**BatchRequestDtoDestFolderId**](BatchRequestDtoDestFolderId.md) |  | [optional] 
 **ConflictResolveType** | **FileConflictResolveType** |  | [optional] 
 **DeleteAfter** | **bool** | Specifies whether to delete the source files/folders after they are moved or copied to the destination folder. | [optional] 
 **Content** | **bool** | Specifies whether to copy or move the folder content or not. | [optional] 

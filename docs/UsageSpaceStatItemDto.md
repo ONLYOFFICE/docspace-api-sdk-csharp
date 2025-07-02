@@ -1,4 +1,4 @@
-# DocSpace.Model.UsageSpaceStatItemDto
+# DocSpace.Sdk.Model.UsageSpaceStatItemDto
 The parameters of the usage space statistics item.
 
 ## Properties

@@ -1,17 +1,19 @@
-# DocSpace.Api.SecurityFirebaseApi
+# DocSpace.Sdk.Api.SecurityFirebaseApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DocRegisterPusnNotificationDevice**](SecurityFirebaseApi.md#docregisterpusnnotificationdevice) | **POST** /api/2.0/settings/push/docregisterdevice | Save the Documents Firebase device token |
-| [**SubscribeDocumentsPushNotification**](SecurityFirebaseApi.md#subscribedocumentspushnotification) | **PUT** /api/2.0/settings/push/docsubscribe | Subscribe to Documents push notification |
+| [**DocRegisterPusnNotificationDevice**](#docregisterpusnnotificationdevice) | **POST** /api/2.0/settings/push/docregisterdevice | Save the Documents Firebase device token |
+| [**SubscribeDocumentsPushNotification**](#subscribedocumentspushnotification) | **PUT** /api/2.0/settings/push/docsubscribe | Subscribe to Documents push notification |
 
 <a id="docregisterpusnnotificationdevice"></a>
 # **DocRegisterPusnNotificationDevice**
 > FireBaseUserWrapper DocRegisterPusnNotificationDevice (FirebaseRequestsDto? firebaseRequestsDto = null)
 
 Saves the Firebase device token specified in the request for the Documents application.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Saves the Firebase device token specified in the request for the Documents appli
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -123,6 +125,8 @@ catch (ApiException e)
 
 Subscribes to the Documents push notification.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -142,9 +146,9 @@ Subscribes to the Documents push notification.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

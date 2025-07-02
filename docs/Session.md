@@ -1,4 +1,4 @@
-# DocSpace.Model.Session
+# DocSpace.Sdk.Model.Session
 Represents a session with reserved amount and currency.
 
 ## Properties

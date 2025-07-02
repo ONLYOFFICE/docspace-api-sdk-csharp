@@ -1,12 +1,12 @@
-# DocSpace.Model.ActiveConnectionsWrapper
+# DocSpace.Sdk.Model.ActiveConnectionsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**ActiveConnectionsDto**](.md) |  | [optional] 
+**Response** | [**ActiveConnectionsDto**](ActiveConnectionsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

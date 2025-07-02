@@ -1,4 +1,4 @@
-# DocSpace.Model.WizardSettings
+# DocSpace.Sdk.Model.WizardSettings
 The Wizard settings.
 
 ## Properties

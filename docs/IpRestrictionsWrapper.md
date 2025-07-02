@@ -1,12 +1,12 @@
-# DocSpace.Model.IpRestrictionsWrapper
+# DocSpace.Sdk.Model.IpRestrictionsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**IpRestrictionsDto**](.md) |  | [optional] 
+**Response** | [**IpRestrictionsDto**](IpRestrictionsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

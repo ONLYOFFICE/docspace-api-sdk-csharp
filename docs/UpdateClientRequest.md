@@ -1,4 +1,4 @@
-# DocSpace.Model.UpdateClientRequest
+# DocSpace.Sdk.Model.UpdateClientRequest
 The request for updating client details.
 
 ## Properties

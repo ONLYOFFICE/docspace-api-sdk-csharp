@@ -1,4 +1,4 @@
-# DocSpace.Model.SmtpOperationStatusRequestsDto
+# DocSpace.Sdk.Model.SmtpOperationStatusRequestsDto
 The request parameters for tracking SMTP (Simple Mail Transfer Protocol) operation status.
 
 ## Properties

@@ -1,17 +1,19 @@
-# DocSpace.Api.SettingsAuthorizationApi
+# DocSpace.Sdk.Api.SettingsAuthorizationApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAuthServices**](SettingsAuthorizationApi.md#getauthservices) | **GET** /api/2.0/settings/authservice | Get the authorization services |
-| [**SaveAuthKeys**](SettingsAuthorizationApi.md#saveauthkeys) | **POST** /api/2.0/settings/authservice | Save the authorization keys |
+| [**GetAuthServices**](#getauthservices) | **GET** /api/2.0/settings/authservice | Get the authorization services |
+| [**SaveAuthKeys**](#saveauthkeys) | **POST** /api/2.0/settings/authservice | Save the authorization keys |
 
 <a id="getauthservices"></a>
 # **GetAuthServices**
 > AuthServiceRequestsArrayWrapper GetAuthServices ()
 
 Returns the authorization services.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -28,9 +30,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -118,6 +120,8 @@ catch (ApiException e)
 
 Saves the authorization keys.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -137,9 +141,9 @@ Saves the authorization keys.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

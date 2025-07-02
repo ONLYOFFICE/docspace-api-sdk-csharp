@@ -1,19 +1,21 @@
-# DocSpace.Api.PeopleThirdPartyAccountsApi
+# DocSpace.Sdk.Api.PeopleThirdPartyAccountsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetThirdPartyAuthProviders**](PeopleThirdPartyAccountsApi.md#getthirdpartyauthproviders) | **GET** /api/2.0/people/thirdparty/providers | Get third-party accounts |
-| [**LinkThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#linkthirdpartyaccount) | **PUT** /api/2.0/people/thirdparty/linkaccount | Link a third-pary account |
-| [**SignupThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#signupthirdpartyaccount) | **POST** /api/2.0/people/thirdparty/signup | Create a third-pary account |
-| [**UnlinkThirdPartyAccount**](PeopleThirdPartyAccountsApi.md#unlinkthirdpartyaccount) | **DELETE** /api/2.0/people/thirdparty/unlinkaccount | Unlink a third-pary account |
+| [**GetThirdPartyAuthProviders**](#getthirdpartyauthproviders) | **GET** /api/2.0/people/thirdparty/providers | Get third-party accounts |
+| [**LinkThirdPartyAccount**](#linkthirdpartyaccount) | **PUT** /api/2.0/people/thirdparty/linkaccount | Link a third-pary account |
+| [**SignupThirdPartyAccount**](#signupthirdpartyaccount) | **POST** /api/2.0/people/thirdparty/signup | Create a third-pary account |
+| [**UnlinkThirdPartyAccount**](#unlinkthirdpartyaccount) | **DELETE** /api/2.0/people/thirdparty/unlinkaccount | Unlink a third-pary account |
 
 <a id="getthirdpartyauthproviders"></a>
 # **GetThirdPartyAuthProviders**
 > AccountInfoArrayWrapper GetThirdPartyAuthProviders (bool? inviteView = null, bool? settingsView = null, string? clientCallback = null, string? fromOnly = null)
 
 Returns a list of the available third-party accounts.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-auth-providers/).
 
 ### Parameters
 
@@ -37,9 +39,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -114,6 +116,8 @@ catch (ApiException e)
 
 Links a third-party account specified in the request to the user profile.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/link-third-party-account/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -133,9 +137,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -221,6 +225,8 @@ catch (ApiException e)
 
 Creates a third-party account with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -240,9 +246,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -312,6 +318,8 @@ catch (ApiException e)
 
 Unlinks a third-party account specified in the request from the user profile.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-third-party-account/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -331,9 +339,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

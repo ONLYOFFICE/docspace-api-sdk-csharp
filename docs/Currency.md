@@ -1,4 +1,4 @@
-# DocSpace.Model.Currency
+# DocSpace.Sdk.Model.Currency
 Represents a currency.
 
 ## Properties

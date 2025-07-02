@@ -1,4 +1,4 @@
-# DocSpace.Model.QuantityRequestDto
+# DocSpace.Sdk.Model.QuantityRequestDto
 The request parameters for the payment quantity specifications.
 
 ## Properties

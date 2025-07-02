@@ -1,18 +1,20 @@
-# DocSpace.Api.OAuth20AuthorizationApi
+# DocSpace.Sdk.Api.OAuth20AuthorizationApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AuthorizeOAuth**](OAuth20AuthorizationApi.md#authorizeoauth) | **GET** /oauth2/authorize | OAuth2 authorization endpoint |
-| [**ExchangeToken**](OAuth20AuthorizationApi.md#exchangetoken) | **POST** /oauth2/token | OAuth2 token endpoint |
-| [**SubmitConsent**](OAuth20AuthorizationApi.md#submitconsent) | **POST** /oauth2/authorize | OAuth2 consent endpoint |
+| [**AuthorizeOAuth**](#authorizeoauth) | **GET** /oauth2/authorize | OAuth2 authorization endpoint |
+| [**ExchangeToken**](#exchangetoken) | **POST** /oauth2/token | OAuth2 token endpoint |
+| [**SubmitConsent**](#submitconsent) | **POST** /oauth2/authorize | OAuth2 consent endpoint |
 
 <a id="authorizeoauth"></a>
 # **AuthorizeOAuth**
 > void AuthorizeOAuth (string responseType, string clientId, string redirectUri, string scope)
 
 Initiates the OAuth2 authorization flow.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authorize-o-auth/).
 
 ### Parameters
 
@@ -36,9 +38,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -115,6 +117,8 @@ catch (ApiException e)
 
 Exchanges an authorization code specified in the request for the access token.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -138,9 +142,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -217,6 +221,8 @@ catch (ApiException e)
 
 Sends a consent request with the specified parameters.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -238,9 +244,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

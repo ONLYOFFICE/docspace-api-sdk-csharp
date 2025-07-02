@@ -1,20 +1,22 @@
-# DocSpace.Api.PortalUsersApi
+# DocSpace.Sdk.Api.PortalUsersApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetInvitationLink**](PortalUsersApi.md#getinvitationlink) | **GET** /api/2.0/portal/users/invite/{employeeType} | Get an invitation link |
-| [**GetPortalUsersCount**](PortalUsersApi.md#getportaluserscount) | **GET** /api/2.0/portal/userscount | Get a number of portal users |
-| [**GetUserById**](PortalUsersApi.md#getuserbyid) | **GET** /api/2.0/portal/users/{userID} | Get a user by ID |
-| [**MarkGiftMessageAsRead**](PortalUsersApi.md#markgiftmessageasread) | **POST** /api/2.0/portal/present/mark | Mark a gift message as read |
-| [**SendCongratulations**](PortalUsersApi.md#sendcongratulations) | **POST** /api/2.0/portal/sendcongratulations | Send congratulations |
+| [**GetInvitationLink**](#getinvitationlink) | **GET** /api/2.0/portal/users/invite/{employeeType} | Get an invitation link |
+| [**GetPortalUsersCount**](#getportaluserscount) | **GET** /api/2.0/portal/userscount | Get a number of portal users |
+| [**GetUserById**](#getuserbyid) | **GET** /api/2.0/portal/users/{userID} | Get a user by ID |
+| [**MarkGiftMessageAsRead**](#markgiftmessageasread) | **POST** /api/2.0/portal/present/mark | Mark a gift message as read |
+| [**SendCongratulations**](#sendcongratulations) | **POST** /api/2.0/portal/sendcongratulations | Send congratulations |
 
 <a id="getinvitationlink"></a>
 # **GetInvitationLink**
 > StringWrapper GetInvitationLink (EmployeeType employeeType)
 
 Returns an invitation link for joining the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/).
 
 ### Parameters
 
@@ -35,9 +37,9 @@ Returns an invitation link for joining the portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -126,6 +128,8 @@ catch (ApiException e)
 
 Returns a number of portal users.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -141,9 +145,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -231,6 +235,8 @@ catch (ApiException e)
 
 Returns a user with the ID specified in the request from the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -250,9 +256,9 @@ Returns a user with the ID specified in the request from the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -341,6 +347,8 @@ catch (ApiException e)
 
 Marks a gift message as read.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -356,9 +364,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -442,6 +450,8 @@ catch (ApiException e)
 
 Sends congratulations to the user after registering a portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -462,9 +472,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

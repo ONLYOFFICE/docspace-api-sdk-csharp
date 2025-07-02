@@ -1,16 +1,18 @@
-# DocSpace.Api.CapabilitiesApi
+# DocSpace.Sdk.Api.CapabilitiesApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetPortalCapabilities**](CapabilitiesApi.md#getportalcapabilities) | **GET** /api/2.0/capabilities | Get portal capabilities |
+| [**GetPortalCapabilities**](#getportalcapabilities) | **GET** /api/2.0/capabilities | Get portal capabilities |
 
 <a id="getportalcapabilities"></a>
 # **GetPortalCapabilities**
 > CapabilitiesWrapper GetPortalCapabilities ()
 
 Returns the information about portal capabilities.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-capabilities/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -27,9 +29,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

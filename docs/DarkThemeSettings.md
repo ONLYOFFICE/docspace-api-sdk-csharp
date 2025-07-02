@@ -1,4 +1,4 @@
-# DocSpace.Model.DarkThemeSettings
+# DocSpace.Sdk.Model.DarkThemeSettings
 The theme parameters.
 
 ## Properties

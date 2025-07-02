@@ -1,4 +1,4 @@
-# DocSpace.Model.SubAccount
+# DocSpace.Sdk.Model.SubAccount
 Represents a sub-account with a specific currency and amount.
 
 ## Properties

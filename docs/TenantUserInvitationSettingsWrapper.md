@@ -1,12 +1,12 @@
-# DocSpace.Model.TenantUserInvitationSettingsWrapper
+# DocSpace.Sdk.Model.TenantUserInvitationSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantUserInvitationSettingsDto**](.md) |  | [optional] 
+**Response** | [**TenantUserInvitationSettingsDto**](TenantUserInvitationSettingsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

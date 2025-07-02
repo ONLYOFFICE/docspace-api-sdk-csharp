@@ -1,4 +1,4 @@
-# DocSpace.Model.EditHistoryAuthor
+# DocSpace.Sdk.Model.EditHistoryAuthor
 The information about the file editing history author.
 
 ## Properties

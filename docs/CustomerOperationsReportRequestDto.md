@@ -1,4 +1,4 @@
-# DocSpace.Model.CustomerOperationsReportRequestDto
+# DocSpace.Sdk.Model.CustomerOperationsReportRequestDto
 Parameters of the request for generating the report on client operations
 
 ## Properties

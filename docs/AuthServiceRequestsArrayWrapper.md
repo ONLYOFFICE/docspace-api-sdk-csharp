@@ -1,12 +1,12 @@
-# DocSpace.Model.AuthServiceRequestsArrayWrapper
+# DocSpace.Sdk.Model.AuthServiceRequestsArrayWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;AuthServiceRequestsDto&gt;**](.md) |  | [optional] 
+**Response** | [**List&lt;AuthServiceRequestsDto&gt;**](AuthServiceRequestsDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

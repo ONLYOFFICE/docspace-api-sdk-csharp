@@ -1,11 +1,11 @@
-# DocSpace.Model.CustomColorThemesSettingsDto
+# DocSpace.Sdk.Model.CustomColorThemesSettingsDto
 The custom color themes settings.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Themes** | [**List&lt;CustomColorThemesSettingsItem&gt;**](.md) | The list of the custom color themes. | [optional] 
+**Themes** | [**List&lt;CustomColorThemesSettingsItem&gt;**](CustomColorThemesSettingsItem.md) | The list of the custom color themes. | [optional] 
 **Selected** | **int** | Specifies whether the custom color theme is selected. | [optional] 
 **Limit** | **int** | The maximum number of the custom color themes. | [optional] 
 

@@ -1,12 +1,12 @@
-# DocSpace.Model.FilesStatisticsResultWrapper
+# DocSpace.Sdk.Model.FilesStatisticsResultWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FilesStatisticsResultDto**](.md) |  | [optional] 
+**Response** | [**FilesStatisticsResultDto**](FilesStatisticsResultDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

@@ -1,4 +1,4 @@
-# DocSpace.Model.ClientInfoResponse
+# DocSpace.Sdk.Model.ClientInfoResponse
 The response containing public client information.
 
 ## Properties

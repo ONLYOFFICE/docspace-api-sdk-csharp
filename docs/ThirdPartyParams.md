@@ -1,11 +1,11 @@
-# DocSpace.Model.ThirdPartyParams
+# DocSpace.Sdk.Model.ThirdPartyParams
 The third-party account parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthData** | [**AuthData**](.md) |  | [optional] 
+**AuthData** | [**AuthData**](AuthData.md) |  | [optional] 
 **Corporate** | **bool** | Specifies if this is a corporate account or not. | [optional] 
 **RoomsStorage** | **bool** | Specifies if this is a room storage or not. | [optional] 
 **CustomerTitle** | **string** | The customer title. | [optional] 

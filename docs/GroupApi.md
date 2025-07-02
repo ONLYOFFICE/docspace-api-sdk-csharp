@@ -1,26 +1,28 @@
-# DocSpace.Api.GroupApi
+# DocSpace.Sdk.Api.GroupApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddGroup**](GroupApi.md#addgroup) | **POST** /api/2.0/group | Add a new group |
-| [**AddMembersTo**](GroupApi.md#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
-| [**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
-| [**GetGroup**](GroupApi.md#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
-| [**GetGroupByUserId**](GroupApi.md#getgroupbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
-| [**GetGroups**](GroupApi.md#getgroups) | **GET** /api/2.0/group | Get groups |
-| [**MoveMembersTo**](GroupApi.md#movemembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
-| [**RemoveMembersFrom**](GroupApi.md#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
-| [**SetGroupManager**](GroupApi.md#setgroupmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
-| [**SetMembersTo**](GroupApi.md#setmembersto) | **POST** /api/2.0/group/{id}/members | Replace group members |
-| [**UpdateGroup**](GroupApi.md#updategroup) | **PUT** /api/2.0/group/{id} | Update a group |
+| [**AddGroup**](#addgroup) | **POST** /api/2.0/group | Add a new group |
+| [**AddMembersTo**](#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
+| [**DeleteGroup**](#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
+| [**GetGroup**](#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
+| [**GetGroupByUserId**](#getgroupbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
+| [**GetGroups**](#getgroups) | **GET** /api/2.0/group | Get groups |
+| [**MoveMembersTo**](#movemembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
+| [**RemoveMembersFrom**](#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
+| [**SetGroupManager**](#setgroupmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
+| [**SetMembersTo**](#setmembersto) | **POST** /api/2.0/group/{id}/members | Replace group members |
+| [**UpdateGroup**](#updategroup) | **PUT** /api/2.0/group/{id} | Update a group |
 
 <a id="addgroup"></a>
 # **AddGroup**
 > GroupWrapper AddGroup (GroupRequestDto? groupRequestDto = null)
 
 Adds a new group with the group manager, name, and members specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/).
 
 ### Parameters
 
@@ -41,9 +43,9 @@ Adds a new group with the group manager, name, and members specified in the requ
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -132,6 +134,8 @@ catch (ApiException e)
 
 Adds new group members to the group with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -152,9 +156,9 @@ Adds new group members to the group with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -245,6 +249,8 @@ catch (ApiException e)
 
 Deletes a group with the ID specified in the request from the list of groups on the portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -264,9 +270,9 @@ Deletes a group with the ID specified in the request from the list of groups on 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -356,6 +362,8 @@ catch (ApiException e)
 
 Returns the detailed information about the selected group.   **Note**: This method returns full group information.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -376,9 +384,9 @@ Returns the detailed information about the selected group.   **Note**: This meth
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -469,6 +477,8 @@ catch (ApiException e)
 
 Returns a list of groups for the user with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -488,9 +498,9 @@ Returns a list of groups for the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -579,6 +589,8 @@ catch (ApiException e)
 
 Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -604,9 +616,9 @@ Returns the general information about all the groups, such as group ID and group
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -701,6 +713,8 @@ catch (ApiException e)
 
 Moves all the members from the selected group to another one specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -721,9 +735,9 @@ Moves all the members from the selected group to another one specified in the re
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -814,6 +828,8 @@ catch (ApiException e)
 
 Removes the group members specified in the request from the selected group.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -834,9 +850,9 @@ Removes the group members specified in the request from the selected group.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -927,6 +943,8 @@ catch (ApiException e)
 
 Sets a user with the ID specified in the request as a group manager.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -947,9 +965,9 @@ Sets a user with the ID specified in the request as a group manager.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1040,6 +1058,8 @@ catch (ApiException e)
 
 Replaces the group members with those specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1060,9 +1080,9 @@ Replaces the group members with those specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1152,6 +1172,8 @@ catch (ApiException e)
 
 Updates the existing group changing the group manager, name, and/or members.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1172,9 +1194,9 @@ Updates the existing group changing the group manager, name, and/or members.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

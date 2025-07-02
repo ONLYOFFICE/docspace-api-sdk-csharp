@@ -1,4 +1,4 @@
-# DocSpace.Model.RoomsNotificationSettingsDto
+# DocSpace.Sdk.Model.RoomsNotificationSettingsDto
 The rooms notification settings.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.SaveAsPdfInteger
+# DocSpace.Sdk.Model.SaveAsPdfInteger
 The parameters for saving the file as PDF.
 
 ## Properties

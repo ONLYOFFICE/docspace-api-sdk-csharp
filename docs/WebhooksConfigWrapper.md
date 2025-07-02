@@ -1,12 +1,12 @@
-# DocSpace.Model.WebhooksConfigWrapper
+# DocSpace.Sdk.Model.WebhooksConfigWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**WebhooksConfigDto**](.md) |  | [optional] 
+**Response** | [**WebhooksConfigDto**](WebhooksConfigDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

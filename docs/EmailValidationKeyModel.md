@@ -1,4 +1,4 @@
-# DocSpace.Model.EmailValidationKeyModel
+# DocSpace.Sdk.Model.EmailValidationKeyModel
 The confirmation email parameters.
 
 ## Properties

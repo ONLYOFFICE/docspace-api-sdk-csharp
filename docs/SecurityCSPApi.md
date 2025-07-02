@@ -1,17 +1,19 @@
-# DocSpace.Api.SecurityCSPApi
+# DocSpace.Sdk.Api.SecurityCSPApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ConfigureCsp**](SecurityCSPApi.md#configurecsp) | **POST** /api/2.0/security/csp | Configure CSP settings |
-| [**GetCspSettings**](SecurityCSPApi.md#getcspsettings) | **GET** /api/2.0/security/csp | Get CSP settings |
+| [**ConfigureCsp**](#configurecsp) | **POST** /api/2.0/security/csp | Configure CSP settings |
+| [**GetCspSettings**](#getcspsettings) | **GET** /api/2.0/security/csp | Get CSP settings |
 
 <a id="configurecsp"></a>
 # **ConfigureCsp**
 > CspWrapper ConfigureCsp (CspRequestsDto? cspRequestsDto = null)
 
 Configures the CSP (Content Security Policy) settings for the current portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Configures the CSP (Content Security Policy) settings for the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -124,6 +126,8 @@ catch (ApiException e)
 
 Returns the CSP (Content Security Policy) settings for the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-csp-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -139,9 +143,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

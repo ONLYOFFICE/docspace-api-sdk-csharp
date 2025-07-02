@@ -1,4 +1,4 @@
-# DocSpace.Model.CheckFillFormDraft
+# DocSpace.Sdk.Model.CheckFillFormDraft
 The parameters for checking the form draft filling.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Model.FilesSettingsDtoInternalFormats
+# DocSpace.Sdk.Model.FilesSettingsDtoInternalFormats
 The internal file formats.
 
 ## Properties

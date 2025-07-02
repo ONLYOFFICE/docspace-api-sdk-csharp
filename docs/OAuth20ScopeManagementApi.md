@@ -1,16 +1,18 @@
-# DocSpace.Api.OAuth20ScopeManagementApi
+# DocSpace.Sdk.Api.OAuth20ScopeManagementApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetScopes**](OAuth20ScopeManagementApi.md#getscopes) | **GET** /api/2.0/scopes | Get available OAuth2 scopes |
+| [**GetScopes**](#getscopes) | **GET** /api/2.0/scopes | Get available OAuth2 scopes |
 
 <a id="getscopes"></a>
 # **GetScopes**
 > ScopeResponse GetScopes ()
 
 Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -27,9 +29,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

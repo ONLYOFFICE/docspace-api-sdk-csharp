@@ -1,4 +1,4 @@
-# DocSpace.Model.TerminateRequestDto
+# DocSpace.Sdk.Model.TerminateRequestDto
 The request parameters for terminating the reassignment/deletion process.
 
 ## Properties

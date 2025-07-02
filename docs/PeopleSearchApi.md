@@ -1,22 +1,24 @@
-# DocSpace.Api.PeopleSearchApi
+# DocSpace.Sdk.Api.PeopleSearchApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAccountsEntriesWithShared**](PeopleSearchApi.md#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
-| [**GetSearch**](PeopleSearchApi.md#getsearch) | **GET** /api/2.0/people/@search/{query} | Search users |
-| [**GetSimpleByFilter**](PeopleSearchApi.md#getsimplebyfilter) | **GET** /api/2.0/people/simple/filter | Search users by extended filter |
-| [**GetUsersWithRoomShared**](PeopleSearchApi.md#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
-| [**SearchUsersByExtendedFilter**](PeopleSearchApi.md#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
-| [**SearchUsersByQuery**](PeopleSearchApi.md#searchusersbyquery) | **GET** /api/2.0/people/search | Search users (using query parameters) |
-| [**SearchUsersByStatus**](PeopleSearchApi.md#searchusersbystatus) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
+| [**GetAccountsEntriesWithShared**](#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
+| [**GetSearch**](#getsearch) | **GET** /api/2.0/people/@search/{query} | Search users |
+| [**GetSimpleByFilter**](#getsimplebyfilter) | **GET** /api/2.0/people/simple/filter | Search users by extended filter |
+| [**GetUsersWithRoomShared**](#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
+| [**SearchUsersByExtendedFilter**](#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
+| [**SearchUsersByQuery**](#searchusersbyquery) | **GET** /api/2.0/people/search | Search users (using query parameters) |
+| [**SearchUsersByStatus**](#searchusersbystatus) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
 
 <a id="getaccountsentrieswithshared"></a>
 # **GetAccountsEntriesWithShared**
 > ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns the account entries with their sharing settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/).
 
 ### Parameters
 
@@ -49,9 +51,9 @@ Returns the account entries with their sharing settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -153,6 +155,8 @@ catch (ApiException e)
 
 Returns a list of users matching the search query.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-search/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -174,9 +178,9 @@ Returns a list of users matching the search query.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -268,6 +272,8 @@ catch (ApiException e)
 
 Returns a list of users matching the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -306,9 +312,9 @@ Returns a list of users matching the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -417,6 +423,8 @@ catch (ApiException e)
 
 Returns the users with the sharing settings in a room with the ID specified in request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -448,9 +456,9 @@ Returns the users with the sharing settings in a room with the ID specified in r
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -552,6 +560,8 @@ catch (ApiException e)
 
 Returns a list of users with full information about them matching the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -590,9 +600,9 @@ Returns a list of users with full information about them matching the parameters
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -701,6 +711,8 @@ catch (ApiException e)
 
 Returns a list of users matching the search query. This method uses the query parameters.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-query/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -720,9 +732,9 @@ Returns a list of users matching the search query. This method uses the query pa
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -811,6 +823,8 @@ catch (ApiException e)
 
 Returns a list of users matching the status filter and search query.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-status/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -833,9 +847,9 @@ Returns a list of users matching the status filter and search query.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

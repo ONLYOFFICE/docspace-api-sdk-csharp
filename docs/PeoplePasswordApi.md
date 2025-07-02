@@ -1,17 +1,19 @@
-# DocSpace.Api.PeoplePasswordApi
+# DocSpace.Sdk.Api.PeoplePasswordApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeUserPassword**](PeoplePasswordApi.md#changeuserpassword) | **PUT** /api/2.0/people/{userid}/password | Change a user password |
-| [**SendUserPassword**](PeoplePasswordApi.md#senduserpassword) | **POST** /api/2.0/people/password | Remind a user password |
+| [**ChangeUserPassword**](#changeuserpassword) | **PUT** /api/2.0/people/{userid}/password | Change a user password |
+| [**SendUserPassword**](#senduserpassword) | **POST** /api/2.0/people/password | Remind a user password |
 
 <a id="changeuserpassword"></a>
 # **ChangeUserPassword**
 > EmployeeFullWrapper ChangeUserPassword (Guid userid, MemberBaseRequestDto? memberBaseRequestDto = null)
 
 Sets a new password to the user with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/).
 
 ### Parameters
 
@@ -33,9 +35,9 @@ Sets a new password to the user with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -128,6 +130,8 @@ catch (ApiException e)
 
 Reminds a password to the user using the email address specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -147,9 +151,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

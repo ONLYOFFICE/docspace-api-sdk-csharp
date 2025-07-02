@@ -1,12 +1,12 @@
-# DocSpace.Model.KeyValuePairBooleanStringWrapper
+# DocSpace.Sdk.Model.KeyValuePairBooleanStringWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**KeyValuePairBooleanString**](.md) |  | [optional] 
+**Response** | [**KeyValuePairBooleanString**](KeyValuePairBooleanString.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

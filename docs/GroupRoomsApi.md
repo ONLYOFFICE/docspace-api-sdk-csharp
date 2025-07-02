@@ -1,16 +1,18 @@
-# DocSpace.Api.GroupRoomsApi
+# DocSpace.Sdk.Api.GroupRoomsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGroupsWithShared**](GroupRoomsApi.md#getgroupswithshared) | **GET** /api/2.0/group/room/{id} | Get groups with sharing settings |
+| [**GetGroupsWithShared**](#getgroupswithshared) | **GET** /api/2.0/group/room/{id} | Get groups with sharing settings |
 
 <a id="getgroupswithshared"></a>
 # **GetGroupsWithShared**
 > GroupArrayWrapper GetGroupsWithShared (int id, bool? excludeShared = null, int? count = null, int? startIndex = null, string? filterValue = null)
 
 Returns groups with their sharing settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-with-shared/).
 
 ### Parameters
 
@@ -35,9 +37,9 @@ Returns groups with their sharing settings.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

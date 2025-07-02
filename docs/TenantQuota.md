@@ -1,4 +1,4 @@
-# DocSpace.Model.TenantQuota
+# DocSpace.Sdk.Model.TenantQuota
 The current tenant quota.
 
 ## Properties

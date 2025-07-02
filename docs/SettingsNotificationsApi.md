@@ -1,19 +1,21 @@
-# DocSpace.Api.SettingsNotificationsApi
+# DocSpace.Sdk.Api.SettingsNotificationsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetNotificationSettings**](SettingsNotificationsApi.md#getnotificationsettings) | **GET** /api/2.0/settings/notification/{type} | Check notification availability |
-| [**GetRoomsNotificationSettings**](SettingsNotificationsApi.md#getroomsnotificationsettings) | **GET** /api/2.0/settings/notification/rooms | Get room notification settings |
-| [**SetNotificationSettings**](SettingsNotificationsApi.md#setnotificationsettings) | **POST** /api/2.0/settings/notification | Enable notifications |
-| [**SetRoomsNotificationStatus**](SettingsNotificationsApi.md#setroomsnotificationstatus) | **POST** /api/2.0/settings/notification/rooms | Set room notification status |
+| [**GetNotificationSettings**](#getnotificationsettings) | **GET** /api/2.0/settings/notification/{type} | Check notification availability |
+| [**GetRoomsNotificationSettings**](#getroomsnotificationsettings) | **GET** /api/2.0/settings/notification/rooms | Get room notification settings |
+| [**SetNotificationSettings**](#setnotificationsettings) | **POST** /api/2.0/settings/notification | Enable notifications |
+| [**SetRoomsNotificationStatus**](#setroomsnotificationstatus) | **POST** /api/2.0/settings/notification/rooms | Set room notification status |
 
 <a id="getnotificationsettings"></a>
 # **GetNotificationSettings**
 > NotificationSettingsWrapper GetNotificationSettings (NotificationType type)
 
 Checks if the notification type specified in the request is enabled or not.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-settings/).
 
 ### Parameters
 
@@ -34,9 +36,9 @@ Checks if the notification type specified in the request is enabled or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -125,6 +127,8 @@ catch (ApiException e)
 
 Returns a list of rooms with the disabled notifications.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-notification-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -140,9 +144,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -230,6 +234,8 @@ catch (ApiException e)
 
 Enables the notification type specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -249,9 +255,9 @@ Enables the notification type specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -340,6 +346,8 @@ catch (ApiException e)
 
 Sets a notification status for a room with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-rooms-notification-status/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -359,9 +367,9 @@ Sets a notification status for a room with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

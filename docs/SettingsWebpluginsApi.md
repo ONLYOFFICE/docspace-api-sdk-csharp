@@ -1,20 +1,22 @@
-# DocSpace.Api.SettingsWebpluginsApi
+# DocSpace.Sdk.Api.SettingsWebpluginsApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddWebPluginFromFile**](SettingsWebpluginsApi.md#addwebpluginfromfile) | **POST** /api/2.0/settings/webplugins | Add a web plugin |
-| [**DeleteWebPlugin**](SettingsWebpluginsApi.md#deletewebplugin) | **DELETE** /api/2.0/settings/webplugins/{name} | Delete a web plugin |
-| [**GetWebPlugin**](SettingsWebpluginsApi.md#getwebplugin) | **GET** /api/2.0/settings/webplugins/{name} | Get a web plugin by name |
-| [**GetWebPlugins**](SettingsWebpluginsApi.md#getwebplugins) | **GET** /api/2.0/settings/webplugins | Get web plugins |
-| [**UpdateWebPlugin**](SettingsWebpluginsApi.md#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Update a web plugin |
+| [**AddWebPluginFromFile**](#addwebpluginfromfile) | **POST** /api/2.0/settings/webplugins | Add a web plugin |
+| [**DeleteWebPlugin**](#deletewebplugin) | **DELETE** /api/2.0/settings/webplugins/{name} | Delete a web plugin |
+| [**GetWebPlugin**](#getwebplugin) | **GET** /api/2.0/settings/webplugins/{name} | Get a web plugin by name |
+| [**GetWebPlugins**](#getwebplugins) | **GET** /api/2.0/settings/webplugins | Get web plugins |
+| [**UpdateWebPlugin**](#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Update a web plugin |
 
 <a id="addwebpluginfromfile"></a>
 # **AddWebPluginFromFile**
 > WebPluginWrapper AddWebPluginFromFile (bool? varSystem = null)
 
 Adds a web plugin from a file to the current portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/).
 
 ### Parameters
 
@@ -35,9 +37,9 @@ Adds a web plugin from a file to the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -128,6 +130,8 @@ catch (ApiException e)
 
 Deletes a web plugin by the name specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -147,9 +151,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -235,6 +239,8 @@ catch (ApiException e)
 
 Returns a web plugin by the name specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -254,9 +260,9 @@ Returns a web plugin by the name specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -346,6 +352,8 @@ catch (ApiException e)
 
 Returns the portal web plugins.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -365,9 +373,9 @@ Returns the portal web plugins.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -457,6 +465,8 @@ catch (ApiException e)
 
 Updates a web plugin with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -477,9 +487,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

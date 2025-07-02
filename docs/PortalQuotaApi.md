@@ -1,19 +1,21 @@
-# DocSpace.Api.PortalQuotaApi
+# DocSpace.Sdk.Api.PortalQuotaApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetPortalQuota**](PortalQuotaApi.md#getportalquota) | **GET** /api/2.0/portal/quota | Get a portal quota |
-| [**GetPortalTariff**](PortalQuotaApi.md#getportaltariff) | **GET** /api/2.0/portal/tariff | Get a portal tariff |
-| [**GetPortalUsedSpace**](PortalQuotaApi.md#getportalusedspace) | **GET** /api/2.0/portal/usedspace | Get the portal used space |
-| [**GetRightQuota**](PortalQuotaApi.md#getrightquota) | **GET** /api/2.0/portal/quota/right | Get the recommended quota |
+| [**GetPortalQuota**](#getportalquota) | **GET** /api/2.0/portal/quota | Get a portal quota |
+| [**GetPortalTariff**](#getportaltariff) | **GET** /api/2.0/portal/tariff | Get a portal tariff |
+| [**GetPortalUsedSpace**](#getportalusedspace) | **GET** /api/2.0/portal/usedspace | Get the portal used space |
+| [**GetRightQuota**](#getrightquota) | **GET** /api/2.0/portal/quota/right | Get the recommended quota |
 
 <a id="getportalquota"></a>
 # **GetPortalQuota**
 > TenantQuotaWrapper GetPortalQuota ()
 
 Returns the current portal quota.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-quota/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -30,9 +32,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -121,6 +123,8 @@ catch (ApiException e)
 
 Returns the current portal tariff.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-tariff/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -140,9 +144,9 @@ Returns the current portal tariff.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -231,6 +235,8 @@ catch (ApiException e)
 
 Returns the used space of the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-used-space/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -246,9 +252,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -336,6 +342,8 @@ catch (ApiException e)
 
 Returns the recommended quota for the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-right-quota/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -351,9 +359,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

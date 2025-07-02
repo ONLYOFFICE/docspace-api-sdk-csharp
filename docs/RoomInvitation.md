@@ -1,4 +1,4 @@
-# DocSpace.Model.RoomInvitation
+# DocSpace.Sdk.Model.RoomInvitation
 The room invitation parameters.
 
 ## Properties

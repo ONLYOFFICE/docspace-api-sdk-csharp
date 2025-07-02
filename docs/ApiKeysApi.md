@@ -1,21 +1,23 @@
-# DocSpace.Api.ApiKeysApi
+# DocSpace.Sdk.Api.ApiKeysApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateApiKey**](ApiKeysApi.md#createapikey) | **POST** /api/2.0/keys | Create a user API key |
-| [**DeleteApiKey**](ApiKeysApi.md#deleteapikey) | **DELETE** /api/2.0/keys/{keyId} | Delete a user API key |
-| [**GetAllPermissions**](ApiKeysApi.md#getallpermissions) | **GET** /api/2.0/keys/permissions | Get API key permissions |
-| [**GetApiKey**](ApiKeysApi.md#getapikey) | **GET** /api/2.0/keys/@self | Get user API key info |
-| [**GetApiKeys**](ApiKeysApi.md#getapikeys) | **GET** /api/2.0/keys | Get user API keys |
-| [**UpdateApiKey**](ApiKeysApi.md#updateapikey) | **PUT** /api/2.0/keys/{keyId} | Update an API key |
+| [**CreateApiKey**](#createapikey) | **POST** /api/2.0/keys | Create a user API key |
+| [**DeleteApiKey**](#deleteapikey) | **DELETE** /api/2.0/keys/{keyId} | Delete a user API key |
+| [**GetAllPermissions**](#getallpermissions) | **GET** /api/2.0/keys/permissions | Get API key permissions |
+| [**GetApiKey**](#getapikey) | **GET** /api/2.0/keys/@self | Get user API key info |
+| [**GetApiKeys**](#getapikeys) | **GET** /api/2.0/keys | Get user API keys |
+| [**UpdateApiKey**](#updateapikey) | **PUT** /api/2.0/keys/{keyId} | Update an API key |
 
 <a id="createapikey"></a>
 # **CreateApiKey**
 > ApiKeyResponseWrapper CreateApiKey (CreateApiKeyRequestDto? createApiKeyRequestDto = null)
 
 Creates a user API key with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-api-key/).
 
 ### Parameters
 
@@ -36,9 +38,9 @@ Creates a user API key with the parameters specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -127,6 +129,8 @@ catch (ApiException e)
 
 Delete a user API key by its ID.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -146,9 +150,9 @@ Delete a user API key by its ID.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -237,6 +241,8 @@ catch (ApiException e)
 
 Returns a list of all available permissions for the API key.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -252,9 +258,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -342,6 +348,8 @@ catch (ApiException e)
 
 Returns current user API key info.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -357,9 +365,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -447,6 +455,8 @@ catch (ApiException e)
 
 Returns a list of all API keys for the current user.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -462,9 +472,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -552,6 +562,8 @@ catch (ApiException e)
 
 Updates an existing API key changing its name, permissions and status.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -572,9 +584,9 @@ Updates an existing API key changing its name, permissions and status.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

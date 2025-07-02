@@ -1,12 +1,12 @@
-# DocSpace.Model.FolderContentIntegerWrapper
+# DocSpace.Sdk.Model.FolderContentIntegerWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FolderContentDtoInteger**](.md) |  | [optional] 
+**Response** | [**FolderContentDtoInteger**](FolderContentDtoInteger.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

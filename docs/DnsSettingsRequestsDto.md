@@ -1,4 +1,4 @@
-# DocSpace.Model.DnsSettingsRequestsDto
+# DocSpace.Sdk.Model.DnsSettingsRequestsDto
 The request parameters for managing the DNS (Domain Name System) settings.
 
 ## Properties

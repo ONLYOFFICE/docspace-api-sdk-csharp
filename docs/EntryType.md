@@ -1,4 +1,4 @@
-# DocSpace.Model.EntryType
+# DocSpace.Sdk.Model.EntryType
 [0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]
 
 ## Properties

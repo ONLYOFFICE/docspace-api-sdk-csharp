@@ -1,4 +1,4 @@
-# DocSpace.Model.RoomSecurityError
+# DocSpace.Sdk.Model.RoomSecurityError
 The error type.
 
 ## Properties

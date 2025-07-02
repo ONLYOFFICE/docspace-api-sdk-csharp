@@ -1,17 +1,19 @@
-# DocSpace.Api.PeopleThemeApi
+# DocSpace.Sdk.Api.PeopleThemeApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangePortalTheme**](PeopleThemeApi.md#changeportaltheme) | **PUT** /api/2.0/people/theme | Change the portal theme |
-| [**GetPortalTheme**](PeopleThemeApi.md#getportaltheme) | **GET** /api/2.0/people/theme | Get the portal theme |
+| [**ChangePortalTheme**](#changeportaltheme) | **PUT** /api/2.0/people/theme | Change the portal theme |
+| [**GetPortalTheme**](#getportaltheme) | **GET** /api/2.0/people/theme | Get the portal theme |
 
 <a id="changeportaltheme"></a>
 # **ChangePortalTheme**
 > DarkThemeSettingsWrapper ChangePortalTheme (DarkThemeSettingsRequestDto? darkThemeSettingsRequestDto = null)
 
 Changes the current portal theme.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-portal-theme/).
 
 ### Parameters
 
@@ -32,9 +34,9 @@ Changes the current portal theme.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -123,6 +125,8 @@ catch (ApiException e)
 
 Returns a theme which is set to the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-theme/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -138,9 +142,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

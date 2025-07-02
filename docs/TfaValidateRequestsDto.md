@@ -1,4 +1,4 @@
-# DocSpace.Model.TfaValidateRequestsDto
+# DocSpace.Sdk.Model.TfaValidateRequestsDto
 The request parameters for validating the two-factor authentication codes.
 
 ## Properties

@@ -1,18 +1,20 @@
-# DocSpace.Api.SettingsMessagesApi
+# DocSpace.Sdk.Api.SettingsMessagesApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**EnableAdminMessageSettings**](SettingsMessagesApi.md#enableadminmessagesettings) | **POST** /api/2.0/settings/messagesettings | Enable the administrator message settings |
-| [**SendAdminMail**](SettingsMessagesApi.md#sendadminmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
-| [**SendJoinInviteMail**](SettingsMessagesApi.md#sendjoininvitemail) | **POST** /api/2.0/settings/sendjoininvite | Sends an invitation email |
+| [**EnableAdminMessageSettings**](#enableadminmessagesettings) | **POST** /api/2.0/settings/messagesettings | Enable the administrator message settings |
+| [**SendAdminMail**](#sendadminmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
+| [**SendJoinInviteMail**](#sendjoininvitemail) | **POST** /api/2.0/settings/sendjoininvite | Sends an invitation email |
 
 <a id="enableadminmessagesettings"></a>
 # **EnableAdminMessageSettings**
 > StringWrapper EnableAdminMessageSettings (TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = null)
 
 Displays the contact form on the \"Sign In\" page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/).
 
 ### Parameters
 
@@ -33,9 +35,9 @@ Displays the contact form on the \"Sign In\" page, allowing users to send a mess
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -124,6 +126,8 @@ catch (ApiException e)
 
 Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -143,9 +147,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -219,6 +223,8 @@ catch (ApiException e)
 
 Sends an invitation email with a link to the DocSpace.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -238,9 +244,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

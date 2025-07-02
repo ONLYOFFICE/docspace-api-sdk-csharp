@@ -1,4 +1,4 @@
-# DocSpace.Model.SsoSpCertificateAdvanced
+# DocSpace.Sdk.Model.SsoSpCertificateAdvanced
 The SP advanced certificate parameters.
 
 ## Properties

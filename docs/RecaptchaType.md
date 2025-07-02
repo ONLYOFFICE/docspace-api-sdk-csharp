@@ -1,4 +1,4 @@
-# DocSpace.Model.RecaptchaType
+# DocSpace.Sdk.Model.RecaptchaType
 [0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]
 
 ## Properties

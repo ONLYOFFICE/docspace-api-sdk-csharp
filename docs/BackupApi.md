@@ -1,25 +1,27 @@
-# DocSpace.Api.BackupApi
+# DocSpace.Sdk.Api.BackupApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateBackupSchedule**](BackupApi.md#createbackupschedule) | **POST** /api/2.0/backup/createbackupschedule | Create the backup schedule |
-| [**DeleteBackup**](BackupApi.md#deletebackup) | **DELETE** /api/2.0/backup/deletebackup/{id} | Delete the backup |
-| [**DeleteBackupHistory**](BackupApi.md#deletebackuphistory) | **DELETE** /api/2.0/backup/deletebackuphistory | Delete the backup history |
-| [**DeleteBackupSchedule**](BackupApi.md#deletebackupschedule) | **DELETE** /api/2.0/backup/deletebackupschedule | Delete the backup schedule |
-| [**GetBackupHistory**](BackupApi.md#getbackuphistory) | **GET** /api/2.0/backup/getbackuphistory | Get the backup history |
-| [**GetBackupProgress**](BackupApi.md#getbackupprogress) | **GET** /api/2.0/backup/getbackupprogress | Get the backup progress |
-| [**GetBackupSchedule**](BackupApi.md#getbackupschedule) | **GET** /api/2.0/backup/getbackupschedule | Get the backup schedule |
-| [**GetRestoreProgress**](BackupApi.md#getrestoreprogress) | **GET** /api/2.0/backup/getrestoreprogress | Get the restoring progress |
-| [**StartBackup**](BackupApi.md#startbackup) | **POST** /api/2.0/backup/startbackup | Start the backup |
-| [**StartBackupRestore**](BackupApi.md#startbackuprestore) | **POST** /api/2.0/backup/startrestore | Start the restoring process |
+| [**CreateBackupSchedule**](#createbackupschedule) | **POST** /api/2.0/backup/createbackupschedule | Create the backup schedule |
+| [**DeleteBackup**](#deletebackup) | **DELETE** /api/2.0/backup/deletebackup/{id} | Delete the backup |
+| [**DeleteBackupHistory**](#deletebackuphistory) | **DELETE** /api/2.0/backup/deletebackuphistory | Delete the backup history |
+| [**DeleteBackupSchedule**](#deletebackupschedule) | **DELETE** /api/2.0/backup/deletebackupschedule | Delete the backup schedule |
+| [**GetBackupHistory**](#getbackuphistory) | **GET** /api/2.0/backup/getbackuphistory | Get the backup history |
+| [**GetBackupProgress**](#getbackupprogress) | **GET** /api/2.0/backup/getbackupprogress | Get the backup progress |
+| [**GetBackupSchedule**](#getbackupschedule) | **GET** /api/2.0/backup/getbackupschedule | Get the backup schedule |
+| [**GetRestoreProgress**](#getrestoreprogress) | **GET** /api/2.0/backup/getrestoreprogress | Get the restoring progress |
+| [**StartBackup**](#startbackup) | **POST** /api/2.0/backup/startbackup | Start the backup |
+| [**StartBackupRestore**](#startbackuprestore) | **POST** /api/2.0/backup/startrestore | Start the restoring process |
 
 <a id="createbackupschedule"></a>
 # **CreateBackupSchedule**
 > BooleanWrapper CreateBackupSchedule (BackupScheduleDto? backupScheduleDto = null)
 
 Creates the backup schedule of the current portal with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/).
 
 ### Parameters
 
@@ -40,9 +42,9 @@ Creates the backup schedule of the current portal with the parameters specified 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -135,6 +137,8 @@ catch (ApiException e)
 
 Deletes the backup with the ID specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -154,9 +158,9 @@ Deletes the backup with the ID specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -246,6 +250,8 @@ catch (ApiException e)
 
 Deletes the backup history from the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -265,9 +271,9 @@ Deletes the backup history from the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -357,6 +363,8 @@ catch (ApiException e)
 
 Deletes the backup schedule of the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup-schedule/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -376,9 +384,9 @@ Deletes the backup schedule of the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -468,6 +476,8 @@ catch (ApiException e)
 
 Returns the history of the started backup.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-history/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -487,9 +497,9 @@ Returns the history of the started backup.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -579,6 +589,8 @@ catch (ApiException e)
 
 Returns the progress of the started backup.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-progress/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -598,9 +610,9 @@ Returns the progress of the started backup.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -690,6 +702,8 @@ catch (ApiException e)
 
 Returns the backup schedule of the current portal.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-schedule/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -709,9 +723,9 @@ Returns the backup schedule of the current portal.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -801,6 +815,8 @@ catch (ApiException e)
 
 Returns the progress of the started restoring process.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restore-progress/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -820,9 +836,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -894,6 +910,8 @@ catch (ApiException e)
 
 Starts the backup of the current portal with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -913,9 +931,9 @@ Starts the backup of the current portal with the parameters specified in the req
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1008,6 +1026,8 @@ catch (ApiException e)
 
 Starts the data restoring process of the current portal with the parameters specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1027,9 +1047,9 @@ Starts the data restoring process of the current portal with the parameters spec
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

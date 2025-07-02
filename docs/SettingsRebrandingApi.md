@@ -1,32 +1,34 @@
-# DocSpace.Api.SettingsRebrandingApi
+# DocSpace.Sdk.Api.SettingsRebrandingApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#deleteadditionalwhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/additional | Delete the additional white label settings |
-| [**DeleteCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#deletecompanywhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/company | Delete the company white label settings |
-| [**GetAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#getadditionalwhitelabelsettings) | **GET** /api/2.0/settings/rebranding/additional | Get the additional white label settings |
-| [**GetCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#getcompanywhitelabelsettings) | **GET** /api/2.0/settings/rebranding/company | Get the company white label settings |
-| [**GetEnableWhitelabel**](SettingsRebrandingApi.md#getenablewhitelabel) | **GET** /api/2.0/settings/enablewhitelabel | Check the white label availability |
-| [**GetIsDefaultWhiteLabelLogoText**](SettingsRebrandingApi.md#getisdefaultwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext/isdefault | Check the default white label logo text |
-| [**GetIsDefaultWhiteLabelLogos**](SettingsRebrandingApi.md#getisdefaultwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos/isdefault | Check the default white label logos |
-| [**GetLicensorData**](SettingsRebrandingApi.md#getlicensordata) | **GET** /api/2.0/settings/companywhitelabel | Get the licensor data |
-| [**GetWhiteLabelLogoText**](SettingsRebrandingApi.md#getwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext | Get the white label logo text |
-| [**GetWhiteLabelLogos**](SettingsRebrandingApi.md#getwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos | Get the white label logos |
-| [**RestoreWhiteLabelLogoText**](SettingsRebrandingApi.md#restorewhitelabellogotext) | **PUT** /api/2.0/settings/whitelabel/logotext/restore | Restore the white label logo text |
-| [**RestoreWhiteLabelLogos**](SettingsRebrandingApi.md#restorewhitelabellogos) | **PUT** /api/2.0/settings/whitelabel/logos/restore | Restore the white label logos |
-| [**SaveAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#saveadditionalwhitelabelsettings) | **POST** /api/2.0/settings/rebranding/additional | Save the additional white label settings |
-| [**SaveCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#savecompanywhitelabelsettings) | **POST** /api/2.0/settings/rebranding/company | Save the company white label settings |
-| [**SaveWhiteLabelLogoText**](SettingsRebrandingApi.md#savewhitelabellogotext) | **POST** /api/2.0/settings/whitelabel/logotext/save | Save the white label logo text settings |
-| [**SaveWhiteLabelSettings**](SettingsRebrandingApi.md#savewhitelabelsettings) | **POST** /api/2.0/settings/whitelabel/logos/save | Save the white label logos |
-| [**SaveWhiteLabelSettingsFromFiles**](SettingsRebrandingApi.md#savewhitelabelsettingsfromfiles) | **POST** /api/2.0/settings/whitelabel/logos/savefromfiles | Save the white label logos from files |
+| [**DeleteAdditionalWhiteLabelSettings**](#deleteadditionalwhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/additional | Delete the additional white label settings |
+| [**DeleteCompanyWhiteLabelSettings**](#deletecompanywhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/company | Delete the company white label settings |
+| [**GetAdditionalWhiteLabelSettings**](#getadditionalwhitelabelsettings) | **GET** /api/2.0/settings/rebranding/additional | Get the additional white label settings |
+| [**GetCompanyWhiteLabelSettings**](#getcompanywhitelabelsettings) | **GET** /api/2.0/settings/rebranding/company | Get the company white label settings |
+| [**GetEnableWhitelabel**](#getenablewhitelabel) | **GET** /api/2.0/settings/enablewhitelabel | Check the white label availability |
+| [**GetIsDefaultWhiteLabelLogoText**](#getisdefaultwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext/isdefault | Check the default white label logo text |
+| [**GetIsDefaultWhiteLabelLogos**](#getisdefaultwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos/isdefault | Check the default white label logos |
+| [**GetLicensorData**](#getlicensordata) | **GET** /api/2.0/settings/companywhitelabel | Get the licensor data |
+| [**GetWhiteLabelLogoText**](#getwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext | Get the white label logo text |
+| [**GetWhiteLabelLogos**](#getwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos | Get the white label logos |
+| [**RestoreWhiteLabelLogoText**](#restorewhitelabellogotext) | **PUT** /api/2.0/settings/whitelabel/logotext/restore | Restore the white label logo text |
+| [**RestoreWhiteLabelLogos**](#restorewhitelabellogos) | **PUT** /api/2.0/settings/whitelabel/logos/restore | Restore the white label logos |
+| [**SaveAdditionalWhiteLabelSettings**](#saveadditionalwhitelabelsettings) | **POST** /api/2.0/settings/rebranding/additional | Save the additional white label settings |
+| [**SaveCompanyWhiteLabelSettings**](#savecompanywhitelabelsettings) | **POST** /api/2.0/settings/rebranding/company | Save the company white label settings |
+| [**SaveWhiteLabelLogoText**](#savewhitelabellogotext) | **POST** /api/2.0/settings/whitelabel/logotext/save | Save the white label logo text settings |
+| [**SaveWhiteLabelSettings**](#savewhitelabelsettings) | **POST** /api/2.0/settings/whitelabel/logos/save | Save the white label logos |
+| [**SaveWhiteLabelSettingsFromFiles**](#savewhitelabelsettingsfromfiles) | **POST** /api/2.0/settings/whitelabel/logos/savefromfiles | Save the white label logos from files |
 
 <a id="deleteadditionalwhitelabelsettings"></a>
 # **DeleteAdditionalWhiteLabelSettings**
 > AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings ()
 
 Deletes the additional white label settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -43,9 +45,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -134,6 +136,8 @@ catch (ApiException e)
 
 Deletes the company white label settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -149,9 +153,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -240,6 +244,8 @@ catch (ApiException e)
 
 Returns the additional white label settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -255,9 +261,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -345,6 +351,8 @@ catch (ApiException e)
 
 Returns the company white label settings.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -360,9 +368,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -450,6 +458,8 @@ catch (ApiException e)
 
 Checks if the white label is enabled or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -465,9 +475,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -555,6 +565,8 @@ catch (ApiException e)
 
 Specifies if the white label logo text are default or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -575,9 +587,9 @@ Specifies if the white label logo text are default or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -667,6 +679,8 @@ catch (ApiException e)
 
 Specifies if the white label logos are default or not.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -687,9 +701,9 @@ Specifies if the white label logos are default or not.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -779,6 +793,8 @@ catch (ApiException e)
 
 Returns the licensor data.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/).
+
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
@@ -794,9 +810,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -884,6 +900,8 @@ catch (ApiException e)
 
 Returns the white label logo text.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -904,9 +922,9 @@ Returns the white label logo text.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -996,6 +1014,8 @@ catch (ApiException e)
 
 Returns the white label logos.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1016,9 +1036,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1091,6 +1111,8 @@ catch (ApiException e)
 
 Restores the white label logo text.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1111,9 +1133,9 @@ Restores the white label logo text.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1204,6 +1226,8 @@ catch (ApiException e)
 
 Restores the white label logos.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1224,9 +1248,9 @@ Restores the white label logos.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1317,6 +1341,8 @@ catch (ApiException e)
 
 Saves the additional white label settings specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1336,9 +1362,9 @@ Saves the additional white label settings specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1429,6 +1455,8 @@ catch (ApiException e)
 
 Saves the company white label settings specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1448,9 +1476,9 @@ Saves the company white label settings specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1541,6 +1569,8 @@ catch (ApiException e)
 
 Saves the white label logo text specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1562,9 +1592,9 @@ Saves the white label logo text specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1656,6 +1686,8 @@ catch (ApiException e)
 
 Saves the white label logos specified in the request.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1677,9 +1709,9 @@ Saves the white label logos specified in the request.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -1771,6 +1803,8 @@ catch (ApiException e)
 
 Saves the white label logos from files.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -1791,9 +1825,9 @@ Saves the white label logos from files.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {

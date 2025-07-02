@@ -1,4 +1,4 @@
-# DocSpace.Model.Operation
+# DocSpace.Sdk.Model.Operation
 Represents an operation.
 
 ## Properties

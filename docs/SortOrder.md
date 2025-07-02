@@ -1,4 +1,4 @@
-# DocSpace.Model.SortOrder
+# DocSpace.Sdk.Model.SortOrder
 
 ## Properties
 

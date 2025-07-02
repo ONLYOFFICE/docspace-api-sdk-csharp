@@ -1,12 +1,12 @@
-# DocSpace.Model.RoomTemplateStatusWrapper
+# DocSpace.Sdk.Model.RoomTemplateStatusWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**RoomTemplateStatusDto**](.md) |  | [optional] 
+**Response** | [**RoomTemplateStatusDto**](RoomTemplateStatusDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
-**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](.md) |  | [optional] 
+**Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 
 **StatusCode** | **int** |  | [optional] 
 

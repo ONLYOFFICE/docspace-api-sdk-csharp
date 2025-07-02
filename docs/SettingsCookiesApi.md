@@ -1,17 +1,19 @@
-# DocSpace.Api.SettingsCookiesApi
+# DocSpace.Sdk.Api.SettingsCookiesApi
 
 All URIs are relative to *http://localhost:8092*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCookieSettings**](SettingsCookiesApi.md#getcookiesettings) | **GET** /api/2.0/settings/cookiesettings | Get cookies lifetime |
-| [**UpdateCookieSettings**](SettingsCookiesApi.md#updatecookiesettings) | **PUT** /api/2.0/settings/cookiesettings | Update cookies lifetime |
+| [**GetCookieSettings**](#getcookiesettings) | **GET** /api/2.0/settings/cookiesettings | Get cookies lifetime |
+| [**UpdateCookieSettings**](#updatecookiesettings) | **PUT** /api/2.0/settings/cookiesettings | Update cookies lifetime |
 
 <a id="getcookiesettings"></a>
 # **GetCookieSettings**
 > CookieSettingsWrapper GetCookieSettings ()
 
 Returns the cookies lifetime value in minutes.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cookie-settings/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -28,9 +30,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
@@ -118,6 +120,8 @@ catch (ApiException e)
 
 Updates the cookies lifetime value in minutes.
 
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
@@ -137,9 +141,9 @@ Updates the cookies lifetime value in minutes.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Api;
-using DocSpace.Client;
-using DocSpace.Model;
+using DocSpace.Sdk.Api;
+using DocSpace.Sdk.Client;
+using DocSpace.Sdk.Model;
 
 namespace Example
 {
