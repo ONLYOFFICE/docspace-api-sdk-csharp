@@ -1,28 +1,20 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
 using Xunit;
@@ -67,6 +59,8 @@ namespace DocSpace.Sdk.Test.Model
             //Assert.IsType<SettingsDto>(instance);
         }
 
+
+
         /// <summary>
         /// Test the property 'Timezone'
         /// </summary>
@@ -75,6 +69,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Timezone'
         }
+
 
         /// <summary>
         /// Test the property 'TrustedDomains'
@@ -85,6 +80,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'TrustedDomains'
         }
 
+
         /// <summary>
         /// Test the property 'TrustedDomainsType'
         /// </summary>
@@ -93,6 +89,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'TrustedDomainsType'
         }
+
 
         /// <summary>
         /// Test the property 'Culture'
@@ -103,6 +100,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Culture'
         }
 
+
         /// <summary>
         /// Test the property 'UtcOffset'
         /// </summary>
@@ -111,6 +109,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'UtcOffset'
         }
+
 
         /// <summary>
         /// Test the property 'UtcHoursOffset'
@@ -121,6 +120,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'UtcHoursOffset'
         }
 
+
         /// <summary>
         /// Test the property 'GreetingSettings'
         /// </summary>
@@ -129,6 +129,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'GreetingSettings'
         }
+
 
         /// <summary>
         /// Test the property 'OwnerId'
@@ -139,6 +140,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'OwnerId'
         }
 
+
         /// <summary>
         /// Test the property 'NameSchemaId'
         /// </summary>
@@ -147,6 +149,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'NameSchemaId'
         }
+
 
         /// <summary>
         /// Test the property 'EnabledJoin'
@@ -157,6 +160,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'EnabledJoin'
         }
 
+
         /// <summary>
         /// Test the property 'EnableAdmMess'
         /// </summary>
@@ -165,6 +169,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'EnableAdmMess'
         }
+
 
         /// <summary>
         /// Test the property 'ThirdpartyEnable'
@@ -175,6 +180,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ThirdpartyEnable'
         }
 
+
         /// <summary>
         /// Test the property 'DocSpace'
         /// </summary>
@@ -183,6 +189,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'DocSpace'
         }
+
 
         /// <summary>
         /// Test the property 'Standalone'
@@ -193,6 +200,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Standalone'
         }
 
+
         /// <summary>
         /// Test the property 'IsAmi'
         /// </summary>
@@ -201,6 +209,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'IsAmi'
         }
+
 
         /// <summary>
         /// Test the property 'BaseDomain'
@@ -211,6 +220,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'BaseDomain'
         }
 
+
         /// <summary>
         /// Test the property 'WizardToken'
         /// </summary>
@@ -219,6 +229,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'WizardToken'
         }
+
 
         /// <summary>
         /// Test the property 'PasswordHash'
@@ -229,6 +240,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'PasswordHash'
         }
 
+
         /// <summary>
         /// Test the property 'Firebase'
         /// </summary>
@@ -238,14 +250,16 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Firebase'
         }
 
+
         /// <summary>
-        /// Test the property 'VarVersion'
+        /// Test the property '@Version'
         /// </summary>
         [Fact]
-        public void VarVersionTest()
+        public void @VersionTest()
         {
-            // TODO unit test for the property 'VarVersion'
+            // TODO unit test for the property '@Version'
         }
+
 
         /// <summary>
         /// Test the property 'RecaptchaType'
@@ -256,6 +270,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'RecaptchaType'
         }
 
+
         /// <summary>
         /// Test the property 'RecaptchaPublicKey'
         /// </summary>
@@ -264,6 +279,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'RecaptchaPublicKey'
         }
+
 
         /// <summary>
         /// Test the property 'DebugInfo'
@@ -274,6 +290,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'DebugInfo'
         }
 
+
         /// <summary>
         /// Test the property 'SocketUrl'
         /// </summary>
@@ -282,6 +299,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'SocketUrl'
         }
+
 
         /// <summary>
         /// Test the property 'TenantStatus'
@@ -292,6 +310,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'TenantStatus'
         }
 
+
         /// <summary>
         /// Test the property 'TenantAlias'
         /// </summary>
@@ -300,6 +319,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'TenantAlias'
         }
+
 
         /// <summary>
         /// Test the property 'DisplayAbout'
@@ -310,6 +330,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'DisplayAbout'
         }
 
+
         /// <summary>
         /// Test the property 'DomainValidator'
         /// </summary>
@@ -318,6 +339,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'DomainValidator'
         }
+
 
         /// <summary>
         /// Test the property 'ZendeskKey'
@@ -328,6 +350,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ZendeskKey'
         }
 
+
         /// <summary>
         /// Test the property 'TagManagerId'
         /// </summary>
@@ -336,6 +359,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'TagManagerId'
         }
+
 
         /// <summary>
         /// Test the property 'CookieSettingsEnabled'
@@ -346,6 +370,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'CookieSettingsEnabled'
         }
 
+
         /// <summary>
         /// Test the property 'LimitedAccessSpace'
         /// </summary>
@@ -354,6 +379,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'LimitedAccessSpace'
         }
+
 
         /// <summary>
         /// Test the property 'LimitedAccessDevToolsForUsers'
@@ -364,6 +390,17 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'LimitedAccessDevToolsForUsers'
         }
 
+
+        /// <summary>
+        /// Test the property 'DisplayBanners'
+        /// </summary>
+        [Fact]
+        public void DisplayBannersTest()
+        {
+            // TODO unit test for the property 'DisplayBanners'
+        }
+
+
         /// <summary>
         /// Test the property 'UserNameRegex'
         /// </summary>
@@ -372,6 +409,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'UserNameRegex'
         }
+
 
         /// <summary>
         /// Test the property 'InvitationLimit'
@@ -382,6 +420,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'InvitationLimit'
         }
 
+
         /// <summary>
         /// Test the property 'Plugins'
         /// </summary>
@@ -390,6 +429,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Plugins'
         }
+
 
         /// <summary>
         /// Test the property 'DeepLink'
@@ -400,6 +440,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'DeepLink'
         }
 
+
         /// <summary>
         /// Test the property 'FormGallery'
         /// </summary>
@@ -408,6 +449,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FormGallery'
         }
+
 
         /// <summary>
         /// Test the property 'MaxImageUploadSize'
@@ -418,6 +460,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'MaxImageUploadSize'
         }
 
+
         /// <summary>
         /// Test the property 'LogoText'
         /// </summary>
@@ -426,6 +469,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'LogoText'
         }
+
 
         /// <summary>
         /// Test the property 'ExternalResources'

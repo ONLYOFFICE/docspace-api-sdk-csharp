@@ -1,45 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -85,6 +64,7 @@ namespace DocSpace.Sdk.Model
         /// </summary>
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
         public FileEntryType? FileEntryType { get; set; }
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderDtoInteger" /> class.
         /// </summary>
@@ -116,13 +96,13 @@ namespace DocSpace.Sdk.Model
         /// <param name="foldersCount">The number of folders that the folder contains..</param>
         /// <param name="isShareable">Specifies if the folder can be shared or not..</param>
         /// <param name="isFavorite">Specifies if the folder is favorite or not..</param>
-        /// <param name="varNew">The new element index in the folder..</param>
+        /// <param name="@new">The new element index in the folder..</param>
         /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
         /// <param name="tags">The list of tags of the folder..</param>
         /// <param name="logo">logo.</param>
         /// <param name="pinned">Specifies if the folder is pinned or not..</param>
         /// <param name="roomType">roomType.</param>
-        /// <param name="varPrivate">Specifies if the folder is private or not..</param>
+        /// <param name="@private">Specifies if the folder is private or not..</param>
         /// <param name="indexing">Specifies if the folder is indexed or not..</param>
         /// <param name="denyDownload">Specifies if the folder can be downloaded or not..</param>
         /// <param name="lifetime">lifetime.</param>
@@ -136,7 +116,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FolderDtoInteger(string title = default, FileShare? access = default, bool shared = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileDtoIntegerSecurity security = default, string requestToken = default, int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, bool? isFavorite = default, int varNew = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool varPrivate = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? external = default, bool? passwordProtected = default, bool? expired = default, FileEntryType? fileEntryType = default)
+        public FolderDtoInteger(string title = default, FileShare? access = default, bool shared = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileDtoIntegerSecurity security = default, string requestToken = default, int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, bool? isFavorite = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? external = default, bool? passwordProtected = default, bool? expired = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
@@ -166,13 +146,13 @@ namespace DocSpace.Sdk.Model
             this.FoldersCount = foldersCount;
             this.IsShareable = isShareable;
             this.IsFavorite = isFavorite;
-            this.New = varNew;
+            this.New = @new;
             this.Mute = mute;
             this.Tags = tags;
             this.Logo = logo;
             this.Pinned = pinned;
             this.RoomType = roomType;
-            this.Private = varPrivate;
+            this.Private = @private;
             this.Indexing = indexing;
             this.DenyDownload = denyDownload;
             this.Lifetime = lifetime;
@@ -578,7 +558,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FolderDtoInteger {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
@@ -638,7 +618,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
 
         /// <summary>

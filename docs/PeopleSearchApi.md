@@ -268,7 +268,7 @@ catch (ApiException e)
 
 <a id="getsimplebyfilter"></a>
 # **GetSimpleByFilter**
-> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
 
 Returns a list of users matching the parameters specified in the request.
 
@@ -298,6 +298,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
 | **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -364,11 +365,12 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
             var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Search users by extended filter
-                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -389,7 +391,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users by extended filter
-    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -556,7 +558,7 @@ catch (ApiException e)
 
 <a id="searchusersbyextendedfilter"></a>
 # **SearchUsersByExtendedFilter**
-> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
 
 Returns a list of users with full information about them matching the parameters specified in the request.
 
@@ -586,6 +588,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
 | **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -652,11 +655,12 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
             var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Search users with detaailed information by extended filter
-                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -677,7 +681,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users with detaailed information by extended filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

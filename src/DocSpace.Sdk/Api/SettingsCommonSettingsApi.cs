@@ -1,37 +1,22 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
 using DocSpace.Sdk.Client;
 using DocSpace.Sdk.Model;
 
@@ -480,7 +465,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CloseAdminHelperAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task CloseAdminHelperAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Close the admin helper
@@ -492,7 +477,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CloseAdminHelperWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> CloseAdminHelperWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Complete the Wizard settings
         /// </summary>
@@ -504,7 +489,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
-        System.Threading.Tasks.Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Complete the Wizard settings
@@ -517,7 +502,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Configure the deep link settings
         /// </summary>
@@ -529,7 +514,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        System.Threading.Tasks.Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Configure the deep link settings
@@ -542,7 +527,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a color theme
         /// </summary>
@@ -554,7 +539,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a color theme
@@ -567,7 +552,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the deep link settings
         /// </summary>
@@ -578,7 +563,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        System.Threading.Tasks.Task<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the deep link settings
@@ -590,7 +575,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantDeepLinkSettingsWrapper>> GetDeepLinkSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantDeepLinkSettingsWrapper>> GetDeepLinkSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the payment settings
         /// </summary>
@@ -601,7 +586,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of PaymentSettingsWrapper</returns>
-        System.Threading.Tasks.Task<PaymentSettingsWrapper> GetPaymentSettingsAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<PaymentSettingsWrapper> GetPaymentSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the payment settings
@@ -613,7 +598,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentSettingsWrapper>> GetPaymentSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<PaymentSettingsWrapper>> GetPaymentSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a color theme
         /// </summary>
@@ -624,7 +609,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> GetPortalColorThemeAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<CustomColorThemesSettingsWrapper> GetPortalColorThemeAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a color theme
@@ -636,7 +621,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> GetPortalColorThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<CustomColorThemesSettingsWrapper>> GetPortalColorThemeWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get hostname
         /// </summary>
@@ -647,7 +632,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetPortalHostnameAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> GetPortalHostnameAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get hostname
@@ -659,7 +644,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetPortalHostnameWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> GetPortalHostnameWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a portal logo
         /// </summary>
@@ -670,7 +655,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> GetPortalLogoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<StringWrapper> GetPortalLogoAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a portal logo
@@ -682,7 +667,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetPortalLogoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> GetPortalLogoWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the portal settings
         /// </summary>
@@ -694,7 +679,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>Task of SettingsWrapper</returns>
-        System.Threading.Tasks.Task<SettingsWrapper> GetPortalSettingsAsync(bool? withpassword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<SettingsWrapper> GetPortalSettingsAsync(bool? withpassword = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the portal settings
@@ -707,7 +692,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SettingsWrapper>> GetPortalSettingsWithHttpInfoAsync(bool? withpassword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<SettingsWrapper>> GetPortalSettingsWithHttpInfoAsync(bool? withpassword = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the socket settings
         /// </summary>
@@ -718,7 +703,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> GetSocketSettingsAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> GetSocketSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the socket settings
@@ -730,7 +715,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetSocketSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> GetSocketSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get supported languages
         /// </summary>
@@ -741,7 +726,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        System.Threading.Tasks.Task<STRINGArrayWrapper> GetSupportedCulturesAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<STRINGArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get supported languages
@@ -753,7 +738,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the user invitation settings
         /// </summary>
@@ -764,7 +749,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
-        System.Threading.Tasks.Task<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the user invitation settings
@@ -776,7 +761,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantUserInvitationSettingsWrapper>> GetTenantUserInvitationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantUserInvitationSettingsWrapper>> GetTenantUserInvitationSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get time zones
         /// </summary>
@@ -787,7 +772,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
-        System.Threading.Tasks.Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get time zones
@@ -799,7 +784,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the DNS settings
         /// </summary>
@@ -811,7 +796,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the DNS settings
@@ -824,7 +809,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the mail domain settings
         /// </summary>
@@ -836,7 +821,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the mail domain settings
@@ -849,7 +834,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save a color theme
         /// </summary>
@@ -861,7 +846,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save a color theme
@@ -874,7 +859,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update the email activation settings
         /// </summary>
@@ -886,7 +871,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
-        System.Threading.Tasks.Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the email activation settings
@@ -899,7 +884,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update user invitation settings
         /// </summary>
@@ -911,7 +896,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
-        System.Threading.Tasks.Task<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update user invitation settings
@@ -924,7 +909,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantUserInvitationSettingsWrapper>> UpdateInvitationSettingsWithHttpInfoAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantUserInvitationSettingsWrapper>> UpdateInvitationSettingsWithHttpInfoAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -963,14 +948,14 @@ namespace DocSpace.Sdk.Api
         /// <returns></returns>
         public SettingsCommonSettingsApi(string basePath)
         {
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -985,13 +970,13 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1027,14 +1012,14 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1054,13 +1039,13 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1078,10 +1063,10 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(asyncClient);
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1089,7 +1074,7 @@ namespace DocSpace.Sdk.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient.Dispose();
+            ApiClient.Dispose();
         }
 
         /// <summary>
@@ -1113,7 +1098,7 @@ namespace DocSpace.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
@@ -1139,8 +1124,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Close the admin helper Closes the administrator helper notification.
+        /// Close the admin helper
         /// </summary>
+        /// <remarks>
+        /// Closes the administrator helper notification.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns></returns>
@@ -1150,8 +1138,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Close the admin helper Closes the administrator helper notification.
+        /// Close the admin helper
         /// </summary>
+        /// <remarks>
+        /// Closes the administrator helper notification.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1173,70 +1164,78 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/2.0/settings/closeadminhelper", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<Object>("/api/2.0/settings/closeadminhelper", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CloseAdminHelper", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CloseAdminHelper", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Close the admin helper Closes the administrator helper notification.
+        /// Close the admin helper
         /// </summary>
+        /// <remarks>
+        /// Closes the administrator helper notification.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CloseAdminHelperAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task CloseAdminHelperAsync(CancellationToken cancellationToken = default)
         {
             await CloseAdminHelperWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Close the admin helper Closes the administrator helper notification.
+        /// Close the admin helper
         /// </summary>
+        /// <remarks>
+        /// Closes the administrator helper notification.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/">REST API Reference for CloseAdminHelper Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CloseAdminHelperWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> CloseAdminHelperWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
@@ -1253,51 +1252,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/2.0/settings/closeadminhelper", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/settings/closeadminhelper", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CloseAdminHelper", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CloseAdminHelper", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Complete the Wizard settings Completes the Wizard settings.
+        /// Complete the Wizard settings
         /// </summary>
+        /// <remarks>
+        /// Completes the Wizard settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
@@ -1309,8 +1314,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Complete the Wizard settings Completes the Wizard settings.
+        /// Complete the Wizard settings
         /// </summary>
+        /// <remarks>
+        /// Completes the Wizard settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
@@ -1334,78 +1342,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<WizardSettingsWrapper>("/api/2.0/settings/wizard/complete", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<WizardSettingsWrapper>("/api/2.0/settings/wizard/complete", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CompleteWizard", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CompleteWizard", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Complete the Wizard settings Completes the Wizard settings.
+        /// Complete the Wizard settings
         /// </summary>
+        /// <remarks>
+        /// Completes the Wizard settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<WizardSettingsWrapper> localVarResponse = await CompleteWizardWithHttpInfoAsync(wizardRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CompleteWizardWithHttpInfoAsync(wizardRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Complete the Wizard settings Completes the Wizard settings.
+        /// Complete the Wizard settings
         /// </summary>
+        /// <remarks>
+        /// Completes the Wizard settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wizardRequestsDto">The request parameters for initial configuration of the setup wizard. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1418,51 +1434,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<WizardSettingsWrapper>("/api/2.0/settings/wizard/complete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<WizardSettingsWrapper>("/api/2.0/settings/wizard/complete", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CompleteWizard", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CompleteWizard", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Configure the deep link settings Saves the deep link configuration settings for the portal.
+        /// Configure the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Saves the deep link configuration settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
@@ -1474,8 +1496,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Configure the deep link settings Saves the deep link configuration settings for the portal.
+        /// Configure the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Saves the deep link configuration settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
@@ -1499,78 +1524,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("ConfigureDeepLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("ConfigureDeepLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Configure the deep link settings Saves the deep link configuration settings for the portal.
+        /// Configure the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Saves the deep link configuration settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TenantDeepLinkSettingsWrapper> localVarResponse = await ConfigureDeepLinkWithHttpInfoAsync(deepLinkConfigurationRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ConfigureDeepLinkWithHttpInfoAsync(deepLinkConfigurationRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Configure the deep link settings Saves the deep link configuration settings for the portal.
+        /// Configure the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Saves the deep link configuration settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deepLinkConfigurationRequestsDto">The request parameters for managing the deep link configuration. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1583,51 +1616,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("ConfigureDeepLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("ConfigureDeepLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
+        /// Delete a color theme
         /// </summary>
+        /// <remarks>
+        /// Deletes the portal color theme with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -1639,8 +1678,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
+        /// Delete a color theme
         /// </summary>
+        /// <remarks>
+        /// Deletes the portal color theme with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
@@ -1667,78 +1709,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Delete<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeletePortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeletePortalColorTheme", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
+        /// Delete a color theme
         /// </summary>
+        /// <remarks>
+        /// Deletes the portal color theme with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<CustomColorThemesSettingsWrapper> localVarResponse = await DeletePortalColorThemeWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeletePortalColorThemeWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete a color theme Deletes the portal color theme with the ID specified in the request.
+        /// Delete a color theme
         /// </summary>
+        /// <remarks>
+        /// Deletes the portal color theme with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the portal theme to delete. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1754,51 +1804,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeletePortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeletePortalColorTheme", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the deep link settings Returns the deep link settings.
+        /// Get the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Returns the deep link settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
@@ -1809,8 +1865,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the deep link settings Returns the deep link settings.
+        /// Get the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Returns the deep link settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
@@ -1832,76 +1891,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetDeepLinkSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetDeepLinkSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the deep link settings Returns the deep link settings.
+        /// Get the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Returns the deep link settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TenantDeepLinkSettingsWrapper> GetDeepLinkSettingsAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<TenantDeepLinkSettingsWrapper> localVarResponse = await GetDeepLinkSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDeepLinkSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the deep link settings Returns the deep link settings.
+        /// Get the deep link settings
         /// </summary>
+        /// <remarks>
+        /// Returns the deep link settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/">REST API Reference for GetDeepLinkSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TenantDeepLinkSettingsWrapper>> GetDeepLinkSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantDeepLinkSettingsWrapper>> GetDeepLinkSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1913,51 +1980,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetDeepLinkSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetDeepLinkSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the payment settings Returns the portal payment settings.
+        /// Get the payment settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal payment settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>PaymentSettingsWrapper</returns>
@@ -1968,8 +2041,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the payment settings Returns the portal payment settings.
+        /// Get the payment settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal payment settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>ApiResponse of PaymentSettingsWrapper</returns>
@@ -1991,76 +2067,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaymentSettingsWrapper>("/api/2.0/settings/payment", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<PaymentSettingsWrapper>("/api/2.0/settings/payment", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPaymentSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPaymentSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the payment settings Returns the portal payment settings.
+        /// Get the payment settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal payment settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of PaymentSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<PaymentSettingsWrapper> GetPaymentSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<PaymentSettingsWrapper> GetPaymentSettingsAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<PaymentSettingsWrapper> localVarResponse = await GetPaymentSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPaymentSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the payment settings Returns the portal payment settings.
+        /// Get the payment settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal payment settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/">REST API Reference for GetPaymentSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PaymentSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentSettingsWrapper>> GetPaymentSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<PaymentSettingsWrapper>> GetPaymentSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2072,51 +2156,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaymentSettingsWrapper>("/api/2.0/settings/payment", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<PaymentSettingsWrapper>("/api/2.0/settings/payment", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPaymentSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPaymentSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a color theme Returns the portal color theme.
+        /// Get a color theme
         /// </summary>
+        /// <remarks>
+        /// Returns the portal color theme.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
@@ -2127,8 +2217,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a color theme Returns the portal color theme.
+        /// Get a color theme
         /// </summary>
+        /// <remarks>
+        /// Returns the portal color theme.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
@@ -2150,46 +2243,54 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalColorTheme", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a color theme Returns the portal color theme.
+        /// Get a color theme
         /// </summary>
+        /// <remarks>
+        /// Returns the portal color theme.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> GetPortalColorThemeAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<CustomColorThemesSettingsWrapper> GetPortalColorThemeAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<CustomColorThemesSettingsWrapper> localVarResponse = await GetPortalColorThemeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPortalColorThemeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a color theme Returns the portal color theme.
+        /// Get a color theme
         /// </summary>
+        /// <remarks>
+        /// Returns the portal color theme.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/">REST API Reference for GetPortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> GetPortalColorThemeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> GetPortalColorThemeWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2202,20 +2303,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalColorTheme", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get hostname Returns the portal hostname.
+        /// Get hostname
         /// </summary>
+        /// <remarks>
+        /// Returns the portal hostname.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -2226,8 +2333,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get hostname Returns the portal hostname.
+        /// Get hostname
         /// </summary>
+        /// <remarks>
+        /// Returns the portal hostname.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -2249,76 +2359,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/settings/machine", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/machine", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalHostname", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalHostname", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get hostname Returns the portal hostname.
+        /// Get hostname
         /// </summary>
+        /// <remarks>
+        /// Returns the portal hostname.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetPortalHostnameAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> GetPortalHostnameAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<ObjectWrapper> localVarResponse = await GetPortalHostnameWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPortalHostnameWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get hostname Returns the portal hostname.
+        /// Get hostname
         /// </summary>
+        /// <remarks>
+        /// Returns the portal hostname.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/">REST API Reference for GetPortalHostname Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetPortalHostnameWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> GetPortalHostnameWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2330,51 +2448,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/machine", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/machine", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalHostname", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalHostname", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a portal logo Returns the portal logo image URL.
+        /// Get a portal logo
         /// </summary>
+        /// <remarks>
+        /// Returns the portal logo image URL.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -2385,8 +2509,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a portal logo Returns the portal logo image URL.
+        /// Get a portal logo
         /// </summary>
+        /// <remarks>
+        /// Returns the portal logo image URL.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -2408,76 +2535,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<StringWrapper>("/api/2.0/settings/logo", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/settings/logo", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalLogo", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalLogo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a portal logo Returns the portal logo image URL.
+        /// Get a portal logo
         /// </summary>
+        /// <remarks>
+        /// Returns the portal logo image URL.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> GetPortalLogoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> GetPortalLogoAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<StringWrapper> localVarResponse = await GetPortalLogoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPortalLogoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a portal logo Returns the portal logo image URL.
+        /// Get a portal logo
         /// </summary>
+        /// <remarks>
+        /// Returns the portal logo image URL.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/">REST API Reference for GetPortalLogo Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetPortalLogoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> GetPortalLogoWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2489,51 +2624,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/settings/logo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/settings/logo", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalLogo", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalLogo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
+        /// Get the portal settings
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal settings with the current values for each parameter.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -2545,8 +2686,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
+        /// Get the portal settings
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal settings with the current values for each parameter.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
@@ -2573,48 +2717,56 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SettingsWrapper>("/api/2.0/settings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<SettingsWrapper>("/api/2.0/settings", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
+        /// Get the portal settings
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal settings with the current values for each parameter.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>Task of SettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<SettingsWrapper> GetPortalSettingsAsync(bool? withpassword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<SettingsWrapper> GetPortalSettingsAsync(bool? withpassword = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<SettingsWrapper> localVarResponse = await GetPortalSettingsWithHttpInfoAsync(withpassword, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPortalSettingsWithHttpInfoAsync(withpassword, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the portal settings Returns a list of all the available portal settings with the current values for each parameter.
+        /// Get the portal settings
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal settings with the current values for each parameter.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withpassword">Specifies whether to include the password hashing configuration in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/">REST API Reference for GetPortalSettings Operation</seealso>
         /// <returns>Task of ApiResponse (SettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SettingsWrapper>> GetPortalSettingsWithHttpInfoAsync(bool? withpassword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<SettingsWrapper>> GetPortalSettingsWithHttpInfoAsync(bool? withpassword = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2631,20 +2783,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SettingsWrapper>("/api/2.0/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SettingsWrapper>("/api/2.0/settings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the socket settings Returns the socket settings.
+        /// Get the socket settings
         /// </summary>
+        /// <remarks>
+        /// Returns the socket settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ObjectWrapper</returns>
@@ -2655,8 +2813,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the socket settings Returns the socket settings.
+        /// Get the socket settings
         /// </summary>
+        /// <remarks>
+        /// Returns the socket settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
@@ -2678,76 +2839,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectWrapper>("/api/2.0/settings/socket", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/socket", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetSocketSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetSocketSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the socket settings Returns the socket settings.
+        /// Get the socket settings
         /// </summary>
+        /// <remarks>
+        /// Returns the socket settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> GetSocketSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> GetSocketSettingsAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<ObjectWrapper> localVarResponse = await GetSocketSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSocketSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the socket settings Returns the socket settings.
+        /// Get the socket settings
         /// </summary>
+        /// <remarks>
+        /// Returns the socket settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/">REST API Reference for GetSocketSettings Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> GetSocketSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> GetSocketSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2759,51 +2928,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/socket", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/socket", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetSocketSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetSocketSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Get supported languages
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
@@ -2814,8 +2989,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Get supported languages
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
@@ -2837,46 +3015,54 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetSupportedCultures", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetSupportedCultures", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Get supported languages
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<STRINGArrayWrapper> GetSupportedCulturesAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<STRINGArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<STRINGArrayWrapper> localVarResponse = await GetSupportedCulturesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSupportedCulturesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get supported languages Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Get supported languages
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2889,20 +3075,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetSupportedCultures", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetSupportedCultures", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the user invitation settings Returns the portal user invitation settings.
+        /// Get the user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
@@ -2913,8 +3105,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the user invitation settings Returns the portal user invitation settings.
+        /// Get the user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
@@ -2936,46 +3131,54 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTenantUserInvitationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTenantUserInvitationSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the user invitation settings Returns the portal user invitation settings.
+        /// Get the user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TenantUserInvitationSettingsWrapper> GetTenantUserInvitationSettingsAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<TenantUserInvitationSettingsWrapper> localVarResponse = await GetTenantUserInvitationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTenantUserInvitationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the user invitation settings Returns the portal user invitation settings.
+        /// Get the user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/">REST API Reference for GetTenantUserInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TenantUserInvitationSettingsWrapper>> GetTenantUserInvitationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantUserInvitationSettingsWrapper>> GetTenantUserInvitationSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2988,20 +3191,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTenantUserInvitationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTenantUserInvitationSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get time zones Returns a list of all the available portal time zones.
+        /// Get time zones
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal time zones.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>TimezonesRequestsArrayWrapper</returns>
@@ -3012,8 +3221,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get time zones Returns a list of all the available portal time zones.
+        /// Get time zones
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal time zones.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
@@ -3035,76 +3247,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTimeZones", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTimeZones", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get time zones Returns a list of all the available portal time zones.
+        /// Get time zones
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal time zones.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<TimezonesRequestsArrayWrapper> localVarResponse = await GetTimeZonesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTimeZonesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get time zones Returns a list of all the available portal time zones.
+        /// Get time zones
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the available portal time zones.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3116,51 +3336,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTimeZones", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTimeZones", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
+        /// Save the DNS settings
         /// </summary>
+        /// <remarks>
+        /// Saves the DNS settings specified in the request to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
@@ -3172,8 +3398,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
+        /// Save the DNS settings
         /// </summary>
+        /// <remarks>
+        /// Saves the DNS settings specified in the request to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
@@ -3197,78 +3426,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<StringWrapper>("/api/2.0/settings/dns", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<StringWrapper>("/api/2.0/settings/dns", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SaveDnsSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SaveDnsSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
+        /// Save the DNS settings
         /// </summary>
+        /// <remarks>
+        /// Saves the DNS settings specified in the request to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<StringWrapper> localVarResponse = await SaveDnsSettingsWithHttpInfoAsync(dnsSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveDnsSettingsWithHttpInfoAsync(dnsSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Save the DNS settings Saves the DNS settings specified in the request to the current portal.
+        /// Save the DNS settings
         /// </summary>
+        /// <remarks>
+        /// Saves the DNS settings specified in the request to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dnsSettingsRequestsDto">The request parameters for managing the DNS (Domain Name System) settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3281,51 +3518,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<StringWrapper>("/api/2.0/settings/dns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<StringWrapper>("/api/2.0/settings/dns", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SaveDnsSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SaveDnsSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
+        /// Save the mail domain settings
         /// </summary>
+        /// <remarks>
+        /// Saves the mail domain settings specified in the request to the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
@@ -3337,8 +3580,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
+        /// Save the mail domain settings
         /// </summary>
+        /// <remarks>
+        /// Saves the mail domain settings specified in the request to the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
@@ -3362,78 +3608,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<StringWrapper>("/api/2.0/settings/maildomainsettings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<StringWrapper>("/api/2.0/settings/maildomainsettings", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SaveMailDomainSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SaveMailDomainSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
+        /// Save the mail domain settings
         /// </summary>
+        /// <remarks>
+        /// Saves the mail domain settings specified in the request to the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<StringWrapper> localVarResponse = await SaveMailDomainSettingsWithHttpInfoAsync(mailDomainSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveMailDomainSettingsWithHttpInfoAsync(mailDomainSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Save the mail domain settings Saves the mail domain settings specified in the request to the portal.
+        /// Save the mail domain settings
         /// </summary>
+        /// <remarks>
+        /// Saves the mail domain settings specified in the request to the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mailDomainSettingsRequestsDto">The request parameters for configuring trusted mail domains and visitor invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3446,51 +3700,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/settings/maildomainsettings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/settings/maildomainsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SaveMailDomainSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SaveMailDomainSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save a color theme Saves the portal color theme specified in the request.
+        /// Save a color theme
         /// </summary>
+        /// <remarks>
+        /// Saves the portal color theme specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
@@ -3502,8 +3762,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Save a color theme Saves the portal color theme specified in the request.
+        /// Save a color theme
         /// </summary>
+        /// <remarks>
+        /// Saves the portal color theme specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
@@ -3527,78 +3790,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SavePortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SavePortalColorTheme", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Save a color theme Saves the portal color theme specified in the request.
+        /// Save a color theme
         /// </summary>
+        /// <remarks>
+        /// Saves the portal color theme specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<CustomColorThemesSettingsWrapper> localVarResponse = await SavePortalColorThemeWithHttpInfoAsync(customColorThemesSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SavePortalColorThemeWithHttpInfoAsync(customColorThemesSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Save a color theme Saves the portal color theme specified in the request.
+        /// Save a color theme
         /// </summary>
+        /// <remarks>
+        /// Saves the portal color theme specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customColorThemesSettingsRequestsDto">The request parameters for managing the portal theme settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3611,51 +3882,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<CustomColorThemesSettingsWrapper>("/api/2.0/settings/colortheme", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SavePortalColorTheme", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SavePortalColorTheme", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update the email activation settings Updates the email activation settings.
+        /// Update the email activation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the email activation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
@@ -3667,8 +3944,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Update the email activation settings Updates the email activation settings.
+        /// Update the email activation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the email activation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
@@ -3692,78 +3972,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<EmailActivationSettingsWrapper>("/api/2.0/settings/emailactivation", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<EmailActivationSettingsWrapper>("/api/2.0/settings/emailactivation", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateEmailActivationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateEmailActivationSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update the email activation settings Updates the email activation settings.
+        /// Update the email activation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the email activation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<EmailActivationSettingsWrapper> localVarResponse = await UpdateEmailActivationSettingsWithHttpInfoAsync(emailActivationSettings, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateEmailActivationSettingsWithHttpInfoAsync(emailActivationSettings, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update the email activation settings Updates the email activation settings.
+        /// Update the email activation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the email activation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3776,51 +4064,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<EmailActivationSettingsWrapper>("/api/2.0/settings/emailactivation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<EmailActivationSettingsWrapper>("/api/2.0/settings/emailactivation", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateEmailActivationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateEmailActivationSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update user invitation settings Updates the portal user invitation settings.
+        /// Update user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
@@ -3832,8 +4126,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Update user invitation settings Updates the portal user invitation settings.
+        /// Update user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
@@ -3857,78 +4154,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateInvitationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateInvitationSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update user invitation settings Updates the portal user invitation settings.
+        /// Update user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
-        public async System.Threading.Tasks.Task<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TenantUserInvitationSettingsWrapper> localVarResponse = await UpdateInvitationSettingsWithHttpInfoAsync(tenantUserInvitationSettingsRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateInvitationSettingsWithHttpInfoAsync(tenantUserInvitationSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update user invitation settings Updates the portal user invitation settings.
+        /// Update user invitation settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal user invitation settings.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TenantUserInvitationSettingsWrapper>> UpdateInvitationSettingsWithHttpInfoAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantUserInvitationSettingsWrapper>> UpdateInvitationSettingsWithHttpInfoAsync(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3941,43 +4246,46 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<TenantUserInvitationSettingsWrapper>("/api/2.0/settings/invitationsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateInvitationSettings", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateInvitationSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;

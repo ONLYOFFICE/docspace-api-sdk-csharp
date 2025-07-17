@@ -128,6 +128,10 @@ tags:
 - description: Operations for working with third-party.
   name: ThirdParty
   x-displayName: ThirdParty
+- name: Security / Banners visibility
+  x-displayName: Security / Banners visibility
+- name: Settings / Banners visibility
+  x-displayName: Settings / Banners visibility
 - description: Operations for working with api keys.
   name: Api keys
   x-displayName: Api keys
@@ -137,9 +141,6 @@ tags:
 - description: Operations for getting groups with access rights to a room.
   name: Group / Rooms
   x-displayName: Rooms
-- description: Operations for working with user contacts.
-  name: People / Contacts
-  x-displayName: Contacts
 - description: Operations for workig with gursts
   name: People / Guests
   x-displayName: Guests
@@ -1166,80 +1167,6 @@ paths:
       summary: Get the customer balance
       tags:
       - Portal / Payment
-  /api/2.0/portal/payment/customer/opensession:
-    post:
-      description: Trying to open a customer session and block amount money on the
-        balance.
-      operationId: openCustomerSession
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/OpenCustomerSessionRequestDto"
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SessionWrapper"
-          description: The customer session
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Open customer session
-      tags:
-      - Portal / Payment
-  /api/2.0/portal/payment/customer/performoperation:
-    post:
-      description: Perform customer operation and return true if the operation is
-        succesfully provided.
-      operationId: performCustomerOperation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PerformCustomerOperationRequestDto"
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/BooleanWrapper"
-          description: "Boolean value: true if the operation is succesfully provided"
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Perform customer operation
-      tags:
-      - Portal / Payment
   /api/2.0/portal/payment/customer/operations:
     get:
       description: Returns the report of customer operations from the accounting service.
@@ -1363,37 +1290,6 @@ paths:
         - write
       - OpenId: []
       summary: Generate the customer operations report
-      tags:
-      - Portal / Payment
-  /api/2.0/portal/payment/accounting/currencies:
-    get:
-      description: Returns the list of currencies from accounting service.
-      operationId: getAccountingCurrencies
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/CurrencyArrayWrapper"
-          description: The list of currencies
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Get list of currencies
       tags:
       - Portal / Payment
   /api/2.0/portal/payment/topupsettings:
@@ -2494,6 +2390,70 @@ paths:
       summary: Set the audit trail settings
       tags:
       - Security / Audit trail data
+  /api/2.0/settings/banner:
+    get:
+      description: Returns the promotional banners visibility settings settings for
+        the portal.
+      operationId: getTenantBannerSettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantBannerSettingsWrapper"
+          description: Promotional banners visibility settings
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get the promotional banners visibility settings
+      tags:
+      - Settings / Banners visibility
+    post:
+      description: Sets the promotional banners visibility settings settings for the
+        portal.
+      operationId: setTenantBannerSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TenantBannerSettingsDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantBannerSettingsWrapper"
+          description: Promotional banners visibility settings
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Set the promotional banners visibility settings
+      tags:
+      - Security / Banners visibility
   /api/2.0/security/csp:
     get:
       description: Returns the CSP (Content Security Policy) settings for the current
@@ -8114,154 +8074,6 @@ paths:
       summary: Get groups with sharing settings
       tags:
       - Group / Rooms
-  /api/2.0/people/{userid}/contacts:
-    delete:
-      description: Deletes the contacts of the user with the ID specified in the request
-        from the portal.
-      operationId: deleteMemberContacts
-      parameters:
-      - description: The user ID.
-        explode: false
-        in: path
-        name: userid
-        required: true
-        schema:
-          example: "9846"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ContactsRequest"
-        description: The contacts request.
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/EmployeeFullWrapper"
-          description: Deleted user profile with the detailed information
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-        "404":
-          description: User not found
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Delete user contacts
-      tags:
-      - People / Contacts
-    post:
-      description: Sets the contacts of the user with the ID specified in the request
-        replacing the current portal data with the new data.
-      operationId: setMemberContacts
-      parameters:
-      - description: The user ID.
-        explode: false
-        in: path
-        name: userid
-        required: true
-        schema:
-          example: "9846"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ContactsRequest"
-        description: The contacts request.
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/EmployeeFullWrapper"
-          description: Updated user profile with the detailed information
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-        "404":
-          description: User not found
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Set user contacts
-      tags:
-      - People / Contacts
-    put:
-      description: Updates the contact information of the user with the ID specified
-        in the request merging the new data into the current portal data.
-      operationId: updateMemberContacts
-      parameters:
-      - description: The user ID.
-        explode: false
-        in: path
-        name: userid
-        required: true
-        schema:
-          example: "9846"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ContactsRequest"
-        description: The contacts request.
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/EmployeeFullWrapper"
-          description: Updated user profile with the detailed information
-        "401":
-          description: Unauthorized
-        "403":
-          description: No permissions to perform this action
-        "404":
-          description: User not found
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Update user contacts
-      tags:
-      - People / Contacts
   /api/2.0/people/guests:
     delete:
       description: Deletes guests from the list and excludes them from rooms to which
@@ -21409,58 +21221,6 @@ components:
           nullable: true
           type: string
       type: object
-    Currency:
-      additionalProperties: false
-      description: Represents a currency.
-      example:
-        code: some text
-        id: 9846
-      properties:
-        id:
-          description: Unique identifier of the currency.
-          example: 9846
-          format: int32
-          type: integer
-        code:
-          description: The three-character ISO 4217 currency symbol.
-          example: some text
-          nullable: true
-          type: string
-      type: object
-    CurrencyArrayWrapper:
-      example:
-        response:
-        - code: some text
-          id: 9846
-        - code: some text
-          id: 9846
-        count: 0
-        links:
-        - action: action
-          href: href
-        - action: action
-          href: href
-        status: 6
-        statusCode: 1
-      properties:
-        response:
-          items:
-            $ref: "#/components/schemas/Currency"
-          type: array
-        count:
-          format: int32
-          type: integer
-        links:
-          items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
-          type: array
-        status:
-          format: int32
-          type: integer
-        statusCode:
-          format: int32
-          type: integer
-      type: object
     CurrentLicenseInfo:
       additionalProperties: false
       description: The current license information.
@@ -21779,18 +21539,31 @@ components:
           format: int32
           type: integer
       type: object
-    CustomerInfo:
+    CustomerInfoDto:
       additionalProperties: false
       description: The customer information.
       example:
         portalId: some text
         paymentMethodStatus: 0
+        payer:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         email: Sydney_Roberts4@hotmail.com
       properties:
         portalId:
           description: The portal ID.
           example: some text
           nullable: true
+          readOnly: true
           type: string
         paymentMethodStatus:
           $ref: "#/components/schemas/PaymentMethodStatus"
@@ -21798,13 +21571,28 @@ components:
           description: The email address of the customer.
           example: Sydney_Roberts4@hotmail.com
           nullable: true
+          readOnly: true
           type: string
+        payer:
+          $ref: "#/components/schemas/EmployeeDto"
       type: object
     CustomerInfoWrapper:
       example:
         response:
           portalId: some text
           paymentMethodStatus: 0
+          payer:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           email: Sydney_Roberts4@hotmail.com
         count: 0
         links:
@@ -21816,7 +21604,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/CustomerInfo"
+          $ref: "#/components/schemas/CustomerInfoDto"
         count:
           format: int32
           type: integer
@@ -23603,13 +23391,14 @@ components:
         \ 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key,\
         \ 6061 - Customer wallet topped up, 6062 - Customer operation performed, 6063\
         \ - Customer operations report downloaded, 6064 - Customer wallet top up settings\
-        \ updated, 6065 - Customer subscription updated, 7000 - Contact admin mail\
-        \ sent, 7001 - Room invite link used, 7002 - User created and added to room,\
-        \ 7003 - Guest created and added to room, 7004 - Contact sales mail sent,\
-        \ 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904\
-        \ - Delete client, 9905 - Change client activation, 9906 - Change client visibility,\
-        \ 9907 - Revoke user client, 9908 - Generate authorization code token, 9909\
-        \ - Generate personal access token, -1 - None]"
+        \ updated, 6065 - Customer subscription updated, 6066 - Promotional banners\
+        \ visibility settings changed, 7000 - Contact admin mail sent, 7001 - Room\
+        \ invite link used, 7002 - User created and added to room, 7003 - Guest created\
+        \ and added to room, 7004 - Contact sales mail sent, 9901 - Create client,\
+        \ 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905\
+        \ - Change client activation, 9906 - Change client visibility, 9907 - Revoke\
+        \ user client, 9908 - Generate authorization code token, 9909 - Generate personal\
+        \ access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -23871,6 +23660,7 @@ components:
       - 6063
       - 6064
       - 6065
+      - 6066
       - 7000
       - 7001
       - 7002
@@ -24149,6 +23939,7 @@ components:
       - CustomerOperationsReportDownloaded
       - CustomerWalletTopUpSettingsUpdated
       - CustomerSubscriptionUpdated
+      - BannerSettingsChanged
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -24425,6 +24216,7 @@ components:
       - Customer operations report downloaded
       - Customer wallet top up settings updated
       - Customer subscription updated
+      - Promotional banners visibility settings changed
       - Contact admin mail sent
       - Room invite link used
       - User created and added to room
@@ -25223,35 +25015,13 @@ components:
           format: int32
           type: integer
       type: object
-    OpenCustomerSessionRequestDto:
-      additionalProperties: false
-      description: Client session opening parameters
-      example:
-        quantity: 1234
-        serviceAccount: 1234
-        externalRef: some text
-      properties:
-        serviceAccount:
-          description: Service account
-          example: 1234
-          format: int32
-          type: integer
-        externalRef:
-          description: External reference
-          example: some text
-          nullable: true
-          type: string
-        quantity:
-          description: Quantity
-          example: 1234
-          format: int32
-          type: integer
-      type: object
-    Operation:
+    OperationDto:
       additionalProperties: false
       description: Represents an operation.
       example:
-        date: 2008-04-10T06:30:00+04:00
+        date:
+          utcTime: 2008-04-10T06:30:00+04:00
+          timeZoneOffset: 00:00:00
         quantity: 1234
         service: some text
         serviceUnit: some text
@@ -25261,10 +25031,7 @@ components:
         credit: 0.8008281904610115
       properties:
         date:
-          description: Date of the operation.
-          example: 2008-04-10T06:30:00+04:00
-          format: date-time
-          type: string
+          $ref: "#/components/schemas/ApiDateTime"
         service:
           description: Service related to the operation.
           example: some text
@@ -25684,30 +25451,6 @@ components:
             value: 1234
           nullable: true
           type: object
-      type: object
-    PerformCustomerOperationRequestDto:
-      additionalProperties: false
-      description: Parameters for performing a customer operation
-      example:
-        quantity: 1234
-        serviceAccount: 1234
-        sessionId: 1234
-      properties:
-        serviceAccount:
-          description: Service account
-          example: 1234
-          format: int32
-          type: integer
-        sessionId:
-          description: Session ID
-          example: 1234
-          format: int32
-          type: integer
-        quantity:
-          description: Quantity
-          example: 1234
-          format: int32
-          type: integer
       type: object
     PluginsDto:
       additionalProperties: false
@@ -26275,7 +26018,7 @@ components:
       - AndroidV2
       - iOSV2
       - hCaptcha
-    Report:
+    ReportDto:
       additionalProperties: false
       description: Represents a report containing a collection of operations.
       example:
@@ -26284,7 +26027,9 @@ components:
         totalPage: 1234
         limit: 1234
         collection:
-        - date: 2008-04-10T06:30:00+04:00
+        - date:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
           quantity: 1234
           service: some text
           serviceUnit: some text
@@ -26292,7 +26037,9 @@ components:
           currency: some text
           withdrawal: 6.027456183070403
           credit: 0.8008281904610115
-        - date: 2008-04-10T06:30:00+04:00
+        - date:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
           quantity: 1234
           service: some text
           serviceUnit: some text
@@ -26305,7 +26052,7 @@ components:
         collection:
           description: Collection of operations.
           items:
-            $ref: "#/components/schemas/Operation"
+            $ref: "#/components/schemas/OperationDto"
           nullable: true
           type: array
         offset:
@@ -26342,7 +26089,9 @@ components:
           totalPage: 1234
           limit: 1234
           collection:
-          - date: 2008-04-10T06:30:00+04:00
+          - date:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
             quantity: 1234
             service: some text
             serviceUnit: some text
@@ -26350,7 +26099,9 @@ components:
             currency: some text
             withdrawal: 6.027456183070403
             credit: 0.8008281904610115
-          - date: 2008-04-10T06:30:00+04:00
+          - date:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
             quantity: 1234
             service: some text
             serviceUnit: some text
@@ -26369,7 +26120,7 @@ components:
         statusCode: 5
       properties:
         response:
-          $ref: "#/components/schemas/Report"
+          $ref: "#/components/schemas/ReportDto"
         count:
           format: int32
           type: integer
@@ -26709,61 +26460,6 @@ components:
       - productId
       - userId
       type: object
-    Session:
-      additionalProperties: false
-      description: Represents a session with reserved amount and currency.
-      example:
-        reservedAmount: 0.8008281904610115
-        currency: some text
-        sessionId: 1234
-      properties:
-        sessionId:
-          description: Unique identifier of the session.
-          example: 1234
-          format: int32
-          type: integer
-        reservedAmount:
-          description: Amount reserved for the session.
-          format: double
-          type: number
-        currency:
-          description: The three-character ISO 4217 currency symbol of the reserved
-            amount.
-          example: some text
-          nullable: true
-          type: string
-      type: object
-    SessionWrapper:
-      example:
-        response:
-          reservedAmount: 0.8008281904610115
-          currency: some text
-          sessionId: 1234
-        count: 6
-        links:
-        - action: action
-          href: href
-        - action: action
-          href: href
-        status: 1
-        statusCode: 5
-      properties:
-        response:
-          $ref: "#/components/schemas/Session"
-        count:
-          format: int32
-          type: integer
-        links:
-          items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
-          type: array
-        status:
-          format: int32
-          type: integer
-        statusCode:
-          format: int32
-          type: integer
-      type: object
     SettingsDto:
       additionalProperties: false
       description: The settings information.
@@ -26795,6 +26491,7 @@ components:
         utcHoursOffset: -8.5
         maxImageUploadSize: 1234
         wizardToken: some text
+        displayBanners: true
         limitedAccessSpace: true
         baseDomain: some text
         limitedAccessDevToolsForUsers: true
@@ -27027,6 +26724,10 @@ components:
             for users or not.
           example: true
           type: boolean
+        displayBanners:
+          description: Specifies whether to display the promotional banners.
+          example: true
+          type: boolean
         userNameRegex:
           description: The user name validation regex.
           example: some text
@@ -27087,6 +26788,7 @@ components:
           utcHoursOffset: -8.5
           maxImageUploadSize: 1234
           wizardToken: some text
+          displayBanners: true
           limitedAccessSpace: true
           baseDomain: some text
           limitedAccessDevToolsForUsers: true
@@ -28305,6 +28007,64 @@ components:
       properties:
         settings:
           $ref: "#/components/schemas/TenantAuditSettings"
+      type: object
+    TenantBannerSettings:
+      additionalProperties: false
+      description: The promotional banners visibility settings.
+      example:
+        hidden: true
+        lastModified: 2008-04-10T06:30:00+04:00
+      properties:
+        hidden:
+          description: The banners visibility flag.
+          example: true
+          type: boolean
+        lastModified:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+      type: object
+    TenantBannerSettingsDto:
+      additionalProperties: false
+      description: The request parameters for managing the promotional banners visibility
+        settings for the current tenant.
+      example:
+        hidden: true
+      properties:
+        hidden:
+          description: The banners visibility flag.
+          example: true
+          type: boolean
+      type: object
+    TenantBannerSettingsWrapper:
+      example:
+        response:
+          hidden: true
+          lastModified: 2008-04-10T06:30:00+04:00
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/TenantBannerSettings"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
       type: object
     TenantDeepLinkSettings:
       additionalProperties: false
@@ -31640,23 +31400,6 @@ components:
           example: my@gmail.com
           nullable: true
           type: string
-      type: object
-    ContactsRequest:
-      additionalProperties: false
-      description: The contacts request.
-      example:
-        contacts:
-        - type: GTalk
-          value: my@gmail.com
-        - type: GTalk
-          value: my@gmail.com
-      properties:
-        contacts:
-          description: The list of user contacts.
-          items:
-            $ref: "#/components/schemas/Contact"
-          nullable: true
-          type: array
       type: object
     CreateApiKeyRequestDto:
       additionalProperties: false
@@ -35296,12 +35039,12 @@ components:
         document:
           referenceData:
             instanceId: "9846"
+            canEditRoom: true
             fileKey: some text
             roomId: "9846"
           isLinkedForMe: true
           sharedLinkParam: some text
           permissions:
-            changeHistory: true
             download: true
             print: true
             modifyFilter: true
@@ -35477,8 +35220,9 @@ components:
             submitForm:
               visible: true
               resultMessage: some text
+            review:
+              reviewDisplay: some text
             about: true
-            reviewDisplay: some text
             anonymous:
               request: true
             forcesave: true
@@ -35601,12 +35345,12 @@ components:
           document:
             referenceData:
               instanceId: "9846"
+              canEditRoom: true
               fileKey: some text
               roomId: "9846"
             isLinkedForMe: true
             sharedLinkParam: some text
             permissions:
-              changeHistory: true
               download: true
               print: true
               modifyFilter: true
@@ -35782,8 +35526,9 @@ components:
               submitForm:
                 visible: true
                 resultMessage: some text
+              review:
+                reviewDisplay: some text
               about: true
-              reviewDisplay: some text
               anonymous:
                 request: true
               forcesave: true
@@ -36595,8 +36340,9 @@ components:
         submitForm:
           visible: true
           resultMessage: some text
+        review:
+          reviewDisplay: some text
         about: true
-        reviewDisplay: some text
         anonymous:
           request: true
         forcesave: true
@@ -36634,17 +36380,14 @@ components:
           type: boolean
         goback:
           $ref: "#/components/schemas/GobackConfig"
+        review:
+          $ref: "#/components/schemas/ReviewConfig"
         logo:
           $ref: "#/components/schemas/LogoConfigDto"
         mentionShare:
           description: Specifies if the share should be mentioned.
           example: true
           type: boolean
-        reviewDisplay:
-          description: The review display of the customization.
-          example: some text
-          nullable: true
-          type: string
         submitForm:
           $ref: "#/components/schemas/SubmitForm"
         startFillingForm:
@@ -37009,12 +36752,12 @@ components:
       example:
         referenceData:
           instanceId: "9846"
+          canEditRoom: true
           fileKey: some text
           roomId: "9846"
         isLinkedForMe: true
         sharedLinkParam: some text
         permissions:
-          changeHistory: true
           download: true
           print: true
           modifyFilter: true
@@ -37581,8 +37324,9 @@ components:
           submitForm:
             visible: true
             resultMessage: some text
+          review:
+            reviewDisplay: some text
           about: true
-          reviewDisplay: some text
           anonymous:
             request: true
           forcesave: true
@@ -39843,6 +39587,7 @@ components:
       example:
         referenceData:
           instanceId: "9846"
+          canEditRoom: true
           fileKey: some text
           roomId: "9846"
         path: some text
@@ -39900,6 +39645,7 @@ components:
         a file in its system.
       example:
         instanceId: "9846"
+        canEditRoom: true
         fileKey: some text
         roomId: "9846"
       properties:
@@ -39919,12 +39665,17 @@ components:
           example: "9846"
           nullable: true
           type: string
+        canEditRoom:
+          description: Specifies if the room can be edited out or not.
+          example: true
+          type: boolean
       type: object
     FileReferenceWrapper:
       example:
         response:
           referenceData:
             instanceId: "9846"
+            canEditRoom: true
             fileKey: some text
             roomId: "9846"
           path: some text
@@ -40192,7 +39943,7 @@ components:
       - Is completed form
     FileType:
       description: "[0 - Unknown, 1 - Archive, 2 - Video, 3 - Audio, 4 - Image, 5\
-        \ - Spreadsheet, 6 - Presentation, 7 - Document, 10 - Pdf]"
+        \ - Spreadsheet, 6 - Presentation, 7 - Document, 10 - Pdf, 11 - Diagram]"
       enum:
       - 0
       - 1
@@ -40203,6 +39954,7 @@ components:
       - 6
       - 7
       - 10
+      - 11
       example: 0
       type: integer
       x-enum-varnames:
@@ -40215,6 +39967,7 @@ components:
       - Presentation
       - Document
       - Pdf
+      - Diagram
       x-enum-descriptions:
       - Unknown
       - Archive
@@ -40225,6 +39978,7 @@ components:
       - Presentation
       - Document
       - Pdf
+      - Diagram
     FilesSettingsDto:
       additionalProperties: false
       description: The file settings parameters.
@@ -40249,6 +40003,8 @@ components:
         extsVideo:
         - some text
         extsDocument:
+        - some text
+        extsDiagram:
         - some text
         maxUploadThreadCount: 1234
         hideConfirmConvertOpen: true
@@ -40491,6 +40247,14 @@ components:
             type: string
           nullable: true
           type: array
+        extsDiagram:
+          description: The list of the diagram extensions.
+          example:
+          - some text
+          items:
+            type: string
+          nullable: true
+          type: array
         internalFormats:
           $ref: "#/components/schemas/FilesSettingsDto_internalFormats"
         masterFormExtension:
@@ -40721,6 +40485,8 @@ components:
           extsVideo:
           - some text
           extsDocument:
+          - some text
+          extsDiagram:
           - some text
           maxUploadThreadCount: 1234
           hideConfirmConvertOpen: true
@@ -41501,7 +41267,7 @@ components:
         \ 4 - Presentations only, 5 - Spreadsheets only, 7 - Images only, 8 - By user,\
         \ 9 - By department, 10 - Archive only, 11 - By extension, 12 - Media only,\
         \ 13 - Filling forms rooms, 14 - Editing rooms, 17 - Custom rooms, 20 - Public\
-        \ rooms, 22 - Pdf, 23 - Pdf form]"
+        \ rooms, 22 - Pdf, 23 - Pdf form, 24 - Virtual data rooms, 25 - Diagrams only]"
       enum:
       - 0
       - 1
@@ -41521,6 +41287,8 @@ components:
       - 20
       - 22
       - 23
+      - 24
+      - 25
       example: 0
       type: integer
       x-enum-varnames:
@@ -41542,6 +41310,8 @@ components:
       - PublicRooms
       - Pdf
       - PdfForm
+      - VirtualDataRooms
+      - DiagramsOnly
       x-enum-descriptions:
       - None
       - Files  only
@@ -41561,6 +41331,8 @@ components:
       - Public rooms
       - Pdf
       - Pdf form
+      - Virtual data rooms
+      - Diagrams only
     FolderContentDtoInteger:
       additionalProperties: false
       description: The folder content information.
@@ -46528,7 +46300,6 @@ components:
       additionalProperties: false
       description: The permissions configuration parameters.
       example:
-        changeHistory: true
         download: true
         print: true
         modifyFilter: true
@@ -46541,11 +46312,6 @@ components:
         protect: true
         copy: true
       properties:
-        changeHistory:
-          description: Specifies whether to display the "Restore" button when using
-            the "onRequestRestore" event.
-          example: true
-          type: boolean
         comment:
           description: Defines if the document can be commented or not.
           example: true
@@ -46766,6 +46532,17 @@ components:
           example: some text
           format: uri
           nullable: true
+          type: string
+      type: object
+    ReviewConfig:
+      additionalProperties: false
+      example:
+        reviewDisplay: some text
+      properties:
+        reviewDisplay:
+          example: some text
+          nullable: true
+          readOnly: true
           type: string
       type: object
     RoomDataLifetimeDto:
@@ -49965,6 +49742,8 @@ components:
           type: string
         Pdf:
           type: string
+        Diagram:
+          type: string
       type: object
   securitySchemes:
     asc_auth_key:
@@ -50044,7 +49823,6 @@ x-tagGroups:
   - OAuth 2.0 / Scope Management
 - name: People
   tags:
-  - People / Contacts
   - People / Guests
   - People / Password
   - People / Photos
@@ -50071,6 +49849,7 @@ x-tagGroups:
   - Security / Access to DevTools
   - Security / Active connections
   - Security / Audit trail data
+  - Security / Banners visibility
   - Security / CSP
   - Security / Firebase
   - Security / Login history
@@ -50080,6 +49859,7 @@ x-tagGroups:
   tags:
   - Settings / Access to DevTools
   - Settings / Authorization
+  - Settings / Banners visibility
   - Settings / Common settings
   - Settings / Cookies
   - Settings / Custom Navigation

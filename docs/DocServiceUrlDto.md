@@ -5,7 +5,7 @@ The document service URL parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarVersion** | **string** | The version of the document service. | 
+**@Version** | **string** | The version of the document service. | 
 **DocServiceUrlApi** | **string** | The document service URL API. | 
 **DocServiceUrl** | **string** | The document service URL. | 
 **DocServiceUrlInternal** | **string** | The internal document service URL. | 

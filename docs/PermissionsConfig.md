@@ -5,7 +5,6 @@ The permissions configuration parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChangeHistory** | **bool** | Specifies whether to display the \&quot;Restore\&quot; button when using the \&quot;onRequestRestore\&quot; event. | [optional] 
 **Comment** | **bool** | Defines if the document can be commented or not. | [optional] 
 **Chat** | **bool** | Defines if the chat functionality is enabled in the document or not. | [optional] 
 **Download** | **bool** | Defines if the document can be downloaded or only viewed or edited online. | [optional] 

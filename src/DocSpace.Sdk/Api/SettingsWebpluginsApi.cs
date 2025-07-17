@@ -1,37 +1,22 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
 using DocSpace.Sdk.Client;
 using DocSpace.Sdk.Model;
 
@@ -51,10 +36,10 @@ namespace DocSpace.Sdk.Api
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
-        WebPluginWrapper AddWebPluginFromFile(bool? varSystem = default);
+        WebPluginWrapper AddWebPluginFromFile(bool? @system = default);
 
         /// <summary>
         /// Add a web plugin
@@ -63,10 +48,10 @@ namespace DocSpace.Sdk.Api
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
-        ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? varSystem = default);
+        ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? @system = default);
         /// <summary>
         /// Delete a web plugin
         /// </summary>
@@ -177,11 +162,11 @@ namespace DocSpace.Sdk.Api
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
-        System.Threading.Tasks.Task<WebPluginWrapper> AddWebPluginFromFileAsync(bool? varSystem = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<WebPluginWrapper> AddWebPluginFromFileAsync(bool? @system = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add a web plugin
@@ -190,11 +175,11 @@ namespace DocSpace.Sdk.Api
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebPluginWrapper>> AddWebPluginFromFileWithHttpInfoAsync(bool? varSystem = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebPluginWrapper>> AddWebPluginFromFileWithHttpInfoAsync(bool? @system = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a web plugin
         /// </summary>
@@ -206,7 +191,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteWebPluginAsync(string name, System.Threading.CancellationToken cancellationToken = default);
+        Task DeleteWebPluginAsync(string name, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a web plugin
@@ -219,7 +204,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebPluginWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> DeleteWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a web plugin by name
         /// </summary>
@@ -231,7 +216,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
-        System.Threading.Tasks.Task<WebPluginWrapper> GetWebPluginAsync(string name, System.Threading.CancellationToken cancellationToken = default);
+        Task<WebPluginWrapper> GetWebPluginAsync(string name, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a web plugin by name
@@ -244,7 +229,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebPluginWrapper>> GetWebPluginWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebPluginWrapper>> GetWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get web plugins
         /// </summary>
@@ -256,7 +241,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>Task of WebPluginArrayWrapper</returns>
-        System.Threading.Tasks.Task<WebPluginArrayWrapper> GetWebPluginsAsync(bool? enabled = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<WebPluginArrayWrapper> GetWebPluginsAsync(bool? enabled = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get web plugins
@@ -269,7 +254,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebPluginArrayWrapper>> GetWebPluginsWithHttpInfoAsync(bool? enabled = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebPluginArrayWrapper>> GetWebPluginsWithHttpInfoAsync(bool? enabled = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a web plugin
         /// </summary>
@@ -282,7 +267,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, System.Threading.CancellationToken cancellationToken = default);
+        Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a web plugin
@@ -296,7 +281,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -335,14 +320,14 @@ namespace DocSpace.Sdk.Api
         /// <returns></returns>
         public SettingsWebpluginsApi(string basePath)
         {
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -357,13 +342,13 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -399,14 +384,14 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -426,13 +411,13 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -450,10 +435,10 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(asyncClient);
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -461,7 +446,7 @@ namespace DocSpace.Sdk.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient.Dispose();
+            ApiClient.Dispose();
         }
 
         /// <summary>
@@ -485,7 +470,7 @@ namespace DocSpace.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
@@ -511,26 +496,32 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Add a web plugin Adds a web plugin from a file to the current portal.
+        /// Add a web plugin
         /// </summary>
+        /// <remarks>
+        /// Adds a web plugin from a file to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
-        public WebPluginWrapper AddWebPluginFromFile(bool? varSystem = default)
+        public WebPluginWrapper AddWebPluginFromFile(bool? @system = default)
         {
-            var localVarResponse = AddWebPluginFromFileWithHttpInfo(varSystem);
+            var localVarResponse = AddWebPluginFromFileWithHttpInfo(@system);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add a web plugin Adds a web plugin from a file to the current portal.
+        /// Add a web plugin
         /// </summary>
+        /// <remarks>
+        /// Adds a web plugin from a file to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
-        public ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? varSystem = default)
+        public ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? @system = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -545,85 +536,93 @@ namespace DocSpace.Sdk.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (varSystem != null)
+            if (@system != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "system", varSystem));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "system", @system));
             }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<WebPluginWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<WebPluginWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("AddWebPluginFromFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("AddWebPluginFromFile", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Add a web plugin Adds a web plugin from a file to the current portal.
+        /// Add a web plugin
         /// </summary>
+        /// <remarks>
+        /// Adds a web plugin from a file to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
-        public async System.Threading.Tasks.Task<WebPluginWrapper> AddWebPluginFromFileAsync(bool? varSystem = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<WebPluginWrapper> AddWebPluginFromFileAsync(bool? @system = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<WebPluginWrapper> localVarResponse = await AddWebPluginFromFileWithHttpInfoAsync(varSystem, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AddWebPluginFromFileWithHttpInfoAsync(@system, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add a web plugin Adds a web plugin from a file to the current portal.
+        /// Add a web plugin
         /// </summary>
+        /// <remarks>
+        /// Adds a web plugin from a file to the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="varSystem">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebPluginWrapper>> AddWebPluginFromFileWithHttpInfoAsync(bool? varSystem = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebPluginWrapper>> AddWebPluginFromFileWithHttpInfoAsync(bool? @system = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -632,58 +631,64 @@ namespace DocSpace.Sdk.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (varSystem != null)
+            if (@system != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "system", varSystem));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "system", @system));
             }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<WebPluginWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<WebPluginWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("AddWebPluginFromFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("AddWebPluginFromFile", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a web plugin Deletes a web plugin by the name specified in the request.
+        /// Delete a web plugin
         /// </summary>
+        /// <remarks>
+        /// Deletes a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -694,8 +699,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a web plugin Deletes a web plugin by the name specified in the request.
+        /// Delete a web plugin
         /// </summary>
+        /// <remarks>
+        /// Deletes a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
@@ -723,76 +731,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeleteWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeleteWebPlugin", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a web plugin Deletes a web plugin by the name specified in the request.
+        /// Delete a web plugin
         /// </summary>
+        /// <remarks>
+        /// Deletes a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteWebPluginAsync(string name, System.Threading.CancellationToken cancellationToken = default)
+        public async Task DeleteWebPluginAsync(string name, CancellationToken cancellationToken = default)
         {
             await DeleteWebPluginWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete a web plugin Deletes a web plugin by the name specified in the request.
+        /// Delete a web plugin
         /// </summary>
+        /// <remarks>
+        /// Deletes a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-web-plugin/">REST API Reference for DeleteWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebPluginWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> DeleteWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling SettingsWebpluginsApi->DeleteWebPlugin");
 
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
@@ -810,51 +826,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeleteWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeleteWebPlugin", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a web plugin by name Returns a web plugin by the name specified in the request.
+        /// Get a web plugin by name
         /// </summary>
+        /// <remarks>
+        /// Returns a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -866,8 +888,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a web plugin by name Returns a web plugin by the name specified in the request.
+        /// Get a web plugin by name
         /// </summary>
+        /// <remarks>
+        /// Returns a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
@@ -895,82 +920,90 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetWebPlugin", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a web plugin by name Returns a web plugin by the name specified in the request.
+        /// Get a web plugin by name
         /// </summary>
+        /// <remarks>
+        /// Returns a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
-        public async System.Threading.Tasks.Task<WebPluginWrapper> GetWebPluginAsync(string name, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<WebPluginWrapper> GetWebPluginAsync(string name, CancellationToken cancellationToken = default)
         {
-            ApiResponse<WebPluginWrapper> localVarResponse = await GetWebPluginWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetWebPluginWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a web plugin by name Returns a web plugin by the name specified in the request.
+        /// Get a web plugin by name
         /// </summary>
+        /// <remarks>
+        /// Returns a web plugin by the name specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugin/">REST API Reference for GetWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebPluginWrapper>> GetWebPluginWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebPluginWrapper>> GetWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling SettingsWebpluginsApi->GetWebPlugin");
 
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -983,51 +1016,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetWebPlugin", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get web plugins Returns the portal web plugins.
+        /// Get web plugins
         /// </summary>
+        /// <remarks>
+        /// Returns the portal web plugins.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -1039,8 +1078,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get web plugins Returns the portal web plugins.
+        /// Get web plugins
         /// </summary>
+        /// <remarks>
+        /// Returns the portal web plugins.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
@@ -1067,78 +1109,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WebPluginArrayWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<WebPluginArrayWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetWebPlugins", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetWebPlugins", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get web plugins Returns the portal web plugins.
+        /// Get web plugins
         /// </summary>
+        /// <remarks>
+        /// Returns the portal web plugins.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>Task of WebPluginArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<WebPluginArrayWrapper> GetWebPluginsAsync(bool? enabled = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<WebPluginArrayWrapper> GetWebPluginsAsync(bool? enabled = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<WebPluginArrayWrapper> localVarResponse = await GetWebPluginsWithHttpInfoAsync(enabled, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetWebPluginsWithHttpInfoAsync(enabled, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get web plugins Returns the portal web plugins.
+        /// Get web plugins
         /// </summary>
+        /// <remarks>
+        /// Returns the portal web plugins.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enabled">The optional filter for the plugin enabled state. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebPluginArrayWrapper>> GetWebPluginsWithHttpInfoAsync(bool? enabled = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebPluginArrayWrapper>> GetWebPluginsWithHttpInfoAsync(bool? enabled = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1154,51 +1204,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WebPluginArrayWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<WebPluginArrayWrapper>("/api/2.0/settings/webplugins", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetWebPlugins", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetWebPlugins", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update a web plugin Updates a web plugin with the parameters specified in the request.
+        /// Update a web plugin
         /// </summary>
+        /// <remarks>
+        /// Updates a web plugin with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
@@ -1210,8 +1266,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Update a web plugin Updates a web plugin with the parameters specified in the request.
+        /// Update a web plugin
         /// </summary>
+        /// <remarks>
+        /// Updates a web plugin with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
@@ -1241,78 +1300,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateWebPlugin", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update a web plugin Updates a web plugin with the parameters specified in the request.
+        /// Update a web plugin
         /// </summary>
+        /// <remarks>
+        /// Updates a web plugin with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default)
         {
             await UpdateWebPluginWithHttpInfoAsync(name, webPluginRequests, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Update a web plugin Updates a web plugin with the parameters specified in the request.
+        /// Update a web plugin
         /// </summary>
+        /// <remarks>
+        /// Updates a web plugin with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
         /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling SettingsWebpluginsApi->UpdateWebPlugin");
 
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
@@ -1331,43 +1398,46 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/settings/webplugins/{name}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UpdateWebPlugin", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UpdateWebPlugin", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;

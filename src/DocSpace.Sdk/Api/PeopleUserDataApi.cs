@@ -1,37 +1,22 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
 using DocSpace.Sdk.Client;
 using DocSpace.Sdk.Model;
 
@@ -289,7 +274,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the progress of deleting the personal folder
@@ -301,7 +286,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetDeletePersonalFolderProgressWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> GetDeletePersonalFolderProgressWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the reassignment progress
         /// </summary>
@@ -313,7 +298,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetReassignProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> GetReassignProgressAsync(Guid userid, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the reassignment progress
@@ -326,7 +311,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetReassignProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> GetReassignProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the deletion progress
         /// </summary>
@@ -338,7 +323,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetRemoveProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> GetRemoveProgressAsync(Guid userid, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the deletion progress
@@ -351,7 +336,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetRemoveProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> GetRemoveProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the data reassignment need
         /// </summary>
@@ -364,7 +349,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        System.Threading.Tasks.Task<BooleanWrapper> NecessaryReassignAsync(Guid? userId = default, EmployeeType? type = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> NecessaryReassignAsync(Guid? userId = default, EmployeeType? type = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check the data reassignment need
@@ -378,7 +363,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> NecessaryReassignWithHttpInfoAsync(Guid? userId = default, EmployeeType? type = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> NecessaryReassignWithHttpInfoAsync(Guid? userId = default, EmployeeType? type = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Send the deletion instructions
         /// </summary>
@@ -389,7 +374,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> SendInstructionsToDeleteAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<StringWrapper> SendInstructionsToDeleteAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send the deletion instructions
@@ -401,7 +386,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SendInstructionsToDeleteWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SendInstructionsToDeleteWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete the personal folder
         /// </summary>
@@ -412,7 +397,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartDeletePersonalFolderAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> StartDeletePersonalFolderAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete the personal folder
@@ -424,7 +409,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartDeletePersonalFolderWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> StartDeletePersonalFolderWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Start the data reassignment
         /// </summary>
@@ -436,7 +421,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartReassignAsync(StartReassignRequestDto? startReassignRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> StartReassignAsync(StartReassignRequestDto? startReassignRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start the data reassignment
@@ -449,7 +434,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartReassignWithHttpInfoAsync(StartReassignRequestDto? startReassignRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> StartReassignWithHttpInfoAsync(StartReassignRequestDto? startReassignRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Start the data deletion
         /// </summary>
@@ -461,7 +446,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartRemoveAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> StartRemoveAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start the data deletion
@@ -474,7 +459,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> StartRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate the data reassignment
         /// </summary>
@@ -486,7 +471,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateReassignAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> TerminateReassignAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Terminate the data reassignment
@@ -499,7 +484,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> TerminateReassignWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> TerminateReassignWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate the data deletion
         /// </summary>
@@ -511,7 +496,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TerminateRemoveAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task TerminateRemoveAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Terminate the data deletion
@@ -524,7 +509,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TerminateRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> TerminateRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -563,14 +548,14 @@ namespace DocSpace.Sdk.Api
         /// <returns></returns>
         public PeopleUserDataApi(string basePath)
         {
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -585,13 +570,13 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -627,14 +612,14 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -654,13 +639,13 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -678,10 +663,10 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(asyncClient);
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -689,7 +674,7 @@ namespace DocSpace.Sdk.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient.Dispose();
+            ApiClient.Dispose();
         }
 
         /// <summary>
@@ -713,7 +698,7 @@ namespace DocSpace.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
@@ -739,8 +724,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
+        /// Get the progress of deleting the personal folder
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -751,8 +739,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
+        /// Get the progress of deleting the personal folder
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -774,76 +765,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/progress", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/progress", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetDeletePersonalFolderProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetDeletePersonalFolderProgress", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
+        /// Get the progress of deleting the personal folder
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> GetDeletePersonalFolderProgressAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await GetDeletePersonalFolderProgressWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDeletePersonalFolderProgressWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the progress of deleting the personal folder Returns the progress of deleting the personal folder.
+        /// Get the progress of deleting the personal folder
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-delete-personal-folder-progress/">REST API Reference for GetDeletePersonalFolderProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetDeletePersonalFolderProgressWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> GetDeletePersonalFolderProgressWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -855,51 +854,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/progress", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/progress", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetDeletePersonalFolderProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetDeletePersonalFolderProgress", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// Get the reassignment progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -911,8 +916,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// Get the reassignment progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
@@ -936,78 +944,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/reassign/progress/{userid}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/reassign/progress/{userid}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetReassignProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetReassignProgress", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// Get the reassignment progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetReassignProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> GetReassignProgressAsync(Guid userid, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await GetReassignProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetReassignProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the reassignment progress Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// Get the reassignment progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reassign-progress/">REST API Reference for GetReassignProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetReassignProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> GetReassignProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1020,51 +1036,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/progress/{userid}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/progress/{userid}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetReassignProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetReassignProgress", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// Get the deletion progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -1076,8 +1098,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// Get the deletion progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
@@ -1101,78 +1126,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/remove/progress/{userid}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/remove/progress/{userid}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetRemoveProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetRemoveProgress", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// Get the deletion progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> GetRemoveProgressAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> GetRemoveProgressAsync(Guid userid, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await GetRemoveProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRemoveProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the deletion progress Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// Get the deletion progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of the started data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-remove-progress/">REST API Reference for GetRemoveProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> GetRemoveProgressWithHttpInfoAsync(Guid userid, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> GetRemoveProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1185,51 +1218,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/remove/progress/{userid}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/remove/progress/{userid}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetRemoveProgress", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetRemoveProgress", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Check the data reassignment need
         /// </summary>
+        /// <remarks>
+        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
@@ -1242,8 +1281,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Check the data reassignment need
         /// </summary>
+        /// <remarks>
+        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
@@ -1275,80 +1317,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<BooleanWrapper>("/api/2.0/people/reassign/necessary", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/people/reassign/necessary", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("NecessaryReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("NecessaryReassign", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Check the data reassignment need
         /// </summary>
+        /// <remarks>
+        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async System.Threading.Tasks.Task<BooleanWrapper> NecessaryReassignAsync(Guid? userId = default, EmployeeType? type = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> NecessaryReassignAsync(Guid? userId = default, EmployeeType? type = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<BooleanWrapper> localVarResponse = await NecessaryReassignWithHttpInfoAsync(userId, type, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await NecessaryReassignWithHttpInfoAsync(userId, type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Check the data reassignment need Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Check the data reassignment need
         /// </summary>
+        /// <remarks>
+        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
         /// <param name="type">The expected user type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/">REST API Reference for NecessaryReassign Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BooleanWrapper>> NecessaryReassignWithHttpInfoAsync(Guid? userId = default, EmployeeType? type = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> NecessaryReassignWithHttpInfoAsync(Guid? userId = default, EmployeeType? type = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1368,51 +1418,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/people/reassign/necessary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/people/reassign/necessary", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("NecessaryReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("NecessaryReassign", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Send the deletion instructions Sends the instructions for deleting a user profile.
+        /// Send the deletion instructions
         /// </summary>
+        /// <remarks>
+        /// Sends the instructions for deleting a user profile.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>StringWrapper</returns>
@@ -1423,8 +1479,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Send the deletion instructions Sends the instructions for deleting a user profile.
+        /// Send the deletion instructions
         /// </summary>
+        /// <remarks>
+        /// Sends the instructions for deleting a user profile.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
@@ -1446,76 +1505,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<StringWrapper>("/api/2.0/people/self/delete", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<StringWrapper>("/api/2.0/people/self/delete", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SendInstructionsToDelete", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SendInstructionsToDelete", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Send the deletion instructions Sends the instructions for deleting a user profile.
+        /// Send the deletion instructions
         /// </summary>
+        /// <remarks>
+        /// Sends the instructions for deleting a user profile.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> SendInstructionsToDeleteAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SendInstructionsToDeleteAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<StringWrapper> localVarResponse = await SendInstructionsToDeleteWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendInstructionsToDeleteWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Send the deletion instructions Sends the instructions for deleting a user profile.
+        /// Send the deletion instructions
         /// </summary>
+        /// <remarks>
+        /// Sends the instructions for deleting a user profile.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-instructions-to-delete/">REST API Reference for SendInstructionsToDelete Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> SendInstructionsToDeleteWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SendInstructionsToDeleteWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1527,51 +1594,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<StringWrapper>("/api/2.0/people/self/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<StringWrapper>("/api/2.0/people/self/delete", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SendInstructionsToDelete", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SendInstructionsToDelete", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete the personal folder Starts deleting the personal folder.
+        /// Delete the personal folder
         /// </summary>
+        /// <remarks>
+        /// Starts deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
@@ -1582,8 +1655,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Delete the personal folder Starts deleting the personal folder.
+        /// Delete the personal folder
         /// </summary>
+        /// <remarks>
+        /// Starts deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
@@ -1605,76 +1681,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/start", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/start", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartDeletePersonalFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartDeletePersonalFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete the personal folder Starts deleting the personal folder.
+        /// Delete the personal folder
         /// </summary>
+        /// <remarks>
+        /// Starts deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartDeletePersonalFolderAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> StartDeletePersonalFolderAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await StartDeletePersonalFolderWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StartDeletePersonalFolderWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete the personal folder Starts deleting the personal folder.
+        /// Delete the personal folder
         /// </summary>
+        /// <remarks>
+        /// Starts deleting the personal folder.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-delete-personal-folder/">REST API Reference for StartDeletePersonalFolder Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartDeletePersonalFolderWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> StartDeletePersonalFolderWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1686,51 +1770,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/delete/personal/start", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartDeletePersonalFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartDeletePersonalFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
+        /// Start the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Starts the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
@@ -1742,8 +1832,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
+        /// Start the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Starts the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
@@ -1767,78 +1860,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/reassign/start", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/reassign/start", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartReassign", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
+        /// Start the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Starts the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartReassignAsync(StartReassignRequestDto? startReassignRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> StartReassignAsync(StartReassignRequestDto? startReassignRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await StartReassignWithHttpInfoAsync(startReassignRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StartReassignWithHttpInfoAsync(startReassignRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Start the data reassignment Starts the data reassignment for the user with the ID specified in the request.
+        /// Start the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Starts the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startReassignRequestDto">The request parameters for starting the reassignment process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-reassign/">REST API Reference for StartReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartReassignWithHttpInfoAsync(StartReassignRequestDto? startReassignRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> StartReassignWithHttpInfoAsync(StartReassignRequestDto? startReassignRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1851,51 +1952,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/start", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartReassign", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
+        /// Start the data deletion
         /// </summary>
+        /// <remarks>
+        /// Starts the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
@@ -1907,8 +2014,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
+        /// Start the data deletion
         /// </summary>
+        /// <remarks>
+        /// Starts the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
@@ -1932,78 +2042,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/remove/start", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<TaskProgressResponseWrapper>("/api/2.0/people/remove/start", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartRemove", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartRemove", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
+        /// Start the data deletion
         /// </summary>
+        /// <remarks>
+        /// Starts the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> StartRemoveAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> StartRemoveAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await StartRemoveWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StartRemoveWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Start the data deletion Starts the data deletion for the user with the ID specified in the request.
+        /// Start the data deletion
         /// </summary>
+        /// <remarks>
+        /// Starts the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-remove/">REST API Reference for StartRemove Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> StartRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> StartRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2016,51 +2134,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/remove/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TaskProgressResponseWrapper>("/api/2.0/people/remove/start", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("StartRemove", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("StartRemove", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
+        /// Terminate the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Terminates the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
@@ -2072,8 +2196,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
+        /// Terminate the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Terminates the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
@@ -2097,78 +2224,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<TaskProgressResponseWrapper>("/api/2.0/people/reassign/terminate", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<TaskProgressResponseWrapper>("/api/2.0/people/reassign/terminate", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("TerminateReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("TerminateReassign", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
+        /// Terminate the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Terminates the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async System.Threading.Tasks.Task<TaskProgressResponseWrapper> TerminateReassignAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> TerminateReassignAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<TaskProgressResponseWrapper> localVarResponse = await TerminateReassignWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TerminateReassignWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Terminate the data reassignment Terminates the data reassignment for the user with the ID specified in the request.
+        /// Terminate the data reassignment
         /// </summary>
+        /// <remarks>
+        /// Terminates the data reassignment for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-reassign/">REST API Reference for TerminateReassign Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskProgressResponseWrapper>> TerminateReassignWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> TerminateReassignWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2181,51 +2316,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/terminate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<TaskProgressResponseWrapper>("/api/2.0/people/reassign/terminate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("TerminateReassign", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("TerminateReassign", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
+        /// Terminate the data deletion
         /// </summary>
+        /// <remarks>
+        /// Terminates the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
@@ -2236,8 +2377,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
+        /// Terminate the data deletion
         /// </summary>
+        /// <remarks>
+        /// Terminates the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
@@ -2261,72 +2405,80 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/2.0/people/remove/terminate", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<Object>("/api/2.0/people/remove/terminate", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("TerminateRemove", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("TerminateRemove", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
+        /// Terminate the data deletion
         /// </summary>
+        /// <remarks>
+        /// Terminates the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TerminateRemoveAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task TerminateRemoveAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
             await TerminateRemoveWithHttpInfoAsync(terminateRequestDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Terminate the data deletion Terminates the data deletion for the user with the ID specified in the request.
+        /// Terminate the data deletion
         /// </summary>
+        /// <remarks>
+        /// Terminates the data deletion for the user with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="terminateRequestDto">The request parameters for terminating the reassignment/deletion process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-remove/">REST API Reference for TerminateRemove Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TerminateRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> TerminateRemoveWithHttpInfoAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
@@ -2344,43 +2496,46 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/2.0/people/remove/terminate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/people/remove/terminate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("TerminateRemove", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("TerminateRemove", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;

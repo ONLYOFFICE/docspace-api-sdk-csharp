@@ -6,7 +6,7 @@ The web plugin information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The web plugin name. | [optional] 
-**VarVersion** | **string** | The web plugin version. | [optional] 
+**@Version** | **string** | The web plugin version. | [optional] 
 **Description** | **string** | The web plugin description. | [optional] 
 **License** | **string** | The web plugin license. | [optional] 
 **Author** | **string** | The web plugin author. | [optional] 

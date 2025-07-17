@@ -1,11 +1,11 @@
-# DocSpace.Sdk.Model.Operation
+# DocSpace.Sdk.Model.OperationDto
 Represents an operation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **DateTime** | Date of the operation. | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Service** | **string** | Service related to the operation. | [optional] 
 **Description** | **string** | Brief description of the operation. | [optional] 
 **ServiceUnit** | **string** | Unit of the service. | [optional] 

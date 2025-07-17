@@ -1,28 +1,20 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
 using Xunit;
@@ -67,6 +59,8 @@ namespace DocSpace.Sdk.Test.Model
             //Assert.IsType<FilesSettingsDto>(instance);
         }
 
+
+
         /// <summary>
         /// Test the property 'ExtsImagePreviewed'
         /// </summary>
@@ -75,6 +69,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsImagePreviewed'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsMediaPreviewed'
@@ -85,6 +80,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsMediaPreviewed'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsWebPreviewed'
         /// </summary>
@@ -93,6 +89,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsWebPreviewed'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsWebEdited'
@@ -103,6 +100,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsWebEdited'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsWebEncrypt'
         /// </summary>
@@ -111,6 +109,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsWebEncrypt'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsWebReviewed'
@@ -121,6 +120,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsWebReviewed'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsWebCustomFilterEditing'
         /// </summary>
@@ -129,6 +129,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsWebCustomFilterEditing'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsWebRestrictedEditing'
@@ -139,6 +140,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsWebRestrictedEditing'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsWebCommented'
         /// </summary>
@@ -147,6 +149,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsWebCommented'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsWebTemplate'
@@ -157,6 +160,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsWebTemplate'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsCoAuthoring'
         /// </summary>
@@ -165,6 +169,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsCoAuthoring'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsMustConvert'
@@ -175,6 +180,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsMustConvert'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsConvertible'
         /// </summary>
@@ -183,6 +189,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsConvertible'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsUploadable'
@@ -193,6 +200,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsUploadable'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsArchive'
         /// </summary>
@@ -201,6 +209,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsArchive'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsVideo'
@@ -211,6 +220,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsVideo'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsAudio'
         /// </summary>
@@ -219,6 +229,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsAudio'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsImage'
@@ -229,6 +240,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsImage'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsSpreadsheet'
         /// </summary>
@@ -237,6 +249,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsSpreadsheet'
         }
+
 
         /// <summary>
         /// Test the property 'ExtsPresentation'
@@ -247,6 +260,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExtsPresentation'
         }
 
+
         /// <summary>
         /// Test the property 'ExtsDocument'
         /// </summary>
@@ -255,6 +269,17 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExtsDocument'
         }
+
+
+        /// <summary>
+        /// Test the property 'ExtsDiagram'
+        /// </summary>
+        [Fact]
+        public void ExtsDiagramTest()
+        {
+            // TODO unit test for the property 'ExtsDiagram'
+        }
+
 
         /// <summary>
         /// Test the property 'InternalFormats'
@@ -265,6 +290,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'InternalFormats'
         }
 
+
         /// <summary>
         /// Test the property 'MasterFormExtension'
         /// </summary>
@@ -273,6 +299,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'MasterFormExtension'
         }
+
 
         /// <summary>
         /// Test the property 'ParamVersion'
@@ -283,6 +310,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ParamVersion'
         }
 
+
         /// <summary>
         /// Test the property 'ParamOutType'
         /// </summary>
@@ -291,6 +319,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ParamOutType'
         }
+
 
         /// <summary>
         /// Test the property 'FileDownloadUrlString'
@@ -301,6 +330,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FileDownloadUrlString'
         }
 
+
         /// <summary>
         /// Test the property 'FileWebViewerUrlString'
         /// </summary>
@@ -309,6 +339,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FileWebViewerUrlString'
         }
+
 
         /// <summary>
         /// Test the property 'FileWebViewerExternalUrlString'
@@ -319,6 +350,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FileWebViewerExternalUrlString'
         }
 
+
         /// <summary>
         /// Test the property 'FileWebEditorUrlString'
         /// </summary>
@@ -327,6 +359,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FileWebEditorUrlString'
         }
+
 
         /// <summary>
         /// Test the property 'FileWebEditorExternalUrlString'
@@ -337,6 +370,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FileWebEditorExternalUrlString'
         }
 
+
         /// <summary>
         /// Test the property 'FileRedirectPreviewUrlString'
         /// </summary>
@@ -345,6 +379,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FileRedirectPreviewUrlString'
         }
+
 
         /// <summary>
         /// Test the property 'FileThumbnailUrlString'
@@ -355,6 +390,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FileThumbnailUrlString'
         }
 
+
         /// <summary>
         /// Test the property 'ConfirmDelete'
         /// </summary>
@@ -363,6 +399,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ConfirmDelete'
         }
+
 
         /// <summary>
         /// Test the property 'EnableThirdParty'
@@ -373,6 +410,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'EnableThirdParty'
         }
 
+
         /// <summary>
         /// Test the property 'ExternalShare'
         /// </summary>
@@ -381,6 +419,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ExternalShare'
         }
+
 
         /// <summary>
         /// Test the property 'ExternalShareSocialMedia'
@@ -391,6 +430,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ExternalShareSocialMedia'
         }
 
+
         /// <summary>
         /// Test the property 'StoreOriginalFiles'
         /// </summary>
@@ -399,6 +439,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'StoreOriginalFiles'
         }
+
 
         /// <summary>
         /// Test the property 'KeepNewFileName'
@@ -409,6 +450,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'KeepNewFileName'
         }
 
+
         /// <summary>
         /// Test the property 'DisplayFileExtension'
         /// </summary>
@@ -417,6 +459,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'DisplayFileExtension'
         }
+
 
         /// <summary>
         /// Test the property 'ConvertNotify'
@@ -427,6 +470,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ConvertNotify'
         }
 
+
         /// <summary>
         /// Test the property 'HideConfirmCancelOperation'
         /// </summary>
@@ -435,6 +479,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'HideConfirmCancelOperation'
         }
+
 
         /// <summary>
         /// Test the property 'HideConfirmConvertSave'
@@ -445,6 +490,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'HideConfirmConvertSave'
         }
 
+
         /// <summary>
         /// Test the property 'HideConfirmConvertOpen'
         /// </summary>
@@ -453,6 +499,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'HideConfirmConvertOpen'
         }
+
 
         /// <summary>
         /// Test the property 'HideConfirmRoomLifetime'
@@ -463,6 +510,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'HideConfirmRoomLifetime'
         }
 
+
         /// <summary>
         /// Test the property 'DefaultOrder'
         /// </summary>
@@ -471,6 +519,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'DefaultOrder'
         }
+
 
         /// <summary>
         /// Test the property 'Forcesave'
@@ -481,6 +530,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Forcesave'
         }
 
+
         /// <summary>
         /// Test the property 'StoreForcesave'
         /// </summary>
@@ -489,6 +539,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'StoreForcesave'
         }
+
 
         /// <summary>
         /// Test the property 'RecentSection'
@@ -499,6 +550,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'RecentSection'
         }
 
+
         /// <summary>
         /// Test the property 'FavoritesSection'
         /// </summary>
@@ -507,6 +559,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FavoritesSection'
         }
+
 
         /// <summary>
         /// Test the property 'TemplatesSection'
@@ -517,6 +570,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'TemplatesSection'
         }
 
+
         /// <summary>
         /// Test the property 'DownloadTarGz'
         /// </summary>
@@ -525,6 +579,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'DownloadTarGz'
         }
+
 
         /// <summary>
         /// Test the property 'AutomaticallyCleanUp'
@@ -535,6 +590,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'AutomaticallyCleanUp'
         }
 
+
         /// <summary>
         /// Test the property 'CanSearchByContent'
         /// </summary>
@@ -543,6 +599,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'CanSearchByContent'
         }
+
 
         /// <summary>
         /// Test the property 'DefaultSharingAccessRights'
@@ -553,6 +610,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'DefaultSharingAccessRights'
         }
 
+
         /// <summary>
         /// Test the property 'MaxUploadThreadCount'
         /// </summary>
@@ -562,6 +620,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'MaxUploadThreadCount'
         }
 
+
         /// <summary>
         /// Test the property 'ChunkUploadSize'
         /// </summary>
@@ -570,6 +629,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ChunkUploadSize'
         }
+
 
         /// <summary>
         /// Test the property 'OpenEditorInSameTab'

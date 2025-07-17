@@ -1,37 +1,22 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
 using DocSpace.Sdk.Client;
 using DocSpace.Sdk.Model;
 
@@ -177,7 +162,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        System.Threading.Tasks.Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default);
+        Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get an invitation link
@@ -190,7 +175,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a number of portal users
         /// </summary>
@@ -201,7 +186,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of Int64Wrapper</returns>
-        System.Threading.Tasks.Task<Int64Wrapper> GetPortalUsersCountAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<Int64Wrapper> GetPortalUsersCountAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a number of portal users
@@ -213,7 +198,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a user by ID
         /// </summary>
@@ -225,7 +210,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>Task of UserInfoWrapper</returns>
-        System.Threading.Tasks.Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default);
+        Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a user by ID
@@ -238,7 +223,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>Task of ApiResponse (UserInfoWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, CancellationToken cancellationToken = default);
         /// <summary>
         /// Mark a gift message as read
         /// </summary>
@@ -249,7 +234,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MarkGiftMessageAsReadAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task MarkGiftMessageAsReadAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mark a gift message as read
@@ -261,7 +246,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Send congratulations
         /// </summary>
@@ -274,7 +259,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendCongratulationsAsync(Guid? userid = default, string? key = default, System.Threading.CancellationToken cancellationToken = default);
+        Task SendCongratulationsAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send congratulations
@@ -288,7 +273,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -327,14 +312,14 @@ namespace DocSpace.Sdk.Api
         /// <returns></returns>
         public PortalUsersApi(string basePath)
         {
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -349,13 +334,13 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -391,14 +376,14 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -418,13 +403,13 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -442,10 +427,10 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(asyncClient);
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -453,7 +438,7 @@ namespace DocSpace.Sdk.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient.Dispose();
+            ApiClient.Dispose();
         }
 
         /// <summary>
@@ -477,7 +462,7 @@ namespace DocSpace.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
@@ -503,8 +488,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get an invitation link Returns an invitation link for joining the portal.
+        /// Get an invitation link
         /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -516,8 +504,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get an invitation link Returns an invitation link for joining the portal.
+        /// Get an invitation link
         /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
@@ -541,78 +532,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<StringWrapper>("/api/2.0/portal/users/invite/{employeeType}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/portal/users/invite/{employeeType}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetInvitationLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetInvitationLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get an invitation link Returns an invitation link for joining the portal.
+        /// Get an invitation link
         /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async System.Threading.Tasks.Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
         {
-            ApiResponse<StringWrapper> localVarResponse = await GetInvitationLinkWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetInvitationLinkWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get an invitation link Returns an invitation link for joining the portal.
+        /// Get an invitation link
         /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -625,51 +624,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/portal/users/invite/{employeeType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/portal/users/invite/{employeeType}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetInvitationLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetInvitationLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
+        /// Get a number of portal users
         /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Int64Wrapper</returns>
@@ -680,8 +685,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
+        /// Get a number of portal users
         /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>ApiResponse of Int64Wrapper</returns>
@@ -703,76 +711,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalUsersCount", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalUsersCount", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
+        /// Get a number of portal users
         /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of Int64Wrapper</returns>
-        public async System.Threading.Tasks.Task<Int64Wrapper> GetPortalUsersCountAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<Int64Wrapper> GetPortalUsersCountAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<Int64Wrapper> localVarResponse = await GetPortalUsersCountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPortalUsersCountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a number of portal users Returns a number of portal users.
+        /// Get a number of portal users
         /// </summary>
+        /// <remarks>
+        /// Returns a number of portal users.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-users-count/">REST API Reference for GetPortalUsersCount Operation</seealso>
         /// <returns>Task of ApiResponse (Int64Wrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Int64Wrapper>> GetPortalUsersCountWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -784,51 +800,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<Int64Wrapper>("/api/2.0/portal/userscount", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPortalUsersCount", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPortalUsersCount", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
+        /// Get a user by ID
         /// </summary>
+        /// <remarks>
+        /// Returns a user with the ID specified in the request from the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -840,8 +862,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
+        /// Get a user by ID
         /// </summary>
+        /// <remarks>
+        /// Returns a user with the ID specified in the request from the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
@@ -865,78 +890,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<UserInfoWrapper>("/api/2.0/portal/users/{userID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<UserInfoWrapper>("/api/2.0/portal/users/{userID}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetUserById", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetUserById", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
+        /// Get a user by ID
         /// </summary>
+        /// <remarks>
+        /// Returns a user with the ID specified in the request from the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>Task of UserInfoWrapper</returns>
-        public async System.Threading.Tasks.Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<UserInfoWrapper> GetUserByIdAsync(Guid userID, CancellationToken cancellationToken = default)
         {
-            ApiResponse<UserInfoWrapper> localVarResponse = await GetUserByIdWithHttpInfoAsync(userID, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUserByIdWithHttpInfoAsync(userID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a user by ID Returns a user with the ID specified in the request from the current portal.
+        /// Get a user by ID
         /// </summary>
+        /// <remarks>
+        /// Returns a user with the ID specified in the request from the current portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userID">The user ID extracted from the route parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-by-id/">REST API Reference for GetUserById Operation</seealso>
         /// <returns>Task of ApiResponse (UserInfoWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<UserInfoWrapper>> GetUserByIdWithHttpInfoAsync(Guid userID, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -949,51 +982,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<UserInfoWrapper>("/api/2.0/portal/users/{userID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<UserInfoWrapper>("/api/2.0/portal/users/{userID}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetUserById", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetUserById", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Mark a gift message as read Marks a gift message as read.
+        /// Mark a gift message as read
         /// </summary>
+        /// <remarks>
+        /// Marks a gift message as read.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns></returns>
@@ -1003,8 +1042,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Mark a gift message as read Marks a gift message as read.
+        /// Mark a gift message as read
         /// </summary>
+        /// <remarks>
+        /// Marks a gift message as read.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1026,70 +1068,78 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/2.0/portal/present/mark", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<Object>("/api/2.0/portal/present/mark", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Mark a gift message as read Marks a gift message as read.
+        /// Mark a gift message as read
         /// </summary>
+        /// <remarks>
+        /// Marks a gift message as read.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MarkGiftMessageAsReadAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task MarkGiftMessageAsReadAsync(CancellationToken cancellationToken = default)
         {
             await MarkGiftMessageAsReadWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Mark a gift message as read Marks a gift message as read.
+        /// Mark a gift message as read
         /// </summary>
+        /// <remarks>
+        /// Marks a gift message as read.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-gift-message-as-read/">REST API Reference for MarkGiftMessageAsRead Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> MarkGiftMessageAsReadWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
@@ -1106,51 +1156,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/api/2.0/portal/present/mark", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/portal/present/mark", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("MarkGiftMessageAsRead", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Send congratulations Sends congratulations to the user after registering a portal.
+        /// Send congratulations
         /// </summary>
+        /// <remarks>
+        /// Sends congratulations to the user after registering a portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
@@ -1162,8 +1218,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Send congratulations Sends congratulations to the user after registering a portal.
+        /// Send congratulations
         /// </summary>
+        /// <remarks>
+        /// Sends congratulations to the user after registering a portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
@@ -1195,44 +1254,52 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/2.0/portal/sendcongratulations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<Object>("/api/2.0/portal/sendcongratulations", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SendCongratulations", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SendCongratulations", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Send congratulations Sends congratulations to the user after registering a portal.
+        /// Send congratulations
         /// </summary>
+        /// <remarks>
+        /// Sends congratulations to the user after registering a portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendCongratulationsAsync(Guid? userid = default, string? key = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task SendCongratulationsAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default)
         {
             await SendCongratulationsWithHttpInfoAsync(userid, key, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Send congratulations Sends congratulations to the user after registering a portal.
+        /// Send congratulations
         /// </summary>
+        /// <remarks>
+        /// Sends congratulations to the user after registering a portal.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
         /// <param name="key">The template identifier or email configuration key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
@@ -1258,12 +1325,15 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/api/2.0/portal/sendcongratulations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/portal/sendcongratulations", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SendCongratulations", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SendCongratulations", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;

@@ -1,37 +1,22 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
 using DocSpace.Sdk.Client;
 using DocSpace.Sdk.Model;
 
@@ -352,9 +337,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
 
         /// <summary>
         /// Get the \&quot;My documents\&quot; section
@@ -371,9 +357,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
         /// <summary>
         /// Get new folder items
         /// </summary>
@@ -411,9 +398,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
 
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
@@ -429,9 +417,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
         /// <summary>
         /// Get filtered sections
         /// </summary>
@@ -447,9 +436,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
 
         /// <summary>
         /// Get filtered sections
@@ -466,9 +456,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
         /// </summary>
@@ -484,9 +475,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
 
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
@@ -503,9 +495,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
         /// <summary>
         /// Insert a file
         /// </summary>
@@ -717,7 +710,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        System.Threading.Tasks.Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check file uploads
@@ -731,7 +724,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a folder
         /// </summary>
@@ -744,7 +737,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a folder
@@ -758,7 +751,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a folder
         /// </summary>
@@ -771,7 +764,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a folder
@@ -785,7 +778,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get used space of files
         /// </summary>
@@ -796,7 +789,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of FilesStatisticsResultWrapper</returns>
-        System.Threading.Tasks.Task<FilesStatisticsResultWrapper> GetFilesUsedSpaceAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<FilesStatisticsResultWrapper> GetFilesUsedSpaceAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get used space of files
@@ -808,7 +801,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (FilesStatisticsResultWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FilesStatisticsResultWrapper>> GetFilesUsedSpaceWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FilesStatisticsResultWrapper>> GetFilesUsedSpaceWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder form filter
         /// </summary>
@@ -820,7 +813,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of FormsItemArrayWrapper</returns>
-        System.Threading.Tasks.Task<FormsItemArrayWrapper> GetFolderAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<FormsItemArrayWrapper> GetFolderAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder form filter
@@ -833,7 +826,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FormsItemArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FormsItemArrayWrapper>> GetFolderWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FormsItemArrayWrapper>> GetFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a folder by ID
         /// </summary>
@@ -859,7 +852,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a folder by ID
@@ -886,7 +879,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -902,7 +895,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder history
@@ -919,7 +912,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder information
         /// </summary>
@@ -931,7 +924,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> GetFolderInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> GetFolderInfoAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder information
@@ -944,7 +937,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> GetFolderInfoWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> GetFolderInfoWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the folder path
         /// </summary>
@@ -956,7 +949,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> GetFolderPathAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileEntryArrayWrapper> GetFolderPathAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the folder path
@@ -969,7 +962,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetFolderPathWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryArrayWrapper>> GetFolderPathWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get primary external link
         /// </summary>
@@ -981,7 +974,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        System.Threading.Tasks.Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get primary external link
@@ -994,7 +987,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get subfolders
         /// </summary>
@@ -1006,7 +999,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> GetFoldersAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileEntryArrayWrapper> GetFoldersAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get subfolders
@@ -1019,7 +1012,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the \&quot;My documents\&quot; section
         /// </summary>
@@ -1035,10 +1028,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the \&quot;My documents\&quot; section
@@ -1055,10 +1049,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get new folder items
         /// </summary>
@@ -1070,7 +1065,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get new folder items
@@ -1083,7 +1078,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
         /// </summary>
@@ -1098,10 +1093,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the \&quot;Private Room\&quot; section
@@ -1117,10 +1113,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get filtered sections
         /// </summary>
@@ -1136,10 +1133,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get filtered sections
@@ -1156,10 +1154,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
         /// </summary>
@@ -1175,10 +1174,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the \&quot;Trash\&quot; section
@@ -1195,10 +1195,11 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Insert a file
         /// </summary>
@@ -1222,7 +1223,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/">REST API Reference for InsertFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> InsertFileAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> InsertFileAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Insert a file
@@ -1247,7 +1248,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/">REST API Reference for InsertFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> InsertFileWithHttpInfoAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> InsertFileWithHttpInfoAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section
         /// </summary>
@@ -1270,7 +1271,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/">REST API Reference for InsertFileToMyFromBody Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FileIntegerWrapper> InsertFileToMyFromBodyAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> InsertFileToMyFromBodyAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Insert a file to the \&quot;My documents\&quot; section
@@ -1294,7 +1295,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/">REST API Reference for InsertFileToMyFromBody Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> InsertFileToMyFromBodyWithHttpInfoAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> InsertFileToMyFromBodyWithHttpInfoAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Rename a folder
         /// </summary>
@@ -1307,7 +1308,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rename a folder
@@ -1321,7 +1322,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set folder order
         /// </summary>
@@ -1334,7 +1335,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        System.Threading.Tasks.Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set folder order
@@ -1348,7 +1349,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a file
         /// </summary>
@@ -1361,7 +1362,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a file
@@ -1375,7 +1376,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section
         /// </summary>
@@ -1387,7 +1388,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        System.Threading.Tasks.Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a file to the \&quot;My documents\&quot; section
@@ -1400,7 +1401,7 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1439,14 +1440,14 @@ namespace DocSpace.Sdk.Api
         /// <returns></returns>
         public FilesFoldersApi(string basePath)
         {
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1461,13 +1462,13 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(this.Configuration.BasePath);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1503,14 +1504,14 @@ namespace DocSpace.Sdk.Api
         {
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 new Configuration { BasePath = basePath }
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1530,13 +1531,13 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
 
-            this.Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
+            Configuration = DocSpace.Sdk.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
                 configuration
             );
-            this.ApiClient = new ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client = this.ApiClient;
-            this.AsynchronousClient = this.ApiClient;
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
             ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1554,10 +1555,10 @@ namespace DocSpace.Sdk.Api
             ArgumentNullException.ThrowIfNull(asyncClient);
             ArgumentNullException.ThrowIfNull(configuration);
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -1565,7 +1566,7 @@ namespace DocSpace.Sdk.Api
         /// </summary>
         public void Dispose()
         {
-            this.ApiClient.Dispose();
+            ApiClient.Dispose();
         }
 
         /// <summary>
@@ -1589,7 +1590,7 @@ namespace DocSpace.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
@@ -1615,8 +1616,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
+        /// Check file uploads
         /// </summary>
+        /// <remarks>
+        /// Checks the file uploads to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
@@ -1629,8 +1633,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
+        /// Check file uploads
         /// </summary>
+        /// <remarks>
+        /// Checks the file uploads to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
@@ -1656,80 +1663,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CheckUpload", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CheckUpload", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
+        /// Check file uploads
         /// </summary>
+        /// <remarks>
+        /// Checks the file uploads to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<STRINGArrayWrapper> localVarResponse = await CheckUploadWithHttpInfoAsync(folderId, checkUploadRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CheckUploadWithHttpInfoAsync(folderId, checkUploadRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Check file uploads Checks the file uploads to the folder with the ID specified in the request.
+        /// Check file uploads
         /// </summary>
+        /// <remarks>
+        /// Checks the file uploads to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1743,51 +1758,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CheckUpload", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CheckUpload", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// Create a folder
         /// </summary>
+        /// <remarks>
+        /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
@@ -1800,8 +1821,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// Create a folder
         /// </summary>
+        /// <remarks>
+        /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
@@ -1827,80 +1851,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CreateFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CreateFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// Create a folder
         /// </summary>
+        /// <remarks>
+        /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderIntegerWrapper> localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a folder Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// Create a folder
         /// </summary>
+        /// <remarks>
+        /// Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1914,51 +1946,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("CreateFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("CreateFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a folder Deletes a folder with the ID specified in the request.
+        /// Delete a folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
@@ -1971,8 +2009,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a folder Deletes a folder with the ID specified in the request.
+        /// Delete a folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
@@ -1998,80 +2039,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<FileOperationArrayWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Delete<FileOperationArrayWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeleteFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeleteFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Delete a folder Deletes a folder with the ID specified in the request.
+        /// Delete a folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileOperationArrayWrapper> localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete a folder Deletes a folder with the ID specified in the request.
+        /// Delete a folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
         /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2085,51 +2134,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<FileOperationArrayWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<FileOperationArrayWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("DeleteFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("DeleteFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get used space of files Returns the used space of files in the root folders.
+        /// Get used space of files
         /// </summary>
+        /// <remarks>
+        /// Returns the used space of files in the root folders.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>FilesStatisticsResultWrapper</returns>
@@ -2140,8 +2195,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get used space of files Returns the used space of files in the root folders.
+        /// Get used space of files
         /// </summary>
+        /// <remarks>
+        /// Returns the used space of files in the root folders.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>ApiResponse of FilesStatisticsResultWrapper</returns>
@@ -2163,76 +2221,84 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FilesStatisticsResultWrapper>("/api/2.0/files/filesusedspace", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FilesStatisticsResultWrapper>("/api/2.0/files/filesusedspace", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFilesUsedSpace", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFilesUsedSpace", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get used space of files Returns the used space of files in the root folders.
+        /// Get used space of files
         /// </summary>
+        /// <remarks>
+        /// Returns the used space of files in the root folders.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of FilesStatisticsResultWrapper</returns>
-        public async System.Threading.Tasks.Task<FilesStatisticsResultWrapper> GetFilesUsedSpaceAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FilesStatisticsResultWrapper> GetFilesUsedSpaceAsync(CancellationToken cancellationToken = default)
         {
-            ApiResponse<FilesStatisticsResultWrapper> localVarResponse = await GetFilesUsedSpaceWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFilesUsedSpaceWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get used space of files Returns the used space of files in the root folders.
+        /// Get used space of files
         /// </summary>
+        /// <remarks>
+        /// Returns the used space of files in the root folders.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/">REST API Reference for GetFilesUsedSpace Operation</seealso>
         /// <returns>Task of ApiResponse (FilesStatisticsResultWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FilesStatisticsResultWrapper>> GetFilesUsedSpaceWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FilesStatisticsResultWrapper>> GetFilesUsedSpaceWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2244,51 +2310,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FilesStatisticsResultWrapper>("/api/2.0/files/filesusedspace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FilesStatisticsResultWrapper>("/api/2.0/files/filesusedspace", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFilesUsedSpace", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFilesUsedSpace", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
+        /// Get folder form filter
         /// </summary>
+        /// <remarks>
+        /// Returns the form filter of a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -2300,8 +2372,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
+        /// Get folder form filter
         /// </summary>
+        /// <remarks>
+        /// Returns the form filter of a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
@@ -2325,48 +2400,56 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FormsItemArrayWrapper>("/api/2.0/files/{folderId}/formfilter", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FormsItemArrayWrapper>("/api/2.0/files/{folderId}/formfilter", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
+        /// Get folder form filter
         /// </summary>
+        /// <remarks>
+        /// Returns the form filter of a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of FormsItemArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FormsItemArrayWrapper> GetFolderAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FormsItemArrayWrapper> GetFolderAsync(int folderId, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FormsItemArrayWrapper> localVarResponse = await GetFolderWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get folder form filter Returns the form filter of a folder with the ID specified in the request.
+        /// Get folder form filter
         /// </summary>
+        /// <remarks>
+        /// Returns the form filter of a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FormsItemArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FormsItemArrayWrapper>> GetFolderWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FormsItemArrayWrapper>> GetFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2380,20 +2463,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FormsItemArrayWrapper>("/api/2.0/files/{folderId}/formfilter", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FormsItemArrayWrapper>("/api/2.0/files/{folderId}/formfilter", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// Get a folder by ID
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
@@ -2419,8 +2508,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// Get a folder by ID
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
@@ -2514,20 +2606,26 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/{folderId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/{folderId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderByFolderId", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderByFolderId", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// Get a folder by ID
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
@@ -2547,15 +2645,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a folder by ID Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// Get a folder by ID
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the request.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
@@ -2575,15 +2676,14 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2653,20 +2753,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/{folderId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/{folderId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderByFolderId", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderByFolderId", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder history Returns the activity history of a folder with a specified identifier.
+        /// Get folder history
         /// </summary>
+        /// <remarks>
+        /// Returns the activity history of a folder with a specified identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
@@ -2682,8 +2788,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get folder history Returns the activity history of a folder with a specified identifier.
+        /// Get folder history
         /// </summary>
+        /// <remarks>
+        /// Returns the activity history of a folder with a specified identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
@@ -2727,50 +2836,56 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<HistoryArrayWrapper>("/api/2.0/files/folder/{folderId}/log", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<HistoryArrayWrapper>("/api/2.0/files/folder/{folderId}/log", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderHistory", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderHistory", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder history Returns the activity history of a folder with a specified identifier.
+        /// Get folder history
         /// </summary>
+        /// <remarks>
+        /// Returns the activity history of a folder with a specified identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
@@ -2780,15 +2895,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<HistoryArrayWrapper> localVarResponse = await GetFolderHistoryWithHttpInfoAsync(folderId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderHistoryWithHttpInfoAsync(folderId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get folder history Returns the activity history of a folder with a specified identifier.
+        /// Get folder history
         /// </summary>
+        /// <remarks>
+        /// Returns the activity history of a folder with a specified identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID of the history request.</param>
         /// <param name="fromDate">The start date of the history request. (optional)</param>
@@ -2798,15 +2916,14 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2835,51 +2952,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<HistoryArrayWrapper>("/api/2.0/files/folder/{folderId}/log", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<HistoryArrayWrapper>("/api/2.0/files/folder/{folderId}/log", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderHistory", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderHistory", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
+        /// Get folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -2891,8 +3014,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
+        /// Get folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
@@ -2916,48 +3042,56 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderInfo", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
+        /// Get folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> GetFolderInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> GetFolderInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderIntegerWrapper> localVarResponse = await GetFolderInfoWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderInfoWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get folder information Returns the detailed information about a folder with the ID specified in the request.
+        /// Get folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> GetFolderInfoWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> GetFolderInfoWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -2971,20 +3105,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderInfo", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the folder path Returns a path to the folder with the ID specified in the request.
+        /// Get the folder path
         /// </summary>
+        /// <remarks>
+        /// Returns a path to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -2996,8 +3136,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get the folder path Returns a path to the folder with the ID specified in the request.
+        /// Get the folder path
         /// </summary>
+        /// <remarks>
+        /// Returns a path to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
@@ -3021,78 +3164,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileEntryArrayWrapper>("/api/2.0/files/folder/{folderId}/path", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FileEntryArrayWrapper>("/api/2.0/files/folder/{folderId}/path", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderPath", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderPath", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the folder path Returns a path to the folder with the ID specified in the request.
+        /// Get the folder path
         /// </summary>
+        /// <remarks>
+        /// Returns a path to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> GetFolderPathAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileEntryArrayWrapper> GetFolderPathAsync(int folderId, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileEntryArrayWrapper> localVarResponse = await GetFolderPathWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderPathWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the folder path Returns a path to the folder with the ID specified in the request.
+        /// Get the folder path
         /// </summary>
+        /// <remarks>
+        /// Returns a path to the folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetFolderPathWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryArrayWrapper>> GetFolderPathWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3105,51 +3256,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/folder/{folderId}/path", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/folder/{folderId}/path", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderPath", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderPath", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get primary external link Returns the primary external link by the identifier specified in the request.
+        /// Get primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link by the identifier specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -3161,8 +3318,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get primary external link Returns the primary external link by the identifier specified in the request.
+        /// Get primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link by the identifier specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
@@ -3186,48 +3346,56 @@ namespace DocSpace.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileShareWrapper>("/api/2.0/files/folder/{id}/link", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FileShareWrapper>("/api/2.0/files/folder/{id}/link", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderPrimaryExternalLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderPrimaryExternalLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get primary external link Returns the primary external link by the identifier specified in the request.
+        /// Get primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link by the identifier specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async System.Threading.Tasks.Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileShareWrapper> localVarResponse = await GetFolderPrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderPrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get primary external link Returns the primary external link by the identifier specified in the request.
+        /// Get primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link by the identifier specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3241,20 +3409,26 @@ namespace DocSpace.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileShareWrapper>("/api/2.0/files/folder/{id}/link", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FileShareWrapper>("/api/2.0/files/folder/{id}/link", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolderPrimaryExternalLink", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolderPrimaryExternalLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// Get subfolders
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -3266,8 +3440,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// Get subfolders
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
@@ -3291,78 +3468,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolders", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolders", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// Get subfolders
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> GetFoldersAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileEntryArrayWrapper> GetFoldersAsync(int folderId, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileEntryArrayWrapper> localVarResponse = await GetFoldersWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFoldersWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get subfolders Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// Get subfolders
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the subfolders from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3375,51 +3560,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetFolders", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetFolders", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// Get the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3429,17 +3620,21 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
-            var localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// Get the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3449,9 +3644,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3498,53 +3694,63 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetMyFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// Get the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3554,18 +3760,22 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;My documents\&quot; section Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// Get the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;My documents\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3575,18 +3785,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3627,54 +3837,64 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetMyFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
+        /// Get new folder items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -3686,8 +3906,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
+        /// Get new folder items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
@@ -3711,78 +3934,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetNewFolderItems", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
+        /// Get new folder items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of FileEntryArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileEntryArrayWrapper> GetNewFolderItemsAsync(int folderId, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileEntryArrayWrapper> localVarResponse = await GetNewFolderItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewFolderItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get new folder items Returns a list of all the new items from a folder with the ID specified in the request.
+        /// Get new folder items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The request folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -3795,51 +4026,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetNewFolderItems", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// Get the \&quot;Private Room\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3848,17 +4085,21 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
-            var localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// Get the \&quot;Private Room\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3867,9 +4108,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3912,53 +4154,63 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPrivacyFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// Get the \&quot;Private Room\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3967,18 +4219,22 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;Private Room\&quot; section Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// Get the \&quot;Private Room\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Private Room\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -3987,18 +4243,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -4035,54 +4291,64 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetPrivacyFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get filtered sections Returns all the sections matching the parameters specified in the request.
+        /// Get filtered sections
         /// </summary>
+        /// <remarks>
+        /// Returns all the sections matching the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4092,17 +4358,21 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
-            var localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get filtered sections Returns all the sections matching the parameters specified in the request.
+        /// Get filtered sections
         /// </summary>
+        /// <remarks>
+        /// Returns all the sections matching the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4112,9 +4382,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        public ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4161,53 +4432,63 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderContentIntegerArrayWrapper>("/api/2.0/files/@root", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerArrayWrapper>("/api/2.0/files/@root", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetRootFolders", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetRootFolders", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get filtered sections Returns all the sections matching the parameters specified in the request.
+        /// Get filtered sections
         /// </summary>
+        /// <remarks>
+        /// Returns all the sections matching the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4217,18 +4498,22 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderContentIntegerArrayWrapper> localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get filtered sections Returns all the sections matching the parameters specified in the request.
+        /// Get filtered sections
         /// </summary>
+        /// <remarks>
+        /// Returns all the sections matching the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4238,18 +4523,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -4290,54 +4575,64 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderContentIntegerArrayWrapper>("/api/2.0/files/@root", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerArrayWrapper>("/api/2.0/files/@root", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetRootFolders", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetRootFolders", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// Get the \&quot;Trash\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4347,17 +4642,21 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
-            var localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// Get the \&quot;Trash\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4367,9 +4666,10 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4416,53 +4716,63 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@trash", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@trash", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTrashFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTrashFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// Get the \&quot;Trash\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4472,18 +4782,22 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderContentIntegerWrapper> localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the \&quot;Trash\&quot; section Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// Get the \&quot;Trash\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed list of files and folders located in the \&quot;Trash\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
@@ -4493,18 +4807,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -4545,54 +4859,64 @@ namespace DocSpace.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (fields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@trash", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@trash", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("GetTrashFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("GetTrashFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
+        /// Insert a file
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the selected folder by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
@@ -4616,8 +4940,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
+        /// Insert a file
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the selected folder by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
@@ -4701,50 +5028,56 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FileIntegerWrapper>("/api/2.0/files/{folderId}/insert", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/{folderId}/insert", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("InsertFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("InsertFile", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
+        /// Insert a file
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the selected folder by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
@@ -4762,15 +5095,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/">REST API Reference for InsertFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> InsertFileAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> InsertFileAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileIntegerWrapper> localVarResponse = await InsertFileWithHttpInfoAsync(folderId, insertFileFile, insertFileTitle, insertFileCreateNewIfExist, insertFileKeepConvertStatus, insertFileStreamCanRead, insertFileStreamCanWrite, insertFileStreamCanSeek, insertFileStreamCanTimeout, insertFileStreamLength, insertFileStreamPosition, insertFileStreamReadTimeout, insertFileStreamWriteTimeout, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await InsertFileWithHttpInfoAsync(folderId, insertFileFile, insertFileTitle, insertFileCreateNewIfExist, insertFileKeepConvertStatus, insertFileStreamCanRead, insertFileStreamCanWrite, insertFileStreamCanSeek, insertFileStreamCanTimeout, insertFileStreamLength, insertFileStreamPosition, insertFileStreamReadTimeout, insertFileStreamWriteTimeout, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Insert a file Inserts a file specified in the request to the selected folder by single file uploading.
+        /// Insert a file
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the selected folder by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for inserting a file.</param>
         /// <param name="insertFileFile">The file to be inserted. (optional)</param>
@@ -4788,15 +5124,14 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/">REST API Reference for InsertFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> InsertFileWithHttpInfoAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> InsertFileWithHttpInfoAsync(int folderId, FileParameter? insertFileFile = default, string? insertFileTitle = default, bool? insertFileCreateNewIfExist = default, bool? insertFileKeepConvertStatus = default, bool? insertFileStreamCanRead = default, bool? insertFileStreamCanWrite = default, bool? insertFileStreamCanSeek = default, bool? insertFileStreamCanTimeout = default, long? insertFileStreamLength = default, long? insertFileStreamPosition = default, int? insertFileStreamReadTimeout = default, int? insertFileStreamWriteTimeout = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -4857,51 +5192,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/{folderId}/insert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/{folderId}/insert", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("InsertFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("InsertFile", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// Insert a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
@@ -4924,8 +5265,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// Insert a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
@@ -5007,50 +5351,56 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FileIntegerWrapper>("/api/2.0/files/@my/insert", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/@my/insert", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("InsertFileToMyFromBody", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("InsertFileToMyFromBody", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// Insert a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
@@ -5067,15 +5417,18 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/">REST API Reference for InsertFileToMyFromBody Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FileIntegerWrapper> InsertFileToMyFromBodyAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> InsertFileToMyFromBodyAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FileIntegerWrapper> localVarResponse = await InsertFileToMyFromBodyWithHttpInfoAsync(file, title, createNewIfExist, keepConvertStatus, streamCanRead, streamCanWrite, streamCanSeek, streamCanTimeout, streamLength, streamPosition, streamReadTimeout, streamWriteTimeout, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await InsertFileToMyFromBodyWithHttpInfoAsync(file, title, createNewIfExist, keepConvertStatus, streamCanRead, streamCanWrite, streamCanSeek, streamCanTimeout, streamLength, streamPosition, streamReadTimeout, streamWriteTimeout, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Insert a file to the \&quot;My documents\&quot; section Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// Insert a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Inserts a file specified in the request to the \&quot;My documents\&quot; section by single file uploading.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The file to be inserted. (optional)</param>
         /// <param name="title">The file title to be inserted. (optional)</param>
@@ -5092,15 +5445,14 @@ namespace DocSpace.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/">REST API Reference for InsertFileToMyFromBody Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileIntegerWrapper>> InsertFileToMyFromBodyWithHttpInfoAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> InsertFileToMyFromBodyWithHttpInfoAsync(FileParameter? file = default, string? title = default, bool? createNewIfExist = default, bool? keepConvertStatus = default, bool? streamCanRead = default, bool? streamCanWrite = default, bool? streamCanSeek = default, bool? streamCanTimeout = default, long? streamLength = default, long? streamPosition = default, int? streamReadTimeout = default, int? streamWriteTimeout = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -5160,51 +5512,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/@my/insert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/@my/insert", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("InsertFileToMyFromBody", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("InsertFileToMyFromBody", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Rename a folder Renames the selected folder with a new title specified in the request.
+        /// Rename a folder
         /// </summary>
+        /// <remarks>
+        /// Renames the selected folder with a new title specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
@@ -5217,8 +5575,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Rename a folder Renames the selected folder with a new title specified in the request.
+        /// Rename a folder
         /// </summary>
+        /// <remarks>
+        /// Renames the selected folder with a new title specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
@@ -5244,80 +5605,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("RenameFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("RenameFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Rename a folder Renames the selected folder with a new title specified in the request.
+        /// Rename a folder
         /// </summary>
+        /// <remarks>
+        /// Renames the selected folder with a new title specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderIntegerWrapper> localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Rename a folder Renames the selected folder with a new title specified in the request.
+        /// Rename a folder
         /// </summary>
+        /// <remarks>
+        /// Renames the selected folder with a new title specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
         /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -5331,51 +5700,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("RenameFolder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("RenameFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Set folder order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order
         /// </summary>
+        /// <remarks>
+        /// Sets the file order in the folder with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
@@ -5388,8 +5763,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Set folder order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order
         /// </summary>
+        /// <remarks>
+        /// Sets the file order in the folder with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
@@ -5415,80 +5793,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}/order", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}/order", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SetFolderOrder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SetFolderOrder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Set folder order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order
         /// </summary>
+        /// <remarks>
+        /// Sets the file order in the folder with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async System.Threading.Tasks.Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> SetFolderOrderAsync(int folderId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<FolderIntegerWrapper> localVarResponse = await SetFolderOrderWithHttpInfoAsync(folderId, orderRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetFolderOrderWithHttpInfoAsync(folderId, orderRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set folder order Sets the file order in the folder with ID specified in the request.
+        /// Set folder order
         /// </summary>
+        /// <remarks>
+        /// Sets the file order in the folder with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="orderRequestDto">The folder order information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/">REST API Reference for SetFolderOrder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> SetFolderOrderWithHttpInfoAsync(int folderId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -5502,51 +5888,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}/order", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FolderIntegerWrapper>("/api/2.0/files/folder/{folderId}/order", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("SetFolderOrder", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("SetFolderOrder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
@@ -5559,8 +5951,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
@@ -5586,80 +5981,88 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UploadFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UploadFile", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<ObjectWrapper> localVarResponse = await UploadFileWithHttpInfoAsync(folderId, uploadRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadFileWithHttpInfoAsync(folderId, uploadRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Upload a file Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
         /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -5673,51 +6076,57 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UploadFile", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UploadFile", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -5729,8 +6138,11 @@ namespace DocSpace.Sdk.Api
         }
 
         /// <summary>
-        /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
@@ -5757,78 +6169,86 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UploadFileToMy", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UploadFileToMy", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async System.Threading.Tasks.Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default)
         {
-            ApiResponse<ObjectWrapper> localVarResponse = await UploadFileToMyWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadFileToMyWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Upload a file to the \&quot;My documents\&quot; section Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Upload a file to the \&quot;My documents\&quot; section
         /// </summary>
+        /// <remarks>
+        /// Uploads a file specified in the request to the \&quot;My documents\&quot; section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// </remarks>
         /// <exception cref="DocSpace.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default)
         {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [" application/json"];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -5844,43 +6264,46 @@ namespace DocSpace.Sdk.Api
 
             // authentication (Basic) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
             }
             // authentication (OAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
             {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", this.Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
             }
             // authentication (asc_auth_key) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", this.Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
             }
             // authentication (Bearer) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
             }
             // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                var exception = this.ExceptionFactory("UploadFileToMy", localVarResponse);
-                if (exception != null) throw exception;
+                var exception = ExceptionFactory("UploadFileToMy", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
             }
 
             return localVarResponse;

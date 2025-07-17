@@ -585,7 +585,7 @@ catch (ApiException e)
 
 <a id="getgroups"></a>
 # **GetGroups**
-> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
 
@@ -602,6 +602,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -655,11 +656,12 @@ namespace Example
             var sortBy = some text;  // string? | Specifies the property used to sort the query results. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used for filtering or searching group data. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get groups
-                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
+                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -680,7 +682,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get groups
-    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

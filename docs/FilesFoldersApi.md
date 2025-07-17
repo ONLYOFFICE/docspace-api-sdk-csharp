@@ -1237,7 +1237,7 @@ catch (ApiException e)
 
 <a id="getmyfolder"></a>
 # **GetMyFolder**
-> FolderContentIntegerWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns the detailed list of files and folders located in the \"My documents\" section.
 
@@ -1255,6 +1255,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -1309,11 +1310,12 @@ namespace Example
             var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get the \"My documents\" section
-                FolderContentIntegerWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1334,7 +1336,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"My documents\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1478,7 +1480,7 @@ catch (ApiException e)
 
 <a id="getprivacyfolder"></a>
 # **GetPrivacyFolder**
-> FolderContentIntegerWrapper GetPrivacyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerWrapper GetPrivacyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns the detailed list of files and folders located in the \"Private Room\" section.
 
@@ -1495,6 +1497,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used as a filter or search criterion for folder content queries. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -1548,11 +1551,12 @@ namespace Example
             var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get the \"Private Room\" section
-                FolderContentIntegerWrapper result = apiInstance.GetPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerWrapper result = apiInstance.GetPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1573,7 +1577,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"Private Room\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1604,7 +1608,7 @@ catch (ApiException e)
 
 <a id="getrootfolders"></a>
 # **GetRootFolders**
-> FolderContentIntegerArrayWrapper GetRootFolders (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? withoutTrash = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerArrayWrapper GetRootFolders (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? withoutTrash = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns all the sections matching the parameters specified in the request.
 
@@ -1622,6 +1626,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | Specifies the field by which the folder content should be sorted. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used as a filter for searching or retrieving folder contents. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -1676,11 +1681,12 @@ namespace Example
             var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used as a filter for searching or retrieving folder contents. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get filtered sections
-                FolderContentIntegerArrayWrapper result = apiInstance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerArrayWrapper result = apiInstance.GetRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1701,7 +1707,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered sections
-    ApiResponse<FolderContentIntegerArrayWrapper> response = apiInstance.GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerArrayWrapper> response = apiInstance.GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1732,7 +1738,7 @@ catch (ApiException e)
 
 <a id="gettrashfolder"></a>
 # **GetTrashFolder**
-> FolderContentIntegerWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns the detailed list of files and folders located in the \"Trash\" section.
 
@@ -1750,6 +1756,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The property used to specify the sorting criteria for folder contents. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -1804,11 +1811,12 @@ namespace Example
             var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get the \"Trash\" section
-                FolderContentIntegerWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1829,7 +1837,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the \"Trash\" section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

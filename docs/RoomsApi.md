@@ -2392,7 +2392,7 @@ catch (ApiException e)
 
 <a id="getroomtagsinfo"></a>
 # **GetRoomTagsInfo**
-> ObjectArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null)
+> ObjectArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null, string fields = null)
 
 Returns a list of custom tags.
 
@@ -2405,6 +2405,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **count** | **int?** | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. | [optional]  |
 | **startIndex** | **int?** | Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional]  |
 | **filterValue** | **string?** | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -2454,11 +2455,12 @@ namespace Example
             var count = 1234;  // int? | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional) 
             var startIndex = 1234;  // int? | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional) 
             var filterValue = some text;  // string? | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get tags
-                ObjectArrayWrapper result = apiInstance.GetRoomTagsInfo(count, startIndex, filterValue);
+                ObjectArrayWrapper result = apiInstance.GetRoomTagsInfo(count, startIndex, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2479,7 +2481,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get tags
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2615,7 +2617,7 @@ catch (ApiException e)
 
 <a id="getroomsfolder"></a>
 # **GetRoomsFolder**
-> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
 
 Returns the contents of the \"Rooms\" section by the parameters specified in the request.
 
@@ -2640,6 +2642,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | Specifies the field by which the room content should be sorted. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text filter value used to refine search or query operations. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -2701,11 +2704,12 @@ namespace Example
             var sortBy = some text;  // string? | Specifies the field by which the room content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text filter value used to refine search or query operations. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get rooms
-                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2726,7 +2730,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get rooms
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

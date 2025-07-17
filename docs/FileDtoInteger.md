@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
 **FolderId** | **int** | The folder ID where the file is located. | [optional] 
-**VarVersion** | **int** | The file version. | [optional] 
+**@Version** | **int** | The file version. | [optional] 
 **VersionGroup** | **int** | The version group of the file. | [optional] 
 **ContentLength** | **string** | The content length of the file. | [optional] 
 **PureContentLength** | **long?** | The pure content length of the file. | [optional] 

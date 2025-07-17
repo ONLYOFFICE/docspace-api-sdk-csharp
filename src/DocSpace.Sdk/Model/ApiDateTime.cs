@@ -1,45 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -47,14 +26,17 @@ namespace DocSpace.Sdk.Model
     /// The API date and time parameters.
     /// </summary>
     [DataContract(Name = "ApiDateTime")]
-    [JsonConverter(typeof(ApiDateTimeConverter))]
+    [System.Text.Json.Serialization.JsonConverter(typeof(ApiDateTimeConverter))]
     public partial class ApiDateTime : IValidatableObject
     {
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiDateTime" /> class.
         /// </summary>
+        /// <param name="utcTime">The time in UTC format..</param>
+        /// <param name="timeZoneOffset">The time zone offset..</param>
         [JsonConstructorAttribute]
-        public ApiDateTime()
+        public ApiDateTime(DateTime utcTime = default, string timeZoneOffset = default)
         {
         }
 
@@ -69,14 +51,6 @@ namespace DocSpace.Sdk.Model
         public DateTime UtcTime { get; set; }
 
         /// <summary>
-        /// Returns false as UtcTime should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUtcTime()
-        {
-            return false;
-        }
-        /// <summary>
         /// The time zone offset.
         /// </summary>
         /// <value>The time zone offset.</value>
@@ -87,20 +61,12 @@ namespace DocSpace.Sdk.Model
         public string TimeZoneOffset { get; set; }
 
         /// <summary>
-        /// Returns false as TimeZoneOffset should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeTimeZoneOffset()
-        {
-            return false;
-        }
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class ApiDateTime {\n");
             sb.Append("  UtcTime: ").Append(UtcTime).Append("\n");
             sb.Append("  TimeZoneOffset: ").Append(TimeZoneOffset).Append("\n");
@@ -114,7 +80,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
 
         /// <summary>
@@ -130,9 +96,9 @@ namespace DocSpace.Sdk.Model
 
     public class ApiDateTimeConverter : JsonConverter<ApiDateTime>
     {
-        public override ApiDateTime ReadJson(JsonReader reader, Type objectType, ApiDateTime existingValue, bool hasExistingValue, Newtonsoft.Json.JsonSerializer serializer)
+        public override ApiDateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var jsonString = reader.Value.ToString();
+            var jsonString = reader.GetString();
 
             if (DateTimeOffset.TryParse(jsonString, out var dateTimeOffset))
             {
@@ -144,13 +110,13 @@ namespace DocSpace.Sdk.Model
             }
             else
             {
-                throw new JsonSerializationException($"Unable to parse datetime: {jsonString}");
+                throw new JsonException($"Unable to parse datetime: {jsonString}");
             }
         }
 
-        public override void WriteJson(JsonWriter writer, ApiDateTime value, Newtonsoft.Json.JsonSerializer serializer)
+        public override void Write(Utf8JsonWriter writer, ApiDateTime value, JsonSerializerOptions options)
         {
-            writer.WriteValue(value.UtcTime.ToString("o"));
+            writer.WriteStringValue(value.UtcTime.ToString("o"));
         }
     }
 

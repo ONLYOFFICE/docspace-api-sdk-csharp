@@ -1,11 +1,11 @@
-# DocSpace.Sdk.Model.Report
+# DocSpace.Sdk.Model.ReportDto
 Represents a report containing a collection of operations.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Collection** | [**List&lt;Operation&gt;**](Operation.md) | Collection of operations. | [optional] 
+**Collection** | [**List&lt;OperationDto&gt;**](OperationDto.md) | Collection of operations. | [optional] 
 **Offset** | **int** | Offset of the report data. | [optional] 
 **Limit** | **int** | Limit of the report data. | [optional] 
 **TotalQuantity** | **int** | Total quantity of operations in the report. | [optional] 

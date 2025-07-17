@@ -1,46 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
-using System.Reflection;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -143,7 +121,12 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(ActualInstance, BaseBatchRequestDtoFolderIdsInner.SerializerSettings);
+            return JsonSerializer.Serialize(ActualInstance, new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            });
         }
 
         /// <summary>
@@ -162,7 +145,11 @@ namespace DocSpace.Sdk.Model
 
             try
             {
-                newBaseBatchRequestDtoFolderIdsInner = new BaseBatchRequestDtoFolderIdsInner(JsonConvert.DeserializeObject<int>(jsonString, BaseBatchRequestDtoFolderIdsInner.SerializerSettings));
+                newBaseBatchRequestDtoFolderIdsInner = new BaseBatchRequestDtoFolderIdsInner(JsonSerializer.Deserialize<int>(jsonString, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                }));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBaseBatchRequestDtoFolderIdsInner;
             }
@@ -174,7 +161,11 @@ namespace DocSpace.Sdk.Model
 
             try
             {
-                newBaseBatchRequestDtoFolderIdsInner = new BaseBatchRequestDtoFolderIdsInner(JsonConvert.DeserializeObject<string>(jsonString, BaseBatchRequestDtoFolderIdsInner.SerializerSettings));
+                newBaseBatchRequestDtoFolderIdsInner = new BaseBatchRequestDtoFolderIdsInner(JsonSerializer.Deserialize<string>(jsonString, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                }));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBaseBatchRequestDtoFolderIdsInner;
             }
@@ -202,53 +193,35 @@ namespace DocSpace.Sdk.Model
     /// <summary>
     /// Custom JSON converter for BaseBatchRequestDtoFolderIdsInner
     /// </summary>
-    public class BaseBatchRequestDtoFolderIdsInnerJsonConverter : JsonConverter
+    public class BaseBatchRequestDtoFolderIdsInnerJsonConverter : JsonConverter<BaseBatchRequestDtoFolderIdsInner>
     {
         /// <summary>
         /// To write the JSON string
         /// </summary>
         /// <param name="writer">JSON writer</param>
         /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="serializer">JSON Serializer</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        /// <param name="options">JSON Serializer options</param>
+        public override void Write(Utf8JsonWriter  writer, BaseBatchRequestDtoFolderIdsInner value, JsonSerializerOptions options)
         {
-            writer.WriteRawValue((string)(typeof(BaseBatchRequestDtoFolderIdsInner).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue(value.ToJson());
         }
 
         /// <summary>
         /// To convert a JSON string into an object
         /// </summary>
         /// <param name="reader">JSON reader</param>
-        /// <param name="objectType">Object type</param>
-        /// <param name="existingValue">Existing value</param>
-        /// <param name="serializer">JSON Serializer</param>
+        /// <param name="typeToConvert">Object type</param>
+        /// <param name="options">JSON Serializer options</param>
         /// <returns>The object converted from the JSON string</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override BaseBatchRequestDtoFolderIdsInner Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            switch(reader.TokenType) 
+            using (JsonDocument document = JsonDocument.ParseValue(ref reader))
             {
-                case JsonToken.Integer: 
-                    return new BaseBatchRequestDtoFolderIdsInner(Convert.ToInt32(reader.Value));
-                case JsonToken.String: 
-                    return new BaseBatchRequestDtoFolderIdsInner(Convert.ToString(reader.Value));
-                case JsonToken.StartObject:
-                    return BaseBatchRequestDtoFolderIdsInner.FromJson(JObject.Load(reader).ToString(Formatting.None));
-                case JsonToken.StartArray:
-                    return BaseBatchRequestDtoFolderIdsInner.FromJson(JArray.Load(reader).ToString(Formatting.None));
-                default:
-                    return null;
+                var jsonString = document.RootElement.GetRawText();
+                return BaseBatchRequestDtoFolderIdsInner.FromJson(jsonString);
             }
         }
 
-        /// <summary>
-        /// Check if the object can be converted
-        /// </summary>
-        /// <param name="objectType">Object type</param>
-        /// <returns>True if the object can be converted</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return false;
-        }
     }
 
 }

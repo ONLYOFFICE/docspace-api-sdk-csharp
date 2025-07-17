@@ -1,13 +1,10 @@
-# DocSpace.Sdk.Model.OpenCustomerSessionRequestDto
-Client session opening parameters
+# DocSpace.Sdk.Model.ReviewConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceAccount** | **int** | Service account | [optional] 
-**ExternalRef** | **string** | External reference | [optional] 
-**Quantity** | **int** | Quantity | [optional] 
+**ReviewDisplay** | **string** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

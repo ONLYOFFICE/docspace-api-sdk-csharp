@@ -358,7 +358,7 @@ catch (ApiException e)
 
 <a id="getallprofiles"></a>
 # **GetAllProfiles**
-> EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
 
 Returns a list of profiles for all the portal users.
 
@@ -375,6 +375,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
 | **filterValue** | **string?** | The text value used as an additional filter criterion for profiles retrieval. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -428,11 +429,12 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
             var filterValue = some text;  // string? | The text value used as an additional filter criterion for profiles retrieval. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get profiles
-                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
+                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -453,7 +455,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get profiles
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

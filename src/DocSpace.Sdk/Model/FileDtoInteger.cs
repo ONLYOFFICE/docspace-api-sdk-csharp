@@ -1,45 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -97,6 +76,7 @@ namespace DocSpace.Sdk.Model
         /// </summary>
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
         public FileEntryType? FileEntryType { get; set; }
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="FileDtoInteger" /> class.
         /// </summary>
@@ -124,7 +104,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="security">security.</param>
         /// <param name="requestToken">The request token of the file entry..</param>
         /// <param name="folderId">The folder ID where the file is located..</param>
-        /// <param name="varVersion">The file version..</param>
+        /// <param name="version">The file version..</param>
         /// <param name="versionGroup">The version group of the file..</param>
         /// <param name="contentLength">The content length of the file..</param>
         /// <param name="pureContentLength">The pure content length of the file..</param>
@@ -155,7 +135,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="lastOpened">lastOpened.</param>
         /// <param name="expired">expired.</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FileDtoInteger(string title = default, FileShare? access = default, bool shared = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileDtoIntegerSecurity security = default, string requestToken = default, int folderId = default, int varVersion = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, string shortWebUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerViewAccessibility viewAccessibility = default, Dictionary<string, bool> availableExternalRights = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, FileEntryType? fileEntryType = default)
+        public FileDtoInteger(string title = default, FileShare? access = default, bool shared = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileDtoIntegerSecurity security = default, string requestToken = default, int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, string shortWebUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerViewAccessibility viewAccessibility = default, Dictionary<string, bool> availableExternalRights = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
@@ -181,7 +161,7 @@ namespace DocSpace.Sdk.Model
             this.Security = security;
             this.RequestToken = requestToken;
             this.FolderId = folderId;
-            this.VarVersion = varVersion;
+            this.@Version = version;
             this.VersionGroup = versionGroup;
             this.ContentLength = contentLength;
             this.PureContentLength = pureContentLength;
@@ -408,7 +388,7 @@ namespace DocSpace.Sdk.Model
         <example>3</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public int VarVersion { get; set; }
+        public int @Version { get; set; }
 
         /// <summary>
         /// The version group of the file.
@@ -650,7 +630,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FileDtoInteger {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
@@ -676,7 +656,7 @@ namespace DocSpace.Sdk.Model
             sb.Append("  Security: ").Append(Security).Append("\n");
             sb.Append("  RequestToken: ").Append(RequestToken).Append("\n");
             sb.Append("  FolderId: ").Append(FolderId).Append("\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  @Version: ").Append(@Version).Append("\n");
             sb.Append("  VersionGroup: ").Append(VersionGroup).Append("\n");
             sb.Append("  ContentLength: ").Append(ContentLength).Append("\n");
             sb.Append("  PureContentLength: ").Append(PureContentLength).Append("\n");
@@ -717,7 +697,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
 
         /// <summary>

@@ -123,7 +123,7 @@ catch (ApiException e)
 
 <a id="getauditeventsbyfilter"></a>
 # **GetAuditEventsByFilter**
-> AuditEventArrayWrapper GetAuditEventsByFilter (Guid? userId = null, ProductType? productType = null, ModuleType? moduleType = null, ActionType? actionType = null, MessageAction? action = null, EntryType? entryType = null, string? target = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
+> AuditEventArrayWrapper GetAuditEventsByFilter (Guid? userId = null, ProductType? productType = null, ModuleType? moduleType = null, ActionType? actionType = null, MessageAction? action = null, EntryType? entryType = null, string? target = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null, string fields = null)
 
 Returns a list of the audit events by the parameters specified in the request.
 
@@ -144,6 +144,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering audit events. | [optional]  |
 | **count** | **int?** | The maximum number of audit event records to retrieve. | [optional]  |
 | **startIndex** | **int?** | The index of the first audit event record to retrieve in a paged query. | [optional]  |
+| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -201,11 +202,12 @@ namespace Example
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering audit events. (optional) 
             var count = 1234;  // int? | The maximum number of audit event records to retrieve. (optional) 
             var startIndex = 1234;  // int? | The index of the first audit event record to retrieve in a paged query. (optional) 
+            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get filtered audit trail data
-                AuditEventArrayWrapper result = apiInstance.GetAuditEventsByFilter(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
+                AuditEventArrayWrapper result = apiInstance.GetAuditEventsByFilter(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -226,7 +228,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered audit trail data
-    ApiResponse<AuditEventArrayWrapper> response = apiInstance.GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
+    ApiResponse<AuditEventArrayWrapper> response = apiInstance.GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

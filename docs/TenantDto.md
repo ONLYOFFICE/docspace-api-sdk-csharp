@@ -22,11 +22,11 @@ Name | Type | Description | Notes
 **Spam** | **bool** | Specifies if the ONLYOFFICE newsletter is allowed or not. | [optional] 
 **Status** | **TenantStatus** |  | [optional] 
 **StatusChangeDate** | **DateTime** | The date and time when the tenant status was changed. | [optional] [readonly] 
-**VarTimeZone** | **string** | The tenant time zone. | [optional] 
+**@TimeZone** | **string** | The tenant time zone. | [optional] 
 **TrustedDomains** | **List&lt;string&gt;** | The list of tenant trusted domains. | [optional] 
 **TrustedDomainsRaw** | **string** | The tenant trusted domains in the string format. | [optional] 
 **TrustedDomainsType** | **TenantTrustedDomainsType** |  | [optional] 
-**VarVersion** | **int** | The tenant version | [optional] 
+**@Version** | **int** | The tenant version | [optional] 
 **VersionChanged** | **DateTime** | The date and time when the tenant version was changed. | [optional] 
 **Region** | **string** | The tenant AWS region. | [optional] 
 

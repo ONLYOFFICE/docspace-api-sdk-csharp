@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost:8092*
 
 <a id="addwebpluginfromfile"></a>
 # **AddWebPluginFromFile**
-> WebPluginWrapper AddWebPluginFromFile (bool? varSystem = null)
+> WebPluginWrapper AddWebPluginFromFile (bool? @system = null)
 
 Adds a web plugin from a file to the current portal.
 
@@ -22,7 +22,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **varSystem** | **bool?** | Specifies whether to load the system plugins or not. | [optional]  |
+| **@system** | **bool?** | Specifies whether to load the system plugins or not. | [optional]  |
 
 ### Return type
 
@@ -69,12 +69,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
-            var varSystem = true;  // bool? | Specifies whether to load the system plugins or not. (optional) 
+            var @system = true;  // bool? | Specifies whether to load the system plugins or not. (optional) 
 
             try
             {
                 // Add a web plugin
-                WebPluginWrapper result = apiInstance.AddWebPluginFromFile(varSystem);
+                WebPluginWrapper result = apiInstance.AddWebPluginFromFile(@system);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -95,7 +95,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add a web plugin
-    ApiResponse<WebPluginWrapper> response = apiInstance.AddWebPluginFromFileWithHttpInfo(varSystem);
+    ApiResponse<WebPluginWrapper> response = apiInstance.AddWebPluginFromFileWithHttpInfo(@system);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

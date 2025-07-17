@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CustomerInfo**](CustomerInfo.md) |  | [optional] 
+**Response** | [**CustomerInfoDto**](CustomerInfoDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
 **Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 

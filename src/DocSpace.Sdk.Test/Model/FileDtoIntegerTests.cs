@@ -1,28 +1,20 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 
 using Xunit;
@@ -67,6 +59,8 @@ namespace DocSpace.Sdk.Test.Model
             //Assert.IsType<FileDtoInteger>(instance);
         }
 
+
+
         /// <summary>
         /// Test the property 'Title'
         /// </summary>
@@ -75,6 +69,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Title'
         }
+
 
         /// <summary>
         /// Test the property 'Access'
@@ -85,6 +80,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Access'
         }
 
+
         /// <summary>
         /// Test the property 'Shared'
         /// </summary>
@@ -93,6 +89,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Shared'
         }
+
 
         /// <summary>
         /// Test the property 'Created'
@@ -103,6 +100,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Created'
         }
 
+
         /// <summary>
         /// Test the property 'CreatedBy'
         /// </summary>
@@ -111,6 +109,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'CreatedBy'
         }
+
 
         /// <summary>
         /// Test the property 'Updated'
@@ -121,6 +120,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Updated'
         }
 
+
         /// <summary>
         /// Test the property 'AutoDelete'
         /// </summary>
@@ -129,6 +129,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'AutoDelete'
         }
+
 
         /// <summary>
         /// Test the property 'RootFolderType'
@@ -139,6 +140,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'RootFolderType'
         }
 
+
         /// <summary>
         /// Test the property 'ParentRoomType'
         /// </summary>
@@ -147,6 +149,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ParentRoomType'
         }
+
 
         /// <summary>
         /// Test the property 'UpdatedBy'
@@ -157,6 +160,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'UpdatedBy'
         }
 
+
         /// <summary>
         /// Test the property 'ProviderItem'
         /// </summary>
@@ -165,6 +169,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ProviderItem'
         }
+
 
         /// <summary>
         /// Test the property 'ProviderKey'
@@ -175,6 +180,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ProviderKey'
         }
 
+
         /// <summary>
         /// Test the property 'ProviderId'
         /// </summary>
@@ -183,6 +189,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ProviderId'
         }
+
 
         /// <summary>
         /// Test the property 'Order'
@@ -193,6 +200,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Order'
         }
 
+
         /// <summary>
         /// Test the property 'Id'
         /// </summary>
@@ -201,6 +209,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Id'
         }
+
 
         /// <summary>
         /// Test the property 'RootFolderId'
@@ -211,6 +220,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'RootFolderId'
         }
 
+
         /// <summary>
         /// Test the property 'OriginId'
         /// </summary>
@@ -219,6 +229,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'OriginId'
         }
+
 
         /// <summary>
         /// Test the property 'OriginRoomId'
@@ -229,6 +240,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'OriginRoomId'
         }
 
+
         /// <summary>
         /// Test the property 'OriginTitle'
         /// </summary>
@@ -237,6 +249,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'OriginTitle'
         }
+
 
         /// <summary>
         /// Test the property 'OriginRoomTitle'
@@ -247,6 +260,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'OriginRoomTitle'
         }
 
+
         /// <summary>
         /// Test the property 'CanShare'
         /// </summary>
@@ -255,6 +269,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'CanShare'
         }
+
 
         /// <summary>
         /// Test the property 'Security'
@@ -265,6 +280,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Security'
         }
 
+
         /// <summary>
         /// Test the property 'RequestToken'
         /// </summary>
@@ -273,6 +289,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'RequestToken'
         }
+
 
         /// <summary>
         /// Test the property 'FolderId'
@@ -283,14 +300,16 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FolderId'
         }
 
+
         /// <summary>
-        /// Test the property 'VarVersion'
+        /// Test the property '@Version'
         /// </summary>
         [Fact]
-        public void VarVersionTest()
+        public void @VersionTest()
         {
-            // TODO unit test for the property 'VarVersion'
+            // TODO unit test for the property '@Version'
         }
+
 
         /// <summary>
         /// Test the property 'VersionGroup'
@@ -301,6 +320,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'VersionGroup'
         }
 
+
         /// <summary>
         /// Test the property 'ContentLength'
         /// </summary>
@@ -309,6 +329,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ContentLength'
         }
+
 
         /// <summary>
         /// Test the property 'PureContentLength'
@@ -319,6 +340,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'PureContentLength'
         }
 
+
         /// <summary>
         /// Test the property 'FileStatus'
         /// </summary>
@@ -327,6 +349,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FileStatus'
         }
+
 
         /// <summary>
         /// Test the property 'Mute'
@@ -337,6 +360,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Mute'
         }
 
+
         /// <summary>
         /// Test the property 'ViewUrl'
         /// </summary>
@@ -345,6 +369,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ViewUrl'
         }
+
 
         /// <summary>
         /// Test the property 'WebUrl'
@@ -355,6 +380,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'WebUrl'
         }
 
+
         /// <summary>
         /// Test the property 'ShortWebUrl'
         /// </summary>
@@ -363,6 +389,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ShortWebUrl'
         }
+
 
         /// <summary>
         /// Test the property 'FileType'
@@ -373,6 +400,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'FileType'
         }
 
+
         /// <summary>
         /// Test the property 'FileExst'
         /// </summary>
@@ -381,6 +409,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FileExst'
         }
+
 
         /// <summary>
         /// Test the property 'Comment'
@@ -391,6 +420,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Comment'
         }
 
+
         /// <summary>
         /// Test the property 'Encrypted'
         /// </summary>
@@ -399,6 +429,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Encrypted'
         }
+
 
         /// <summary>
         /// Test the property 'ThumbnailUrl'
@@ -409,6 +440,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'ThumbnailUrl'
         }
 
+
         /// <summary>
         /// Test the property 'ThumbnailStatus'
         /// </summary>
@@ -417,6 +449,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ThumbnailStatus'
         }
+
 
         /// <summary>
         /// Test the property 'Locked'
@@ -427,6 +460,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'Locked'
         }
 
+
         /// <summary>
         /// Test the property 'LockedBy'
         /// </summary>
@@ -435,6 +469,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'LockedBy'
         }
+
 
         /// <summary>
         /// Test the property 'HasDraft'
@@ -445,6 +480,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'HasDraft'
         }
 
+
         /// <summary>
         /// Test the property 'FormFillingStatus'
         /// </summary>
@@ -453,6 +489,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'FormFillingStatus'
         }
+
 
         /// <summary>
         /// Test the property 'IsForm'
@@ -463,6 +500,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'IsForm'
         }
 
+
         /// <summary>
         /// Test the property 'CustomFilterEnabled'
         /// </summary>
@@ -471,6 +509,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'CustomFilterEnabled'
         }
+
 
         /// <summary>
         /// Test the property 'CustomFilterEnabledBy'
@@ -481,6 +520,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'CustomFilterEnabledBy'
         }
 
+
         /// <summary>
         /// Test the property 'StartFilling'
         /// </summary>
@@ -489,6 +529,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'StartFilling'
         }
+
 
         /// <summary>
         /// Test the property 'InProcessFolderId'
@@ -499,6 +540,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'InProcessFolderId'
         }
 
+
         /// <summary>
         /// Test the property 'InProcessFolderTitle'
         /// </summary>
@@ -507,6 +549,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'InProcessFolderTitle'
         }
+
 
         /// <summary>
         /// Test the property 'DraftLocation'
@@ -517,6 +560,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'DraftLocation'
         }
 
+
         /// <summary>
         /// Test the property 'ViewAccessibility'
         /// </summary>
@@ -525,6 +569,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'ViewAccessibility'
         }
+
 
         /// <summary>
         /// Test the property 'AvailableExternalRights'
@@ -535,6 +580,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'AvailableExternalRights'
         }
 
+
         /// <summary>
         /// Test the property 'LastOpened'
         /// </summary>
@@ -544,6 +590,7 @@ namespace DocSpace.Sdk.Test.Model
             // TODO unit test for the property 'LastOpened'
         }
 
+
         /// <summary>
         /// Test the property 'Expired'
         /// </summary>
@@ -552,6 +599,7 @@ namespace DocSpace.Sdk.Test.Model
         {
             // TODO unit test for the property 'Expired'
         }
+
 
         /// <summary>
         /// Test the property 'FileEntryType'

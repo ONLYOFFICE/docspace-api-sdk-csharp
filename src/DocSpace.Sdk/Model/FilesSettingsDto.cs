@@ -1,45 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -116,6 +95,7 @@ namespace DocSpace.Sdk.Model
             ContentCreator = 11
         }
 
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesSettingsDto" /> class.
         /// </summary>
@@ -140,6 +120,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="extsSpreadsheet">The list of the spreadsheet extensions..</param>
         /// <param name="extsPresentation">The list of the presentation extensions..</param>
         /// <param name="extsDocument">The list of the text document extensions..</param>
+        /// <param name="extsDiagram">The list of the diagram extensions..</param>
         /// <param name="internalFormats">internalFormats.</param>
         /// <param name="masterFormExtension">The master form extension..</param>
         /// <param name="paramVersion">The URL parameter which specifies the file version..</param>
@@ -176,7 +157,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="maxUploadThreadCount">The maximum number of upload threads..</param>
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
-        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsCoAuthoring = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default)
+        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsCoAuthoring = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default)
         {
             this.ExtsImagePreviewed = extsImagePreviewed;
             this.ExtsMediaPreviewed = extsMediaPreviewed;
@@ -199,6 +180,7 @@ namespace DocSpace.Sdk.Model
             this.ExtsSpreadsheet = extsSpreadsheet;
             this.ExtsPresentation = extsPresentation;
             this.ExtsDocument = extsDocument;
+            this.ExtsDiagram = extsDiagram;
             this.InternalFormats = internalFormats;
             this.MasterFormExtension = masterFormExtension;
             this.ParamVersion = paramVersion;
@@ -446,6 +428,16 @@ namespace DocSpace.Sdk.Model
         */
         [DataMember(Name = "extsDocument", EmitDefaultValue = true)]
         public List<string> ExtsDocument { get; set; }
+
+        /// <summary>
+        /// The list of the diagram extensions.
+        /// </summary>
+        /// <value>The list of the diagram extensions.</value>
+        /*
+        <example>[&quot;some text&quot;]</example>
+        */
+        [DataMember(Name = "extsDiagram", EmitDefaultValue = true)]
+        public List<string> ExtsDiagram { get; set; }
 
         /// <summary>
         /// Gets or Sets InternalFormats
@@ -798,7 +790,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FilesSettingsDto {\n");
             sb.Append("  ExtsImagePreviewed: ").Append(ExtsImagePreviewed).Append("\n");
             sb.Append("  ExtsMediaPreviewed: ").Append(ExtsMediaPreviewed).Append("\n");
@@ -821,6 +813,7 @@ namespace DocSpace.Sdk.Model
             sb.Append("  ExtsSpreadsheet: ").Append(ExtsSpreadsheet).Append("\n");
             sb.Append("  ExtsPresentation: ").Append(ExtsPresentation).Append("\n");
             sb.Append("  ExtsDocument: ").Append(ExtsDocument).Append("\n");
+            sb.Append("  ExtsDiagram: ").Append(ExtsDiagram).Append("\n");
             sb.Append("  InternalFormats: ").Append(InternalFormats).Append("\n");
             sb.Append("  MasterFormExtension: ").Append(MasterFormExtension).Append("\n");
             sb.Append("  ParamVersion: ").Append(ParamVersion).Append("\n");
@@ -867,7 +860,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
 
         /// <summary>

@@ -1,10 +1,10 @@
-# DocSpace.Sdk.Model.CurrencyArrayWrapper
+# DocSpace.Sdk.Model.TenantBannerSettingsWrapper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;Currency&gt;**](Currency.md) |  | [optional] 
+**Response** | [**TenantBannerSettings**](TenantBannerSettings.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
 **Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 

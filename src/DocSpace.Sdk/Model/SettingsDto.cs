@@ -1,45 +1,24 @@
-// (c) Copyright Ascensio System SIA 2009-2025
-// 
-// This program is a free software product.
-// You can redistribute it and/or modify it under the terms
-// of the GNU Affero General Public License (AGPL) version 3 as published by the Free Software
-// Foundation. In accordance with Section 7(a) of the GNU AGPL its Section 15 shall be amended
-// to the effect that Ascensio System SIA expressly excludes the warranty of non-infringement of
-// any third-party rights.
-// 
-// This program is distributed WITHOUT ANY WARRANTY, without even the implied warranty
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For details, see
-// the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
-// 
-// You can contact Ascensio System SIA at Lubanas st. 125a-25, Riga, Latvia, EU, LV-1021.
-// 
-// The  interactive user interfaces in modified source and object code versions of the Program must
-// display Appropriate Legal Notices, as required under Section 5 of the GNU AGPL version 3.
-// 
-// Pursuant to Section 7(b) of the License you must retain the original Product logo when
-// distributing the program. Pursuant to Section 7(e) we decline to grant you any rights under
-// trademark law for use of our trademarks.
-// 
-// All the Product's GUI elements, including illustrations and icon sets, as well as technical writing
-// content are licensed under the terms of the Creative Commons Attribution-ShareAlike 4.0
-// International. See the License terms at http://creativecommons.org/licenses/by-sa/4.0/legalcode
+/**
+ *
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
-using FileParameter = DocSpace.Sdk.Client.FileParameter;
-using OpenAPIDateConverter = DocSpace.Sdk.Client.OpenAPIDateConverter;
+ 
+ using DocSpace.Sdk.Client;
+ 
 
 namespace DocSpace.Sdk.Model
 {
@@ -67,6 +46,7 @@ namespace DocSpace.Sdk.Model
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
         public TenantStatus? TenantStatus { get; set; }
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsDto" /> class.
         /// </summary>
@@ -89,7 +69,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="wizardToken">The wizard token..</param>
         /// <param name="passwordHash">passwordHash.</param>
         /// <param name="firebase">firebase.</param>
-        /// <param name="varVersion">The portal version..</param>
+        /// <param name="version">The portal version..</param>
         /// <param name="recaptchaType">recaptchaType.</param>
         /// <param name="recaptchaPublicKey">The ReCAPTCHA public key..</param>
         /// <param name="debugInfo">Specifies if the debug information will be sent or not..</param>
@@ -103,6 +83,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="cookieSettingsEnabled">Specifies whether the cookie settings are enabled..</param>
         /// <param name="limitedAccessSpace">Specifies whether the access to the space management is limited or not..</param>
         /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
+        /// <param name="displayBanners">Specifies whether to display the promotional banners..</param>
         /// <param name="userNameRegex">The user name validation regex..</param>
         /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
         /// <param name="plugins">plugins.</param>
@@ -111,7 +92,7 @@ namespace DocSpace.Sdk.Model
         /// <param name="maxImageUploadSize">The maximum image upload size..</param>
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">externalResources.</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string varVersion = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default)
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default)
         {
             this.Timezone = timezone;
             this.TrustedDomains = trustedDomains;
@@ -132,7 +113,7 @@ namespace DocSpace.Sdk.Model
             this.WizardToken = wizardToken;
             this.PasswordHash = passwordHash;
             this.Firebase = firebase;
-            this.VarVersion = varVersion;
+            this.@Version = version;
             this.RecaptchaType = recaptchaType;
             this.RecaptchaPublicKey = recaptchaPublicKey;
             this.DebugInfo = debugInfo;
@@ -146,6 +127,7 @@ namespace DocSpace.Sdk.Model
             this.CookieSettingsEnabled = cookieSettingsEnabled;
             this.LimitedAccessSpace = limitedAccessSpace;
             this.LimitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
+            this.DisplayBanners = displayBanners;
             this.UserNameRegex = userNameRegex;
             this.InvitationLimit = invitationLimit;
             this.Plugins = plugins;
@@ -336,7 +318,7 @@ namespace DocSpace.Sdk.Model
         <example>some text</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = true)]
-        public string VarVersion { get; set; }
+        public string @Version { get; set; }
 
         /// <summary>
         /// The ReCAPTCHA public key.
@@ -445,6 +427,16 @@ namespace DocSpace.Sdk.Model
         public bool LimitedAccessDevToolsForUsers { get; set; }
 
         /// <summary>
+        /// Specifies whether to display the promotional banners.
+        /// </summary>
+        /// <value>Specifies whether to display the promotional banners.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "displayBanners", EmitDefaultValue = true)]
+        public bool DisplayBanners { get; set; }
+
+        /// <summary>
         /// The user name validation regex.
         /// </summary>
         /// <value>The user name validation regex.</value>
@@ -514,7 +506,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class SettingsDto {\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  TrustedDomains: ").Append(TrustedDomains).Append("\n");
@@ -535,7 +527,7 @@ namespace DocSpace.Sdk.Model
             sb.Append("  WizardToken: ").Append(WizardToken).Append("\n");
             sb.Append("  PasswordHash: ").Append(PasswordHash).Append("\n");
             sb.Append("  Firebase: ").Append(Firebase).Append("\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  @Version: ").Append(@Version).Append("\n");
             sb.Append("  RecaptchaType: ").Append(RecaptchaType).Append("\n");
             sb.Append("  RecaptchaPublicKey: ").Append(RecaptchaPublicKey).Append("\n");
             sb.Append("  DebugInfo: ").Append(DebugInfo).Append("\n");
@@ -549,6 +541,7 @@ namespace DocSpace.Sdk.Model
             sb.Append("  CookieSettingsEnabled: ").Append(CookieSettingsEnabled).Append("\n");
             sb.Append("  LimitedAccessSpace: ").Append(LimitedAccessSpace).Append("\n");
             sb.Append("  LimitedAccessDevToolsForUsers: ").Append(LimitedAccessDevToolsForUsers).Append("\n");
+            sb.Append("  DisplayBanners: ").Append(DisplayBanners).Append("\n");
             sb.Append("  UserNameRegex: ").Append(UserNameRegex).Append("\n");
             sb.Append("  InvitationLimit: ").Append(InvitationLimit).Append("\n");
             sb.Append("  Plugins: ").Append(Plugins).Append("\n");
@@ -567,7 +560,7 @@ namespace DocSpace.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
 
         /// <summary>

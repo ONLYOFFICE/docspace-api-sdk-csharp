@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FileKey** | **string** | The unique document identifier used by the service to get a link to the file. | [optional] 
 **InstanceId** | **string** | The unique system identifier. | [optional] 
 **RoomId** | **string** | Room ID | [optional] 
+**CanEditRoom** | **bool** | Specifies if the room can be edited out or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
