@@ -35,15 +35,13 @@ using DocSpace.Sdk.Model;
 <a id="packaging"></a>
 ## Packaging
 
-A `.nuspec` is included with the project. You can follow the NuGet quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) and [publish](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#publish-the-package) packages.
+A `.nuspec` is included with the project. You can follow the NuGet quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) packages.
 
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```powershell
 nuget pack -Build -OutputDirectory out DocSpace.Sdk.csproj
 ```
-
-Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview), and consume it via NuGet as usual.
 
 <a id="usage"></a>
 ## Usage
@@ -81,6 +79,60 @@ Here is an example of DI setup in a sample web project:
 services.AddHttpClient<YourApiClass>(httpClient =>
    new PetApi(httpClient));
 ```
+
+
+<a id="documentation-for-authorization"></a>
+## Documentation for Authorization
+
+
+Authentication schemes defined for the API:
+<a id="asc_auth_key"></a>
+### asc_auth_key
+
+- **Type**: API key
+- **API key parameter name**: asc_auth_key
+- **Location**: Cookie
+
+<a id="Basic"></a>
+### Basic
+
+- **Type**: HTTP basic authentication
+
+<a id="Bearer"></a>
+### Bearer
+
+- **Type**: Bearer Authentication
+
+<a id="ApiKeyBearer"></a>
+### ApiKeyBearer
+
+- **Type**: API key
+- **API key parameter name**: ApiKeyBearer
+- **Location**: HTTP header
+
+<a id="OAuth2"></a>
+### OAuth2
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: {{authBaseUrl}}/oauth2/authorize
+- **Token Url**: {{authBaseUrl}}/oauth2/token
+- **Scopes**: 
+  - read: Read access to protected resources
+  - write: Write access to protected resources
+
+<a id="OpenId"></a>
+### OpenId
+
+- **Type**: OpenId Connect
+- **OpenId Connect URL**: {{authBaseUrl}}/.well-known/openid-configuration
+
+<a id="x-signature"></a>
+### x-signature
+
+- **Type**: API key
+- **API key parameter name**: x-signature
+- **Location**: Cookie
 
 
 <a id="getting-started"></a>
@@ -148,6 +200,7 @@ namespace Example
 
 All URIs are relative to *http://localhost:8092*
 
+<details><summary>API Endoints table</summary>
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApiKeysApi* | [**CreateApiKey**](docs/ApiKeysApi.md#createapikey) | **POST** /api/2.0/keys | Create a user API key
@@ -614,10 +667,12 @@ Class | Method | HTTP request | Description
 *SettingsWebpluginsApi* | [**UpdateWebPlugin**](docs/SettingsWebpluginsApi.md#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Update a web plugin
 *ThirdPartyApi* | [**GetThirdPartyCode**](docs/ThirdPartyApi.md#getthirdpartycode) | **GET** /api/2.0/thirdparty/{provider} | Get the code request
 
+</details>
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
+<details><summary>Models list</summary>
  - [Model.AccountInfoArrayWrapper](docs/AccountInfoArrayWrapper.md)
  - [Model.AccountInfoDto](docs/AccountInfoDto.md)
  - [Model.AccountLoginType](docs/AccountLoginType.md)
@@ -1193,57 +1248,4 @@ Class | Method | HTTP request | Description
  - [Model.WizardSettings](docs/WizardSettings.md)
  - [Model.WizardSettingsWrapper](docs/WizardSettingsWrapper.md)
 
-
-<a id="documentation-for-authorization"></a>
-## Documentation for Authorization
-
-
-Authentication schemes defined for the API:
-<a id="asc_auth_key"></a>
-### asc_auth_key
-
-- **Type**: API key
-- **API key parameter name**: asc_auth_key
-- **Location**: Cookie
-
-<a id="Basic"></a>
-### Basic
-
-- **Type**: HTTP basic authentication
-
-<a id="Bearer"></a>
-### Bearer
-
-- **Type**: Bearer Authentication
-
-<a id="ApiKeyBearer"></a>
-### ApiKeyBearer
-
-- **Type**: API key
-- **API key parameter name**: ApiKeyBearer
-- **Location**: HTTP header
-
-<a id="OAuth2"></a>
-### OAuth2
-
-- **Type**: OAuth
-- **Flow**: accessCode
-- **Authorization URL**: {{authBaseUrl}}/oauth2/authorize
-- **Token Url**: {{authBaseUrl}}/oauth2/token
-- **Scopes**: 
-  - read: Read access to protected resources
-  - write: Write access to protected resources
-
-<a id="OpenId"></a>
-### OpenId
-
-- **Type**: OpenId Connect
-- **OpenId Connect URL**: {{authBaseUrl}}/.well-known/openid-configuration
-
-<a id="x-signature"></a>
-### x-signature
-
-- **Type**: API key
-- **API key parameter name**: x-signature
-- **Location**: Cookie
-
+</details>
