@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.Sdk", "src\DocSpace.Sdk\DocSpace.Sdk.csproj", "{38C082F3-64F6-457C-A541-2065072B506C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.Sdk", "src\DocSpace.Sdk\DocSpace.Sdk.csproj", "{1ED7B72E-3F01-46E4-9338-0186F668BAA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.Sdk.Test", "src\DocSpace.Sdk.Test\DocSpace.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.Sdk.Example", "src\DocSpace.Sdk.Example\DocSpace.Sdk.Example.csproj", "{38C082F3-64F6-457C-A541-2065072B506C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.Sdk.Example", "src\DocSpace.Sdk.Example\DocSpace.Sdk.Example.csproj", "{1ED7B72E-3F01-46E4-9338-0186F668BAA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,10 +14,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38C082F3-64F6-457C-A541-2065072B506C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38C082F3-64F6-457C-A541-2065072B506C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38C082F3-64F6-457C-A541-2065072B506C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38C082F3-64F6-457C-A541-2065072B506C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ED7B72E-3F01-46E4-9338-0186F668BAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED7B72E-3F01-46E4-9338-0186F668BAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED7B72E-3F01-46E4-9338-0186F668BAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED7B72E-3F01-46E4-9338-0186F668BAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
