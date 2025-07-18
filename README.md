@@ -1,11 +1,10 @@
-# DocSpace.Sdk - the C# library for the API
+# DocSpace.Sdk
 
 The ONLYOFFICE DocSpace SDK for C# is a library that provides tools for integrating and managing DocSpace features within your applications. It simplifies interaction with the DocSpace API by offering ready-to-use methods and models.
 
 - API version: 3.2.0
 - SDK version: 1.0.0
 
-For more information, please visit [https://helpdesk.onlyoffice.com/hc/en-us](https://helpdesk.onlyoffice.com/hc/en-us)
 
 <a id="dependencies"></a>
 ## Dependencies

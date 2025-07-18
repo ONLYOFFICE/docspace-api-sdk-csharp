@@ -8,11 +8,12 @@
     <OutputType>Library</OutputType>
     <Authors>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Authors>
     <Company>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>OpenAPI client for DocSpace.Sdk</Description>
+    <AssemblyTitle>DocSpace.Sdk</AssemblyTitle>
+    <Description>Simple integration C# API SDK for ONLYOFFICE DocSpace</Description>
     <RootNamespace>DocSpace.Sdk</RootNamespace>
     <Version>1.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\DocSpace.Sdk.xml</DocumentationFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/ONLYOFFICE/docspace-dotnet-sdk</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
