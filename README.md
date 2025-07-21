@@ -10,13 +10,11 @@ For more information, please visit [https://helpdesk.onlyoffice.com/hc/en-us](ht
 <a id="dependencies"></a>
 ## Dependencies
 
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 13.0.2 or later
 - [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.8.0 or later
 - [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations) - 5.0.0 or later
 
 The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
 ```powershell
-Install-Package Newtonsoft.Json
 Install-Package JsonSubTypes
 Install-Package System.ComponentModel.Annotations
 ```

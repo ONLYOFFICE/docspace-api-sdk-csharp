@@ -1,20 +1,17 @@
-/**
- *
- * (c) Copyright Ascensio System SIA 2025
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
+// (c) Copyright Ascensio System SIA 2025
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 
  
  using DocSpace.Sdk.Client;
@@ -28,69 +25,69 @@ namespace DocSpace.Sdk.Model
     public enum LoginProvider
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Facebook for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        Facebook = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Google for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        Google = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Dropbox for value: 2
         /// </summary>
-        NUMBER_2 = 2,
+        Dropbox = 2,
 
         /// <summary>
-        /// Enum NUMBER_3 for value: 3
+        /// Enum Docusign for value: 3
         /// </summary>
-        NUMBER_3 = 3,
+        Docusign = 3,
 
         /// <summary>
-        /// Enum NUMBER_4 for value: 4
+        /// Enum Box for value: 4
         /// </summary>
-        NUMBER_4 = 4,
+        Box = 4,
 
         /// <summary>
-        /// Enum NUMBER_5 for value: 5
+        /// Enum OneDrive for value: 5
         /// </summary>
-        NUMBER_5 = 5,
+        OneDrive = 5,
 
         /// <summary>
-        /// Enum NUMBER_6 for value: 6
+        /// Enum GosUslugi for value: 6
         /// </summary>
-        NUMBER_6 = 6,
+        GosUslugi = 6,
 
         /// <summary>
-        /// Enum NUMBER_7 for value: 7
+        /// Enum LinkedIn for value: 7
         /// </summary>
-        NUMBER_7 = 7,
+        LinkedIn = 7,
 
         /// <summary>
-        /// Enum NUMBER_8 for value: 8
+        /// Enum MailRu for value: 8
         /// </summary>
-        NUMBER_8 = 8,
+        MailRu = 8,
 
         /// <summary>
-        /// Enum NUMBER_9 for value: 9
+        /// Enum VK for value: 9
         /// </summary>
-        NUMBER_9 = 9,
+        VK = 9,
 
         /// <summary>
-        /// Enum NUMBER_10 for value: 10
+        /// Enum Wordpress for value: 10
         /// </summary>
-        NUMBER_10 = 10,
+        Wordpress = 10,
 
         /// <summary>
-        /// Enum NUMBER_11 for value: 11
+        /// Enum Yahoo for value: 11
         /// </summary>
-        NUMBER_11 = 11,
+        Yahoo = 11,
 
         /// <summary>
-        /// Enum NUMBER_12 for value: 12
+        /// Enum Yandex for value: 12
         /// </summary>
-        NUMBER_12 = 12
+        Yandex = 12
     }
 
 }
