@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantUserInvitationSettingsWrapper
+# DocSpace.API.SDK.Model.TenantUserInvitationSettingsWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UserInfo
+# DocSpace.API.SDK.Model.UserInfo
 The user information.
 
 ## Properties

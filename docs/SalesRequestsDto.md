@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SalesRequestsDto
+# DocSpace.API.SDK.Model.SalesRequestsDto
 The request parameters for handling sales and payment inquiries in the portal.
 
 ## Properties

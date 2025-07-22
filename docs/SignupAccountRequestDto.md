@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SignupAccountRequestDto
+# DocSpace.API.SDK.Model.SignupAccountRequestDto
 The request parameters for creating a third-party account.
 
 ## Properties

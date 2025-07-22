@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BaseBatchRequestDtoFolderIdsInner
+# DocSpace.API.SDK.Model.BaseBatchRequestDtoFolderIdsInner
 
 ## Properties
 

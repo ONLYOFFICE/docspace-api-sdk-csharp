@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FolderIntegerWrapper
+# DocSpace.API.SDK.Model.FolderIntegerWrapper
 
 ## Properties
 

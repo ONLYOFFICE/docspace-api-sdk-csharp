@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Paragraph
+# DocSpace.API.SDK.Model.Paragraph
 The paragraph parameters.
 
 ## Properties

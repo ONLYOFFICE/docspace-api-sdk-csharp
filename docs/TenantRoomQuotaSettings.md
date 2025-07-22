@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantRoomQuotaSettings
+# DocSpace.API.SDK.Model.TenantRoomQuotaSettings
 The room quota settings.
 
 ## Properties

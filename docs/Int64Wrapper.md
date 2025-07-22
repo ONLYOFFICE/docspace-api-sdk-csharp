@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Int64Wrapper
+# DocSpace.API.SDK.Model.Int64Wrapper
 
 ## Properties
 

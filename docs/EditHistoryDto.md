@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EditHistoryDto
+# DocSpace.API.SDK.Model.EditHistoryDto
 The file editing history parameters.
 
 ## Properties

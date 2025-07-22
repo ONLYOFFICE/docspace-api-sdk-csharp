@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CoverRequestDto
+# DocSpace.API.SDK.Model.CoverRequestDto
 The request parameters to change the room cover.
 
 ## Properties

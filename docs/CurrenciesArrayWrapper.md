@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CurrenciesArrayWrapper
+# DocSpace.API.SDK.Model.CurrenciesArrayWrapper
 
 ## Properties
 

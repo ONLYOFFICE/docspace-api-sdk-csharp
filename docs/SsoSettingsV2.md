@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SsoSettingsV2
+# DocSpace.API.SDK.Model.SsoSettingsV2
 The SSO portal settings.
 
 ## Properties

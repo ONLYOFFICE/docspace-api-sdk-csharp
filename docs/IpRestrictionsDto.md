@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.IpRestrictionsDto
+# DocSpace.API.SDK.Model.IpRestrictionsDto
 The parameters for configuring new IP restriction settings.
 
 ## Properties

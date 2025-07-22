@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WebhooksConfigWithStatusArrayWrapper
+# DocSpace.API.SDK.Model.WebhooksConfigWithStatusArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MigratingApiUser
+# DocSpace.API.SDK.Model.MigratingApiUser
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SetPublicDto
+# DocSpace.API.SDK.Model.SetPublicDto
 The public settings of the room template to set.
 
 ## Properties

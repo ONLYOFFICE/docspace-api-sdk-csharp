@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ScheduleWrapper
+# DocSpace.API.SDK.Model.ScheduleWrapper
 
 ## Properties
 

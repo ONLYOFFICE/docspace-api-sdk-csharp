@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DownloadRequestDto
+# DocSpace.API.SDK.Model.DownloadRequestDto
 The request parameters for downloading files.
 
 ## Properties

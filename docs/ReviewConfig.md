@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ReviewConfig
+# DocSpace.API.SDK.Model.ReviewConfig
 
 ## Properties
 

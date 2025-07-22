@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MigrationStatusWrapper
+# DocSpace.API.SDK.Model.MigrationStatusWrapper
 
 ## Properties
 

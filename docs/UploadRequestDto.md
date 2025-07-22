@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UploadRequestDto
+# DocSpace.API.SDK.Model.UploadRequestDto
 The request parameters for uploading a file.
 
 ## Properties

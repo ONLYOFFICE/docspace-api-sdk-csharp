@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.QuotaArrayWrapper
+# DocSpace.API.SDK.Model.QuotaArrayWrapper
 
 ## Properties
 

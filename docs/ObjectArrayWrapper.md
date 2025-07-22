@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ObjectArrayWrapper
+# DocSpace.API.SDK.Model.ObjectArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.HistoryDto
+# DocSpace.API.SDK.Model.HistoryDto
 The file history information.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MentionWrapperArrayWrapper
+# DocSpace.API.SDK.Model.MentionWrapperArrayWrapper
 
 ## Properties
 

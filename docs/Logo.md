@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Logo
+# DocSpace.API.SDK.Model.Logo
 The room logo information.
 
 ## Properties

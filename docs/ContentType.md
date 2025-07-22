@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ContentType
+# DocSpace.API.SDK.Model.ContentType
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomTemplateStatusWrapper
+# DocSpace.API.SDK.Model.RoomTemplateStatusWrapper
 
 ## Properties
 

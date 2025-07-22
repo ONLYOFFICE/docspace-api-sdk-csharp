@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DocServiceUrlDto
+# DocSpace.API.SDK.Model.DocServiceUrlDto
 The document service URL parameters.
 
 ## Properties

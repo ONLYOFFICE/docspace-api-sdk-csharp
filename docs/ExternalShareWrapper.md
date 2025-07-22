@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ExternalShareWrapper
+# DocSpace.API.SDK.Model.ExternalShareWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AutoCleanupRequestDto
+# DocSpace.API.SDK.Model.AutoCleanupRequestDto
 The auto-clearing request parameters.
 
 ## Properties

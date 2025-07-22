@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileLink
+# DocSpace.API.SDK.Model.FileLink
 The file link properties.
 
 ## Properties

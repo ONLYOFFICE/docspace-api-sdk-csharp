@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DocumentBuilderTaskDto
+# DocSpace.API.SDK.Model.DocumentBuilderTaskDto
 The document builder task parameters.
 
 ## Properties

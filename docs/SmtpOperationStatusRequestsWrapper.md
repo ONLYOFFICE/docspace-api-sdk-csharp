@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SmtpOperationStatusRequestsWrapper
+# DocSpace.API.SDK.Model.SmtpOperationStatusRequestsWrapper
 
 ## Properties
 

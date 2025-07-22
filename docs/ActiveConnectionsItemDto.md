@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ActiveConnectionsItemDto
+# DocSpace.API.SDK.Model.ActiveConnectionsItemDto
 The active connection item parameters.
 
 ## Properties

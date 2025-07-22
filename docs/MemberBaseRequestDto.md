@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MemberBaseRequestDto
+# DocSpace.API.SDK.Model.MemberBaseRequestDto
 The request parameters for the user generic information.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BackupHistoryRecord
+# DocSpace.API.SDK.Model.BackupHistoryRecord
 
 ## Properties
 

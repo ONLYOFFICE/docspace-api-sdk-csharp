@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.LoginEventArrayWrapper
+# DocSpace.API.SDK.Model.LoginEventArrayWrapper
 
 ## Properties
 

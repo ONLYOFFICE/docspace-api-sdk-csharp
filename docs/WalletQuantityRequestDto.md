@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WalletQuantityRequestDto
+# DocSpace.API.SDK.Model.WalletQuantityRequestDto
 The request parameters for the wallet payment quantity specifications.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PaymentSettingsWrapper
+# DocSpace.API.SDK.Model.PaymentSettingsWrapper
 
 ## Properties
 

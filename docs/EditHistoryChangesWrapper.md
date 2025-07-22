@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EditHistoryChangesWrapper
+# DocSpace.API.SDK.Model.EditHistoryChangesWrapper
 The parameters of the file editing history.
 
 ## Properties

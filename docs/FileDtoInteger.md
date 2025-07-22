@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileDtoInteger
+# DocSpace.API.SDK.Model.FileDtoInteger
 The file parameters.
 
 ## Properties

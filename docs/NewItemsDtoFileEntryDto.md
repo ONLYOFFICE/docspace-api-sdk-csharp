@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.NewItemsDtoFileEntryDto
+# DocSpace.API.SDK.Model.NewItemsDtoFileEntryDto
 The new item parameters.
 
 ## Properties

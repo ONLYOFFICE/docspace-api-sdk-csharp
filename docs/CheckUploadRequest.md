@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CheckUploadRequest
+# DocSpace.API.SDK.Model.CheckUploadRequest
 The request parameters for checking file uploads.
 
 ## Properties

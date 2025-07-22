@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WhiteLabelItemDto
+# DocSpace.API.SDK.Model.WhiteLabelItemDto
 The white label item parameters.
 
 ## Properties

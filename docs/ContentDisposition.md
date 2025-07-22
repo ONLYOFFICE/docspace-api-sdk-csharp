@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ContentDisposition
+# DocSpace.API.SDK.Model.ContentDisposition
 
 ## Properties
 

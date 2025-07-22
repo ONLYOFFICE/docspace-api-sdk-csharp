@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TopUpDepositRequestDto
+# DocSpace.API.SDK.Model.TopUpDepositRequestDto
 Put money on deposit request parameters
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AuthServiceRequestsDto
+# DocSpace.API.SDK.Model.AuthServiceRequestsDto
 The request parameters for handling the authorization service.
 
 ## Properties

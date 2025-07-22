@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CreateRoomFromTemplateDto
+# DocSpace.API.SDK.Model.CreateRoomFromTemplateDto
 The parameters for creating a room from a template.
 
 ## Properties

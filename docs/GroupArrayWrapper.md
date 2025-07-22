@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.GroupArrayWrapper
+# DocSpace.API.SDK.Model.GroupArrayWrapper
 
 ## Properties
 

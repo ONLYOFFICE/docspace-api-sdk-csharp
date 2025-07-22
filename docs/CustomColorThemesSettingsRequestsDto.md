@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomColorThemesSettingsRequestsDto
+# DocSpace.API.SDK.Model.CustomColorThemesSettingsRequestsDto
 The request parameters for managing the portal theme settings.
 
 ## Properties

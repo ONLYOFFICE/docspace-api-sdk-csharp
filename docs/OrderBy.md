@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.OrderBy
+# DocSpace.API.SDK.Model.OrderBy
 The sorting parameters.
 
 ## Properties

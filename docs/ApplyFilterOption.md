@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ApplyFilterOption
+# DocSpace.API.SDK.Model.ApplyFilterOption
 [0 - All, 1 - Files, 2 - Folders]
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.StartReassignRequestDto
+# DocSpace.API.SDK.Model.StartReassignRequestDto
 The request parameters for starting the reassignment process.
 
 ## Properties

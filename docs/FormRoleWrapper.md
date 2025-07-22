@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FormRoleWrapper
+# DocSpace.API.SDK.Model.FormRoleWrapper
 
 ## Properties
 

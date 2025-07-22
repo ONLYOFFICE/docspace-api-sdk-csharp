@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UpdateMembersQuotaRequestDtoQuota
+# DocSpace.API.SDK.Model.UpdateMembersQuotaRequestDtoQuota
 The quota in JSON format.
 
 ## Properties

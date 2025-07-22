@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.NewItemsDtoRoomNewItemsDto
+# DocSpace.API.SDK.Model.NewItemsDtoRoomNewItemsDto
 The new item parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CurrenciesDto
+# DocSpace.API.SDK.Model.CurrenciesDto
 The currencies parameters.
 
 ## Properties

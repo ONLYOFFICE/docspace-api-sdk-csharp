@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomNewItemsDto
+# DocSpace.API.SDK.Model.RoomNewItemsDto
 The room new items information.
 
 ## Properties

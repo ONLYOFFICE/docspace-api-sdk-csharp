@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CreateFolder
+# DocSpace.API.SDK.Model.CreateFolder
 The parameters for creating a folder.
 
 ## Properties

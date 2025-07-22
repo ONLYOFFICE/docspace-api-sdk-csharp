@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CreateWebhooksConfigRequestsDto
+# DocSpace.API.SDK.Model.CreateWebhooksConfigRequestsDto
 The request parameters for creating the webhook configuration.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.IsDefaultWhiteLabelLogosWrapper
+# DocSpace.API.SDK.Model.IsDefaultWhiteLabelLogosWrapper
 
 ## Properties
 

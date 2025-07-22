@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TfaRequestsDtoType
+# DocSpace.API.SDK.Model.TfaRequestsDtoType
 [0 - None, 1 - Sms, 2 - App]
 
 ## Properties

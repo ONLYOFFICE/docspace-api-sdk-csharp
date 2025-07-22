@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CreateThirdPartyRoom
+# DocSpace.API.SDK.Model.CreateThirdPartyRoom
 The parameters for creating a third-party room.
 
 ## Properties

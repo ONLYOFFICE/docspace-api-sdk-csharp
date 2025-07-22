@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ChangeOwnerRequestDto
+# DocSpace.API.SDK.Model.ChangeOwnerRequestDto
 The request parameters for changing the file owner.
 
 ## Properties

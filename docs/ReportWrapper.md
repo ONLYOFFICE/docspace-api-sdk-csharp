@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ReportWrapper
+# DocSpace.API.SDK.Model.ReportWrapper
 
 ## Properties
 

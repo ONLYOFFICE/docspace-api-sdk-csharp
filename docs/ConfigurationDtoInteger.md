@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ConfigurationDtoInteger
+# DocSpace.API.SDK.Model.ConfigurationDtoInteger
 The configuration parameters.
 
 ## Properties

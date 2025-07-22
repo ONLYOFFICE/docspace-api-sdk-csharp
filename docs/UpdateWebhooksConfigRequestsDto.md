@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UpdateWebhooksConfigRequestsDto
+# DocSpace.API.SDK.Model.UpdateWebhooksConfigRequestsDto
 The request parameters for updating the webhook configuration.
 
 ## Properties

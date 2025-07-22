@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UpdateMembersRequestDto
+# DocSpace.API.SDK.Model.UpdateMembersRequestDto
 The request parameters for updating the user information.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CompanyWhiteLabelSettingsDto
+# DocSpace.API.SDK.Model.CompanyWhiteLabelSettingsDto
 The company white label settings.
 
 ## Properties

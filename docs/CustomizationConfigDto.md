@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomizationConfigDto
+# DocSpace.API.SDK.Model.CustomizationConfigDto
 The customization config parameters.
 
 ## Properties

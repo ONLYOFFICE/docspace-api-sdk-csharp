@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.OrdersRequestDtoInteger
+# DocSpace.API.SDK.Model.OrdersRequestDtoInteger
 The collection of items to be ordered.
 
 ## Properties

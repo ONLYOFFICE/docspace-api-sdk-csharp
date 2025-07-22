@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomNavigationItem
+# DocSpace.API.SDK.Model.CustomNavigationItem
 The custom navigation item parameters.
 
 ## Properties

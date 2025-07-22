@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SettingsDto
+# DocSpace.API.SDK.Model.SettingsDto
 The settings information.
 
 ## Properties

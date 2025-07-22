@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PaymentSettingsDto
+# DocSpace.API.SDK.Model.PaymentSettingsDto
 The payment settings parameters.
 
 ## Properties

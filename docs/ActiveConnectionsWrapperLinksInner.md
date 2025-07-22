@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ActiveConnectionsWrapperLinksInner
+# DocSpace.API.SDK.Model.ActiveConnectionsWrapperLinksInner
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FillingFormResultDtoInteger
+# DocSpace.API.SDK.Model.FillingFormResultDtoInteger
 The parameters of the form filling result.
 
 ## Properties

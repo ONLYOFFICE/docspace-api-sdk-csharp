@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DownloadRequestItemDtoKey
+# DocSpace.API.SDK.Model.DownloadRequestItemDtoKey
 The unique identifier or reference key for the file to be downloaded.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BackupProgress
+# DocSpace.API.SDK.Model.BackupProgress
 
 ## Properties
 

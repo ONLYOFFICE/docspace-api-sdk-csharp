@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.LogoRequestsDto
+# DocSpace.API.SDK.Model.LogoRequestsDto
 The request parameters for the theme-specific logo configurations.
 
 ## Properties

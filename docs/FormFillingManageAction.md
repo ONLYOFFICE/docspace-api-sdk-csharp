@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FormFillingManageAction
+# DocSpace.API.SDK.Model.FormFillingManageAction
 [0 - Stop, 1 - Resume]
 
 ## Properties

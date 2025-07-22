@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantBannerSettingsWrapper
+# DocSpace.API.SDK.Model.TenantBannerSettingsWrapper
 
 ## Properties
 

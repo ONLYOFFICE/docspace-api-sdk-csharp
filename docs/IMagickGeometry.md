@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.IMagickGeometry
+# DocSpace.API.SDK.Model.IMagickGeometry
 
 ## Properties
 

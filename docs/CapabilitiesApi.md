@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Api.CapabilitiesApi
+# DocSpace.API.SDK.Api.CapabilitiesApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -29,9 +29,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {

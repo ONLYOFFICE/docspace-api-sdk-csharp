@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FolderDtoString
+# DocSpace.API.SDK.Model.FolderDtoString
 The folder parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ChangeClientActivationRequest
+# DocSpace.API.SDK.Model.ChangeClientActivationRequest
 The request parameters for changing the client activation status.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.QuotaState
+# DocSpace.API.SDK.Model.QuotaState
 [0 - Active, 1 - Overdue]
 
 ## Properties

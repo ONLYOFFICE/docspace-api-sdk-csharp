@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FireBaseUserWrapper
+# DocSpace.API.SDK.Model.FireBaseUserWrapper
 
 ## Properties
 

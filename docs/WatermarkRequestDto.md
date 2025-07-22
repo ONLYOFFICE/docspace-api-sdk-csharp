@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WatermarkRequestDto
+# DocSpace.API.SDK.Model.WatermarkRequestDto
 The request parameters for adding watermarks.
 
 ## Properties

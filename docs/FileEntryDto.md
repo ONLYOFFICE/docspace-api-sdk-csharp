@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileEntryDto
+# DocSpace.API.SDK.Model.FileEntryDto
 The file entry information.
 
 ## Properties

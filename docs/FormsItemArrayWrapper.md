@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FormsItemArrayWrapper
+# DocSpace.API.SDK.Model.FormsItemArrayWrapper
 
 ## Properties
 

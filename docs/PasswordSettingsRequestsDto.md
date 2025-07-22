@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PasswordSettingsRequestsDto
+# DocSpace.API.SDK.Model.PasswordSettingsRequestsDto
 The request parameters for configuring the password complexity requirements.
 
 ## Properties

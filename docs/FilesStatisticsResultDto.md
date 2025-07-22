@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FilesStatisticsResultDto
+# DocSpace.API.SDK.Model.FilesStatisticsResultDto
 The file statistics result parameters.
 
 ## Properties

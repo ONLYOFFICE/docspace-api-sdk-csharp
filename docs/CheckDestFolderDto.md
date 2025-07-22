@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CheckDestFolderDto
+# DocSpace.API.SDK.Model.CheckDestFolderDto
 The destination folder checking information.
 
 ## Properties

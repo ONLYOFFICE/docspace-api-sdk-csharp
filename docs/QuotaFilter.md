@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.QuotaFilter
+# DocSpace.API.SDK.Model.QuotaFilter
 [0 - All, 1 - Default, 2 - Custom]
 
 ## Properties

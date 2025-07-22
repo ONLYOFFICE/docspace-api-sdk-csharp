@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DarkThemeSettingsType
+# DocSpace.API.SDK.Model.DarkThemeSettingsType
 [0 - Base, 1 - Dark, 2 - System]
 
 ## Properties

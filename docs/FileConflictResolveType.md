@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileConflictResolveType
+# DocSpace.API.SDK.Model.FileConflictResolveType
 [0 - Skip, 1 - Overwrite, 2 - Duplicate]
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AdditionalWhiteLabelSettingsWrapper
+# DocSpace.API.SDK.Model.AdditionalWhiteLabelSettingsWrapper
 The additional white label settings wrapper.
 
 ## Properties

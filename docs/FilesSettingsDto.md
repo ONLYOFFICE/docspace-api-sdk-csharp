@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FilesSettingsDto
+# DocSpace.API.SDK.Model.FilesSettingsDto
 The file settings parameters.
 
 ## Properties

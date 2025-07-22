@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ItemKeyValuePairObjectObject
+# DocSpace.API.SDK.Model.ItemKeyValuePairObjectObject
 
 ## Properties
 

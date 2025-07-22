@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WebhookRetryRequestsDto
+# DocSpace.API.SDK.Model.WebhookRetryRequestsDto
 The request parameters for requesting the webhook delivery retries.
 
 ## Properties

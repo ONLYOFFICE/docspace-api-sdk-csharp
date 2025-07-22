@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomsNotificationSettingsWrapper
+# DocSpace.API.SDK.Model.RoomsNotificationSettingsWrapper
 
 ## Properties
 

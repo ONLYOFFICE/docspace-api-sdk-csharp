@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WhiteLabelRequestsDto
+# DocSpace.API.SDK.Model.WhiteLabelRequestsDto
 The request parameters for configuring the white label branding settings.
 
 ## Properties

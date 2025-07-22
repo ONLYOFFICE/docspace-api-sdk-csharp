@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SaveFormRoleMappingDtoInteger
+# DocSpace.API.SDK.Model.SaveFormRoleMappingDtoInteger
 The parameters for saving form role mapping.
 
 ## Properties

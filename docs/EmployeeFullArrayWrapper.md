@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EmployeeFullArrayWrapper
+# DocSpace.API.SDK.Model.EmployeeFullArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AuthRequestsDto
+# DocSpace.API.SDK.Model.AuthRequestsDto
 The parameters required for the user authentication requests.
 
 ## Properties

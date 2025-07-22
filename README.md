@@ -1,4 +1,4 @@
-# DocSpace.Sdk
+# DocSpace.API.SDK
 
 The ONLYOFFICE DocSpace SDK for C# is a library that provides tools for integrating and managing DocSpace features within your applications. It simplifies interaction with the DocSpace API by offering ready-to-use methods and models.
 
@@ -26,9 +26,9 @@ Run the following command to generate the DLL:
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 ```
 <a id="packaging"></a>
 ## Packaging
@@ -38,7 +38,7 @@ A `.nuspec` is included with the project. You can follow the NuGet quickstart to
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```powershell
-nuget pack -Build -OutputDirectory out DocSpace.Sdk.csproj
+nuget pack -Build -OutputDirectory out DocSpace.API.SDK.csproj
 ```
 
 <a id="usage"></a>
@@ -140,9 +140,9 @@ Authentication schemes defined for the API:
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {

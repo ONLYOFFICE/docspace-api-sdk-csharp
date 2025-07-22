@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PaymentUrlRequestsDto
+# DocSpace.API.SDK.Model.PaymentUrlRequestsDto
 The request parameters for the payment URL configuration with quantity information.
 
 ## Properties

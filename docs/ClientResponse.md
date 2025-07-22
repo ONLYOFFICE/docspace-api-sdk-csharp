@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ClientResponse
+# DocSpace.API.SDK.Model.ClientResponse
 
 ## Properties
 

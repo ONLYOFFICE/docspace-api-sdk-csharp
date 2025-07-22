@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomerInfoDto
+# DocSpace.API.SDK.Model.CustomerInfoDto
 The customer information.
 
 ## Properties

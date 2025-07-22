@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FolderContentDtoInteger
+# DocSpace.API.SDK.Model.FolderContentDtoInteger
 The folder content information.
 
 ## Properties

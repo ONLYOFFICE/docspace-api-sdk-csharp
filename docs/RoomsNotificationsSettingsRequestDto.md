@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomsNotificationsSettingsRequestDto
+# DocSpace.API.SDK.Model.RoomsNotificationsSettingsRequestDto
 The request parameters for configuring notification settings for the chat or collaboration rooms.
 
 ## Properties

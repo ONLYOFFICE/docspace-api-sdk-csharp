@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EmbeddedConfig
+# DocSpace.API.SDK.Model.EmbeddedConfig
 The configuration parameters for the embedded document type.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FeedbackConfig
+# DocSpace.API.SDK.Model.FeedbackConfig
 The settings for the \"Feedback & Support\" menu button.
 
 ## Properties

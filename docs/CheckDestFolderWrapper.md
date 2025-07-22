@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CheckDestFolderWrapper
+# DocSpace.API.SDK.Model.CheckDestFolderWrapper
 
 ## Properties
 

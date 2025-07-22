@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomLinkRequest
+# DocSpace.API.SDK.Model.RoomLinkRequest
 The room link parameters.
 
 ## Properties

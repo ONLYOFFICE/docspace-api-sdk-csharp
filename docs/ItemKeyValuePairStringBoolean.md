@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ItemKeyValuePairStringBoolean
+# DocSpace.API.SDK.Model.ItemKeyValuePairStringBoolean
 
 ## Properties
 

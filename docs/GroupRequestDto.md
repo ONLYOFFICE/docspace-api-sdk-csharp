@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.GroupRequestDto
+# DocSpace.API.SDK.Model.GroupRequestDto
 The group request parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FilesSettingsWrapper
+# DocSpace.API.SDK.Model.FilesSettingsWrapper
 
 ## Properties
 

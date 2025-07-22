@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AccountInfoArrayWrapper
+# DocSpace.API.SDK.Model.AccountInfoArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ConfigurationIntegerWrapper
+# DocSpace.API.SDK.Model.ConfigurationIntegerWrapper
 
 ## Properties
 

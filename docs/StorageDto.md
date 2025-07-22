@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.StorageDto
+# DocSpace.API.SDK.Model.StorageDto
 The storage information.
 
 ## Properties

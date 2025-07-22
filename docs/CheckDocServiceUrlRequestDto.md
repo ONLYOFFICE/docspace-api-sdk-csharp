@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CheckDocServiceUrlRequestDto
+# DocSpace.API.SDK.Model.CheckDocServiceUrlRequestDto
 The request parameters for checking the document service location.
 
 ## Properties

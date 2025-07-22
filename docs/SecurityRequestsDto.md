@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SecurityRequestsDto
+# DocSpace.API.SDK.Model.SecurityRequestsDto
 The request parameters for managing user security and access permissions.
 
 ## Properties

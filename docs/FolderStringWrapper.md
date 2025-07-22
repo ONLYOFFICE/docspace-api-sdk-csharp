@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FolderStringWrapper
+# DocSpace.API.SDK.Model.FolderStringWrapper
 
 ## Properties
 

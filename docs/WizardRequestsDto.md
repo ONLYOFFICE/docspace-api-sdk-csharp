@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WizardRequestsDto
+# DocSpace.API.SDK.Model.WizardRequestsDto
 The request parameters for initial configuration of the setup wizard.
 
 ## Properties

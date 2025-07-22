@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EncryprtionStatus
+# DocSpace.API.SDK.Model.EncryprtionStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MentionWrapper
+# DocSpace.API.SDK.Model.MentionWrapper
 The mention message parameters.
 
 ## Properties

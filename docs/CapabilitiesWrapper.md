@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CapabilitiesWrapper
+# DocSpace.API.SDK.Model.CapabilitiesWrapper
 
 ## Properties
 

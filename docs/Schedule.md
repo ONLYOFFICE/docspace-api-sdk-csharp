@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Schedule
+# DocSpace.API.SDK.Model.Schedule
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EmployeeFullWrapper
+# DocSpace.API.SDK.Model.EmployeeFullWrapper
 
 ## Properties
 

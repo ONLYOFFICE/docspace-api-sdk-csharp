@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileLinkRequest
+# DocSpace.API.SDK.Model.FileLinkRequest
 The external link request parameters.
 
 ## Properties

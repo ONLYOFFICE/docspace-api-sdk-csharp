@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SecurityArrayWrapper
+# DocSpace.API.SDK.Model.SecurityArrayWrapper
 
 ## Properties
 

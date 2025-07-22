@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AuditEventDto
+# DocSpace.API.SDK.Model.AuditEventDto
 The audit event parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.IpRestrictionsWrapper
+# DocSpace.API.SDK.Model.IpRestrictionsWrapper
 
 ## Properties
 

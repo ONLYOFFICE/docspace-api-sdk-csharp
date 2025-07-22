@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Delete
+# DocSpace.API.SDK.Model.Delete
 The parameters for deleting a file.
 
 ## Properties

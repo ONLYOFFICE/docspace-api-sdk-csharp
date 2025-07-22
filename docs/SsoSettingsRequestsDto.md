@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SsoSettingsRequestsDto
+# DocSpace.API.SDK.Model.SsoSettingsRequestsDto
 The request parameters for the Single Sign-On (SSO) configuration settings.
 
 ## Properties

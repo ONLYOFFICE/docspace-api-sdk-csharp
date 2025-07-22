@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CookieSettingsRequestsDto
+# DocSpace.API.SDK.Model.CookieSettingsRequestsDto
 The request parameters for managing cookie settings.
 
 ## Properties

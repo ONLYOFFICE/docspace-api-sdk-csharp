@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.StorageArrayWrapper
+# DocSpace.API.SDK.Model.StorageArrayWrapper
 
 ## Properties
 

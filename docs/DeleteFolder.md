@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DeleteFolder
+# DocSpace.API.SDK.Model.DeleteFolder
 The parameters for deleting a folder.
 
 ## Properties

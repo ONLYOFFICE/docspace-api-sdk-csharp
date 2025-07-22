@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MigrationStatusDto
+# DocSpace.API.SDK.Model.MigrationStatusDto
 The migration status parameters.
 
 ## Properties

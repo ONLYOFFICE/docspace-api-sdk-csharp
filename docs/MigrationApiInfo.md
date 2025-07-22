@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.MigrationApiInfo
+# DocSpace.API.SDK.Model.MigrationApiInfo
 
 ## Properties
 

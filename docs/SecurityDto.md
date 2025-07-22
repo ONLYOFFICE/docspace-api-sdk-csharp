@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SecurityDto
+# DocSpace.API.SDK.Model.SecurityDto
 The security information.
 
 ## Properties

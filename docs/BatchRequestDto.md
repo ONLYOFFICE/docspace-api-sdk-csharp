@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BatchRequestDto
+# DocSpace.API.SDK.Model.BatchRequestDto
 The request parameters for copying/moving files.
 
 ## Properties

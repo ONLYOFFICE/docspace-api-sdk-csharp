@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SessionRequest
+# DocSpace.API.SDK.Model.SessionRequest
 The session request parameters.
 
 ## Properties

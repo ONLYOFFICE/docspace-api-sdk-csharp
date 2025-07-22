@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.GobackConfig
+# DocSpace.API.SDK.Model.GobackConfig
 The settings for the \"Open file location\" menu button and upper right corner button.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AdminMessageSettingsRequestsDto
+# DocSpace.API.SDK.Model.AdminMessageSettingsRequestsDto
 The request parameters for configuring the administrator message content.
 
 ## Properties

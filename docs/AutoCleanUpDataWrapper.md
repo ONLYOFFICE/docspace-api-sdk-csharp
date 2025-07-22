@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AutoCleanUpDataWrapper
+# DocSpace.API.SDK.Model.AutoCleanUpDataWrapper
 
 ## Properties
 

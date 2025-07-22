@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UnknownWrapper
+# DocSpace.API.SDK.Model.UnknownWrapper
 
 ## Properties
 

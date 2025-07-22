@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ConversationResultArrayWrapper
+# DocSpace.API.SDK.Model.ConversationResultArrayWrapper
 
 ## Properties
 

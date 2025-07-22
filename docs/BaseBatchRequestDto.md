@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BaseBatchRequestDto
+# DocSpace.API.SDK.Model.BaseBatchRequestDto
 The base batch request parameters.
 
 ## Properties

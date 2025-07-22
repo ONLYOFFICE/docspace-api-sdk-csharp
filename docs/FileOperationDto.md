@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileOperationDto
+# DocSpace.API.SDK.Model.FileOperationDto
 The file operation information.
 
 ## Properties

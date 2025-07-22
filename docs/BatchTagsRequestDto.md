@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BatchTagsRequestDto
+# DocSpace.API.SDK.Model.BatchTagsRequestDto
 The parameters for adding tags.
 
 ## Properties

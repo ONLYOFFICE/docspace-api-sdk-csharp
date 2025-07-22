@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EncryptionSettingsWrapper
+# DocSpace.API.SDK.Model.EncryptionSettingsWrapper
 
 ## Properties
 

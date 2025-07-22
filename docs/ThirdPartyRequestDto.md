@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ThirdPartyRequestDto
+# DocSpace.API.SDK.Model.ThirdPartyRequestDto
 The third-party request parameters.
 
 ## Properties

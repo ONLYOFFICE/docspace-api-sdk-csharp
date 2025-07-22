@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FireBaseUser
+# DocSpace.API.SDK.Model.FireBaseUser
 The Firebase user parameters.
 
 ## Properties

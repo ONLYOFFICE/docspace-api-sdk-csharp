@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BalanceWrapper
+# DocSpace.API.SDK.Model.BalanceWrapper
 
 ## Properties
 

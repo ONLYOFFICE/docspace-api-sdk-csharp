@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ProductAdministratorWrapper
+# DocSpace.API.SDK.Model.ProductAdministratorWrapper
 
 ## Properties
 

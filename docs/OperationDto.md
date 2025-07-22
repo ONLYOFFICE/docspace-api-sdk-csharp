@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.OperationDto
+# DocSpace.API.SDK.Model.OperationDto
 Represents an operation.
 
 ## Properties

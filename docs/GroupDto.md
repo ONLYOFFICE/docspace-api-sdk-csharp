@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.GroupDto
+# DocSpace.API.SDK.Model.GroupDto
 The group parameters.
 
 ## Properties

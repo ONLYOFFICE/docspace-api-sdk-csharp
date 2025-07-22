@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SubjectFilter
+# DocSpace.API.SDK.Model.SubjectFilter
 [0 - Owner, 1 - Member]
 
 ## Properties

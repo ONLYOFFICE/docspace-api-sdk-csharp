@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AceShortWrapperArrayWrapper
+# DocSpace.API.SDK.Model.AceShortWrapperArrayWrapper
 
 ## Properties
 

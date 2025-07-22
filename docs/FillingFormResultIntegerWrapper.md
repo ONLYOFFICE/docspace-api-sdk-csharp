@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FillingFormResultIntegerWrapper
+# DocSpace.API.SDK.Model.FillingFormResultIntegerWrapper
 
 ## Properties
 

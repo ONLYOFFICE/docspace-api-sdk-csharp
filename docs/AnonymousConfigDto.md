@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AnonymousConfigDto
+# DocSpace.API.SDK.Model.AnonymousConfigDto
 The anonymous config parameters.
 
 ## Properties

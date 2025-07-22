@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.NewItemsRoomNewItemsArrayWrapper
+# DocSpace.API.SDK.Model.NewItemsRoomNewItemsArrayWrapper
 
 ## Properties
 

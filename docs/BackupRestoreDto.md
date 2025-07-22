@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.BackupRestoreDto
+# DocSpace.API.SDK.Model.BackupRestoreDto
 The backup restoring parameters.
 
 ## Properties

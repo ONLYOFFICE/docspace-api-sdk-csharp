@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.GroupSummaryArrayWrapper
+# DocSpace.API.SDK.Model.GroupSummaryArrayWrapper
 
 ## Properties
 

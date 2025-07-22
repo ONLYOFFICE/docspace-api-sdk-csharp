@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Api.SecurityActiveConnectionsApi
+# DocSpace.API.SDK.Api.SecurityActiveConnectionsApi
 
 All URIs are relative to *http://localhost:8092*
 
@@ -33,9 +33,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -144,9 +144,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -253,9 +253,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -364,9 +364,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -469,9 +469,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using DocSpace.Sdk.Api;
-using DocSpace.Sdk.Client;
-using DocSpace.Sdk.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileDtoIntegerSecurity
+# DocSpace.API.SDK.Model.FileDtoIntegerSecurity
 The actions that can be perforrmed with the file entry.
 
 ## Properties

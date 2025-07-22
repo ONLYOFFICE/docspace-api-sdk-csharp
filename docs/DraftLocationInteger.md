@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DraftLocationInteger
+# DocSpace.API.SDK.Model.DraftLocationInteger
 The file draft parameters.
 
 ## Properties

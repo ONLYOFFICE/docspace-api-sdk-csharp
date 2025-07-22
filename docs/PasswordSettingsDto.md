@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PasswordSettingsDto
+# DocSpace.API.SDK.Model.PasswordSettingsDto
 The password settings parameters.
 
 ## Properties

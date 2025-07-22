@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.StorageFilter
+# DocSpace.API.SDK.Model.StorageFilter
 [0 - None, 1 - Internal, 2 - ThirdParty]
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.OwnerChangeInstructionsWrapper
+# DocSpace.API.SDK.Model.OwnerChangeInstructionsWrapper
 
 ## Properties
 

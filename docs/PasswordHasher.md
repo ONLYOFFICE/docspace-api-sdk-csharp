@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PasswordHasher
+# DocSpace.API.SDK.Model.PasswordHasher
 
 ## Properties
 

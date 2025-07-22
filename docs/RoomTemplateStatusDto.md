@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomTemplateStatusDto
+# DocSpace.API.SDK.Model.RoomTemplateStatusDto
 The room template status.
 
 ## Properties

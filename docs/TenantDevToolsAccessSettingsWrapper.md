@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantDevToolsAccessSettingsWrapper
+# DocSpace.API.SDK.Model.TenantDevToolsAccessSettingsWrapper
 
 ## Properties
 

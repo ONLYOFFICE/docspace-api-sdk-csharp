@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.AuthKey
+# DocSpace.API.SDK.Model.AuthKey
 The authentication key parameters.
 
 ## Properties

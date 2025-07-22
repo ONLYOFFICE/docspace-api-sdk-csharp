@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.LoginSettingsWrapper
+# DocSpace.API.SDK.Model.LoginSettingsWrapper
 
 ## Properties
 

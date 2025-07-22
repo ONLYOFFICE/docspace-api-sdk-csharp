@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EmailMemberRequestDto
+# DocSpace.API.SDK.Model.EmailMemberRequestDto
 The request parameters for the user email.
 
 ## Properties

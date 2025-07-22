@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Tariff
+# DocSpace.API.SDK.Model.Tariff
 The tariff parameters.
 
 ## Properties

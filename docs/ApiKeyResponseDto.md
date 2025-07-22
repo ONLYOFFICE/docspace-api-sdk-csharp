@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ApiKeyResponseDto
+# DocSpace.API.SDK.Model.ApiKeyResponseDto
 The response data for the API key operations.
 
 ## Properties

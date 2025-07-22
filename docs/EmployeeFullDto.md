@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EmployeeFullDto
+# DocSpace.API.SDK.Model.EmployeeFullDto
 The full list of user parameters.
 
 ## Properties

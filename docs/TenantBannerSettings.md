@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantBannerSettings
+# DocSpace.API.SDK.Model.TenantBannerSettings
 The promotional banners visibility settings.
 
 ## Properties

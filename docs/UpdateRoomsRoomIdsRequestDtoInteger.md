@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UpdateRoomsRoomIdsRequestDtoInteger
+# DocSpace.API.SDK.Model.UpdateRoomsRoomIdsRequestDtoInteger
 The request parameters for updating the room.
 
 ## Properties

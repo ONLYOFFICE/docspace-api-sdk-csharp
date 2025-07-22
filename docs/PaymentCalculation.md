@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PaymentCalculation
+# DocSpace.API.SDK.Model.PaymentCalculation
 The payment calculation.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomFromTemplateStatusDto
+# DocSpace.API.SDK.Model.RoomFromTemplateStatusDto
 The progress parameters of creating a room from the template.
 
 ## Properties

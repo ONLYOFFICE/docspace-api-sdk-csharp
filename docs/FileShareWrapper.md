@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileShareWrapper
+# DocSpace.API.SDK.Model.FileShareWrapper
 
 ## Properties
 

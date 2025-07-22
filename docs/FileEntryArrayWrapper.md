@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileEntryArrayWrapper
+# DocSpace.API.SDK.Model.FileEntryArrayWrapper
 
 ## Properties
 

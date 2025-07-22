@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantAuditSettingsWrapper
+# DocSpace.API.SDK.Model.TenantAuditSettingsWrapper
 The tenant audit settings wrapper.
 
 ## Properties

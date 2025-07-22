@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantQuotaFeatureDto
+# DocSpace.API.SDK.Model.TenantQuotaFeatureDto
 The tenant quota feature parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.SmtpSettingsWrapper
+# DocSpace.API.SDK.Model.SmtpSettingsWrapper
 
 ## Properties
 

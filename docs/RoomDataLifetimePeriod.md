@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomDataLifetimePeriod
+# DocSpace.API.SDK.Model.RoomDataLifetimePeriod
 [0 - Day, 1 - Month, 2 - Year]
 
 ## Properties

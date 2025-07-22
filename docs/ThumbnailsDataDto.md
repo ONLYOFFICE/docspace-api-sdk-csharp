@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ThumbnailsDataDto
+# DocSpace.API.SDK.Model.ThumbnailsDataDto
 The thumbnails data parameters.
 
 ## Properties

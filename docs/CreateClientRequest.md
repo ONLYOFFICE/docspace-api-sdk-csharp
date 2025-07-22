@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CreateClientRequest
+# DocSpace.API.SDK.Model.CreateClientRequest
 The request parameters for creating a client.
 
 ## Properties

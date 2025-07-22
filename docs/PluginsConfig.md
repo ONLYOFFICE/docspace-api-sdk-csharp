@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PluginsConfig
+# DocSpace.API.SDK.Model.PluginsConfig
 The configuration settings to connect the special add-ons.
 
 ## Properties

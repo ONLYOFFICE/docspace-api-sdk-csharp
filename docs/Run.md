@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Run
+# DocSpace.API.SDK.Model.Run
 The text run parameters.
 
 ## Properties

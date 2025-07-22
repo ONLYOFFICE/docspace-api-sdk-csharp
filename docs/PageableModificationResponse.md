@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.PageableModificationResponse
+# DocSpace.API.SDK.Model.PageableModificationResponse
 The response containing paginated modification information.
 
 ## Properties

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.Quota
+# DocSpace.API.SDK.Model.Quota
 The quota parameters.
 
 ## Properties

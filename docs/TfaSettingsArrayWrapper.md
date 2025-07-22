@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TfaSettingsArrayWrapper
+# DocSpace.API.SDK.Model.TfaSettingsArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CookieSettingsDto
+# DocSpace.API.SDK.Model.CookieSettingsDto
 The cookie settings.
 
 ## Properties

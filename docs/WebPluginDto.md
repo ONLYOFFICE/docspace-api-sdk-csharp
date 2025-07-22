@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.WebPluginDto
+# DocSpace.API.SDK.Model.WebPluginDto
 The web plugin information.
 
 ## Properties

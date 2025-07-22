@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EditorConfigurationDto
+# DocSpace.API.SDK.Model.EditorConfigurationDto
 The editor configuration parameters.
 
 ## Properties

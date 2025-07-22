@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.RoomTemplateDto
+# DocSpace.API.SDK.Model.RoomTemplateDto
 The room template parameters.
 
 ## Properties

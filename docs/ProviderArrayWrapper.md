@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ProviderArrayWrapper
+# DocSpace.API.SDK.Model.ProviderArrayWrapper
 
 ## Properties
 

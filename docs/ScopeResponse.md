@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ScopeResponse
+# DocSpace.API.SDK.Model.ScopeResponse
 The response containing the scope information.
 
 ## Properties

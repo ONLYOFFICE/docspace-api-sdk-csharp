@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomNavigationItemWrapper
+# DocSpace.API.SDK.Model.CustomNavigationItemWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DeleteBatchRequestDto
+# DocSpace.API.SDK.Model.DeleteBatchRequestDto
 The request parameters for deleting files.
 
 ## Properties

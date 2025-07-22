@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.KeyValuePairStringStringValues
+# DocSpace.API.SDK.Model.KeyValuePairStringStringValues
 
 ## Properties
 

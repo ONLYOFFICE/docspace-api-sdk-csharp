@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantWalletSettingsWrapper
+# DocSpace.API.SDK.Model.TenantWalletSettingsWrapper
 Tenant wallet settings
 
 ## Properties

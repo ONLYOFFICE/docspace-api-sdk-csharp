@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ReportDto
+# DocSpace.API.SDK.Model.ReportDto
 Represents a report containing a collection of operations.
 
 ## Properties

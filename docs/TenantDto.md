@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.TenantDto
+# DocSpace.API.SDK.Model.TenantDto
 The tenant parameters.
 
 ## Properties

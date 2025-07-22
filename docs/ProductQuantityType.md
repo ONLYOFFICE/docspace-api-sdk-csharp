@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.ProductQuantityType
+# DocSpace.API.SDK.Model.ProductQuantityType
 The product quantity type.
 
 ## Properties

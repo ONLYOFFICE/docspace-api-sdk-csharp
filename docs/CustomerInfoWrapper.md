@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.CustomerInfoWrapper
+# DocSpace.API.SDK.Model.CustomerInfoWrapper
 
 ## Properties
 

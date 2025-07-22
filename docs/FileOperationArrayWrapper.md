@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.FileOperationArrayWrapper
+# DocSpace.API.SDK.Model.FileOperationArrayWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.UserInfoWrapper
+# DocSpace.API.SDK.Model.UserInfoWrapper
 
 ## Properties
 

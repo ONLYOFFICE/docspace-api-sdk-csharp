@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.LogoConfigDto
+# DocSpace.API.SDK.Model.LogoConfigDto
 The logo config parameters.
 
 ## Properties

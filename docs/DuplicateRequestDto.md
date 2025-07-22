@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.DuplicateRequestDto
+# DocSpace.API.SDK.Model.DuplicateRequestDto
 The duplicate request parameters.
 
 ## Properties

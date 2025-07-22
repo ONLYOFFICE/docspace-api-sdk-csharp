@@ -1,4 +1,4 @@
-# DocSpace.Sdk.Model.EditHistoryDataDto
+# DocSpace.API.SDK.Model.EditHistoryDataDto
 The file editing history data.
 
 ## Properties
