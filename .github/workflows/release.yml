@@ -24,10 +24,10 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build "./src/Docspace/" --configuration Release --no-restore
+        run: dotnet build "./src/DocSpace.API.SDK/" --configuration Release --no-restore
       
       - name: Pack NuGet package
-        run: dotnet pack "./src/Docspace/" --configuration Release --no-build --output ./nupkg
+        run: dotnet pack "./src/DocSpace.API.SDK/" --configuration Release --no-build --output ./nupkg
 
       - name: Generate Changelog
         run: |
